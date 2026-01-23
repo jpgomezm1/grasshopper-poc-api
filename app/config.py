@@ -1,7 +1,23 @@
 from pydantic_settings import BaseSettings
-from pydantic import field_validator
+from pydantic import computed_field
 from functools import lru_cache
 import os
+
+# Default CORS origins for development
+DEFAULT_CORS_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:5174",
+    "http://localhost:5175",
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:8080",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5174",
+    "http://127.0.0.1:5175",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3001",
+    "http://127.0.0.1:8080",
+]
 
 
 class Settings(BaseSettings):
@@ -19,29 +35,16 @@ class Settings(BaseSettings):
     # Environment
     environment: str = "development"
 
-    # CORS - configurable via CORS_ORIGINS env var (comma-separated)
-    cors_origins: list[str] = [
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "http://localhost:5175",
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://localhost:8080",
-        "http://127.0.0.1:5173",
-        "http://127.0.0.1:5174",
-        "http://127.0.0.1:5175",
-        "http://127.0.0.1:3000",
-        "http://127.0.0.1:3001",
-        "http://127.0.0.1:8080",
-    ]
+    # CORS - comma-separated string from env var
+    cors_origins_str: str = ""
 
-    @field_validator('cors_origins', mode='before')
-    @classmethod
-    def parse_cors_origins(cls, v):
-        """Parse CORS origins from comma-separated string or list."""
-        if isinstance(v, str):
-            return [origin.strip() for origin in v.split(',') if origin.strip()]
-        return v
+    @computed_field
+    @property
+    def cors_origins(self) -> list[str]:
+        """Parse CORS origins from comma-separated string."""
+        if self.cors_origins_str:
+            return [origin.strip() for origin in self.cors_origins_str.split(',') if origin.strip()]
+        return DEFAULT_CORS_ORIGINS
 
     # AI Settings
     ai_model: str = "claude-3-haiku-20240307"

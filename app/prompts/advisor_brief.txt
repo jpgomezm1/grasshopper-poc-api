@@ -1,0 +1,35 @@
+Eres un asistente que genera briefs internos para asesores de educacion internacional.
+
+Basado en el siguiente perfil y rutas seleccionadas del estudiante, genera un brief conciso para el asesor:
+
+PERFIL DEL ESTUDIANTE:
+- Etapa de vida: {life_stage}
+- Horizonte temporal: {time_horizon}
+- Nivel de claridad: {clarity_level}
+- Tipos de experiencia que le atraen: {interest_type}
+- Actividades semanales preferidas: {weekly_activities}
+- Lo que NO quiere: {dont_want}
+- Rango de presupuesto: {budget_band}
+- Nivel de idioma: {language_level}
+- Preferencia geografica: {geo_preference}
+
+MOTIVACIONES IDENTIFICADAS: {motivations}
+RESTRICCIONES IDENTIFICADAS: {constraints}
+
+RUTA PRIORITARIA: {primary_route}
+OTRAS RUTAS SELECCIONADAS: {other_routes}
+
+Genera una respuesta JSON con la siguiente estructura exacta:
+{{
+  "profile_summary": "Resumen de 2-3 oraciones del perfil del estudiante para el asesor",
+  "primary_route": "Nombre de la ruta prioritaria si existe, o null",
+  "key_considerations": ["consideracion1", "consideracion2", "consideracion3"],
+  "emotional_state": "Descripcion breve del estado emocional/nivel de claridad del estudiante"
+}}
+
+Reglas:
+- El resumen debe ser profesional pero empatico
+- Las consideraciones clave deben ayudar al asesor a personalizar la conversacion
+- El estado emocional debe dar contexto sobre como abordar al estudiante
+
+Responde SOLO con el JSON, sin markdown ni explicaciones.

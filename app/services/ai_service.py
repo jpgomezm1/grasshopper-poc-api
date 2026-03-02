@@ -19,17 +19,17 @@ logger = logging.getLogger(__name__)
 
 
 # Fallback templates for when AI fails
-FALLBACK_EMPATHY = "Tiene sentido. Gracias por contarlo. Vamos a convertir eso en claridad paso a paso."
+FALLBACK_EMPATHY = "Tiene sentido. Gracias por contarlo. Vamos a convertir eso en claridad, paso a paso."
 
 FALLBACK_SYNTHESIS = {
-    "text": "Veo a alguien que esta explorando opciones con curiosidad. Es un buen momento para descubrir que caminos pueden funcionar para ti. Te refleja esto?",
+    "text": "Veo a alguien que está explorando opciones con curiosidad. Es un buen momento para descubrir qué caminos pueden funcionar para ti. ¿Te refleja esto?",
     "chips": [
         {"label": "Etapa", "value": "Explorando"},
         {"label": "Horizonte", "value": "Flexible"},
-        {"label": "Interes principal", "value": "Crecimiento"},
-        {"label": "Consideracion clave", "value": "En descubrimiento"},
+        {"label": "Interés principal", "value": "Crecimiento"},
+        {"label": "Consideración clave", "value": "En descubrimiento"},
     ],
-    "key_motivations": ["Exploracion", "Crecimiento"],
+    "key_motivations": ["Exploración", "Crecimiento"],
     "constraints": [],
 }
 
@@ -39,12 +39,12 @@ FALLBACK_ROUTES = [
         "name": "Ruta Idioma + Experiencia",
         "why": "Perfecta si quieres mejorar un idioma mientras vives algo nuevo, sin comprometerte a algo demasiado largo.",
         "what_it_looks_like": "Curso intensivo + actividades culturales + objetivos semanales claros.",
-        "next_step": "Definir duracion ideal y ritmo (intensivo vs flexible).",
+        "next_step": "Definir duración ideal y ritmo (intensivo vs flexible).",
     },
     {
         "key": "PRACTICAL_SKILLS_SHORT",
-        "name": "Ruta Habilidades Practicas (corto)",
-        "why": "Si te motiva aprender haciendo, esta ruta te da enfoque practico y resultados rapidos.",
+        "name": "Ruta Habilidades Prácticas (corto)",
+        "why": "Si te motiva aprender haciendo, esta ruta te da enfoque práctico y resultados rápidos.",
         "what_it_looks_like": "Programa corto orientado a proyectos + portafolio + feedback.",
         "next_step": "Elegir area (negocios, tech, diseno, etc.) y preferencia de modalidad.",
     },
@@ -52,8 +52,8 @@ FALLBACK_ROUTES = [
         "key": "DEGREE_PATHWAY",
         "name": "Ruta Pregrado (con camino claro)",
         "why": "Si estas pensando en construir una carrera afuera, esta ruta ordena requisitos, idioma y tiempos.",
-        "what_it_looks_like": "Exploracion de programas + requisitos + plan de preparacion por etapas.",
-        "next_step": "Aterrizar pais vs programa y requisitos de idioma.",
+        "what_it_looks_like": "Exploración de programas + requisitos + plan de preparación por etapas.",
+        "next_step": "Aterrizar país vs programa y requisitos de idioma.",
     },
 ]
 
@@ -64,21 +64,21 @@ def derive_motivations(answers: Dict[str, Any]) -> List[str]:
 
     interest_type = answers.get("interestType", []) or []
     if "Mejorar un idioma" in interest_type:
-        motivations.append("Crecimiento linguistico")
-    if "Vivir en otro pais" in interest_type:
+        motivations.append("Crecimiento lingüístico")
+    if "Vivir en otro país" in interest_type:
         motivations.append("Experiencia internacional")
-    if "Aprender algo practico" in interest_type:
-        motivations.append("Habilidades practicas")
+    if "Aprender algo práctico" in interest_type:
+        motivations.append("Habilidades prácticas")
     if "Construir una carrera" in interest_type:
         motivations.append("Desarrollo profesional")
 
     weekly = answers.get("weeklyActivities", "")
-    if weekly == "Proyectos practicos":
+    if weekly == "Proyectos prácticos":
         motivations.append("Aprendizaje aplicado")
     if weekly == "Actividades culturales":
-        motivations.append("Inmersion cultural")
+        motivations.append("Inmersión cultural")
 
-    return motivations if motivations else ["Exploracion"]
+    return motivations if motivations else ["Exploración"]
 
 
 def derive_constraints(answers: Dict[str, Any]) -> List[str]:
@@ -87,18 +87,18 @@ def derive_constraints(answers: Dict[str, Any]) -> List[str]:
 
     if answers.get("budgetBand") == "Bajo":
         constraints.append("Presupuesto limitado")
-    if answers.get("timeHorizon") == "En los proximos meses":
+    if answers.get("timeHorizon") == "En los próximos meses":
         constraints.append("Tiempo corto")
 
     language = answers.get("languageLevel", "")
-    if language in ["Basico", "Quiero aprender desde cero"]:
-        constraints.append("Necesita preparacion de idioma")
+    if language in ["Básico", "Quiero aprender desde cero"]:
+        constraints.append("Necesita preparación de idioma")
 
     dont_want = (answers.get("dontWant") or "").lower()
     if "largo" in dont_want:
-        constraints.append("Prefiere corta duracion")
-    if "teorico" in dont_want:
-        constraints.append("Prefiere practico sobre teorico")
+        constraints.append("Prefiere corta duración")
+    if "teórico" in dont_want or "teorico" in dont_want:
+        constraints.append("Prefiere práctico sobre teórico")
 
     return constraints
 
@@ -134,7 +134,7 @@ def generate_empathy_reflection(
     # Fallback with simple keyword detection
     lowercased = why_here.lower()
     if any(word in lowercased for word in ["no se", "confundido", "perdido"]):
-        fallback_text = "Entiendo que puede sentirse abrumador tener tantas opciones. Vamos paso a paso, sin presion. Lo importante es que estas aqui explorando."
+        fallback_text = "Entiendo que puede sentirse abrumador tener tantas opciones. Vamos paso a paso, sin presión. Lo importante es que estás aquí explorando."
     elif any(word in lowercased for word in ["mejorar", "crecer", "aprender"]):
         fallback_text = "Esa mentalidad de crecimiento es valiosa. Vamos a encontrar opciones que te permitan avanzar a tu ritmo."
     elif any(word in lowercased for word in ["trabajo", "carrera", "profesional"]):
@@ -176,11 +176,11 @@ def generate_partial_summary(
         bullets.append(f"Quieres evitar: {dont_want.lower()}")
 
     if not bullets:
-        bullets = ["Aun estamos conociendote mejor"]
+        bullets = ["Aún estamos conociéndote mejor"]
 
     return PartialSummaryOutput(
         bullets=bullets,
-        motivation=motivations[0] if motivations else "Exploracion",
+        motivation=motivations[0] if motivations else "Exploración",
     )
 
 
@@ -236,26 +236,26 @@ def generate_synthesis(
     constraints = derive_constraints(answers)
 
     stage_label = {
-        "Terminando el colegio": "preparandose para el siguiente paso",
+        "Terminando el colegio": "preparándose para el siguiente paso",
         "En la universidad": "explorando oportunidades",
         "Ya trabajando": "buscando un cambio",
-        "En transicion / no seguro": "en proceso de descubrimiento",
+        "En transición / no seguro": "en proceso de descubrimiento",
     }.get(answers.get("lifeStage", ""), "explorando")
 
-    text = f"Veo a alguien que esta {stage_label}"
+    text = f"Veo a alguien que está {stage_label}"
     if motivations:
         text += f", motivado principalmente por {motivations[0].lower()}"
     if constraints:
         text += f". Es importante considerar: {', '.join(constraints).lower()}"
-    text += ". Te refleja esto?"
+    text += ". ¿Te refleja esto?"
 
     return SynthesisOutput(
         text=text,
         chips=[
             SynthesisChip(label="Etapa", value=answers.get("lifeStage", "No definida")),
             SynthesisChip(label="Horizonte", value=answers.get("timeHorizon", "Flexible")),
-            SynthesisChip(label="Interes principal", value=motivations[0] if motivations else "Explorando"),
-            SynthesisChip(label="Consideracion clave", value=constraints[0] if constraints else "Ninguna especial"),
+            SynthesisChip(label="Interés principal", value=motivations[0] if motivations else "Explorando"),
+            SynthesisChip(label="Consideración clave", value=constraints[0] if constraints else "Ninguna especial"),
         ],
         key_motivations=motivations,
         constraints=constraints,
@@ -389,7 +389,7 @@ def generate_advisor_brief(
     considerations.append(f"Etapa: {answers.get('lifeStage', 'No especificada')}")
     considerations.append(f"Horizonte temporal: {answers.get('timeHorizon', 'No especificado')}")
     if motivations:
-        considerations.append(f"Motivacion principal: {motivations[0]}")
+        considerations.append(f"Motivación principal: {motivations[0]}")
 
     return AdvisorBriefOutput(
         profile_summary=f"Estudiante en etapa '{answers.get('lifeStage', 'no definida')}' con horizonte '{answers.get('timeHorizon', 'flexible')}' y nivel de claridad {clarity.lower()}.",

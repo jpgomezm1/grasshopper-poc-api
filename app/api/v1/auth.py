@@ -1,11 +1,13 @@
 """Authentication endpoints."""
 from __future__ import annotations
 
+import secrets
+import logging
 from datetime import datetime, timedelta
 from typing import Optional
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session as DBSession
 from pydantic import BaseModel, EmailStr
@@ -38,6 +40,8 @@ class UserResponse(BaseModel):
     email: str
     name: Optional[str]
     onboarding_status: OnboardingStatus
+    english_test_completed: bool = False
+    english_cefr_level: Optional[str] = None
     created_at: datetime
 
     class Config:
@@ -58,6 +62,25 @@ class OnboardingUpdateRequest(BaseModel):
 class OnboardingResponse(BaseModel):
     status: OnboardingStatus
     answers: dict
+
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+    method: str = "email"  # "email" or "phone"
+
+
+class ForgotPasswordResponse(BaseModel):
+    message: str
+    # POC only: return reset link directly (in production, only send via email/SMS)
+    reset_link: Optional[str] = None
+
+
+class ResetPasswordRequest(BaseModel):
+    token: str
+    new_password: str
+
+
+logger = logging.getLogger(__name__)
 
 
 # Utility functions
@@ -104,7 +127,7 @@ def get_current_user(
     except JWTError:
         raise credentials_exception
 
-    user = db.query(User).filter(User.id == user_id).first()
+    user = db.query(User).filter(User.id == UUID(user_id)).first()
     if user is None:
         raise credentials_exception
 
@@ -125,7 +148,7 @@ def get_optional_current_user(
         user_id: str = payload.get("sub")
         if user_id is None:
             return None
-        return db.query(User).filter(User.id == user_id).first()
+        return db.query(User).filter(User.id == UUID(user_id)).first()
     except JWTError:
         return None
 
@@ -268,3 +291,84 @@ def get_user_session(
         "current_stage": session.current_stage.value,
         "is_completed": session.is_completed,
     }
+
+
+@router.post("/forgot-password", response_model=ForgotPasswordResponse)
+def forgot_password(request: ForgotPasswordRequest, req: Request, db: DBSession = Depends(get_db)):
+    """Request a password reset. Generates a token and simulates sending it via email/SMS."""
+    user = db.query(User).filter(User.email == request.email.lower()).first()
+
+    # Always return success to prevent email enumeration attacks
+    if not user:
+        return ForgotPasswordResponse(
+            message="Si el correo está registrado, recibirás instrucciones para recuperar tu contraseña."
+        )
+
+    # Generate secure reset token
+    reset_token = secrets.token_urlsafe(32)
+    user.password_reset_token = reset_token
+    user.password_reset_expires = datetime.utcnow() + timedelta(hours=1)
+    db.commit()
+
+    # Build reset link from the Origin header (handles any port)
+    origin = req.headers.get("origin", "http://localhost:5173")
+    reset_link = f"{origin}/reset-password/{reset_token}"
+    logger.info(f"[POC] Password reset link for {user.email}: {reset_link}")
+
+    if request.method == "phone" and user.phone:
+        logger.info(f"[POC] SMS would be sent to {user.phone}")
+
+    return ForgotPasswordResponse(
+        message="Si el correo está registrado, recibirás instrucciones para recuperar tu contraseña.",
+        reset_link=reset_link if settings.environment == "development" else None,
+    )
+
+
+@router.post("/reset-password")
+def reset_password(request: ResetPasswordRequest, db: DBSession = Depends(get_db)):
+    """Reset password using a valid reset token."""
+    user = db.query(User).filter(User.password_reset_token == request.token).first()
+
+    if not user:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Token inválido o expirado."
+        )
+
+    # Check token expiration (treat missing expiry as expired for safety)
+    if not user.password_reset_expires or user.password_reset_expires < datetime.utcnow():
+        # Clear expired token
+        user.password_reset_token = None
+        user.password_reset_expires = None
+        db.commit()
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="El enlace de recuperación ha expirado. Solicita uno nuevo."
+        )
+
+    # Validate new password strength (must match frontend rules)
+    if len(request.new_password) < 8:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="La contraseña debe tener al menos 8 caracteres."
+        )
+
+    import re
+    if not re.search(r'[A-Z]', request.new_password):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="La contraseña debe tener al menos una letra mayúscula."
+        )
+    if not re.search(r'[0-9]', request.new_password):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="La contraseña debe tener al menos un número."
+        )
+
+    # Update password and clear reset token
+    user.hashed_password = get_password_hash(request.new_password)
+    user.password_reset_token = None
+    user.password_reset_expires = None
+    db.commit()
+
+    return {"message": "Contraseña actualizada exitosamente. Ya puedes iniciar sesión."}

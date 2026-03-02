@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import Column, String, DateTime, Text, Boolean, Integer, ForeignKey, JSON, Enum
+from sqlalchemy import Column, String, DateTime, Text, Boolean, Integer, ForeignKey, JSON, Enum, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 import enum
@@ -34,11 +34,25 @@ class User(Base):
     onboarding_status = Column(Enum(OnboardingStatus), default=OnboardingStatus.NOT_STARTED, nullable=False)
     onboarding_answers = Column(JSON, default=dict, nullable=False)
 
+    # Contact info
+    phone = Column(String(50), nullable=True)
+
+    # English test
+    english_test_completed = Column(Boolean, default=False, nullable=False)
+    english_cefr_level = Column(String(10), nullable=True)
+
+    # Password recovery
+    password_reset_token = Column(String(255), nullable=True, unique=True)
+    password_reset_expires = Column(DateTime, nullable=True)
+
     # Status
     is_active = Column(Boolean, default=True, nullable=False)
 
     # Relationships
     sessions = relationship("Session", back_populates="user", cascade="all, delete-orphan")
+    english_test_result = relationship("EnglishTestResult", back_populates="user", uselist=False, cascade="all, delete-orphan")
+    vocational_test_results = relationship("VocationalTestResult", back_populates="user", cascade="all, delete-orphan")
+    saved_ofertas = relationship("SavedOferta", back_populates="user", cascade="all, delete-orphan")
 
 
 class JourneyStage(str, enum.Enum):
@@ -211,3 +225,71 @@ class AdvisorLead(Base):
 
     # Relationship
     session = relationship("Session", back_populates="advisor_lead")
+
+
+class EnglishTestResult(Base):
+    __tablename__ = "english_test_results"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, unique=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    answers = Column(JSON, nullable=False)
+    score = Column(Integer, nullable=False)
+    total_questions = Column(Integer, nullable=False)
+    cefr_level = Column(String(10), nullable=False)
+    section_scores = Column(JSON, nullable=False)
+
+    user = relationship("User", back_populates="english_test_result")
+
+
+class VocationalTestResult(Base):
+    __tablename__ = "vocational_test_results"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    test_id = Column(String(50), nullable=False)
+    answers = Column(JSON, nullable=False)
+    scores = Column(JSON, nullable=False)
+
+    user = relationship("User", back_populates="vocational_test_results")
+
+    __table_args__ = (UniqueConstraint("user_id", "test_id", name="uq_user_test"),)
+
+
+class SavedOferta(Base):
+    """User's saved/bookmarked ofertas."""
+    __tablename__ = "saved_ofertas"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    oferta_id = Column(String(100), nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    status = Column(String(50), default="interested", nullable=False)
+
+    user = relationship("User", back_populates="saved_ofertas")
+
+    __table_args__ = (UniqueConstraint("user_id", "oferta_id", name="uq_user_oferta"),)
+
+
+class LeadProfile(Base):
+    """Lead profiles from quick vocational quiz (no account required)."""
+    __tablename__ = "lead_profiles"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    # Contact info (captured at end of quiz)
+    name = Column(String(255), nullable=True)
+    email = Column(String(255), nullable=True)
+    phone = Column(String(50), nullable=True)
+
+    # Quiz data
+    answers = Column(JSON, nullable=False)
+    profile_result = Column(JSON, nullable=False)
+
+    # Tracking
+    converted = Column(Boolean, default=False, nullable=False)
+    source = Column(String(50), default="landing_quiz", nullable=False)

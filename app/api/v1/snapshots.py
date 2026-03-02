@@ -6,7 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session as DBSession
 
 from app.db.database import get_db
-from app.db.models import Snapshot, Route
+from app.db.models import Snapshot, Route, User, VocationalTestResult
 from app.schemas.journey import SnapshotResponse
 from app.services.journey_service import get_session
 from app.services.ai_service import derive_motivations, derive_constraints
@@ -72,10 +72,28 @@ def create_snapshot(
     constraints = derive_constraints(answers)
     derived_tags = motivations + constraints
 
+    # Include English test and vocational test data in profile
+    profile_data = dict(answers)
+    if session.user_id:
+        user = db.query(User).filter(User.id == session.user_id).first()
+        if user:
+            profile_data["english_cefr_level"] = user.english_cefr_level
+            profile_data["english_test_completed"] = user.english_test_completed
+
+            voc_results = (
+                db.query(VocationalTestResult)
+                .filter(VocationalTestResult.user_id == user.id)
+                .all()
+            )
+            profile_data["vocational_results"] = [
+                {"test_id": vr.test_id, "scores": vr.scores}
+                for vr in voc_results
+            ]
+
     # Create snapshot
     snapshot = Snapshot(
         session_id=session_id,
-        profile=answers,
+        profile=profile_data,
         routes=routes_data,
         derived_tags=derived_tags,
     )

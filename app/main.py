@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
 from app.db.database import engine, Base
-from app.api.v1 import sessions, profile, journal, routes, snapshots, advisor, auth, transcription
+from app.api.v1 import sessions, profile, journal, routes, snapshots, advisor, auth, transcription, english_test, vocational_tests, ofertas, lead_profile
 
 # Configure logging
 logging.basicConfig(
@@ -34,14 +34,18 @@ app.add_middleware(
 )
 
 # Include routers
-app.include_router(auth.router, prefix="/v1")
-app.include_router(sessions.router, prefix="/v1")
-app.include_router(profile.router, prefix="/v1")
-app.include_router(journal.router, prefix="/v1")
-app.include_router(routes.router, prefix="/v1")
-app.include_router(snapshots.router, prefix="/v1")
-app.include_router(advisor.router, prefix="/v1")
-app.include_router(transcription.router, prefix="/v1")
+app.include_router(auth.router, prefix="/api/v1")
+app.include_router(sessions.router, prefix="/api/v1")
+app.include_router(profile.router, prefix="/api/v1")
+app.include_router(journal.router, prefix="/api/v1")
+app.include_router(routes.router, prefix="/api/v1")
+app.include_router(snapshots.router, prefix="/api/v1")
+app.include_router(advisor.router, prefix="/api/v1")
+app.include_router(transcription.router, prefix="/api/v1")
+app.include_router(english_test.router, prefix="/api/v1")
+app.include_router(vocational_tests.router, prefix="/api/v1")
+app.include_router(ofertas.router, prefix="/api/v1")
+app.include_router(lead_profile.router, prefix="/api/v1")
 
 
 @app.on_event("startup")

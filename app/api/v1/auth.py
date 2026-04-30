@@ -10,13 +10,14 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from sqlalchemy.orm import Session as DBSession
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, Field
 import bcrypt
 from jose import JWTError, jwt
 
 from app.config import get_settings
 from app.db.database import get_db
-from app.db.models import User, OnboardingStatus, Session
+from app.db.models import User, OnboardingStatus, Session, UserRole, School
+from app.schemas.school import SchoolSummary
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 security = HTTPBearer()
@@ -35,17 +36,42 @@ class RegisterRequest(BaseModel):
     name: Optional[str] = None
 
 
+class RegisterStudentRequest(BaseModel):
+    """Public student registration · GH-S2-BE-04.
+
+    Always creates a user with role=student and school_id=None. School
+    membership is granted later by a school_admin via invitation flow.
+    """
+    email: EmailStr
+    password: str
+    name: Optional[str] = None
+
+
+class RegisterSchoolUserRequest(BaseModel):
+    """Super-admin-only · creates a psychologist or school_admin attached
+    to an existing school. GH-S2-BE-05.
+    """
+    email: EmailStr
+    password: str
+    name: Optional[str] = None
+    role: UserRole = Field(..., description="Must be psychologist or school_admin")
+    school_id: UUID
+
+
 class UserResponse(BaseModel):
     id: UUID
     email: str
     name: Optional[str]
+    role: UserRole = UserRole.STUDENT
+    school: Optional[SchoolSummary] = None
     onboarding_status: OnboardingStatus
     english_test_completed: bool = False
     english_cefr_level: Optional[str] = None
     created_at: datetime
 
-    class Config:
-        from_attributes = True
+    model_config = {
+        "from_attributes": True,
+    }
 
 
 class TokenResponse(BaseModel):
@@ -182,20 +208,49 @@ def login(request: LoginRequest, db: DBSession = Depends(get_db)):
 
 @router.post("/register", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
 def register(request: RegisterRequest, db: DBSession = Depends(get_db)):
-    """Register a new user."""
-    # Check if email already exists
+    """Register a new user (legacy public endpoint · always student role).
+
+    Backwards-compatible wrapper that delegates to register_student. The POC
+    frontend still calls /auth/register · keeping it alive avoids breaking
+    the public landing flow during S2.
+    """
+    return _register_student_internal(
+        RegisterStudentRequest(
+            email=request.email,
+            password=request.password,
+            name=request.name,
+        ),
+        db,
+    )
+
+
+@router.post(
+    "/register-student",
+    response_model=TokenResponse,
+    status_code=status.HTTP_201_CREATED,
+    summary="GH-S2-BE-04 · public student registration",
+)
+def register_student(request: RegisterStudentRequest, db: DBSession = Depends(get_db)):
+    """Public endpoint · creates a student-role user without school membership."""
+    return _register_student_internal(request, db)
+
+
+def _register_student_internal(request: RegisterStudentRequest, db: DBSession) -> TokenResponse:
+    """Shared implementation for student registration. Always sets role=student
+    and school_id=None regardless of payload to prevent privilege escalation."""
     existing_user = db.query(User).filter(User.email == request.email.lower()).first()
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Email already registered"
+            detail="Email already registered",
         )
 
-    # Create new user
     user = User(
         email=request.email.lower(),
         hashed_password=get_password_hash(request.password),
         name=request.name,
+        role=UserRole.STUDENT,
+        school_id=None,
         onboarding_status=OnboardingStatus.NOT_STARTED,
     )
 
@@ -204,11 +259,71 @@ def register(request: RegisterRequest, db: DBSession = Depends(get_db)):
     db.refresh(user)
 
     access_token = create_access_token(data={"sub": str(user.id)})
-
     return TokenResponse(
         access_token=access_token,
-        user=UserResponse.model_validate(user)
+        user=UserResponse.model_validate(user),
     )
+
+
+@router.post(
+    "/register-school-user",
+    response_model=UserResponse,
+    status_code=status.HTTP_201_CREATED,
+    summary="GH-S2-BE-05 · super_admin creates school staff",
+)
+def register_school_user(
+    request: RegisterSchoolUserRequest,
+    db: DBSession = Depends(get_db),
+    current_user: "User" = Depends(get_current_user),
+):
+    """Creates a psychologist or school_admin attached to an existing school.
+
+    Authorization:
+    - Caller MUST be super_admin · enforced via require_role inside the function
+      (kept inline to avoid circular import with auth_service which imports
+      from this file).
+    """
+    # Inline authorization (mirrors auth_service.require_role)
+    if current_user.role != UserRole.SUPER_ADMIN:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Forbidden · only super_admin can create school staff users.",
+        )
+
+    if request.role not in (UserRole.PSYCHOLOGIST, UserRole.SCHOOL_ADMIN):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="role must be psychologist or school_admin.",
+        )
+
+    school = db.query(School).filter(School.id == request.school_id).first()
+    if not school:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="School not found.",
+        )
+
+    existing_user = db.query(User).filter(User.email == request.email.lower()).first()
+    if existing_user:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Email already registered.",
+        )
+
+    user = User(
+        email=request.email.lower(),
+        hashed_password=get_password_hash(request.password),
+        name=request.name,
+        role=request.role,
+        school_id=school.id,
+        onboarding_status=OnboardingStatus.COMPLETED,  # staff bypass onboarding
+    )
+
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+
+    return UserResponse.model_validate(user)
 
 
 @router.get("/me", response_model=UserResponse)

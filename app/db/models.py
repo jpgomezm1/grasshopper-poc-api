@@ -15,6 +15,48 @@ class OnboardingStatus(str, enum.Enum):
     COMPLETED = "completed"
 
 
+class UserRole(str, enum.Enum):
+    """User roles for multi-tenant access control.
+
+    - student        · estudiante (B2C o B2B según school_id)
+    - psychologist   · psicólogo del colegio · ve estudiantes de su escuela en read-only
+    - school_admin   · admin del colegio · gestiona estudiantes + reportes + branding del colegio
+    - super_admin    · staff de Grasshopper · CRUD global de colegios, licencias, catálogo
+
+    GH-S2-DB-01 · added 2026-04-30.
+    """
+    STUDENT = "student"
+    PSYCHOLOGIST = "psychologist"
+    SCHOOL_ADMIN = "school_admin"
+    SUPER_ADMIN = "super_admin"
+
+
+class School(Base):
+    """B2B client (colegio) of Grasshopper.
+
+    Owns the license + students + branding + reporting context. Created and
+    managed by super_admin from the panel. School users (psychologist /
+    school_admin) reference this via users.school_id.
+
+    GH-S2-DB-02 · added 2026-04-30.
+    """
+    __tablename__ = "schools"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    name = Column(String(255), nullable=False, index=True)
+    slug = Column(String(255), nullable=False, unique=True, index=True)
+    logo_url = Column(String(500), nullable=True)
+
+    license_active = Column(Boolean, default=True, nullable=False)
+    license_expires_at = Column(DateTime, nullable=True)
+
+    # Reverse relation to users that belong to this school
+    users = relationship("User", back_populates="school")
+
+
 class User(Base):
     """User accounts for authentication."""
     __tablename__ = "users"
@@ -29,6 +71,12 @@ class User(Base):
 
     # Profile info
     name = Column(String(255), nullable=True)
+
+    # Role · drives multi-rol auth (GH-S2-DB-01)
+    role = Column(Enum(UserRole, name="userrole"), default=UserRole.STUDENT, nullable=False)
+
+    # School membership · nullable for B2C students and super_admin (GH-S2-DB-03)
+    school_id = Column(UUID(as_uuid=True), ForeignKey("schools.id", ondelete="SET NULL"), nullable=True, index=True)
 
     # Onboarding status
     onboarding_status = Column(Enum(OnboardingStatus), default=OnboardingStatus.NOT_STARTED, nullable=False)
@@ -49,6 +97,7 @@ class User(Base):
     is_active = Column(Boolean, default=True, nullable=False)
 
     # Relationships
+    school = relationship("School", back_populates="users")
     sessions = relationship("Session", back_populates="user", cascade="all, delete-orphan")
     english_test_result = relationship("EnglishTestResult", back_populates="user", uselist=False, cascade="all, delete-orphan")
     vocational_test_results = relationship("VocationalTestResult", back_populates="user", cascade="all, delete-orphan")

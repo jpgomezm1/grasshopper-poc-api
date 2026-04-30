@@ -13,6 +13,7 @@ from app.data.vocational_tests import (
     calculate_vocational_scores,
     VOCATIONAL_TESTS,
 )
+from app.services.scoring_service import derive_test_extras
 
 router = APIRouter(prefix="/vocational-tests", tags=["Vocational Tests"])
 
@@ -36,14 +37,19 @@ def get_all_results(
         VocationalTestResult.user_id == current_user.id
     ).all()
 
-    return [
-        {
+    output = []
+    for r in results:
+        raw_scores = dict(r.scores or {})
+        extras = raw_scores.pop("_extras", None)
+        item = {
             "test_id": r.test_id,
-            "scores": r.scores,
+            "scores": raw_scores,
             "completed_at": r.created_at.isoformat(),
         }
-        for r in results
-    ]
+        if extras is not None:
+            item["extras"] = extras
+        output.append(item)
+    return output
 
 
 @router.get("/{test_id}")
@@ -66,6 +72,14 @@ def submit_test(
         raise HTTPException(status_code=404, detail="Test not found")
 
     scores = calculate_vocational_scores(test_id, request.answers)
+    extras = derive_test_extras(test_id, request.answers)
+
+    # Persist extras inside the JSON ``scores`` column so we don't need a
+    # migration. Shape stays backward compatible: legacy tests keep the
+    # category->percentage map; MBTI/iStrong add an ``_extras`` key.
+    persisted_scores = dict(scores)
+    if extras is not None:
+        persisted_scores["_extras"] = extras
 
     existing = db.query(VocationalTestResult).filter(
         VocationalTestResult.user_id == current_user.id,
@@ -74,19 +88,22 @@ def submit_test(
 
     if existing:
         existing.answers = request.answers
-        existing.scores = scores
+        existing.scores = persisted_scores
     else:
         result = VocationalTestResult(
             user_id=current_user.id,
             test_id=test_id,
             answers=request.answers,
-            scores=scores,
+            scores=persisted_scores,
         )
         db.add(result)
 
     db.commit()
 
-    return {"test_id": test_id, "scores": scores}
+    response = {"test_id": test_id, "scores": scores}
+    if extras is not None:
+        response["extras"] = extras
+    return response
 
 
 @router.get("/{test_id}/result")
@@ -103,9 +120,15 @@ def get_test_result(
     if not result:
         return None
 
-    return {
+    raw_scores = dict(result.scores or {})
+    extras = raw_scores.pop("_extras", None)
+
+    payload = {
         "test_id": result.test_id,
-        "scores": result.scores,
+        "scores": raw_scores,
         "answers": result.answers,
         "completed_at": result.created_at.isoformat(),
     }
+    if extras is not None:
+        payload["extras"] = extras
+    return payload

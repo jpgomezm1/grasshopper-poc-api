@@ -49,7 +49,10 @@ class Settings(BaseSettings):
         return DEFAULT_CORS_ORIGINS
 
     # AI Settings
-    ai_model: str = "claude-3-haiku-20240307"
+    # D-013 (Sprint 5) · pinned to claude-sonnet-4-5 across the project ·
+    # the older Haiku-3 referenced by the POC is deprecated for our uses.
+    # .env can still override AI_MODEL for short-term experimentation.
+    ai_model: str = "claude-sonnet-4-5"
     ai_max_tokens: int = 1024
     ai_temperature: float = 0.7
 
@@ -65,6 +68,12 @@ class Settings(BaseSettings):
     supabase_url: str = ""
     supabase_service_key: str = ""
     supabase_storage_bucket: str = "grasshopper-uploads"
+
+    # Email transactional (GH-S7 · D-016 Resend default + stub fallback)
+    # In S7 these stay empty so email_service.py uses the stub backend.
+    # Real provisioning (Resend API key + DKIM/SPF + verified domain) lands in S12.
+    resend_api_key: str = ""
+    email_from: str = "Grasshopper <hola@grasshopper.co>"
 
     class Config:
         env_file = ".env"

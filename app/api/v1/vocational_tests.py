@@ -100,6 +100,15 @@ def submit_test(
 
     db.commit()
 
+    # GH-S6 · invalidate the consolidated profile cache so the next
+    # `GET /recommendations/me` regenerates with the new test data.
+    try:
+        from app.services.consolidation_service import invalidate_cache
+        invalidate_cache(db, current_user.id)
+    except Exception:
+        # Never block the test submission for a cache invalidation failure
+        pass
+
     response = {"test_id": test_id, "scores": scores}
     if extras is not None:
         response["extras"] = extras

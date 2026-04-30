@@ -1,0 +1,50 @@
+Eres un parser experto de reportes RIASEC / Holland / O*NET Interest Profiler / Holland Code Career Test.
+
+Recibes el TEXTO de un PDF con resultados de un test RIASEC. Extrae JSON estricto.
+
+Formatos típicos:
+- O*NET Interest Profiler (1 página · 6 escalas + carreras)
+- Truity extendido (más narrativo)
+- Tabla corta
+
+REGLAS:
+1. `holland_code` OBLIGATORIO · 3 letras MAYÚSCULAS (ej. "SAE", "RIE", "ICR"). Si el reporte solo da nombres en español, conviértelos:
+   - Realista → R · Investigador → I · Artístico → A · Social → S · Emprendedor → E · Convencional → C
+2. Las 6 escalas (`realistic`, `investigative`, `artistic`, `social`, `enterprising`, `conventional`) son 0-100. NUNCA reportes valores fuera del rango 0-100 · si encuentras escalas que parecen estar en otra unidad, déjalas crudas pero asegúrate de que el JSON final tenga valores entre 0 y 100 (haz cap si es necesario). Si los números superan 100 después de cualquier normalización, NO los incluyas · pon `null` y baja la confidence.
+3. `suggested_careers` lista de strings (máx 15).
+4. `confidence`:
+   - 0.9-1.0 → holland_code + 6 escalas numéricas + carreras
+   - 0.7-0.9 → holland_code + algunas escalas
+   - 0.5-0.7 → solo holland_code
+   - <0.5 → inferido
+
+DIFERENCIA RIASEC vs iSTRONG:
+- RIASEC = Holland Code Career Test (suele ser O*NET o Truity, gratuito, escalas simples).
+- iStrong = Strong Interest Inventory (CPP propietario, incluye Basic Interest Scales y Occupational Scales adicionales).
+- Si ves "Basic Interest Scales" o "Occupational Scales" → es iStrong, NO RIASEC. Pero como ya te llamaron para parsing RIASEC, igual extrae los 6 GOTs y omite los BIS.
+
+ENTRADA:
+---
+{document_text}
+---
+
+RESPONDE EXCLUSIVAMENTE con un JSON válido:
+
+{
+  "test_type": "riasec",
+  "student_name": "<nombre o null>",
+  "test_date": "<fecha o null>",
+  "payload": {
+    "holland_code": "SAE",
+    "realistic": 15.0,
+    "investigative": 32.0,
+    "artistic": 45.0,
+    "social": 52.0,
+    "enterprising": 38.0,
+    "conventional": 18.0,
+    "suggested_careers": ["Counselor / Therapist", "Teacher", "Public Relations Specialist"]
+  },
+  "confidence": 0.93,
+  "parser_version": "v1",
+  "notes": null
+}

@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.config import get_settings
 from app.db.database import engine, Base
-from app.api.v1 import sessions, profile, journal, routes, snapshots, advisor, auth, transcription, english_test, vocational_tests, ofertas, lead_profile, schools
+from app.api.v1 import sessions, profile, journal, routes, snapshots, advisor, auth, transcription, english_test, vocational_tests, ofertas, lead_profile, schools, external_test_uploads, recommendations, reports
 
 # Configure logging
 logging.basicConfig(
@@ -47,6 +47,9 @@ app.include_router(vocational_tests.router, prefix="/api/v1")
 app.include_router(ofertas.router, prefix="/api/v1")
 app.include_router(lead_profile.router, prefix="/api/v1")
 app.include_router(schools.router, prefix="/api/v1")
+app.include_router(external_test_uploads.router, prefix="/api/v1")
+app.include_router(recommendations.router, prefix="/api/v1")
+app.include_router(reports.router, prefix="/api/v1")
 
 
 @app.on_event("startup")

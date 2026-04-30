@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reporte de Orientación Vocacional · {{ student_name }}</title>
+  <style>
+    /* ---------- Page setup (CSS Paged Media · WeasyPrint) ---------- */
+    @page {
+      size: A4;
+      margin: 18mm 16mm 16mm 16mm;
+      @bottom-center {
+        content: "Generado por Grasshopper · Confidencial · v1.0 · página " counter(page) " de " counter(pages);
+        font-size: 8pt;
+        color: #6b6276;
+        font-family: "Inter", "Helvetica", sans-serif;
+        font-style: italic;
+      }
+    }
+
+    /* Cover page · no footer */
+    @page :first {
+      margin: 0;
+      @bottom-center { content: none; }
+    }
+
+    /* ---------- Resets ---------- */
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      color: #2b2433;
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+
+    h1, h2, h3 {
+      font-family: "Quicksand", "Inter", sans-serif;
+      color: #2b2433;
+      margin: 0 0 6pt 0;
+      font-weight: 600;
+    }
+
+    h1 { font-size: 24pt; line-height: 1.15; }
+    h2 { font-size: 18pt; }
+    h3 { font-size: 13pt; margin-top: 14pt; }
+
+    p { margin: 0 0 6pt 0; }
+
+    /* ---------- Tokens (Grasshopper brand · POC) ---------- */
+    :root {
+      --primary: #6c4cd9;
+      --primary-bg: #efeafc;
+      --border: #e5e1ed;
+      --surface-alt: #faf8ff;
+      --muted: #6b6276;
+      --foreground: #2b2433;
+    }
+
+    .muted { color: var(--muted); }
+    .uppercase { text-transform: uppercase; letter-spacing: 0.08em; }
+    .mono { font-family: "JetBrains Mono", "Courier New", monospace; }
+    .small { font-size: 9pt; }
+    .xs { font-size: 8pt; }
+
+    /* ---------- Page wrapper ---------- */
+    .page {
+      page-break-after: always;
+      padding: 0;
+    }
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    /* ---------- Cover page ---------- */
+    .cover {
+      page-break-after: always;
+      width: 210mm;
+      height: 297mm;
+      margin: 0;
+      padding: 0;
+      display: block;
+      position: relative;
+    }
+
+    .cover-band {
+      width: 100%;
+      padding: 14mm 16mm;
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cover-band .label {
+      font-size: 8pt;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .cover-band .name {
+      font-family: "Quicksand", "Inter", sans-serif;
+      font-size: 12pt;
+      font-weight: 600;
+      color: var(--foreground);
+    }
+
+    .cover-band img {
+      max-height: 12mm;
+      max-width: 40mm;
+    }
+
+    .cover-band .left, .cover-band .right {
+      display: flex;
+      align-items: center;
+      gap: 8mm;
+    }
+    .cover-band .right { text-align: right; }
+
+    .cover-body {
+      padding: 30mm 16mm;
+      text-align: center;
+    }
+
+    .cover-body .title {
+      font-family: "Quicksand", "Inter", sans-serif;
+      font-size: 26pt;
+      font-weight: 600;
+      margin-bottom: 8mm;
+      line-height: 1.2;
+    }
+
+    .cover-body .date {
+      color: var(--muted);
+      font-size: 11pt;
+      margin-bottom: 18mm;
+    }
+
+    .cover-card {
+      display: inline-block;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      border-radius: 12pt;
+      padding: 8mm 14mm;
+      text-align: left;
+    }
+
+    .cover-card .label {
+      font-size: 8pt;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .cover-card .student {
+      font-family: "Quicksand", "Inter", sans-serif;
+      font-size: 18pt;
+      font-weight: 600;
+      margin-top: 1mm;
+    }
+
+    .cover-card .meta {
+      font-size: 9pt;
+      color: var(--muted);
+    }
+
+    .cover-footer {
+      position: absolute;
+      bottom: 14mm;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: var(--muted);
+      font-style: italic;
+      font-size: 9pt;
+    }
+
+    /* ---------- Page header / footer (non-cover pages) ---------- */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4mm;
+      margin-bottom: 8mm;
+      font-size: 8pt;
+      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .page-header img {
+      max-height: 7mm;
+      max-width: 28mm;
+    }
+
+    /* ---------- Cards / lists ---------- */
+    .card {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 8pt;
+      padding: 5mm 6mm;
+      margin-bottom: 4mm;
+    }
+
+    .card.alt {
+      background: var(--surface-alt);
+    }
+
+    .narrative {
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      border-radius: 10pt;
+      padding: 6mm 7mm;
+      font-size: 11pt;
+      line-height: 1.6;
+    }
+
+    ul.bulleted {
+      padding-left: 0;
+      margin: 4mm 0 0 0;
+      list-style: none;
+    }
+
+    ul.bulleted li {
+      padding: 2mm 0 2mm 8mm;
+      position: relative;
+    }
+
+    ul.bulleted li::before {
+      content: "";
+      width: 2.5mm;
+      height: 2.5mm;
+      border-radius: 50%;
+      background: var(--primary);
+      position: absolute;
+      left: 0;
+      top: 4mm;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2mm;
+      margin-top: 3mm;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 1.5mm 4mm;
+      border-radius: 100px;
+      background: var(--primary-bg);
+      color: var(--primary);
+      font-size: 9pt;
+      font-weight: 500;
+    }
+
+    /* ---------- Test cards grid (page 3) ---------- */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      margin-top: 5mm;
+    }
+
+    .test-card .test-name {
+      font-size: 8pt;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: "JetBrains Mono", monospace;
+    }
+    .test-card .test-highlight {
+      font-family: "Quicksand", "Inter", sans-serif;
+      font-size: 16pt;
+      font-weight: 600;
+      margin: 2mm 0 1mm 0;
+    }
+    .test-card .test-desc {
+      font-size: 9pt;
+      color: var(--muted);
+    }
+
+    /* ---------- Programs (page 6) ---------- */
+    .program-card {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 8pt;
+      padding: 5mm 6mm;
+      margin-bottom: 4mm;
+    }
+
+    .program-card .program-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 6mm;
+    }
+
+    .program-card .program-title {
+      font-family: "Quicksand", "Inter", sans-serif;
+      font-size: 12pt;
+      font-weight: 600;
+    }
+    .program-card .program-meta {
+      font-size: 9pt;
+      color: var(--muted);
+      margin-top: 1mm;
+    }
+    .program-card .match-pill {
+      flex-shrink: 0;
+      padding: 1.5mm 4mm;
+      background: var(--primary-bg);
+      color: var(--primary);
+      border-radius: 100px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 9pt;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .program-card .why {
+      margin-top: 3mm;
+      font-size: 10pt;
+      color: var(--foreground);
+      line-height: 1.55;
+    }
+
+    /* ---------- Steps (page 5) ---------- */
+    ol.steps {
+      list-style: none;
+      counter-reset: step;
+      padding: 0;
+      margin: 4mm 0 0 0;
+    }
+
+    ol.steps li {
+      counter-increment: step;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      border-radius: 8pt;
+      padding: 4mm 5mm 4mm 16mm;
+      margin-bottom: 3mm;
+      position: relative;
+      font-size: 10pt;
+      line-height: 1.5;
+    }
+
+    ol.steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 5mm;
+      top: 4mm;
+      width: 7mm;
+      height: 7mm;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 7mm;
+      font-size: 10pt;
+      font-weight: 600;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    /* ---------- Closing page contact block ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+      margin-top: 6mm;
+      font-size: 9pt;
+      color: var(--muted);
+    }
+
+    .contact-grid .right { text-align: right; }
+    .contact-grid strong {
+      color: var(--foreground);
+      display: block;
+      font-family: "Quicksand", "Inter", sans-serif;
+      font-size: 10pt;
+    }
+
+    .info-box {
+      border: 1px solid #d8c9f5;
+      background: var(--primary-bg);
+      border-radius: 8pt;
+      padding: 5mm 6mm;
+      margin-top: 6mm;
+      font-size: 10pt;
+    }
+
+    .info-box .label {
+      font-size: 8pt;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: "JetBrains Mono", monospace;
+      margin-bottom: 2mm;
+    }
+  </style>
+</head>
+<body>
+
+{# ============================================================
+   PAGE 1 · COVER
+   ============================================================ #}
+<div class="cover">
+  <div class="cover-band">
+    <div class="left">
+      {% if grasshopper_logo_path %}
+        <img src="{{ grasshopper_logo_path }}" alt="Grasshopper" />
+      {% endif %}
+      <div>
+        <p class="label">Grasshopper</p>
+        <p class="name">Tu Bitácora</p>
+      </div>
+    </div>
+    {% if school_name %}
+    <div class="right">
+      <div>
+        <p class="label">Colegio</p>
+        <p class="name">{{ school_name }}</p>
+      </div>
+      {% if school_logo_url %}
+        <img src="{{ school_logo_url }}" alt="{{ school_name }}" />
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="cover-body">
+    <div class="title">Reporte de Orientación Vocacional</div>
+    <div class="date">Generado el {{ generated_on }}</div>
+
+    <div class="cover-card">
+      <p class="label">Estudiante</p>
+      <p class="student">{{ student_name }}</p>
+      {% if student_grade or school_name %}
+        <p class="meta">
+          {% if student_grade %}{{ student_grade }}{% endif %}
+          {% if student_grade and school_name %} · {% endif %}
+          {% if school_name %}{{ school_name }}{% endif %}
+        </p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    {{ confidentiality_note }}
+  </div>
+</div>
+
+{# ============================================================
+   PAGE 2 · PROFILE
+   ============================================================ #}
+<div class="page">
+  <div class="page-header">
+    <span>Grasshopper</span>
+    {% if school_name %}<span>{{ school_name }}</span>{% endif %}
+  </div>
+
+  <h2>Tu perfil consolidado</h2>
+
+  <div class="narrative">
+    {{ summary_narrative }}
+  </div>
+
+  {% if strengths %}
+    <h3>Top fortalezas</h3>
+    <ul class="bulleted">
+      {% for s in strengths %}
+        <li>{{ s }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if interests %}
+    <h3>Áreas afines</h3>
+    <div class="chips">
+      {% for a in interests %}
+        <span class="chip">{{ a }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+
+{# ============================================================
+   PAGE 3 · TESTS
+   ============================================================ #}
+<div class="page">
+  <div class="page-header">
+    <span>Grasshopper</span>
+    {% if school_name %}<span>{{ school_name }}</span>{% endif %}
+  </div>
+
+  <h2>Resultados de tus tests</h2>
+  <p class="muted small">Síntesis de los instrumentos psicométricos completados.</p>
+
+  {% if test_cards %}
+    <div class="grid-2">
+      {% for t in test_cards %}
+        <div class="card alt test-card">
+          <p class="test-name">{{ t.name }}</p>
+          <p class="test-highlight">{{ t.highlight }}</p>
+          <p class="test-desc">{{ t.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="card alt">
+      <p class="muted">Sin resultados de tests aún disponibles.</p>
+    </div>
+  {% endif %}
+</div>
+
+{# ============================================================
+   PAGE 4 · VALUES & MOTIVATIONS
+   ============================================================ #}
+<div class="page">
+  <div class="page-header">
+    <span>Grasshopper</span>
+    {% if school_name %}<span>{{ school_name }}</span>{% endif %}
+  </div>
+
+  <h2>Valores y motivaciones</h2>
+  <p class="muted small">Lo que mueve tus decisiones · derivado del Work Values + Big Five.</p>
+
+  {% if values %}
+    <h3>Valores predominantes</h3>
+    <div class="chips">
+      {% for v in values %}
+        <span class="chip">{{ v }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if work_style %}
+    <h3>Estilo de trabajo</h3>
+    <div class="card alt">{{ work_style }}</div>
+  {% endif %}
+
+  {% if learning_style %}
+    <h3>Estilo de aprendizaje</h3>
+    <div class="card alt">{{ learning_style }}</div>
+  {% endif %}
+
+  {% if not values and not work_style and not learning_style %}
+    <div class="card alt">
+      <p class="muted">Aún no contamos con suficientes datos de valores y motivaciones.
+      Completa el test de Valores Laborales para enriquecer esta sección.</p>
+    </div>
+  {% endif %}
+</div>
+
+{# ============================================================
+   PAGE 5 · CAREER PATHS
+   ============================================================ #}
+<div class="page">
+  <div class="page-header">
+    <span>Grasshopper</span>
+    {% if school_name %}<span>{{ school_name }}</span>{% endif %}
+  </div>
+
+  <h2>Rutas profesionales recomendadas</h2>
+  <p class="muted small">Caminos generales que conectan con tu perfil. No son los programas específicos · esos vienen en la siguiente página.</p>
+
+  {% if career_paths %}
+    <ol class="steps">
+      {% for path in career_paths %}
+        <li>{{ path }}</li>
+      {% endfor %}
+    </ol>
+  {% else %}
+    <div class="card alt">
+      <p class="muted">No tenemos rutas profesionales generadas aún.</p>
+    </div>
+  {% endif %}
+</div>
+
+{# ============================================================
+   PAGE 6 · RECOMMENDED PROGRAMS + CLOSING
+   ============================================================ #}
+<div class="page">
+  <div class="page-header">
+    <span>Grasshopper</span>
+    {% if school_name %}<span>{{ school_name }}</span>{% endif %}
+  </div>
+
+  <h2>Programas recomendados para ti</h2>
+  <p class="muted small">Filtrados del catálogo Grasshopper según tu perfil, presupuesto y países preferidos.</p>
+
+  {% if programs %}
+    {% for p in programs %}
+      <div class="program-card">
+        <div class="program-head">
+          <div>
+            <div class="program-title">{{ p.title }}</div>
+            <div class="program-meta">
+              {{ p.institution }}
+              {% if p.location %} · {{ p.location }}{% endif %}
+              {% if p.duration %} · {{ p.duration }}{% endif %}
+            </div>
+          </div>
+          <div class="match-pill">match {{ p.match_score }}</div>
+        </div>
+        {% if p.why_match %}
+          <p class="why">{{ p.why_match }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <div class="card alt">
+      <p class="muted">Aún no hay programas recomendados. Ajusta tus preferencias o completa más tests para alimentar el motor.</p>
+    </div>
+  {% endif %}
+
+  <div class="info-box">
+    <p class="label">Para ti y tu familia</p>
+    Este reporte es un punto de partida, no un veredicto. Acompáñalo con conversación
+    {% if school_name %}con tu equipo de orientación de {{ school_name }} y {% endif %}
+    con un advisor de Grasshopper.
+  </div>
+
+  <div class="contact-grid">
+    <div>
+      <strong>Grasshopper</strong>
+      {{ contact_email_grasshopper }}<br />
+      {{ contact_url_grasshopper }}
+    </div>
+    {% if school_name %}
+    <div class="right">
+      <strong>{{ school_name }}</strong>
+      {% if contact_email_school %}{{ contact_email_school }}{% else %}Tu equipo de orientación{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+</body>
+</html>

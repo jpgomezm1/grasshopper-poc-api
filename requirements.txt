@@ -16,3 +16,13 @@ openai>=1.0.0
 python-multipart>=0.0.6
 # Storage (GH-S3-INFRA · D-010 Supabase Storage · stub fallback works without it)
 supabase>=2.3.0
+# Document parsing (GH-S5-BE-02 · external test uploads)
+pdfplumber>=0.10.0
+fpdf2>=2.7.0
+# PDF report rendering (GH-S7 · D-015 WeasyPrint)
+# NOTE: Heroku S12 needs heroku-community/apt buildpack + Aptfile with
+# libcairo2 libpango-1.0-0 libpangoft2-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
+weasyprint==60.2
+Jinja2>=3.1.2
+# Email transactional (GH-S7 · D-016 Resend · stub fallback)
+resend>=0.7.0

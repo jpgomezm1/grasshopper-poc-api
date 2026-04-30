@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40">
+  <!-- Placeholder logo · S7-BE-03 · reemplazar con asset oficial cuando llegue del cliente -->
+  <rect x="0" y="0" width="40" height="40" rx="20" fill="#6c4cd9" />
+  <text x="20" y="26" font-family="Quicksand, Inter, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">G</text>
+  <text x="50" y="26" font-family="Quicksand, Inter, sans-serif" font-size="16" font-weight="600" fill="#2b2433">grasshopper</text>
+</svg>

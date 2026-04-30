@@ -1,0 +1,10 @@
+# GH-S7-INFRA-02 · D-015 · Heroku APT buildpack deps for WeasyPrint
+# To activate (Sprint 12 hardening):
+#   heroku buildpacks:add --index 1 heroku-community/apt
+#   heroku buildpacks:add heroku/python
+libcairo2
+libpango-1.0-0
+libpangoft2-1.0-0
+libgdk-pixbuf2.0-0
+libffi-dev
+shared-mime-info

@@ -58,6 +58,14 @@ class Settings(BaseSettings):
     jwt_algorithm: str = "HS256"
     jwt_access_token_expire_minutes: int = 60 * 24 * 7  # 7 days
 
+    # Storage (GH-S3-INFRA-04 · D-010 Supabase Storage)
+    # In S3 these stay empty so storage_service.py uses the stub backend.
+    # Real values land in S12 alongside Heroku/Netlify cutover.
+    storage_backend: str = ""  # "supabase" | "stub" · auto if empty
+    supabase_url: str = ""
+    supabase_service_key: str = ""
+    supabase_storage_bucket: str = "grasshopper-uploads"
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

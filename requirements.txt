@@ -14,3 +14,5 @@ python-jose[cryptography]==3.3.0
 # OpenAI for Whisper transcription
 openai>=1.0.0
 python-multipart>=0.0.6
+# Storage (GH-S3-INFRA · D-010 Supabase Storage · stub fallback works without it)
+supabase>=2.3.0

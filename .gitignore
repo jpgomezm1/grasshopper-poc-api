@@ -2,6 +2,8 @@ venv/
 __pycache__/
 *.pyc
 .env
+.env.*
+!.env.example
 *.egg-info/
 .pytest_cache/
 sql_app.db

@@ -15,6 +15,7 @@ import bcrypt
 from jose import JWTError, jwt
 
 from app.config import get_settings
+from app.core.rate_limiter import limiter
 from app.db.database import get_db
 from app.db.models import User, OnboardingStatus, Session, UserRole, School
 from app.schemas.school import SchoolSummary
@@ -22,6 +23,20 @@ from app.schemas.school import SchoolSummary
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 security = HTTPBearer()
 settings = get_settings()
+
+
+def _rate_limit_login(request: Request) -> None:
+    """GH-S11-INFRA-04 · per-IP rate limit for /auth/login."""
+    from app.core.rate_limiter import rate_limit
+    s = get_settings()
+    return rate_limit(s.rate_limit_login)(request)
+
+
+def _rate_limit_register(request: Request) -> None:
+    """GH-S11-INFRA-04 · per-IP rate limit for /auth/register*."""
+    from app.core.rate_limiter import rate_limit
+    s = get_settings()
+    return rate_limit(s.rate_limit_register)(request)
 
 
 # Pydantic schemas
@@ -180,12 +195,49 @@ def get_optional_current_user(
 
 
 # Endpoints
-@router.post("/login", response_model=TokenResponse)
-def login(request: LoginRequest, db: DBSession = Depends(get_db)):
-    """Authenticate user and return JWT token."""
-    user = db.query(User).filter(User.email == request.email.lower()).first()
+@router.post(
+    "/login",
+    response_model=TokenResponse,
+    dependencies=[Depends(_rate_limit_login)],
+)
+def login(
+    request: Request,
+    payload: LoginRequest,
+    db: DBSession = Depends(get_db),
+):
+    """Authenticate user and return JWT token.
 
-    if not user or not verify_password(request.password, user.hashed_password):
+    GH-S11-INFRA-04 · rate-limited to ``settings.rate_limit_login`` (default 5/min).
+    GH-S11 hardening · failed attempts and super_admin logins are recorded in
+    ``audit_logs`` so abuse can be triaged post-hoc (S8 gap closed).
+    """
+    from app.services.audit_service import log_action
+
+    user = db.query(User).filter(User.email == payload.email.lower()).first()
+
+    def _audit(action: str, target_user, payload_extra: dict) -> None:
+        try:
+            log_action(
+                db,
+                user=target_user,
+                action=action,
+                resource_type="user",
+                resource_id=str(target_user.id) if target_user else None,
+                payload=payload_extra,
+                request=request,
+            )
+        except Exception:
+            pass  # never break login response on audit failure
+
+    if not user or not verify_password(payload.password, user.hashed_password):
+        _audit(
+            "auth.login_failed",
+            user,
+            {
+                "email": payload.email.lower(),
+                "reason": "invalid_credentials",
+            },
+        )
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Incorrect email or password",
@@ -193,12 +245,31 @@ def login(request: LoginRequest, db: DBSession = Depends(get_db)):
         )
 
     if not user.is_active:
+        _audit("auth.login_failed", user, {"reason": "user_disabled"})
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="User account is disabled"
+            detail="User account is disabled",
         )
 
+    # GH-S8 · D-017 · users from archived schools cannot log in
+    if user.school_id and user.role != UserRole.SUPER_ADMIN:
+        school = db.query(School).filter(School.id == user.school_id).first()
+        if school and school.archived_at is not None:
+            _audit(
+                "auth.login_failed_archived_school",
+                user,
+                {"reason": "school_archived", "school_id": str(school.id)},
+            )
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Su colegio está archivado. Contacte al administrador de Grasshopper.",
+            )
+
     access_token = create_access_token(data={"sub": str(user.id)})
+
+    # GH-S11 hardening · audit super_admin logins (S8 gap closed)
+    if user.role == UserRole.SUPER_ADMIN:
+        _audit("auth.login_super_admin", user, {})
 
     return TokenResponse(
         access_token=access_token,
@@ -206,19 +277,30 @@ def login(request: LoginRequest, db: DBSession = Depends(get_db)):
     )
 
 
-@router.post("/register", response_model=TokenResponse, status_code=status.HTTP_201_CREATED)
-def register(request: RegisterRequest, db: DBSession = Depends(get_db)):
+@router.post(
+    "/register",
+    response_model=TokenResponse,
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(_rate_limit_register)],
+)
+def register(
+    request: Request,
+    payload: RegisterRequest,
+    db: DBSession = Depends(get_db),
+):
     """Register a new user (legacy public endpoint · always student role).
 
     Backwards-compatible wrapper that delegates to register_student. The POC
     frontend still calls /auth/register · keeping it alive avoids breaking
     the public landing flow during S2.
+
+    GH-S11-INFRA-04 · rate-limited to ``settings.rate_limit_register`` (default 3/min).
     """
     return _register_student_internal(
         RegisterStudentRequest(
-            email=request.email,
-            password=request.password,
-            name=request.name,
+            email=payload.email,
+            password=payload.password,
+            name=payload.name,
         ),
         db,
     )
@@ -229,10 +311,18 @@ def register(request: RegisterRequest, db: DBSession = Depends(get_db)):
     response_model=TokenResponse,
     status_code=status.HTTP_201_CREATED,
     summary="GH-S2-BE-04 · public student registration",
+    dependencies=[Depends(_rate_limit_register)],
 )
-def register_student(request: RegisterStudentRequest, db: DBSession = Depends(get_db)):
-    """Public endpoint · creates a student-role user without school membership."""
-    return _register_student_internal(request, db)
+def register_student(
+    request: Request,
+    payload: RegisterStudentRequest,
+    db: DBSession = Depends(get_db),
+):
+    """Public endpoint · creates a student-role user without school membership.
+
+    GH-S11-INFRA-04 · rate-limited to ``settings.rate_limit_register`` (default 3/min).
+    """
+    return _register_student_internal(payload, db)
 
 
 def _register_student_internal(request: RegisterStudentRequest, db: DBSession) -> TokenResponse:
@@ -319,6 +409,67 @@ def register_school_user(
         onboarding_status=OnboardingStatus.COMPLETED,  # staff bypass onboarding
     )
 
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+
+    return UserResponse.model_validate(user)
+
+
+class InviteStudentRequest(BaseModel):
+    """School-admin invites a new student into their school · GH-S8-BE-05."""
+    email: EmailStr
+    password: str
+    name: Optional[str] = None
+
+
+@router.post(
+    "/invite-student",
+    response_model=UserResponse,
+    status_code=status.HTTP_201_CREATED,
+    summary="GH-S8-BE-05 · school_admin invites a student into its school (seats enforced)",
+)
+def invite_student(
+    request: InviteStudentRequest,
+    db: DBSession = Depends(get_db),
+    current_user: "User" = Depends(get_current_user),
+):
+    """Creates a student attached to the caller's school.
+
+    Caller must be school_admin (super_admin can use the regular flows).
+    Enforces the school's active license: not archived, not expired, seats
+    not exhausted (GH-S8-BE-05).
+    """
+    if current_user.role != UserRole.SCHOOL_ADMIN:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Forbidden · only school_admin can invite students.",
+        )
+    if not current_user.school_id:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="School admin must be linked to a school.",
+        )
+
+    # license + seats enforcement
+    from app.services.license_service import assert_can_register_student
+    assert_can_register_student(db, current_user.school_id)
+
+    existing = db.query(User).filter(User.email == request.email.lower()).first()
+    if existing:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Email already registered.",
+        )
+
+    user = User(
+        email=request.email.lower(),
+        hashed_password=get_password_hash(request.password),
+        name=request.name,
+        role=UserRole.STUDENT,
+        school_id=current_user.school_id,
+        onboarding_status=OnboardingStatus.NOT_STARTED,
+    )
     db.add(user)
     db.commit()
     db.refresh(user)

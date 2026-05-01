@@ -1,14 +1,18 @@
 """Advisor lead API endpoints."""
 
+import logging
 from uuid import UUID
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.orm import Session as DBSession
 
-from app.db.database import get_db
+from app.db.database import get_db, SessionLocal
 from app.db.models import AdvisorLead, Route
 from app.schemas.journey import AdvisorLeadCreate, AdvisorLeadResponse
 from app.services.journey_service import get_session
 from app.services.ai_service import generate_advisor_brief
+from app.services import bitrix_sync_service
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/advisor-leads", tags=["advisor"])
 
@@ -17,6 +21,7 @@ router = APIRouter(prefix="/advisor-leads", tags=["advisor"])
 def create_advisor_lead(
     lead_data: AdvisorLeadCreate,
     session_id: UUID,
+    background_tasks: BackgroundTasks,
     db: DBSession = Depends(get_db),
 ):
     """Submit advisor contact form."""
@@ -85,6 +90,27 @@ def create_advisor_lead(
     db.add(lead)
     db.commit()
     db.refresh(lead)
+
+    # GH-S10-BE-03 · enqueue Bitrix sync of the AdvisorLead in background.
+    # Uses a fresh DB session inside the task to avoid request-scoped state.
+    lead_id_str = str(lead.id)
+
+    def _runner_advisor() -> None:
+        bg_db = SessionLocal()
+        try:
+            adv = (
+                bg_db.query(AdvisorLead)
+                .filter(AdvisorLead.id == UUID(lead_id_str))
+                .first()
+            )
+            if adv is not None:
+                bitrix_sync_service.sync_advisor_lead(bg_db, adv)
+        except Exception as exc:  # pragma: no cover · defensive
+            logger.warning("bitrix sync_advisor_lead bg failed · %s", exc)
+        finally:
+            bg_db.close()
+
+    background_tasks.add_task(_runner_advisor)
 
     return lead
 

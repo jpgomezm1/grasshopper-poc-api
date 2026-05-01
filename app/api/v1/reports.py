@@ -15,11 +15,20 @@ import logging
 from typing import Optional
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.config import get_settings
+from app.core.rate_limiter import limiter
 from app.db.database import get_db
+
+
+def _rate_limit_reports_send(request: Request) -> None:
+    """GH-S11-INFRA-04 · per-user rate limit for POST /reports/{id}/send."""
+    from app.core.rate_limiter import rate_limit
+    s = get_settings()
+    return rate_limit(s.rate_limit_reports_send)(request)
 from app.db.models import Report, User, UserRole
 from app.schemas.report import (
     ReportGenerateResponse,
@@ -205,14 +214,22 @@ def get_report(
 # ---------------------------------------------------------------------------
 
 
-@router.post("/{report_id}/send", response_model=ReportSendResponse)
+@router.post(
+    "/{report_id}/send",
+    response_model=ReportSendResponse,
+    dependencies=[Depends(_rate_limit_reports_send)],
+)
 def post_send(
+    request: Request,
     report_id: UUID,
     body: Optional[ReportSendRequest] = None,
     current_user: User = Depends(get_current_user),
     db: DBSession = Depends(get_db),
 ):
-    """Envía el reporte al estudiante (o al override si el role lo permite)."""
+    """Envía el reporte al estudiante (o al override si el role lo permite).
+
+    GH-S11-INFRA-04 · rate-limited (default 5/hour).
+    """
     rep = _get_report_or_404(db, report_id)
     target = report_service.get_target_user(db, rep)
 

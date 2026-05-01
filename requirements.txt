@@ -1,4 +1,5 @@
-fastapi==0.109.0
+# GH-S12 · CVE sweep applied (2026-04-30)
+fastapi==0.109.2          # PYSEC-2024-38 fixed in 0.109.1+
 uvicorn[standard]==0.27.0
 pydantic[email]==2.5.3
 pydantic-settings==2.1.0
@@ -6,23 +7,31 @@ sqlalchemy==2.0.25
 alembic==1.13.1
 psycopg2-binary==2.9.10
 anthropic==0.18.1
-python-dotenv==1.0.0
+python-dotenv==1.2.2      # CVE-2026-28684 fixed in 1.2.2
 httpx==0.26.0
 # Authentication
 passlib[bcrypt]==1.7.4
-python-jose[cryptography]==3.3.0
+python-jose[cryptography]==3.4.0   # PYSEC-2024-232 / 233 fixed in 3.4.0
 # OpenAI for Whisper transcription
 openai>=1.0.0
-python-multipart>=0.0.6
+python-multipart>=0.0.7   # PYSEC-2024-43 mitigated in 0.0.7+
 # Storage (GH-S3-INFRA · D-010 Supabase Storage · stub fallback works without it)
 supabase>=2.3.0
 # Document parsing (GH-S5-BE-02 · external test uploads)
 pdfplumber>=0.10.0
 fpdf2>=2.7.0
-# PDF report rendering (GH-S7 · D-015 WeasyPrint)
+# PDF report rendering (GH-S7 · D-015 WeasyPrint · GH-S12 CVE-2025-68616 SSRF fix)
 # NOTE: Heroku S12 needs heroku-community/apt buildpack + Aptfile with
 # libcairo2 libpango-1.0-0 libpangoft2-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
-weasyprint==60.2
+weasyprint==68.1          # CVE-2025-68616 fixed in 68+
 Jinja2>=3.1.2
 # Email transactional (GH-S7 · D-016 Resend · stub fallback)
 resend>=0.7.0
+# Retries (GH-S10-BE-01 · Bitrix client · exponential backoff)
+tenacity>=8.2.0
+# Rate limiting (GH-S11-INFRA-04 · slowapi · login/register/invitations/uploads/reports)
+slowapi>=0.1.9
+# Error monitoring (GH-S11-INFRA-01 · Sentry · no-op when SENTRY_DSN_BACKEND empty)
+sentry-sdk[fastapi]>=1.40.0
+# Structured logging (GH-S11-INFRA-05 · structlog · JSON output · masking PII)
+structlog>=24.1.0

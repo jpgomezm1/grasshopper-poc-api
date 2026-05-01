@@ -1,36 +1,101 @@
 """FastAPI application entry point."""
 
-import logging
-from fastapi import FastAPI
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 
 from app.config import get_settings
-from app.db.database import engine, Base
-from app.api.v1 import sessions, profile, journal, routes, snapshots, advisor, auth, transcription, english_test, vocational_tests, ofertas, lead_profile, schools, external_test_uploads, recommendations, reports
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+from app.core.logging_config import configure_logging, get_logger
+from app.core.rate_limiter import (
+    RateLimitExceeded,
+    SlowAPIMiddleware,
+    limiter,
+    rate_limit_exceeded_handler,
 )
-logger = logging.getLogger(__name__)
+from app.core.security_headers import SecurityHeadersMiddleware
+from app.core.sentry_init import init_sentry
+from app.db.database import engine, Base
+from app.api.v1 import (
+    sessions,
+    profile,
+    journal,
+    routes,
+    snapshots,
+    advisor,
+    auth,
+    transcription,
+    english_test,
+    vocational_tests,
+    ofertas,
+    lead_profile,
+    schools,
+    external_test_uploads,
+    recommendations,
+    reports,
+    licenses,
+    programs,
+    admin,
+    school_panel,
+    bitrix,
+)
+
+# Configure logging early · structlog + PII masking (GH-S11)
+configure_logging()
+logger = get_logger(__name__)
+
+# Sentry · no-op when SENTRY_DSN_BACKEND empty (GH-S11-INFRA-01)
+sentry_active = init_sentry()
+if sentry_active:
+    logger.info("sentry.activated")
+else:
+    logger.info("sentry.no_op", reason="dsn_empty")
 
 settings = get_settings()
 
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Lifespan handler · replaces deprecated @app.on_event (S11-BUG-04 · S12)."""
+    logger.info(
+        "startup",
+        environment=settings.environment,
+        version=settings.app_version,
+        sentry_active=sentry_active,
+        rate_limit_enabled=settings.rate_limit_enabled,
+    )
+    Base.metadata.create_all(bind=engine)
+    logger.info("db.tables_ready")
+    yield
+    logger.info("shutdown")
+
+
 # Create FastAPI app
 app = FastAPI(
-    title="Grasshopper POC API",
-    description="Backend API for the Grasshopper journey experience",
-    version="1.0.0",
+    title="Grasshopper API",
+    description="Backend API for Grasshopper · vocational orientation platform",
+    version=settings.app_version,
+    lifespan=lifespan,
 )
 
-# Configure CORS
+# Rate limiter (GH-S11-INFRA-04) registered before CORS
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler)
+app.add_middleware(SlowAPIMiddleware)
+
+# Security headers (GH-S11-INFRA-05)
+app.add_middleware(SecurityHeadersMiddleware)
+
+# CORS — last in stack so its headers wrap everything below
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-Requested-With"],
+    expose_headers=["X-Request-Id", "X-RateLimit-Limit", "X-RateLimit-Remaining"],
+    max_age=600,
 )
 
 # Include routers
@@ -50,33 +115,73 @@ app.include_router(schools.router, prefix="/api/v1")
 app.include_router(external_test_uploads.router, prefix="/api/v1")
 app.include_router(recommendations.router, prefix="/api/v1")
 app.include_router(reports.router, prefix="/api/v1")
+app.include_router(licenses.router, prefix="/api/v1")
+app.include_router(programs.router, prefix="/api/v1")
+app.include_router(admin.router, prefix="/api/v1")
+app.include_router(school_panel.router, prefix="/api/v1")
+app.include_router(school_panel.public_router, prefix="/api/v1")
+# Bitrix CRM Sync (GH-S10 · D-020 stub default · activation in S12)
+app.include_router(bitrix.admin_router, prefix="/api/v1")
+app.include_router(bitrix.webhook_router, prefix="/api/v1")
 
 
-@app.on_event("startup")
-async def startup_event():
-    """Initialize database on startup."""
-    logger.info("Starting Grasshopper POC API...")
-    logger.info(f"Environment: {settings.environment}")
-
-    # Create tables if they don't exist
-    Base.metadata.create_all(bind=engine)
-    logger.info("Database tables created/verified")
-
-
-@app.get("/health")
+@app.get("/health", tags=["Infra"])
 async def health_check():
-    """Health check endpoint."""
-    return {
-        "status": "healthy",
+    """Readiness probe (GH-S11-INFRA-02).
+
+    Returns 200 when DB connectivity is OK, 503 otherwise. Anthropic +
+    Storage are reported as booleans without short-circuiting so
+    monitoring can distinguish soft degradation from hard outage.
+    """
+    from sqlalchemy import text
+
+    db_ok = True
+    db_error: str | None = None
+    try:
+        with engine.connect() as conn:
+            conn.execute(text("SELECT 1"))
+    except Exception as e:  # pragma: no cover · best effort
+        db_ok = False
+        db_error = str(e)[:200]
+
+    anthropic_ok = bool(settings.anthropic_api_key)
+    storage_ok = bool(settings.supabase_url and settings.supabase_service_key) or (
+        settings.storage_backend == "stub"
+    )
+
+    payload = {
+        "status": "healthy" if db_ok else "degraded",
+        "version": settings.app_version,
         "environment": settings.environment,
+        "checks": {
+            "db_connected": db_ok,
+            "anthropic_reachable": anthropic_ok,
+            "storage_reachable": storage_ok,
+            "sentry_active": sentry_active,
+            "rate_limit_enabled": settings.rate_limit_enabled,
+        },
     }
+    if db_error:
+        payload["db_error"] = db_error
+
+    if not db_ok:
+        return JSONResponse(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE, content=payload
+        )
+    return payload
 
 
-@app.get("/")
+@app.get("/health/live", tags=["Infra"])
+async def liveness_probe():
+    """Bare liveness · always 200 if process is up."""
+    return {"status": "alive", "version": settings.app_version}
+
+
+@app.get("/", tags=["Infra"])
 async def root():
     """Root endpoint."""
     return {
-        "message": "Welcome to Grasshopper POC API",
+        "message": "Welcome to Grasshopper API",
         "docs": "/docs",
         "health": "/health",
     }
@@ -84,4 +189,5 @@ async def root():
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)

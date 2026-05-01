@@ -75,6 +75,56 @@ class Settings(BaseSettings):
     resend_api_key: str = ""
     email_from: str = "Grasshopper <hola@grasshopper.co>"
 
+    # Bitrix CRM integration (GH-S10 · D-020 stub default · activation in S12)
+    # If BITRIX_WEBHOOK_URL is empty → bitrix_client operates in stub mode
+    # (logs payloads, returns synthetic IDs, marks provider=stub in sync log).
+    # BITRIX_INBOUND_SECRET is the HMAC secret for /webhooks/bitrix/inbound.
+    # BITRIX_INBOUND_ENABLED gates the inbound webhook (501 when disabled).
+    # BITRIX_NOTIFY_EMAIL receives failure notifications after N retries.
+    # BITRIX_RATE_LIMIT_RPS caps outbound calls (Bitrix REST default ~2 r/s).
+    bitrix_webhook_url: str = ""
+    bitrix_user_token: str = ""
+    bitrix_inbound_secret: str = ""
+    bitrix_inbound_enabled: bool = False
+    bitrix_notify_email: str = ""
+    bitrix_rate_limit_rps: float = 2.0
+    bitrix_max_attempts: int = 4
+    # Allow tests to short-circuit retries (seconds) · production keeps tenacity defaults.
+    bitrix_retry_min_wait_s: float = 2.0
+    bitrix_retry_max_wait_s: float = 128.0
+
+    # Sentry (GH-S11-INFRA-01 · DSN empty → no-op SDK)
+    sentry_dsn_backend: str = ""
+    sentry_environment: str = "development"
+    sentry_traces_sample_rate: float = 0.05
+    sentry_release: str = ""
+
+    # Rate limiting (GH-S11-INFRA-04 · slowapi · per-IP defaults)
+    rate_limit_enabled: bool = True
+    rate_limit_login: str = "5/minute"
+    rate_limit_register: str = "3/minute"
+    rate_limit_invitations_accept: str = "10/minute"
+    rate_limit_programs_import: str = "5/hour"
+    rate_limit_external_test_upload: str = "10/hour"
+    rate_limit_reports_send: str = "5/hour"
+    rate_limit_default: str = "120/minute"
+
+    # Security headers (GH-S11-INFRA-05 · HSTS · CSP · X-Frame-Options · etc.)
+    security_headers_enabled: bool = True
+    # comma-separated extra connect-src hosts (e.g. "https://api.openai.com")
+    csp_extra_connect_src: str = ""
+
+    # Webhook replay protection (GH-S11 · hardening S10)
+    webhook_timestamp_tolerance_s: int = 300  # 5 min
+    webhook_nonce_ttl_s: int = 600  # 10 min
+
+    # Structured logging (GH-S11 · structlog)
+    log_format: str = "json"  # "json" | "console"
+    log_level: str = "INFO"
+
+    # Application version (GH-S11 · health check + Sentry release)
+    app_version: str = "1.0.0"
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

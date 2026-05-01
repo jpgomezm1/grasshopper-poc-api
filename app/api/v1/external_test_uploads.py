@@ -25,13 +25,23 @@ from fastapi import (
     File,
     Form,
     HTTPException,
+    Request,
     UploadFile,
     status,
 )
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.config import get_settings
+from app.core.rate_limiter import limiter
 from app.db.database import get_db, SessionLocal
+
+
+def _rate_limit_external_upload(request: Request):
+    """GH-S11-INFRA-04 · per-user rate limit for upload endpoint."""
+    from app.core.rate_limiter import rate_limit
+    s = get_settings()
+    return rate_limit(s.rate_limit_external_test_upload)(request)
 from app.db.models import ExternalTestUpload, User, VocationalTestResult
 from app.schemas.external_tests import (
     ConfirmRequest,
@@ -196,7 +206,11 @@ def _run_parse_task(upload_id: str) -> None:
 # Routes
 # -----------------------------------------------------------------------------
 
-@router.post("", status_code=status.HTTP_201_CREATED)
+@router.post(
+    "",
+    status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(_rate_limit_external_upload)],
+)
 async def upload_test_result(
     background_tasks: BackgroundTasks,
     test_type: str = Form(...),
@@ -208,6 +222,8 @@ async def upload_test_result(
 
     Validates type, size, format · persists in storage · creates DB row ·
     schedules background parsing.
+
+    GH-S11-INFRA-04 · rate-limited (default 10/hour per user).
     """
     test_type = test_type.lower().strip()
     if test_type not in ALLOWED_TEST_TYPES:

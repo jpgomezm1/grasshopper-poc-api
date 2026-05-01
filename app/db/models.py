@@ -53,8 +53,18 @@ class School(Base):
     license_active = Column(Boolean, default=True, nullable=False)
     license_expires_at = Column(DateTime, nullable=True)
 
+    # Soft-delete · GH-S8-D-017 · super_admin marca archived_at; impide login
+    # de usuarios del colegio archivado (revisado en auth_service).
+    archived_at = Column(DateTime, nullable=True, index=True)
+
     # Reverse relation to users that belong to this school
     users = relationship("User", back_populates="school")
+    licenses = relationship(
+        "License",
+        back_populates="school",
+        cascade="all, delete-orphan",
+        order_by="License.created_at.desc()",
+    )
 
 
 class User(Base):
@@ -103,6 +113,14 @@ class User(Base):
 
     # Status
     is_active = Column(Boolean, default=True, nullable=False)
+
+    # Bitrix CRM lead status (GH-S10-DB-01 · inbound webhook BE-06)
+    # bitrix_lead_id    · external ID of the Bitrix lead/contact (UUID-as-str)
+    # bitrix_lead_status · 'new' | 'qualified' | 'contacted' | 'lost' | ...
+    # bitrix_lead_status_at · last update timestamp from Bitrix
+    bitrix_lead_id = Column(String(120), nullable=True, index=True)
+    bitrix_lead_status = Column(String(40), nullable=True, index=True)
+    bitrix_lead_status_at = Column(DateTime, nullable=True)
 
     # Relationships
     school = relationship("School", back_populates="users")
@@ -481,6 +499,228 @@ class Report(Base):
     email_provider = Column(String(30), nullable=True)
     email_message_id = Column(String(255), nullable=True)
     email_reason = Column(String(120), nullable=True)
+
+
+class LicenseTier(str, enum.Enum):
+    """Plan tiers for school licenses · GH-S8-DB-01."""
+    STARTER = "starter"
+    PRO = "pro"
+    ENTERPRISE = "enterprise"
+
+
+class LicenseStatus(str, enum.Enum):
+    """License status · GH-S8-DB-01."""
+    ACTIVE = "active"
+    EXPIRED = "expired"
+    CANCELLED = "cancelled"
+
+
+class License(Base):
+    """Per-school license · GH-S8-BE-03.
+
+    A school may have multiple license rows (renewals); the canonical
+    one for runtime checks is the latest where status=active and
+    (expires_at is null or expires_at > now()).
+
+    `seats` is the cap on active students of the school. Enforced at
+    student creation time by school_admin (GH-S8-BE-05).
+    """
+
+    __tablename__ = "licenses"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    school_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("schools.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    tier = Column(String(30), default=LicenseTier.STARTER.value, nullable=False)
+    seats = Column(Integer, default=50, nullable=False)
+    starts_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    expires_at = Column(DateTime, nullable=True)
+    status = Column(String(30), default=LicenseStatus.ACTIVE.value, nullable=False)
+    notes = Column(Text, nullable=True)
+
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    school = relationship("School", back_populates="licenses")
+
+
+class Program(Base):
+    """Catalogue program · GH-S8-BE-06.
+
+    Replaces the in-memory `app.data.ofertas` for the canonical catalogue.
+    Imported from Excel via scripts/import_catalog.py and edited via the
+    super admin panel.
+    """
+
+    __tablename__ = "programs"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    program_id = Column(String(120), nullable=False, unique=True, index=True)
+    name = Column(String(255), nullable=False)
+    slug = Column(String(255), nullable=False, unique=True, index=True)
+
+    country = Column(String(120), nullable=False, index=True)
+    city = Column(String(120), nullable=True)
+    institution = Column(String(255), nullable=False, index=True)
+
+    type = Column(String(60), nullable=False, index=True)
+    area = Column(String(120), nullable=True)
+    subject = Column(String(255), nullable=True)
+
+    duration_months = Column(Integer, nullable=False)
+    cost_total = Column(Integer, nullable=False)
+    currency = Column(String(10), default="USD", nullable=False)
+    budget_tier = Column(String(20), nullable=False, index=True)
+    alliance_type = Column(String(30), default="estandar", nullable=False)
+    language_requirement = Column(String(50), nullable=True)
+
+    active = Column(Boolean, default=True, nullable=False, index=True)
+    raw = Column(JSON, nullable=True)
+
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+
+class AuditLog(Base):
+    """Audit trail of sensitive admin actions · GH-S8-BE-10.
+
+    Logs every super_admin and school_admin mutation. Read-only from the
+    panel (no edit/delete via API). Retention >= 1 year per Habeas Data
+    operative compliance.
+    """
+
+    __tablename__ = "audit_logs"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    action = Column(String(80), nullable=False, index=True)
+    resource_type = Column(String(60), nullable=False, index=True)
+    resource_id = Column(String(120), nullable=True, index=True)
+    payload = Column(JSON, nullable=True)
+    ip_address = Column(String(60), nullable=True)
+    user_agent = Column(String(255), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
+
+
+class InvitationStatus(str, enum.Enum):
+    """Invitation lifecycle · GH-S9."""
+    PENDING = "pending"
+    ACCEPTED = "accepted"
+    EXPIRED = "expired"
+    REVOKED = "revoked"
+
+
+class Invitation(Base):
+    """Invitation to join a school · GH-S9.
+
+    Created by school_admin (any role) or psychologist (only role=student).
+    The token is opaque and URL-safe; the accept endpoint requires the token
+    plus a password choice. Default lifetime is 14 days from creation.
+
+    PII guard: `email` is stored lowercased. The accept-flow reuses the token
+    only once · subsequent attempts return 410 Gone.
+    """
+    __tablename__ = "invitations"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    school_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("schools.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    email = Column(String(255), nullable=False, index=True)
+    role = Column(String(30), nullable=False)  # student | psychologist
+    token = Column(String(120), nullable=False, unique=True, index=True)
+    status = Column(
+        String(20),
+        default=InvitationStatus.PENDING.value,
+        nullable=False,
+        index=True,
+    )
+
+    expires_at = Column(DateTime, nullable=False)
+    accepted_at = Column(DateTime, nullable=True)
+    accepted_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    invited_by_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+
+class BitrixSyncStatus(str, enum.Enum):
+    """Bitrix sync log status · GH-S10-DB-01."""
+    PENDING = "pending"
+    SUCCESS = "success"
+    RETRY = "retry"
+    FAILED = "failed"
+    STUB = "stub"
+
+
+class BitrixSyncLog(Base):
+    """Outbound + inbound Bitrix CRM sync log · GH-S10-DB-01.
+
+    One row per sync attempt. The same (entity_type, entity_id) may have
+    multiple rows over time (history). Status transitions:
+
+        pending → retry* → success
+        pending → retry* → failed   (after N attempts exhausted)
+        pending → stub              (no BITRIX_WEBHOOK_URL configured · D-020)
+        pending → success           (inbound webhook acknowledged)
+
+    PII guard: payload may contain student name/email/phone. Logs use
+    masking (mask_email helper in bitrix_client). DB row is authoritative
+    record but never logged in stdout / metrics.
+
+    The `provider` field tracks whether the row came from a real Bitrix
+    call ('bitrix') or the stub mock ('stub'). On S12 cutover this lets
+    us audit which rows need replay.
+    """
+
+    __tablename__ = "bitrix_sync_log"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+
+    entity_type = Column(String(40), nullable=False, index=True)
+    entity_id = Column(String(120), nullable=False, index=True)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+
+    action = Column(String(40), nullable=False)
+    payload = Column(JSON, nullable=True)
+    bitrix_response = Column(JSON, nullable=True)
+
+    status = Column(String(20), default=BitrixSyncStatus.PENDING.value, nullable=False, index=True)
+    provider = Column(String(20), default="stub", nullable=False)
+    attempts = Column(Integer, default=0, nullable=False)
+    error_message = Column(Text, nullable=True)
+
+    synced_at = Column(DateTime, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
 
 class LeadProfile(Base):

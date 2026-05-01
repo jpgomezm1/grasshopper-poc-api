@@ -6,7 +6,7 @@ and consumed in full by the Super Admin panel (Sprint 8).
 from __future__ import annotations
 
 from datetime import datetime
-from typing import Optional
+from typing import List, Optional
 from uuid import UUID
 
 from pydantic import BaseModel, Field, ConfigDict
@@ -38,6 +38,7 @@ class SchoolResponse(SchoolBase):
     id: UUID
     created_at: datetime
     updated_at: datetime
+    archived_at: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
 
@@ -50,3 +51,21 @@ class SchoolSummary(BaseModel):
     logo_url: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class SchoolWithStats(SchoolResponse):
+    """School row enriched with usage stats for the admin list view."""
+    students_count: int = 0
+    psychologists_count: int = 0
+    license_tier: Optional[str] = None
+    license_seats: Optional[int] = None
+    license_expires_at: Optional[datetime] = None
+
+
+class SchoolListResponse(BaseModel):
+    """Paginated school list · GH-S8-BE-01."""
+    items: List[SchoolWithStats]
+    total: int
+    page: int
+    page_size: int
+    total_pages: int

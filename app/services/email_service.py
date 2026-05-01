@@ -1,7 +1,8 @@
-"""Transactional email service · Sprint 7 · D-016.
+"""Transactional email service · Sprint 7 · D-016 · extended Sprint 11.5 (QA-AUD-001).
 
 Public API:
     send_report_email(to, student_name, report_pdf_bytes, school_name=None) -> EmailSendResult
+    send_email(to, subject, html_body, text_body=None) -> EmailSendResult     · plain HTML, no attachment
 
 Backend resolution at runtime (mirrors storage_service.py · D-010):
     if RESEND_API_KEY is set       → Resend backend
@@ -56,6 +57,15 @@ class EmailBackend(Protocol):
         attachment_mime: str = "application/pdf",
     ) -> EmailSendResult: ...
 
+    def send_html(
+        self,
+        *,
+        to: str,
+        subject: str,
+        html: str,
+        text: Optional[str] = None,
+    ) -> EmailSendResult: ...
+
 
 # -----------------------------------------------------------------------------
 # PII helpers
@@ -96,6 +106,28 @@ class _StubBackend:
             subject,
             len(attachment_bytes or b""),
             attachment_filename,
+        )
+        return EmailSendResult(
+            provider="stub",
+            delivered=False,
+            message_id=None,
+            reason="no_provider_configured",
+        )
+
+    def send_html(
+        self,
+        *,
+        to: str,
+        subject: str,
+        html: str,
+        text: Optional[str] = None,
+    ) -> EmailSendResult:
+        logger.info(
+            "email_stub_html to=%s subject=%r html_len=%d text_len=%d reason=no_provider_configured",
+            _mask_email(to),
+            subject,
+            len(html or ""),
+            len(text or ""),
         )
         return EmailSendResult(
             provider="stub",
@@ -168,6 +200,52 @@ class _ResendBackend:
             message_id = res.get("id")
         logger.info(
             "resend send ok to=%s message_id=%s",
+            _mask_email(to),
+            message_id,
+        )
+        return EmailSendResult(
+            provider="resend",
+            delivered=True,
+            message_id=message_id,
+            reason=None,
+        )
+
+    def send_html(
+        self,
+        *,
+        to: str,
+        subject: str,
+        html: str,
+        text: Optional[str] = None,
+    ) -> EmailSendResult:
+        try:
+            params: dict = {
+                "from": self._from,
+                "to": [to],
+                "subject": subject,
+                "html": html,
+            }
+            if text:
+                params["text"] = text
+            res = self._resend.Emails.send(params)  # type: ignore[attr-defined]
+        except Exception as exc:  # pragma: no cover · S12 live
+            logger.warning(
+                "resend send_html failed to=%s err=%s",
+                _mask_email(to),
+                exc,
+            )
+            return EmailSendResult(
+                provider="resend",
+                delivered=False,
+                message_id=None,
+                reason=str(exc)[:120],
+            )
+
+        message_id = None
+        if isinstance(res, dict):
+            message_id = res.get("id")
+        logger.info(
+            "resend send_html ok to=%s message_id=%s",
             _mask_email(to),
             message_id,
         )
@@ -304,6 +382,44 @@ def send_report_email(
         attachment_bytes=report_pdf_bytes,
         attachment_filename=filename,
         attachment_mime="application/pdf",
+    )
+
+
+def send_email(
+    *,
+    to: str,
+    subject: str,
+    html_body: str,
+    text_body: Optional[str] = None,
+) -> EmailSendResult:
+    """Send a plain transactional HTML email (no attachments).
+
+    Used by flows that need a generic email helper · invitations (S9 · QA-AUD-001),
+    forgot-password (post-S12), notify_failure (Bitrix S10).
+
+    Returns EmailSendResult with the provider used and outcome. Falls back to
+    stub backend when RESEND_API_KEY is not configured (`delivered=False`,
+    `reason="no_provider_configured"`).
+    """
+    if not to or "@" not in to:
+        return EmailSendResult(
+            provider="stub",
+            delivered=False,
+            reason="invalid_recipient",
+        )
+
+    if not subject or not html_body:
+        return EmailSendResult(
+            provider="stub",
+            delivered=False,
+            reason="empty_subject_or_body",
+        )
+
+    return get_backend().send_html(
+        to=to,
+        subject=subject,
+        html=html_body,
+        text=text_body,
     )
 
 

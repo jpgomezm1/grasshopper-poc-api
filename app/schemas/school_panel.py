@@ -142,6 +142,21 @@ class StudentDetailResponse(BaseModel):
     consolidated_profile: Optional[Dict[str, Any]] = None
     recommendations: List[RecommendationSummary] = Field(default_factory=list)
     journal_entries: List[JournalEntrySummary] = Field(default_factory=list)
+    # GH-S11.5-BE-06 · D-025 · Habeas Data filter (Ley 1581/2012)
+    # Staff (psychologist · school_admin · super_admin) only sees journal
+    # entries with entry_type IN ('interest','constraint','decision').
+    # `private_entries_count` exposes the number of `reflection`+`manual`
+    # entries the student has WITHOUT leaking content · transparency without
+    # disclosure · enables UI to inform staff that the student has private
+    # entries that require explicit student consent to access.
+    private_entries_count: int = Field(
+        default=0,
+        ge=0,
+        description=(
+            "Count of student's `reflection`+`manual` entries hidden from staff. "
+            "Use to render a discreet notice without disclosing content."
+        ),
+    )
     saved_offers: List[str] = Field(default_factory=list)
 
     last_active_at: Optional[datetime] = None

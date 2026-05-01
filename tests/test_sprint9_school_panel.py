@@ -319,6 +319,150 @@ def test_psychologist_is_read_only_marker(app_with_db):
     assert body["read_only_for_caller"] is True
 
 
+def _seed_journal_entries(SessionLocal, user_id, entries):
+    """Seed `JournalEntry` rows for a given student via a synthetic Session.
+
+    `entries` is a list of (entry_type_str, content) tuples.
+    """
+    from app.db.models import (
+        JournalEntry,
+        JournalEntryType,
+        Session as JourneySession,
+        JourneyStage,
+    )
+
+    db = SessionLocal()
+    try:
+        sess = JourneySession(
+            user_id=user_id,
+            current_step="welcome",
+            current_stage=JourneyStage.LANDING,
+        )
+        db.add(sess)
+        db.commit()
+        db.refresh(sess)
+
+        for entry_type, content in entries:
+            db.add(
+                JournalEntry(
+                    session_id=sess.id,
+                    content=content,
+                    entry_type=JournalEntryType(entry_type),
+                )
+            )
+        db.commit()
+    finally:
+        db.close()
+
+
+def test_staff_journal_filter_strips_private_entries(app_with_db):
+    """GH-S11.5-BE-06 · D-025 · QA-AUD-033 · Habeas Data Ley 1581/2012.
+
+    Staff (psychologist + school_admin + super_admin) MUST NOT see journal
+    entries with `entry_type IN ('reflection','manual')`. Server-side filter
+    enforced in `school_panel_service._build_student_detail`. The contract
+    exposes `private_entries_count` so the UI can render a discreet notice.
+    """
+    app, SessionLocal = app_with_db
+    _make_super(SessionLocal, email="root@gh.example.com")
+    client = TestClient(app)
+    super_token = _login(client, "root@gh.example.com", "rootpass123")
+
+    school = _make_school(client, super_token, "PrivacySchool", "privacy-school")
+    _make_school_user(SessionLocal, school, "psy@priv.com", "psychologist")
+    _make_school_user(SessionLocal, school, "admin@priv.com", "school_admin")
+    student = _seed_student(
+        SessionLocal,
+        school,
+        "stu@priv.com",
+        onboarding="completed",
+        tests=1,
+    )
+
+    # Seed all 5 journal types · 3 should be visible · 2 should be hidden.
+    _seed_journal_entries(
+        SessionLocal,
+        student.id,
+        [
+            ("interest", "Me interesa la biología marina."),
+            ("constraint", "Mis padres prefieren que estudie en Colombia."),
+            ("decision", "Voy a aplicar a Medicina en Canadá."),
+            ("reflection", "Me siento solo y dudo de mi vocación."),
+            ("manual", "Tengo miedo de decirles a mis papás que no quiero seguir su carrera."),
+        ],
+    )
+
+    private_marker_phrases = (
+        "Me siento solo",
+        "miedo de decirles",
+    )
+
+    def _assert_filter_for(token):
+        H = {"Authorization": f"Bearer {token}"}
+        r = client.get(f"/api/v1/school/me/students/{student.id}", headers=H)
+        assert r.status_code == 200, r.text
+        body = r.json()
+
+        # 3 visible entries · NEVER reflection/manual
+        types = [e["entry_type"] for e in body["journal_entries"]]
+        assert sorted(types) == ["constraint", "decision", "interest"]
+        assert "reflection" not in types
+        assert "manual" not in types
+
+        # Contents of private entries MUST NOT appear anywhere in response.
+        raw = r.text
+        for phrase in private_marker_phrases:
+            assert phrase not in raw, (
+                f"Private journal content leaked to staff payload: {phrase!r}"
+            )
+
+        # Discreet counter exposes the number without leaking content.
+        assert body["private_entries_count"] == 2
+
+    # Psychologist
+    psy_token = _login(client, "psy@priv.com", "schoolpass123")
+    _assert_filter_for(psy_token)
+
+    # School admin (same school) · same filter applies
+    admin_token = _login(client, "admin@priv.com", "schoolpass123")
+    _assert_filter_for(admin_token)
+
+    # Note · /school/me/students/{id} requires caller bound to a school.
+    # Super_admin without school_id cannot reach this endpoint by design
+    # (S9 router · _resolve_school_user). The same filter still applies to
+    # any caller who DOES reach it (filter is server-side and unconditional).
+    # See test_super_admin_without_school_id_blocked for the auth check.
+
+
+def test_journal_filter_handles_zero_private_entries(app_with_db):
+    """GH-S11.5-BE-06 · counter is 0 when student has no reflection/manual rows."""
+    app, SessionLocal = app_with_db
+    _make_super(SessionLocal)
+    client = TestClient(app)
+    super_token = _login(client, "root@gh.example.com", "rootpass123")
+
+    school = _make_school(client, super_token, "PrivacySchool2", "privacy-school-2")
+    _make_school_user(SessionLocal, school, "psy2@p.com", "psychologist")
+    student = _seed_student(SessionLocal, school, "stu2@p.com", onboarding="completed")
+
+    _seed_journal_entries(
+        SessionLocal,
+        student.id,
+        [
+            ("interest", "x"),
+            ("decision", "y"),
+        ],
+    )
+
+    psy_token = _login(client, "psy2@p.com", "schoolpass123")
+    H = {"Authorization": f"Bearer {psy_token}"}
+    r = client.get(f"/api/v1/school/me/students/{student.id}", headers=H)
+    assert r.status_code == 200
+    body = r.json()
+    assert len(body["journal_entries"]) == 2
+    assert body["private_entries_count"] == 0
+
+
 def test_psychologist_cannot_invite_psychologist(app_with_db):
     """GH-S9 · permission matrix · psychologist may invite student only."""
     app, SessionLocal = app_with_db

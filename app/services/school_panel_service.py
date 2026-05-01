@@ -643,10 +643,25 @@ def build_student_detail(
                 )
             )
 
+    # GH-S11.5-BE-06 · D-025 · Habeas Data filter (Ley 1581/2012 · Colombia · Art. 7+8)
+    # Staff (psy · school_admin · super_admin) only sees `interest`/`constraint`/`decision`
+    # entries · `reflection` and `manual` are private to the student · finalidad acotada.
+    # Filter MUST live server-side · clients are never trusted with private content.
+    _STAFF_VISIBLE_JOURNAL_TYPES = (
+        JournalEntryType.INTEREST,
+        JournalEntryType.CONSTRAINT,
+        JournalEntryType.DECISION,
+    )
+    _STAFF_PRIVATE_JOURNAL_TYPES = (
+        JournalEntryType.REFLECTION,
+        JournalEntryType.MANUAL,
+    )
+
     journal_rows = (
         db.query(JournalEntry)
         .join(JourneySession, JourneySession.id == JournalEntry.session_id)
         .filter(JourneySession.user_id == user.id)
+        .filter(JournalEntry.entry_type.in_(_STAFF_VISIBLE_JOURNAL_TYPES))
         .order_by(JournalEntry.created_at.desc())
         .limit(50)
         .all()
@@ -661,6 +676,16 @@ def build_student_detail(
         )
         for j in journal_rows
     ]
+
+    # Discreet count of private entries · transparency without content disclosure.
+    private_entries_count = (
+        db.query(func.count(JournalEntry.id))
+        .join(JourneySession, JourneySession.id == JournalEntry.session_id)
+        .filter(JourneySession.user_id == user.id)
+        .filter(JournalEntry.entry_type.in_(_STAFF_PRIVATE_JOURNAL_TYPES))
+        .scalar()
+        or 0
+    )
 
     saved_rows = (
         db.query(SavedOferta.oferta_id)
@@ -682,6 +707,7 @@ def build_student_detail(
         consolidated_profile=consolidated,
         recommendations=recommendations,
         journal_entries=journal,
+        private_entries_count=int(private_entries_count),
         saved_offers=saved,
         last_active_at=user.updated_at,
         created_at=user.created_at,

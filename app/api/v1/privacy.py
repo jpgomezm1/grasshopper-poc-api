@@ -427,22 +427,71 @@ def delete_my_data(
     persist with `user_id=None` (FK SET NULL).
     """
     user_id = current_user.id
+    # Capture the Bitrix lead id BEFORE we anonymize · the bg runner will
+    # need it explicitly because by the time it runs, user.bitrix_lead_id
+    # has been cleared in the DB (anonymization step below).
+    former_bitrix_lead_id = current_user.bitrix_lead_id
 
     # Bitrix de-sync first (best-effort · before clearing the lead id).
-    if current_user.bitrix_lead_id:
-        from app.services.bitrix_sync_service import desync_user_on_revoke
+    if former_bitrix_lead_id:
+        from app.services.bitrix_client import get_client
         from app.db.database import SessionLocal
+        from app.db.models import BitrixSyncLog, BitrixSyncStatus
 
-        def _runner(uid: UUID) -> None:
+        def _runner(uid: UUID, lead_id: str) -> None:
             db2 = SessionLocal()
             try:
-                desync_user_on_revoke(db2, uid)
+                # Mark the lead as JUNK with Habeas Data note · we use the
+                # captured lead_id directly because user_id row already has
+                # bitrix_lead_id=None at this point.
+                client = get_client()
+                fields = {
+                    "STATUS_ID": "JUNK",
+                    "COMMENTS": (
+                        "Account deleted by user · Habeas Data Ley 1581/2012 "
+                        "(Colombia)."
+                    ),
+                }
+                row = BitrixSyncLog(
+                    entity_type="user",
+                    entity_id=str(uid),
+                    user_id=None,  # user already anonymized
+                    action="data_deletion_desync",
+                    payload={"former_lead_id": lead_id},
+                    status=BitrixSyncStatus.PENDING.value,
+                    provider="consent_gate",
+                    attempts=0,
+                )
+                db2.add(row)
+                db2.commit()
+                db2.refresh(row)
+                try:
+                    result = client.update_lead(lead_id, fields)
+                    row.status = (
+                        BitrixSyncStatus.SUCCESS.value
+                        if result.success
+                        else BitrixSyncStatus.FAILED.value
+                    )
+                    row.provider = result.provider or "consent_gate"
+                    row.attempts = result.attempts
+                    row.synced_at = datetime.utcnow() if result.success else None
+                    if not result.success:
+                        row.error_message = (result.error or "")[:500]
+                    db2.commit()
+                except Exception as exc:  # pragma: no cover · defensive
+                    logger.warning(
+                        "data_deletion bitrix desync failed · %s",
+                        exc,
+                    )
+                    row.status = BitrixSyncStatus.FAILED.value
+                    row.error_message = str(exc)[:500]
+                    db2.commit()
             except Exception as exc:  # pragma: no cover · defensive
                 logger.warning("desync on deletion failed · %s", exc)
             finally:
                 db2.close()
 
-        background_tasks.add_task(_runner, user_id)
+        background_tasks.add_task(_runner, user_id, former_bitrix_lead_id)
 
     # Audit BEFORE mutation so user_id is still on the row.
     log_data_deletion(db, current_user, request=request)

@@ -39,6 +39,7 @@ from app.api.v1 import (
     admin,
     school_panel,
     bitrix,
+    privacy,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -123,6 +124,8 @@ app.include_router(school_panel.public_router, prefix="/api/v1")
 # Bitrix CRM Sync (GH-S10 · D-020 stub default · activation in S12)
 app.include_router(bitrix.admin_router, prefix="/api/v1")
 app.include_router(bitrix.webhook_router, prefix="/api/v1")
+# Habeas Data privacy endpoints (GH-S11.5-BE-07 · D-026 · Ley 1581/2012)
+app.include_router(privacy.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

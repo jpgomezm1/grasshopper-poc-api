@@ -97,6 +97,7 @@ def _make_super_admin(SessionLocal):
 
 
 def _make_student(SessionLocal, *, with_profile=True):
+    from datetime import date, datetime
     from app.db.models import (
         ConsolidatedProfileCache,
         EnglishTestResult,
@@ -107,6 +108,7 @@ def _make_student(SessionLocal, *, with_profile=True):
     from app.api.v1.auth import get_password_hash
 
     db = SessionLocal()
+    today = date.today()
     u = User(
         email="ana@example.com",
         hashed_password=get_password_hash("studentpass123"),
@@ -116,6 +118,12 @@ def _make_student(SessionLocal, *, with_profile=True):
         budget_band="medio",
         budget_max_usd=70000,
         preferred_countries=["Estados Unidos", "Canadá"],
+        # GH-S11.5-BE-07 · D-026 · sync tests assume consent granted; the
+        # gate itself is exercised in test_consent_gate.py
+        birthdate=date(today.year - 25, today.month, today.day),
+        consent_data_processing_at=datetime.utcnow(),
+        consent_data_processing_version="1.0.0",
+        consent_crm_sync_at=datetime.utcnow(),
     )
     db.add(u)
     db.commit()

@@ -276,6 +276,48 @@ def _is_duplicate_of_last(
 
 
 # -----------------------------------------------------------------------------
+# Habeas Data consent gate · GH-S11.5-BE-07 · D-026 · Ley 1581/2012
+# -----------------------------------------------------------------------------
+
+
+def _skip_for_no_consent(
+    db: DBSession,
+    *,
+    entity_type: str,
+    entity_id: str,
+    user_id: Optional[UUID],
+    reason: str,
+) -> BitrixSyncLog:
+    """Persist a `skip_no_consent` log row WITHOUT calling Bitrix.
+
+    Used as fail-safe gate: caller invoked sync but the user has not granted
+    the required consent · we record the attempt for auditability and exit.
+    Returns the log row so the caller can return it like a normal sync.
+    """
+    row = BitrixSyncLog(
+        entity_type=entity_type,
+        entity_id=entity_id,
+        user_id=user_id,
+        action="skip_no_consent",
+        payload={"reason": reason},
+        status=BitrixSyncStatus.SUCCESS.value,
+        provider="consent_gate",
+        attempts=0,
+        synced_at=datetime.utcnow(),
+        bitrix_response={"skipped": True, "reason": reason},
+    )
+    db.add(row)
+    db.commit()
+    db.refresh(row)
+    logger.info(
+        "bitrix sync skipped · no consent · user=%s reason=%s",
+        user_id,
+        reason,
+    )
+    return row
+
+
+# -----------------------------------------------------------------------------
 # Public sync functions
 # -----------------------------------------------------------------------------
 
@@ -290,7 +332,27 @@ def sync_user_lead(
 
     Idempotent: if a previous successful sync exists, we update the same
     Bitrix lead id. Otherwise we create.
+
+    Habeas Data gate (D-026): if the user has not granted `crm_sync` (and
+    `parental` when minor) we DO NOT call Bitrix · we log a skip row and
+    return early. Ley 1581/2012 (Colombia) · finalidad acotada.
     """
+    user = db.query(User).filter(User.id == user_id).first()
+    if user is None:
+        raise ValueError(f"user {user_id} not found")
+
+    # Consent gate · MUST run before any data leaves to a third party.
+    from app.services.consent_service import has_crm_consent
+    allowed, reason = has_crm_consent(user)
+    if not allowed:
+        return _skip_for_no_consent(
+            db,
+            entity_type="user",
+            entity_id=str(user_id),
+            user_id=user_id,
+            reason=reason or "unknown",
+        )
+
     bundle = build_student_bundle(db, user_id)
     if bundle is None:
         raise ValueError(f"user {user_id} not found")
@@ -361,7 +423,26 @@ def sync_user_deal(
     *,
     client: Optional[BitrixClient] = None,
 ) -> BitrixSyncLog:
-    """Create or update a Bitrix Deal from the recommended programs."""
+    """Create or update a Bitrix Deal from the recommended programs.
+
+    Habeas Data gate (D-026 · GH-S11.5-BE-07): same consent gate as
+    `sync_user_lead` · skip without calling Bitrix when consent is missing.
+    """
+    user = db.query(User).filter(User.id == user_id).first()
+    if user is None:
+        raise ValueError(f"user {user_id} not found")
+
+    from app.services.consent_service import has_crm_consent
+    allowed, reason = has_crm_consent(user)
+    if not allowed:
+        return _skip_for_no_consent(
+            db,
+            entity_type="deal",
+            entity_id=str(user_id),
+            user_id=user_id,
+            reason=reason or "unknown",
+        )
+
     bundle = build_student_bundle(db, user_id)
     if bundle is None:
         raise ValueError(f"user {user_id} not found")
@@ -425,7 +506,14 @@ def sync_advisor_lead(
     *,
     client: Optional[BitrixClient] = None,
 ) -> BitrixSyncLog:
-    """Sync an AdvisorLead · creates a Lead with the brief as comment."""
+    """Sync an AdvisorLead · creates a Lead with the brief as comment.
+
+    Habeas Data gate (D-026 · GH-S11.5-BE-07): when the AdvisorLead is
+    bound to an authenticated user, the same consent gate applies. Anonymous
+    flows (no `user_id`) bypass the gate · the AdvisorLead form is itself
+    an explicit opt-in (user typed name/email/phone asking to be contacted),
+    so it constitutes consent_unico_evento per Decreto 1377/2013 Art. 9.
+    """
     user_id: Optional[UUID] = None
     if advisor_lead.session and advisor_lead.session.user_id:
         user_id = advisor_lead.session.user_id
@@ -441,6 +529,20 @@ def sync_advisor_lead(
             advisor_requested=True,
         )
     else:
+        # Auth'd user · consent gate applies.
+        user = db.query(User).filter(User.id == user_id).first()
+        if user is not None:
+            from app.services.consent_service import has_crm_consent
+            allowed, reason = has_crm_consent(user)
+            if not allowed:
+                return _skip_for_no_consent(
+                    db,
+                    entity_type="advisor_lead",
+                    entity_id=str(advisor_lead.id),
+                    user_id=user_id,
+                    reason=reason or "unknown",
+                )
+
         bundle = build_student_bundle(db, user_id)
         if bundle is None:
             raise ValueError(f"user {user_id} not found")
@@ -581,6 +683,11 @@ def enqueue_journey_completed(
     """Schedule sync_user_lead + sync_user_deal as background tasks.
 
     Mirrors the S5 parsing pattern: enqueue and return 202 to the caller.
+
+    Habeas Data note (D-026): the runners themselves call `has_crm_consent`
+    via the synchronous sync_* functions and persist a `skip_no_consent`
+    log row when consent is missing. This means we always have an audit
+    trail of journey completion attempts even if the sync was skipped.
     """
     from app.db.database import SessionLocal
 
@@ -607,6 +714,80 @@ def enqueue_journey_completed(
 
     background_tasks.add_task(_runner_lead, user_id)
     background_tasks.add_task(_runner_deal, user_id)
+
+
+def desync_user_on_revoke(
+    db: DBSession,
+    user_id: UUID,
+    *,
+    client: Optional[BitrixClient] = None,
+) -> Optional[BitrixSyncLog]:
+    """Mark Bitrix lead as JUNK + comment when user revokes crm_sync consent.
+
+    GH-S11.5-BE-07 · D-026 · derecho a revocar (Ley 1581/2012 Art. 8.e).
+
+    Most Bitrix portals restrict DELETE on leads, so we soft-mark the lead
+    as JUNK with a Habeas Data comment indicating consent was withdrawn.
+    Returns the audit log row, or None when there's nothing to de-sync.
+    """
+    user = db.query(User).filter(User.id == user_id).first()
+    if user is None:
+        return None
+    if not user.bitrix_lead_id:
+        # Nothing was ever synced · still record the intent.
+        row = BitrixSyncLog(
+            entity_type="user",
+            entity_id=str(user_id),
+            user_id=user_id,
+            action="consent_revoke_desync",
+            payload={"former_lead_id": None, "note": "no_lead_to_desync"},
+            status=BitrixSyncStatus.SUCCESS.value,
+            provider="consent_gate",
+            attempts=0,
+            synced_at=datetime.utcnow(),
+        )
+        db.add(row)
+        db.commit()
+        db.refresh(row)
+        return row
+
+    former_lead_id = user.bitrix_lead_id
+    log_row = _start_log(
+        db,
+        entity_type="user",
+        entity_id=str(user_id),
+        user_id=user_id,
+        action="consent_revoke_desync",
+        payload={
+            "former_lead_id": former_lead_id,
+            "reason": "consent_revoked",
+        },
+    )
+
+    client = client or get_client()
+    fields = {
+        "STATUS_ID": "JUNK",
+        "COMMENTS": (
+            "Consent revoked by user · Habeas Data Ley 1581/2012 (Colombia). "
+            "Datos personales no pueden ser procesados ni transferidos."
+        ),
+    }
+    try:
+        result = client.update_lead(former_lead_id, fields)
+    except Exception as exc:  # pragma: no cover · defensive
+        logger.warning(
+            "bitrix desync failed for user=%s · %s · keeping audit row",
+            user_id,
+            exc,
+        )
+        log_row.status = BitrixSyncStatus.FAILED.value
+        log_row.error_message = str(exc)[:500]
+        db.commit()
+        db.refresh(log_row)
+        return log_row
+
+    log_row = _finish_log(db, log_row, result)
+    return log_row
 
 
 # -----------------------------------------------------------------------------

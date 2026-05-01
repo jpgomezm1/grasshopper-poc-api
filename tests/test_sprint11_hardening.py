@@ -374,17 +374,25 @@ def test_bitrix_dedup_skips_when_payload_unchanged(app_with_db, monkeypatch):
     """Two consecutive sync_user_lead calls with identical bundle ⇒ second one
     short-circuits to a `skip_dedup` log row without invoking the client."""
     app, SessionLocal = app_with_db
+    from datetime import date, datetime
     from app.db.models import User, UserRole
     from app.api.v1.auth import get_password_hash
     from app.services import bitrix_sync_service as svc
     from app.services.bitrix_client import BitrixClient, BitrixCallResult
 
     db = SessionLocal()
+    today = date.today()
     u = User(
         email="bx@gh.example.com",
         hashed_password=get_password_hash("x"),
         name="BX",
         role=UserRole.STUDENT,
+        # GH-S11.5-BE-07 · consent granted so the sync proceeds and dedup
+        # path is exercised. Gate itself is tested in test_consent_gate.py.
+        birthdate=date(today.year - 25, today.month, today.day),
+        consent_data_processing_at=datetime.utcnow(),
+        consent_data_processing_version="1.0.0",
+        consent_crm_sync_at=datetime.utcnow(),
     )
     db.add(u)
     db.commit()

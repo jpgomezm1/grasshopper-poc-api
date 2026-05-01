@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import Column, String, DateTime, Text, Boolean, Integer, Float, ForeignKey, JSON, Enum, UniqueConstraint
+from sqlalchemy import Column, String, DateTime, Date, Text, Boolean, Integer, Float, ForeignKey, JSON, Enum, UniqueConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 import enum
@@ -121,6 +121,15 @@ class User(Base):
     bitrix_lead_id = Column(String(120), nullable=True, index=True)
     bitrix_lead_status = Column(String(40), nullable=True, index=True)
     bitrix_lead_status_at = Column(DateTime, nullable=True)
+
+    # Habeas Data consent gate · GH-S11.5-BE-07 · D-026 · Ley 1581/2012 (Colombia)
+    # ALL nullable for backward compat · gate logic treats NULL as "not granted".
+    # is_minor logic: if birthdate is None → assume minor (more restrictive default).
+    birthdate = Column(Date, nullable=True)
+    consent_data_processing_at = Column(DateTime, nullable=True)
+    consent_data_processing_version = Column(String(20), nullable=True)
+    consent_crm_sync_at = Column(DateTime, nullable=True)
+    consent_parental_at = Column(DateTime, nullable=True)
 
     # Relationships
     school = relationship("School", back_populates="users")
@@ -742,3 +751,49 @@ class LeadProfile(Base):
     # Tracking
     converted = Column(Boolean, default=False, nullable=False)
     source = Column(String(50), default="landing_quiz", nullable=False)
+
+
+class ConsentAuditLog(Base):
+    """Immutable audit trail for consent grants and revocations.
+
+    GH-S11.5-BE-07 · D-026 · Ley 1581/2012 (Colombia) · Art. 8.
+
+    Each row records a single consent state transition (or data right
+    exercise) for a user. `event` is whitelisted by the service layer
+    (NOT a DB enum · enables extension without migrations).
+
+    Valid `event` values (curated whitelist · enforced in
+    `app.services.consent_service.CONSENT_EVENTS`):
+
+        data_processing.granted   · global Privacy Policy accepted
+        data_processing.revoked   · titular asks for cessation
+        crm_sync.granted          · opt-in to Bitrix share
+        crm_sync.revoked          · opt-out / right to revoke
+        parental.granted          · legal guardian authorization
+        parental.revoked          · guardian withdraws authorization
+        data_export               · titular invoked GET /me/data
+        data_deletion             · titular invoked DELETE /me/data
+
+    Read-only by design · no UPDATE / DELETE expected. user_id stays
+    populated even after the user is soft-deleted (FK uses SET NULL).
+    """
+
+    __tablename__ = "consent_audit_log"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    event = Column(String(60), nullable=False, index=True)
+    ip = Column(String(50), nullable=True)
+    user_agent = Column(String(500), nullable=True)
+    policy_version = Column(String(20), nullable=True)
+    created_at = Column(
+        DateTime,
+        default=datetime.utcnow,
+        nullable=False,
+        index=True,
+    )

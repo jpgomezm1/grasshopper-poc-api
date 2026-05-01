@@ -125,6 +125,11 @@ class Settings(BaseSettings):
     # Application version (GH-S11 · health check + Sentry release)
     app_version: str = "1.0.0"
 
+    # Habeas Data · privacy policy versioning (GH-S11.5-BE-07 · D-026)
+    # Bump when policy text changes materially → forces re-acceptance.
+    privacy_policy_version: str = "1.0.0"
+    privacy_dpo_email: str = "privacidad@grasshopper.co"
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

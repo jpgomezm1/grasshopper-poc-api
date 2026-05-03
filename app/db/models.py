@@ -633,6 +633,23 @@ class Program(Base):
     active = Column(Boolean, default=True, nullable=False, index=True)
     raw = Column(JSON, nullable=True)
 
+    # ---- Editorial fields (Bloque B · migration 015) ----
+    description_long = Column(Text, nullable=True)
+    institution_logo_url = Column(String(500), nullable=True)
+    language_requirement_detail = Column(Text, nullable=True)
+    images = Column(JSON, nullable=True)
+    highlights = Column(JSON, nullable=True)
+    syllabus = Column(JSON, nullable=True)
+    academic_requirements = Column(JSON, nullable=True)
+    admission_dates = Column(JSON, nullable=True)
+    scholarships = Column(JSON, nullable=True)
+    employability = Column(JSON, nullable=True)
+    ranking = Column(JSON, nullable=True)
+    testimonials = Column(JSON, nullable=True)
+    location = Column(JSON, nullable=True)
+    accreditations = Column(JSON, nullable=True)
+    tags = Column(JSON, nullable=True)
+
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 

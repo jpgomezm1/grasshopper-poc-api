@@ -537,3 +537,196 @@ def export_programs(
         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
+
+
+# ---------------------------------------------------------------------------
+# Bloque B · upload helpers (Sprint super_admin fixes 2026-05-03)
+# ---------------------------------------------------------------------------
+
+ALLOWED_IMAGE_TYPES = {"image/jpeg", "image/png", "image/webp"}
+ALLOWED_IMAGE_EXTS = {"jpg", "jpeg", "png", "webp"}
+MAX_IMAGE_MB = 5
+
+
+def _safe_image_upload(
+    upload: UploadFile, *, kind: str, program_biz_id: str
+) -> tuple[bytes, str, str]:
+    """Validate the upload + return (data, content_type, filename).
+
+    `kind` is "images" or "logos" → used to scope the storage path.
+    Defends against:
+      - oversized payloads (5MB cap)
+      - unknown content types (only JPG/PNG/WebP)
+      - path traversal in filename (we sanitize via storage_service)
+    """
+    if upload.content_type not in ALLOWED_IMAGE_TYPES:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Tipo no permitido · usa JPG/PNG/WebP. Recibido: {upload.content_type}",
+        )
+
+    data = upload.file.read()
+    if len(data) > MAX_IMAGE_MB * 1024 * 1024:
+        raise HTTPException(
+            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+            detail=f"Archivo excede {MAX_IMAGE_MB}MB.",
+        )
+
+    # filename: keep extension only, prefix with timestamp + biz id
+    raw_name = (upload.filename or "image").lower()
+    ext = raw_name.rsplit(".", 1)[-1] if "." in raw_name else ""
+    if ext not in ALLOWED_IMAGE_EXTS:
+        # try to infer from content-type
+        ext = {
+            "image/jpeg": "jpg",
+            "image/png": "png",
+            "image/webp": "webp",
+        }[upload.content_type]
+    safe_filename = (
+        f"{program_biz_id}_{datetime.utcnow().strftime('%Y%m%d%H%M%S')}_{kind}.{ext}"
+    )
+    return data, upload.content_type, safe_filename
+
+
+@router.post(
+    "/{program_id}/upload-image",
+    summary="Bloque B · upload editorial image (super_admin · max 5MB JPG/PNG/WebP)",
+)
+def upload_program_image(
+    program_id: UUID,
+    request: Request,
+    file: UploadFile = File(...),
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Upload one image for the program gallery.
+
+    Stores the bytes via `storage_service` (stub or supabase depending on env)
+    and returns the path + signed URL so the FE can render. Does NOT mutate
+    `programs.images` automatically · the FE composes the JSON list and PATCHes
+    the row to keep the order and metadata under explicit user control.
+    """
+    _ensure_super_admin(current_user)
+    program = db.query(Program).filter(Program.id == program_id).first()
+    if not program:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Program not found."
+        )
+
+    from app.services import storage_service
+
+    data, content_type, filename = _safe_image_upload(
+        file, kind="image", program_biz_id=program.program_id
+    )
+    path = storage_service.build_user_path(
+        f"program_{program.id}", "images", filename
+    )
+    storage_service.upload_file(
+        path=path, data=data, content_type=content_type, max_size_mb=MAX_IMAGE_MB
+    )
+    signed = storage_service.get_signed_url(path, expires_in_seconds=60 * 60 * 24)
+
+    log_action(
+        db,
+        user=current_user,
+        action="program.upload_image",
+        resource_type="program",
+        resource_id=str(program.id),
+        payload={"filename": filename, "size": len(data)},
+        request=request,
+    )
+
+    return {
+        "path": path,
+        "url": signed,
+        "filename": filename,
+        "content_type": content_type,
+        "size_bytes": len(data),
+    }
+
+
+@router.post(
+    "/{program_id}/upload-logo",
+    summary="Bloque B · upload institution logo (super_admin · max 5MB)",
+)
+def upload_program_logo(
+    program_id: UUID,
+    request: Request,
+    file: UploadFile = File(...),
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Upload the institution logo and update programs.institution_logo_url.
+
+    Side effect: persists the signed URL on the row. Note the URL is signed
+    (1 day TTL) · for permanent display the FE can re-fetch via /programs/:id
+    or rely on Supabase public bucket configuration in production.
+    """
+    _ensure_super_admin(current_user)
+    program = db.query(Program).filter(Program.id == program_id).first()
+    if not program:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Program not found."
+        )
+
+    from app.services import storage_service
+
+    data, content_type, filename = _safe_image_upload(
+        file, kind="logo", program_biz_id=program.program_id
+    )
+    path = storage_service.build_user_path(
+        f"program_{program.id}", "logos", filename
+    )
+    storage_service.upload_file(
+        path=path, data=data, content_type=content_type, max_size_mb=MAX_IMAGE_MB
+    )
+    signed = storage_service.get_signed_url(path, expires_in_seconds=60 * 60 * 24)
+
+    program.institution_logo_url = signed
+    program.updated_at = datetime.utcnow()
+    db.commit()
+    db.refresh(program)
+
+    log_action(
+        db,
+        user=current_user,
+        action="program.upload_logo",
+        resource_type="program",
+        resource_id=str(program.id),
+        payload={"filename": filename, "size": len(data)},
+        request=request,
+    )
+
+    return {
+        "path": path,
+        "url": signed,
+        "institution_logo_url": program.institution_logo_url,
+    }
+
+
+@router.get(
+    "/by-slug/{slug}",
+    response_model=ProgramResponse,
+    summary="Bloque B · public program detail by slug (any authenticated user)",
+)
+def get_program_by_slug(
+    slug: str,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Public-facing detail · used by the editorial detail page (B2C/B2B).
+
+    Returns 404 for inactive programs unless the caller is super_admin.
+    """
+    program = (
+        db.query(Program).filter(Program.slug == slug.lower().strip()).first()
+    )
+    if not program:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Program not found."
+        )
+    if not program.active and current_user.role != UserRole.SUPER_ADMIN:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Program not found."
+        )
+    return ProgramResponse.model_validate(program)

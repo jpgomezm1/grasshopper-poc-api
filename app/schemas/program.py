@@ -13,10 +13,132 @@ VALID_BUDGET_TIERS = {"low", "medium", "high", "premium"}
 VALID_ALLIANCES = {"preferencial", "estandar", "convenio"}
 VALID_CURRENCIES = {"USD", "EUR", "GBP", "CAD", "AUD", "CHF", "COP"}
 
+# Bloque B · expanded program types (migration 015)
+VALID_PROGRAM_TYPES = {
+    "pregrado",
+    "posgrado",
+    "maestria",
+    "doctorado",
+    "diplomado",
+    "especializacion",
+    "curso_corto",
+    "vacacional",
+    "intercambio",
+    "bootcamp",
+    "mba",
+    "bachelor",  # legacy
+}
+
 _SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 
 
-class ProgramBase(BaseModel):
+# ---------------------------------------------------------------------------
+# Editorial nested shapes (loose · accept extra keys for forward-compat)
+# ---------------------------------------------------------------------------
+
+
+class ProgramImage(BaseModel):
+    url: str
+    alt: Optional[str] = None
+    caption: Optional[str] = None
+    order: int = 0
+
+    model_config = ConfigDict(extra="allow")
+
+
+class ProgramTestimonial(BaseModel):
+    quote: str
+    name: Optional[str] = None
+    year: Optional[int] = None
+    link: Optional[str] = None
+
+    model_config = ConfigDict(extra="allow")
+
+
+class ProgramSyllabusUnit(BaseModel):
+    semester: Optional[str] = None
+    courses: List[str] = Field(default_factory=list)
+
+    model_config = ConfigDict(extra="allow")
+
+
+class ProgramAcademicReq(BaseModel):
+    gpa: Optional[float] = None
+    courses: Optional[List[str]] = None
+    exam: Optional[str] = None
+    interview: Optional[bool] = None
+
+    model_config = ConfigDict(extra="allow")
+
+
+class ProgramAdmissionDate(BaseModel):
+    cohort: Optional[str] = None
+    application_deadline: Optional[str] = None
+    start_date: Optional[str] = None
+
+    model_config = ConfigDict(extra="allow")
+
+
+class ProgramScholarship(BaseModel):
+    name: Optional[str] = None
+    type: Optional[str] = None
+    coverage_pct: Optional[int] = None
+    requirements: Optional[str] = None
+
+    model_config = ConfigDict(extra="allow")
+
+
+class ProgramEmployability(BaseModel):
+    placement_rate_pct: Optional[float] = None
+    avg_salary: Optional[int] = None
+    top_employers: Optional[List[str]] = None
+    notes: Optional[str] = None
+
+    model_config = ConfigDict(extra="allow")
+
+
+class ProgramRanking(BaseModel):
+    global_rank: Optional[int] = None
+    regional_rank: Optional[int] = None
+    by_area: Optional[List[Dict[str, Any]]] = None
+
+    model_config = ConfigDict(extra="allow")
+
+
+class ProgramLocation(BaseModel):
+    address: Optional[str] = None
+    lat: Optional[float] = None
+    lon: Optional[float] = None
+    neighborhood: Optional[str] = None
+    monthly_cost_usd: Optional[int] = None
+
+    model_config = ConfigDict(extra="allow")
+
+
+# ---------------------------------------------------------------------------
+# Editorial mixin · stays loose because the FE may grow these shapes.
+# ---------------------------------------------------------------------------
+
+
+class ProgramEditorialFields(BaseModel):
+    description_long: Optional[str] = None
+    institution_logo_url: Optional[str] = Field(default=None, max_length=500)
+    language_requirement_detail: Optional[str] = None
+    images: Optional[List[Dict[str, Any]]] = None
+    highlights: Optional[List[str]] = None
+    syllabus: Optional[List[Dict[str, Any]]] = None
+    academic_requirements: Optional[Dict[str, Any]] = None
+    admission_dates: Optional[List[Dict[str, Any]]] = None
+    scholarships: Optional[List[Dict[str, Any]]] = None
+    employability: Optional[Dict[str, Any]] = None
+    ranking: Optional[Dict[str, Any]] = None
+    testimonials: Optional[List[Dict[str, Any]]] = None
+    location: Optional[Dict[str, Any]] = None
+    accreditations: Optional[List[str]] = None
+    tags: Optional[List[str]] = None
+
+
+class ProgramBase(ProgramEditorialFields):
     program_id: str = Field(..., min_length=2, max_length=120)
     name: str = Field(..., min_length=2, max_length=255)
     slug: str = Field(..., min_length=2, max_length=255)
@@ -33,6 +155,16 @@ class ProgramBase(BaseModel):
     alliance_type: str = Field(default="estandar")
     language_requirement: Optional[str] = Field(default=None, max_length=50)
     active: bool = True
+
+    @field_validator("type")
+    @classmethod
+    def _validate_type(cls, v: str) -> str:
+        v = (v or "").strip().lower()
+        if v not in VALID_PROGRAM_TYPES:
+            raise ValueError(
+                f"type must be one of {sorted(VALID_PROGRAM_TYPES)}"
+            )
+        return v
 
     @field_validator("slug")
     @classmethod
@@ -71,7 +203,7 @@ class ProgramCreate(ProgramBase):
     raw: Optional[Dict[str, Any]] = None
 
 
-class ProgramUpdate(BaseModel):
+class ProgramUpdate(ProgramEditorialFields):
     name: Optional[str] = Field(default=None, min_length=2, max_length=255)
     slug: Optional[str] = Field(default=None, min_length=2, max_length=255)
     country: Optional[str] = Field(default=None, min_length=2, max_length=120)
@@ -87,6 +219,18 @@ class ProgramUpdate(BaseModel):
     alliance_type: Optional[str] = None
     language_requirement: Optional[str] = Field(default=None, max_length=50)
     active: Optional[bool] = None
+
+    @field_validator("type")
+    @classmethod
+    def _validate_type(cls, v: Optional[str]) -> Optional[str]:
+        if v is None:
+            return v
+        v = v.strip().lower()
+        if v not in VALID_PROGRAM_TYPES:
+            raise ValueError(
+                f"type must be one of {sorted(VALID_PROGRAM_TYPES)}"
+            )
+        return v
 
     @field_validator("slug")
     @classmethod

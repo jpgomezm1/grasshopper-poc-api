@@ -21,14 +21,24 @@ class UserRole(str, enum.Enum):
     - student        · estudiante (B2C o B2B según school_id)
     - psychologist   · psicólogo del colegio · ve estudiantes de su escuela en read-only
     - school_admin   · admin del colegio · gestiona estudiantes + reportes + branding del colegio
+    - gh_advisor     · orientador interno Grasshopper · ve B2C + B2B con contact_request
+    - gh_commercial  · asesora comercial Grasshopper · pipeline Bitrix + contact requests
     - super_admin    · staff de Grasshopper · CRUD global de colegios, licencias, catálogo
 
     GH-S2-DB-01 · added 2026-04-30.
+    GH-ROLES-001 · GH_ADVISOR + GH_COMMERCIAL added 2026-05-03 (migration 013).
     """
     STUDENT = "student"
     PSYCHOLOGIST = "psychologist"
     SCHOOL_ADMIN = "school_admin"
+    GH_ADVISOR = "gh_advisor"
+    GH_COMMERCIAL = "gh_commercial"
     SUPER_ADMIN = "super_admin"
+
+
+# Convenience tuples used as role guards across endpoints
+GH_TEAM_ROLES = (UserRole.GH_ADVISOR, UserRole.GH_COMMERCIAL, UserRole.SUPER_ADMIN)
+GH_CONTACT_REQUEST_STATUSES = ("pending", "in_progress", "converted", "declined")
 
 
 class School(Base):
@@ -121,6 +131,14 @@ class User(Base):
     bitrix_lead_id = Column(String(120), nullable=True, index=True)
     bitrix_lead_status = Column(String(40), nullable=True, index=True)
     bitrix_lead_status_at = Column(DateTime, nullable=True)
+
+    # GH team contact request · GH-ROLES-001 · 2026-05-03
+    # Allows a B2B student to opt-in to be visible by gh_advisor / gh_commercial.
+    # NULL on all three columns = student has not requested contact (default).
+    # Status pseudo-enum: 'pending' | 'in_progress' | 'converted' | 'declined'.
+    gh_contact_requested_at = Column(DateTime, nullable=True)
+    gh_contact_message = Column(Text, nullable=True)
+    gh_contact_status = Column(String(20), nullable=True)
 
     # Habeas Data consent gate · GH-S11.5-BE-07 · D-026 · Ley 1581/2012 (Colombia)
     # ALL nullable for backward compat · gate logic treats NULL as "not granted".

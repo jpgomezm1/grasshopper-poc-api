@@ -59,12 +59,22 @@ from app.schemas.license import (
 )
 from app.schemas.school import (
     SchoolCreate,
+    SchoolDetailResponse,
     SchoolListResponse,
     SchoolResponse,
+    SchoolStudentsBreakdown,
+    SchoolTeam,
+    SchoolTeamMember,
     SchoolUpdate,
+    SchoolUsageMetrics,
     SchoolWithStats,
 )
 from app.services.audit_service import log_action
+from app.services.student_lead_scoring import (
+    compute_school_usage_metrics,
+    score_students_for_school,
+    summarize_bands,
+)
 
 
 router = APIRouter(prefix="/schools", tags=["Schools"])
@@ -180,6 +190,26 @@ def create_school(
         logo_url=payload.logo_url,
         license_active=payload.license_active,
         license_expires_at=payload.license_expires_at,
+        # Fiscal identity
+        rut=payload.rut,
+        razon_social=payload.razon_social,
+        direccion_fiscal=payload.direccion_fiscal,
+        tipo_persona=payload.tipo_persona,
+        # Commercial contact
+        commercial_contact_name=payload.commercial_contact_name,
+        commercial_contact_role=payload.commercial_contact_role,
+        commercial_contact_email=payload.commercial_contact_email,
+        commercial_contact_phone=payload.commercial_contact_phone,
+        # Academic contact
+        academic_contact_name=payload.academic_contact_name,
+        academic_contact_email=payload.academic_contact_email,
+        academic_contact_phone=payload.academic_contact_phone,
+        # Center metadata
+        estimated_students=payload.estimated_students,
+        city=payload.city,
+        country=payload.country,
+        timezone=payload.timezone,
+        academic_year=payload.academic_year,
     )
 
     db.add(school)
@@ -313,6 +343,37 @@ def update_school(
     if payload.license_expires_at is not None and payload.license_expires_at != school.license_expires_at:
         diff["license_expires_at"] = {"to": payload.license_expires_at.isoformat()}
         school.license_expires_at = payload.license_expires_at
+
+    # Bloque A · Sprint super_admin fixes 2026-05-03 · fiscal + contactos + centro
+    _EXTENDED_FIELDS = (
+        "rut",
+        "razon_social",
+        "direccion_fiscal",
+        "tipo_persona",
+        "commercial_contact_name",
+        "commercial_contact_role",
+        "commercial_contact_email",
+        "commercial_contact_phone",
+        "academic_contact_name",
+        "academic_contact_email",
+        "academic_contact_phone",
+        "estimated_students",
+        "city",
+        "country",
+        "timezone",
+        "academic_year",
+    )
+    for fname in _EXTENDED_FIELDS:
+        new_value = getattr(payload, fname, None)
+        if new_value is None:
+            continue
+        # EmailStr → str cast for storage comparison
+        if hasattr(new_value, "lower") and not isinstance(new_value, str):
+            new_value = str(new_value)
+        current = getattr(school, fname)
+        if new_value != current:
+            diff[fname] = {"from": current, "to": new_value}
+            setattr(school, fname, new_value)
 
     school.updated_at = datetime.utcnow()
     db.commit()
@@ -568,3 +629,175 @@ def get_license_usage(
         is_expired=is_expired,
         is_within_seats=(seats_used < seats) if seats else False,
     )
+
+
+# ----------------------------- Bloque A · detail page endpoints -----------------------------
+
+
+@router.get(
+    "/{school_id}/detail",
+    response_model=SchoolDetailResponse,
+    summary="Bloque A · rich detail (Overview tab) · super_admin only",
+)
+def get_school_detail(
+    school_id: UUID,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Rich detail used by `SchoolDetailPage`.
+
+    Combines `SchoolWithStats` + usage metrics + team list. The team
+    breakdown excludes archived users. Metrics are computed in real-time;
+    for portfolios > 100 students consider caching at the service layer.
+    """
+    _ensure_super_admin(current_user)
+    school = db.query(School).filter(School.id == school_id).first()
+    if not school:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="School not found.")
+
+    base = _school_with_stats(db, school).model_dump()
+
+    metrics = SchoolUsageMetrics(**compute_school_usage_metrics(db, school.id))
+
+    admins_q = (
+        db.query(User)
+        .filter(
+            User.school_id == school.id,
+            User.role == UserRole.SCHOOL_ADMIN,
+        )
+        .order_by(User.created_at.desc())
+        .all()
+    )
+    psychologists_q = (
+        db.query(User)
+        .filter(
+            User.school_id == school.id,
+            User.role == UserRole.PSYCHOLOGIST,
+        )
+        .order_by(User.created_at.desc())
+        .all()
+    )
+
+    def _to_member(u: User) -> SchoolTeamMember:
+        return SchoolTeamMember(
+            id=u.id,
+            email=u.email,
+            name=u.name,
+            role=u.role.value,
+            is_active=bool(u.is_active),
+            last_login_at=None,  # placeholder · last login tracking is BE-future
+            created_at=u.created_at,
+        )
+
+    team = SchoolTeam(
+        school_admins=[_to_member(u) for u in admins_q],
+        psychologists=[_to_member(u) for u in psychologists_q],
+    )
+
+    return SchoolDetailResponse(**base, metrics=metrics, team=team)
+
+
+@router.get(
+    "/{school_id}/students",
+    response_model=SchoolStudentsBreakdown,
+    summary="Bloque A · list students with lead scoring (super_admin)",
+)
+def list_school_students_with_scores(
+    school_id: UUID,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+    band: Optional[str] = Query(None, pattern=r"^(hot|warm|cold)$"),
+    limit: int = Query(200, ge=1, le=500),
+):
+    """Lead-quality scoring of students for the Alumnos tab.
+
+    The scoring is deterministic (no LLM call) · see
+    `app.services.student_lead_scoring`. Super_admin only · school_admin
+    has its own `/schools/{id}/students` (different shape) under
+    school_panel · no PII leak.
+    """
+    _ensure_super_admin(current_user)
+    school = db.query(School).filter(School.id == school_id).first()
+    if not school:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="School not found.")
+
+    rows = score_students_for_school(db, school.id, limit=limit)
+    if band:
+        rows = [r for r in rows if r.score_band == band]
+    bands = summarize_bands(rows)
+    return SchoolStudentsBreakdown(
+        items=rows,
+        total=len(rows),
+        hot=bands["hot"],
+        warm=bands["warm"],
+        cold=bands["cold"],
+    )
+
+
+@router.get(
+    "/{school_id}/team",
+    response_model=SchoolTeam,
+    summary="Bloque A · school team (admins + psychologists)",
+)
+def get_school_team(
+    school_id: UUID,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    _ensure_super_or_own_school(current_user, school_id)
+    school = db.query(School).filter(School.id == school_id).first()
+    if not school:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="School not found.")
+
+    admins_q = (
+        db.query(User)
+        .filter(
+            User.school_id == school.id,
+            User.role == UserRole.SCHOOL_ADMIN,
+        )
+        .order_by(User.created_at.desc())
+        .all()
+    )
+    psychologists_q = (
+        db.query(User)
+        .filter(
+            User.school_id == school.id,
+            User.role == UserRole.PSYCHOLOGIST,
+        )
+        .order_by(User.created_at.desc())
+        .all()
+    )
+
+    def _to_member(u: User) -> SchoolTeamMember:
+        return SchoolTeamMember(
+            id=u.id,
+            email=u.email,
+            name=u.name,
+            role=u.role.value,
+            is_active=bool(u.is_active),
+            last_login_at=None,
+            created_at=u.created_at,
+        )
+
+    return SchoolTeam(
+        school_admins=[_to_member(u) for u in admins_q],
+        psychologists=[_to_member(u) for u in psychologists_q],
+    )
+
+
+@router.get(
+    "/{school_id}/metrics",
+    response_model=SchoolUsageMetrics,
+    summary="Bloque A · usage + health metrics (super_admin or own school)",
+)
+def get_school_metrics(
+    school_id: UUID,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    _ensure_super_or_own_school(current_user, school_id)
+    school = db.query(School).filter(School.id == school_id).first()
+    if not school:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="School not found.")
+    data = compute_school_usage_metrics(db, school.id)
+    return SchoolUsageMetrics(**data)

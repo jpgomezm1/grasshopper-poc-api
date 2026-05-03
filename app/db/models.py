@@ -67,6 +67,30 @@ class School(Base):
     # de usuarios del colegio archivado (revisado en auth_service).
     archived_at = Column(DateTime, nullable=True, index=True)
 
+    # ---- Fiscal identity (migration 014) ----
+    rut = Column(String(40), nullable=True)
+    razon_social = Column(String(255), nullable=True)
+    direccion_fiscal = Column(Text, nullable=True)
+    tipo_persona = Column(String(20), nullable=True)  # 'juridica' | 'natural'
+
+    # ---- Commercial contact (decisor) (migration 014) ----
+    commercial_contact_name = Column(String(255), nullable=True)
+    commercial_contact_role = Column(String(120), nullable=True)
+    commercial_contact_email = Column(String(255), nullable=True)
+    commercial_contact_phone = Column(String(50), nullable=True)
+
+    # ---- Academic / operative contact (migration 014) ----
+    academic_contact_name = Column(String(255), nullable=True)
+    academic_contact_email = Column(String(255), nullable=True)
+    academic_contact_phone = Column(String(50), nullable=True)
+
+    # ---- Center metadata (migration 014) ----
+    estimated_students = Column(Integer, nullable=True)
+    city = Column(String(120), nullable=True)
+    country = Column(String(120), nullable=True)
+    timezone = Column(String(80), nullable=True)
+    academic_year = Column(String(20), nullable=True)
+
     # Reverse relation to users that belong to this school
     users = relationship("User", back_populates="school")
     licenses = relationship(

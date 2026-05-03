@@ -173,6 +173,21 @@ class User(Base):
     consent_crm_sync_at = Column(DateTime, nullable=True)
     consent_parental_at = Column(DateTime, nullable=True)
 
+    # CRM pipeline · GH-CRM-001 · 2026-05-03 (migration 016)
+    # Tracks the lead's position in the commercial funnel, separate from
+    # `gh_contact_status` (which is a student-driven request flag).
+    # Statuses: pending · contacted · qualified · converted · declined
+    # NULL = no pipeline action yet (default for every user).
+    lead_pipeline_status = Column(String(20), nullable=True, index=True)
+    lead_pipeline_status_at = Column(DateTime, nullable=True)
+
+    # CRM AI analysis cache · GH-CRM-001 · 2026-05-03 (migration 016)
+    # JSONB payload · {rationale, program_matches[], next_actions[]}
+    # Service enforces TTL (7d) by comparing ai_analysis_cached_at with
+    # the canonical scoring + demographics hash before re-rendering.
+    ai_analysis_cache = Column(JSON, nullable=True)
+    ai_analysis_cached_at = Column(DateTime, nullable=True)
+
     # Relationships
     school = relationship("School", back_populates="users")
     sessions = relationship("Session", back_populates="user", cascade="all, delete-orphan")

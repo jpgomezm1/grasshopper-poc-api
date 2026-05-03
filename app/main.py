@@ -42,6 +42,7 @@ from app.api.v1 import (
     bitrix,
     privacy,
     gh_team,
+    crm,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -133,6 +134,8 @@ app.include_router(privacy.router, prefix="/api/v1")
 # GH internal team contact-request flow (GH-ROLES-001)
 app.include_router(gh_team.students_router, prefix="/api/v1")
 app.include_router(gh_team.gh_router, prefix="/api/v1")
+# CRM enriched (GH-CRM-001 · 2026-05-03 · super_admin + gh_commercial)
+app.include_router(crm.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

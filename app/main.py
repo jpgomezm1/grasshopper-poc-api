@@ -37,6 +37,7 @@ from app.api.v1 import (
     licenses,
     programs,
     admin,
+    admin_stats_advanced,
     school_panel,
     bitrix,
     privacy,
@@ -120,6 +121,8 @@ app.include_router(reports.router, prefix="/api/v1")
 app.include_router(licenses.router, prefix="/api/v1")
 app.include_router(programs.router, prefix="/api/v1")
 app.include_router(admin.router, prefix="/api/v1")
+# Bloque C · Sprint super_admin fixes 2026-05-03 · funnel/timeseries/cohorts/exports
+app.include_router(admin_stats_advanced.router, prefix="/api/v1")
 app.include_router(school_panel.router, prefix="/api/v1")
 app.include_router(school_panel.public_router, prefix="/api/v1")
 # Bitrix CRM Sync (GH-S10 · D-020 stub default · activation in S12)

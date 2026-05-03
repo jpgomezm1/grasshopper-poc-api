@@ -72,6 +72,9 @@ KNOWN_ACTIONS = frozenset({
     # bitrix integration · GH-S10
     "bitrix.manual_sync",
     "bitrix.inbound_received",
+    # GH internal team contact-request · GH-ROLES-001
+    "gh_contact.requested",
+    "gh_contact.status_changed",
 })
 
 

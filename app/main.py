@@ -40,6 +40,7 @@ from app.api.v1 import (
     school_panel,
     bitrix,
     privacy,
+    gh_team,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -126,6 +127,9 @@ app.include_router(bitrix.admin_router, prefix="/api/v1")
 app.include_router(bitrix.webhook_router, prefix="/api/v1")
 # Habeas Data privacy endpoints (GH-S11.5-BE-07 · D-026 · Ley 1581/2012)
 app.include_router(privacy.router, prefix="/api/v1")
+# GH internal team contact-request flow (GH-ROLES-001)
+app.include_router(gh_team.students_router, prefix="/api/v1")
+app.include_router(gh_team.gh_router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

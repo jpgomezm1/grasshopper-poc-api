@@ -339,6 +339,7 @@ def gh_list_contact_requests(
             user_id=u.id,
             email=u.email,
             name=u.name,
+            phone=u.phone,  # JP 2026-05-04 · info de contacto del lead
             school_id=u.school_id,
             school_name=schools_by_id[u.school_id].name if u.school_id in schools_by_id else None,
             is_b2c=u.school_id is None,

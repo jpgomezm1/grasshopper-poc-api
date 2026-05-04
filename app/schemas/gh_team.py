@@ -84,6 +84,7 @@ class GhContactRequestListItem(BaseModel):
     user_id: UUID
     email: str
     name: Optional[str] = None
+    phone: Optional[str] = None  # JP 2026-05-04 · contacto del lead
     school_id: Optional[UUID] = None
     school_name: Optional[str] = None
     is_b2c: bool

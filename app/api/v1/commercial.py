@@ -134,7 +134,9 @@ def assign_lead(
     db: DBSession = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    _require_team(current_user)
+    # Decisión JP 2026-05-04: solo super_admin asigna manualmente
+    # · gh_commercial / gh_advisor reciben asignación pero no la cambian
+    _require_super_admin(current_user)
     lead = _resolve_lead(db, lead_user_id)
     to_user: Optional[User] = None
     if body.to_user_id is not None:
@@ -170,7 +172,8 @@ def handoff_lead(
     db: DBSession = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    _require_team(current_user)
+    # Decisión JP 2026-05-04: solo super_admin transfiere leads
+    _require_super_admin(current_user)
     lead = _resolve_lead(db, lead_user_id)
     to_user = db.query(User).filter(User.id == body.to_user_id).first()
     if to_user is None:

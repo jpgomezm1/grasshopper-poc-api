@@ -188,6 +188,17 @@ class User(Base):
     ai_analysis_cache = Column(JSON, nullable=True)
     ai_analysis_cached_at = Column(DateTime, nullable=True)
 
+    # Lead assignment · GH-COMMPROD-B2 · 2026-05-03 (migration 018)
+    # Only meaningful when the user IS a lead (student / B2C). Service
+    # validates that the target user role is gh_commercial / gh_advisor.
+    # NULL = unassigned.
+    assigned_to_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    assigned_at = Column(DateTime, nullable=True)
+
     # Relationships
     school = relationship("School", back_populates="users")
     sessions = relationship("Session", back_populates="user", cascade="all, delete-orphan")
@@ -871,3 +882,234 @@ class ConsentAuditLog(Base):
         nullable=False,
         index=True,
     )
+
+
+# ===========================================================================
+# gh_commercial productivity sprint · 2026-05-03
+# Migrations 017-021. Models below are intentionally kept independent of the
+# legacy `User`/`School` relationships (no back_populates) to minimize churn
+# in the existing eager-loading paths used by HomeDashboard / school panel.
+# ===========================================================================
+
+
+class Notification(Base):
+    """In-app notification for any role · GH-COMMPROD-A1 (migration 017).
+
+    Created by hooks across services (lead assigned · pipeline change · SLA
+    breach · task due soon · contact request created · @mention received).
+    The frontend bell icon polls /notifications/me?status=unread.
+    """
+    __tablename__ = "notifications"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    type = Column(String(60), nullable=False, index=True)
+    title = Column(String(255), nullable=False)
+    body = Column(Text, nullable=True)
+    data = Column(JSON, nullable=True)
+    read_at = Column(DateTime, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+
+class PushSubscription(Base):
+    """Web Push API subscription · GH-COMMPROD-A2 (migration 017).
+
+    One row per (user, browser/device). The endpoint URL is unique across
+    all users (it's effectively a globally unique push channel).
+    """
+    __tablename__ = "push_subscriptions"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    endpoint = Column(Text, nullable=False, unique=True)
+    p256dh = Column(Text, nullable=False)
+    auth = Column(Text, nullable=False)
+    user_agent = Column(String(255), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    last_used_at = Column(DateTime, nullable=True)
+
+
+class TaskPriority(str, enum.Enum):
+    LOW = "low"
+    NORMAL = "normal"
+    HIGH = "high"
+
+
+class TaskStatus(str, enum.Enum):
+    OPEN = "open"
+    DONE = "done"
+    CANCELLED = "cancelled"
+
+
+class Task(Base):
+    """Reminder / to-do · GH-COMMPROD-B3 (migration 018)."""
+    __tablename__ = "tasks"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    assigned_to_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    lead_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    description = Column(Text, nullable=False)
+    due_at = Column(DateTime, nullable=True)
+    priority = Column(String(10), default=TaskPriority.NORMAL.value, nullable=False)
+    status = Column(String(10), default=TaskStatus.OPEN.value, nullable=False)
+    created_by_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    completed_at = Column(DateTime, nullable=True)
+    notified_due_at = Column(DateTime, nullable=True)
+
+
+class LeadTag(Base):
+    """Catalog of tags applicable to leads · GH-COMMPROD-D1 (migration 019)."""
+    __tablename__ = "lead_tags"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    key = Column(String(60), nullable=False, unique=True)
+    label = Column(String(120), nullable=False)
+    color = Column(String(20), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+
+class LeadTagAssignment(Base):
+    """Many-to-many between leads (users) and tags · GH-COMMPROD-D1."""
+    __tablename__ = "lead_tag_assignments"
+    __table_args__ = (
+        UniqueConstraint("lead_user_id", "tag_id", name="uq_lead_tag"),
+    )
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    lead_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    tag_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("lead_tags.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    assigned_by = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    assigned_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+
+class SavedSearch(Base):
+    """Personal saved CRM filter view · GH-COMMPROD-D3 (migration 020)."""
+    __tablename__ = "saved_searches"
+    __table_args__ = (
+        UniqueConstraint("user_id", "name", name="uq_saved_search_per_user"),
+    )
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    name = Column(String(120), nullable=False)
+    filters = Column(JSON, nullable=False)
+    pinned = Column(Boolean, default=False, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+
+class LeadComment(Base):
+    """Threaded comment on a lead · GH-COMMPROD-F1 (migration 020)."""
+    __tablename__ = "lead_comments"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    lead_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    author_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    body = Column(Text, nullable=False)
+    mentions = Column(JSON, nullable=True)
+    parent_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("lead_comments.id", ondelete="CASCADE"),
+        nullable=True,
+    )
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    edited_at = Column(DateTime, nullable=True)
+
+
+class PipelineStage(Base):
+    """Customizable pipeline stage · GH-COMMPROD-B6 (migration 021)."""
+    __tablename__ = "pipeline_stages"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    key = Column(String(40), nullable=False, unique=True)
+    label = Column(String(120), nullable=False)
+    color = Column(String(20), nullable=True)
+    order_index = Column(Integer, nullable=False)
+    is_default = Column(Boolean, default=False, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+
+class AutoAssignRule(Base):
+    """Rule that decides which gh_* gets a freshly created lead · GH-COMMPROD-E1.
+
+    Strategies:
+        round_robin    · cycle through gh_commercial actives
+        least_loaded   · pick the gh_commercial with fewest open leads
+        by_country     · `config = {"colombia": "<user_id>", ...}`
+        by_language    · `config = {"es": "<id>", "en": "<id>"}`
+    """
+    __tablename__ = "auto_assign_rules"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    strategy = Column(String(40), nullable=False)
+    config = Column(JSON, nullable=True)
+    is_active = Column(Boolean, default=True, nullable=False)
+    priority = Column(Integer, default=100, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+
+class PipelineRule(Base):
+    """IFTTT-style rule applied on lead state changes · GH-COMMPROD-E2."""
+    __tablename__ = "pipeline_rules"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    name = Column(String(120), nullable=False)
+    condition = Column(JSON, nullable=False)
+    action = Column(JSON, nullable=False)
+    is_active = Column(Boolean, default=True, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)

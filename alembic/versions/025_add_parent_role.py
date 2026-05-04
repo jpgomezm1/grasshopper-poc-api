@@ -64,10 +64,13 @@ def _enum_has_value(enum_name: str, value: str) -> bool:
 
 
 def upgrade() -> None:
-    # 1. Add 'parent' to userrole enum if missing.
+    # 1. Add 'PARENT' (uppercase to match SQLAlchemy enum name convention)
+    #    AND 'parent' (lowercase, used by some legacy code paths) so
+    #    both representations are accepted by the type.
+    if not _enum_has_value('userrole', 'PARENT'):
+        with op.get_context().autocommit_block():
+            op.execute("ALTER TYPE userrole ADD VALUE IF NOT EXISTS 'PARENT'")
     if not _enum_has_value('userrole', 'parent'):
-        # ALTER TYPE ... ADD VALUE must run outside transaction for some PG versions.
-        # In Alembic with `transaction_per_migration=False` we wrap it in COMMIT/BEGIN.
         with op.get_context().autocommit_block():
             op.execute("ALTER TYPE userrole ADD VALUE IF NOT EXISTS 'parent'")
 

@@ -46,6 +46,7 @@ from app.api.v1 import (
     notifications,
     tasks,
     commercial,
+    clinical,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -144,6 +145,9 @@ app.include_router(crm.router, prefix="/api/v1")
 app.include_router(notifications.router, prefix="/api/v1")
 app.include_router(tasks.router, prefix="/api/v1")
 app.include_router(commercial.router, prefix="/api/v1")
+
+# GH-ADVISOR-CLINICAL · gh_advisor clinical toolkit sprint 2026-05-04
+app.include_router(clinical.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

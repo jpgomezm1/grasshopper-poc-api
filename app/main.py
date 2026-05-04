@@ -43,6 +43,9 @@ from app.api.v1 import (
     privacy,
     gh_team,
     crm,
+    notifications,
+    tasks,
+    commercial,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -136,6 +139,11 @@ app.include_router(gh_team.students_router, prefix="/api/v1")
 app.include_router(gh_team.gh_router, prefix="/api/v1")
 # CRM enriched (GH-CRM-001 · 2026-05-03 · super_admin + gh_commercial)
 app.include_router(crm.router, prefix="/api/v1")
+
+# GH-COMMPROD · gh_commercial productivity sprint 2026-05-03
+app.include_router(notifications.router, prefix="/api/v1")
+app.include_router(tasks.router, prefix="/api/v1")
+app.include_router(commercial.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

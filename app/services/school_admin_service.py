@@ -1131,8 +1131,8 @@ def compute_timeline(
             .join(User, User.id == ConsolidatedProfileCache.user_id)
             .filter(
                 User.school_id == school_id,
-                ConsolidatedProfileCache.created_at >= start,
-                ConsolidatedProfileCache.created_at < end,
+                ConsolidatedProfileCache.updated_at >= start,
+                ConsolidatedProfileCache.updated_at < end,
             )
             .scalar()
             or 0

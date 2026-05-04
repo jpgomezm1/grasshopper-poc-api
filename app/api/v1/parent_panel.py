@@ -102,7 +102,7 @@ def child_public_profile(
     }
     return {
         "available": True,
-        "generated_at": profile.created_at,
+        "generated_at": profile.updated_at,
         "public_profile": public_fields,
     }
 

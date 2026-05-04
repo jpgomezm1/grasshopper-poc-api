@@ -1368,6 +1368,35 @@ def update_pipeline_status(
 
     db.commit()
     db.refresh(user)
+
+    # GH-COMMPROD-A1 · notify the lead assignee when someone else moved
+    # the pipeline status (skip self-action and unassigned leads).
+    try:
+        if (
+            user.assigned_to_user_id
+            and user.assigned_to_user_id != actor.id
+        ):
+            from app.services import notifications_service
+
+            notifications_service.create_notification(
+                db,
+                user_id=user.assigned_to_user_id,
+                type="lead.pipeline_changed",
+                title=f"Pipeline movido · {user.name or user.email}",
+                body=f"{previous or 'sin estado'} → {new_status}"
+                + (f" · {actor.name or actor.email}" if actor else ""),
+                data={
+                    "lead_user_id": str(user.id),
+                    "previous": previous,
+                    "new": new_status,
+                    "navigate_to": f"/admin/crm/leads/{user.id}",
+                },
+            )
+    except Exception as exc:  # noqa: BLE001
+        logger.warning(
+            "notifications · pipeline_changed dispatch failed · %s", exc
+        )
+
     return user
 
 

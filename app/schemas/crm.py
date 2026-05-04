@@ -259,6 +259,8 @@ class CrmActivityLog(BaseModel):
 
 class CrmLeadDetailResponse(BaseModel):
     user_id: UUID
+    email: Optional[str] = None
+    name: Optional[str] = None
     origin: LeadOrigin
     school_id: Optional[UUID] = None
     school_name: Optional[str] = None
@@ -268,6 +270,11 @@ class CrmLeadDetailResponse(BaseModel):
     gh_contact_status: Optional[str] = None
     gh_contact_message: Optional[str] = None
     gh_contact_requested_at: Optional[datetime] = None
+
+    # GH-COMMPROD-B2 · 2026-05-03 · assignment surfaced for the side widget
+    assigned_to_user_id: Optional[UUID] = None
+    assigned_to_name: Optional[str] = None
+    assigned_at: Optional[datetime] = None
 
     score_breakdown: CrmScoreBreakdown
     demographics: CrmDemographics

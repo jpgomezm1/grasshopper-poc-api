@@ -1268,8 +1268,19 @@ def get_lead_detail(
 
     ai = get_cached_ai_analysis(user) if include_ai else None
 
+    # GH-COMMPROD-B2 · resolve assignee name eagerly (single hop · cached call site)
+    assigned_to_name: Optional[str] = None
+    if user.assigned_to_user_id is not None:
+        assignee = (
+            db.query(User).filter(User.id == user.assigned_to_user_id).first()
+        )
+        if assignee is not None:
+            assigned_to_name = assignee.name or assignee.email
+
     return CrmLeadDetailResponse(
         user_id=user.id,
+        email=user.email,
+        name=user.name,
         origin=_classify_origin(user),
         school_id=user.school_id,
         school_name=school_name,
@@ -1278,6 +1289,9 @@ def get_lead_detail(
         gh_contact_status=user.gh_contact_status,
         gh_contact_message=user.gh_contact_message,
         gh_contact_requested_at=user.gh_contact_requested_at,
+        assigned_to_user_id=user.assigned_to_user_id,
+        assigned_to_name=assigned_to_name,
+        assigned_at=user.assigned_at,
         score_breakdown=CrmScoreBreakdown(
             score=score,
             band=band,

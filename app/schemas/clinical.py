@@ -354,6 +354,16 @@ class FinalistsRequestIn(BaseModel):
     advisor_pros_cons: Dict[str, Dict[str, str]] = {}  # program_id -> {pros, cons}
 
 
+class ClinicalPdfRequestIn(BaseModel):
+    """Optional body for the clinical PDF · finalists are optional.
+
+    If `program_ids` is empty/missing the PDF is generated WITHOUT the
+    finalists section. If 2-3 program_ids provided · table is included.
+    """
+    program_ids: List[str] = Field(default_factory=list, max_length=3)
+    advisor_pros_cons: Dict[str, Dict[str, str]] = Field(default_factory=dict)
+
+
 class FinalistsResponse(BaseModel):
     student_user_id: UUID
     items: List[FinalistComparisonItem]

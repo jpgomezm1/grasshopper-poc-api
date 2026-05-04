@@ -39,6 +39,7 @@ from app.db.models import (
 )
 from app.schemas.clinical import (
     ClinicalAnalysisResponse,
+    ClinicalPdfRequestIn,
     ClinicalRecommendationsResponse,
     DossierNoteCreateIn,
     DossierNoteOut,
@@ -675,7 +676,7 @@ def post_finalists(
 )
 def post_clinical_pdf(
     user_id: UUID,
-    body: Optional[FinalistsRequestIn] = None,
+    body: ClinicalPdfRequestIn = ClinicalPdfRequestIn(),
     db: DBSession = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
@@ -688,7 +689,8 @@ def post_clinical_pdf(
     recs = clinical_recommendations_service.build_clinical_recommendations(db, student)
 
     finalists = None
-    if body and body.program_ids:
+    # Need at least 2 program_ids to render a meaningful comparator
+    if body and body.program_ids and len(body.program_ids) >= 2:
         finalists = finalists_service.build_finalists(
             db,
             student=student,

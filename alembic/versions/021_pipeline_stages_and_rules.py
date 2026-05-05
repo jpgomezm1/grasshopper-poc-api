@@ -182,8 +182,8 @@ def upgrade() -> None:
             continue
         bind.execute(
             sa.text(
-                "INSERT INTO pipeline_stages (id, key, label, color, order_index, is_default) "
-                "VALUES (:id, :key, :label, :color, :order_index, true)"
+                "INSERT INTO pipeline_stages (id, key, label, color, order_index, is_default, created_at, updated_at) "
+                "VALUES (:id, :key, :label, :color, :order_index, true, NOW(), NOW())"
             ),
             {
                 "id": str(_uuid.uuid4()),
@@ -199,8 +199,8 @@ def upgrade() -> None:
     if (existing_rules_count or 0) == 0:
         bind.execute(
             sa.text(
-                "INSERT INTO auto_assign_rules (id, strategy, config, is_active, priority) "
-                "VALUES (:id, 'round_robin', '{}', true, 100)"
+                "INSERT INTO auto_assign_rules (id, strategy, config, is_active, priority, created_at, updated_at) "
+                "VALUES (:id, 'round_robin', '{}', true, 100, NOW(), NOW())"
             ),
             {"id": str(_uuid.uuid4())},
         )
@@ -211,8 +211,8 @@ def upgrade() -> None:
     if (existing_pipe_count or 0) == 0:
         bind.execute(
             sa.text(
-                "INSERT INTO pipeline_rules (id, name, condition, action, is_active) "
-                "VALUES (:id, :name, CAST(:cond AS JSONB), CAST(:act AS JSONB), true)"
+                "INSERT INTO pipeline_rules (id, name, condition, action, is_active, created_at, updated_at) "
+                "VALUES (:id, :name, CAST(:cond AS JSONB), CAST(:act AS JSONB), true, NOW(), NOW())"
             ),
             {
                 "id": str(_uuid.uuid4()),
@@ -230,8 +230,8 @@ def upgrade() -> None:
         )
         bind.execute(
             sa.text(
-                "INSERT INTO pipeline_rules (id, name, condition, action, is_active) "
-                "VALUES (:id, :name, CAST(:cond AS JSONB), CAST(:act AS JSONB), true)"
+                "INSERT INTO pipeline_rules (id, name, condition, action, is_active, created_at, updated_at) "
+                "VALUES (:id, :name, CAST(:cond AS JSONB), CAST(:act AS JSONB), true, NOW(), NOW())"
             ),
             {
                 "id": str(_uuid.uuid4()),

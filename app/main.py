@@ -49,6 +49,7 @@ from app.api.v1 import (
     clinical,
     school_admin,
     parent_panel,
+    me as me_router,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -154,6 +155,9 @@ app.include_router(clinical.router, prefix="/api/v1")
 # GH-SCHOOL-ADMIN · school_admin extended sprint 2026-05-04
 app.include_router(school_admin.router, prefix="/api/v1")
 app.include_router(parent_panel.router, prefix="/api/v1")
+
+# GH-STUDENT-EXPERIENCE · student-facing sprint 2026-05-05
+app.include_router(me_router.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

@@ -97,6 +97,11 @@ class School(Base):
     secondary_color = Column(String(20), nullable=True)
     locale = Column(String(10), nullable=True, default="es-CO")
 
+    # GH-STUDENT-EXPERIENCE · 2026-05-05 (migration 031) · Bloque A
+    # Color principal de marca que se expone al student (chip + banner B2B).
+    # Independiente de `secondary_color` (uso interno school_admin).
+    branding_primary_color = Column(String(20), nullable=True)
+
     # Reverse relation to users that belong to this school
     users = relationship("User", back_populates="school")
     licenses = relationship(
@@ -212,6 +217,12 @@ class User(Base):
     # which is the cálido/positivo public profile.
     clinical_analysis_cache = Column(JSON, nullable=True)
     clinical_analysis_cached_at = Column(DateTime, nullable=True)
+
+    # GH-STUDENT-EXPERIENCE · 2026-05-05 (migration 031) · Bloque J
+    # Stamped once when the student crosses the journey-complete criteria
+    # (onboarding done + 3+ tests + 2+ routes). Used by the dashboard to
+    # auto-redirect a single time.
+    journey_completed_at = Column(DateTime, nullable=True)
 
     # Relationships
     school = relationship("School", back_populates="users")
@@ -1164,9 +1175,13 @@ ORIENTATION_SESSION_STATUSES = (
 )
 
 SESSION_NOTE_PRIVACIES = (
-    "private",            # solo el advisor autor + super_admin
-    "shared_supervisor",  # autor + super_admin
-    "shared_team",        # autor + super_admin + otros gh_advisor
+    "private",                # solo el advisor autor + super_admin
+    "shared_supervisor",      # autor + super_admin
+    "shared_team",            # autor + super_admin + otros gh_advisor
+    # GH-STUDENT-EXPERIENCE · 2026-05-05 · Bloque C
+    # Nota explícitamente legible por el student dueño de la sesión.
+    # No-op para permission gates clínicos · sólo `me_router` la expone.
+    "shared_with_student",
 )
 
 

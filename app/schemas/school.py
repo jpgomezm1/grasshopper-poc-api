@@ -111,11 +111,17 @@ class SchoolResponse(SchoolBase):
 
 
 class SchoolSummary(BaseModel):
-    """Lightweight shape used inside other responses (e.g. UserResponse.school)."""
+    """Lightweight shape used inside other responses (e.g. UserResponse.school).
+
+    Branding fields surfaced to B2B students for chip + banner rendering
+    (GH-STUDENT-EXPERIENCE · Bloque A · 2026-05-05).
+    """
     id: UUID
     name: str
     slug: str
     logo_url: Optional[str] = None
+    branding_primary_color: Optional[str] = None
+    secondary_color: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
 

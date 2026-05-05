@@ -2,15 +2,17 @@
 
 CRUD for orientation_sessions + session_notes with strict permission gates:
 - gh_advisor sees ONLY their own sessions (advisor_user_id == current_user.id)
+- psychologist sees ONLY their own sessions (advisor_user_id == current_user.id)
+  GH-PSY-CLINICAL · 2026-05-05 · psy is the "advisor" of a session for B2B
 - super_admin sees all
 - gh_commercial NEVER sees sessions/notes
 - student NEVER sees sessions/notes
-- school_admin / psychologist NEVER see sessions/notes
+- school_admin NEVER sees sessions/notes (use school_admin endpoints)
 
 Note privacy gates:
-- 'private' · only the author advisor + super_admin
+- 'private' · only the author + super_admin
 - 'shared_supervisor' · author + super_admin
-- 'shared_team' · author + super_admin + other gh_advisor
+- 'shared_team' · author + super_admin + other clinical staff (advisor/psy)
 
 Audit: every mutation logs to audit_logs via existing audit_service.
 """
@@ -47,24 +49,29 @@ def _is_super(user: User) -> bool:
     return user.role == UserRole.SUPER_ADMIN
 
 
+def _is_clinical_staff(user: User) -> bool:
+    """gh_advisor or psychologist · the two roles that can own a session."""
+    return user.role in (UserRole.GH_ADVISOR, UserRole.PSYCHOLOGIST)
+
+
 def can_view_session(session: OrientationSession, user: User) -> bool:
     if _is_super(user):
         return True
-    if user.role == UserRole.GH_ADVISOR and session.advisor_user_id == user.id:
+    if _is_clinical_staff(user) and session.advisor_user_id == user.id:
         return True
     return False
 
 
 def can_view_note(note: SessionNote, session: OrientationSession, user: User) -> bool:
-    """Note privacy gates."""
+    """Note privacy gates · author + super_admin always; shared_team for peers."""
     if _is_super(user):
         return True
-    if user.role != UserRole.GH_ADVISOR:
+    if not _is_clinical_staff(user):
         return False
-    # Author or shared_team rules
+    # Author of the session sees all notes on that session
     if session.advisor_user_id == user.id:
         return True
-    # Other gh_advisor: only shared_team notes
+    # Other clinical staff: only shared_team notes
     if note.privacy == "shared_team":
         return True
     return False
@@ -73,13 +80,13 @@ def can_view_note(note: SessionNote, session: OrientationSession, user: User) ->
 def can_edit_session(session: OrientationSession, user: User) -> bool:
     if _is_super(user):
         return True
-    return user.role == UserRole.GH_ADVISOR and session.advisor_user_id == user.id
+    return _is_clinical_staff(user) and session.advisor_user_id == user.id
 
 
 def can_edit_note(note: SessionNote, user: User) -> bool:
     if _is_super(user):
         return True
-    if user.role != UserRole.GH_ADVISOR:
+    if not _is_clinical_staff(user):
         return False
     return note.advisor_user_id == user.id
 
@@ -102,9 +109,9 @@ def list_sessions(
 ) -> Tuple[List[OrientationSession], int]:
     q = db.query(OrientationSession)
 
-    # Visibility gate
+    # Visibility gate · advisor or psy see only their own sessions; super sees all.
     if not _is_super(current_user):
-        if current_user.role != UserRole.GH_ADVISOR:
+        if not _is_clinical_staff(current_user):
             return [], 0
         q = q.filter(OrientationSession.advisor_user_id == current_user.id)
 

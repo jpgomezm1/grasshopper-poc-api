@@ -91,6 +91,25 @@ def _require_team(user: User) -> None:
         )
 
 
+def _require_today_consumer(user: User) -> None:
+    """`/today` is consumed by gh team + school psychologist (clinical landing).
+
+    Psychologists won't have leads assigned but they DO have tasks · so we let
+    the same endpoint return their personalized payload (mostly empty leads,
+    real tasks). GH-PSY-CLINICAL · 2026-05-05.
+    """
+    if user.role not in (
+        UserRole.GH_COMMERCIAL,
+        UserRole.GH_ADVISOR,
+        UserRole.PSYCHOLOGIST,
+        UserRole.SUPER_ADMIN,
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="forbidden · today consumer roles only",
+        )
+
+
 def _require_super_admin(user: User) -> None:
     if user.role != UserRole.SUPER_ADMIN:
         raise HTTPException(
@@ -115,7 +134,7 @@ def today(
     db: DBSession = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
-    _require_team(current_user)
+    _require_today_consumer(current_user)
     return commercial_service.build_today(db, user=current_user)
 
 

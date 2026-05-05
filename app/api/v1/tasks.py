@@ -33,14 +33,16 @@ router = APIRouter(prefix="/tasks", tags=["Tasks"])
 
 
 def _require_team(user: User) -> None:
+    """GH-PSY-CLINICAL · 2026-05-05 · psychologist also uses tasks (their own only)."""
     if user.role not in (
         UserRole.GH_COMMERCIAL,
         UserRole.GH_ADVISOR,
+        UserRole.PSYCHOLOGIST,
         UserRole.SUPER_ADMIN,
     ):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="forbidden · gh_commercial / gh_advisor / super_admin only",
+            detail="forbidden · gh team or psychologist only",
         )
 
 
@@ -56,11 +58,12 @@ def _resolve_target_user(
     if target is None or target.role not in (
         UserRole.GH_COMMERCIAL,
         UserRole.GH_ADVISOR,
+        UserRole.PSYCHOLOGIST,
         UserRole.SUPER_ADMIN,
     ):
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="task assignee must be a gh team member",
+            detail="task assignee must be a gh team member or psychologist",
         )
     return target
 

@@ -1,12 +1,25 @@
 """Clinical toolkit endpoints · GH-ADVISOR-CLINICAL · 2026-05-04.
 
 All endpoints under `/api/v1/gh/students/{user_id}/...` and `/api/v1/gh/sessions/...`
-are restricted to gh_advisor + super_admin (NEVER gh_commercial · NEVER student
-· NEVER school_admin · NEVER psychologist).
+are restricted to gh_advisor + super_admin (NEVER gh_commercial · NEVER student).
 
-gh_advisor visibility scope reuses the GH-ROLES-001 gate:
-- Students must be in their scope: B2C (school_id=NULL) OR contact_requested.
-- super_admin bypasses the scope check.
+GH-PSY-CLINICAL · 2026-05-05 update: school **psychologist** also has access,
+scoped to students of their own school (`student.school_id == user.school_id`).
+This lets the same clinical UI power both the GH advisor (external orientation
+team) and the school psychologist (internal staff member) without duplicating
+backend code.
+
+Visibility matrix:
+- super_admin   · all students.
+- gh_advisor    · B2C (school_id=NULL) OR contact_requested.
+- psychologist  · student.school_id == user.school_id (same school).
+- gh_commercial · 403 (NEVER · commercial role does not see clinical data).
+- school_admin  · 403 here (uses school_admin/parent endpoints instead).
+- student/parent· 403.
+
+For sessions, psychologists see ONLY sessions where they are the advisor (i.e.
+sessions they themselves created in the school context). This is implemented in
+`orientation_session_service` via `can_view_session`.
 
 Bloques:
   A · Dossier (CRUD notes + GET full dossier)
@@ -77,18 +90,52 @@ router = APIRouter(prefix="/gh", tags=["GH Advisor · Clinical"])
 # ---------------------------------------------------------------------------
 
 
-def _require_advisor_or_super(user: User) -> None:
-    if user.role not in (UserRole.GH_ADVISOR, UserRole.SUPER_ADMIN):
+def _require_clinical_role(user: User) -> None:
+    """Allow gh_advisor · psychologist · super_admin.
+
+    GH-PSY-CLINICAL · 2026-05-05 · psychologist joined the clinical surface,
+    scoped to their own school (enforced by `_resolve_student_in_scope`).
+    """
+    if user.role not in (
+        UserRole.GH_ADVISOR,
+        UserRole.PSYCHOLOGIST,
+        UserRole.SUPER_ADMIN,
+    ):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Forbidden · gh_advisor or super_admin only.",
+            detail="Forbidden · clinical surface only for gh_advisor, psychologist or super_admin.",
         )
+
+
+# Backwards-compat alias used by existing call-sites in this module.
+_require_advisor_or_super = _require_clinical_role
+
+
+def _can_access_clinical_data(user: User, student: User) -> bool:
+    """Centralized clinical access predicate.
+
+    Used by endpoints that resolve a single student. Mirrors the visibility
+    matrix declared at the top of this module.
+    """
+    if user.role == UserRole.SUPER_ADMIN:
+        return True
+    if user.role == UserRole.GH_ADVISOR:
+        # B2C (no school) OR opted-in B2B
+        return student.school_id is None or student.gh_contact_requested_at is not None
+    if user.role == UserRole.PSYCHOLOGIST:
+        # Same-school scope · psy must belong to a school AND match the student's
+        return (
+            user.school_id is not None
+            and student.school_id is not None
+            and student.school_id == user.school_id
+        )
+    return False
 
 
 def _resolve_student_in_scope(
     db: DBSession, user_id: UUID, current_user: User
 ) -> User:
-    """Fetch student + apply gh_advisor scope (B2C OR contact_requested)."""
+    """Fetch student + apply scope rules per role (advisor/psy/super_admin)."""
     student = (
         db.query(User)
         .filter(User.id == user_id, User.role == UserRole.STUDENT, User.is_active.is_(True))
@@ -96,13 +143,10 @@ def _resolve_student_in_scope(
     )
     if not student:
         raise HTTPException(status_code=404, detail="Student not found.")
-    if current_user.role == UserRole.SUPER_ADMIN:
-        return student
-    # gh_advisor scope
-    if student.school_id is not None and student.gh_contact_requested_at is None:
+    if not _can_access_clinical_data(current_user, student):
         raise HTTPException(
             status_code=403,
-            detail="Forbidden · this student is not in your advisor scope.",
+            detail="Forbidden · this student is not in your clinical scope.",
         )
     return student
 

@@ -1221,7 +1221,8 @@ def license_upgrade_request(
 
 @router.get("/gh-coordination/students", response_model=List[GHCoordinationStudent])
 def gh_coordination_students(
-    bundle=Depends(_get_school_admin_caller),
+    # GH-PSY-CLINICAL · 2026-05-05 · psy can READ this surface (no handoff write)
+    bundle=Depends(_get_school_staff_caller),
     db: DBSession = Depends(get_db),
 ):
     school, _ = bundle
@@ -1298,7 +1299,8 @@ def list_cases(
 @router.post("/cases", response_model=CaseResponse, status_code=201)
 def create_case(
     payload: CaseCreate,
-    bundle=Depends(_get_school_admin_caller),
+    # GH-PSY-CLINICAL · 2026-05-05 · psy can open clinical cases for own school
+    bundle=Depends(_get_school_staff_caller),
     db: DBSession = Depends(get_db),
 ):
     school, user = bundle
@@ -1322,7 +1324,8 @@ def create_case(
 def update_case(
     case_id: UUID,
     payload: CaseUpdate,
-    bundle=Depends(_get_school_admin_caller),
+    # GH-PSY-CLINICAL · 2026-05-05 · psy can update / resolve own-school cases
+    bundle=Depends(_get_school_staff_caller),
     db: DBSession = Depends(get_db),
 ):
     school, user = bundle
@@ -1355,7 +1358,8 @@ def list_interventions(
 def add_intervention(
     case_id: UUID,
     payload: InterventionCreate,
-    bundle=Depends(_get_school_admin_caller),
+    # GH-PSY-CLINICAL · 2026-05-05 · psy can add interventions on own-school cases
+    bundle=Depends(_get_school_staff_caller),
     db: DBSession = Depends(get_db),
 ):
     school, user = bundle

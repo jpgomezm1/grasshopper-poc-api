@@ -136,8 +136,8 @@ def upgrade() -> None:
             continue
         bind.execute(
             sa.text(
-                "INSERT INTO lead_tags (id, key, label, color) "
-                "VALUES (:id, :key, :label, :color)"
+                "INSERT INTO lead_tags (id, key, label, color, created_at) "
+                "VALUES (:id, :key, :label, :color, NOW())"
             ),
             {
                 "id": str(_uuid.uuid4()),

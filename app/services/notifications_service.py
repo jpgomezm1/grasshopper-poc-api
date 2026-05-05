@@ -52,6 +52,13 @@ NOTIFICATION_TYPES = frozenset({
     "comment.mention",
     "system.daily_summary",
     "system.weekly_report",
+    # GH-STUDENT-EXPERIENCE · 2026-05-05 · Bloque D
+    # Student-facing notifications (1-way only · NO chat / NO message_received)
+    "session.scheduled",
+    "session.reminder",
+    "task.assigned",
+    "school_event.created",
+    "program.recommended",
 })
 
 

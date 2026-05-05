@@ -363,16 +363,22 @@ def create_task(
     db.commit()
     db.refresh(row)
     if target_id != actor.id:
+        # GH-STUDENT-EXPERIENCE · Bloque D · 2026-05-05
+        # Differentiate gh-team-internal "task.created" from a student-facing
+        # "task.assigned". Both are 1-way notifications · NO chat created.
+        is_student = bool(assigned_to and assigned_to.role == UserRole.STUDENT)
+        notif_type = "task.assigned" if is_student else "task.created"
+        navigate_to = "/tasks" if not is_student else "/tasks"
         notifications_service.create_notification(
             db,
             user_id=target_id,
-            type="task.created",
+            type=notif_type,
             title=f"Tarea nueva · {description[:80]}",
             body=f"Asignada por {actor.name or actor.email}",
             data={
                 "task_id": str(row.id),
                 "lead_user_id": str(lead_user_id) if lead_user_id else None,
-                "navigate_to": "/tasks",
+                "navigate_to": navigate_to,
             },
         )
     return row

@@ -24,6 +24,12 @@ NotificationType = Literal[
     "comment.mention",
     "system.daily_summary",
     "system.weekly_report",
+    # GH-STUDENT-EXPERIENCE · Bloque D · 2026-05-05 · student-facing
+    "session.scheduled",
+    "session.reminder",
+    "task.assigned",
+    "school_event.created",
+    "program.recommended",
 ]
 
 

@@ -787,6 +787,42 @@ def create_event(
     db.commit()
     db.refresh(e)
     log_action(db, user, "school_admin.event_create", entity_type="event", entity_id=str(e.id))
+
+    # GH-STUDENT-EXPERIENCE · 2026-05-05 · Bloque D + F
+    # 1-way notification to students of the school when audience includes them.
+    try:
+        from app.services import notifications_service
+
+        if payload.audience in ("students", "both"):
+            student_ids = [
+                u.id
+                for u in db.query(User)
+                .filter(
+                    User.school_id == school.id,
+                    User.role == UserRole.STUDENT,
+                    User.is_active == True,  # noqa: E712
+                )
+                .all()
+            ]
+            if student_ids:
+                notifications_service.fan_out(
+                    db,
+                    user_ids=student_ids,
+                    type="school_event.created",
+                    title=f"Nuevo evento · {payload.title[:80]}",
+                    body=(
+                        f"Tu colegio publicó '{payload.title}' "
+                        f"para el {payload.starts_at.strftime('%d/%m/%Y')}"
+                    ),
+                    data={
+                        "event_id": str(e.id),
+                        "starts_at": payload.starts_at.isoformat(),
+                        "navigate_to": "/home",
+                    },
+                )
+    except Exception:  # pragma: no cover · best-effort
+        pass
+
     return _event_to_response(db, e)
 
 

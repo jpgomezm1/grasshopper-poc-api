@@ -170,6 +170,30 @@ def create_session(
     db.add(sess)
     db.commit()
     db.refresh(sess)
+
+    # GH-STUDENT-EXPERIENCE · 2026-05-05 · Bloque D · notify the student
+    # (1-way · NO chat · just a heads-up "tu sesión fue agendada").
+    try:
+        from app.services import notifications_service
+
+        notifications_service.create_notification(
+            db,
+            user_id=student_user_id,
+            type="session.scheduled",
+            title="Sesión de orientación agendada",
+            body=(
+                f"{advisor.name or 'Tu orientador'} agendó una sesión "
+                f"para {scheduled_at.strftime('%d/%m/%Y %H:%M')}"
+            ),
+            data={
+                "session_id": str(sess.id),
+                "scheduled_at": scheduled_at.isoformat(),
+                "navigate_to": "/me/sessions",
+            },
+        )
+    except Exception as exc:  # pragma: no cover · best-effort
+        logger.warning("session.scheduled notification failed · %s", exc)
+
     return sess
 
 

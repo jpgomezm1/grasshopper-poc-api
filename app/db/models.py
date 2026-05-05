@@ -1738,3 +1738,31 @@ class SchoolMassMessage(Base):
     sent_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     sent_count = Column(Integer, default=0, nullable=False)
     opened_count = Column(Integer, default=0, nullable=False)
+
+
+class SchoolMassMessageRead(Base):
+    """Per-recipient read receipt for a mass message.
+
+    The mass-message row is broadcast-shaped (`opened_count` aggregate is the
+    school_admin metric). This table tracks individual recipients (parents,
+    eventually students) so the parent inbox can compute unread counts and
+    keep messages read-only · NEVER a chat thread.
+
+    GH-PARENT-EXPERIENCE · migration 032_parent_message_reads · 2026-05-05.
+    """
+
+    __tablename__ = "school_mass_message_reads"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    message_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("school_mass_messages.id", ondelete="CASCADE"),
+        nullable=False,
+    )
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    read_at = Column(DateTime, default=datetime.utcnow, nullable=False)

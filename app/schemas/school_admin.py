@@ -214,10 +214,104 @@ class ParentChildSummary(BaseModel):
     last_activity_at: Optional[datetime] = None
 
 
+class ParentSchoolBranding(BaseModel):
+    """Primary school exposed to the parent (logo + brand color).
+
+    GH-PARENT-EXPERIENCE · 2026-05-05 · Bloque D.
+    """
+    id: UUID
+    name: str
+    logo_url: Optional[str] = None
+    branding_primary_color: Optional[str] = None
+
+
 class ParentMeResponse(BaseModel):
     parent_user_id: UUID
     parent_name: Optional[str] = None
     children: List[ParentChildSummary]
+    # GH-PARENT-EXPERIENCE · 2026-05-05 · Bloque D
+    primary_school: Optional[ParentSchoolBranding] = None
+    schools: List[ParentSchoolBranding] = Field(default_factory=list)
+
+
+# ============================================================================
+# Parent inbox · mass messages read-only (Bloque B · 2026-05-05)
+# ============================================================================
+
+
+class ParentMessageItem(BaseModel):
+    id: UUID
+    school_id: UUID
+    school_name: Optional[str] = None
+    sender_name: Optional[str] = None
+    subject: str
+    body: str
+    sent_at: datetime
+    is_read: bool
+
+
+class ParentMessagesResponse(BaseModel):
+    items: List[ParentMessageItem]
+    unread: int
+
+
+# ============================================================================
+# Parent timeline of a child (Bloque C · 2026-05-05)
+# ============================================================================
+
+
+class ParentTimelineMilestone(BaseModel):
+    """One milestone on the child timeline. PUBLIC INFO ONLY.
+
+    Never carries clinical analysis · session notes · admin notes.
+    """
+    kind: Literal[
+        "onboarding_completed",
+        "test_completed",
+        "english_completed",
+        "route_active",
+        "journey_completed",
+    ]
+    title: str
+    detail: Optional[str] = None
+    occurred_at: Optional[datetime] = None
+    icon: Optional[str] = None
+
+
+class ParentTimelineResponse(BaseModel):
+    student_user_id: UUID
+    student_name: Optional[str] = None
+    onboarding_status: str
+    onboarding_pct: float
+    tests_completed: List[str]
+    routes_active: int
+    onboarding_completed_at: Optional[datetime] = None
+    journey_completed_at: Optional[datetime] = None
+    milestones: List[ParentTimelineMilestone]
+
+
+# ============================================================================
+# Parent legal documents · history (Bloque J · 2026-05-05)
+# ============================================================================
+
+
+class ParentLegalDocItem(BaseModel):
+    id: UUID
+    school_id: UUID
+    type: str
+    version: str
+    content: str
+    effective_at: Optional[datetime] = None
+    created_at: datetime
+    is_signed: bool
+    signed_at: Optional[datetime] = None
+    signed_version: Optional[str] = None
+    requires_resign: bool = False
+
+
+class ParentLegalHistoryResponse(BaseModel):
+    pending: List[ParentLegalDocItem]
+    signed: List[ParentLegalDocItem]
 
 
 # ============================================================================

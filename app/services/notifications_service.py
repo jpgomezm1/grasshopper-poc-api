@@ -59,6 +59,12 @@ NOTIFICATION_TYPES = frozenset({
     "task.assigned",
     "school_event.created",
     "program.recommended",
+    # GH-PARENT-EXPERIENCE · 2026-05-05 · Bloque A
+    # Parent-facing notifications (1-way · read-only inbox · NO chat).
+    "legal_document_pending",
+    "mass_message_received",
+    "child_milestone",
+    "report_available",
 })
 
 

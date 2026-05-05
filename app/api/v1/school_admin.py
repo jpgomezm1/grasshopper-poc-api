@@ -742,6 +742,39 @@ def send_mass_message(
     db.commit()
     db.refresh(msg)
     log_action(db, user, "school_admin.mass_message_send", entity_type="school", entity_id=str(school.id))
+
+    # GH-PARENT-EXPERIENCE · 2026-05-05 · Bloque A
+    # Fan-out 1-way notification to parents (read-only inbox · NO chat).
+    try:
+        from app.services import notifications_service
+
+        if payload.audience in ("parents", "both"):
+            parent_ids = [
+                pid
+                for (pid,) in db.query(ParentRelationship.parent_user_id)
+                .join(User, User.id == ParentRelationship.student_user_id)
+                .filter(
+                    User.school_id == school.id,
+                    ParentRelationship.is_active.is_(True),
+                )
+                .distinct()
+                .all()
+            ]
+            if parent_ids:
+                notifications_service.fan_out(
+                    db,
+                    user_ids=parent_ids,
+                    type="mass_message_received",
+                    title=f"Mensaje del colegio · {payload.subject[:80]}",
+                    body=(payload.body[:160] + "…") if len(payload.body) > 160 else payload.body,
+                    data={
+                        "message_id": str(msg.id),
+                        "navigate_to": "/parent/messages",
+                    },
+                )
+    except Exception:  # pragma: no cover · best-effort
+        pass
+
     return msg
 
 
@@ -818,6 +851,36 @@ def create_event(
                         "event_id": str(e.id),
                         "starts_at": payload.starts_at.isoformat(),
                         "navigate_to": "/home",
+                    },
+                )
+        # GH-PARENT-EXPERIENCE · 2026-05-05 · Bloque A
+        # Mirror notification to parents of the school's children.
+        if payload.audience in ("parents", "both"):
+            parent_ids = [
+                pid
+                for (pid,) in db.query(ParentRelationship.parent_user_id)
+                .join(User, User.id == ParentRelationship.student_user_id)
+                .filter(
+                    User.school_id == school.id,
+                    ParentRelationship.is_active.is_(True),
+                )
+                .distinct()
+                .all()
+            ]
+            if parent_ids:
+                notifications_service.fan_out(
+                    db,
+                    user_ids=parent_ids,
+                    type="school_event.created",
+                    title=f"Nuevo evento · {payload.title[:80]}",
+                    body=(
+                        f"Evento del colegio para padres "
+                        f"el {payload.starts_at.strftime('%d/%m/%Y')}"
+                    ),
+                    data={
+                        "event_id": str(e.id),
+                        "starts_at": payload.starts_at.isoformat(),
+                        "navigate_to": "/parent/events",
                     },
                 )
     except Exception:  # pragma: no cover · best-effort
@@ -1210,6 +1273,44 @@ def create_legal_document(
     db.commit()
     db.refresh(d)
     log_action(db, user, "school_admin.legal_doc_create", entity_type="legal_doc", entity_id=str(d.id))
+
+    # GH-PARENT-EXPERIENCE · 2026-05-05 · Bloque A
+    # Notify all parents of the school · the consent flow lives in their inbox.
+    try:
+        from app.services import notifications_service
+
+        parent_ids = [
+            pid
+            for (pid,) in db.query(ParentRelationship.parent_user_id)
+            .join(User, User.id == ParentRelationship.student_user_id)
+            .filter(
+                User.school_id == school.id,
+                ParentRelationship.is_active.is_(True),
+            )
+            .distinct()
+            .all()
+        ]
+        if parent_ids:
+            type_label = {
+                "parental_consent": "Consentimiento parental",
+                "privacy": "Política de privacidad",
+                "terms": "Términos y condiciones",
+            }.get(payload.type, "Documento legal")
+            notifications_service.fan_out(
+                db,
+                user_ids=parent_ids,
+                type="legal_document_pending",
+                title=f"Documento pendiente · {type_label}",
+                body=f"El colegio publicó '{type_label}' versión {payload.version}. Te pedimos firmar.",
+                data={
+                    "document_id": str(d.id),
+                    "type": payload.type,
+                    "navigate_to": "/parent/legal",
+                },
+            )
+    except Exception:  # pragma: no cover · best-effort
+        pass
+
     return {
         "id": d.id,
         "school_id": d.school_id,

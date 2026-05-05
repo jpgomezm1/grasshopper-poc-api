@@ -75,6 +75,36 @@ KNOWN_ACTIONS = frozenset({
     # GH internal team contact-request · GH-ROLES-001
     "gh_contact.requested",
     "gh_contact.status_changed",
+    # GH-SUPERADMIN-EXPERIENCE · 2026-05-05
+    # Bloque A · global user CRUD
+    "user.admin_create",
+    "user.admin_update",
+    "user.admin_delete",
+    "user.suspend",
+    "user.reactivate",
+    "user.password_reset",
+    # Bloque E · impersonation (CRITICAL · always logged)
+    "impersonation.start",
+    "impersonation.stop",
+    "impersonation.action",
+    # Bloque F · bulk operations on students
+    "user.bulk_move_school",
+    "user.bulk_reset_journey",
+    "user.bulk_merge",
+    "user.bulk_delete",
+    # Bloque M · feature flags
+    "feature_flag.create",
+    "feature_flag.update",
+    "feature_flag.toggle",
+    "feature_flag.delete",
+    # Bloque N · AI prompts
+    "ai_prompt.create",
+    "ai_prompt.activate",
+    # Bloque O · integration configs (NO secret values)
+    "integration_config.update",
+    # Bloque P · backup
+    "backup.export_created",
+    "backup.export_downloaded",
 })
 
 

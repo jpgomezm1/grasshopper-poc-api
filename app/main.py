@@ -15,6 +15,7 @@ from app.core.rate_limiter import (
     rate_limit_exceeded_handler,
 )
 from app.core.security_headers import SecurityHeadersMiddleware
+from app.core.error_logging_middleware import ErrorLoggingMiddleware
 from app.core.sentry_init import init_sentry
 from app.db.database import engine, Base
 from app.api.v1 import (
@@ -50,6 +51,10 @@ from app.api.v1 import (
     school_admin,
     parent_panel,
     me as me_router,
+    users_admin,
+    admin_search,
+    admin_observability,
+    admin_settings,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -97,6 +102,10 @@ app.add_middleware(SlowAPIMiddleware)
 
 # Security headers (GH-S11-INFRA-05)
 app.add_middleware(SecurityHeadersMiddleware)
+
+# Error logging middleware (GH-SUPERADMIN-EXPERIENCE · Bloque K · 2026-05-05)
+# Captures all unhandled exceptions and 5xx responses into the error_log table.
+app.add_middleware(ErrorLoggingMiddleware)
 
 # CORS — last in stack so its headers wrap everything below
 app.add_middleware(
@@ -158,6 +167,14 @@ app.include_router(parent_panel.router, prefix="/api/v1")
 
 # GH-STUDENT-EXPERIENCE · student-facing sprint 2026-05-05
 app.include_router(me_router.router, prefix="/api/v1")
+
+# GH-SUPERADMIN-EXPERIENCE · super_admin uplift sprint 2026-05-05
+# Bloque A·B·E·F (users_admin) + C (search) + D·I·J·K·L (observability) +
+# M·N·O·P (settings).
+app.include_router(users_admin.router, prefix="/api/v1")
+app.include_router(admin_search.router, prefix="/api/v1")
+app.include_router(admin_observability.router, prefix="/api/v1")
+app.include_router(admin_settings.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

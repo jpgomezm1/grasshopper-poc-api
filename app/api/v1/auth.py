@@ -251,6 +251,19 @@ def login(
             detail="User account is disabled",
         )
 
+    # GH-SUPERADMIN-EXPERIENCE · Bloque A · suspended_at gate
+    # Decoupled from is_active: super_admin suspends without flipping legacy flag.
+    if user.suspended_at is not None:
+        _audit(
+            "auth.login_failed",
+            user,
+            {"reason": "user_suspended", "suspended_at": user.suspended_at.isoformat()},
+        )
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Su cuenta fue suspendida. Contacte al administrador.",
+        )
+
     # GH-S8 · D-017 · users from archived schools cannot log in
     if user.school_id and user.role != UserRole.SUPER_ADMIN:
         school = db.query(School).filter(School.id == user.school_id).first()
@@ -266,6 +279,13 @@ def login(
             )
 
     access_token = create_access_token(data={"sub": str(user.id)})
+
+    # GH-SUPERADMIN-EXPERIENCE · stamp last_login_at for DAU/MAU metrics
+    try:
+        user.last_login_at = datetime.utcnow()
+        db.commit()
+    except Exception:
+        db.rollback()
 
     # GH-S11 hardening · audit super_admin logins (S8 gap closed)
     if user.role == UserRole.SUPER_ADMIN:

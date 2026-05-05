@@ -190,6 +190,115 @@ def reports_global(
     return stats_overview(db=db, current_user=current_user, refresh=refresh)
 
 
+# ----------------------------- enriched dashboard -----------------------------
+# GH-SUPERADMIN-EXPERIENCE · Bloque H · 2026-05-05
+# Dashboard combines existing KPIs (stats_overview) with new live signals so
+# the FE doesn't need 5 round-trips for the home page.
+
+@router.get(
+    "/dashboard/overview",
+    summary="GH-SUPERADMIN · Bloque H · enriched dashboard payload",
+)
+def dashboard_overview(
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    _ensure_super_admin(current_user)
+    now = datetime.utcnow()
+    last_7 = now - timedelta(days=7)
+    last_28 = now - timedelta(days=28)
+
+    base_stats = _compute_stats(db)
+
+    # DAU / MAU (any role)
+    dau = (
+        db.query(func.count(func.distinct(User.id)))
+        .filter(User.last_login_at >= now - timedelta(days=1))
+        .scalar()
+        or 0
+    )
+    wau = (
+        db.query(func.count(func.distinct(User.id)))
+        .filter(User.last_login_at >= last_7)
+        .scalar()
+        or 0
+    )
+    mau = (
+        db.query(func.count(func.distinct(User.id)))
+        .filter(User.last_login_at >= last_28)
+        .scalar()
+        or 0
+    )
+
+    # Active impersonation sessions count
+    from app.db.models import ImpersonationSession, AdminAlert
+
+    active_impersonations = (
+        db.query(func.count(ImpersonationSession.id))
+        .filter(ImpersonationSession.ended_at.is_(None))
+        .scalar()
+        or 0
+    )
+
+    # Active alerts grouped by severity
+    alerts_rows = (
+        db.query(AdminAlert.severity, func.count(AdminAlert.id))
+        .filter(AdminAlert.resolved_at.is_(None))
+        .group_by(AdminAlert.severity)
+        .all()
+    )
+    alerts = {"critical": 0, "warning": 0, "info": 0}
+    for sev, c in alerts_rows:
+        alerts[sev] = int(c or 0)
+
+    # Recent audit (last 20)
+    recent = (
+        db.query(AuditLog)
+        .order_by(AuditLog.created_at.desc())
+        .limit(20)
+        .all()
+    )
+    recent_activity = [
+        {
+            "id": str(r.id),
+            "action": r.action,
+            "resource_type": r.resource_type,
+            "resource_id": r.resource_id,
+            "user_id": str(r.user_id) if r.user_id else None,
+            "created_at": r.created_at.isoformat(),
+        }
+        for r in recent
+    ]
+
+    # Weekly registrations timeseries (last 4 weeks)
+    weekly_rows = (
+        db.query(
+            func.date_trunc("week", User.created_at).label("w"),
+            func.count(User.id).label("c"),
+        )
+        .filter(User.created_at >= last_28)
+        .group_by(func.date_trunc("week", User.created_at))
+        .order_by(func.date_trunc("week", User.created_at))
+        .all()
+    ) if db.bind.dialect.name == "postgresql" else []
+    weekly_registrations = [
+        {"week": str(r.w), "count": int(r.c or 0)} for r in weekly_rows
+    ]
+
+    return {
+        "base": base_stats.model_dump() if hasattr(base_stats, "model_dump") else base_stats,
+        "live": {
+            "dau": int(dau),
+            "wau": int(wau),
+            "mau": int(mau),
+            "active_impersonations": int(active_impersonations),
+        },
+        "alerts": alerts,
+        "recent_activity": recent_activity,
+        "weekly_registrations": weekly_registrations,
+    }
+
+
 # ----------------------------- audit log -----------------------------
 
 @router.get(

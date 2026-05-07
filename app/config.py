@@ -130,6 +130,20 @@ class Settings(BaseSettings):
     privacy_policy_version: str = "1.0.0"
     privacy_dpo_email: str = "privacidad@grasshopper.co"
 
+    # SLA thresholds (GH-COMMPROD-B4 · gh_commercial productivity sprint)
+    # `pending` for >N hours → breach · `contacted` for >N days → breach ·
+    # `qualified` for >N days → breach. UI warning at ~70% of threshold.
+    sla_pending_breach_hours: int = 24
+    sla_contacted_breach_days: int = 7
+    sla_qualified_breach_days: int = 14
+
+    # Web Push (GH-COMMPROD-A2)
+    # Generate VAPID keys with `npx web-push generate-vapid-keys` ·
+    # empty disables push fan-out (in-app notifications still work).
+    vapid_public_key: str = ""
+    vapid_private_key: str = ""
+    vapid_subject: str = "mailto:ops@grasshopper.app"
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

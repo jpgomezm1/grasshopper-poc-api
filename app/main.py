@@ -15,6 +15,7 @@ from app.core.rate_limiter import (
     rate_limit_exceeded_handler,
 )
 from app.core.security_headers import SecurityHeadersMiddleware
+from app.core.error_logging_middleware import ErrorLoggingMiddleware
 from app.core.sentry_init import init_sentry
 from app.db.database import engine, Base
 from app.api.v1 import (
@@ -37,9 +38,23 @@ from app.api.v1 import (
     licenses,
     programs,
     admin,
+    admin_stats_advanced,
     school_panel,
     bitrix,
     privacy,
+    gh_team,
+    crm,
+    notifications,
+    tasks,
+    commercial,
+    clinical,
+    school_admin,
+    parent_panel,
+    me as me_router,
+    users_admin,
+    admin_search,
+    admin_observability,
+    admin_settings,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -88,6 +103,10 @@ app.add_middleware(SlowAPIMiddleware)
 # Security headers (GH-S11-INFRA-05)
 app.add_middleware(SecurityHeadersMiddleware)
 
+# Error logging middleware (GH-SUPERADMIN-EXPERIENCE · Bloque K · 2026-05-05)
+# Captures all unhandled exceptions and 5xx responses into the error_log table.
+app.add_middleware(ErrorLoggingMiddleware)
+
 # CORS — last in stack so its headers wrap everything below
 app.add_middleware(
     CORSMiddleware,
@@ -119,6 +138,8 @@ app.include_router(reports.router, prefix="/api/v1")
 app.include_router(licenses.router, prefix="/api/v1")
 app.include_router(programs.router, prefix="/api/v1")
 app.include_router(admin.router, prefix="/api/v1")
+# Bloque C · Sprint super_admin fixes 2026-05-03 · funnel/timeseries/cohorts/exports
+app.include_router(admin_stats_advanced.router, prefix="/api/v1")
 app.include_router(school_panel.router, prefix="/api/v1")
 app.include_router(school_panel.public_router, prefix="/api/v1")
 # Bitrix CRM Sync (GH-S10 · D-020 stub default · activation in S12)
@@ -126,6 +147,34 @@ app.include_router(bitrix.admin_router, prefix="/api/v1")
 app.include_router(bitrix.webhook_router, prefix="/api/v1")
 # Habeas Data privacy endpoints (GH-S11.5-BE-07 · D-026 · Ley 1581/2012)
 app.include_router(privacy.router, prefix="/api/v1")
+# GH internal team contact-request flow (GH-ROLES-001)
+app.include_router(gh_team.students_router, prefix="/api/v1")
+app.include_router(gh_team.gh_router, prefix="/api/v1")
+# CRM enriched (GH-CRM-001 · 2026-05-03 · super_admin + gh_commercial)
+app.include_router(crm.router, prefix="/api/v1")
+
+# GH-COMMPROD · gh_commercial productivity sprint 2026-05-03
+app.include_router(notifications.router, prefix="/api/v1")
+app.include_router(tasks.router, prefix="/api/v1")
+app.include_router(commercial.router, prefix="/api/v1")
+
+# GH-ADVISOR-CLINICAL · gh_advisor clinical toolkit sprint 2026-05-04
+app.include_router(clinical.router, prefix="/api/v1")
+
+# GH-SCHOOL-ADMIN · school_admin extended sprint 2026-05-04
+app.include_router(school_admin.router, prefix="/api/v1")
+app.include_router(parent_panel.router, prefix="/api/v1")
+
+# GH-STUDENT-EXPERIENCE · student-facing sprint 2026-05-05
+app.include_router(me_router.router, prefix="/api/v1")
+
+# GH-SUPERADMIN-EXPERIENCE · super_admin uplift sprint 2026-05-05
+# Bloque A·B·E·F (users_admin) + C (search) + D·I·J·K·L (observability) +
+# M·N·O·P (settings).
+app.include_router(users_admin.router, prefix="/api/v1")
+app.include_router(admin_search.router, prefix="/api/v1")
+app.include_router(admin_observability.router, prefix="/api/v1")
+app.include_router(admin_settings.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

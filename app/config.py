@@ -86,6 +86,11 @@ class Settings(BaseSettings):
     bitrix_user_token: str = ""
     bitrix_inbound_secret: str = ""
     bitrix_inbound_enabled: bool = False
+    # Bitrix24 official webhooks send `application_token` in form-data body
+    # (apidocs.bitrix24.com/api-reference/events). When this is set we accept
+    # form-urlencoded inbound and validate against application_token instead
+    # of the legacy HMAC `X-Hopper-Signature` (kept for proxy/test flows).
+    bitrix_application_token: str = ""
     bitrix_notify_email: str = ""
     bitrix_rate_limit_rps: float = 2.0
     bitrix_max_attempts: int = 4

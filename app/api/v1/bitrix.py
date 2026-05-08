@@ -18,7 +18,7 @@ import hashlib
 import hmac
 import logging
 import math
-from typing import Optional
+from typing import Any, Dict, Optional
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
@@ -221,6 +221,32 @@ def _verify_hmac(secret: str, body: bytes, signature_header: Optional[str]) -> b
     return hmac.compare_digest(expected, received)
 
 
+def _parse_bitrix_form_payload(form: Dict[str, Any]) -> Dict[str, Any]:
+    """Reconstruct the nested dict Bitrix sends as flat form keys.
+
+    Bitrix posts events as `application/x-www-form-urlencoded` with bracket
+    keys like `data[FIELDS][ID]=42`. We collapse those back to a nested dict
+    so `sync_inbound_status` can consume them with the same shape it does
+    for JSON. We strip the `auth` envelope before returning (auth is checked
+    separately in the route handler).
+    """
+    nested: Dict[str, Any] = {}
+    for key, value in form.items():
+        # Convert "data[FIELDS][ID]" → ["data", "FIELDS", "ID"]
+        parts: list = []
+        head, *rest = key.replace("]", "").split("[")
+        parts.append(head)
+        parts.extend(rest)
+        cursor = nested
+        for part in parts[:-1]:
+            cursor = cursor.setdefault(part, {})
+            if not isinstance(cursor, dict):
+                # Conflicting shape · skip silently
+                cursor = {}
+        cursor[parts[-1]] = value
+    return nested
+
+
 @webhook_router.post(
     "/inbound",
     response_model=BitrixInboundAck,
@@ -237,15 +263,78 @@ async def bitrix_inbound(
             detail="Bitrix inbound webhook is not enabled · set BITRIX_INBOUND_ENABLED=true",
         )
 
+    # Two supported auth modes:
+    #
+    # 1. Bitrix24 official events (event.bind handler) → posts as
+    #    application/x-www-form-urlencoded with `auth[application_token]`
+    #    matching `BITRIX_APPLICATION_TOKEN` env var.
+    # 2. Legacy/proxy flow → posts JSON signed with HMAC sha256 in
+    #    `X-Hopper-Signature` header against `BITRIX_INBOUND_SECRET`.
+    #
+    # If BITRIX_APPLICATION_TOKEN is set we ALWAYS try mode 1 first; HMAC
+    # is the fallback. At least one of the two must be configured.
+    application_token_cfg = (settings.bitrix_application_token or "").strip()
     secret = (settings.bitrix_inbound_secret or "").strip()
-    if not secret:
-        # Misconfiguration · refuse rather than accept unsigned payloads.
+    if not application_token_cfg and not secret:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="BITRIX_INBOUND_SECRET not configured · refusing unsigned inbound.",
+            detail=(
+                "Inbound auth not configured · set BITRIX_APPLICATION_TOKEN "
+                "(official Bitrix events) and/or BITRIX_INBOUND_SECRET (legacy HMAC)."
+            ),
         )
 
+    content_type = (request.headers.get("content-type") or "").split(";", 1)[0].strip().lower()
     body = await request.body()
+
+    # Mode 1 · Bitrix24 official webhook (form-urlencoded + application_token)
+    if content_type == "application/x-www-form-urlencoded" and application_token_cfg:
+        form = await request.form()
+        form_dict: Dict[str, Any] = {k: v for k, v in form.items()}
+        received_token = form_dict.get("auth[application_token]") or form_dict.get(
+            "application_token"
+        )
+        if not received_token or not hmac.compare_digest(
+            str(received_token), application_token_cfg
+        ):
+            try:
+                from app.services.audit_service import log_action
+                log_action(
+                    db,
+                    user=None,
+                    action="webhook.application_token_invalid",
+                    resource_type="bitrix.inbound",
+                    resource_id=None,
+                    payload={"len": len(body)},
+                    request=request,
+                )
+            except Exception:
+                pass
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid application_token.",
+            )
+        payload = _parse_bitrix_form_payload(form_dict)
+        user = bitrix_sync_service.sync_inbound_status(db, payload)
+        if user is None:
+            return BitrixInboundAck(
+                ok=True, matched_user_id=None, normalized_status=None
+            )
+        return BitrixInboundAck(
+            ok=True,
+            matched_user_id=user.id,
+            normalized_status=user.bitrix_lead_status,
+        )
+
+    # Mode 2 · Legacy HMAC (proxy/test flow)
+    if not secret:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=(
+                "Got JSON payload but BITRIX_INBOUND_SECRET not set · "
+                "use form-urlencoded with application_token for official events."
+            ),
+        )
     sig = request.headers.get("x-hopper-signature")
     if not _verify_hmac(secret, body, sig):
         # Don't leak which side failed (timing-safe compare already done).

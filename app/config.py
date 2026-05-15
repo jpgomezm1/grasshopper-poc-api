@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from pydantic import computed_field
+from pydantic import computed_field, model_validator
 from functools import lru_cache
 import os
 
@@ -148,6 +148,36 @@ class Settings(BaseSettings):
     vapid_public_key: str = ""
     vapid_private_key: str = ""
     vapid_subject: str = "mailto:ops@grasshopper.app"
+
+    @model_validator(mode="after")
+    def _assert_production_secrets(self) -> "Settings":
+        """GH-F1-SECURITY · Tarea 2 · fail fast on boot when secrets are insecure.
+
+        Rules (only enforced when environment == 'production'):
+          - JWT_SECRET_KEY must NOT be the default POC placeholder and must NOT
+            be empty.
+          - FIELD_ENCRYPTION_KEY must NOT be empty (checked in crypto.py at
+            import time, but also validated here for early boot failure).
+
+        TODO (JP · Heroku):
+          Before merging to main / deploying to Heroku run:
+            heroku config:set JWT_SECRET_KEY=$(python -c "import secrets; print(secrets.token_urlsafe(64))") -a grasshopper-api
+          Verify with:
+            heroku config:get JWT_SECRET_KEY -a grasshopper-api
+        """
+        _POC_PREFIX = "grasshopper-poc-secret-key"
+        if self.environment == "production":
+            if (
+                not self.jwt_secret_key
+                or self.jwt_secret_key.startswith(_POC_PREFIX)
+            ):
+                raise RuntimeError(
+                    "JWT_SECRET_KEY must be set to a strong secret in production. "
+                    "The default POC placeholder is NOT safe. "
+                    "Run: python -c \"import secrets; print(secrets.token_urlsafe(64))\""
+                    " and set it as JWT_SECRET_KEY in Heroku config vars."
+                )
+        return self
 
     class Config:
         env_file = ".env"

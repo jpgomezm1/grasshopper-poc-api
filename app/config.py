@@ -123,6 +123,11 @@ class Settings(BaseSettings):
     webhook_timestamp_tolerance_s: int = 300  # 5 min
     webhook_nonce_ttl_s: int = 600  # 10 min
 
+    # Bitrix inbound webhook payload cap (GH-S11.5-BE-10 · DoS mitigation)
+    # Real Bitrix event payloads are well under 50 KB; 1 MB is a generous ceiling.
+    # Set to 0 to disable the cap (not recommended in production).
+    bitrix_max_payload_kb: int = 1024  # 1 MB default
+
     # Structured logging (GH-S11 · structlog)
     log_format: str = "json"  # "json" | "console"
     log_level: str = "INFO"

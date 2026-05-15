@@ -96,6 +96,7 @@ from app.schemas.school_panel import (
 )
 from app.services import school_panel_service
 from app.services.audit_service import log_action
+from app.core.url_safety import build_safe_url
 from app.services.invitation_service import (
     create_invitation,
     lookup_token,
@@ -552,31 +553,17 @@ async def upload_logo(
 def _build_accept_url(token: str, request: Optional[Request]) -> str:
     """Compose the accept URL using a validated request Origin.
 
-    GH-F1-SECURITY · Tarea 3 · Origin header validation.
+    GH-F1-SECURITY · Tarea 3 · delega en app.core.url_safety.build_safe_url
+    para la validación contra la whitelist (lógica centralizada; evita
+    duplicación con el helper de /forgot-password).
 
-    Before using the Origin header to build the invitation link (which is sent
-    by email), we verify it is in the ALLOWED_ORIGINS whitelist.  An untrusted
-    Origin would let an attacker compose a phishing link pointing to evil.com.
-
-    Fallback order:
-      1. request.headers["origin"] if it is in settings.allowed_origins_set
-      2. settings.frontend_base_url  (canonical prod URL · always safe)
-      3. "http://localhost:5173"      (dev fallback when no request object)
+    Fallback order (gestionado en build_safe_url):
+      1. request.headers["origin"] si está en settings.allowed_origins_set
+      2. settings.frontend_base_url  (URL canónica prod · siempre segura)
+      3. "http://localhost:5173"      (dev fallback cuando no hay request)
     """
-    settings_obj = get_settings()
-    raw_origin = (request.headers.get("origin") if request else None) or ""
-    # Strip trailing slash for consistent comparison
-    normalized = raw_origin.rstrip("/")
-
-    if normalized and normalized in settings_obj.allowed_origins_set:
-        base = normalized
-    else:
-        base = (
-            getattr(settings_obj, "frontend_base_url", None)
-            or "http://localhost:5173"
-        )
-
-    return f"{base.rstrip('/')}/invite/{token}"
+    origin_header = request.headers.get("origin") if request else None
+    return build_safe_url(origin_header=origin_header, path=f"/invite/{token}")
 
 
 def _to_invitation_response(

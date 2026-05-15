@@ -435,13 +435,30 @@ class ClinicalAnalysisFailure(RuntimeError):
 
 
 def get_cached(student: User) -> Optional[ClinicalAnalysis]:
-    if not student.clinical_analysis_cache or not student.clinical_analysis_cached_at:
+    """Return the cached ClinicalAnalysis if still within TTL, else None.
+
+    GH-F1-SECURITY · Tarea 4: reads from `clinical_analysis_cache_enc`
+    (EncryptedJSON column, AES-256-GCM) with fallback to the legacy plaintext
+    `clinical_analysis_cache` column for rows created before the migration.
+    New writes always go to `_enc`; the plaintext column is kept read-only
+    as a migration bridge.
+    """
+    if not student.clinical_analysis_cached_at:
         return None
     age = datetime.utcnow() - student.clinical_analysis_cached_at
     if age > CACHE_TTL:
         return None
+
+    # Prefer the encrypted column (post-migration rows)
+    raw = (
+        getattr(student, "clinical_analysis_cache_enc", None)
+        or student.clinical_analysis_cache
+    )
+    if not raw:
+        return None
+
     try:
-        return ClinicalAnalysis(**student.clinical_analysis_cache)
+        return ClinicalAnalysis(**raw)
     except Exception as e:
         logger.warning("Clinical cache corrupted · ignoring", extra={"error": str(e)})
         return None
@@ -542,8 +559,14 @@ def generate(
     analysis.prompt_version = PROMPT_VERSION
     analysis.generated_at = datetime.utcnow()
 
-    # Persist cache
-    student.clinical_analysis_cache = analysis.model_dump(mode="json")
+    # Persist cache — write to encrypted column (GH-F1-SECURITY · Tarea 4)
+    # clinical_analysis_cache_enc uses EncryptedJSON TypeDecorator (AES-256-GCM).
+    # The legacy plaintext column is left untouched so existing rows remain
+    # readable during the migration window. Both columns share clinical_analysis_cached_at.
+    payload = analysis.model_dump(mode="json")
+    student.clinical_analysis_cache_enc = payload
+    # Keep legacy column cleared for new rows (NULL signals "use _enc")
+    student.clinical_analysis_cache = None
     student.clinical_analysis_cached_at = datetime.utcnow()
     db.commit()
 

@@ -24,6 +24,8 @@ from app.db.models import (
 )
 from app.schemas.journey import RouteResponse, RouteStatusUpdate
 from app.services.journey_service import get_session
+from app.api.v1.auth import get_current_user
+from app.core.access import assert_session_access
 
 router = APIRouter(prefix="/routes", tags=["routes"])
 
@@ -71,17 +73,18 @@ def _routes_from_cached_recommendations(
 def get_routes(
     session_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
     """Get all routes for a session.
+
+    GH-F1-IDOR: requires authentication + session ownership.
 
     Sprint 6: if the session has an authenticated user with a cached
     consolidated profile, surface RecommendedProgram[] as the canonical
     list of routes. Falls back to whatever has been persisted in the
     `routes` table for backwards compatibility.
     """
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    session = assert_session_access(session_id, current_user, db)
 
     # Try cached recommendations first (new in S6 · BE-09)
     if session.user_id:
@@ -116,11 +119,13 @@ def update_route_status(
     route_id: UUID,
     status_update: RouteStatusUpdate,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Update route status (active/paused/primary)."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Update route status (active/paused/primary).
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    assert_session_access(session_id, current_user, db)
 
     route = (
         db.query(Route)
@@ -156,11 +161,13 @@ def set_route_primary(
     session_id: UUID,
     route_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Set a route as the primary route."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Set a route as the primary route.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    assert_session_access(session_id, current_user, db)
 
     route = (
         db.query(Route)

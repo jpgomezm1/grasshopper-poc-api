@@ -6,13 +6,15 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session as DBSession
 
 from app.db.database import get_db
-from app.db.models import JournalEntry, JournalEntryType
+from app.db.models import JournalEntry, JournalEntryType, User
 from app.schemas.journey import (
     JournalEntryCreate,
     JournalEntryUpdate,
     JournalEntryResponse,
 )
 from app.services.journey_service import get_session
+from app.api.v1.auth import get_current_user
+from app.core.access import assert_session_access
 
 router = APIRouter(prefix="/journal", tags=["journal"])
 
@@ -21,11 +23,13 @@ router = APIRouter(prefix="/journal", tags=["journal"])
 def get_journal_entries(
     session_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Get all journal entries for a session."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Get all journal entries for a session.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    assert_session_access(session_id, current_user, db)
 
     entries = (
         db.query(JournalEntry)
@@ -42,11 +46,13 @@ def add_journal_entry(
     session_id: UUID,
     entry_data: JournalEntryCreate,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Add a manual journal entry."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Add a manual journal entry.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    assert_session_access(session_id, current_user, db)
 
     entry = JournalEntry(
         session_id=session_id,
@@ -68,11 +74,13 @@ def update_journal_entry(
     entry_id: UUID,
     entry_data: JournalEntryUpdate,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Update a journal entry."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Update a journal entry.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    assert_session_access(session_id, current_user, db)
 
     entry = (
         db.query(JournalEntry)
@@ -98,11 +106,13 @@ def delete_journal_entry(
     session_id: UUID,
     entry_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Delete a journal entry."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Delete a journal entry.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    assert_session_access(session_id, current_user, db)
 
     entry = (
         db.query(JournalEntry)

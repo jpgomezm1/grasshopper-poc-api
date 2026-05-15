@@ -6,6 +6,7 @@ from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.orm import Session as DBSession
 
 from app.db.database import get_db
+from app.db.models import User
 from app.schemas.session import (
     SessionCreate,
     SessionEventCreate,
@@ -19,6 +20,8 @@ from app.services.journey_service import (
     process_event,
 )
 from app.services import bitrix_sync_service
+from app.api.v1.auth import get_current_user, get_optional_current_user
+from app.core.access import assert_session_access
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +32,12 @@ router = APIRouter(prefix="/sessions", tags=["sessions"])
 def create_new_session(
     db: DBSession = Depends(get_db),
 ):
-    """Create a new journey session."""
+    """Create a new journey session.
+
+    Anonymous creation is intentionally allowed — students may begin their
+    journey before registering. The session is linked to a user only after
+    they authenticate (POST /auth/link-session or on registration).
+    """
     session = create_session(db)
     return build_journey_response(db, session)
 
@@ -38,8 +46,14 @@ def create_new_session(
 def get_session_state(
     session_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Get current session state and view."""
+    """Get current session state and view.
+
+    GH-F1-IDOR: requires authentication. Enforces session ownership via
+    assert_session_access (student→own; school_staff→same school; admin→all).
+    """
+    assert_session_access(session_id, current_user, db)
     session = get_session(db, session_id)
     if not session:
         raise HTTPException(status_code=404, detail="Session not found")
@@ -52,15 +66,16 @@ def submit_event(
     event: SessionEventCreate,
     background_tasks: BackgroundTasks,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
     """Submit an event and advance the journey flow.
+
+    GH-F1-IDOR: requires authentication + session ownership.
 
     GH-S10-BE-03 · when the session transitions to is_completed=True for an
     authenticated user, schedule a Bitrix sync (lead + deal) in the background.
     """
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    session = assert_session_access(session_id, current_user, db)
 
     was_completed = bool(session.is_completed)
     response = process_event(
@@ -98,9 +113,11 @@ def submit_event(
 def get_raw_session(
     session_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Get raw session data (for debugging)."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Get raw session data (for debugging).
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    session = assert_session_access(session_id, current_user, db)
     return session

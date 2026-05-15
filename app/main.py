@@ -18,6 +18,7 @@ from app.core.security_headers import SecurityHeadersMiddleware
 from app.core.error_logging_middleware import ErrorLoggingMiddleware
 from app.core.sentry_init import init_sentry
 from app.db.database import engine, Base
+from app.core.alembic_guard import verify_alembic_head
 from app.api.v1 import (
     sessions,
     profile,
@@ -73,7 +74,13 @@ settings = get_settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """Lifespan handler · replaces deprecated @app.on_event (S11-BUG-04 · S12)."""
+    """Lifespan handler · replaces deprecated @app.on_event (S11-BUG-04 · S12).
+
+    F2-AUDIT-004: create_all() removed — Alembic is the single source of truth
+    for schema. verify_alembic_head() runs at boot:
+      - production  → RuntimeError if DB is not at head (fail-fast)
+      - development/test → warning only (allows working without running migrations)
+    """
     logger.info(
         "startup",
         environment=settings.environment,
@@ -81,8 +88,14 @@ async def lifespan(app: FastAPI):
         sentry_active=sentry_active,
         rate_limit_enabled=settings.rate_limit_enabled,
     )
-    Base.metadata.create_all(bind=engine)
-    logger.info("db.tables_ready")
+    # F2-AUDIT-004: test env uses Base.metadata.create_all() internally (SQLite
+    # in-memory + Alembic UUID incompatibility); all other envs check Alembic head.
+    if settings.environment == "test":
+        Base.metadata.create_all(bind=engine)
+        logger.info("db.tables_ready", mode="create_all_test")
+    else:
+        verify_alembic_head(engine, settings.environment)
+        logger.info("db.alembic_verified")
     yield
     logger.info("shutdown")
 

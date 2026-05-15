@@ -66,6 +66,7 @@ KNOWN_ACTIONS = frozenset({
     "invitation.create",
     "invitation.revoke",
     "invitation.accept",
+    "invitation.accept_blocked_takeover",
     "invitation.resend",
     # school self-service · GH-S9
     "school.upload_logo",

@@ -59,6 +59,7 @@ from sqlalchemy.orm import Session as DBSession
 from app.api.v1.auth import (
     create_access_token,
     get_current_user,
+    get_optional_current_user,
     get_password_hash,
 )
 from app.config import get_settings
@@ -804,7 +805,24 @@ def accept_invitation(
     payload: InvitationAccept,
     request: Request,
     db: DBSession = Depends(get_db),
+    caller: Optional[User] = Depends(get_optional_current_user),
 ):
+    """Accept an invitation token and either create a new user or link an existing one.
+
+    GH-S11.5-BE-04 · takeover protection (QA-AUD-031 + QA-AUD-032 + QA-AUD-010):
+      - If the invitation email maps to an EXISTING established account
+        (is_active=True, hashed_password is not None), the requester MUST be
+        authenticated as that exact account. Anonymous requests → 401.
+        Authenticated as a different account → 403.
+      - Cross-role protection: if the existing account has an established role
+        that is NOT compatible with the invitation role (e.g. psychologist invited
+        as student), the accept is blocked with 409.
+      - For NEW accounts (no prior user with that email): creates the account as
+        before. The `password` field in the payload is required for this path.
+      - For EXISTING accounts (legitimate owner authenticated): does NOT change
+        the account's password; only updates school_id, role if applicable, and
+        marks the invitation accepted.
+    """
     inv, reason = lookup_token(db, token)
     if not inv:
         raise HTTPException(status_code=404, detail="Invitation not found.")
@@ -828,32 +846,135 @@ def accept_invitation(
         from app.services.license_service import assert_can_register_student
         assert_can_register_student(db, school.id)
 
-    # if user already exists with same email, attach to school (only if not yet linked)
+    # --- Takeover protection (GH-S11.5-BE-04) ---
     existing = db.query(User).filter(User.email == inv.email.lower()).first()
+
     if existing:
+        # Determine if this is an "established" account that has a real password
+        # and is active (i.e. not a bare ghost row from an earlier partial flow).
+        is_established = existing.is_active and existing.hashed_password is not None
+
+        if is_established:
+            # The invitation email already belongs to an established account.
+            # The request MUST carry a valid JWT for that specific user.
+            # Any other situation is a potential account-takeover attempt.
+            if caller is None:
+                logger.warning(
+                    "invitation.accept · anonymous request for established account · "
+                    "inv_id=%s email_hash=%s",
+                    inv.id,
+                    hash(inv.email),
+                )
+                raise HTTPException(
+                    status_code=status.HTTP_401_UNAUTHORIZED,
+                    detail=(
+                        "Esta invitación es para una cuenta existente. "
+                        "Inicia sesión primero y luego acepta la invitación."
+                    ),
+                    headers={"WWW-Authenticate": "Bearer"},
+                )
+
+            if str(caller.id) != str(existing.id):
+                logger.warning(
+                    "invitation.accept · cross-account takeover attempt blocked · "
+                    "inv_id=%s caller_id=%s target_id=%s",
+                    inv.id,
+                    caller.id,
+                    existing.id,
+                )
+                log_action(
+                    db,
+                    user=caller,
+                    action="invitation.accept_blocked_takeover",
+                    resource_type="invitation",
+                    resource_id=str(inv.id),
+                    payload={
+                        "school_id": str(school.id),
+                        "inv_role": inv.role,
+                        "caller_id": str(caller.id),
+                        "target_email_hash": hash(inv.email),
+                    },
+                    request=request,
+                )
+                raise HTTPException(
+                    status_code=status.HTTP_403_FORBIDDEN,
+                    detail=(
+                        "La invitación pertenece a otra cuenta. "
+                        "Inicia sesión con el email correcto para aceptarla."
+                    ),
+                )
+
+            # Authenticated as the correct user. Log the auth state.
+            logger.info(
+                "invitation.accept · established account authenticated · "
+                "inv_id=%s user_id=%s",
+                inv.id,
+                existing.id,
+            )
+
+        # Cross-role check (QA-AUD-032): prevent horizontal role confusion.
+        # An existing psychologist must not be downgraded to student via invitation.
+        target_role = UserRole(inv.role)
+        ROLE_HIERARCHY = {
+            UserRole.SUPER_ADMIN: 100,
+            UserRole.SCHOOL_ADMIN: 50,
+            UserRole.PSYCHOLOGIST: 30,
+            UserRole.STUDENT: 10,
+        }
+        existing_rank = ROLE_HIERARCHY.get(existing.role, 0)
+        target_rank = ROLE_HIERARCHY.get(target_role, 0)
+
+        if existing_rank > target_rank:
+            logger.warning(
+                "invitation.accept · cross-role takeover blocked · "
+                "inv_id=%s existing_role=%s inv_role=%s user_id=%s",
+                inv.id,
+                existing.role,
+                inv.role,
+                existing.id,
+            )
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail=(
+                    f"El rol de la invitación ({inv.role}) es incompatible con "
+                    f"el rol actual de la cuenta ({existing.role.value})."
+                ),
+            )
+
+        # Cross-school check: do not move established accounts to a different school
+        # unless they have no school yet.
         if existing.school_id and str(existing.school_id) != str(school.id):
             raise HTTPException(
                 status_code=status.HTTP_409_CONFLICT,
                 detail="That email already belongs to a different school.",
             )
+
+        # All checks passed: link the existing account to this school.
         existing.school_id = school.id
-        # Promote role only if it represents an upgrade vs current
-        target_role = UserRole(inv.role)
+        # Promote role only for genuine upgrades (student → higher-privileged role).
         if existing.role == UserRole.STUDENT and target_role in (
             UserRole.PSYCHOLOGIST,
             UserRole.SCHOOL_ADMIN,
         ):
             existing.role = target_role
-        # always update password to the freshly chosen one
-        existing.hashed_password = get_password_hash(payload.password)
+        # NOTE: we intentionally do NOT change the password for established accounts.
+        # The payload.password field is ignored for this path. Only new accounts
+        # receive a password from the accept payload.
         if payload.name and not existing.name:
             existing.name = payload.name
         existing.is_active = True
         db.commit()
         db.refresh(existing)
         user = existing
+
     else:
+        # New account: create from scratch using the invitation email + chosen password.
         target_role = UserRole(inv.role)
+        logger.info(
+            "invitation.accept · new account created · inv_id=%s role=%s",
+            inv.id,
+            inv.role,
+        )
         user = User(
             email=inv.email.lower(),
             hashed_password=get_password_hash(payload.password),
@@ -878,7 +999,12 @@ def accept_invitation(
         action="invitation.accept",
         resource_type="invitation",
         resource_id=str(inv.id),
-        payload={"school_id": str(school.id), "role": inv.role},
+        payload={
+            "school_id": str(school.id),
+            "role": inv.role,
+            "auth_state": "authenticated" if caller else "anonymous",
+            "account_existed": existing is not None,
+        },
         request=request,
     )
     school_panel_service.invalidate_cache(school.id)

@@ -4,29 +4,28 @@ Revision ID: 037_encrypt_clinical_analysis
 Revises: 036_flags_prompts_configs
 Create Date: 2026-05-15
 
-Migration strategy:
-  · Add `clinical_analysis_cache_enc` BYTEA column (nullable).
-  · Existing data in `clinical_analysis_cache` JSON column is NOT migrated
-    here because:
-      1. clinical_analysis_cache data is regenerable (30d TTL).
-      2. We cannot safely encrypt with FIELD_ENCRYPTION_KEY inside Alembic
-         without importing app code (creates circular-dependency risk).
-      3. The service reads _enc first and falls back to the plaintext column
-         for legacy rows, so no data is lost.
-  · To explicitly migrate existing rows, run after deploying:
-      python -c "
-      from app.db.database import SessionLocal
-      from app.db.models import User
-      db = SessionLocal()
-      for u in db.query(User).filter(User.clinical_analysis_cache.isnot(None)).all():
-          u.clinical_analysis_cache_enc = u.clinical_analysis_cache
-          u.clinical_analysis_cache = None
-      db.commit(); db.close()
-      print('Done')
-      "
-    This will encrypt existing rows using the current FIELD_ENCRYPTION_KEY.
+Migration strategy (2-phase):
+  FASE A (este migration): agrega columna `clinical_analysis_cache_enc` BYTEA.
+    · La columna vieja `clinical_analysis_cache` se deja intacta.
+    · NO se migran datos aquí: evita riesgo transaccional y dependencia circular
+      con el código de app (importar crypto.py desde Alembic puede fallar si
+      FIELD_ENCRYPTION_KEY no está en el entorno de CI/alembic).
+    · El servicio lee `_enc` primero y cae a la columna vieja para rows legacy
+      (zero downtime, sin data loss).
 
-  · downgrade() removes the new column. The original column is untouched.
+  FASE B (script manual, correr en prod después de validar FASE A):
+    · Ver docs/runbooks/MIGRATION_037_PHASE_B.md para instrucciones completas.
+    · El script de migración de datos es:
+
+        python scripts/migrate_clinical_data.py [--dry-run] [--chunk-size 100]
+
+    · El script (ya creado en scripts/) es transaccionalmente seguro:
+        - Itera en chunks de 100 rows
+        - flush + verificación antes de nullear la columna vieja
+        - Rollback por chunk en caso de error (no aborta la migración entera)
+        - Resumen final: migrated=X · failed=Y · skipped=Z
+
+  downgrade(): remueve solo la columna _enc. La columna original queda intacta.
 """
 from alembic import op
 import sqlalchemy as sa

@@ -209,6 +209,12 @@ class User(Base):
     lead_pipeline_status = Column(String(20), nullable=True, index=True)
     lead_pipeline_status_at = Column(DateTime, nullable=True)
 
+    # Optimistic locking for pipeline status · QA-AUD-072 · migration 037
+    # Incremented on every update_pipeline_status call.
+    # Callers must pass the version they read; if the DB version differs
+    # (concurrent write) the update returns 0 rows → StaleOpportunityError.
+    pipeline_status_version = Column(Integer, nullable=False, default=1)
+
     # CRM AI analysis cache · GH-CRM-001 · 2026-05-03 (migration 016)
     # JSONB payload · {rationale, program_matches[], next_actions[]}
     # Service enforces TTL (7d) by comparing ai_analysis_cached_at with

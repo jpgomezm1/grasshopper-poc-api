@@ -7,6 +7,11 @@ Surfaces:
     POST /admin/integrations/bitrix/sync/{entity}/{id}     (super_admin · manual trigger)
     POST /webhooks/bitrix/inbound                          (HMAC validated · feature-flagged)
 
+Hardening (F3 · GH-S11.5):
+    BE-08 · ack inmediato: webhook arriva → valida → encola BackgroundTask → 200 OK <500ms
+    BE-09 · PII sanitization: logs usan sanitize_for_log antes de emitir el body
+    BE-10 · content-length cap: payloads > BITRIX_MAX_PAYLOAD_KB → 413
+
 PII guard:
     - status / sync-log responses include only sanitized payload summaries
       (the DB rows themselves were already stored via safe_summary).
@@ -21,11 +26,12 @@ import math
 from typing import Any, Dict, Optional
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query, Request, status
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
 from app.config import get_settings
+from app.core.log_sanitization import sanitize_for_log
 from app.db.database import get_db
 from app.db.models import BitrixSyncLog, User, UserRole
 from app.schemas.bitrix import (
@@ -199,7 +205,71 @@ def trigger_manual_sync(
 
 # -----------------------------------------------------------------------------
 # Inbound webhook (BE-06) · HMAC + feature flag
+# Hardening (F3): BE-08 ack inmediato · BE-09 PII logs · BE-10 content-length cap
 # -----------------------------------------------------------------------------
+
+
+def _check_content_length(request: Request, max_bytes: int) -> None:
+    """BE-10 · Reject oversized payloads early via Content-Length header check.
+
+    Checks the ``Content-Length`` header before reading the body so we can
+    return 413/411 without consuming memory.
+
+    Raises:
+        HTTPException 411 when Content-Length header is absent.
+        HTTPException 413 when declared size exceeds *max_bytes*.
+    """
+    if max_bytes <= 0:
+        # Cap disabled via BITRIX_MAX_PAYLOAD_KB=0
+        return
+
+    cl_header = request.headers.get("content-length")
+    if cl_header is None:
+        # Content-Length is required so we can enforce the cap safely.
+        raise HTTPException(
+            status_code=status.HTTP_411_LENGTH_REQUIRED,
+            detail="Content-Length header is required for this endpoint.",
+        )
+
+    try:
+        declared = int(cl_header)
+    except ValueError:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Content-Length header must be an integer.",
+        )
+
+    if declared > max_bytes:
+        logger.warning(
+            "bitrix inbound rejected · payload too large · declared=%d max=%d",
+            declared,
+            max_bytes,
+        )
+        raise HTTPException(
+            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+            detail=(
+                f"Payload too large · declared {declared} bytes exceeds "
+                f"limit of {max_bytes} bytes."
+            ),
+        )
+
+
+def _run_sync_inbound(payload: Dict[str, Any], db_factory: Any) -> None:
+    """BE-08 · Background worker that executes sync_inbound_status.
+
+    Runs in a FastAPI BackgroundTask after the HTTP ack is sent.
+    Opens and closes its own DB session to avoid using the request-scoped one.
+    """
+    from app.db.database import SessionLocal as _SessionLocal
+
+    db_factory = db_factory or _SessionLocal
+    db = db_factory()
+    try:
+        bitrix_sync_service.sync_inbound_status(db, payload)
+    except Exception as exc:  # pragma: no cover · defensive
+        logger.error("bitrix inbound background sync failed · %s", exc)
+    finally:
+        db.close()
 
 
 def _verify_hmac(secret: str, body: bytes, signature_header: Optional[str]) -> bool:
@@ -254,14 +324,29 @@ def _parse_bitrix_form_payload(form: Dict[str, Any]) -> Dict[str, Any]:
 )
 async def bitrix_inbound(
     request: Request,
+    background_tasks: BackgroundTasks,
     db: DBSession = Depends(get_db),
 ):
+    """Inbound webhook from Bitrix.
+
+    GH-S11.5 hardening:
+    - BE-08: validates synchronously, enqueues processing as a BackgroundTask,
+      returns 200 OK immediately so Bitrix does not retry on slow DB writes.
+    - BE-09: any log statement that touches the inbound body goes through
+      ``sanitize_for_log`` to strip PII before reaching the log sink.
+    - BE-10: enforces Content-Length cap (BITRIX_MAX_PAYLOAD_KB) before
+      reading the body; returns 411/413 on violation.
+    """
     settings = get_settings()
     if not settings.bitrix_inbound_enabled:
         raise HTTPException(
             status_code=status.HTTP_501_NOT_IMPLEMENTED,
             detail="Bitrix inbound webhook is not enabled · set BITRIX_INBOUND_ENABLED=true",
         )
+
+    # BE-10 · content-length cap (before reading body)
+    max_bytes = (settings.bitrix_max_payload_kb or 0) * 1024
+    _check_content_length(request, max_bytes)
 
     # Two supported auth modes:
     #
@@ -286,6 +371,19 @@ async def bitrix_inbound(
 
     content_type = (request.headers.get("content-type") or "").split(";", 1)[0].strip().lower()
     body = await request.body()
+
+    # Secondary size guard: body was already read — confirm it's within limit.
+    # This catches cases where Content-Length was absent or mis-declared.
+    if max_bytes > 0 and len(body) > max_bytes:
+        logger.warning(
+            "bitrix inbound rejected post-read · body=%d max=%d",
+            len(body),
+            max_bytes,
+        )
+        raise HTTPException(
+            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+            detail=f"Payload too large · {len(body)} bytes exceeds limit of {max_bytes} bytes.",
+        )
 
     # Mode 1 · Bitrix24 official webhook (form-urlencoded + application_token)
     if content_type == "application/x-www-form-urlencoded" and application_token_cfg:
@@ -315,16 +413,14 @@ async def bitrix_inbound(
                 detail="Invalid application_token.",
             )
         payload = _parse_bitrix_form_payload(form_dict)
-        user = bitrix_sync_service.sync_inbound_status(db, payload)
-        if user is None:
-            return BitrixInboundAck(
-                ok=True, matched_user_id=None, normalized_status=None
-            )
-        return BitrixInboundAck(
-            ok=True,
-            matched_user_id=user.id,
-            normalized_status=user.bitrix_lead_status,
+        # BE-09: sanitize before logging
+        logger.debug(
+            "bitrix inbound form-urlencoded received · keys=%s",
+            sanitize_for_log(list(payload.keys())),
         )
+        # BE-08: enqueue and ack immediately
+        background_tasks.add_task(_run_sync_inbound, payload, None)
+        return BitrixInboundAck(ok=True, matched_user_id=None, normalized_status=None)
 
     # Mode 2 · Legacy HMAC (proxy/test flow)
     if not secret:
@@ -356,11 +452,14 @@ async def bitrix_inbound(
             detail="Invalid signature.",
         )
 
-    # GH-S11 hardening · replay protection (S10 gap closed)
-    # The producer must include `X-Hopper-Timestamp` (epoch seconds) and
-    # `X-Hopper-Nonce` (unique per attempt). Both are part of the HMAC
-    # contract going forward; if absent we still accept (backward compat
-    # for the stub) but log a warning.
+    # GH-S11.5-BE-11: replay protection cross-dyno (Postgres)
+    # El productor debe incluir X-Hopper-Timestamp (epoch seconds) y
+    # X-Hopper-Nonce (unico por intento). Ambos forman parte del contrato
+    # HMAC desde S11. Si estan ausentes se acepta con warning (compat stub).
+    #
+    # check_and_mark es atomico: INSERT ON CONFLICT DO NOTHING RETURNING
+    # garantiza que solo un dyno "gana" cuando 2 procesan el mismo nonce
+    # simultaneamente. El segundo ve RETURNING vacio = replay detectado.
     from app.core.webhook_replay import bitrix_replay_guard
     ts_header = request.headers.get("x-hopper-timestamp")
     nonce_header = request.headers.get("x-hopper-nonce")
@@ -370,7 +469,10 @@ async def bitrix_inbound(
         except ValueError:
             ts_value = 0
         ts_ok, ts_reason = bitrix_replay_guard.check_timestamp(ts_value)
-        nonce_ok = bitrix_replay_guard.remember_nonce(nonce_header)
+        # check_and_mark atomico cross-dyno: True = nonce nuevo, False = replay
+        nonce_ok = bitrix_replay_guard.check_and_mark(
+            nonce=nonce_header, source="bitrix", db=db
+        )
         if not ts_ok or not nonce_ok:
             try:
                 from app.services.audit_service import log_action
@@ -402,11 +504,13 @@ async def bitrix_inbound(
             detail="Body must be valid JSON.",
         )
 
-    user = bitrix_sync_service.sync_inbound_status(db, payload)
-    if user is None:
-        return BitrixInboundAck(ok=True, matched_user_id=None, normalized_status=None)
-    return BitrixInboundAck(
-        ok=True,
-        matched_user_id=user.id,
-        normalized_status=user.bitrix_lead_status,
+    # BE-09: safe log before enqueuing
+    logger.debug(
+        "bitrix inbound HMAC validated · payload_safe=%s",
+        sanitize_for_log(payload),
     )
+
+    # BE-08: enqueue processing and ack immediately so Bitrix receives 200 OK
+    # before the DB write completes. The background task opens its own session.
+    background_tasks.add_task(_run_sync_inbound, payload, None)
+    return BitrixInboundAck(ok=True, matched_user_id=None, normalized_status=None)

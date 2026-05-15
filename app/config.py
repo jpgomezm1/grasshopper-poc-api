@@ -149,6 +149,27 @@ class Settings(BaseSettings):
     vapid_private_key: str = ""
     vapid_subject: str = "mailto:ops@grasshopper.app"
 
+    # Origin validation for invitation accept-URL generation (GH-F1-SECURITY · Tarea 3)
+    # Comma-separated list of allowed origins.
+    # Used by _build_accept_url in school_panel.py to prevent open-redirect /
+    # phishing via forged Origin headers in invitation emails.
+    # Default: production Netlify URL + local dev origins.
+    allowed_origins_str: str = (
+        "https://grasshopper-app.netlify.app,"
+        "http://localhost:5173,"
+        "http://localhost:5174,"
+        "http://127.0.0.1:5173"
+    )
+
+    @computed_field
+    @property
+    def allowed_origins_set(self) -> set:
+        """Parse allowed_origins_str into a set for O(1) lookup."""
+        return {o.strip().rstrip("/") for o in self.allowed_origins_str.split(",") if o.strip()}
+
+    # Canonical frontend base URL (used as ultimate fallback in _build_accept_url).
+    frontend_base_url: str = "https://grasshopper-app.netlify.app"
+
     @model_validator(mode="after")
     def _assert_production_secrets(self) -> "Settings":
         """GH-F1-SECURITY · Tarea 2 · fail fast on boot when secrets are insecure.

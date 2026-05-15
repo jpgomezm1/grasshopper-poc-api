@@ -550,11 +550,32 @@ async def upload_logo(
 
 
 def _build_accept_url(token: str, request: Optional[Request]) -> str:
-    """Compose the accept URL using request Origin (POC-friendly · works in dev)."""
+    """Compose the accept URL using a validated request Origin.
+
+    GH-F1-SECURITY · Tarea 3 · Origin header validation.
+
+    Before using the Origin header to build the invitation link (which is sent
+    by email), we verify it is in the ALLOWED_ORIGINS whitelist.  An untrusted
+    Origin would let an attacker compose a phishing link pointing to evil.com.
+
+    Fallback order:
+      1. request.headers["origin"] if it is in settings.allowed_origins_set
+      2. settings.frontend_base_url  (canonical prod URL · always safe)
+      3. "http://localhost:5173"      (dev fallback when no request object)
+    """
     settings_obj = get_settings()
-    base = (
-        request.headers.get("origin") if request else None
-    ) or getattr(settings_obj, "frontend_base_url", None) or "http://localhost:5173"
+    raw_origin = (request.headers.get("origin") if request else None) or ""
+    # Strip trailing slash for consistent comparison
+    normalized = raw_origin.rstrip("/")
+
+    if normalized and normalized in settings_obj.allowed_origins_set:
+        base = normalized
+    else:
+        base = (
+            getattr(settings_obj, "frontend_base_url", None)
+            or "http://localhost:5173"
+        )
+
     return f"{base.rstrip('/')}/invite/{token}"
 
 

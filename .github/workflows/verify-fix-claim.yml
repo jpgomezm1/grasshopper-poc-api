@@ -1,0 +1,186 @@
+name: Verify Fix Claims
+
+# Valida que si un PR/commit menciona un ID de tarea o audit (QA-AUD-NNN,
+# GH-SX-TYPE-NN), el código de la zona declarada para ese tipo de tarea
+# efectivamente cambió en el diff de la rama. Evita que tareas se marquen
+# [x] sin cambio real de código.
+#
+# Para saltar esta validación en casos legítimos (solo-docs, refactor puro,
+# hotfix de emergencia), agregar la etiqueta `skip-fix-verification` al PR.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  verify-fix-claims:
+    name: Verify claimed task IDs have code changes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch with full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # ------------------------------------------------------------------ #
+      # 1. Recopilar texto analizable: título + body del PR + mensajes de   #
+      #    todos los commits del branch.                                     #
+      # ------------------------------------------------------------------ #
+      - name: Collect PR text and commit messages
+        id: collect_text
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          echo "=== Recopilando texto del PR ==="
+
+          # Escapar texto para uso seguro en archivo
+          printf '%s\n' "$PR_TITLE" > /tmp/pr_text.txt
+          printf '%s\n' "$PR_BODY" >> /tmp/pr_text.txt
+
+          # Commits del branch que no están en base
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          git log "${BASE}..${HEAD}" --pretty=format:"%s%n%b" >> /tmp/pr_text.txt || true
+
+          echo "Texto recopilado:"
+          cat /tmp/pr_text.txt
+
+      # ------------------------------------------------------------------ #
+      # 2. Detectar etiqueta skip-fix-verification                          #
+      # ------------------------------------------------------------------ #
+      - name: Check for skip label
+        id: check_skip
+        run: |
+          LABELS='${{ toJson(github.event.pull_request.labels.*.name) }}'
+          echo "Labels del PR: $LABELS"
+          if echo "$LABELS" | grep -qi "skip-fix-verification"; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Etiqueta skip-fix-verification detectada · saltando validación."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      # ------------------------------------------------------------------ #
+      # 3. Parsear IDs y validar cambios en git diff                        #
+      # ------------------------------------------------------------------ #
+      - name: Parse IDs and validate changed files
+        if: steps.check_skip.outputs.skip == 'false'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          # ---- extrae IDs únicos del texto --------------------------------
+          # Patrones aceptados:
+          #   QA-AUD-NNN
+          #   GH-SN-TYPE-NN
+          #   GH-SN.N-TYPE-NN
+          #   F<N>-TYPE-NN  (formato remediation branches usadas en este proyecto)
+          IDS=$(grep -oE \
+            '(QA-AUD-[0-9]+|GH-S[0-9]+(\.[0-9]+)?-[A-Z]+-[0-9]+|F[0-9]+-[A-Z]+-[0-9]+)' \
+            /tmp/pr_text.txt | sort -u || true)
+
+          if [ -z "$IDS" ]; then
+            echo "No se encontraron IDs de tareas/audit en este PR. Validación omitida."
+            exit 0
+          fi
+
+          echo "IDs detectados:"
+          echo "$IDS"
+
+          # ---- archivos que cambiaron en este PR --------------------------
+          CHANGED=$(git diff --name-only "${BASE_SHA}..${HEAD_SHA}" 2>/dev/null || true)
+          if [ -z "$CHANGED" ]; then
+            echo "ADVERTENCIA: git diff no devolvió archivos. Usando diff stat alternativo."
+            CHANGED=$(git diff --stat "${BASE_SHA}..${HEAD_SHA}" | grep '|' | awk '{print $1}' || true)
+          fi
+
+          echo ""
+          echo "Archivos modificados en el PR:"
+          echo "$CHANGED"
+
+          # ---- función: inferir zona esperada por tipo de ID --------------
+          # Backend repo: zonas válidas son app/** y tests/**
+          # La función retorna el prefix esperado según el TYPE del ID.
+          infer_zone() {
+            local id="$1"
+            # IDs BE o DB → backend source
+            if echo "$id" | grep -qE '\-(BE|DB)\-'; then
+              echo "app/"
+            # IDs INFRA → .github/ o Procfile o runtime.txt o Aptfile
+            elif echo "$id" | grep -qE '\-INFRA\-'; then
+              echo ".github/"
+            # IDs QA → tests/ o app/
+            elif echo "$id" | grep -qE '\-(QA)\-'; then
+              echo "tests/"
+            # IDs DOC → docs/
+            elif echo "$id" | grep -qE '\-(DOC)\-'; then
+              echo "docs/"
+            # QA-AUD-NNN → cualquier cambio en app/ o tests/ (audit items son mixed)
+            elif echo "$id" | grep -qE '^QA-AUD-'; then
+              echo "app/"
+            # F<N>-BE-NN (remediation backend)
+            elif echo "$id" | grep -qE '^F[0-9]+-BE-'; then
+              echo "app/"
+            # F<N>-INFRA-NN (remediation infra)
+            elif echo "$id" | grep -qE '^F[0-9]+-INFRA-'; then
+              echo ".github/"
+            else
+              echo ""
+            fi
+          }
+
+          # ---- iterar IDs y validar ---------------------------------------
+          FAILURES=0
+          SKIP_ZONE_COUNT=0
+
+          while IFS= read -r ID; do
+            [ -z "$ID" ] && continue
+
+            ZONE=$(infer_zone "$ID")
+
+            if [ -z "$ZONE" ]; then
+              echo ""
+              echo "INFO [$ID]: tipo de tarea no mapeado a zona de código en este repo · omitiendo."
+              SKIP_ZONE_COUNT=$((SKIP_ZONE_COUNT + 1))
+              continue
+            fi
+
+            # Buscar si algún archivo cambiado pertenece a la zona esperada
+            MATCH=$(echo "$CHANGED" | grep "^${ZONE}" | head -5 || true)
+
+            if [ -z "$MATCH" ]; then
+              echo ""
+              echo "FALLA [$ID]: se declara que este ID fue resuelto, pero no hay"
+              echo "  cambios en la zona esperada: '${ZONE}'"
+              echo "  Archivos modificados en este PR que empiezan con '${ZONE}':"
+              echo "  (ninguno)"
+              echo ""
+              echo "  Opciones:"
+              echo "  1. Verificar que el archivo correcto fue editado y commiteado."
+              echo "  2. Si el fix es legítimamente solo de configuración/docs, agregar"
+              echo "     la etiqueta 'skip-fix-verification' al PR con justificación."
+              FAILURES=$((FAILURES + 1))
+            else
+              echo ""
+              echo "OK [$ID]: cambios encontrados en zona '${ZONE}':"
+              echo "$MATCH" | sed 's/^/  /'
+            fi
+          done <<< "$IDS"
+
+          echo ""
+          echo "============================================================"
+          echo "Resumen: $(echo "$IDS" | grep -c .) IDs evaluados · $FAILURES fallos · $SKIP_ZONE_COUNT sin zona mapeada"
+          echo "============================================================"
+
+          if [ "$FAILURES" -gt 0 ]; then
+            echo ""
+            echo "ERROR: $FAILURES ID(s) declarados como resueltos sin cambios de código verificables."
+            echo "Corregir antes de mergear. Ver detalle arriba."
+            exit 1
+          fi
+
+          echo "Validación completada sin errores."

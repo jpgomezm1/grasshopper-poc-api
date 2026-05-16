@@ -71,9 +71,42 @@ else:
 settings = get_settings()
 
 
+async def _nonce_cleanup_loop() -> None:  # pragma: no cover
+    """Background task: borra nonces expirados cada hora.
+
+    GH-S11.5-BE-11: alternativa liviana a Heroku Scheduler para el cleanup
+    de webhook_nonces. Corre dentro del proceso FastAPI como asyncio task.
+
+    Decisión: se prefirió in-process sobre Heroku Scheduler porque:
+      1. No requiere provisionar el add-on Scheduler.
+      2. Cada dyno corre su propio loop pero la DELETE es idempotente.
+      3. La tabla es pequena (TTL 10 min) por lo que el overhead es minimo.
+    Si el volumen justifica un job centralizado, deshabilitar este loop
+    via env var y activar Heroku Scheduler apuntando a:
+      ``python -c "from app.core.webhook_replay import delete_expired_nonces; ..."``
+    """
+    import asyncio
+
+    from app.db.database import SessionLocal
+    from app.core.webhook_replay import delete_expired_nonces
+
+    while True:
+        await asyncio.sleep(3600)
+        try:
+            db = SessionLocal()
+            try:
+                delete_expired_nonces(db)
+            finally:
+                db.close()
+        except Exception as exc:
+            logger.warning("nonce_cleanup.error", error=str(exc))
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Lifespan handler · replaces deprecated @app.on_event (S11-BUG-04 · S12)."""
+    import asyncio
+
     logger.info(
         "startup",
         environment=settings.environment,
@@ -83,7 +116,18 @@ async def lifespan(app: FastAPI):
     )
     Base.metadata.create_all(bind=engine)
     logger.info("db.tables_ready")
+
+    # GH-S11.5-BE-11: nonce cleanup background task
+    cleanup_task = asyncio.create_task(_nonce_cleanup_loop())
+    logger.info("nonce_cleanup.started")
+
     yield
+
+    cleanup_task.cancel()
+    try:
+        await cleanup_task
+    except asyncio.CancelledError:
+        pass
     logger.info("shutdown")
 
 

@@ -208,6 +208,8 @@ class User(Base):
     # NULL = no pipeline action yet (default for every user).
     lead_pipeline_status = Column(String(20), nullable=True, index=True)
     lead_pipeline_status_at = Column(DateTime, nullable=True)
+    # Optimistic locking · QA-AUD-072 · migration 037
+    pipeline_status_version = Column(Integer, nullable=False, default=1)
 
     # CRM AI analysis cache · GH-CRM-001 · 2026-05-03 (migration 016)
     # JSONB payload · {rationale, program_matches[], next_actions[]}

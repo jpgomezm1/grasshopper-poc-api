@@ -31,7 +31,7 @@ from datetime import date, datetime, timedelta
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 from uuid import UUID
 
-from sqlalchemy import and_, func, or_
+from sqlalchemy import and_, func, or_, update
 from sqlalchemy.orm import Session as DBSession
 
 from app.core.ai_client import call_claude, load_prompt
@@ -1286,6 +1286,7 @@ def get_lead_detail(
         school_name=school_name,
         pipeline_status=user.lead_pipeline_status,  # type: ignore[arg-type]
         pipeline_status_at=user.lead_pipeline_status_at,
+        pipeline_status_version=user.pipeline_status_version or 1,
         gh_contact_status=user.gh_contact_status,
         gh_contact_message=user.gh_contact_message,
         gh_contact_requested_at=user.gh_contact_requested_at,
@@ -1324,6 +1325,52 @@ def _short_rationale(
 
 
 # ---------------------------------------------------------------------------
+# Pipeline state machine · QA-AUD-072
+# ---------------------------------------------------------------------------
+
+# Mapa explícito de transiciones válidas.
+# Cualquier transición no listada aquí → InvalidPipelineTransitionError → 409.
+PIPELINE_VALID_TRANSITIONS: Dict[Optional[str], List[str]] = {
+    None: ["pending", "contacted", "qualified", "converted", "declined"],
+    "pending": ["contacted", "declined"],
+    "contacted": ["qualified", "declined"],
+    "qualified": ["converted", "declined"],
+    "converted": ["declined"],
+    "declined": ["pending"],
+}
+
+
+class StaleOpportunityError(Exception):
+    """Lanzado cuando la versión del pipeline cambió concurrentemente.
+
+    El router captura esta excepción y devuelve HTTP 409 Conflict.
+    """
+
+
+class InvalidPipelineTransitionError(Exception):
+    """Lanzado cuando la transición de estado no está en el state machine.
+
+    El router captura esta excepción y devuelve HTTP 409 Conflict.
+    """
+
+
+def _validate_pipeline_transition(
+    from_status: Optional[str], to_status: str
+) -> None:
+    """Valida que la transición from → to es legal según el state machine.
+
+    Raises:
+        InvalidPipelineTransitionError: si la transición no está permitida.
+    """
+    allowed = PIPELINE_VALID_TRANSITIONS.get(from_status, [])
+    if to_status not in allowed:
+        raise InvalidPipelineTransitionError(
+            f"Transición inválida: '{from_status}' → '{to_status}'. "
+            f"Transiciones permitidas desde '{from_status}': {allowed}"
+        )
+
+
+# ---------------------------------------------------------------------------
 # PATCH pipeline status
 # ---------------------------------------------------------------------------
 
@@ -1336,16 +1383,70 @@ def update_pipeline_status(
     note: Optional[str] = None,
     actor: User,
     request,  # FastAPI Request · for audit
+    expected_version: Optional[int] = None,
 ) -> User:
-    """Mutates user.lead_pipeline_status · logs to audit + bitrix mock."""
+    """Muta user.lead_pipeline_status con locking optimista y state machine.
+
+    Implementa compare-and-swap atómico:
+    1. Valida la transición en el state machine.
+    2. Ejecuta UPDATE con WHERE version = expected_version (si se proporcionó).
+    3. Si 0 filas afectadas → StaleOpportunityError (escritura concurrente).
+    4. Post-commit: audit log + Bitrix mock + notificación al asignado.
+
+    El Bitrix sync se dispara DESPUÉS del commit para que un fallo externo
+    no revierta el cambio local. Si Bitrix falla queda con status=STUB.
+
+    Args:
+        expected_version: versión que el cliente leyó. None → backward-compat
+            (sin verificar CAS).
+
+    Raises:
+        InvalidPipelineTransitionError: transición no permitida → 409.
+        StaleOpportunityError: versión stale detectada → 409.
+    """
     from app.services.audit_service import log_action
 
     previous = user.lead_pipeline_status
-    user.lead_pipeline_status = new_status
-    user.lead_pipeline_status_at = datetime.utcnow()
-    db.flush()
 
-    # Audit
+    # 1. Validar transición en el state machine
+    _validate_pipeline_transition(previous, new_status)
+
+    # 2. Atomic compare-and-swap
+    now = datetime.utcnow()
+
+    if expected_version is not None:
+        stmt = (
+            update(User)
+            .where(User.id == user.id)
+            .where(User.pipeline_status_version == expected_version)
+            .values(
+                lead_pipeline_status=new_status,
+                lead_pipeline_status_at=now,
+                pipeline_status_version=User.pipeline_status_version + 1,
+                updated_at=now,
+            )
+        )
+        result = db.execute(stmt)
+        if result.rowcount == 0:
+            raise StaleOpportunityError(
+                f"Conflicto concurrente detectado en lead {user.id}. "
+                "El estado fue modificado por otra sesión. "
+                "Recarga el lead y reintenta."
+            )
+    else:
+        # Sin expected_version → escritura directa (clientes legacy)
+        db.execute(
+            update(User)
+            .where(User.id == user.id)
+            .values(
+                lead_pipeline_status=new_status,
+                lead_pipeline_status_at=now,
+                pipeline_status_version=User.pipeline_status_version + 1,
+                updated_at=now,
+            )
+        )
+
+    # 3. Audit log (dentro de la misma transacción antes del commit)
     try:
         log_action(
             db,
@@ -1357,13 +1458,18 @@ def update_pipeline_status(
                 "previous": previous,
                 "new": new_status,
                 "note": (note or "")[:500],
+                "expected_version": expected_version,
+                "locking": "cas" if expected_version is not None else "legacy",
             },
             request=request,
         )
     except Exception as exc:  # noqa: BLE001
         logger.warning("audit log failed for crm.pipeline_status_change · %s", exc)
 
-    # Bitrix sync log mock entry · D-020 stub policy
+    # 4. Commit
+    db.commit()
+
+    # 5. Bitrix sync DESPUÉS del commit (QA-AUD-072 requisito)
     try:
         sync = BitrixSyncLog(
             entity_type="user",
@@ -1377,14 +1483,14 @@ def update_pipeline_status(
             attempts=0,
         )
         db.add(sync)
+        db.commit()
     except Exception as exc:  # noqa: BLE001
         logger.warning("bitrix mock log failed for crm.pipeline_status_change · %s", exc)
 
-    db.commit()
+    # 6. Refresh para obtener versión actualizada
     db.refresh(user)
 
-    # GH-COMMPROD-A1 · notify the lead assignee when someone else moved
-    # the pipeline status (skip self-action and unassigned leads).
+    # 7. Notificación al asignado (GH-COMMPROD-A1)
     try:
         if (
             user.assigned_to_user_id

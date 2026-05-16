@@ -1,7 +1,7 @@
 """Persistent webhook nonce store for cross-dyno replay protection.
 
-Revision ID: 037_webhook_nonces
-Revises: 036_flags_prompts_configs
+Revision ID: 039_webhook_nonces
+Revises: 038_pipeline_status_version
 Create Date: 2026-05-15
 
 GH-S11.5-BE-11 · Migra WebhookReplayGuard de in-memory a Postgres para
@@ -24,8 +24,8 @@ import sqlalchemy as sa
 from alembic import op
 
 # revision identifiers
-revision = "037_webhook_nonces"
-down_revision = "036_flags_prompts_configs"
+revision = "039_webhook_nonces"
+down_revision = "038_pipeline_status_version"
 branch_labels = None
 depends_on = None
 

@@ -1,7 +1,7 @@
 """Add pipeline_status_version to users for optimistic locking.
 
-Revision ID: 037_pipeline_status_version
-Revises: 036_flags_prompts_configs
+Revision ID: 038_pipeline_status_version
+Revises: 037_encrypt_clinical_analysis
 Create Date: 2026-05-15
 
 QA-AUD-072 · Race condition fix.
@@ -20,8 +20,8 @@ from alembic import op
 import sqlalchemy as sa
 
 
-revision = "037_pipeline_status_version"
-down_revision = "036_flags_prompts_configs"
+revision = "038_pipeline_status_version"
+down_revision = "037_encrypt_clinical_analysis"
 branch_labels = None
 depends_on = None
 

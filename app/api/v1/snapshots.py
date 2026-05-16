@@ -10,6 +10,8 @@ from app.db.models import Snapshot, Route, User, VocationalTestResult
 from app.schemas.journey import SnapshotResponse
 from app.services.journey_service import get_session
 from app.services.ai_service import derive_motivations, derive_constraints
+from app.api.v1.auth import get_current_user
+from app.core.access import assert_session_access
 
 router = APIRouter(prefix="/snapshots", tags=["snapshots"])
 
@@ -18,11 +20,13 @@ router = APIRouter(prefix="/snapshots", tags=["snapshots"])
 def get_snapshots(
     session_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Get all snapshots for a session."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Get all snapshots for a session.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    assert_session_access(session_id, current_user, db)
 
     snapshots = (
         db.query(Snapshot)
@@ -38,11 +42,13 @@ def get_snapshots(
 def create_snapshot(
     session_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Generate a new snapshot."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Generate a new snapshot.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    session = assert_session_access(session_id, current_user, db)
 
     answers = session.answers or {}
 
@@ -108,11 +114,13 @@ def create_snapshot(
 def get_latest_snapshot(
     session_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Get the latest snapshot for a session."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Get the latest snapshot for a session.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    assert_session_access(session_id, current_user, db)
 
     snapshot = (
         db.query(Snapshot)

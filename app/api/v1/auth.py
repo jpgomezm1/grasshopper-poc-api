@@ -16,6 +16,7 @@ from jose import JWTError, jwt
 
 from app.config import get_settings
 from app.core.rate_limiter import limiter
+from app.core.url_safety import build_safe_url
 from app.db.database import get_db
 from app.db.models import User, OnboardingStatus, Session, UserRole, School
 from app.schemas.school import SchoolSummary
@@ -596,10 +597,15 @@ def forgot_password(request: ForgotPasswordRequest, req: Request, db: DBSession 
     user.password_reset_expires = datetime.utcnow() + timedelta(hours=1)
     db.commit()
 
-    # Build reset link from the Origin header (handles any port)
-    origin = req.headers.get("origin", "http://localhost:5173")
-    reset_link = f"{origin}/reset-password/{reset_token}"
-    logger.info(f"[POC] Password reset link for {user.email}: {reset_link}")
+    # Build reset link · origin validado contra whitelist (previene phishing via
+    # header injection). GH-F1-SECURITY · build_safe_url rechaza origins no
+    # registrados y usa settings.frontend_base_url como fallback seguro.
+    reset_link = build_safe_url(
+        origin_header=req.headers.get("origin"),
+        path=f"/reset-password/{reset_token}",
+    )
+    # Log neutro: solo user_id · NUNCA el token ni el email completo (PII / token hijack)
+    logger.info("auth.forgot_password.requested user_id=%s", str(user.id))
 
     if request.method == "phone" and user.phone:
         logger.info(f"[POC] SMS would be sent to {user.phone}")

@@ -12,6 +12,10 @@ httpx==0.26.0
 # Authentication
 passlib[bcrypt]==1.7.4
 python-jose[cryptography]==3.4.0   # PYSEC-2024-232 / 233 fixed in 3.4.0
+# At-rest encryption for clinical_analysis_cache (GH-F1-SECURITY · Tarea 4)
+# AES-GCM via cryptography lib. Already a transitive dep of python-jose;
+# declared explicitly so pip pin audits don't lose track of direct usage.
+cryptography>=42.0.0
 # OpenAI for Whisper transcription
 openai>=1.0.0
 python-multipart>=0.0.7   # PYSEC-2024-43 mitigated in 0.0.7+

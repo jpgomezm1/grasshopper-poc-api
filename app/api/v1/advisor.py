@@ -6,11 +6,13 @@ from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.orm import Session as DBSession
 
 from app.db.database import get_db, SessionLocal
-from app.db.models import AdvisorLead, Route
+from app.db.models import AdvisorLead, Route, User
 from app.schemas.journey import AdvisorLeadCreate, AdvisorLeadResponse
 from app.services.journey_service import get_session
 from app.services.ai_service import generate_advisor_brief
 from app.services import bitrix_sync_service
+from app.api.v1.auth import get_current_user
+from app.core.access import assert_session_access
 
 logger = logging.getLogger(__name__)
 
@@ -23,11 +25,13 @@ def create_advisor_lead(
     session_id: UUID,
     background_tasks: BackgroundTasks,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Submit advisor contact form."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Submit advisor contact form.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    session = assert_session_access(session_id, current_user, db)
 
     # Check if lead already exists
     existing = (
@@ -119,11 +123,13 @@ def create_advisor_lead(
 def get_advisor_lead(
     session_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Get advisor lead for a session."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Get advisor lead for a session.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    assert_session_access(session_id, current_user, db)
 
     lead = (
         db.query(AdvisorLead)
@@ -141,11 +147,13 @@ def get_advisor_lead(
 def get_advisor_brief_preview(
     session_id: UUID,
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
-    """Get advisor brief preview without submitting contact info."""
-    session = get_session(db, session_id)
-    if not session:
-        raise HTTPException(status_code=404, detail="Session not found")
+    """Get advisor brief preview without submitting contact info.
+
+    GH-F1-IDOR: requires authentication + session ownership.
+    """
+    session = assert_session_access(session_id, current_user, db)
 
     # Get routes
     routes = (

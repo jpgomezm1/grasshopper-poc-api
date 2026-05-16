@@ -96,6 +96,7 @@ from app.schemas.school_panel import (
 )
 from app.services import school_panel_service
 from app.services.audit_service import log_action
+from app.core.url_safety import build_safe_url
 from app.services.invitation_service import (
     create_invitation,
     lookup_token,
@@ -550,12 +551,19 @@ async def upload_logo(
 
 
 def _build_accept_url(token: str, request: Optional[Request]) -> str:
-    """Compose the accept URL using request Origin (POC-friendly · works in dev)."""
-    settings_obj = get_settings()
-    base = (
-        request.headers.get("origin") if request else None
-    ) or getattr(settings_obj, "frontend_base_url", None) or "http://localhost:5173"
-    return f"{base.rstrip('/')}/invite/{token}"
+    """Compose the accept URL using a validated request Origin.
+
+    GH-F1-SECURITY · Tarea 3 · delega en app.core.url_safety.build_safe_url
+    para la validación contra la whitelist (lógica centralizada; evita
+    duplicación con el helper de /forgot-password).
+
+    Fallback order (gestionado en build_safe_url):
+      1. request.headers["origin"] si está en settings.allowed_origins_set
+      2. settings.frontend_base_url  (URL canónica prod · siempre segura)
+      3. "http://localhost:5173"      (dev fallback cuando no hay request)
+    """
+    origin_header = request.headers.get("origin") if request else None
+    return build_safe_url(origin_header=origin_header, path=f"/invite/{token}")
 
 
 def _to_invitation_response(

@@ -1,8 +1,45 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import Column, String, DateTime, Date, Text, Boolean, Integer, Float, ForeignKey, JSON, Enum, UniqueConstraint
+from sqlalchemy import Column, String, DateTime, Date, Text, Boolean, Integer, Float, ForeignKey, JSON, Enum, UniqueConstraint, LargeBinary
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
+from sqlalchemy.types import TypeDecorator
+
+
+# ---------------------------------------------------------------------------
+# Encrypted field types (GH-F1-SECURITY · Tarea 4 · clinical_analysis_cache)
+# ---------------------------------------------------------------------------
+
+class EncryptedJSON(TypeDecorator):
+    """SQLAlchemy TypeDecorator that transparently encrypts/decrypts a JSON field.
+
+    Storage type: LargeBinary (BYTEA in PostgreSQL).
+    The cipher is AES-256-GCM via app.core.crypto.
+
+    Usage:
+        column = Column(EncryptedJSON, nullable=True)
+
+    Reading returns the deserialized Python object (dict / list / etc.).
+    Writing accepts any JSON-serializable Python object.
+    None values pass through as-is (no encryption of NULL).
+    """
+
+    impl = LargeBinary
+    cache_ok = True  # value is determined by the key + plaintext, stable
+
+    def process_bind_param(self, value, dialect):
+        """Python object → encrypted bytes (before writing to DB)."""
+        if value is None:
+            return None
+        from app.core.crypto import encrypt_json
+        return encrypt_json(value)
+
+    def process_result_value(self, value, dialect):
+        """Encrypted bytes → Python object (after reading from DB)."""
+        if value is None:
+            return None
+        from app.core.crypto import decrypt_json
+        return decrypt_json(value)
 import enum
 
 from app.db.database import Base
@@ -232,7 +269,14 @@ class User(Base):
     # Service enforces 30d TTL. Tone is clinical / private (advisor-only),
     # NEVER surfaced to the student. Different from `consolidated_profile`
     # which is the cálido/positivo public profile.
+    #
+    # GH-F1-SECURITY · Tarea 4 · at-rest encryption (migration 037)
+    # `clinical_analysis_cache` (JSON/JSONB) is kept for migration compatibility.
+    # New writes use `clinical_analysis_cache_enc` (BYTEA · EncryptedJSON).
+    # clinical_analysis_service.py reads _enc first; falls back to plaintext column
+    # for legacy rows. Old column can be dropped after confirming all rows migrated.
     clinical_analysis_cache = Column(JSON, nullable=True)
+    clinical_analysis_cache_enc = Column(EncryptedJSON, nullable=True)
     clinical_analysis_cached_at = Column(DateTime, nullable=True)
 
     # GH-STUDENT-EXPERIENCE · 2026-05-05 (migration 031) · Bloque J

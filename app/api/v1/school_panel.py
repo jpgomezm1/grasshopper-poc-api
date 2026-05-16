@@ -84,6 +84,7 @@ from app.schemas.invitation import (
     InvitationAcceptResponse,
     InvitationCreate,
     InvitationListResponse,
+    InvitationLookupResponse,
     InvitationResponse,
 )
 from app.schemas.school import SchoolWithStats, SchoolResponse
@@ -99,6 +100,7 @@ from app.services.audit_service import log_action
 from app.core.url_safety import build_safe_url
 from app.services.invitation_service import (
     create_invitation,
+    is_established_account,
     lookup_token,
     mark_accepted,
     revoke_invitation,
@@ -776,29 +778,44 @@ def delete_invitation(
 
 @public_router.get(
     "/{token}",
-    summary="GH-S9 · public · invitation lookup (returns school name + role)",
+    response_model=InvitationLookupResponse,
+    summary="GH-S9 · public · invitation lookup (returns school name + role + requires_auth)",
 )
 def get_invitation_by_token(token: str, db: DBSession = Depends(get_db)):
+    """Lookup público de invitación por token.
+
+    Devuelve metadata suficiente para que el FE renderice la pantalla correcta:
+    - Si `status != 'ok'` → página de error (expirada / revocada / ya aceptada).
+    - Si `status == 'ok'` y `requires_auth == True` → mostrar formulario de LOGIN
+      (el email ya tiene cuenta activa con contraseña).
+    - Si `status == 'ok'` y `requires_auth == False` → mostrar formulario de REGISTRO
+      (el invitado es nuevo o tiene ghost row sin contraseña).
+
+    `requires_auth` usa la misma lógica que F3.1 (invitation takeover):
+    True ↔ existe User con email, is_active=True, hashed_password IS NOT NULL.
+    """
     inv, reason = lookup_token(db, token)
     if not inv:
         raise HTTPException(status_code=404, detail="Invitation not found.")
     if reason != "ok":
         # do not leak details · provide enough to render an error page
-        return {
-            "status": reason,
-            "school_id": str(inv.school_id),
-            "role": inv.role,
-            "email": inv.email,
-        }
+        return InvitationLookupResponse(
+            status=reason,
+            school_id=str(inv.school_id),
+            role=inv.role,
+            email=inv.email,
+        )
     school = db.query(School).filter(School.id == inv.school_id).first()
-    return {
-        "status": "ok",
-        "school_id": str(inv.school_id),
-        "school_name": school.name if school else None,
-        "role": inv.role,
-        "email": inv.email,
-        "expires_at": inv.expires_at.isoformat(),
-    }
+    auth_required = is_established_account(db, inv.email)
+    return InvitationLookupResponse(
+        status="ok",
+        school_id=str(inv.school_id),
+        school_name=school.name if school else None,
+        role=inv.role,
+        email=inv.email,
+        expires_at=inv.expires_at.isoformat(),
+        requires_auth=auth_required,
+    )
 
 
 @public_router.post(

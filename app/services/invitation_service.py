@@ -139,6 +139,32 @@ def lookup_token(db: DBSession, token: str) -> Tuple[Invitation, str]:
     return inv, "ok"
 
 
+def is_established_account(db: DBSession, email: str) -> bool:
+    """Retorna True si ya existe un User activo con contraseña para el email dado.
+
+    Usado por:
+    - GET /invitations/{token}  → expone `requires_auth` en el response.
+    - POST /invitations/{token}/accept → decide si retornar 401 vs 200 al intentar
+      registrar con un email que ya tiene cuenta (F3.1 invitation takeover).
+
+    Regla: True solo si el usuario existe AND is_active=True AND hashed_password no es NULL.
+    Casos False:
+    - Email inexistente en DB.
+    - Usuario existe pero is_active=False (suspendido o soft-deleted).
+    - Usuario existe con hashed_password=None (ghost row / SSO-only sin contraseña).
+    """
+    user = (
+        db.query(User)
+        .filter(
+            User.email == email.lower(),
+            User.is_active.is_(True),
+            User.hashed_password.isnot(None),
+        )
+        .first()
+    )
+    return user is not None
+
+
 def mark_accepted(db: DBSession, inv: Invitation, user: User) -> None:
     inv.status = InvitationStatus.ACCEPTED.value
     inv.accepted_at = datetime.utcnow()

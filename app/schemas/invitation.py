@@ -59,6 +59,36 @@ class InvitationAccept(BaseModel):
     name: Optional[str] = Field(default=None, max_length=255)
 
 
+class InvitationLookupResponse(BaseModel):
+    """Response de GET /invitations/{token} · público · sin auth.
+
+    `requires_auth` indica al FE si debe mostrar el formulario de login
+    (True) o el formulario de registro con nueva contraseña (False).
+
+    Siempre populado por el backend; es `Optional` solo para backward-compat
+    con clientes que no lo esperan (lo ignoran silenciosamente).
+
+    Campos de estado de error (reason != 'ok'):
+        status      · 'ok' | 'expired' | 'revoked' | 'accepted'
+        school_id   · siempre presente
+        role        · siempre presente
+        email       · siempre presente
+
+    Campos adicionales cuando status == 'ok':
+        school_name · nombre del colegio (puede ser None si school fue eliminado)
+        expires_at  · ISO timestamp de expiración
+        requires_auth · True si el email ya tiene cuenta activa con contraseña
+    """
+
+    status: str
+    school_id: str
+    role: str
+    email: str
+    school_name: Optional[str] = None
+    expires_at: Optional[str] = None
+    requires_auth: Optional[bool] = None
+
+
 class InvitationAcceptResponse(BaseModel):
     """Mirror TokenResponse-shape so the FE can hop directly into the app."""
     access_token: str

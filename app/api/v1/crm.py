@@ -38,6 +38,7 @@ from app.schemas.crm import (
     CrmKpisResponse,
     CrmLeadDetailResponse,
     CrmLeadListResponse,
+    CrmPipelineConflictResponse,
     CrmPipelineStatusUpdate,
     CrmRegenerateAnalysisRequest,
 )
@@ -344,6 +345,15 @@ def regenerate_analysis(
 @router.patch(
     "/leads/{user_id}/status",
     response_model=CrmLeadDetailResponse,
+    responses={
+        409: {
+            "model": CrmPipelineConflictResponse,
+            "description": (
+                "Conflicto · conflict_kind='stale' (version stale) o "
+                "'invalid_transition' (transicion invalida segun state machine)."
+            ),
+        }
+    },
     summary="GH-CRM-001 · move lead in the pipeline",
 )
 def patch_pipeline_status(
@@ -353,6 +363,16 @@ def patch_pipeline_status(
     db: DBSession = Depends(get_db),
     current_user: User = Depends(get_current_user),
 ):
+    """Mueve un lead en el pipeline CRM con optimistic locking.
+
+    Si `expected_version` se provee y difiere de la version en DB retorna
+    409 con conflict_kind='stale'.
+    Si la transicion no esta permitida retorna 409 con
+    conflict_kind='invalid_transition'.
+
+    El FE debe inspeccionar conflict_kind en lugar de hacer keyword-matching
+    del campo detail para distinguir los dos tipos de error.
+    """
     _require_crm_access(current_user)
     target = _resolve_target_user(db, user_id)
     pre_detail = crm_service.get_lead_detail(db, target, include_ai=False)
@@ -373,15 +393,33 @@ def patch_pipeline_status(
             expected_version=body.expected_version,
         )
     except InvalidPipelineTransitionError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
+        from fastapi.responses import JSONResponse
+
+        db.refresh(target)
+        conflict_body = CrmPipelineConflictResponse(
+            conflict_kind="invalid_transition",
+            current_status=target.lead_pipeline_status,
+            current_version=target.pipeline_status_version,
             detail=str(exc),
-        ) from exc
+        )
+        return JSONResponse(
+            status_code=status.HTTP_409_CONFLICT,
+            content=conflict_body.model_dump(),
+        )
     except StaleOpportunityError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
+        from fastapi.responses import JSONResponse
+
+        db.refresh(target)
+        conflict_body = CrmPipelineConflictResponse(
+            conflict_kind="stale",
+            current_status=target.lead_pipeline_status,
+            current_version=target.pipeline_status_version,
             detail=str(exc),
-        ) from exc
+        )
+        return JSONResponse(
+            status_code=status.HTTP_409_CONFLICT,
+            content=conflict_body.model_dump(),
+        )
     # Invalidate KPI cache so the FE refresh reflects the change quickly
     _KPI_CACHE["data"] = None
     _KPI_CACHE["ts"] = 0

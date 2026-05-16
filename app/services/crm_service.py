@@ -1286,7 +1286,7 @@ def get_lead_detail(
         school_name=school_name,
         pipeline_status=user.lead_pipeline_status,  # type: ignore[arg-type]
         pipeline_status_at=user.lead_pipeline_status_at,
-        pipeline_status_version=user.pipeline_status_version or 1,
+        pipeline_status_version=user.pipeline_status_version,
         gh_contact_status=user.gh_contact_status,
         gh_contact_message=user.gh_contact_message,
         gh_contact_requested_at=user.gh_contact_requested_at,
@@ -1343,14 +1343,16 @@ PIPELINE_VALID_TRANSITIONS: Dict[Optional[str], List[str]] = {
 class StaleOpportunityError(Exception):
     """Lanzado cuando la versión del pipeline cambió concurrentemente.
 
-    El router captura esta excepción y devuelve HTTP 409 Conflict.
+    El router captura esta excepción y devuelve HTTP 409 Conflict con
+    conflict_kind='stale'.
     """
 
 
 class InvalidPipelineTransitionError(Exception):
     """Lanzado cuando la transición de estado no está en el state machine.
 
-    El router captura esta excepción y devuelve HTTP 409 Conflict.
+    El router captura esta excepción y devuelve HTTP 409 Conflict con
+    conflict_kind='invalid_transition'.
     """
 
 
@@ -1385,16 +1387,13 @@ def update_pipeline_status(
     request,  # FastAPI Request · for audit
     expected_version: Optional[int] = None,
 ) -> User:
-    """Muta user.lead_pipeline_status con locking optimista y state machine.
+    """Muta user.lead_pipeline_status con state machine + locking optimista.
 
     Implementa compare-and-swap atómico:
     1. Valida la transición en el state machine.
-    2. Ejecuta UPDATE con WHERE version = expected_version (si se proporcionó).
+    2. Si expected_version se provee: UPDATE con WHERE version = expected_version.
     3. Si 0 filas afectadas → StaleOpportunityError (escritura concurrente).
     4. Post-commit: audit log + Bitrix mock + notificación al asignado.
-
-    El Bitrix sync se dispara DESPUÉS del commit para que un fallo externo
-    no revierta el cambio local. Si Bitrix falla queda con status=STUB.
 
     Args:
         expected_version: versión que el cliente leyó. None → backward-compat
@@ -1433,64 +1432,92 @@ def update_pipeline_status(
                 "El estado fue modificado por otra sesión. "
                 "Recarga el lead y reintenta."
             )
-    else:
-        # Sin expected_version → escritura directa (clientes legacy)
-        db.execute(
-            update(User)
-            .where(User.id == user.id)
-            .values(
-                lead_pipeline_status=new_status,
-                lead_pipeline_status_at=now,
-                pipeline_status_version=User.pipeline_status_version + 1,
-                updated_at=now,
-            )
-        )
-
-    # 3. Audit log (dentro de la misma transacción antes del commit)
-    try:
-        log_action(
-            db,
-            user=actor,
-            action="crm.pipeline_status_change",
-            resource_type="user",
-            resource_id=str(user.id),
-            payload={
-                "previous": previous,
-                "new": new_status,
-                "note": (note or "")[:500],
-                "expected_version": expected_version,
-                "locking": "cas" if expected_version is not None else "legacy",
-            },
-            request=request,
-        )
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("audit log failed for crm.pipeline_status_change · %s", exc)
-
-    # 4. Commit
-    db.commit()
-
-    # 5. Bitrix sync DESPUÉS del commit (QA-AUD-072 requisito)
-    try:
-        sync = BitrixSyncLog(
-            entity_type="user",
-            entity_id=str(user.id),
-            user_id=user.id,
-            action=f"pipeline.{new_status}",
-            payload={"previous": previous, "new": new_status, "note": (note or "")[:200]},
-            bitrix_response=None,
-            status=BitrixSyncStatus.STUB.value,
-            provider="stub",
-            attempts=0,
-        )
-        db.add(sync)
         db.commit()
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("bitrix mock log failed for crm.pipeline_status_change · %s", exc)
+        db.refresh(user)
+    else:
+        # Sin expected_version → escritura directa (clientes legacy / backward-compat)
+        user.lead_pipeline_status = new_status
+        user.lead_pipeline_status_at = now
+        user.pipeline_status_version = (user.pipeline_status_version or 1) + 1
+        db.flush()
 
-    # 6. Refresh para obtener versión actualizada
-    db.refresh(user)
+    # Si el path CAS no hizo commit aún (path sin expected_version), lo hacemos aquí.
+    # El path CAS ya commitó antes; el audit/bitrix/notif van en una segunda tx.
+    if expected_version is None:
+        # Audit (dentro de la tx principal en path sin CAS)
+        try:
+            log_action(
+                db,
+                user=actor,
+                action="crm.pipeline_status_change",
+                resource_type="user",
+                resource_id=str(user.id),
+                payload={
+                    "previous": previous,
+                    "new": new_status,
+                    "note": (note or "")[:500],
+                },
+                request=request,
+            )
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("audit log failed for crm.pipeline_status_change · %s", exc)
 
-    # 7. Notificación al asignado (GH-COMMPROD-A1)
+        # Bitrix sync log mock entry · D-020 stub policy
+        try:
+            sync = BitrixSyncLog(
+                entity_type="user",
+                entity_id=str(user.id),
+                user_id=user.id,
+                action=f"pipeline.{new_status}",
+                payload={"previous": previous, "new": new_status, "note": (note or "")[:200]},
+                bitrix_response=None,
+                status=BitrixSyncStatus.STUB.value,
+                provider="stub",
+                attempts=0,
+            )
+            db.add(sync)
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("bitrix mock log failed for crm.pipeline_status_change · %s", exc)
+
+        db.commit()
+        db.refresh(user)
+    else:
+        # Path CAS: audit + bitrix en tx separada post-commit
+        # (fallo externo no revierte el cambio de estado)
+        try:
+            log_action(
+                db,
+                user=actor,
+                action="crm.pipeline_status_change",
+                resource_type="user",
+                resource_id=str(user.id),
+                payload={
+                    "previous": previous,
+                    "new": new_status,
+                    "note": (note or "")[:500],
+                    "expected_version": expected_version,
+                },
+                request=request,
+            )
+            sync = BitrixSyncLog(
+                entity_type="user",
+                entity_id=str(user.id),
+                user_id=user.id,
+                action=f"pipeline.{new_status}",
+                payload={"previous": previous, "new": new_status, "note": (note or "")[:200]},
+                bitrix_response=None,
+                status=BitrixSyncStatus.STUB.value,
+                provider="stub",
+                attempts=0,
+            )
+            db.add(sync)
+            db.commit()
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("post-commit side effects failed for crm.pipeline_status_change · %s", exc)
+            db.rollback()
+
+    # GH-COMMPROD-A1 · notify the lead assignee when someone else moved
+    # the pipeline status (skip self-action and unassigned leads).
     try:
         if (
             user.assigned_to_user_id

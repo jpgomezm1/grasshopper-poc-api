@@ -66,9 +66,6 @@ class CrmLeadListItem(BaseModel):
     # Pipeline status (separate from gh_contact_status)
     pipeline_status: Optional[LeadPipelineStatus] = None
     pipeline_status_at: Optional[datetime] = None
-    # Optimistic locking version · QA-AUD-072 · el FE debe reenviar este valor
-    # en el campo `expected_version` del PATCH /status.
-    pipeline_status_version: int = 1
 
     # Original contact request status (visible to commercial for triage)
     gh_contact_status: Optional[str] = None  # 'pending'|'in_progress'|'converted'|'declined'
@@ -270,9 +267,9 @@ class CrmLeadDetailResponse(BaseModel):
 
     pipeline_status: Optional[LeadPipelineStatus] = None
     pipeline_status_at: Optional[datetime] = None
-    # Optimistic locking version · QA-AUD-072 · el FE debe reenviar este valor
-    # en el campo `expected_version` del PATCH /status.
-    pipeline_status_version: int = 1
+    # Optimistic locking version · QA-AUD-072 · migration 037
+    # El FE debe incluirlo en cada PATCH para garantizar compare-and-swap.
+    pipeline_status_version: Optional[int] = None
     gh_contact_status: Optional[str] = None
     gh_contact_message: Optional[str] = None
     gh_contact_requested_at: Optional[datetime] = None
@@ -293,20 +290,43 @@ class CrmLeadDetailResponse(BaseModel):
 # PATCH status
 # ---------------------------------------------------------------------------
 
+ConflictKind = Literal["stale", "invalid_transition"]
+
+
+class CrmPipelineConflictResponse(BaseModel):
+    """Body del 409 Conflict en PATCH /leads/{id}/status.
+
+    Formaliza los dos tipos de conflicto que antes el FE distinguía por
+    keyword-matching del campo `detail` (frágil · roto en i18n).
+
+    `conflict_kind`:
+        "stale"              · el `expected_version` no coincide con la versión
+                               actual (otra sesión actualizó el lead entre el GET
+                               y el PATCH del cliente).
+        "invalid_transition" · la transición de estado viola el state machine
+                               (ej. 'converted' → 'pending').
+
+    `current_status`    · estado actual en DB (útil para el FE para actualizar UI).
+    `current_version`   · versión actual en DB (útil para reintentar con versión fresca).
+    `detail`            · mensaje human-readable en español (para logs + toast).
+    """
+
+    conflict_kind: ConflictKind
+    current_status: Optional[LeadPipelineStatus] = None
+    current_version: Optional[int] = None
+    detail: str
+
 
 class CrmPipelineStatusUpdate(BaseModel):
     status: LeadPipelineStatus
     note: Optional[str] = Field(default=None, max_length=500)
-    # Optimistic locking · QA-AUD-072.
-    # El cliente debe enviar la versión que leyó del GET /leads/{id}.
-    # Si no se envía (legacy clients) se acepta sin verificar versión
-    # (backward-compatible).
+    # Optimistic locking · QA-AUD-072. Optional para backward-compat con clientes
+    # que no lo envían (None = sin check de versión · escritura directa).
     expected_version: Optional[int] = Field(
         default=None,
-        ge=1,
         description=(
-            "Versión del pipeline_status que el cliente tenía al leer el lead. "
-            "Si la versión en DB difiere se devuelve 409 Conflict."
+            "Versión leída por el cliente. Si se provee y no coincide con la "
+            "versión en DB → 409 {conflict_kind: 'stale'}."
         ),
     )
 

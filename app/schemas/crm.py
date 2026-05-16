@@ -66,6 +66,9 @@ class CrmLeadListItem(BaseModel):
     # Pipeline status (separate from gh_contact_status)
     pipeline_status: Optional[LeadPipelineStatus] = None
     pipeline_status_at: Optional[datetime] = None
+    # Optimistic locking version · QA-AUD-072 · el FE debe reenviar este valor
+    # en el campo `expected_version` del PATCH /status.
+    pipeline_status_version: int = 1
 
     # Original contact request status (visible to commercial for triage)
     gh_contact_status: Optional[str] = None  # 'pending'|'in_progress'|'converted'|'declined'
@@ -267,6 +270,9 @@ class CrmLeadDetailResponse(BaseModel):
 
     pipeline_status: Optional[LeadPipelineStatus] = None
     pipeline_status_at: Optional[datetime] = None
+    # Optimistic locking version · QA-AUD-072 · el FE debe reenviar este valor
+    # en el campo `expected_version` del PATCH /status.
+    pipeline_status_version: int = 1
     gh_contact_status: Optional[str] = None
     gh_contact_message: Optional[str] = None
     gh_contact_requested_at: Optional[datetime] = None
@@ -291,6 +297,18 @@ class CrmLeadDetailResponse(BaseModel):
 class CrmPipelineStatusUpdate(BaseModel):
     status: LeadPipelineStatus
     note: Optional[str] = Field(default=None, max_length=500)
+    # Optimistic locking · QA-AUD-072.
+    # El cliente debe enviar la versión que leyó del GET /leads/{id}.
+    # Si no se envía (legacy clients) se acepta sin verificar versión
+    # (backward-compatible).
+    expected_version: Optional[int] = Field(
+        default=None,
+        ge=1,
+        description=(
+            "Versión del pipeline_status que el cliente tenía al leer el lead. "
+            "Si la versión en DB difiere se devuelve 409 Conflict."
+        ),
+    )
 
 
 # ---------------------------------------------------------------------------

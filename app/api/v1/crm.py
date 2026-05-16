@@ -42,6 +42,10 @@ from app.schemas.crm import (
     CrmRegenerateAnalysisRequest,
 )
 from app.services import crm_service
+from app.services.crm_service import (
+    InvalidPipelineTransitionError,
+    StaleOpportunityError,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -358,14 +362,26 @@ def patch_pipeline_status(
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN, detail="Forbidden · ownership gate."
         )
-    target = crm_service.update_pipeline_status(
-        db,
-        target,
-        new_status=body.status,
-        note=body.note,
-        actor=current_user,
-        request=request,
-    )
+    try:
+        target = crm_service.update_pipeline_status(
+            db,
+            target,
+            new_status=body.status,
+            note=body.note,
+            actor=current_user,
+            request=request,
+            expected_version=body.expected_version,
+        )
+    except InvalidPipelineTransitionError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=str(exc),
+        ) from exc
+    except StaleOpportunityError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=str(exc),
+        ) from exc
     # Invalidate KPI cache so the FE refresh reflects the change quickly
     _KPI_CACHE["data"] = None
     _KPI_CACHE["ts"] = 0

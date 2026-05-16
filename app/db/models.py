@@ -297,6 +297,9 @@ class User(Base):
         cascade="all, delete-orphan",
     )
 
+    def __repr__(self) -> str:
+        return f"<User id={self.id}>"
+
 
 class JourneyStage(str, enum.Enum):
     """Journey stages matching frontend STAGES."""
@@ -354,6 +357,9 @@ class Session(Base):
     routes = relationship("Route", back_populates="session", cascade="all, delete-orphan")
     snapshots = relationship("Snapshot", back_populates="session", cascade="all, delete-orphan")
     advisor_lead = relationship("AdvisorLead", back_populates="session", uselist=False, cascade="all, delete-orphan")
+
+    def __repr__(self) -> str:
+        return f"<Session id={self.id}>"
 
 
 class SessionEvent(Base):
@@ -476,6 +482,8 @@ class EnglishTestResult(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     user_id = Column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, unique=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
     answers = Column(JSON, nullable=False)
     score = Column(Integer, nullable=False)
@@ -505,6 +513,9 @@ class VocationalTestResult(Base):
         ForeignKey("external_test_uploads.id", ondelete="SET NULL"),
         nullable=True,
     )
+
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
     user = relationship("User", back_populates="vocational_test_results")
     external_upload = relationship("ExternalTestUpload", back_populates="vocational_result")
@@ -548,6 +559,8 @@ class ExternalTestUpload(Base):
 
     uploaded_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     parsed_at = Column(DateTime, nullable=True)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
     vocational_result = relationship("VocationalTestResult", back_populates="external_upload", uselist=False)
 
@@ -561,6 +574,9 @@ class SavedOferta(Base):
     oferta_id = Column(String(100), nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     status = Column(String(50), default="interested", nullable=False)
+
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
     user = relationship("User", back_populates="saved_ofertas")
 
@@ -661,6 +677,8 @@ class Report(Base):
     email_provider = Column(String(30), nullable=True)
     email_message_id = Column(String(255), nullable=True)
     email_reason = Column(String(120), nullable=True)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class LicenseTier(str, enum.Enum):
@@ -709,6 +727,9 @@ class License(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
     school = relationship("School", back_populates="licenses")
+
+    def __repr__(self) -> str:
+        return f"<License id={self.id}>"
 
 
 class Program(Base):
@@ -845,6 +866,9 @@ class Invitation(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
+    def __repr__(self) -> str:
+        return f"<Invitation id={self.id}>"
+
 
 class BitrixSyncStatus(str, enum.Enum):
     """Bitrix sync log status · GH-S10-DB-01."""
@@ -901,6 +925,9 @@ class BitrixSyncLog(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
+    def __repr__(self) -> str:
+        return f"<BitrixSyncLog id={self.id}>"
+
 
 class LeadProfile(Base):
     """Lead profiles from quick vocational quiz (no account required)."""
@@ -908,6 +935,8 @@ class LeadProfile(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
     # Contact info (captured at end of quiz)
     name = Column(String(255), nullable=True)
@@ -921,6 +950,9 @@ class LeadProfile(Base):
     # Tracking
     converted = Column(Boolean, default=False, nullable=False)
     source = Column(String(50), default="landing_quiz", nullable=False)
+
+    def __repr__(self) -> str:
+        return f"<LeadProfile id={self.id}>"
 
 
 class ConsentAuditLog(Base):
@@ -999,6 +1031,8 @@ class Notification(Base):
     data = Column(JSON, nullable=True)
     read_at = Column(DateTime, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class PushSubscription(Base):
@@ -1022,6 +1056,8 @@ class PushSubscription(Base):
     user_agent = Column(String(255), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     last_used_at = Column(DateTime, nullable=True)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class TaskPriority(str, enum.Enum):
@@ -1063,8 +1099,13 @@ class Task(Base):
         nullable=True,
     )
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
     completed_at = Column(DateTime, nullable=True)
     notified_due_at = Column(DateTime, nullable=True)
+
+    def __repr__(self) -> str:
+        return f"<Task id={self.id}>"
 
 
 class LeadTag(Base):
@@ -1076,6 +1117,8 @@ class LeadTag(Base):
     label = Column(String(120), nullable=False)
     color = Column(String(20), nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class LeadTagAssignment(Base):
@@ -1104,6 +1147,8 @@ class LeadTagAssignment(Base):
         nullable=True,
     )
     assigned_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # created_at · migration 041_auditability_and_indices
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=True)
 
 
 class SavedSearch(Base):
@@ -1124,6 +1169,8 @@ class SavedSearch(Base):
     filters = Column(JSON, nullable=False)
     pinned = Column(Boolean, default=False, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class LeadComment(Base):
@@ -1412,7 +1459,12 @@ class Cohort(Base):
     color = Column(String(20), nullable=True)
     is_active = Column(Boolean, default=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
     archived_at = Column(DateTime, nullable=True)
+
+    def __repr__(self) -> str:
+        return f"<Cohort id={self.id}>"
 
 
 class StudentCohortAssignment(Base):
@@ -1443,6 +1495,8 @@ class StudentCohortAssignment(Base):
         ForeignKey("users.id", ondelete="SET NULL"),
         nullable=True,
     )
+    # created_at · migration 041_auditability_and_indices
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=True)
 
 
 class CohortPsychologistAssignment(Base):
@@ -1469,6 +1523,8 @@ class CohortPsychologistAssignment(Base):
         ForeignKey("users.id", ondelete="SET NULL"),
         nullable=True,
     )
+    # created_at · migration 041_auditability_and_indices
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=True)
 
 
 class StudentAdminNote(Base):
@@ -1532,6 +1588,8 @@ class SchoolCustomField(Base):
     options = Column(JSON, nullable=True)
     is_active = Column(Boolean, default=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class StudentCustomFieldValue(Base):
@@ -1557,6 +1615,8 @@ class StudentCustomFieldValue(Base):
         onupdate=datetime.utcnow,
         nullable=False,
     )
+    # created_at · migration 041_auditability_and_indices
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=True)
 
 
 class SchoolEvent(Base):
@@ -1589,6 +1649,8 @@ class SchoolEvent(Base):
         nullable=True,
     )
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
     archived_at = Column(DateTime, nullable=True)
 
 
@@ -1610,6 +1672,8 @@ class SchoolEventRSVP(Base):
     )
     status = Column(String(20), nullable=False)
     responded_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # created_at · migration 041_auditability_and_indices
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=True)
 
 
 class SchoolLegalDocument(Base):
@@ -1634,6 +1698,8 @@ class SchoolLegalDocument(Base):
     content = Column(Text, nullable=False)
     effective_at = Column(DateTime, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class SchoolLegalSignature(Base):
@@ -1658,6 +1724,8 @@ class SchoolLegalSignature(Base):
     signed_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     ip_address = Column(String(64), nullable=True)
     user_agent = Column(String(255), nullable=True)
+    # created_at · migration 041_auditability_and_indices
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=True)
 
 
 class StudentCaseFollowup(Base):
@@ -1722,6 +1790,8 @@ class CaseIntervention(Base):
     action = Column(String(60), nullable=False)
     content = Column(Text, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class ClinicalAlert(Base):
@@ -1765,6 +1835,8 @@ class ClinicalAlert(Base):
         nullable=True,
     )
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class SchoolMassMessage(Base):
@@ -1798,6 +1870,8 @@ class SchoolMassMessage(Base):
     sent_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     sent_count = Column(Integer, default=0, nullable=False)
     opened_count = Column(Integer, default=0, nullable=False)
+    # updated_at · migration 041_auditability_and_indices
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
 
 class SchoolMassMessageRead(Base):
@@ -1826,6 +1900,8 @@ class SchoolMassMessageRead(Base):
         index=True,
     )
     read_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # created_at · migration 041_auditability_and_indices
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=True)
 
 
 # =============================================================================
@@ -2036,3 +2112,5 @@ class IntegrationConfig(Base):
         ForeignKey("users.id", ondelete="SET NULL"),
         nullable=True,
     )
+    # created_at · migration 041_auditability_and_indices
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=True)

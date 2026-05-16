@@ -32,7 +32,7 @@ from alembic import op
 
 
 revision = "040_critical_indexes"
-down_revision = "037_pipeline_status_version"
+down_revision = "039_webhook_nonces"
 branch_labels = None
 depends_on = None
 

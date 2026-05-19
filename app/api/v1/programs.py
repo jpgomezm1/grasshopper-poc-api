@@ -207,6 +207,59 @@ def create_program(
 
 
 @router.get(
+    "/export.xlsx",
+    summary="GH-S8-BE-08 · download canonical program catalogue as Excel",
+)
+def export_programs(
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    _ensure_super_admin(current_user)
+
+    try:
+        from openpyxl import Workbook
+    except ImportError:
+        raise HTTPException(status_code=500, detail="openpyxl missing on server.")
+
+    rows = db.query(Program).order_by(Program.country.asc(), Program.institution.asc()).all()
+
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Programs"
+    ws.append(REQUIRED_FIELDS + ["language_requirement"])
+    for p in rows:
+        ws.append([
+            p.program_id,
+            p.name,
+            p.slug,
+            p.country,
+            p.city or "",
+            p.institution,
+            p.type,
+            p.area or "",
+            p.subject or "",
+            p.duration_months,
+            p.cost_total,
+            p.currency,
+            p.budget_tier,
+            p.alliance_type,
+            "si" if p.active else "no",
+            p.language_requirement or "",
+        ])
+
+    buf = io.BytesIO()
+    wb.save(buf)
+    buf.seek(0)
+
+    filename = f"grasshopper_catalog_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.xlsx"
+    return Response(
+        content=buf.getvalue(),
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
+
+
+@router.get(
     "/{program_id}",
     response_model=ProgramResponse,
     summary="Read program by id",
@@ -483,59 +536,6 @@ async def import_programs(
         errors=errors,
         warnings=warnings,
         committed=bool(commit and not errors),
-    )
-
-
-@router.get(
-    "/export.xlsx",
-    summary="GH-S8-BE-08 · download canonical program catalogue as Excel",
-)
-def export_programs(
-    db: DBSession = Depends(get_db),
-    current_user: User = Depends(get_current_user),
-):
-    _ensure_super_admin(current_user)
-
-    try:
-        from openpyxl import Workbook
-    except ImportError:
-        raise HTTPException(status_code=500, detail="openpyxl missing on server.")
-
-    rows = db.query(Program).order_by(Program.country.asc(), Program.institution.asc()).all()
-
-    wb = Workbook()
-    ws = wb.active
-    ws.title = "Programs"
-    ws.append(REQUIRED_FIELDS + ["language_requirement"])
-    for p in rows:
-        ws.append([
-            p.program_id,
-            p.name,
-            p.slug,
-            p.country,
-            p.city or "",
-            p.institution,
-            p.type,
-            p.area or "",
-            p.subject or "",
-            p.duration_months,
-            p.cost_total,
-            p.currency,
-            p.budget_tier,
-            p.alliance_type,
-            "si" if p.active else "no",
-            p.language_requirement or "",
-        ])
-
-    buf = io.BytesIO()
-    wb.save(buf)
-    buf.seek(0)
-
-    filename = f"grasshopper_catalog_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.xlsx"
-    return Response(
-        content=buf.getvalue(),
-        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
 
 

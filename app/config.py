@@ -135,6 +135,15 @@ class Settings(BaseSettings):
     # Application version (GH-S11 · health check + Sentry release)
     app_version: str = "1.0.0"
 
+    # Clinical PDF generation (GH-LOCAL-QA-RONDA2 · B-014)
+    # WeasyPrint depends on GTK runtime (cairo · pango · gdk-pixbuf · libgobject)
+    # which is not available out of the box on Windows. On environments where
+    # the GTK shared libs are missing, set CLINICAL_PDF_ENABLED=false in .env
+    # to short-circuit the endpoint with a clean 503 instead of crashing with
+    # `OSError: cannot load library 'libgobject-2.0-0'`.
+    # Default True · production (Heroku w/ apt buildpack) keeps it on.
+    clinical_pdf_enabled: bool = True
+
     # Habeas Data · privacy policy versioning (GH-S11.5-BE-07 · D-026)
     # Bump when policy text changes materially → forces re-acceptance.
     privacy_policy_version: str = "1.0.0"

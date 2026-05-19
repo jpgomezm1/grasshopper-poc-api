@@ -166,8 +166,49 @@ class _LimiterShim:
 limiter = _LimiterShim()
 
 
-def rate_limit_exceeded_handler(_request: Request, exc: RateLimitExceeded) -> JSONResponse:
-    """Custom 429 handler · returns a structured JSON error."""
+def _cors_headers_for(request: Optional[Request]) -> Dict[str, str]:
+    """Build CORS response headers manually for the 429 JSON response.
+
+    B-005 (QA round 2): Starlette's ``CORSMiddleware`` does NOT decorate
+    responses produced by ``add_exception_handler``-registered handlers
+    when the exception is raised *inside* a route dependency (it bypasses
+    the middleware chain entirely on the inbound side and the response
+    short-circuits out of ``ExceptionMiddleware`` before reaching CORS).
+
+    Without these headers the browser sees a 429 with no
+    ``Access-Control-Allow-Origin`` and reports it as a CORS failure,
+    masking the real rate-limit error in the FE (parent dashboard ·
+    ``/parent/events`` was the canonical symptom).
+
+    The origin is *validated* against ``settings.cors_origins`` so we
+    never echo back ``*`` or an attacker-controlled value.
+    """
+    if request is None:
+        return {}
+    origin = request.headers.get("origin")
+    if not origin:
+        return {}
+    allowed = set(get_settings().cors_origins or [])
+    if origin not in allowed:
+        # Silently drop · the browser will still surface the 429 but
+        # without CORS unblock. Better than echoing back a forged origin.
+        return {"Vary": "Origin"}
+    return {
+        "Access-Control-Allow-Origin": origin,
+        "Access-Control-Allow-Credentials": "true",
+        "Vary": "Origin",
+    }
+
+
+def rate_limit_exceeded_handler(request: Request, exc: RateLimitExceeded) -> JSONResponse:
+    """Custom 429 handler · returns a structured JSON error.
+
+    GH-LOCAL-QA-RONDA2 · B-005 · merges CORS headers onto the response so
+    the browser doesn't mask the 429 behind a CORS error (the canonical
+    repro is the parent dashboard polling ``/parent/events``).
+    """
+    headers: Dict[str, str] = dict(exc.headers or {})
+    headers.update(_cors_headers_for(request))
     return JSONResponse(
         status_code=429,
         content={
@@ -175,7 +216,7 @@ def rate_limit_exceeded_handler(_request: Request, exc: RateLimitExceeded) -> JS
             "detail": exc.detail,
             "retry_after": exc.retry_after,
         },
-        headers=exc.headers or {},
+        headers=headers,
     )
 
 
@@ -199,7 +240,10 @@ class SlowAPIMiddleware:
         try:
             await self.app(scope, receive, send)
         except RateLimitExceeded as exc:
-            response = rate_limit_exceeded_handler(None, exc)  # type: ignore[arg-type]
+            # Build a lightweight Request so the handler can read the Origin
+            # header and emit CORS headers on the 429 (B-005 QA round 2).
+            request = Request(scope, receive=receive)
+            response = rate_limit_exceeded_handler(request, exc)
             await response(scope, receive, send)
 
 

@@ -458,7 +458,20 @@ def render_clinical_pdf(
         raise RuntimeError(
             "weasyprint not installed · agregá `weasyprint==60.2` a requirements.txt"
         ) from exc
-    pdf_bytes = HTML(string=html, base_url=str(TEMPLATE_DIR)).write_pdf()
+    # GH-LOCAL-QA-RONDA2 · B-014 · GTK runtime (libgobject/cairo/pango) may be
+    # missing on Windows dev boxes even when weasyprint imports fine. Catch
+    # OSError from `HTML(...).write_pdf()` so the endpoint can convert it into
+    # a clean 503 instead of bubbling up a stack trace. The CLINICAL_PDF_ENABLED
+    # feature flag should be set to false in those environments; this is the
+    # safety net in case it isn't.
+    try:
+        pdf_bytes = HTML(string=html, base_url=str(TEMPLATE_DIR)).write_pdf()
+    except OSError as exc:
+        raise RuntimeError(
+            "GTK runtime missing on this host (libgobject/cairo/pango). "
+            "Set CLINICAL_PDF_ENABLED=false in .env or install the GTK libs. "
+            f"Underlying error: {exc}"
+        ) from exc
     if not pdf_bytes:
         raise RuntimeError("WeasyPrint returned empty PDF for clinical · investigar")
     return pdf_bytes

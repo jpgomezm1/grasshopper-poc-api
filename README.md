@@ -98,6 +98,30 @@ FRONTEND_BASE_URL=https://grasshopper-app.netlify.app
 | `SENTRY_DSN_BACKEND` | No | Sentry DSN — omit to disable |
 | `RESEND_API_KEY` | No | Transactional email — omit for stub mode |
 | `BITRIX_WEBHOOK_URL` | No | Bitrix CRM sync — omit for stub mode |
+| `CLINICAL_PDF_ENABLED` | No | `true`/`false`. Defaults to `true`. Set to `false` when the GTK runtime is unavailable (typical on Windows dev boxes). |
+
+## Local development on Windows · clinical PDF
+
+`POST /api/v1/gh/students/{user_id}/clinical-pdf` renders via WeasyPrint, which
+links against the GTK shared libraries (`libgobject-2.0-0`, `libcairo-2`,
+`libpango-1.0-0`, etc.). Those libs are not bundled with the Python wheel and
+are not installed by default on Windows; without them the endpoint crashes
+with `OSError: cannot load library 'libgobject-2.0-0'`.
+
+For local development on Windows you have two options:
+
+1. **Recommended for QA / smoke testing:** add `CLINICAL_PDF_ENABLED=false`
+   to your `.env`. The endpoint will short-circuit with a clean
+   `503 Service Unavailable` and the rest of the clinical API stays usable.
+
+2. **If you actually need to generate clinical PDFs locally:** install the
+   GTK runtime via [MSYS2](https://www.msys2.org/) or the
+   [GTK for Windows installer](https://github.com/tschoonj/GTK-for-Windows-Runtime-Environment-Installer/releases),
+   then leave `CLINICAL_PDF_ENABLED=true`.
+
+In production (Heroku) the `heroku-community/apt` buildpack + the `Aptfile`
+already installs `libcairo2 libpango-1.0-0 libpangoft2-1.0-0 libgdk-pixbuf2.0-0
+libffi-dev shared-mime-info`, so the flag stays at its default `true`.
 
 ## Running tests
 

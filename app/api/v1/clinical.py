@@ -41,6 +41,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, Response, status
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.config import get_settings
 from app.db.database import get_db
 from app.db.models import (
     DOSSIER_SECTIONS,
@@ -725,6 +726,21 @@ def post_clinical_pdf(
     current_user: User = Depends(get_current_user),
 ):
     _require_advisor_or_super(current_user)
+
+    # GH-LOCAL-QA-RONDA2 · B-014 · feature flag guard.
+    # WeasyPrint needs GTK runtime (libgobject/cairo/pango). On Windows dev
+    # boxes those libs aren't installed by default and the original 500 stack
+    # trace was leaking confusing internals. Now we short-circuit with a 503
+    # when the deploy explicitly disables the feature.
+    if not get_settings().clinical_pdf_enabled:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Clinical PDF generation disabled on this deploy "
+                "(GTK runtime not available)"
+            ),
+        )
+
     student = _resolve_student_in_scope(db, user_id, current_user)
 
     dossier = dossier_service.build_dossier(db, student)

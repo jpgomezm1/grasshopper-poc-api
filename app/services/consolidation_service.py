@@ -300,6 +300,15 @@ class ConsolidationFailure(RuntimeError):
     """Raised when AI fails to produce a valid ConsolidatedProfile."""
 
 
+class NoTestsAvailable(ConsolidationFailure):
+    """Raised when the student has not completed any psychometric test yet.
+
+    This is NOT a service failure — it's an expected "empty state" and callers
+    should translate it to a 200 OK response with an empty bundle (see
+    /recommendations/me · B-010 QA round 2).
+    """
+
+
 def generate_or_get_profile(
     db: DBSession,
     user: User,
@@ -334,7 +343,7 @@ def generate_or_get_profile(
 
     # MISS → call AI
     if not inputs["tests"]:
-        raise ConsolidationFailure(
+        raise NoTestsAvailable(
             "El estudiante todavía no tiene tests psicométricos registrados."
         )
 

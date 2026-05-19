@@ -24,6 +24,11 @@ supabase>=2.3.0
 # Document parsing (GH-S5-BE-02 · external test uploads)
 pdfplumber>=0.10.0
 fpdf2>=2.7.0
+# XLSX export (Bloque C · /admin/stats/export · GH-LOCAL-QA-RONDA2 · B-021)
+# Pinned after the manual install heredado del fix B-019 in S6 deja la dep
+# fuera de requirements.txt; el endpoint /admin/stats/export?fmt=xlsx ahora
+# devuelve 503 (no 500) si la dep falta, pero la queremos siempre presente.
+openpyxl>=3.1,<4
 # PDF report rendering (GH-S7 · D-015 WeasyPrint · GH-S12 CVE-2025-68616 SSRF fix)
 # NOTE: Heroku S12 needs heroku-community/apt buildpack + Aptfile with
 # libcairo2 libpango-1.0-0 libpangoft2-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info

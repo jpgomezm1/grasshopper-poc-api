@@ -219,7 +219,13 @@ class RecommendationsBundle(BaseModel):
     """Bundle final que devuelven los endpoints `/recommendations/*`."""
 
     user_id: UUID
-    profile: ConsolidatedProfile
+    profile: Optional[ConsolidatedProfile] = Field(
+        default=None,
+        description=(
+            "Perfil consolidado IA. Null cuando `status='empty'` (el estudiante "
+            "aún no tiene tests psicométricos · semánticamente 200 OK)."
+        ),
+    )
     recommendations: List[RecommendedProgram] = Field(default_factory=list)
     cached: bool = Field(
         default=False,
@@ -228,6 +234,14 @@ class RecommendationsBundle(BaseModel):
     generated_at: datetime = Field(default_factory=datetime.utcnow)
     profile_hash: Optional[str] = Field(
         default=None, description="Hash del input usado para generar (cache key)."
+    )
+    status: Literal["ready", "empty"] = Field(
+        default="ready",
+        description=(
+            "`ready` → bundle generado o cacheado. `empty` → el estudiante no "
+            "tiene aún tests psicométricos · profile y recommendations vacíos "
+            "(B-010 QA round 2 · evita 503 espurio en `/recommendations/me`)."
+        ),
     )
 
 

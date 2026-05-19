@@ -29,6 +29,7 @@ from app.schemas.consolidated_profile import (
 )
 from app.services.consolidation_service import (
     ConsolidationFailure,
+    NoTestsAvailable,
     invalidate_cache,
 )
 from app.services.recommendation_service import (
@@ -63,6 +64,23 @@ def _bundle_from(
         cached=cached,
         generated_at=cache_row.generated_at if cache_row else None,
         profile_hash=cache_row.profile_hash if cache_row else None,
+        status="ready",
+    )
+
+
+def _empty_bundle(user_id) -> RecommendationsBundle:
+    """200 OK con bundle vacío cuando el estudiante todavía no tiene tests.
+
+    B-010 (QA round 2) · `/recommendations/me` no debe devolver 503 cuando la
+    razón es "sin tests" · es un estado esperado del onboarding.
+    """
+    return RecommendationsBundle(
+        user_id=user_id,
+        profile=None,
+        recommendations=[],
+        cached=False,
+        profile_hash=None,
+        status="empty",
     )
 
 
@@ -103,13 +121,25 @@ def get_me(
     current_user: User = Depends(get_current_user),
     db: DBSession = Depends(get_db),
 ):
-    """Returns cached bundle if any · generates on first hit."""
+    """Returns cached bundle if any · generates on first hit.
+
+    B-010 (QA round 2): cuando el estudiante todavía no tiene tests
+    psicométricos, devolvemos 200 con `status="empty"` en vez de 503 ·
+    el FE muestra un empty state, no un error.
+    """
     _ensure_student(current_user)
 
     try:
         profile, recs, cache_row, cached = generate_recommendations(
             db, current_user, limit=limit, force_refresh=False
         )
+    except NoTestsAvailable:
+        # Onboarding state · NOT an error. 200 OK + bundle vacío.
+        logger.info(
+            "recommendations.me · empty bundle (no tests yet)",
+            extra={"user_id": str(current_user.id)},
+        )
+        return _empty_bundle(current_user.id)
     except ConsolidationFailure as e:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,

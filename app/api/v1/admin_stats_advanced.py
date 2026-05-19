@@ -345,8 +345,11 @@ def _to_xlsx(rows: List[List[Any]], sheet_name: str = "Stats") -> bytes:
     try:
         from openpyxl import Workbook
     except ImportError:
+        # B-021 (QA round 2): optional dep missing → 503, not 500. Same pattern
+        # we use for other optional runtime deps (e.g. WeasyPrint / GTK).
         raise HTTPException(
-            status_code=500, detail="openpyxl missing on server."
+            status_code=503,
+            detail="openpyxl not installed on this deploy",
         )
     wb = Workbook()
     ws = wb.active

@@ -2028,6 +2028,62 @@ class ErrorLog(Base):
     resolved_at = Column(DateTime, nullable=True)
 
 
+# F-001 · CV builder etapa 1 (2026-05-21) · categorías de actividades
+# extracurriculares para el perfil del estudiante. Lista abierta (el FE puede
+# enviar otros valores) pero estos son los buckets canónicos para UI.
+EXTRACURRICULAR_CATEGORIES = (
+    "sport",          # deporte
+    "volunteering",   # voluntariado / servicio social
+    "arts",           # arte / cultura
+    "academic",       # academia / clubes / olimpiadas
+    "leadership",     # liderazgo / consejo estudiantil
+    "work",           # trabajo / práctica
+    "other",
+)
+
+
+class ExtracurricularActivity(Base):
+    """Actividad extracurricular declarada por el estudiante · F-001 (2026-05-21).
+
+    GH-LOCAL-CLIENT-MODULES · primer módulo de scope cliente Fase 1. El
+    estudiante registra sus actividades (deportes, voluntariados, etc.) en
+    su perfil. Visible para el psy / advisor en el dossier · NO visible
+    para otros estudiantes ni school_admin sin scope.
+
+    Etapa 1 (este sprint): CRUD + UI básica.
+    Etapa 2 (sprint siguiente): IA gap analysis vs carrera objetivo.
+    Etapa 3: CV PDF builder.
+    """
+
+    __tablename__ = "extracurricular_activities"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    category = Column(String(20), nullable=False, index=True)  # ver EXTRACURRICULAR_CATEGORIES
+    name = Column(String(120), nullable=False)
+    role = Column(String(120), nullable=True)  # ej. "capitán", "voluntario"
+    hours_per_week = Column(Integer, nullable=True)
+    start_date = Column(Date, nullable=True)
+    end_date = Column(Date, nullable=True)  # NULL = en curso
+    description = Column(Text, nullable=True)
+    # achievements como JSON list of strings (e.g., ["1er lugar regional 2024"])
+    achievements = Column(JSON, nullable=True)
+    # evidence_urls como JSON list of strings (links a diplomas/certificados)
+    evidence_urls = Column(JSON, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
+    updated_at = Column(
+        DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow,
+        nullable=False,
+    )
+
+
 # Valid rating values for ai_recommendation_feedback (M-001 · 2026-05-21).
 AI_FEEDBACK_RATINGS = ("thumbs_up", "thumbs_down")
 

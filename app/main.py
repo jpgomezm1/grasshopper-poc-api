@@ -56,6 +56,7 @@ from app.api.v1 import (
     admin_search,
     admin_observability,
     admin_settings,
+    admin_ai_audit,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -232,6 +233,8 @@ app.include_router(users_admin.router, prefix="/api/v1")
 app.include_router(admin_search.router, prefix="/api/v1")
 app.include_router(admin_observability.router, prefix="/api/v1")
 app.include_router(admin_settings.router, prefix="/api/v1")
+# M-001 · 2026-05-21 · panel auditoría IA (cliente request)
+app.include_router(admin_ai_audit.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

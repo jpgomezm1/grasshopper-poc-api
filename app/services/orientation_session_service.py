@@ -54,11 +54,31 @@ def _is_clinical_staff(user: User) -> bool:
     return user.role in (UserRole.GH_ADVISOR, UserRole.PSYCHOLOGIST)
 
 
-def can_view_session(session: OrientationSession, user: User) -> bool:
+def can_view_session(
+    session: OrientationSession,
+    user: User,
+    db: Optional[DBSession] = None,
+) -> bool:
+    """Visibility of a session for a given user.
+
+    GH-LOCAL-QA-RONDA2 · B-018 · 2026-05-21 · widened so `shared_team` notes
+    become reachable for clinical staff in the same school. When `db` is
+    provided we look up the student to compare school_id; without `db` we
+    fall back to author-only access (used by pure-unit tests).
+    """
     if _is_super(user):
         return True
-    if _is_clinical_staff(user) and session.advisor_user_id == user.id:
+    if not _is_clinical_staff(user):
+        return False
+    # Author (advisor / psy) always sees their own session.
+    if session.advisor_user_id == user.id:
         return True
+    # Same-school clinical staff: B-018 widening. Requires db lookup of
+    # the student to read its school_id. Cross-school remains blocked.
+    if db is not None and user.school_id is not None:
+        student = db.query(User).filter(User.id == session.student_user_id).first()
+        if student is not None and student.school_id == user.school_id:
+            return True
     return False
 
 
@@ -109,11 +129,22 @@ def list_sessions(
 ) -> Tuple[List[OrientationSession], int]:
     q = db.query(OrientationSession)
 
-    # Visibility gate · advisor or psy see only their own sessions; super sees all.
+    # Visibility gate · advisor / psy see their own sessions PLUS (B-018 widening)
+    # sessions of students in the same school. Cross-school stays blocked.
     if not _is_super(current_user):
         if not _is_clinical_staff(current_user):
             return [], 0
-        q = q.filter(OrientationSession.advisor_user_id == current_user.id)
+        if current_user.school_id is not None:
+            q = q.join(User, OrientationSession.student_user_id == User.id).filter(
+                or_(
+                    OrientationSession.advisor_user_id == current_user.id,
+                    User.school_id == current_user.school_id,
+                )
+            )
+        else:
+            # GH staff sin school_id · own sessions only (B-018 no aplica;
+            # opted-in/B2C scope ya está enforced en _can_access_clinical_data).
+            q = q.filter(OrientationSession.advisor_user_id == current_user.id)
 
     if advisor_user_id is not None and _is_super(current_user):
         q = q.filter(OrientationSession.advisor_user_id == advisor_user_id)
@@ -235,7 +266,7 @@ def list_notes(
     sess = get_session(db, session_id)
     if not sess:
         return []
-    if not can_view_session(sess, current_user):
+    if not can_view_session(sess, current_user, db=db):
         return []
     rows = (
         db.query(SessionNote)

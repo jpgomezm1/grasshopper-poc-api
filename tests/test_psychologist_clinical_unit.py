@@ -256,3 +256,75 @@ def test_note_edit_only_author():
     note = _note(advisor_user_id=psy.id, privacy="shared_team")
     assert can_edit_note(note, psy) is True
     assert can_edit_note(note, other) is False
+
+
+# ---------------------------------------------------------------------------
+# GH-LOCAL-QA-RONDA2 · B-018 · same-school widening of can_view_session
+# ---------------------------------------------------------------------------
+
+
+class _FakeDb:
+    """Minimal db stub: returns the student we register, by id."""
+
+    def __init__(self, student):
+        self._student = student
+
+    def query(self, _model):
+        return self
+
+    def filter(self, *_args, **_kwargs):
+        return self
+
+    def first(self):
+        return self._student
+
+
+def test_session_view_same_school_psy_widened():
+    """B-018: psy in same school as student sees the session even if not author."""
+    from app.services.orientation_session_service import can_view_session
+
+    school_id = uuid.uuid4()
+    psy_owner = _user(UserRole.PSYCHOLOGIST, school_id=school_id)
+    psy_other = _user(UserRole.PSYCHOLOGIST, school_id=school_id)
+    student = _user(UserRole.STUDENT, school_id=school_id, user_id=uuid.uuid4())
+    sess = _session(advisor_user_id=psy_owner.id, student_user_id=student.id)
+    db = _FakeDb(student)
+    assert can_view_session(sess, psy_other, db=db) is True
+
+
+def test_session_view_other_school_psy_still_blocked():
+    """B-018: cross-school stays blocked even with widening."""
+    from app.services.orientation_session_service import can_view_session
+
+    psy_other = _user(UserRole.PSYCHOLOGIST, school_id=uuid.uuid4())
+    student_other_school = _user(UserRole.STUDENT, school_id=uuid.uuid4())
+    psy_owner = _user(UserRole.PSYCHOLOGIST, school_id=student_other_school.school_id)
+    sess = _session(
+        advisor_user_id=psy_owner.id, student_user_id=student_other_school.id
+    )
+    db = _FakeDb(student_other_school)
+    assert can_view_session(sess, psy_other, db=db) is False
+
+
+def test_session_view_widening_inert_without_db():
+    """Backwards-compat: when db is not provided, author-only behavior is preserved."""
+    from app.services.orientation_session_service import can_view_session
+
+    school_id = uuid.uuid4()
+    psy_owner = _user(UserRole.PSYCHOLOGIST, school_id=school_id)
+    psy_other = _user(UserRole.PSYCHOLOGIST, school_id=school_id)
+    sess = _session(advisor_user_id=psy_owner.id)
+    # No db passed → behaves like before B-018 (author-only).
+    assert can_view_session(sess, psy_other) is False
+
+
+def test_session_view_gh_advisor_no_school_unaffected_by_widening():
+    """gh_advisor with school_id=None is NOT widened (no school to match)."""
+    from app.services.orientation_session_service import can_view_session
+
+    advisor_owner = _user(UserRole.GH_ADVISOR, school_id=None)
+    advisor_other = _user(UserRole.GH_ADVISOR, school_id=None)
+    student = _user(UserRole.STUDENT, school_id=uuid.uuid4(), user_id=uuid.uuid4())
+    sess = _session(advisor_user_id=advisor_owner.id, student_user_id=student.id)
+    db = _FakeDb(student)
+    assert can_view_session(sess, advisor_other, db=db) is False

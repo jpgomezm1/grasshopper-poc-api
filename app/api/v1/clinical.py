@@ -468,7 +468,7 @@ def _get_session_or_404(
     sess = orientation_session_service.get_session(db, session_id)
     if not sess:
         raise HTTPException(status_code=404, detail="Session not found.")
-    if not orientation_session_service.can_view_session(sess, current_user):
+    if not orientation_session_service.can_view_session(sess, current_user, db=db):
         raise HTTPException(status_code=403, detail="Forbidden · session not in your scope.")
     return sess
 

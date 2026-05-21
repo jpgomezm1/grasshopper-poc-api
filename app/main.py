@@ -57,6 +57,7 @@ from app.api.v1 import (
     admin_observability,
     admin_settings,
     admin_ai_audit,
+    extracurriculars,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -235,6 +236,9 @@ app.include_router(admin_observability.router, prefix="/api/v1")
 app.include_router(admin_settings.router, prefix="/api/v1")
 # M-001 · 2026-05-21 · panel auditoría IA (cliente request)
 app.include_router(admin_ai_audit.router, prefix="/api/v1")
+# F-001 · 2026-05-21 · actividades extracurriculares (cliente Fase 1 · etapa 1)
+app.include_router(extracurriculars.router_me, prefix="/api/v1")
+app.include_router(extracurriculars.router_gh, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

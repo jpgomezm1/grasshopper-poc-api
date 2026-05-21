@@ -55,6 +55,8 @@ from app.schemas.program import (
     ProgramResponse,
     ProgramUpdate,
 )
+from app.schemas.roi import RoiCalculation
+from app.services import roi_service
 from app.services.audit_service import log_action
 
 logger = logging.getLogger(__name__)
@@ -275,6 +277,34 @@ def get_program(
     if not program.active and current_user.role != UserRole.SUPER_ADMIN:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Program not found.")
     return ProgramResponse.model_validate(program)
+
+
+@router.get(
+    "/{program_id}/roi",
+    response_model=RoiCalculation,
+    summary="F-002 · ROI calculator (visa + cost + post-grad earnings)",
+)
+def get_program_roi(
+    program_id: UUID,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Return the ROI calculation for a program.
+
+    GH-LOCAL-CLIENT-MODULES · F-002 etapa 1 · 2026-05-21.
+
+    Combines: tuition cost · living cost in destination city · entry salary ·
+    visa work years. Returns payback in years + net value + rating.
+
+    Authenticated users only. Returns 404 if program doesn't exist or is
+    inactive (and current_user is not super_admin).
+    """
+    program = db.query(Program).filter(Program.id == program_id).first()
+    if not program:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Program not found.")
+    if not program.active and current_user.role != UserRole.SUPER_ADMIN:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Program not found.")
+    return roi_service.calculate_roi(program)
 
 
 @router.patch(

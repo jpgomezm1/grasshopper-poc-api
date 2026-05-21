@@ -136,6 +136,13 @@ class ProgramEditorialFields(BaseModel):
     location: Optional[Dict[str, Any]] = None
     accreditations: Optional[List[str]] = None
     tags: Optional[List[str]] = None
+    # F-002 etapa 1 (2026-05-21) · Ruta migratoria laboral + ROI
+    visa_type: Optional[str] = Field(default=None, max_length=40)
+    visa_max_years_work: Optional[int] = Field(default=None, ge=0, le=20)
+    visa_requires_degree_alignment: Optional[bool] = None
+    visa_notes: Optional[str] = None
+    entry_salary_local_usd: Optional[int] = Field(default=None, ge=0)
+    living_cost_city_usd_year: Optional[int] = Field(default=None, ge=0)
 
 
 class ProgramBase(ProgramEditorialFields):

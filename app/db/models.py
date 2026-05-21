@@ -782,8 +782,37 @@ class Program(Base):
     accreditations = Column(JSON, nullable=True)
     tags = Column(JSON, nullable=True)
 
+    # ---- F-002 etapa 1 (2026-05-21) · Ruta migratoria laboral + ROI ----
+    # GH-LOCAL-CLIENT-MODULES · cliente pidió en docx §1 párr 2 calculadora
+    # ROI + visados (OPT/CPT/PGWP/etc.) integrada al catálogo.
+    visa_type = Column(String(40), nullable=True)
+    visa_max_years_work = Column(Integer, nullable=True)
+    visa_requires_degree_alignment = Column(Boolean, nullable=True)
+    visa_notes = Column(Text, nullable=True)
+    entry_salary_local_usd = Column(Integer, nullable=True)
+    living_cost_city_usd_year = Column(Integer, nullable=True)
+
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+
+# F-002 etapa 1 · 2026-05-21 · catálogo de tipos de visa conocidos (lista abierta).
+# Sirve como helper de UI/validación, no se persiste como FK del schema (mantenemos
+# `Program.visa_type` como String libre para permitir variantes nuevas sin migration).
+VISA_TYPES = (
+    "OPT",        # USA · Optional Practical Training (12-36 meses según STEM)
+    "CPT",        # USA · Curricular Practical Training (durante estudios)
+    "H-1B",       # USA · trabajo post-OPT (lottery)
+    "PGWP",       # Canada · Post-Graduation Work Permit (hasta 3 años)
+    "PSW",        # UK · Graduate Visa / Post-Study Work (2-3 años)
+    "Stayback",   # Ireland · Third Level Graduate Programme (1-2 años)
+    "TVR",        # España · Tarjeta de Residencia (búsqueda de empleo 1 año)
+    "Subclass-485",  # Australia · Temporary Graduate
+    "PostStudyWork",  # NZ · Post-Study Work Visa
+    "ICT",        # genérico · Intra-Company Transfer
+    "Self-Sponsored",
+    "None",
+)
 
 
 class AuditLog(Base):

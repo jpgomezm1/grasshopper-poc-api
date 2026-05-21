@@ -2028,6 +2028,58 @@ class ErrorLog(Base):
     resolved_at = Column(DateTime, nullable=True)
 
 
+# Valid rating values for ai_recommendation_feedback (M-001 · 2026-05-21).
+AI_FEEDBACK_RATINGS = ("thumbs_up", "thumbs_down")
+
+# Valid recommendation_type values. New types can be added without migration
+# (the column is just a String) but listing them here documents the contract.
+AI_FEEDBACK_TYPES = (
+    "clinical_analysis",       # Hop's analysis on the dossier (advisor surface)
+    "program_recommendation",  # /recommendations/me items
+    "journey_synthesis",       # the synthesis reflection at end of journey
+    "career_exploration",      # career exploration prompts (Módulo A, future)
+    "consolidated_profile",    # AI-derived profile chips
+    "other",                   # catch-all (FE can send custom string)
+)
+
+
+class AiRecommendationFeedback(Base):
+    """Audit log of human ratings on AI recommendations · M-001 (2026-05-21).
+
+    GH-LOCAL-CLIENT-MODULES · 2026-05-21 · cliente pidió un panel donde su
+    equipo (gh_advisor, gh_commercial, super_admin) pueda calificar las
+    recomendaciones de Hop con 👍/👎 + comentario. Las calificaciones se
+    agregan para ciclos de prompt engineering. Migration 042.
+    """
+
+    __tablename__ = "ai_recommendation_feedback"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    recommendation_type = Column(String(60), nullable=False, index=True)
+    # Optional reference to the entity being rated (student_user_id, session_id,
+    # recommendation_id, etc.). Free-form string so the same table can serve
+    # multiple surfaces without coupling.
+    recommendation_ref = Column(String(120), nullable=True, index=True)
+    # Snapshot of context (e.g., truncated input/output) for later audit.
+    # JSON · keep small · never log PII without redaction.
+    context = Column(JSON, nullable=True)
+    rating = Column(String(20), nullable=False, index=True)  # thumbs_up | thumbs_down
+    comment = Column(Text, nullable=True)
+    rated_by_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+        index=True,
+    )
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
+    updated_at = Column(
+        DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow,
+        nullable=False,
+    )
+
+
 class FeatureFlag(Base):
     """Runtime feature toggle · Bloque M (migration 036).
 

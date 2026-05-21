@@ -458,20 +458,29 @@ def render_clinical_pdf(
         raise RuntimeError(
             "weasyprint not installed · agregá `weasyprint==60.2` a requirements.txt"
         ) from exc
-    # GH-LOCAL-QA-RONDA2 · B-014 · GTK runtime (libgobject/cairo/pango) may be
-    # missing on Windows dev boxes even when weasyprint imports fine. Catch
-    # OSError from `HTML(...).write_pdf()` so the endpoint can convert it into
-    # a clean 503 instead of bubbling up a stack trace. The CLINICAL_PDF_ENABLED
-    # feature flag should be set to false in those environments; this is the
-    # safety net in case it isn't.
+    # GH-LOCAL-QA-RONDA2 · B-014 + B-023 · GTK runtime (libgobject/cairo/pango)
+    # may be missing on Windows dev boxes even when weasyprint imports fine.
+    # WeasyPrint can wrap the underlying OSError in a BaseExceptionGroup
+    # (Python 3.11+ behavior when its internal async chain bubbles it up),
+    # so a bare `except OSError` silently misses the case and the endpoint
+    # returns 500 with a stack trace. We catch both forms below.
+    # The CLINICAL_PDF_ENABLED flag should also be set to false in those
+    # environments; this is the safety net in case it isn't.
+    _gtk_hint = (
+        "GTK runtime missing on this host (libgobject/cairo/pango). "
+        "Set CLINICAL_PDF_ENABLED=false in .env or install the GTK libs."
+    )
     try:
         pdf_bytes = HTML(string=html, base_url=str(TEMPLATE_DIR)).write_pdf()
     except OSError as exc:
-        raise RuntimeError(
-            "GTK runtime missing on this host (libgobject/cairo/pango). "
-            "Set CLINICAL_PDF_ENABLED=false in .env or install the GTK libs. "
-            f"Underlying error: {exc}"
-        ) from exc
+        raise RuntimeError(f"{_gtk_hint} Underlying error: {exc}") from exc
+    except BaseExceptionGroup as eg:
+        os_errors = [e for e in eg.exceptions if isinstance(e, OSError)]
+        if os_errors:
+            raise RuntimeError(
+                f"{_gtk_hint} Underlying error: {os_errors[0]}"
+            ) from eg
+        raise
     if not pdf_bytes:
         raise RuntimeError("WeasyPrint returned empty PDF for clinical · investigar")
     return pdf_bytes

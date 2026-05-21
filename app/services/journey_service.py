@@ -61,11 +61,15 @@ def get_side_panel_data(db: DBSession, session: Session) -> SidePanel:
     """Build side panel data from session."""
     answers = session.answers or {}
 
-    # Build profile preview
+    # Build profile preview · B-022 · emit 6 camelCase fields to match the
+    # FE's JourneyAnswers interface. The FE counts these 6 for completion.
     profile_preview = ProfilePreview(
-        life_stage=answers.get("lifeStage"),
-        time_horizon=answers.get("timeHorizon"),
-        interests=answers.get("interestType"),
+        lifeStage=answers.get("lifeStage"),
+        timeHorizon=answers.get("timeHorizon"),
+        interestType=answers.get("interestType"),
+        clarityLevel=answers.get("clarityLevel"),
+        languageLevel=answers.get("languageLevel"),
+        budgetBand=answers.get("budgetBand"),
         motivations=derive_motivations(answers) if answers else [],
         constraints=derive_constraints(answers) if answers else [],
     )

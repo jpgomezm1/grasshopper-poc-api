@@ -61,10 +61,27 @@ class ProgressInfo(BaseModel):
 
 
 class ProfilePreview(BaseModel):
-    """Profile preview for side panel."""
-    life_stage: Optional[str] = None
-    time_horizon: Optional[str] = None
-    interests: Optional[List[str]] = None
+    """Profile preview for side panel.
+
+    GH-LOCAL-QA-RONDA2 · B-022 · 2026-05-21 · el FE (JourneySidePanel.tsx:42-49)
+    lista 6 "profile fields" en camelCase y calcula completion sobre los 6.
+    Antes este schema solo emitía 3 en snake_case (life_stage / time_horizon /
+    interests). El FE no podía mapearlos por la diferencia de case + faltaban
+    3 fields (clarityLevel / languageLevel / budgetBand) → completion siempre
+    0/6 aunque la sesión esté DONE.
+
+    Decisión (c) híbrido: alineamos los 6 fields directamente en camelCase
+    (matching JourneyAnswers del FE) + mantenemos motivations/constraints
+    derivados para análisis.
+    """
+
+    lifeStage: Optional[str] = None
+    timeHorizon: Optional[str] = None
+    interestType: Optional[List[str]] = None
+    clarityLevel: Optional[str] = None
+    languageLevel: Optional[str] = None
+    budgetBand: Optional[str] = None
+    # Derived for downstream analysis (motivations/constraints chips).
     motivations: Optional[List[str]] = None
     constraints: Optional[List[str]] = None
 

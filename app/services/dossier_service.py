@@ -72,10 +72,26 @@ def _latest_session_answers(db: DBSession, user_id: UUID) -> Dict[str, Any]:
     return (sess.answers if sess and sess.answers else {}) or {}
 
 
+def _get_combined_answers(db: DBSession, student: User) -> Dict[str, Any]:
+    """Merge `session.answers` (primary) with `user.onboarding_answers` (fallback).
+
+    GH-LOCAL-QA-RONDA2 · B-015 · 2026-05-21 · cuando un estudiante terminó el
+    onboarding pero no inició la sesión del journey (caso común en test data
+    + usuarios reales que aún no avanzaron al journey), `session.answers` es
+    `{}`. Para que el dossier muestre datos demográficos en lugar de campos
+    null, combinamos ambas fuentes. `session.answers` tiene prioridad sobre
+    `user.onboarding_answers` para keys overlapping — el journey gana cuando
+    el usuario actualiza durante la sesión.
+    """
+    session_answers = _latest_session_answers(db, student.id)
+    onboarding = dict(getattr(student, "onboarding_answers", None) or {})
+    return {**onboarding, **session_answers}
+
+
 def _build_demographics(
     db: DBSession, student: User, school: Optional[School]
 ) -> DossierDemographics:
-    answers = _latest_session_answers(db, student.id)
+    answers = _get_combined_answers(db, student)
     return DossierDemographics(
         name=student.name,
         email=student.email,
@@ -102,11 +118,19 @@ def _build_demographics(
 def _build_aspirations(
     db: DBSession, student: User
 ) -> Tuple[DossierAspirations, bool, Optional[Dict[str, Any]]]:
-    """Returns (aspirations, has_consolidated_profile, profile_dict)."""
-    answers = _latest_session_answers(db, student.id)
+    """Returns (aspirations, has_consolidated_profile, profile_dict).
+
+    GH-LOCAL-QA-RONDA2 · B-017 · 2026-05-21 · agregamos `declaredAspirations`
+    a las keys que recolectamos (proveniente del nuevo step del journey
+    "¿qué te ves haciendo en 5 años?"). También combinamos session.answers
+    con user.onboarding_answers para usuarios que aún no completaron journey
+    pero ya completaron onboarding.
+    """
+    answers = _get_combined_answers(db, student)
     declared: List[str] = []
-    # Capture any free-form aspiration fields from onboarding
+    # Capture any free-form aspiration fields from onboarding or journey
     for key in (
+        "declaredAspirations",  # B-017 · nueva pregunta del journey
         "aspirations",
         "dreamCareer",
         "dream_career",

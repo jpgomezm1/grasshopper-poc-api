@@ -149,6 +149,18 @@ JOURNEY_STEPS: List[JourneyStep] = [
         question="¿Qué sabes que NO quieres ahora?",
         placeholder="Ej: nada muy largo, o no quiero algo muy teórico...",
         save_to="dontWant",
+        next_step="declaredAspirations",
+    ),
+    # GH-LOCAL-QA-RONDA2 · B-017 · 2026-05-21 · pregunta nueva para capturar
+    # aspiraciones declaradas (antes el dossier mostraba aspirations.declared=[]
+    # porque el journey no las recolectaba explícitamente).
+    JourneyStep(
+        id="declaredAspirations",
+        stage=JourneyStage.INTERESTS,
+        view_type=ViewType.OPEN_TEXT,
+        question="Si pudieras imaginar tu carrera ideal en 5 años, ¿qué te ves haciendo?",
+        placeholder="Déjate llevar — no tiene que ser realista ni definitivo...",
+        save_to="declaredAspirations",
         next_step="partialSummary1",
     ),
     JourneyStep(

@@ -37,6 +37,7 @@ class JourneyAnswers(BaseModel):
     interestType: Optional[List[str]] = None
     weeklyActivities: Optional[str] = None
     dontWant: Optional[str] = None
+    declaredAspirations: Optional[str] = None  # B-017 · nueva pregunta del journey (2026-05-21)
     budgetBand: Optional[str] = None
     languageLevel: Optional[str] = None
     geoPreference: Optional[str] = None

@@ -105,6 +105,10 @@ def list_programs(
     type: Optional[str] = Query(None),
     active: Optional[bool] = Query(None),
     search: Optional[str] = Query(None),
+    scholarships_for_latam: Optional[bool] = Query(
+        None,
+        description="F-003 · filtrar programas con/sin beca LatAm curada. None → no filtra.",
+    ),
 ):
     q = db.query(Program)
 
@@ -122,6 +126,8 @@ def list_programs(
         q = q.filter(Program.alliance_type == alliance_type)
     if type:
         q = q.filter(Program.type == type)
+    if scholarships_for_latam is not None:
+        q = q.filter(Program.scholarships_for_latam.is_(scholarships_for_latam))
     if search:
         term = f"%{search.strip().lower()}%"
         q = q.filter(

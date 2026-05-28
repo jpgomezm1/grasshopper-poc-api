@@ -815,6 +815,42 @@ VISA_TYPES = (
 )
 
 
+class InstitutionCatalog(Base):
+    """Institutions catalogue · GH-LOCAL-CLIENT-CATALOG (2026-05-28).
+
+    Catálogo de instituciones reales + relaciones comerciales importado del
+    xlsx del cliente. Separado de `programs` porque su grano es distinto:
+    `programs` describe programas concretos vendibles (cost, duration);
+    `institutions_catalog` describe la institución y el estado del contrato.
+
+    Read-mostly: poblada por `scripts/import_institutions.py` desde el xlsx.
+    """
+
+    __tablename__ = "institutions_catalog"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    name = Column(String(255), nullable=False)
+    category = Column(String(60), nullable=True, index=True)
+    country = Column(String(120), nullable=True, index=True)
+    country_raw = Column(String(120), nullable=True)
+    city = Column(String(255), nullable=True)
+    partner_group = Column(String(120), nullable=True, index=True)
+    programs_offered = Column(JSON, nullable=True)
+    agreement_status = Column(String(40), nullable=True, index=True)
+    starting_date = Column(Date, nullable=True)
+    end_date = Column(Date, nullable=True)
+    contact_name = Column(String(255), nullable=True)
+    contact_email = Column(String(255), nullable=True)
+    website = Column(String(500), nullable=True)
+    territories = Column(String(255), nullable=True)
+    commissions = Column(JSON, nullable=True)
+    source_sheet = Column(String(60), nullable=True)
+    active = Column(Boolean, default=True, nullable=False, index=True)
+    raw = Column(JSON, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+
 class AuditLog(Base):
     """Audit trail of sensitive admin actions · GH-S8-BE-10.
 

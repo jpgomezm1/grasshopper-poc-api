@@ -58,6 +58,7 @@ from app.api.v1 import (
     admin_settings,
     admin_ai_audit,
     extracurriculars,
+    institutions,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -239,6 +240,8 @@ app.include_router(admin_ai_audit.router, prefix="/api/v1")
 # F-001 · 2026-05-21 · actividades extracurriculares (cliente Fase 1 · etapa 1)
 app.include_router(extracurriculars.router_me, prefix="/api/v1")
 app.include_router(extracurriculars.router_gh, prefix="/api/v1")
+# GH-LOCAL-CLIENT-CATALOG · 2026-05-28 · catálogo instituciones (xlsx cliente)
+app.include_router(institutions.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

@@ -851,6 +851,42 @@ class InstitutionCatalog(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
 
+class HumanInterventionNote(Base):
+    """Advisor-only private notes on a lead · F-006 (2026-05-28).
+
+    Cliente docx §3: campo en el perfil del estudiante que solo el advisor
+    asignado pueda ver para anotar qué tan cerca está de cerrar el contrato
+    de Counselling Premium. NUNCA expuesto al student, psy ni otros advisors.
+    """
+
+    __tablename__ = "human_intervention_notes"
+
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        primary_key=True,
+    )
+    notes = Column(Text, nullable=True)
+    closeness_level = Column(String(20), nullable=True)
+    updated_by_user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+
+HUMAN_INTERVENTION_LEVELS = (
+    "cold",         # primer contacto · no hay traction
+    "warm",         # respondió, interés inicial
+    "hot",          # demos hechas, evaluando
+    "closing",      # negociando precio / firma
+    "closed_won",   # contrato firmado
+    "closed_lost",  # perdido (no compite, no quiere, eligió otro)
+)
+
+
 class AuditLog(Base):
     """Audit trail of sensitive admin actions · GH-S8-BE-10.
 

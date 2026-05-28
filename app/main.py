@@ -59,6 +59,7 @@ from app.api.v1 import (
     admin_ai_audit,
     extracurriculars,
     institutions,
+    human_intervention,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -242,6 +243,8 @@ app.include_router(extracurriculars.router_me, prefix="/api/v1")
 app.include_router(extracurriculars.router_gh, prefix="/api/v1")
 # GH-LOCAL-CLIENT-CATALOG · 2026-05-28 · catálogo instituciones (xlsx cliente)
 app.include_router(institutions.router, prefix="/api/v1")
+# F-006 · 2026-05-28 · notas privadas de Intervención Humana (advisor-only)
+app.include_router(human_intervention.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

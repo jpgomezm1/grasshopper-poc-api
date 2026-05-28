@@ -143,6 +143,8 @@ class ProgramEditorialFields(BaseModel):
     visa_notes: Optional[str] = None
     entry_salary_local_usd: Optional[int] = Field(default=None, ge=0)
     living_cost_city_usd_year: Optional[int] = Field(default=None, ge=0)
+    # F-003 etapa 1 (2026-05-28) · Financial Fit / Becas LatAm
+    scholarships_for_latam: Optional[bool] = None
 
 
 class ProgramBase(ProgramEditorialFields):

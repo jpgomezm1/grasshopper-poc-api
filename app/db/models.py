@@ -792,6 +792,12 @@ class Program(Base):
     entry_salary_local_usd = Column(Integer, nullable=True)
     living_cost_city_usd_year = Column(Integer, nullable=True)
 
+    # F-003 etapa 1 (2026-05-28) · Financial Fit / Becas LatAm
+    # Cliente docx §1 párr 3 + §3.G: campo booleano para priorizar opciones con
+    # beca explícita para estudiantes latinoamericanos en el matching IA.
+    # NULL = no curado (no asumir). TRUE/FALSE = decisión deliberada.
+    scholarships_for_latam = Column(Boolean, nullable=True, index=True)
+
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 

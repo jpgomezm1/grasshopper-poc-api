@@ -48,6 +48,10 @@ from scripts.import_institutions import (  # noqa: E402
     parse_resumen,
     dedupe_and_merge,
     ImportReport,
+    _str,
+    _norm_country,
+    _norm_category,
+    _parse_programs,
 )
 
 # Categoría del catálogo → Program.type (valores que entiende el mapeo
@@ -158,13 +162,101 @@ def _build_program(rec: Dict[str, Any], used_ids: set) -> Optional[Dict[str, Any
     }
 
 
+def _rec(
+    name: str,
+    country: Optional[str],
+    *,
+    city: Optional[str] = None,
+    category: Optional[str] = None,
+    programs: Optional[List[str]] = None,
+    website: Optional[str] = None,
+    group: Optional[str] = None,
+    source: str = "",
+) -> Dict[str, Any]:
+    return {
+        "name": name,
+        "category": category,
+        "country": country,
+        "city": city,
+        "partner_group": group,
+        "programs_offered": programs or [],
+        "agreement_status": None,
+        "website": website,
+        "source_sheet": source,
+        "active": True,
+    }
+
+
+def _parse_provider(ws, source: str, cols: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """Parser genérico para hojas de aliados.
+
+    ``cols`` mapea campo→índice de columna; ``country_default`` fija el país
+    cuando la hoja no trae columna de país (p.ej. EdAgent=Australia).
+    Las columnas de comisión/contacto se IGNORAN deliberadamente.
+    """
+    out: List[Dict[str, Any]] = []
+    for r in ws.iter_rows(min_row=2, values_only=True):
+        if not r or all(v is None for v in r):
+            continue
+        ni = cols["name"]
+        name = _str(r[ni]) if len(r) > ni else None
+        if not name or name.startswith("#"):
+            continue
+        ci = cols.get("country")
+        country = None
+        if ci is not None and len(r) > ci:
+            country = _norm_country(r[ci])
+        country = country or cols.get("country_default")
+        cat = None
+        if cols.get("category") is not None and len(r) > cols["category"]:
+            cat = _norm_category(r[cols["category"]])
+        city = None
+        if cols.get("city") is not None and len(r) > cols["city"]:
+            city = _str(r[cols["city"]])
+        progs: List[str] = []
+        for pi in cols.get("programs", []):
+            if len(r) > pi:
+                progs += _parse_programs(r[pi])
+        web = None
+        if cols.get("website") is not None and len(r) > cols["website"]:
+            web = _str(r[cols["website"]])
+        grp = None
+        if cols.get("group") is not None and len(r) > cols["group"]:
+            grp = _str(r[cols["group"]])
+        out.append(_rec(name, country, city=city, category=cat, programs=progs, website=web, group=grp, source=source))
+    return out
+
+
+# Layout de columnas por hoja de aliado (0-indexed). Sólo campos útiles al alumno.
+_PROVIDER_LAYOUTS = {
+    "INTO":                 {"name": 0, "group": 2, "country": 3, "city": 4, "programs": [9, 10, 11, 12, 13]},
+    "Study Group":          {"name": 0, "group": 2, "country": 3, "city": 4, "programs": [9, 10, 11, 12, 13]},
+    "Shorelight":           {"name": 0, "group": 2, "country": 3, "city": 4, "programs": [5, 6, 7, 8, 9]},
+    "Oxford International":  {"name": 0, "group": 2, "country": 3, "city": 4, "programs": [5, 6, 7, 8, 9]},
+    "Kaplan HED":           {"name": 0, "group": 2, "country": 3, "city": 4, "programs": [5, 6, 7, 8, 9]},
+    "Wellsprings":          {"name": 0, "group": 2, "country": 3, "city": 4, "programs": [5, 6, 7, 8, 9]},
+    "Applyboard":           {"name": 3, "country": 1, "city": 0, "category": 2},  # City,Country,EstablishmentType,Name,Province,SubmissionType
+    "colleges Canada":      {"name": 0, "country_default": "Canada"},             # ignora ESTADO + comisiones
+    "EdAgent AMET- Australia": {"name": 0, "website": 1, "country_default": "Australia"},
+    "Hoja1 (2)":            {"name": 1, "country": 2, "category": 0},             # Type,Name,Country
+}
+
+
 def build(xlsx_path: Path) -> List[Dict[str, Any]]:
     wb = load_workbook(xlsx_path, data_only=True)
-    sources = []
+    sources: List[Any] = []
+    # 1) Convenios directos (fuente de verdad, gana en dedupe) · excluye "Vencido".
     if "Instituciones" in wb.sheetnames:
-        sources.append(("Instituciones", parse_instituciones(wb["Instituciones"], ImportReport(sheet="Instituciones"))))
+        direct = parse_instituciones(wb["Instituciones"], ImportReport(sheet="Instituciones"))
+        direct = [r for r in direct if (r.get("agreement_status") or "").strip().lower() != "vencido"]
+        sources.append(("Instituciones", direct))
     if "Instituciones Resumen" in wb.sheetnames:
         sources.append(("Instituciones Resumen", parse_resumen(wb["Instituciones Resumen"], ImportReport(sheet="Instituciones Resumen"))))
+    # 2) Hojas de aliados (acceso vía agregador) · entran completas, dedup por nombre.
+    for sheet, layout in _PROVIDER_LAYOUTS.items():
+        if sheet in wb.sheetnames:
+            sources.append((sheet, _parse_provider(wb[sheet], sheet, layout)))
+
     merged, _ = dedupe_and_merge(sources)
     used: set = set()
     out: List[Dict[str, Any]] = []

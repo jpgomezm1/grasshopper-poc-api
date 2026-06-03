@@ -143,6 +143,8 @@ def _program_to_oferta(p: Program) -> dict:
         },
         "countries": [p.country],
         "cities": [p.city] if p.city else [],
+        # cost/duration/budgetTier pueden ser NULL ("a confirmar") cuando la
+        # oferta viene del catálogo real sin datos financieros (GH-CATALOG-REAL).
         "duration": {
             "min": p.duration_months,
             "max": p.duration_months,
@@ -155,7 +157,7 @@ def _program_to_oferta(p: Program) -> dict:
             "includes": [],
             "excludes": [],
         },
-        "budgetTier": _BUDGET_TIER_DB_TO_OFERTA.get(p.budget_tier, "medio"),
+        "budgetTier": _BUDGET_TIER_DB_TO_OFERTA.get(p.budget_tier) if p.budget_tier else None,
         "eligibility": {
             "requiredDocuments": [],
             "languageRequirement": _language_level(p.language_requirement),

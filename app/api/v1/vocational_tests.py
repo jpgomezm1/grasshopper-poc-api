@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import datetime
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session as DBSession
 from pydantic import BaseModel
@@ -7,6 +9,7 @@ from pydantic import BaseModel
 from app.api.v1.auth import get_current_user
 from app.db.database import get_db
 from app.db.models import User, VocationalTestResult
+from app.data.disclaimer import DISCLAIMER_TEXT, DISCLAIMER_VERSION
 from app.data.vocational_tests import (
     get_all_tests_summary,
     get_test_by_id,
@@ -20,6 +23,11 @@ router = APIRouter(prefix="/vocational-tests", tags=["Vocational Tests"])
 
 class SubmitVocationalRequest(BaseModel):
     answers: dict
+
+
+def _disclaimer_accepted(user: User, test_id: str) -> bool:
+    """F-005 · ¿el estudiante aceptó el aviso legal para este test?"""
+    return bool((user.test_disclaimers or {}).get(test_id))
 
 
 @router.get("")
@@ -52,6 +60,47 @@ def get_all_results(
     return output
 
 
+# F-005 · disclaimer pre-test. Static route ANTES de /{test_id}.
+@router.get("/disclaimer/status")
+def get_disclaimer_status(current_user: User = Depends(get_current_user)):
+    """Texto vigente del aviso legal + qué tests ya aceptó el estudiante."""
+    accepted = current_user.test_disclaimers or {}
+    return {
+        "version": DISCLAIMER_VERSION,
+        "text": DISCLAIMER_TEXT,
+        "accepted": {
+            tid: meta.get("accepted_at")
+            for tid, meta in accepted.items()
+            if isinstance(meta, dict)
+        },
+    }
+
+
+@router.post("/{test_id}/accept-disclaimer")
+def accept_disclaimer(
+    test_id: str,
+    current_user: User = Depends(get_current_user),
+    db: DBSession = Depends(get_db),
+):
+    """Registra la aceptación del aviso legal para un tipo de test."""
+    if not get_test_by_id(test_id):
+        raise HTTPException(status_code=404, detail="Test not found")
+
+    # Reasignar un dict nuevo para que SQLAlchemy detecte el cambio del JSON.
+    data = dict(current_user.test_disclaimers or {})
+    data[test_id] = {
+        "accepted_at": datetime.utcnow().isoformat(),
+        "version": DISCLAIMER_VERSION,
+    }
+    current_user.test_disclaimers = data
+    db.commit()
+    return {
+        "test_id": test_id,
+        "accepted_at": data[test_id]["accepted_at"],
+        "version": DISCLAIMER_VERSION,
+    }
+
+
 @router.get("/{test_id}")
 def get_test(test_id: str, current_user: User = Depends(get_current_user)):
     test = get_test_by_id(test_id)
@@ -70,6 +119,13 @@ def submit_test(
     test = get_test_by_id(test_id)
     if not test:
         raise HTTPException(status_code=404, detail="Test not found")
+
+    # F-005 · gate legal: exige aceptación del aviso antes de registrar el test.
+    if not _disclaimer_accepted(current_user, test_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Debes aceptar el aviso legal antes de enviar este test.",
+        )
 
     scores = calculate_vocational_scores(test_id, request.answers)
     extras = derive_test_extras(test_id, request.answers)

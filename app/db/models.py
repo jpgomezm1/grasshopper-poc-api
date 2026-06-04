@@ -191,6 +191,11 @@ class User(Base):
     budget_max_usd = Column(Integer, nullable=True)
     preferred_countries = Column(JSON, default=list, nullable=False)
 
+    # F-005 · aceptación del aviso legal pre-test, por tipo de test.
+    # Shape: { test_id: {"accepted_at": ISO8601, "version": str} }. nullable
+    # para filas previas (se lee con `or {}`).
+    test_disclaimers = Column(JSON, default=dict, nullable=True)
+
     # Status
     is_active = Column(Boolean, default=True, nullable=False)
 

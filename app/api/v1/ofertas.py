@@ -97,6 +97,23 @@ _DEFAULT_FEATURED_IMAGE = (
 )
 
 
+def _has_latam_scholarship(p: Program) -> bool:
+    """F-003 · ¿la oferta tiene beca curada para LatAm?
+
+    Fuente primaria: el flag booleano `scholarships_for_latam` (curado por el
+    admin en el catálogo). Como respaldo, se deriva del JSON `scholarships` si
+    alguna entrada está marcada elegible para LatAm — así el flag se enciende
+    solo cuando llegue ese dato (vía import/curación), sin tocar nada más.
+    """
+    if p.scholarships_for_latam is True:
+        return True
+    sch = p.scholarships if isinstance(p.scholarships, list) else []
+    for s in sch:
+        if isinstance(s, dict) and (s.get("latam_eligible") or s.get("for_latam")):
+            return True
+    return False
+
+
 def _program_to_oferta(p: Program) -> dict:
     """Map a Program row to the Oferta schema (frontend contract)."""
     images = p.images if isinstance(p.images, list) else []
@@ -171,6 +188,8 @@ def _program_to_oferta(p: Program) -> dict:
         "media": [{"type": "image", "url": u} for u in image_urls],
         "featured": False,
         "active": p.active,
+        # F-003 · beca curada para LatAm (flag o derivado del JSON scholarships)
+        "scholarshipsForLatam": _has_latam_scholarship(p),
     }
 
 
@@ -189,6 +208,7 @@ def list_ofertas(
     maxDuration: Optional[int] = None,
     languageRequirement: Optional[str] = None,
     searchQuery: Optional[str] = None,
+    scholarshipsForLatam: Optional[bool] = None,
     current_user: User = Depends(get_current_user),
     db: DBSession = Depends(get_db),
 ):
@@ -253,6 +273,10 @@ def list_ofertas(
             for o in ofertas
             if o["eligibility"]["languageRequirement"] == languageRequirement
         ]
+
+    # F-003 · filtro de becas LatAm post-mapping (el flag se deriva, no es columna pura)
+    if scholarshipsForLatam is not None:
+        ofertas = [o for o in ofertas if o["scholarshipsForLatam"] == scholarshipsForLatam]
 
     return ofertas
 

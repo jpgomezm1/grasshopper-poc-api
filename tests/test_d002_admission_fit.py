@@ -47,3 +47,17 @@ def test_reach_wins_on_low_acceptance_even_if_student_strong():
 def test_match_middle_ground():
     p = _prog(acceptance_rate=45, avg_admitted_gpa=3.5, avg_sat=1200, min_sat=1100)
     assert afs.classify(p, student_gpa=3.6, student_sat=1250) == "match"
+
+
+# --- hardening (revisión adversarial) ---
+
+def test_safety_not_triggered_by_single_weak_signal():
+    # Solo avg_sat curado (sin acceptance_rate) + SAT alto → NO debe ser safety
+    # por una sola señal débil; cae a match.
+    p = _prog(avg_sat=1200)
+    assert afs.classify(p, student_sat=1400) == "match"
+
+
+def test_acceptance_rate_0_to_1_scale_is_normalized():
+    assert afs.classify(_prog(acceptance_rate=0.08)) == "reach"   # 8%
+    assert afs.classify(_prog(acceptance_rate=0.75)) == "safety"  # 75%

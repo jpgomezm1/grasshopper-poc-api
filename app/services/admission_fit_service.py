@@ -43,6 +43,11 @@ def classify(
     avg_sat = getattr(program, "avg_sat", None)
     min_sat = getattr(program, "min_sat", None)
 
+    # Defensivo: si acceptance_rate fue curado en escala 0-1 (error humano
+    # frecuente), lo normalizamos a 0-100 para no clasificar mal en silencio.
+    if ar is not None and 0 < ar <= 1:
+        ar = ar * 100
+
     if ar is None and avg_gpa is None and min_sat is None and avg_sat is None:
         return None  # sin datos del programa → no clasificamos
 
@@ -66,6 +71,10 @@ def classify(
 
     if any(reach_signals):
         return "reach"
+    # Safety es AND de señales, pero evitamos declararlo por UNA sola señal débil
+    # (p.ej. solo SAT) sin respaldo: exigimos ≥2 señales o que la tasa de admisión
+    # (medida más directa de probabilidad de ingreso) sea alta.
     if safety_signals and all(safety_signals):
-        return "safety"
+        if len(safety_signals) >= 2 or (ar is not None and ar > SAFETY_ACCEPTANCE_MIN):
+            return "safety"
     return "match"

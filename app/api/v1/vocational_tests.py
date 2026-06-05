@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timezone
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session as DBSession
@@ -26,8 +26,13 @@ class SubmitVocationalRequest(BaseModel):
 
 
 def _disclaimer_accepted(user: User, test_id: str) -> bool:
-    """F-005 · ¿el estudiante aceptó el aviso legal para este test?"""
-    return bool((user.test_disclaimers or {}).get(test_id))
+    """F-005 · ¿el estudiante aceptó la versión VIGENTE del aviso para este test?
+
+    Compara la versión aceptada con `DISCLAIMER_VERSION`: si el texto legal
+    cambió (bump de versión), la aceptación vieja deja de contar y se re-pide.
+    """
+    entry = (user.test_disclaimers or {}).get(test_id)
+    return bool(entry) and entry.get("version") == DISCLAIMER_VERSION
 
 
 @router.get("")
@@ -68,10 +73,12 @@ def get_disclaimer_status(current_user: User = Depends(get_current_user)):
     return {
         "version": DISCLAIMER_VERSION,
         "text": DISCLAIMER_TEXT,
+        # Solo cuenta como aceptado si coincide con la versión vigente (si el
+        # texto cambió, el front lo verá como NO aceptado y re-pedirá la firma).
         "accepted": {
             tid: meta.get("accepted_at")
             for tid, meta in accepted.items()
-            if isinstance(meta, dict)
+            if isinstance(meta, dict) and meta.get("version") == DISCLAIMER_VERSION
         },
     }
 
@@ -89,7 +96,7 @@ def accept_disclaimer(
     # Reasignar un dict nuevo para que SQLAlchemy detecte el cambio del JSON.
     data = dict(current_user.test_disclaimers or {})
     data[test_id] = {
-        "accepted_at": datetime.utcnow().isoformat(),
+        "accepted_at": datetime.now(timezone.utc).isoformat(),
         "version": DISCLAIMER_VERSION,
     }
     current_user.test_disclaimers = data

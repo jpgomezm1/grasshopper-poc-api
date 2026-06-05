@@ -26,11 +26,14 @@ def _user(disclaimers=None):
 
 
 def test_disclaimer_accepted_helper():
+    cur = {"accepted_at": "x", "version": DISCLAIMER_VERSION}
     assert _disclaimer_accepted(_user(None), "holland") is False
     assert _disclaimer_accepted(_user({}), "holland") is False
-    assert _disclaimer_accepted(_user({"holland": {"accepted_at": "x"}}), "holland") is True
+    assert _disclaimer_accepted(_user({"holland": cur}), "holland") is True
     # aceptar un test no habilita otro
-    assert _disclaimer_accepted(_user({"holland": {"accepted_at": "x"}}), "mbti") is False
+    assert _disclaimer_accepted(_user({"holland": cur}), "mbti") is False
+    # aceptación sin versión (legacy) no cuenta
+    assert _disclaimer_accepted(_user({"holland": {"accepted_at": "x"}}), "holland") is False
 
 
 def test_accept_disclaimer_stamps_user():
@@ -67,8 +70,26 @@ def test_submit_blocked_without_disclaimer():
 
 
 def test_get_disclaimer_status_returns_text_and_accepted():
-    user = _user({"holland": {"accepted_at": "2026-06-04T00:00:00", "version": "v1-draft"}})
+    user = _user({"holland": {"accepted_at": "2026-06-04T00:00:00", "version": DISCLAIMER_VERSION}})
     out = get_disclaimer_status(current_user=user)
     assert out["version"] == DISCLAIMER_VERSION
     assert out["text"]
     assert out["accepted"]["holland"] == "2026-06-04T00:00:00"
+
+
+# --- hardening · enforcement de versión (revisión adversarial) ---
+
+def test_outdated_version_requires_reacceptance():
+    user = _user({"holland": {"accepted_at": "x", "version": "version-vieja"}})
+    # El gate ya no la cuenta como aceptada
+    assert _disclaimer_accepted(user, "holland") is False
+    # Y el status no la lista como aceptada (el front re-pedirá la firma)
+    assert "holland" not in get_disclaimer_status(current_user=user)["accepted"]
+
+
+def test_submit_blocked_when_version_outdated():
+    req = SubmitVocationalRequest(answers={})
+    user = _user({"holland": {"accepted_at": "x", "version": "version-vieja"}})
+    with pytest.raises(HTTPException) as ei:
+        submit_test("holland", req, current_user=user, db=MagicMock())
+    assert ei.value.status_code == 403

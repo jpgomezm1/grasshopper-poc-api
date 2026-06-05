@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import logging
 import secrets
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from typing import Any, Dict, Optional
 
 from fastapi import Request
@@ -47,7 +47,7 @@ def age_of(user: User) -> Optional[int]:
     bd = getattr(user, "birthdate", None)
     if not bd:
         return None
-    today = date.today()
+    today = datetime.now(timezone.utc).date()  # UTC, consistente con el resto del flujo
     return today.year - bd.year - ((today.month, today.day) < (bd.month, bd.day))
 
 
@@ -169,12 +169,23 @@ def lookup(db: DBSession, token: str) -> Dict[str, Any]:
         not student.parental_consent_token_expires
         or student.parental_consent_token_expires <= datetime.utcnow()
     )
+    # Privacidad: con un enlace EXPIRADO no revelamos el nombre del menor ni el
+    # email del acudiente (un token vencido no debe seguir filtrando PII).
+    if expired:
+        return {
+            "student_name": None,
+            "parent_email_masked": None,
+            "consent_text": CONSENT_TEXT,
+            "version": CONSENT_VERSION,
+            "expired": True,
+            "already_signed": False,
+        }
     return {
         "student_name": student.name or "el/la estudiante",
         "parent_email_masked": _mask_email(student.parental_consent_parent_email),
         "consent_text": CONSENT_TEXT,
         "version": CONSENT_VERSION,
-        "expired": expired,
+        "expired": False,
         "already_signed": student.consent_parental_at is not None,
     }
 

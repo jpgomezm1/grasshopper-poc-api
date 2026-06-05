@@ -194,7 +194,9 @@ class User(Base):
     # M-006 · e-sign nativo de consentimiento parental para menores.
     # Token de un solo uso enviado por email al acudiente + su expiración +
     # el email del acudiente (para mostrarlo enmascarado en el estado).
-    parental_consent_token = Column(String(255), nullable=True, unique=True, index=True)
+    # index (no unique): el token es aleatorio de 32 bytes, no necesita constraint
+    # UNIQUE y así coincide con la migración (que crea índice no único).
+    parental_consent_token = Column(String(255), nullable=True, index=True)
     parental_consent_token_expires = Column(DateTime, nullable=True)
     parental_consent_parent_email = Column(String(255), nullable=True)
 

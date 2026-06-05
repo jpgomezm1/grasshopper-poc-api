@@ -115,6 +115,21 @@ def test_lookup_unknown_token_raises():
         pcs.lookup(db, "nope")
 
 
+def test_lookup_expired_does_not_leak_pii():
+    # hardening C2: un token expirado NO debe revelar el nombre del menor ni el email
+    s = _student(age=13)
+    s.name = "Mateo Pérez"
+    s.parental_consent_token = "tok"
+    s.parental_consent_token_expires = datetime.utcnow() - timedelta(hours=1)
+    s.parental_consent_parent_email = "madre@correo.com"
+    db = MagicMock()
+    db.query.return_value.filter.return_value.first.return_value = s
+    out = pcs.lookup(db, "tok")
+    assert out["expired"] is True
+    assert out["student_name"] is None
+    assert out["parent_email_masked"] is None
+
+
 # --- gate ---
 
 def test_submit_blocked_for_minor_without_consent():

@@ -17,6 +17,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.config import get_settings
 from app.db.database import get_db
 from app.db.models import User, UserRole
 from app.services import parental_consent_service
@@ -24,6 +25,12 @@ from app.services.parental_consent_service import ParentalConsentError
 
 router_me = APIRouter(prefix="/me/parental-consent", tags=["StudentMe · Parental consent"])
 router_public = APIRouter(prefix="/parental-consent", tags=["Parental consent (público)"])
+
+
+def _rate_limit_consent(request: Request) -> None:
+    """M-006 · limita abuso: spam de email (request) y fuerza bruta del token."""
+    from app.core.rate_limiter import rate_limit
+    return rate_limit(get_settings().rate_limit_parental_consent)(request)
 
 
 # ---------------------------------------------------------------------------
@@ -57,7 +64,11 @@ def get_status(current_user: User = Depends(get_current_user)):
     return parental_consent_service.consent_status(current_user)
 
 
-@router_me.post("/request", summary="M-006 · enviar enlace de firma al acudiente")
+@router_me.post(
+    "/request",
+    summary="M-006 · enviar enlace de firma al acudiente",
+    dependencies=[Depends(_rate_limit_consent)],
+)
 def request_consent(
     body: RequestConsentBody,
     request: Request,
@@ -81,7 +92,11 @@ def request_consent(
 # ---------------------------------------------------------------------------
 
 
-@router_public.get("/{token}", summary="M-006 · datos del consentimiento (acudiente)")
+@router_public.get(
+    "/{token}",
+    summary="M-006 · datos del consentimiento (acudiente)",
+    dependencies=[Depends(_rate_limit_consent)],
+)
 def public_lookup(token: str, db: DBSession = Depends(get_db)):
     try:
         return parental_consent_service.lookup(db, token)
@@ -89,7 +104,11 @@ def public_lookup(token: str, db: DBSession = Depends(get_db)):
         raise HTTPException(status_code=404, detail=str(exc))
 
 
-@router_public.post("/{token}/sign", summary="M-006 · firmar consentimiento (acudiente)")
+@router_public.post(
+    "/{token}/sign",
+    summary="M-006 · firmar consentimiento (acudiente)",
+    dependencies=[Depends(_rate_limit_consent)],
+)
 def public_sign(token: str, request: Request, db: DBSession = Depends(get_db)):
     try:
         return parental_consent_service.sign(db, token, request=request)

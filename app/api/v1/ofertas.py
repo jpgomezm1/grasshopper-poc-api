@@ -23,6 +23,7 @@ from sqlalchemy.orm import Session as DBSession
 from app.api.v1.auth import get_current_user
 from app.db.database import get_db
 from app.db.models import Program, SavedOferta, User
+from app.services import admission_fit_service
 
 router = APIRouter(prefix="/ofertas", tags=["Ofertas"])
 
@@ -171,6 +172,10 @@ def _program_to_oferta(p: Program) -> dict:
         "media": [{"type": "image", "url": u} for u in image_urls],
         "featured": False,
         "active": p.active,
+        # D-002 · clasificación Reach/Match/Safety (None si el programa no tiene
+        # variables de admisión curadas). Sin métricas del estudiante hoy →
+        # se basa en la selectividad del programa (acceptance_rate).
+        "admissionFit": admission_fit_service.classify(p),
     }
 
 

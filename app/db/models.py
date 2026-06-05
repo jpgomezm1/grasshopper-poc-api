@@ -798,6 +798,15 @@ class Program(Base):
     # NULL = no curado (no asumir). TRUE/FALSE = decisión deliberada.
     scholarships_for_latam = Column(Boolean, nullable=True, index=True)
 
+    # D-002 (2026-06-04) · variables de admisión para clasificar Reach/Match/Safety.
+    # Cliente docx §3.G. NULL = no curado (no se muestra badge). acceptance_rate
+    # en porcentaje 0-100. min_english_level en CEFR (A1..C2).
+    acceptance_rate = Column(Float, nullable=True)
+    avg_admitted_gpa = Column(Float, nullable=True)
+    min_sat = Column(Integer, nullable=True)
+    avg_sat = Column(Integer, nullable=True)
+    min_english_level = Column(String(10), nullable=True)
+
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 

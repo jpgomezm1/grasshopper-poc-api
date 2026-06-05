@@ -84,6 +84,8 @@ class UserResponse(BaseModel):
     english_test_completed: bool = False
     english_cefr_level: Optional[str] = None
     created_at: datetime
+    # M-006 · True si es menor de 16 (edad conocida) sin consentimiento parental.
+    requires_parental_consent: bool = False
 
     model_config = {
         "from_attributes": True,
@@ -498,10 +500,18 @@ def invite_student(
     return UserResponse.model_validate(user)
 
 
+def _user_response_with_consent(user: User) -> UserResponse:
+    """UserResponse + flag M-006 (requiere consentimiento parental)."""
+    resp = UserResponse.model_validate(user)
+    from app.services import parental_consent_service
+    resp.requires_parental_consent = parental_consent_service.needs_parental_consent(user)
+    return resp
+
+
 @router.get("/me", response_model=UserResponse)
 def get_me(current_user: User = Depends(get_current_user)):
     """Get current authenticated user."""
-    return UserResponse.model_validate(current_user)
+    return _user_response_with_consent(current_user)
 
 
 @router.get("/me/onboarding", response_model=OnboardingResponse)
@@ -524,6 +534,15 @@ def update_onboarding(
     current_answers = current_user.onboarding_answers or {}
     current_answers.update(request.answers)
     current_user.onboarding_answers = current_answers
+
+    # M-006 · si el onboarding trae fecha de nacimiento (ISO YYYY-MM-DD),
+    # la mapeamos a la columna real User.birthdate (alimenta el gate de menores).
+    bd_raw = request.answers.get("birthdate") if isinstance(request.answers, dict) else None
+    if isinstance(bd_raw, str) and bd_raw.strip():
+        try:
+            current_user.birthdate = datetime.strptime(bd_raw.strip()[:10], "%Y-%m-%d").date()
+        except ValueError:
+            pass  # formato inválido → no rompe el onboarding
 
     # Update status if provided
     if request.status:
@@ -555,7 +574,7 @@ def complete_onboarding(
     db.commit()
     db.refresh(current_user)
 
-    return UserResponse.model_validate(current_user)
+    return _user_response_with_consent(current_user)
 
 
 @router.get("/me/session")

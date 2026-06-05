@@ -58,6 +58,7 @@ from app.api.v1 import (
     admin_settings,
     admin_ai_audit,
     extracurriculars,
+    parental_consent,
     institutions,
     human_intervention,
 )
@@ -241,6 +242,8 @@ app.include_router(admin_ai_audit.router, prefix="/api/v1")
 # F-001 · 2026-05-21 · actividades extracurriculares (cliente Fase 1 · etapa 1)
 app.include_router(extracurriculars.router_me, prefix="/api/v1")
 app.include_router(extracurriculars.router_gh, prefix="/api/v1")
+app.include_router(parental_consent.router_me, prefix="/api/v1")
+app.include_router(parental_consent.router_public, prefix="/api/v1")
 # GH-LOCAL-CLIENT-CATALOG · 2026-05-28 · catálogo instituciones (xlsx cliente)
 app.include_router(institutions.router, prefix="/api/v1")
 # F-006 · 2026-05-28 · notas privadas de Intervención Humana (advisor-only)

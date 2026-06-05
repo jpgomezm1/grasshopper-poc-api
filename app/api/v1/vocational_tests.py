@@ -14,6 +14,7 @@ from app.data.vocational_tests import (
     VOCATIONAL_TESTS,
 )
 from app.services.scoring_service import derive_test_extras
+from app.services import parental_consent_service
 
 router = APIRouter(prefix="/vocational-tests", tags=["Vocational Tests"])
 
@@ -70,6 +71,13 @@ def submit_test(
     test = get_test_by_id(test_id)
     if not test:
         raise HTTPException(status_code=404, detail="Test not found")
+
+    # M-006 · gate: menor de 16 (edad conocida) sin consentimiento parental.
+    if parental_consent_service.needs_parental_consent(current_user):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="minor_parental_consent_required",
+        )
 
     scores = calculate_vocational_scores(test_id, request.answers)
     extras = derive_test_extras(test_id, request.answers)

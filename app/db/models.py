@@ -191,6 +191,13 @@ class User(Base):
     budget_max_usd = Column(Integer, nullable=True)
     preferred_countries = Column(JSON, default=list, nullable=False)
 
+    # M-006 · e-sign nativo de consentimiento parental para menores.
+    # Token de un solo uso enviado por email al acudiente + su expiración +
+    # el email del acudiente (para mostrarlo enmascarado en el estado).
+    parental_consent_token = Column(String(255), nullable=True, unique=True, index=True)
+    parental_consent_token_expires = Column(DateTime, nullable=True)
+    parental_consent_parent_email = Column(String(255), nullable=True)
+
     # Status
     is_active = Column(Boolean, default=True, nullable=False)
 

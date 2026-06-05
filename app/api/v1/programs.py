@@ -87,6 +87,63 @@ def _slugify(value: str) -> str:
     return norm or "program"
 
 
+def _is_blank(v) -> bool:
+    return v is None or (isinstance(v, str) and not v.strip())
+
+
+def _coerce_excel_float_optional(v):
+    """float si la celda tiene valor numérico · None si vacía · raise si inválida.
+
+    Permite columnas numéricas OPCIONALES en el import: vacío = "no tocar".
+    """
+    if _is_blank(v):
+        return None
+    if isinstance(v, str):
+        v = v.strip().replace("%", "").replace(",", ".")
+    return float(v)
+
+
+def _coerce_excel_int_optional(v):
+    """int si la celda tiene valor · None si vacía · raise si inválida."""
+    if _is_blank(v):
+        return None
+    if isinstance(v, str):
+        v = v.strip().replace(",", "")
+    return int(float(v))
+
+
+_CEFR_LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
+
+
+# (helper de string genérico no necesario · CEFR tiene su propio coercer)
+
+
+def _coerce_excel_cefr_optional(v):
+    """Nivel CEFR (A1..C2) en mayúsculas si la celda tiene valor · None si vacía.
+
+    Lanza ValueError si el valor no es un nivel CEFR válido (lo marca como error
+    de fila, no lo guarda silenciosamente mal).
+    """
+    if _is_blank(v):
+        return None
+    s = str(v).strip().upper()
+    if s not in _CEFR_LEVELS:
+        raise ValueError("nivel CEFR inválido (A1..C2)")
+    return s
+
+
+# D-002 · columnas OPCIONALES de admisión (Reach/Match/Safety). Cada una con su
+# coerción. Vacío = no tocar (preserva lo curado). El valor se aplica al modelo
+# solo si la columna venía en el Excel y la celda tenía contenido.
+_ADMISSION_IMPORT_FIELDS = {
+    "acceptance_rate": _coerce_excel_float_optional,
+    "avg_admitted_gpa": _coerce_excel_float_optional,
+    "min_sat": _coerce_excel_int_optional,
+    "avg_sat": _coerce_excel_int_optional,
+    "min_english_level": _coerce_excel_cefr_optional,
+}
+
+
 # ----------------------------- list / create / detail -----------------------------
 
 @router.get(
@@ -188,6 +245,12 @@ def create_program(
         alliance_type=payload.alliance_type,
         language_requirement=payload.language_requirement,
         active=payload.active,
+        # D-002 · variables de admisión (None si no se curan)
+        acceptance_rate=payload.acceptance_rate,
+        avg_admitted_gpa=payload.avg_admitted_gpa,
+        min_sat=payload.min_sat,
+        avg_sat=payload.avg_sat,
+        min_english_level=payload.min_english_level,
         raw=payload.raw,
     )
     db.add(program)
@@ -234,7 +297,11 @@ def export_programs(
     wb = Workbook()
     ws = wb.active
     ws.title = "Programs"
-    ws.append(REQUIRED_FIELDS + ["language_requirement"])
+    ws.append(
+        REQUIRED_FIELDS
+        + ["language_requirement"]
+        + list(_ADMISSION_IMPORT_FIELDS.keys())
+    )
     for p in rows:
         ws.append([
             p.program_id,
@@ -253,6 +320,12 @@ def export_programs(
             p.alliance_type,
             "si" if p.active else "no",
             p.language_requirement or "",
+            # D-002 · vacío = sin curar (preserva tri-estado en el round-trip)
+            p.acceptance_rate if p.acceptance_rate is not None else "",
+            p.avg_admitted_gpa if p.avg_admitted_gpa is not None else "",
+            p.min_sat if p.min_sat is not None else "",
+            p.avg_sat if p.avg_sat is not None else "",
+            p.min_english_level or "",
         ])
 
     buf = io.BytesIO()
@@ -492,6 +565,15 @@ async def import_programs(
         else:
             record["active"] = bool(active_val) if active_val is not None else True
 
+        # D-002 · columnas OPCIONALES de admisión · vacío = no tocar
+        for col, coerce in _ADMISSION_IMPORT_FIELDS.items():
+            if col in headers:
+                try:
+                    record[col] = coerce(record.get(col))
+                except (TypeError, ValueError):
+                    errors.append({"row": idx, "field": col, "msg": "valor inválido"})
+                    row_ok = False
+
         if row_ok:
             valid_records.append(record)
 
@@ -518,6 +600,10 @@ async def import_programs(
                 existing.alliance_type = (r.get("alliance_type") or "estandar").lower()
                 existing.language_requirement = r.get("language_requirement") or None
                 existing.active = bool(r.get("active", True))
+                # D-002 · solo si la columna venía y la celda tenía valor
+                for col in _ADMISSION_IMPORT_FIELDS:
+                    if col in headers and r.get(col) is not None:
+                        setattr(existing, col, r[col])
                 existing.raw = r
                 existing.updated_at = datetime.utcnow()
                 updated += 1
@@ -541,6 +627,10 @@ async def import_programs(
                     active=bool(r.get("active", True)),
                     raw=r,
                 )
+                # D-002 · campos de admisión opcionales (si la columna venía)
+                for col in _ADMISSION_IMPORT_FIELDS:
+                    if col in headers and r.get(col) is not None:
+                        setattr(p, col, r[col])
                 db.add(p)
                 inserted += 1
         try:

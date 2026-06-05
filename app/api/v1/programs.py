@@ -87,6 +87,35 @@ def _slugify(value: str) -> str:
     return norm or "program"
 
 
+_TRUE_TOKENS = {"si", "sí", "yes", "true", "1", "y", "x"}
+
+
+def _coerce_excel_bool(v, default: bool = False) -> bool:
+    """Coerciona una celda de Excel a booleano (acepta si/sí/yes/true/1/y/x)."""
+    if isinstance(v, str):
+        return v.strip().lower() in _TRUE_TOKENS
+    if v is None:
+        return default
+    return bool(v)
+
+
+def _coerce_excel_bool_optional(v):
+    """Como `_coerce_excel_bool` pero devuelve None si la celda está vacía.
+
+    Permite columnas booleanas OPCIONALES en el import: una celda vacía = "no
+    tocar este campo" (preserva el tri-estado True/False/desconocido), en vez de
+    sobrescribir a False un valor curado previamente.
+    """
+    if v is None:
+        return None
+    if isinstance(v, str):
+        s = v.strip().lower()
+        if not s:
+            return None
+        return s in _TRUE_TOKENS
+    return bool(v)
+
+
 # ----------------------------- list / create / detail -----------------------------
 
 @router.get(
@@ -188,6 +217,7 @@ def create_program(
         alliance_type=payload.alliance_type,
         language_requirement=payload.language_requirement,
         active=payload.active,
+        scholarships_for_latam=payload.scholarships_for_latam,
         raw=payload.raw,
     )
     db.add(program)
@@ -234,8 +264,13 @@ def export_programs(
     wb = Workbook()
     ws = wb.active
     ws.title = "Programs"
-    ws.append(REQUIRED_FIELDS + ["language_requirement"])
+    ws.append(REQUIRED_FIELDS + ["language_requirement", "scholarships_for_latam"])
     for p in rows:
+        # F-003 · tri-estado: vacío = desconocido (sin curar) · si/no = curado
+        if p.scholarships_for_latam is None:
+            beca = ""
+        else:
+            beca = "si" if p.scholarships_for_latam else "no"
         ws.append([
             p.program_id,
             p.name,
@@ -253,6 +288,7 @@ def export_programs(
             p.alliance_type,
             "si" if p.active else "no",
             p.language_requirement or "",
+            beca,
         ])
 
     buf = io.BytesIO()
@@ -485,12 +521,14 @@ async def import_programs(
         except (TypeError, ValueError):
             errors.append({"row": idx, "field": "cost_total", "msg": "no es entero"})
             row_ok = False
-        # active boolean coercion
-        active_val = record.get("active")
-        if isinstance(active_val, str):
-            record["active"] = active_val.strip().lower() in ("si", "sí", "yes", "true", "1", "y", "x")
-        else:
-            record["active"] = bool(active_val) if active_val is not None else True
+        # active boolean coercion (default True si la celda viene vacía)
+        record["active"] = _coerce_excel_bool(record.get("active"), default=True)
+
+        # F-003 · columna OPCIONAL de beca LatAm · vacío = no tocar
+        if "scholarships_for_latam" in headers:
+            record["scholarships_for_latam"] = _coerce_excel_bool_optional(
+                record.get("scholarships_for_latam")
+            )
 
         if row_ok:
             valid_records.append(record)
@@ -518,6 +556,9 @@ async def import_programs(
                 existing.alliance_type = (r.get("alliance_type") or "estandar").lower()
                 existing.language_requirement = r.get("language_requirement") or None
                 existing.active = bool(r.get("active", True))
+                # F-003 · solo si la columna venía y la celda tenía valor
+                if "scholarships_for_latam" in headers and r.get("scholarships_for_latam") is not None:
+                    existing.scholarships_for_latam = r["scholarships_for_latam"]
                 existing.raw = r
                 existing.updated_at = datetime.utcnow()
                 updated += 1
@@ -539,6 +580,11 @@ async def import_programs(
                     alliance_type=(r.get("alliance_type") or "estandar").lower(),
                     language_requirement=r.get("language_requirement") or None,
                     active=bool(r.get("active", True)),
+                    scholarships_for_latam=(
+                        r.get("scholarships_for_latam")
+                        if "scholarships_for_latam" in headers
+                        else None
+                    ),
                     raw=r,
                 )
                 db.add(p)

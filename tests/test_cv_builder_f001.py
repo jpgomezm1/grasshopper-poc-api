@@ -96,3 +96,59 @@ def test_build_cv_data_without_profile_or_tests_is_safe():
     assert data.test_highlights == []
     html = cv.render_cv_html(data)
     assert "Camila Vargas" in html
+
+
+def test_render_cv_html_escapes_user_content():
+    """Hardening F-001: datos editables por el usuario (nombre, descripción, logros)
+    deben salir ESCAPADOS en el HTML→PDF · sin esto, HTML/CSS injection en el CV."""
+    acts = [
+        NS(
+            category="other",
+            name='<b>Club</b> "raro"',
+            role="<i>líder</i>",
+            hours_per_week=2,
+            start_date=None,
+            end_date=None,
+            description="<script>alert(1)</script>",
+            achievements=["<img src=x onerror=alert(2)>"],
+        ),
+    ]
+    data = cv.build_cv_data(
+        user=_user(name='<script>alert("xss")</script>'),
+        activities=acts,
+        test_results=[],
+        profile_data={"strengths": ["<b>Liderazgo</b>"]},
+        school_name="Colegio <Cumbres>",
+    )
+    html = cv.render_cv_html(data)
+    # Ningún tag crudo inyectado por el usuario debe sobrevivir (los <> se escapan)
+    assert "<script>" not in html
+    assert "<img" not in html
+    assert "<b>Club</b>" not in html
+    # El contenido escapado sí debe estar presente
+    assert "&lt;script&gt;" in html
+    assert "&lt;img" in html
+    assert "&lt;Cumbres&gt;" in html
+
+
+def test_period_label_end_only_branch():
+    """Cubre el branch _period_label con solo end_date (sin start)."""
+    data = cv.build_cv_data(
+        user=_user(),
+        activities=[
+            NS(
+                category="work",
+                name="Práctica",
+                role=None,
+                hours_per_week=None,
+                start_date=None,
+                end_date=datetime.date(2025, 6, 1),
+                description=None,
+                achievements=[],
+            )
+        ],
+        test_results=[],
+        profile_data=None,
+        school_name=None,
+    )
+    assert data.activities[0].period == "06/2025"

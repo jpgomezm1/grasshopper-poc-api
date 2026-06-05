@@ -10,6 +10,7 @@ Igual que el PDF clínico: si el runtime GTK no está (Windows dev), devuelve 50
 from __future__ import annotations
 
 import logging
+import re
 from datetime import datetime
 
 from fastapi import APIRouter, Depends, HTTPException, Response, status
@@ -74,9 +75,20 @@ def get_my_cv(
         pdf_bytes = cv_pdf_service.render_cv_pdf(cv)
     except RuntimeError as exc:
         # GTK ausente (Windows dev) · weasyprint no instalado · etc.
-        raise HTTPException(status_code=503, detail=str(exc))
+        # El detalle (rutas de librerías GTK/cairo del host) se loguea
+        # server-side; al cliente solo le llega un mensaje genérico.
+        logger.warning("cv pdf render unavailable user_id=%s: %s", current_user.id, exc)
+        raise HTTPException(
+            status_code=503,
+            detail="El generador de PDF no está disponible en este momento.",
+        )
 
-    safe_name = (cv.student_name or "estudiante").replace(" ", "_")
+    # `student_name` es dato editable por el usuario → se sanea a un whitelist
+    # ASCII antes de entrar a la cabecera Content-Disposition (evita romper el
+    # header con comillas/CRLF · header injection).
+    safe_name = re.sub(
+        r"[^A-Za-z0-9_\-]", "", (cv.student_name or "estudiante").replace(" ", "_")
+    ) or "estudiante"
     filename = f"CV-{safe_name}-{datetime.utcnow().strftime('%Y%m%d')}.pdf"
     logger.info("cv pdf generated user_id=%s size=%d", current_user.id, len(pdf_bytes))
     return Response(

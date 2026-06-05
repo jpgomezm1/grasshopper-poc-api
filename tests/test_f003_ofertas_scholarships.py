@@ -56,6 +56,25 @@ def test_has_latam_scholarship_derived_from_json():
     assert _has_latam_scholarship(p3) is False
 
 
+def test_has_latam_scholarship_malformed_json_is_safe():
+    """Hardening F-003: el JSON viene de import/curación externa → formas raras
+    no deben encender la beca por error ni reventar."""
+    # `scholarships` no es lista (string / dict / None) → False, sin crash
+    assert _has_latam_scholarship(_fake_program(scholarships="texto")) is False
+    assert _has_latam_scholarship(_fake_program(scholarships={"latam_eligible": True})) is False
+    assert _has_latam_scholarship(_fake_program(scholarships=None)) is False
+    # entradas no-dict dentro de la lista → ignoradas
+    assert _has_latam_scholarship(_fake_program(scholarships=[123, "x", None])) is False
+    # truthiness laxa: el string "false"/"no"/0 NO debe encender la beca
+    assert _has_latam_scholarship(_fake_program(scholarships=[{"latam_eligible": "false"}])) is False
+    assert _has_latam_scholarship(_fake_program(scholarships=[{"for_latam": "no"}])) is False
+    assert _has_latam_scholarship(_fake_program(scholarships=[{"latam_eligible": 0}])) is False
+    # strings/números que SÍ significan verdadero
+    assert _has_latam_scholarship(_fake_program(scholarships=[{"latam_eligible": "true"}])) is True
+    assert _has_latam_scholarship(_fake_program(scholarships=[{"for_latam": 1}])) is True
+    assert _has_latam_scholarship(_fake_program(scholarships=[{"latam_eligible": "sí"}])) is True
+
+
 def test_program_to_oferta_exposes_scholarships_for_latam():
     o_true = _program_to_oferta(_fake_program(scholarships_for_latam=True))
     assert o_true["scholarshipsForLatam"] is True

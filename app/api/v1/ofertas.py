@@ -12,7 +12,7 @@ de cleanup.
 """
 from __future__ import annotations
 
-from typing import Optional, List
+from typing import Any, Optional, List
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -97,6 +97,23 @@ _DEFAULT_FEATURED_IMAGE = (
 )
 
 
+def _coerce_bool(v: Any) -> bool:
+    """Normaliza a booleano real un valor que viene de JSON externo (curación/import).
+
+    El JSON `scholarships` lo puebla un proceso externo, así que un campo puede
+    llegar como `True`, `"true"`, `1`, pero también como `"false"`/`"no"`/`0`
+    (todos strings/números). Sin esta normalización, el string `"false"` sería
+    *truthy* y encendería la beca por error.
+    """
+    if isinstance(v, bool):
+        return v
+    if isinstance(v, (int, float)):
+        return v == 1
+    if isinstance(v, str):
+        return v.strip().lower() in {"true", "1", "yes", "sí", "si", "y"}
+    return False
+
+
 def _has_latam_scholarship(p: Program) -> bool:
     """F-003 · ¿la oferta tiene beca curada para LatAm?
 
@@ -109,7 +126,9 @@ def _has_latam_scholarship(p: Program) -> bool:
         return True
     sch = p.scholarships if isinstance(p.scholarships, list) else []
     for s in sch:
-        if isinstance(s, dict) and (s.get("latam_eligible") or s.get("for_latam")):
+        if isinstance(s, dict) and (
+            _coerce_bool(s.get("latam_eligible")) or _coerce_bool(s.get("for_latam"))
+        ):
             return True
     return False
 

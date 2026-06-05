@@ -109,9 +109,15 @@ def _run_fn(engine, fn):
 
 
 def test_migration_revision_and_chain():
-    """El archivo tiene revision y down_revision correctos para la cadena F7."""
+    """El archivo tiene revision y down_revision correctos para la cadena F7.
+
+    Nota: cuando se escribió este test, 040 colgaba de "037_pipeline_status_version".
+    Después se insertaron 038_pipeline_status_version y 039_webhook_nonces, así que
+    la cadena real es 037→038→039→040. El down_revision correcto de 040 es
+    "039_webhook_nonces" (verificado: `alembic upgrade head` llega a un único head).
+    """
     assert _MIGRATION.revision == "040_critical_indexes"
-    assert _MIGRATION.down_revision == "037_pipeline_status_version", (
+    assert _MIGRATION.down_revision == "039_webhook_nonces", (
         f"down_revision incorrecto: {_MIGRATION.down_revision!r}"
     )
 

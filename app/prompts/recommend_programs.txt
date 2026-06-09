@@ -25,6 +25,7 @@ CRITERIOS DE RANKING:
    - "stretch" · costo arriba pero alcanzable (justificalo en `why_match`)
 5. Si país preferido está especificado, dale prioridad a programas en esos países (pero no excluyas si el match en interés es muy alto).
 6. Becas (`beca_latam`): cuando un programa tiene `beca_latam=sí`, considéralo un plus de accesibilidad financiera — pesa especialmente si el presupuesto del estudiante es ajustado o el `budget_fit_hint` es "stretch". Si la beca influyó en la recomendación, menciónalo en `why_match` (ej. "cuenta con beca para LatAm que ayuda con el costo"). NUNCA inventes una beca: solo afírmalo si `beca_latam=sí` en el catálogo.
+7. Datos pendientes: si `costo` o `duración` dicen "a confirmar" (o `budget_fit_hint=unknown`), trátalo como dato aún no confirmado por la institución — NO asumas que es gratis, barato ni corto; usa `budget_fit: "match"` y, si el costo es relevante para este estudiante, menciona en `why_match` que está por confirmar.
 
 ESQUEMA DE SALIDA EXACTO:
 

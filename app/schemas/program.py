@@ -302,11 +302,34 @@ class ProgramUpdate(ProgramEditorialFields):
 
 
 class ProgramResponse(ProgramBase):
+    """Serialización de salida de un Program ya persistido.
+
+    B-042: el catálogo real (importado de los convenios, migración 048) tiene
+    `duration_months` / `cost_total` / `budget_tier` en NULL = "a confirmar".
+    `ProgramBase` los exige como input (crear un programa a mano sí los pide),
+    pero la RESPUESTA debe serializar lo que hay en BD — con los campos
+    requeridos, cada página de `GET /programs` lanzaba ValidationError → 500
+    y el catálogo del admin quedó caído en prod para todos los roles.
+    """
+
     id: UUID
     created_at: datetime
     updated_at: datetime
 
+    duration_months: Optional[int] = None
+    cost_total: Optional[int] = None
+    budget_tier: Optional[str] = None
+
     model_config = ConfigDict(from_attributes=True)
+
+    # Override (mismo nombre = reemplaza al de ProgramBase): la respuesta no
+    # re-valida reglas de negocio sobre datos ya persistidos; solo normaliza.
+    @field_validator("budget_tier")
+    @classmethod
+    def _validate_tier(cls, v: Optional[str]) -> Optional[str]:
+        if v is None:
+            return v
+        return v.strip().lower()
 
 
 class ProgramListResponse(BaseModel):

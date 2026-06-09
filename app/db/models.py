@@ -768,10 +768,12 @@ class Program(Base):
     area = Column(String(120), nullable=True)
     subject = Column(String(255), nullable=True)
 
-    duration_months = Column(Integer, nullable=False)
-    cost_total = Column(Integer, nullable=False)
+    # B-042: la migración 048 hizo estas 3 columnas nullable (catálogo real
+    # sin precio/duración = "a confirmar"); el modelo había quedado desfasado.
+    duration_months = Column(Integer, nullable=True)
+    cost_total = Column(Integer, nullable=True)
     currency = Column(String(10), default="USD", nullable=False)
-    budget_tier = Column(String(20), nullable=False, index=True)
+    budget_tier = Column(String(20), nullable=True, index=True)
     alliance_type = Column(String(30), default="estandar", nullable=False)
     language_requirement = Column(String(50), nullable=True)
 

@@ -192,6 +192,12 @@ def filter_catalog(
         if "E" in riasec_codes and category in {"internships", "work_travel"}:
             score += 0.2
 
+        # F-003 · becas para LatAm · pondera (no solo filtra). Pesa más cuando
+        # el presupuesto aprieta (band 'bajo' o programa 'stretch'), donde una
+        # beca puede ser decisiva para que el programa sea alcanzable.
+        if o.get("scholarshipsForLatam") or o.get("scholarships_for_latam"):
+            score += 0.6 if (kind == "stretch" or budget_band == "bajo") else 0.3
+
         filtered.append((score, o, kind))
 
     # Drop budget=stretch with very low score · keep prompt focused
@@ -224,6 +230,9 @@ def filter_catalog(
                 "languageRequirement"
             ),
             "short_description": o.get("shortDescription"),
+            "scholarships_for_latam": bool(
+                o.get("scholarshipsForLatam") or o.get("scholarships_for_latam")
+            ),
             "_budget_fit_hint": kind,
         }
         out.append(slim)
@@ -294,6 +303,7 @@ def _format_catalog_block(catalog: List[Dict[str, Any]]) -> str:
             f"budget_tier={c.get('budget_tier','-')} · "
             f"idioma_req={c.get('language_requirement','-')} · "
             f"budget_fit_hint={c.get('_budget_fit_hint','-')} · "
+            f"beca_latam={'sí' if c.get('scholarships_for_latam') else 'no'} · "
             f"tags={','.join(c.get('tags') or [])}"
         )
     return "\n".join(parts)

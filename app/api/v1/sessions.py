@@ -20,6 +20,7 @@ from app.services.journey_service import (
     process_event,
 )
 from app.services import bitrix_sync_service
+from app.services import parental_consent_service
 from app.api.v1.auth import get_current_user, get_optional_current_user
 from app.core.access import assert_session_access
 
@@ -76,6 +77,12 @@ def submit_event(
     authenticated user, schedule a Bitrix sync (lead + deal) in the background.
     """
     session = assert_session_access(session_id, current_user, db)
+
+    # M-006 · gate: menor de 16 (edad conocida) sin consentimiento parental.
+    if parental_consent_service.needs_parental_consent(current_user):
+        raise HTTPException(
+            status_code=403, detail="minor_parental_consent_required"
+        )
 
     was_completed = bool(session.is_completed)
     response = process_event(

@@ -366,6 +366,15 @@ def confirm_upload(
     Idempotent: if a VocationalTestResult already exists for this user+test it
     is updated (UniqueConstraint on user_id+test_id).
     """
+    # M-006 · este endpoint también crea un VocationalTestResult → aplica el
+    # mismo gate que /vocational-tests/submit (menor de 16 sin consentimiento).
+    from app.services import parental_consent_service
+    if parental_consent_service.needs_parental_consent(current_user):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="minor_parental_consent_required",
+        )
+
     upload = db.query(ExternalTestUpload).filter(
         ExternalTestUpload.id == upload_id
     ).first()

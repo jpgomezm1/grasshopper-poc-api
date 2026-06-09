@@ -191,6 +191,19 @@ class User(Base):
     budget_max_usd = Column(Integer, nullable=True)
     preferred_countries = Column(JSON, default=list, nullable=False)
 
+    # F-005 · aceptación del aviso legal pre-test, por tipo de test.
+    # Shape: { test_id: {"accepted_at": ISO8601, "version": str} }. nullable
+    # para filas previas (se lee con `or {}`).
+    test_disclaimers = Column(JSON, default=dict, nullable=True)
+    # M-006 · e-sign nativo de consentimiento parental para menores.
+    # Token de un solo uso enviado por email al acudiente + su expiración +
+    # el email del acudiente (para mostrarlo enmascarado en el estado).
+    # index (no unique): el token es aleatorio de 32 bytes, no necesita constraint
+    # UNIQUE y así coincide con la migración (que crea índice no único).
+    parental_consent_token = Column(String(255), nullable=True, index=True)
+    parental_consent_token_expires = Column(DateTime, nullable=True)
+    parental_consent_parent_email = Column(String(255), nullable=True)
+
     # Status
     is_active = Column(Boolean, default=True, nullable=False)
 
@@ -797,6 +810,15 @@ class Program(Base):
     # beca explícita para estudiantes latinoamericanos en el matching IA.
     # NULL = no curado (no asumir). TRUE/FALSE = decisión deliberada.
     scholarships_for_latam = Column(Boolean, nullable=True, index=True)
+
+    # D-002 (2026-06-04) · variables de admisión para clasificar Reach/Match/Safety.
+    # Cliente docx §3.G. NULL = no curado (no se muestra badge). acceptance_rate
+    # en porcentaje 0-100. min_english_level en CEFR (A1..C2).
+    acceptance_rate = Column(Float, nullable=True)
+    avg_admitted_gpa = Column(Float, nullable=True)
+    min_sat = Column(Integer, nullable=True)
+    avg_sat = Column(Integer, nullable=True)
+    min_english_level = Column(String(10), nullable=True)
 
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)

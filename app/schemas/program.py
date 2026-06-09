@@ -145,6 +145,25 @@ class ProgramEditorialFields(BaseModel):
     living_cost_city_usd_year: Optional[int] = Field(default=None, ge=0)
     # F-003 etapa 1 (2026-05-28) · Financial Fit / Becas LatAm
     scholarships_for_latam: Optional[bool] = None
+    # D-002 (2026-06-04) · variables de admisión · Reach/Match/Safety.
+    # NULL = no curado (no se muestra badge). acceptance_rate en % (0-100).
+    acceptance_rate: Optional[float] = Field(default=None, ge=0, le=100)
+    avg_admitted_gpa: Optional[float] = Field(default=None, ge=0, le=10)
+    min_sat: Optional[int] = Field(default=None, ge=0, le=1600)
+    avg_sat: Optional[int] = Field(default=None, ge=0, le=1600)
+    min_english_level: Optional[str] = Field(default=None, max_length=10)
+
+    @field_validator("min_english_level")
+    @classmethod
+    def _validate_cefr(cls, v: Optional[str]) -> Optional[str]:
+        if v is None:
+            return v
+        v = v.strip().upper()
+        if not v:
+            return None
+        if v not in {"A1", "A2", "B1", "B2", "C1", "C2"}:
+            raise ValueError("min_english_level must be a CEFR level (A1..C2)")
+        return v
 
 
 class ProgramBase(ProgramEditorialFields):

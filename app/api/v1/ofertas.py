@@ -12,7 +12,7 @@ de cleanup.
 """
 from __future__ import annotations
 
-from typing import Optional, List
+from typing import Any, Optional, List
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -23,6 +23,7 @@ from sqlalchemy.orm import Session as DBSession
 from app.api.v1.auth import get_current_user
 from app.db.database import get_db
 from app.db.models import Program, SavedOferta, User
+from app.services import admission_fit_service
 
 router = APIRouter(prefix="/ofertas", tags=["Ofertas"])
 
@@ -95,6 +96,42 @@ def _language_level(req: Optional[str]) -> str:
 _DEFAULT_FEATURED_IMAGE = (
     "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1200&h=600&fit=crop"
 )
+
+
+def _coerce_bool(v: Any) -> bool:
+    """Normaliza a booleano real un valor que viene de JSON externo (curación/import).
+
+    El JSON `scholarships` lo puebla un proceso externo, así que un campo puede
+    llegar como `True`, `"true"`, `1`, pero también como `"false"`/`"no"`/`0`
+    (todos strings/números). Sin esta normalización, el string `"false"` sería
+    *truthy* y encendería la beca por error.
+    """
+    if isinstance(v, bool):
+        return v
+    if isinstance(v, (int, float)):
+        return v == 1
+    if isinstance(v, str):
+        return v.strip().lower() in {"true", "1", "yes", "sí", "si", "y"}
+    return False
+
+
+def _has_latam_scholarship(p: Program) -> bool:
+    """F-003 · ¿la oferta tiene beca curada para LatAm?
+
+    Fuente primaria: el flag booleano `scholarships_for_latam` (curado por el
+    admin en el catálogo). Como respaldo, se deriva del JSON `scholarships` si
+    alguna entrada está marcada elegible para LatAm — así el flag se enciende
+    solo cuando llegue ese dato (vía import/curación), sin tocar nada más.
+    """
+    if p.scholarships_for_latam is True:
+        return True
+    sch = p.scholarships if isinstance(p.scholarships, list) else []
+    for s in sch:
+        if isinstance(s, dict) and (
+            _coerce_bool(s.get("latam_eligible")) or _coerce_bool(s.get("for_latam"))
+        ):
+            return True
+    return False
 
 
 def _program_to_oferta(p: Program) -> dict:
@@ -171,6 +208,12 @@ def _program_to_oferta(p: Program) -> dict:
         "media": [{"type": "image", "url": u} for u in image_urls],
         "featured": False,
         "active": p.active,
+        # D-002 · clasificación Reach/Match/Safety (None si el programa no tiene
+        # variables de admisión curadas). Sin métricas del estudiante hoy →
+        # se basa en la selectividad del programa (acceptance_rate).
+        "admissionFit": admission_fit_service.classify(p),
+        # F-003 · beca curada para LatAm (flag o derivado del JSON scholarships)
+        "scholarshipsForLatam": _has_latam_scholarship(p),
     }
 
 
@@ -189,6 +232,7 @@ def list_ofertas(
     maxDuration: Optional[int] = None,
     languageRequirement: Optional[str] = None,
     searchQuery: Optional[str] = None,
+    scholarshipsForLatam: Optional[bool] = None,
     current_user: User = Depends(get_current_user),
     db: DBSession = Depends(get_db),
 ):
@@ -253,6 +297,10 @@ def list_ofertas(
             for o in ofertas
             if o["eligibility"]["languageRequirement"] == languageRequirement
         ]
+
+    # F-003 · filtro de becas LatAm post-mapping (el flag se deriva, no es columna pura)
+    if scholarshipsForLatam is not None:
+        ofertas = [o for o in ofertas if o["scholarshipsForLatam"] == scholarshipsForLatam]
 
     return ofertas
 

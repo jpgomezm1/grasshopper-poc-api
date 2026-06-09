@@ -1,10 +1,10 @@
 """AI generation service for journey content."""
 
-import json
 import logging
 from typing import Dict, Any, List, Optional
 
 from app.core.ai_client import load_prompt, call_claude
+from app.core.ai_json import parse_ai_json
 from app.schemas.ai_outputs import (
     EmpathyReflectionOutput,
     PartialSummaryOutput,
@@ -218,14 +218,14 @@ def generate_synthesis(
 
         if response:
             try:
-                data = json.loads(response)
+                data = parse_ai_json(response)
                 return SynthesisOutput(
                     text=data["text"],
                     chips=[SynthesisChip(**chip) for chip in data["chips"]],
                     key_motivations=data["key_motivations"],
                     constraints=data["constraints"],
                 )
-            except (json.JSONDecodeError, KeyError) as e:
+            except (ValueError, KeyError) as e:
                 logger.warning(f"Failed to parse synthesis response: {e}")
 
     except Exception as e:
@@ -301,10 +301,10 @@ def generate_routes(
 
         if response:
             try:
-                data = json.loads(response)
+                data = parse_ai_json(response)
                 routes = [GeneratedRoute(**route) for route in data["routes"][:3]]
                 return RouteSuggestionOutput(routes=routes)
-            except (json.JSONDecodeError, KeyError) as e:
+            except (ValueError, KeyError) as e:
                 logger.warning(f"Failed to parse routes response: {e}")
 
     except Exception as e:
@@ -362,14 +362,14 @@ def generate_advisor_brief(
 
         if response:
             try:
-                data = json.loads(response)
+                data = parse_ai_json(response)
                 return AdvisorBriefOutput(
                     profile_summary=data["profile_summary"],
                     primary_route=data.get("primary_route"),
                     key_considerations=data["key_considerations"],
                     emotional_state=data.get("emotional_state"),
                 )
-            except (json.JSONDecodeError, KeyError) as e:
+            except (ValueError, KeyError) as e:
                 logger.warning(f"Failed to parse advisor brief response: {e}")
 
     except Exception as e:

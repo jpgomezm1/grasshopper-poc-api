@@ -321,34 +321,10 @@ def _rule_based_patterns(
 # ---------------------------------------------------------------------------
 
 
-def _strip_code_fences(text: str) -> str:
-    t = (text or "").strip()
-    if t.startswith("```"):
-        lines = t.split("\n")
-        lines = lines[1:]
-        if lines and lines[-1].strip().startswith("```"):
-            lines = lines[:-1]
-        t = "\n".join(lines).strip()
-    return t
-
-
-def _extract_first_json(text: str) -> Optional[str]:
-    """Defensive · find the first balanced JSON object."""
-    if not text:
-        return None
-    depth = 0
-    start = -1
-    for i, ch in enumerate(text):
-        if ch == "{":
-            if depth == 0:
-                start = i
-            depth += 1
-        elif ch == "}":
-            if depth > 0:
-                depth -= 1
-                if depth == 0 and start != -1:
-                    return text[start : i + 1]
-    return None
+# Fase C/A · helpers centralizados en app/core/ai_json (re-export con el
+# mismo nombre privado para no romper call-sites ni tests existentes).
+from app.core.ai_json import extract_first_json as _extract_first_json  # noqa: E402
+from app.core.ai_json import strip_code_fences as _strip_code_fences  # noqa: E402
 
 
 def _call_llm(prompt: str, user_id: str) -> Tuple[Optional[str], Dict[str, Any]]:

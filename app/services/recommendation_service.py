@@ -377,15 +377,9 @@ def _call_claude_for_recommendations(
 # ---------------------------------------------------------------------------
 
 
-def _strip_code_fences(text: str) -> str:
-    t = (text or "").strip()
-    if t.startswith("```"):
-        lines = t.split("\n")
-        lines = lines[1:]
-        if lines and lines[-1].strip().startswith("```"):
-            lines = lines[:-1]
-        t = "\n".join(lines).strip()
-    return t
+# Fase C/A · helper centralizado en app/core/ai_json (re-export con el
+# mismo nombre privado para no romper call-sites ni tests existentes).
+from app.core.ai_json import strip_code_fences as _strip_code_fences  # noqa: E402
 
 
 def validate_against_catalog(

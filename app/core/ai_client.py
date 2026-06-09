@@ -69,6 +69,106 @@ def load_prompt(prompt_name: str) -> str:
     return prompt_path.read_text(encoding="utf-8")
 
 
+def call_claude_chat(
+    messages: list[dict],
+    system: str,
+    session_id: str,
+    feature: str,
+    max_tokens: int = 1000,
+    temperature: float = 0.6,
+) -> tuple[Optional[str], dict]:
+    """Llamada conversacional a Claude (historial multi-turno + system prompt).
+
+    Fase C pieza C (B-049) · chat real de Hop. A diferencia de
+    :func:`call_claude` (un solo prompt user), acepta el historial completo
+    como ``messages`` y un ``system`` separado, y devuelve también metadata
+    (tokens/latencia) para el tracking M-001.
+
+    Args:
+        messages: lista de dicts {"role": "user"|"assistant", "content": str}.
+        system: system prompt ya renderizado (va como ``system=`` del API).
+        session_id: identificador para logging (usamos el user_id).
+        feature: etiqueta de la feature para logging/tracking (ej. "hop_chat").
+        max_tokens: tope de salida.
+        temperature: temperatura de muestreo.
+
+    Returns:
+        (texto, metadata). ``texto`` es None si la llamada falló; metadata
+        siempre incluye ``latency_ms`` y, en éxito, ``tokens_input``,
+        ``tokens_output`` y ``stop_reason``. En error incluye ``error_kind``
+        (vía :func:`classify_anthropic_error`). El detalle del error va SOLO
+        a logs, nunca en metadata ni al usuario.
+    """
+    # max_retries=2 + timeout 45s: el SDK reintenta 429/5xx/conexión solo.
+    client = get_client().with_options(max_retries=2, timeout=45.0)
+    start_time = time.time()
+    metadata: dict = {"model": settings.ai_model, "feature": feature}
+
+    try:
+        response = client.messages.create(
+            model=settings.ai_model,
+            system=system,
+            messages=messages,
+            max_tokens=max_tokens,
+            temperature=temperature,
+        )
+    except Exception as e:
+        metadata["latency_ms"] = int((time.time() - start_time) * 1000)
+        metadata["error_kind"] = classify_anthropic_error(e)
+        logger.warning(
+            "AI chat call failed",
+            extra={
+                "session_id": session_id,
+                "feature": feature,
+                "error_kind": metadata["error_kind"],
+                "error": str(e),  # SOLO a logs
+                "latency_ms": metadata["latency_ms"],
+            },
+        )
+        return None, metadata
+
+    metadata["latency_ms"] = int((time.time() - start_time) * 1000)
+    usage = getattr(response, "usage", None)
+    metadata["tokens_input"] = getattr(usage, "input_tokens", None)
+    metadata["tokens_output"] = getattr(usage, "output_tokens", None)
+    metadata["stop_reason"] = getattr(response, "stop_reason", None)
+
+    if metadata["stop_reason"] == "max_tokens":
+        logger.warning(
+            "AI chat response truncated at max_tokens",
+            extra={"session_id": session_id, "feature": feature, "max_tokens": max_tokens},
+        )
+
+    # Primer bloque con atributo .text (NO asumir content[0] · puede haber
+    # bloques no-texto al inicio según el modelo/configuración).
+    output_text: Optional[str] = None
+    for block in getattr(response, "content", []) or []:
+        text = getattr(block, "text", None)
+        if text is not None:
+            output_text = text
+            break
+
+    if output_text is None:
+        metadata["error_kind"] = "empty_response"
+        logger.warning(
+            "AI chat call returned no text block",
+            extra={"session_id": session_id, "feature": feature},
+        )
+        return None, metadata
+
+    logger.info(
+        "AI chat call successful",
+        extra={
+            "session_id": session_id,
+            "feature": feature,
+            "tokens_input": metadata["tokens_input"],
+            "tokens_output": metadata["tokens_output"],
+            "latency_ms": metadata["latency_ms"],
+        },
+    )
+    return output_text, metadata
+
+
 def call_claude(
     prompt: str,
     session_id: str,

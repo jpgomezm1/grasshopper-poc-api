@@ -768,10 +768,14 @@ class Program(Base):
     area = Column(String(120), nullable=True)
     subject = Column(String(255), nullable=True)
 
-    duration_months = Column(Integer, nullable=False)
-    cost_total = Column(Integer, nullable=False)
+    # F-CATALOG-REAL · migración 048 (2026-06-03): financieros opcionales.
+    # NULL = "a confirmar" (el catálogo real del cliente no trae precio/
+    # duración/presupuesto). El modelo estaba en drift con la migración;
+    # alineado en Fase C pieza C (B-049 · 2026-06-09).
+    duration_months = Column(Integer, nullable=True)
+    cost_total = Column(Integer, nullable=True)
     currency = Column(String(10), default="USD", nullable=False)
-    budget_tier = Column(String(20), nullable=False, index=True)
+    budget_tier = Column(String(20), nullable=True, index=True)
     alliance_type = Column(String(30), default="estandar", nullable=False)
     language_requirement = Column(String(50), nullable=True)
 

@@ -33,7 +33,7 @@ from uuid import UUID
 from sqlalchemy.orm import Session as DBSession
 
 from app.config import get_settings
-from app.core.ai_client import get_client, load_prompt
+from app.core.ai_client import classify_anthropic_error, get_client, load_prompt
 from app.db.models import (
     ConsolidatedProfileCache,
     JournalEntry,
@@ -328,7 +328,16 @@ from app.core.ai_json import strip_code_fences as _strip_code_fences  # noqa: E4
 
 
 def _call_llm(prompt: str, user_id: str) -> Tuple[Optional[str], Dict[str, Any]]:
-    client = get_client()
+    """Llama al modelo con retry del SDK + clasificación de errores (B-050).
+
+    `with_options(max_retries=2, timeout=60.0)` delega en el SDK los
+    reintentos automáticos ante 429 / 5xx / errores de conexión. Si aun
+    así falla, `metadata["error_kind"]` queda con la causa clasificada
+    (timeout/rate_limit/connection/server/auth/bad_request/unknown) y el
+    detalle (str(e)) se loguea SOLO server-side · nunca llega al usuario.
+    Respuesta sin bloques de texto → error_kind 'empty'.
+    """
+    client = get_client().with_options(max_retries=2, timeout=60.0)
     metadata: Dict[str, Any] = {"model": settings.ai_model, "prompt_version": PROMPT_VERSION}
     start = time.time()
     try:
@@ -338,28 +347,48 @@ def _call_llm(prompt: str, user_id: str) -> Tuple[Optional[str], Dict[str, Any]]
             temperature=0.2,
             messages=[{"role": "user", "content": prompt}],
         )
-        text = response.content[0].text if response.content else None
-        metadata["latency_ms"] = int((time.time() - start) * 1000)
-        if hasattr(response, "usage") and response.usage is not None:
-            metadata["tokens_input"] = getattr(response.usage, "input_tokens", None)
-            metadata["tokens_output"] = getattr(response.usage, "output_tokens", None)
-        logger.info(
-            "Clinical analysis LLM OK",
-            extra={
-                "user_id": user_id,
-                "latency_ms": metadata.get("latency_ms"),
-                "input_size": len(prompt),
-                "output_size": len(text or ""),
-            },
-        )
-        return text, metadata
     except Exception as e:
+        error_kind = classify_anthropic_error(e)
+        metadata["latency_ms"] = int((time.time() - start) * 1000)
+        metadata["error"] = str(e)
+        metadata["error_kind"] = error_kind
         logger.error(
             "Clinical analysis LLM failed",
-            extra={"user_id": user_id, "error": str(e)},
+            extra={"user_id": user_id, "error": str(e), "error_kind": error_kind},
         )
-        metadata["error"] = str(e)
         return None, metadata
+
+    metadata["latency_ms"] = int((time.time() - start) * 1000)
+    if hasattr(response, "usage") and response.usage is not None:
+        metadata["tokens_input"] = getattr(response.usage, "input_tokens", None)
+        metadata["tokens_output"] = getattr(response.usage, "output_tokens", None)
+
+    # Respuesta sin contenido o sin bloque de texto → 'empty'
+    text: Optional[str] = None
+    for block in response.content or []:
+        block_text = getattr(block, "text", None)
+        if block_text:
+            text = block_text
+            break
+    if text is None:
+        metadata["error"] = "Respuesta del modelo sin bloque de texto"
+        metadata["error_kind"] = "empty"
+        logger.error(
+            "Clinical analysis LLM returned empty content",
+            extra={"user_id": user_id, "error_kind": "empty"},
+        )
+        return None, metadata
+
+    logger.info(
+        "Clinical analysis LLM OK",
+        extra={
+            "user_id": user_id,
+            "latency_ms": metadata.get("latency_ms"),
+            "input_size": len(prompt),
+            "output_size": len(text),
+        },
+    )
+    return text, metadata
 
 
 # ---------------------------------------------------------------------------
@@ -408,6 +437,29 @@ def _merge_patterns(
 
 class ClinicalAnalysisFailure(RuntimeError):
     pass
+
+
+# Fase C/B (B-050) · mensaje público por causa de fallo del LLM.
+# El detalle técnico (str(e)) se queda en logs server-side; al usuario
+# solo le llega un mensaje accionable según el tipo de error.
+_PUBLIC_ERROR_MESSAGES: Dict[str, str] = {
+    "timeout": "El análisis IA está tardando más de lo normal. Inténtalo de nuevo en unos minutos.",
+    "connection": "El análisis IA está tardando más de lo normal. Inténtalo de nuevo en unos minutos.",
+    "server": "El análisis IA está tardando más de lo normal. Inténtalo de nuevo en unos minutos.",
+    "rate_limit": "Hemos recibido muchas solicitudes seguidas. Espera un momento y vuelve a intentarlo.",
+    "parse": "El análisis IA devolvió un resultado incompleto. Reintenta; si persiste, avísanos.",
+    "empty": "El análisis IA devolvió un resultado incompleto. Reintenta; si persiste, avísanos.",
+    "auth": "El motor de análisis IA no está disponible en este momento.",
+    "bad_request": "El motor de análisis IA no está disponible en este momento.",
+    "unknown": "El motor de análisis IA no está disponible en este momento.",
+}
+
+_DEFAULT_PUBLIC_ERROR = "El motor de análisis IA no está disponible en este momento."
+
+
+def _public_error_message(error_kind: Optional[str]) -> str:
+    """Mensaje cara al usuario según el `error_kind` clasificado."""
+    return _PUBLIC_ERROR_MESSAGES.get(error_kind or "unknown", _DEFAULT_PUBLIC_ERROR)
 
 
 def get_cached(student: User) -> Optional[ClinicalAnalysis]:
@@ -484,7 +536,7 @@ def generate(
 
     raw, metadata = _call_llm(prompt, str(student.id))
     if raw is None:
-        raise ClinicalAnalysisFailure("El motor de análisis IA no respondió · reintenta en breve.")
+        raise ClinicalAnalysisFailure(_public_error_message(metadata.get("error_kind")))
 
     cleaned = _strip_code_fences(raw)
     parsed_json = None
@@ -502,7 +554,7 @@ def generate(
             "Failed to parse clinical analysis JSON",
             extra={"user_id": str(student.id), "raw_preview": (raw or "")[:300]},
         )
-        raise ClinicalAnalysisFailure("Análisis no disponible · respuesta del modelo inválida.")
+        raise ClinicalAnalysisFailure(_public_error_message("parse"))
 
     try:
         analysis = ClinicalAnalysis(**parsed_json)

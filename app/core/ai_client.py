@@ -5,7 +5,9 @@ import logging
 from typing import Optional
 from pathlib import Path
 
+import anthropic
 from anthropic import Anthropic
+
 from app.config import get_settings
 
 logger = logging.getLogger(__name__)
@@ -22,6 +24,41 @@ def get_client() -> Anthropic:
     if _client is None:
         _client = Anthropic(api_key=settings.anthropic_api_key)
     return _client
+
+
+def classify_anthropic_error(e: Exception) -> str:
+    """Clasifica una excepción del SDK de Anthropic en un `kind` estable.
+
+    Fase C/B (B-050): permite que los servicios elijan un mensaje público
+    por causa en lugar del genérico "no respondió". Devuelve uno de:
+
+    - 'timeout'     · anthropic.APITimeoutError (se chequea antes que
+                      connection porque es su subclase)
+    - 'rate_limit'  · anthropic.RateLimitError (429)
+    - 'connection'  · anthropic.APIConnectionError
+    - 'server'      · APIStatusError con status_code >= 500
+    - 'auth'        · APIStatusError 401/403
+    - 'bad_request' · resto de 4xx
+    - 'unknown'     · cualquier otra excepción
+    """
+    if isinstance(e, anthropic.APITimeoutError):
+        return "timeout"
+    if isinstance(e, anthropic.RateLimitError):
+        return "rate_limit"
+    if isinstance(e, anthropic.APIConnectionError):
+        return "connection"
+    if isinstance(e, anthropic.APIStatusError):
+        status = getattr(e, "status_code", None)
+        if status is None:
+            return "unknown"
+        if status >= 500:
+            return "server"
+        if status in (401, 403):
+            return "auth"
+        if 400 <= status < 500:
+            return "bad_request"
+        return "unknown"
+    return "unknown"
 
 
 def load_prompt(prompt_name: str) -> str:

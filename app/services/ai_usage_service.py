@@ -24,6 +24,8 @@ _COSTS_PER_1K = {
     "claude-3-haiku-20240307": (0.00025, 0.00125),
     "claude-3-5-sonnet-20241022": (0.003, 0.015),
     "claude-3-opus-20240229": (0.015, 0.075),
+    # Fase C (B-049) · modelo pinned del proyecto (settings.ai_model)
+    "claude-sonnet-4-5": (0.003, 0.015),
     # OpenAI
     "gpt-4o-mini": (0.00015, 0.0006),
     "gpt-4o": (0.005, 0.015),

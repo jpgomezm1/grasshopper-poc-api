@@ -130,13 +130,18 @@ def get_limiter() -> InMemoryLimiter:
     return _global_limiter
 
 
-def rate_limit(limit_str: str) -> Callable:
+def rate_limit(limit_str: str, *, scope: Optional[str] = None) -> Callable:
     """Build a FastAPI dependency that enforces ``limit_str`` (e.g. ``"5/minute"``).
 
     Usage:
 
         @router.post("/login", dependencies=[Depends(rate_limit("5/minute"))])
         def login(...): ...
+
+    ``scope`` (Fase C · B-049): namespacea el bucket. Los buckets se indexan
+    solo por client-key, así que SIN scope dos límites distintos sobre el
+    mismo endpoint (ej. 20/minute + 200/day) compartirían deque y se
+    double-countearían. Con ``scope`` cada límite cuenta aparte.
     """
     parsed = _ParsedLimit.parse(limit_str)
 
@@ -145,6 +150,8 @@ def rate_limit(limit_str: str) -> Callable:
         if not s.rate_limit_enabled or not _global_limiter.enabled:
             return
         key = InMemoryLimiter._client_key(request)
+        if scope:
+            key = f"{scope}:{key}"
         _global_limiter.hit(key, parsed)
 
     return _dependency

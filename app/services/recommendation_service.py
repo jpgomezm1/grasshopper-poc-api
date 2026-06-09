@@ -27,6 +27,7 @@ from app.config import get_settings
 from app.core.ai_client import get_client, load_prompt
 from app.data.ofertas import get_all_ofertas
 from app.db.models import ConsolidatedProfileCache, User
+from app.services.catalog_service import get_catalog_for_recommender
 from app.schemas.consolidated_profile import (
     ConsolidatedProfile,
     RecommendedProgram,
@@ -71,24 +72,32 @@ def _budget_match_kind(
     budget_band: Optional[str],
     budget_max_usd: Optional[int],
 ) -> str:
-    """Return 'under' | 'match' | 'stretch'."""
-    if budget_max_usd is not None:
-        cost = _oferta_max_cost_usd(oferta)
-        if cost is None:
-            return "match"
+    """Return 'under' | 'match' | 'stretch' | 'unknown'.
+
+    C1 · el catálogo real tiene cost_total/budget_tier NULL ("a confirmar")
+    en muchos programas. Costo y tier desconocidos → 'unknown': la IA NO debe
+    asumir que es barato NI caro, y el scoring le da un valor neutro (0.7,
+    entre under y match).
+    """
+    cost = _oferta_max_cost_usd(oferta)
+
+    if budget_max_usd is not None and cost is not None:
         if cost <= int(budget_max_usd * 0.7):
             return "under"
         if cost <= budget_max_usd:
             return "match"
-        if cost <= int(budget_max_usd * 1.3):
-            return "stretch"
         return "stretch"
 
-    # Fallback to qualitative tier
+    # Fallback to qualitative tier (sin techo numérico, o costo no parseable)
+    program_tier_raw = oferta.get("budgetTier")
+    if program_tier_raw is None and cost is None:
+        # C1 · NULL = "a confirmar" → no asumir nada
+        return "unknown"
     if not budget_band:
         return "match"
     user_tier = _BUDGET_TIER_ORDER.get(budget_band, 1)
-    program_tier = _BUDGET_TIER_ORDER.get(oferta.get("budgetTier", "medio"), 1)
+    # budgetTier None (pero costo conocido) → tratar como "medio" para comparar
+    program_tier = _BUDGET_TIER_ORDER.get(program_tier_raw or "medio", 1)
     delta = program_tier - user_tier
     if delta < 0:
         return "under"
@@ -100,9 +109,14 @@ def _budget_match_kind(
 def filter_catalog(
     user: User,
     profile: ConsolidatedProfile,
+    catalog: Optional[List[Dict[str, Any]]] = None,
     cap: int = CATALOG_CAP_FOR_PROMPT,
 ) -> List[Dict[str, Any]]:
     """Filter the catalog before passing to AI.
+
+    C1 · el catálogo entra por parámetro (tabla Program real vía
+    catalog_service, o demo como fallback). Si es None, usa el demo
+    estático — back-compat para callers viejos.
 
     Filters applied:
       - Budget: includes 'under' + 'match'; allows 'stretch' only if
@@ -113,7 +127,7 @@ def filter_catalog(
     Output is sorted by a heuristic relevance score so that if we cap
     the list, we keep the most likely matches.
     """
-    all_ofertas = get_all_ofertas()
+    all_ofertas = catalog if catalog is not None else get_all_ofertas()
 
     budget_band = user.budget_band
     budget_max_usd = user.budget_max_usd
@@ -159,6 +173,10 @@ def filter_catalog(
             score += 0.5
         elif kind == "match":
             score += 1.0
+        elif kind == "unknown":
+            # C1 · costo "a confirmar" → neutro (entre under y match):
+            # no premiar como match ni castigar como stretch.
+            score += 0.7
         elif kind == "stretch":
             score += 0.1
 
@@ -180,16 +198,24 @@ def filter_catalog(
             if small in name_lower or small in short_lower or small in tags or small in category:
                 score += 0.4
 
-        # Loose RIASEC mapping (crude)
-        if "I" in riasec_codes and category in {"academic", "study_abroad"}:
+        # Loose RIASEC mapping (crude) · C1: corregido contra las categorías
+        # REALES del catálogo (semestre_academico, carrera_completa,
+        # curso_idiomas, work_travel, practicas, voluntariado,
+        # certificacion_corta). El mapeo anterior comparaba contra categorías
+        # inexistentes (academic, study_abroad, internships, volunteer,
+        # language) → scoring por intereses muerto para I/S/A y a medias
+        # para R/E.
+        if "I" in riasec_codes and category in {"carrera_completa", "semestre_academico"}:
             score += 0.2
-        if "R" in riasec_codes and category in {"work_travel", "internships"}:
+        if "R" in riasec_codes and category in {"work_travel", "practicas"}:
             score += 0.2
-        if "S" in riasec_codes and category in {"volunteer", "language"}:
+        if "S" in riasec_codes and category in {"voluntariado", "curso_idiomas"}:
             score += 0.2
-        if "A" in riasec_codes and category in {"language", "study_abroad"}:
+        if "A" in riasec_codes and category in {"curso_idiomas", "semestre_academico"}:
             score += 0.1
-        if "E" in riasec_codes and category in {"internships", "work_travel"}:
+        if "E" in riasec_codes and category in {"practicas", "certificacion_corta", "work_travel"}:
+            score += 0.2
+        if "C" in riasec_codes and category in {"certificacion_corta", "carrera_completa"}:
             score += 0.2
 
         # F-003 · becas para LatAm · pondera (no solo filtra). Pesa más cuando
@@ -239,6 +265,23 @@ def filter_catalog(
     return out
 
 
+def _get_catalog_source(db: DBSession) -> List[Dict[str, Any]]:
+    """C1 · catálogo real (tabla programs) con fallback al demo estático.
+
+    Si la tabla está vacía (entorno dev sin seed), cae al catálogo demo de
+    `app/data/ofertas.py` con warning — el recomendador nunca se queda sin
+    catálogo por un entorno a medio armar.
+    """
+    catalog = get_catalog_for_recommender(db)
+    if catalog:
+        return catalog
+    logger.warning(
+        "Catálogo real vacío (tabla programs sin seed) · "
+        "fallback al catálogo demo estático app/data/ofertas.py"
+    )
+    return get_all_ofertas()
+
+
 # ---------------------------------------------------------------------------
 # Prompt rendering
 # ---------------------------------------------------------------------------
@@ -283,26 +326,34 @@ def _format_constraints_block(user: User) -> str:
 def _format_catalog_block(catalog: List[Dict[str, Any]]) -> str:
     parts = []
     for c in catalog:
+        # C1 · cost/duration con min/max NULL = "a confirmar" (catálogo real
+        # sin datos financieros). JAMÁS renderizar "None-None USD".
         cost = c.get("cost") or {}
-        cost_str = (
-            f"{cost.get('min')}-{cost.get('max')} {cost.get('currency','USD')}"
-            if cost
-            else "n/a"
-        )
+        cmin, cmax = cost.get("min"), cost.get("max")
+        if cmin is None and cmax is None:
+            cost_str = "a confirmar"
+        else:
+            lo = cmin if cmin is not None else cmax
+            hi = cmax if cmax is not None else cmin
+            cost_str = f"{lo}-{hi} {cost.get('currency') or 'USD'}"
+
         dur = c.get("duration") or {}
-        dur_str = (
-            f"{dur.get('min')}-{dur.get('max')} {dur.get('type','')}"
-            if dur
-            else "n/a"
-        )
+        dmin, dmax = dur.get("min"), dur.get("max")
+        if dmin is None and dmax is None:
+            dur_str = "a confirmar"
+        else:
+            lo = dmin if dmin is not None else dmax
+            hi = dmax if dmax is not None else dmin
+            dur_str = f"{lo}-{hi} {dur.get('type') or ''}".strip()
+
         parts.append(
             f"- id={c['program_id']} · {c['program_name']} · "
-            f"categoría={c.get('category','-')} · "
+            f"categoría={c.get('category') or '-'} · "
             f"países={', '.join(c.get('countries') or [])} · "
             f"duración={dur_str} · costo={cost_str} · "
-            f"budget_tier={c.get('budget_tier','-')} · "
-            f"idioma_req={c.get('language_requirement','-')} · "
-            f"budget_fit_hint={c.get('_budget_fit_hint','-')} · "
+            f"budget_tier={c.get('budget_tier') or 'a confirmar'} · "
+            f"idioma_req={c.get('language_requirement') or '-'} · "
+            f"budget_fit_hint={c.get('_budget_fit_hint') or '-'} · "
             f"beca_latam={'sí' if c.get('scholarships_for_latam') else 'no'} · "
             f"tags={','.join(c.get('tags') or [])}"
         )
@@ -377,15 +428,9 @@ def _call_claude_for_recommendations(
 # ---------------------------------------------------------------------------
 
 
-def _strip_code_fences(text: str) -> str:
-    t = (text or "").strip()
-    if t.startswith("```"):
-        lines = t.split("\n")
-        lines = lines[1:]
-        if lines and lines[-1].strip().startswith("```"):
-            lines = lines[:-1]
-        t = "\n".join(lines).strip()
-    return t
+# Fase C/A · helper centralizado en app/core/ai_json (re-export con el
+# mismo nombre privado para no romper call-sites ni tests existentes).
+from app.core.ai_json import strip_code_fences as _strip_code_fences  # noqa: E402
 
 
 def validate_against_catalog(
@@ -415,8 +460,13 @@ def validate_against_catalog(
             "countries": r.get("countries") or cat.get("countries", []),
             "budget_tier": r.get("budget_tier") or cat.get("budget_tier"),
         }
-        if not merged.get("budget_fit"):
-            merged["budget_fit"] = cat.get("_budget_fit_hint", "match")
+        # C1 · el hint puede ser "unknown" (costo a confirmar) pero el schema
+        # RecommendedProgram solo acepta under|match|stretch. Normaliza a
+        # "match" tanto el hint como un eventual "unknown" copiado por la IA,
+        # para no descartar la recomendación por schema.
+        if merged.get("budget_fit") not in ("under", "match", "stretch"):
+            hint = cat.get("_budget_fit_hint")
+            merged["budget_fit"] = hint if hint in ("under", "match", "stretch") else "match"
         try:
             valid.append(RecommendedProgram(**merged))
         except Exception as e:
@@ -487,8 +537,10 @@ def generate_recommendations(
                 extra={"user_id": str(user.id), "error": str(e)},
             )
 
-    # 3) Filter catalog
-    catalog = filter_catalog(user, profile)
+    # 3) Filter catalog · C1: fuente real (tabla programs · 2.511) con
+    #    fallback al demo estático si la tabla está vacía (dev sin seed).
+    catalog_source = _get_catalog_source(db)
+    catalog = filter_catalog(user, profile, catalog=catalog_source)
     if not catalog:
         raise RecommendationFailure(
             "No hay programas en el catálogo que cumplan tus filtros básicos."

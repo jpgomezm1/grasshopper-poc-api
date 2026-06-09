@@ -62,6 +62,7 @@ from app.api.v1 import (
     cv as cv_router,
     institutions,
     human_intervention,
+    hop_chat,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -250,6 +251,8 @@ app.include_router(cv_router.router_me, prefix="/api/v1")
 app.include_router(institutions.router, prefix="/api/v1")
 # F-006 · 2026-05-28 · notas privadas de Intervención Humana (advisor-only)
 app.include_router(human_intervention.router, prefix="/api/v1")
+# Fase C pieza C · 2026-06-09 · chat real de Hop (B-049)
+app.include_router(hop_chat.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

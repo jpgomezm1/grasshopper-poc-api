@@ -235,19 +235,9 @@ def _call_claude_for_consolidation(
 # ---------------------------------------------------------------------------
 
 
-def _strip_code_fences(text: str) -> str:
-    """Remove ```json ... ``` fences if the model added them."""
-    t = (text or "").strip()
-    if t.startswith("```"):
-        # remove leading ```... and trailing ```
-        lines = t.split("\n")
-        # drop first line (``` or ```json)
-        lines = lines[1:]
-        # drop trailing ``` if present
-        if lines and lines[-1].strip().startswith("```"):
-            lines = lines[:-1]
-        t = "\n".join(lines).strip()
-    return t
+# Fase C/A · helper centralizado en app/core/ai_json (re-export con el
+# mismo nombre privado para no romper call-sites ni tests existentes).
+from app.core.ai_json import strip_code_fences as _strip_code_fences  # noqa: E402
 
 
 def parse_consolidated_profile(raw: str) -> ConsolidatedProfile:

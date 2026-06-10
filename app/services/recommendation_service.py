@@ -26,7 +26,7 @@ from sqlalchemy.orm import Session as DBSession
 from app.config import get_settings
 from app.core.ai_client import get_client, load_prompt
 from app.data.ofertas import get_all_ofertas
-from app.db.models import ConsolidatedProfileCache, User
+from app.db.models import ConsolidatedProfileCache, Program, User
 from app.services.catalog_service import get_catalog_for_recommender
 from app.schemas.consolidated_profile import (
     ConsolidatedProfile,
@@ -283,6 +283,46 @@ def _get_catalog_source(db: DBSession) -> List[Dict[str, Any]]:
     return get_all_ofertas()
 
 
+def _cached_recs_match_catalog(
+    db: DBSession, recs: List[RecommendedProgram]
+) -> bool:
+    """¿Las recomendaciones cacheadas siguen apuntando al catálogo vigente?
+
+    El cache vive en consolidated_profiles y solo se invalida cuando cambian
+    los INPUTS del estudiante — un cambio de catálogo no lo toca. Tras cargar
+    el catálogo real (C1), los usuarios con recomendaciones generadas sobre el
+    demo las seguían viendo hasta force_refresh. Si alguna referencia no
+    resuelve a un programa activo del catálogo actual, el cache es stale.
+    """
+    ids = [r.program_id for r in recs]
+
+    uuids = []
+    for pid in ids:
+        try:
+            uuids.append(UUID(str(pid)))
+        except (TypeError, ValueError):
+            uuids.append(None)  # id demo (slug) · no es UUID de Program
+
+    has_real_catalog = (
+        db.query(Program.id).filter(Program.active.is_(True)).first() is not None
+    )
+
+    if has_real_catalog:
+        if any(u is None for u in uuids):
+            return False
+        found = {
+            row[0]
+            for row in db.query(Program.id)
+            .filter(Program.id.in_(uuids), Program.active.is_(True))
+            .all()
+        }
+        return all(u in found for u in uuids)
+
+    # Modo demo (tabla programs vacía) · validar contra el catálogo estático
+    demo_ids = {o["id"] for o in get_all_ofertas()}
+    return all(pid in demo_ids for pid in ids)
+
+
 # ---------------------------------------------------------------------------
 # Prompt rendering
 # ---------------------------------------------------------------------------
@@ -527,15 +567,22 @@ def generate_recommendations(
     ):
         try:
             recs = [RecommendedProgram(**r) for r in cache_row.recommendations_data]
-            logger.info(
-                "Recommendation cache HIT",
-                extra={"user_id": str(user.id), "count": len(recs)},
-            )
-            return profile, recs[:limit], cache_row, True
         except Exception as e:
             logger.warning(
                 "Cached recommendations corrupted · regenerating",
                 extra={"user_id": str(user.id), "error": str(e)},
+            )
+        else:
+            if _cached_recs_match_catalog(db, recs):
+                logger.info(
+                    "Recommendation cache HIT",
+                    extra={"user_id": str(user.id), "count": len(recs)},
+                )
+                return profile, recs[:limit], cache_row, True
+            logger.info(
+                "Recommendation cache STALE · referencias fuera del catálogo "
+                "vigente · regenerando",
+                extra={"user_id": str(user.id)},
             )
 
     # 3) Filter catalog · C1: fuente real (tabla programs · 2.511) con

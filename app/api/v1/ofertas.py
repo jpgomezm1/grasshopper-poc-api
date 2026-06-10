@@ -233,6 +233,13 @@ def list_ofertas(
     languageRequirement: Optional[str] = None,
     searchQuery: Optional[str] = None,
     scholarshipsForLatam: Optional[bool] = None,
+    # B-051 · la lista completa (2.511 programas) pesaba varios MB por
+    # fullDescription/media, que la UI de lista nunca muestra (las cards usan
+    # shortDescription + portadas temáticas; el detalle hace su propio fetch
+    # por slug). slim=true los omite; limit corta la cola (p.ej. el detalle
+    # solo necesita un puñado de "relacionadas" de su categoría).
+    slim: bool = False,
+    limit: Optional[int] = None,
     current_user: User = Depends(get_current_user),
     db: DBSession = Depends(get_db),
 ):
@@ -301,6 +308,16 @@ def list_ofertas(
     # F-003 · filtro de becas LatAm post-mapping (el flag se deriva, no es columna pura)
     if scholarshipsForLatam is not None:
         ofertas = [o for o in ofertas if o["scholarshipsForLatam"] == scholarshipsForLatam]
+
+    # B-051 · limit DESPUÉS de todos los filtros (pre-filtro devolvería menos
+    # resultados de los pedidos).
+    if limit is not None and limit > 0:
+        ofertas = ofertas[:limit]
+
+    if slim:
+        for o in ofertas:
+            o["fullDescription"] = ""
+            o["media"] = []
 
     return ofertas
 

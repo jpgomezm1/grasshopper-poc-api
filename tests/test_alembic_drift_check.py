@@ -108,12 +108,15 @@ def test_verify_alembic_head_production_drift_raises():
 # Test 3: DB NOT at head + environment=development → warning, no raise
 # ---------------------------------------------------------------------------
 
-def test_verify_alembic_head_development_drift_warns(capsys):
+def test_verify_alembic_head_development_drift_warns(capsys, caplog):
     """development env + drift → only a warning, boot continues.
 
-    structlog renders to stdout (not the stdlib logging tree) so we capture
-    via capsys instead of caplog.
+    structlog escribe a stdout HASTA que algo importa app.main
+    (configure_logging lo enruta al logging estándar). El orden alfabético
+    de la suite decide cuál sink está activo → capturar AMBOS.
     """
+    import logging as _logging
+
     engine, _ = _make_engine_mock()
     patches = _patch_alembic(current_rev="old_rev_001", head_rev="new_rev_002")
 
@@ -121,10 +124,11 @@ def test_verify_alembic_head_development_drift_warns(capsys):
         from app.core.alembic_guard import verify_alembic_head
 
         # Must NOT raise.
-        verify_alembic_head(engine, "development")
+        with caplog.at_level(_logging.WARNING):
+            verify_alembic_head(engine, "development")
 
     captured = capsys.readouterr()
-    combined = (captured.out + captured.err).lower()
+    combined = (captured.out + captured.err + caplog.text).lower()
     assert "drift" in combined, (
         f"Expected 'drift' in structlog output; got: {combined!r}"
     )
@@ -153,12 +157,15 @@ def test_verify_alembic_head_ini_missing_production():
 # Test 5: alembic.ini missing in development → warning, no raise
 # ---------------------------------------------------------------------------
 
-def test_verify_alembic_head_ini_missing_development(capsys):
+def test_verify_alembic_head_ini_missing_development(capsys, caplog):
     """If alembic internals throw in development the guard logs a warning
     and continues (does not crash the dev server).
 
-    structlog renders to stdout; use capsys.
+    Captura capsys + caplog (ver nota en el test de drift · el sink de
+    structlog depende de si app.main ya corrió configure_logging).
     """
+    import logging as _logging
+
     engine, _ = _make_engine_mock()
 
     with patch(
@@ -168,10 +175,11 @@ def test_verify_alembic_head_ini_missing_development(capsys):
         from app.core.alembic_guard import verify_alembic_head
 
         # Must NOT raise.
-        verify_alembic_head(engine, "development")
+        with caplog.at_level(_logging.WARNING):
+            verify_alembic_head(engine, "development")
 
     captured = capsys.readouterr()
-    combined = (captured.out + captured.err).lower()
+    combined = (captured.out + captured.err + caplog.text).lower()
     assert "check_failed" in combined or "could not" in combined, (
         f"Expected warning about check failure; got: {combined!r}"
     )

@@ -32,6 +32,7 @@ from app.schemas.consolidated_profile import (
     ConsolidatedProfile,
     RecommendedProgram,
 )
+from app.services.ai_usage_service import record_ai_usage
 from app.services.consolidation_service import (
     ConsolidationFailure,
     generate_or_get_profile,
@@ -549,6 +550,19 @@ def generate_recommendations(
     # 4) Render + call
     prompt = render_recommend_prompt(profile, user, catalog, limit=limit)
     raw, metadata = _call_claude_for_recommendations(prompt, str(user.id))
+
+    # Tracking M-001 · best-effort (record_ai_usage nunca lanza). Se registra
+    # también el intento fallido (tokens None) para que el panel vea errores.
+    record_ai_usage(
+        db,
+        provider="anthropic",
+        model=metadata.get("model") or settings.ai_model,
+        feature="recommend_programs",
+        tokens_input=metadata.get("tokens_input"),
+        tokens_output=metadata.get("tokens_output"),
+        latency_ms=metadata.get("latency_ms"),
+        user_id=user.id,
+    )
 
     if raw is None:
         raise RecommendationFailure(

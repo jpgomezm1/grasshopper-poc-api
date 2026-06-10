@@ -35,6 +35,7 @@ from app.db.models import (
     VocationalTestResult,
 )
 from app.schemas.consolidated_profile import ConsolidatedProfile
+from app.services.ai_usage_service import record_ai_usage
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -339,6 +340,19 @@ def generate_or_get_profile(
 
     prompt = render_consolidate_prompt(inputs)
     raw, metadata = _call_claude_for_consolidation(prompt, str(user.id))
+
+    # Tracking M-001 · best-effort (record_ai_usage nunca lanza). Se registra
+    # también el intento fallido (tokens None) para que el panel vea errores.
+    record_ai_usage(
+        db,
+        provider="anthropic",
+        model=metadata.get("model") or settings.ai_model,
+        feature="consolidate_profile",
+        tokens_input=metadata.get("tokens_input"),
+        tokens_output=metadata.get("tokens_output"),
+        latency_ms=metadata.get("latency_ms"),
+        user_id=user.id,
+    )
 
     if raw is None:
         raise ConsolidationFailure(

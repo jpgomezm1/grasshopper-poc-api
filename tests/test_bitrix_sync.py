@@ -583,8 +583,33 @@ def test_inbound_webhook_200_on_valid_signature(app_with_db, monkeypatch):
     assert r.status_code == 200, r.text
     body_resp = r.json()
     assert body_resp["ok"] is True
-    assert body_resp["matched_user_id"] == str(user_id)
-    assert body_resp["normalized_status"] == "lost"
+    # BE-08 · "ack inmediato": el match + normalización corren en un background
+    # task, así que el ACK NO los devuelve (ambos None por diseño). El match real
+    # se verifica por su efecto observable en la BD (el TestClient ejecuta el
+    # background task antes de devolver).
+    assert body_resp["matched_user_id"] is None
+    assert body_resp["normalized_status"] is None
+
+    from app.db.models import User as _User, BitrixSyncLog as _BitrixSyncLog
+
+    db = SessionLocal()
+    try:
+        matched = db.query(_User).filter(_User.id == user_id).first()
+        # STATUS_ID "JUNK" → normalizado a "lost" por el background sync
+        assert matched is not None
+        assert matched.bitrix_lead_status == "lost"
+        # y queda registrado el inbound matcheado al usuario
+        log = (
+            db.query(_BitrixSyncLog)
+            .filter(
+                _BitrixSyncLog.entity_type == "inbound",
+                _BitrixSyncLog.user_id == user_id,
+            )
+            .first()
+        )
+        assert log is not None
+    finally:
+        db.close()
 
 
 # ============================================================================

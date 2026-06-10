@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import JSONResponse
 
 from app.config import get_settings
@@ -158,6 +159,10 @@ app = FastAPI(
     version=settings.app_version,
     lifespan=lifespan,
 )
+
+# B-051 · gzip de respuestas grandes. Heroku no comprime por nosotros y la
+# lista de /ofertas (2.511 programas) son ~2.8 MB de JSON sin comprimir.
+app.add_middleware(GZipMiddleware, minimum_size=1024)
 
 # Rate limiter (GH-S11-INFRA-04) registered before CORS
 app.state.limiter = limiter

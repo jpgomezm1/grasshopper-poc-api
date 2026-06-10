@@ -18,7 +18,7 @@ from uuid import UUID
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from sqlalchemy import or_
-from sqlalchemy.orm import Session as DBSession
+from sqlalchemy.orm import Session as DBSession, load_only
 
 from app.api.v1.auth import get_current_user
 from app.db.database import get_db
@@ -233,10 +233,36 @@ def list_ofertas(
     languageRequirement: Optional[str] = None,
     searchQuery: Optional[str] = None,
     scholarshipsForLatam: Optional[bool] = None,
+    # B-051 · la lista completa (2.511 programas) pesaba varios MB por
+    # fullDescription/media, que la UI de lista nunca muestra (las cards usan
+    # shortDescription + portadas temáticas; el detalle hace su propio fetch
+    # por slug). slim=true los omite; limit corta la cola (p.ej. el detalle
+    # solo necesita un puñado de "relacionadas" de su categoría).
+    slim: bool = False,
+    limit: Optional[int] = None,
     current_user: User = Depends(get_current_user),
     db: DBSession = Depends(get_db),
 ):
     q = db.query(Program).filter(Program.active == True)  # noqa: E712
+
+    if slim:
+        # B-051 · no traer de la BD las columnas JSON pesadas que el mapper
+        # nunca lee (raw = la fila entera del Excel, syllabus, testimonials,
+        # ...). Cualquier columna nueva que _program_to_oferta o
+        # admission_fit_service.classify empiecen a leer debe agregarse acá.
+        q = q.options(load_only(
+            Program.id, Program.program_id, Program.name, Program.slug,
+            Program.country, Program.city, Program.institution,
+            Program.institution_logo_url, Program.type,
+            Program.duration_months, Program.cost_total, Program.currency,
+            Program.budget_tier, Program.language_requirement,
+            Program.language_requirement_detail, Program.active,
+            Program.description_long, Program.images, Program.highlights,
+            Program.admission_dates, Program.scholarships, Program.tags,
+            Program.scholarships_for_latam, Program.acceptance_rate,
+            Program.avg_admitted_gpa, Program.min_sat, Program.avg_sat,
+            Program.min_english_level,
+        ))
 
     if category:
         types = _CATEGORY_TO_TYPES.get(category)
@@ -301,6 +327,16 @@ def list_ofertas(
     # F-003 · filtro de becas LatAm post-mapping (el flag se deriva, no es columna pura)
     if scholarshipsForLatam is not None:
         ofertas = [o for o in ofertas if o["scholarshipsForLatam"] == scholarshipsForLatam]
+
+    # B-051 · limit DESPUÉS de todos los filtros (pre-filtro devolvería menos
+    # resultados de los pedidos).
+    if limit is not None and limit > 0:
+        ofertas = ofertas[:limit]
+
+    if slim:
+        for o in ofertas:
+            o["fullDescription"] = ""
+            o["media"] = []
 
     return ofertas
 

@@ -247,6 +247,19 @@ class AICostBreakdownItem(BaseModel):
     calls: int
 
 
+class AICostDailyPoint(BaseModel):
+    date: str
+    cost_usd: float
+    calls: int
+
+
+class AICostTopUser(BaseModel):
+    user_id: str
+    email: Optional[str] = None
+    cost_usd: float
+    calls: int
+
+
 class AICostsResponse(BaseModel):
     range_from: datetime
     range_to: datetime
@@ -257,8 +270,11 @@ class AICostsResponse(BaseModel):
     by_provider: List[AICostBreakdownItem]
     by_model: List[AICostBreakdownItem]
     by_feature: List[AICostBreakdownItem]
-    daily: List[Dict[str, float]]
-    top_users: List[Dict[str, object]]
+    # daily traía `date` (string) tipado como float → ValidationError → 500
+    # en cuanto ai_usage_log tuvo filas (el panel nació antes que el primer
+    # call-site real de tracking).
+    daily: List[AICostDailyPoint]
+    top_users: List[AICostTopUser]
 
 
 def _agg_breakdown(db: DBSession, group_col, frm: datetime, to: datetime) -> List[AICostBreakdownItem]:

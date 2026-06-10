@@ -35,6 +35,7 @@ from sqlalchemy import and_, func, or_, update
 from sqlalchemy.orm import Session as DBSession
 
 from app.core.ai_client import call_claude, load_prompt
+from app.core.ai_json import AIJsonError, parse_ai_json
 from app.config import get_settings
 from app.db.models import (
     AuditLog,
@@ -1021,32 +1022,40 @@ def _invoke_ai_analysis(
 
     try:
         template = load_prompt("crm_lead_analysis")
-        prompt = template.format(
-            email=user.email,
-            name=user.name or "(sin nombre)",
-            age=_derive_age(user.birthdate) if user.birthdate else "n/d",
-            city=snapshot.onboarding_answers.get("city")
+        # Fase C · sustitución por .replace() y NO .format(): el template trae
+        # llaves literales (el JSON de ejemplo del output y `{"high","medium",
+        # "low"}`) que .format() interpreta como placeholders → KeyError →
+        # el análisis IA NUNCA corría y todo lead recibía la plantilla.
+        # Mismo patrón que hop_chat_service.
+        values = {
+            "email": user.email,
+            "name": user.name or "(sin nombre)",
+            "age": _derive_age(user.birthdate) if user.birthdate else "n/d",
+            "city": snapshot.onboarding_answers.get("city")
             or snapshot.onboarding_answers.get("ciudad")
             or "n/d",
-            country=snapshot.onboarding_answers.get("country")
+            "country": snapshot.onboarding_answers.get("country")
             or snapshot.onboarding_answers.get("pais")
             or "n/d",
-            origin=_classify_origin(user),
-            onboarding_status=snapshot.onboarding_status,
-            gh_contact_status=user.gh_contact_status or "ninguna",
-            gh_contact_message=(user.gh_contact_message or "")[:280] or "(sin mensaje)",
-            score=score,
-            score_band=band,
-            journey_progress_pct=int((snapshot.journey_progress or 0) * 100),
-            tests_completed=len(snapshot.tests),
-            has_profile="sí" if snapshot.consolidated_profile else "no",
-            english_cefr_level=user.english_cefr_level or "n/d",
-            budget_band=user.budget_band or "n/d",
-            budget_max_usd=user.budget_max_usd or "n/d",
-            preferred_countries=", ".join(user.preferred_countries or []) or "n/d",
-            catalog_block=_format_catalog_block(catalog),
-            narrative_block=_format_narrative_block(snapshot),
-        )
+            "origin": _classify_origin(user),
+            "onboarding_status": snapshot.onboarding_status,
+            "gh_contact_status": user.gh_contact_status or "ninguna",
+            "gh_contact_message": (user.gh_contact_message or "")[:280] or "(sin mensaje)",
+            "score": score,
+            "score_band": band,
+            "journey_progress_pct": int((snapshot.journey_progress or 0) * 100),
+            "tests_completed": len(snapshot.tests),
+            "has_profile": "sí" if snapshot.consolidated_profile else "no",
+            "english_cefr_level": user.english_cefr_level or "n/d",
+            "budget_band": user.budget_band or "n/d",
+            "budget_max_usd": user.budget_max_usd or "n/d",
+            "preferred_countries": ", ".join(user.preferred_countries or []) or "n/d",
+            "catalog_block": _format_catalog_block(catalog),
+            "narrative_block": _format_narrative_block(snapshot),
+        }
+        prompt = template
+        for key, val in values.items():
+            prompt = prompt.replace("{" + key + "}", str(val))
     except Exception as exc:  # noqa: BLE001
         logger.warning("crm_lead_analysis prompt build failed · %s", exc)
         return _fallback_ai_analysis(user=user, score=score, band=band, catalog=catalog)
@@ -1059,22 +1068,17 @@ def _invoke_ai_analysis(
     if not raw:
         return _fallback_ai_analysis(user=user, score=score, band=band, catalog=catalog)
 
+    # Fase C · parseo central robusto (fences + extracción del primer objeto).
+    # El inline anterior usaba `lstrip("```json")`, que quita un SET de
+    # caracteres (no el prefijo) y podía comerse el inicio del JSON.
     try:
-        parsed = json.loads(raw.strip().lstrip("```json").rstrip("```").strip())
-    except json.JSONDecodeError:
-        # Try to extract a JSON object from a wrapped response
-        try:
-            start = raw.find("{")
-            end = raw.rfind("}")
-            if start >= 0 and end > start:
-                parsed = json.loads(raw[start : end + 1])
-            else:
-                raise ValueError("no json object found")
-        except Exception:  # noqa: BLE001
-            logger.warning("crm_lead_analysis · could not parse AI output")
-            return _fallback_ai_analysis(
-                user=user, score=score, band=band, catalog=catalog
-            )
+        parsed = parse_ai_json(raw)
+    except AIJsonError:
+        logger.warning("crm_lead_analysis · could not parse AI output")
+        return _fallback_ai_analysis(user=user, score=score, band=band, catalog=catalog)
+    if not isinstance(parsed, dict):
+        logger.warning("crm_lead_analysis · AI output is not a JSON object")
+        return _fallback_ai_analysis(user=user, score=score, band=band, catalog=catalog)
 
     rationale = str(parsed.get("rationale") or "").strip()
     if not rationale:

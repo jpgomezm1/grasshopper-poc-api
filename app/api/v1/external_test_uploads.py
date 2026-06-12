@@ -197,7 +197,12 @@ def _run_parse_task(upload_id: str) -> None:
                 upload.parsed_at = datetime.utcnow()
                 db.commit()
         except Exception:
-            pass
+            # No re-lanzamos (background task), pero sin log el upload
+            # quedaba colgado en "processing" sin rastro.
+            logger.exception(
+                "parse_task: no se pudo marcar el upload como failed id=%s",
+                upload_id,
+            )
     finally:
         db.close()
 
@@ -438,7 +443,14 @@ def confirm_upload(
         from app.services.consolidation_service import invalidate_cache
         invalidate_cache(db, current_user.id)
     except Exception:
-        pass
+        # La confirmación ya está persistida; si falla la invalidación el
+        # perfil consolidado puede quedar stale → al menos dejamos señal.
+        logger.warning(
+            "confirm_upload: fallo invalidate_cache user_id=%s upload_id=%s",
+            current_user.id,
+            upload.id,
+            exc_info=True,
+        )
 
     return _serialize_detail(upload)
 

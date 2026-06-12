@@ -271,7 +271,12 @@ def build_payload(
                 )
             )
         except Exception:
-            pass
+            # Fallback opcional · el PDF sale igual sin la tarjeta Holland,
+            # pero dejamos señal para no depurar a ciegas.
+            logger.warning(
+                "PDF report: fallo el fallback de tarjeta Holland (se omite)",
+                exc_info=True,
+            )
 
     # --- Page 6 · programs ---
     programs: List[ProgramItem] = []

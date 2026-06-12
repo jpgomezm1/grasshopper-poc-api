@@ -548,7 +548,13 @@ def generate(
             try:
                 parsed_json = json.loads(recovered)
             except Exception:
-                pass
+                # El bloque recuperado tampoco parsea · abajo se loguea el
+                # error principal, aquí dejamos el detalle del 2do intento.
+                logger.warning(
+                    "Clinical analysis: el JSON recuperado tampoco parsea",
+                    extra={"user_id": str(student.id)},
+                    exc_info=True,
+                )
     if parsed_json is None:
         logger.error(
             "Failed to parse clinical analysis JSON",

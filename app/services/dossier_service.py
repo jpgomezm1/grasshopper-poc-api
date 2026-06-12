@@ -163,7 +163,14 @@ def _build_aspirations(
                 if isinstance(p, str) and p.strip():
                     inferred.append(p.strip())
         except Exception:
-            pass
+            # El dossier sale igual sin aspiraciones inferidas, pero un
+            # profile_data corrupto en cache merece quedar en logs.
+            logger.warning(
+                "Dossier: no se pudieron extraer aspiraciones inferidas "
+                "del perfil consolidado en cache user_id=%s",
+                student.id,
+                exc_info=True,
+            )
 
     return (
         DossierAspirations(declared=declared, inferred=inferred),

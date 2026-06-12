@@ -169,6 +169,106 @@ def call_claude_chat(
     return output_text, metadata
 
 
+def call_claude_with_meta(
+    prompt: str,
+    *,
+    session_id: str,
+    feature: str,
+    max_tokens: int = 2000,
+    temperature: float = 0.3,
+    prompt_version: Optional[str] = None,
+    timeout: float = 120.0,
+) -> tuple[Optional[str], dict]:
+    """Llamada single-prompt robusta CON metadata (Fase C2).
+
+    Es el reemplazo central de los clientes privados que recomendación y
+    consolidación duplicaban (``_call_claude_for_*``): mismos knobs
+    (max_tokens/temperature propios de cada tarea) + metadata para el
+    tracking M-001, pero con la robustez de :func:`call_claude`:
+
+    - ``with_options(timeout=..., max_retries=2)`` — los privados llamaban
+      al SDK pelado (timeout default de 10 min, sin reintentos).
+    - ``stop_reason == "max_tokens"`` se trata como fallo (estas funciones
+      parsean JSON: un corte produce JSON truncado).
+    - El texto sale del primer bloque con ``.text`` (no ``content[0]``).
+    - Errores clasificados en ``metadata["error_kind"]`` (el detalle SOLO
+      va a logs).
+
+    Returns:
+        (texto, metadata). metadata siempre trae ``model``/``feature`` (y
+        ``prompt_version`` si se pasó); en éxito suma ``latency_ms``,
+        ``tokens_input``, ``tokens_output`` y ``stop_reason``.
+    """
+    client = get_client().with_options(timeout=timeout, max_retries=2)
+    start_time = time.time()
+    metadata: dict = {"model": settings.ai_model, "feature": feature}
+    if prompt_version is not None:
+        metadata["prompt_version"] = prompt_version
+
+    try:
+        response = client.messages.create(
+            model=settings.ai_model,
+            max_tokens=max_tokens,
+            temperature=temperature,
+            messages=[{"role": "user", "content": prompt}],
+        )
+    except Exception as e:
+        metadata["latency_ms"] = int((time.time() - start_time) * 1000)
+        metadata["error_kind"] = classify_anthropic_error(e)
+        logger.warning(
+            "AI call with meta failed",
+            extra={
+                "session_id": session_id,
+                "feature": feature,
+                "error_kind": metadata["error_kind"],
+                "error": str(e),  # SOLO a logs
+                "latency_ms": metadata["latency_ms"],
+            },
+        )
+        return None, metadata
+
+    metadata["latency_ms"] = int((time.time() - start_time) * 1000)
+    usage = getattr(response, "usage", None)
+    metadata["tokens_input"] = getattr(usage, "input_tokens", None)
+    metadata["tokens_output"] = getattr(usage, "output_tokens", None)
+    metadata["stop_reason"] = getattr(response, "stop_reason", None)
+
+    if metadata["stop_reason"] == "max_tokens":
+        metadata["error_kind"] = "truncated"
+        logger.error(
+            "AI response truncated at max_tokens · treated as failure",
+            extra={"session_id": session_id, "feature": feature, "max_tokens": max_tokens},
+        )
+        return None, metadata
+
+    output_text: Optional[str] = None
+    for block in getattr(response, "content", []) or []:
+        text = getattr(block, "text", None)
+        if text is not None:
+            output_text = text
+            break
+
+    if output_text is None:
+        metadata["error_kind"] = "empty_response"
+        logger.error(
+            "AI call returned no text block",
+            extra={"session_id": session_id, "feature": feature},
+        )
+        return None, metadata
+
+    logger.info(
+        "AI call with meta successful",
+        extra={
+            "session_id": session_id,
+            "feature": feature,
+            "tokens_input": metadata["tokens_input"],
+            "tokens_output": metadata["tokens_output"],
+            "latency_ms": metadata["latency_ms"],
+        },
+    )
+    return output_text, metadata
+
+
 def call_claude(
     prompt: str,
     session_id: str,

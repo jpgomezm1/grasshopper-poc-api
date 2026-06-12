@@ -24,7 +24,7 @@ from uuid import UUID
 from sqlalchemy.orm import Session as DBSession
 
 from app.config import get_settings
-from app.core.ai_client import get_client, load_prompt
+from app.core.ai_client import call_claude_with_meta, load_prompt
 from app.data.ofertas import get_all_ofertas
 from app.db.models import ConsolidatedProfileCache, Program, User
 from app.services.catalog_service import get_catalog_for_recommender
@@ -427,41 +427,18 @@ def _call_claude_for_recommendations(
     max_tokens: int = 2000,
     temperature: float = 0.2,
 ) -> Tuple[Optional[str], Dict[str, Any]]:
-    client = get_client()
-    start = time.time()
-    metadata: Dict[str, Any] = {
-        "model": settings.ai_model,
-        "prompt_version": PROMPT_VERSION,
-    }
-    try:
-        response = client.messages.create(
-            model=settings.ai_model,
-            max_tokens=max_tokens,
-            temperature=temperature,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = response.content[0].text if response.content else None
-        metadata["latency_ms"] = int((time.time() - start) * 1000)
-        if hasattr(response, "usage") and response.usage is not None:
-            metadata["tokens_input"] = getattr(response.usage, "input_tokens", None)
-            metadata["tokens_output"] = getattr(response.usage, "output_tokens", None)
-        logger.info(
-            "Recommend AI call OK",
-            extra={
-                "user_id": user_id,
-                "latency_ms": metadata.get("latency_ms"),
-                "input_size": len(prompt),
-                "output_size": len(text or ""),
-            },
-        )
-        return text, metadata
-    except Exception as e:
-        logger.error(
-            "Recommend AI call failed",
-            extra={"user_id": user_id, "error": str(e)},
-        )
-        metadata["error"] = str(e)
-        return None, metadata
+    # Fase C2: delega en el helper robusto central (timeout explícito,
+    # reintentos del SDK, stop_reason=max_tokens como fallo, primer bloque
+    # con .text). Antes este cliente privado llamaba al SDK pelado: sin
+    # timeout (10 min default) y leyendo content[0].
+    return call_claude_with_meta(
+        prompt,
+        session_id=user_id,
+        feature="recommend_programs",
+        max_tokens=max_tokens,
+        temperature=temperature,
+        prompt_version=PROMPT_VERSION,
+    )
 
 
 # ---------------------------------------------------------------------------

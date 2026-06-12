@@ -75,11 +75,12 @@ def _invoke(monkeypatch, ai_response):
 
     prompts = []
 
+    # Fase C2: el CRM ahora usa call_claude_with_meta → (texto, metadata).
     def _fake_call_claude(prompt, **kw):
         prompts.append(prompt)
-        return ai_response
+        return ai_response, {"model": "claude-sonnet-4-6", "latency_ms": 10}
 
-    monkeypatch.setattr(crm_service, "call_claude", _fake_call_claude)
+    monkeypatch.setattr(crm_service, "call_claude_with_meta", _fake_call_claude)
 
     result = crm_service._invoke_ai_analysis(
         user=_user(), score=75, signals=[], snapshot=_snapshot(),
@@ -128,3 +129,34 @@ def test_unparseable_response_falls_back(monkeypatch):
 def test_non_object_json_falls_back(monkeypatch):
     result, _ = _invoke(monkeypatch, json.dumps(["una", "lista"]))
     assert result.is_fallback is True
+
+
+def test_tracking_m001_se_registra_cuando_hay_db(monkeypatch):
+    """Fase C2: con db, el análisis CRM registra la llamada en M-001
+    (mismo criterio que el recomendador: también los intentos fallidos)."""
+    from app.services import crm_service
+
+    registros = []
+    monkeypatch.setattr(
+        crm_service, "record_ai_usage", lambda db, **kw: registros.append(kw)
+    )
+    monkeypatch.setattr(
+        crm_service,
+        "call_claude_with_meta",
+        lambda prompt, **kw: (
+            _VALID_RESPONSE,
+            {"model": "claude-sonnet-4-6", "tokens_input": 100, "tokens_output": 50, "latency_ms": 9},
+        ),
+    )
+
+    result = crm_service._invoke_ai_analysis(
+        user=_user(), score=75, signals=[], snapshot=_snapshot(),
+        catalog=[_program()], db=object(),
+    )
+
+    assert result.is_fallback is False
+    assert len(registros) == 1
+    assert registros[0]["feature"] == "crm_lead_analysis"
+    assert registros[0]["model"] == "claude-sonnet-4-6"
+    assert registros[0]["tokens_input"] == 100
+    assert registros[0]["tokens_output"] == 50

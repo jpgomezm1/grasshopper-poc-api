@@ -27,7 +27,7 @@ from uuid import UUID
 from sqlalchemy.orm import Session as DBSession
 
 from app.config import get_settings
-from app.core.ai_client import call_claude, get_client, load_prompt
+from app.core.ai_client import call_claude, call_claude_with_meta, load_prompt
 from app.db.models import (
     ConsolidatedProfileCache,
     Session,
@@ -193,42 +193,18 @@ def _call_claude_for_consolidation(
     """Direct call (bypassing the journey-tuned `call_claude`) so we can
     control max_tokens + temperature for this specific task.
 
-    Returns (text, metadata).
+    Fase C2: delega en el helper robusto central (timeout explícito,
+    reintentos del SDK, stop_reason=max_tokens como fallo, primer bloque
+    con .text). Returns (text, metadata).
     """
-    client = get_client()
-    start = time.time()
-    metadata: Dict[str, Any] = {"model": settings.ai_model, "prompt_version": PROMPT_VERSION}
-
-    try:
-        response = client.messages.create(
-            model=settings.ai_model,
-            max_tokens=max_tokens,
-            temperature=temperature,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = response.content[0].text if response.content else None
-        metadata["latency_ms"] = int((time.time() - start) * 1000)
-        # Anthropic SDK: response.usage.input_tokens / output_tokens
-        if hasattr(response, "usage") and response.usage is not None:
-            metadata["tokens_input"] = getattr(response.usage, "input_tokens", None)
-            metadata["tokens_output"] = getattr(response.usage, "output_tokens", None)
-        logger.info(
-            "Consolidation AI call OK",
-            extra={
-                "user_id": user_id,
-                "latency_ms": metadata.get("latency_ms"),
-                "input_size": len(prompt),
-                "output_size": len(text or ""),
-            },
-        )
-        return text, metadata
-    except Exception as e:
-        logger.error(
-            "Consolidation AI call failed",
-            extra={"user_id": user_id, "error": str(e)},
-        )
-        metadata["error"] = str(e)
-        return None, metadata
+    return call_claude_with_meta(
+        prompt,
+        session_id=user_id,
+        feature="consolidate_profile",
+        max_tokens=max_tokens,
+        temperature=temperature,
+        prompt_version=PROMPT_VERSION,
+    )
 
 
 # ---------------------------------------------------------------------------

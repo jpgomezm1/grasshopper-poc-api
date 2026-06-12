@@ -34,7 +34,7 @@ from uuid import UUID
 from sqlalchemy import and_, func, or_, update
 from sqlalchemy.orm import Session as DBSession
 
-from app.core.ai_client import call_claude, load_prompt
+from app.core.ai_client import call_claude_with_meta, load_prompt
 from app.core.ai_json import AIJsonError, parse_ai_json
 from app.config import get_settings
 from app.db.models import (
@@ -71,6 +71,7 @@ from app.schemas.crm import (
     LeadOrigin,
     ScoreBreakdownSignal,
 )
+from app.services.ai_usage_service import record_ai_usage
 from app.services.student_lead_scoring import _band as score_band  # reuse banding
 from app.services.student_lead_scoring import _journey_progress_ratio
 
@@ -1014,9 +1015,14 @@ def _invoke_ai_analysis(
     signals: List[ScoreBreakdownSignal],
     snapshot: CrmJourneySnapshot,
     catalog: List[Program],
+    db: Optional[DBSession] = None,
 ) -> CrmAiAnalysis:
     """Calls the prompt · parses JSON · falls back to template if anything
-    breaks. Never raises."""
+    breaks. Never raises.
+
+    Fase C2: si recibe ``db``, registra la llamada en el tracking M-001
+    (también los intentos fallidos, con tokens None, para que el panel de
+    costos vea errores — mismo criterio que el recomendador)."""
     settings = get_settings()
     band = score_band(score)
 
@@ -1060,11 +1066,27 @@ def _invoke_ai_analysis(
         logger.warning("crm_lead_analysis prompt build failed · %s", exc)
         return _fallback_ai_analysis(user=user, score=score, band=band, catalog=catalog)
 
-    raw = call_claude(
+    # Fase C2: helper robusto con metadata (antes call_claude sin tracking).
+    # max_tokens/temperature = los mismos settings que usaba call_claude.
+    raw, ai_meta = call_claude_with_meta(
         prompt,
         session_id=f"crm-lead-{user.id}",
+        feature="crm_lead_analysis",
+        max_tokens=settings.ai_max_tokens,
+        temperature=settings.ai_temperature,
         prompt_version="crm_lead_analysis_v1",
     )
+    if db is not None:
+        record_ai_usage(
+            db,
+            provider="anthropic",
+            model=ai_meta.get("model") or settings.ai_model,
+            feature="crm_lead_analysis",
+            tokens_input=ai_meta.get("tokens_input"),
+            tokens_output=ai_meta.get("tokens_output"),
+            latency_ms=ai_meta.get("latency_ms"),
+            user_id=user.id,
+        )
     if not raw:
         return _fallback_ai_analysis(user=user, score=score, band=band, catalog=catalog)
 
@@ -1202,6 +1224,7 @@ def regenerate_ai_analysis(
         signals=signals,
         snapshot=snapshot,
         catalog=catalog,
+        db=db,  # Fase C2 · tracking M-001
     )
 
     # Persist cache

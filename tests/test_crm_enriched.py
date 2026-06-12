@@ -533,9 +533,11 @@ def test_regenerate_ai_analysis_uses_fallback_when_claude_off(app_with_db, monke
     _make_user(SessionLocal, email="sa@gh.com", role=UserRole.SUPER_ADMIN)
     _make_program(SessionLocal, country="Estados Unidos", budget_tier="medium")
 
-    # Force Claude calls to return None (simulate offline / fallback path)
+    # Force Claude calls to fail (simulate offline / fallback path).
+    # Fase C2: el CRM usa call_claude_with_meta → (None, metadata) en fallo.
     monkeypatch.setattr(
-        "app.services.crm_service.call_claude", lambda *a, **kw: None
+        "app.services.crm_service.call_claude_with_meta",
+        lambda *a, **kw: (None, {"model": "claude-sonnet-4-6", "error_kind": "connection"}),
     )
 
     with TestClient(app) as client:

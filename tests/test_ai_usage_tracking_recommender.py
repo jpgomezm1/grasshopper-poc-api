@@ -262,6 +262,30 @@ def test_consolidation_records_ai_usage(db_session, monkeypatch):
     assert calls[0]["user_id"] == user.id
 
 
+def test_consolidation_tests_used_es_deterministico(db_session, monkeypatch):
+    """B-053: `tests_used` lo rellenaba el modelo (podía venir vacío → el
+    front mostraba "0 tests" con tests reales). Ahora se sobreescribe SIEMPRE
+    con los test_ids que alimentaron el prompt."""
+    from app.services import consolidation_service as cs
+
+    user = _seed_user(db_session)
+    profile_del_modelo = _profile()
+    profile_del_modelo.tests_used = []  # el modelo "olvidó" llenarlo
+    raw = profile_del_modelo.model_dump_json()
+
+    monkeypatch.setattr(cs, "gather_user_inputs", lambda db, u: _fake_inputs())
+    monkeypatch.setattr(
+        cs, "_call_claude_for_consolidation",
+        lambda prompt, user_id: (raw, dict(_METADATA_OK)),
+    )
+    monkeypatch.setattr(cs, "record_ai_usage", lambda db, **kw: None)
+
+    profile, _, cached = cs.generate_or_get_profile(db_session, user)
+
+    assert cached is False
+    assert profile.tests_used == ["holland"]  # los inputs reales, no el JSON del modelo
+
+
 def test_consolidation_records_ai_usage_on_error_too(db_session, monkeypatch):
     from app.services import consolidation_service as cs
 

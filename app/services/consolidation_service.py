@@ -350,6 +350,11 @@ def generate_or_get_profile(
     profile.model_used = metadata.get("model")
     profile.prompt_version = PROMPT_VERSION
     profile.generated_at = datetime.utcnow()
+    # B-053 · `tests_used` lo rellenaba el MODELO en su JSON y podía venir
+    # vacío/incompleto → el front mostraba "Generado a partir de 0 tests"
+    # con tests reales. La lista canónica la sabemos nosotros: son los tests
+    # que alimentaron el prompt. Se sobreescribe SIEMPRE.
+    profile.tests_used = [t["test_id"] for t in inputs["tests"]]
 
     # Persist (UPSERT-like)
     if cache_row is None:

@@ -207,41 +207,81 @@ def call_claude(
                     {"role": "user", "content": prompt}
                 ]
             )
-
-            output_text = response.content[0].text
-            latency_ms = int((time.time() - start_time) * 1000)
-
-            logger.info(
-                "AI call successful",
-                extra={
-                    "session_id": session_id,
-                    "prompt_version": prompt_version,
-                    "input_size": input_size,
-                    "output_size": len(output_text),
-                    "latency_ms": latency_ms,
-                    "attempt": attempt + 1,
-                }
-            )
-
-            return output_text
-
         except Exception as e:
+            error_kind = classify_anthropic_error(e)
             logger.warning(
                 f"AI call failed (attempt {attempt + 1}/{max_retries + 1}): {e}",
                 extra={
                     "session_id": session_id,
                     "prompt_version": prompt_version,
                     "error": str(e),
+                    "error_kind": error_kind,
                 }
             )
-            if attempt == max_retries:
+            # 4xx (bad_request/auth) son errores deterministas del request:
+            # reintentar con el mismo payload nunca va a funcionar y solo
+            # suma latencia. Cortamos de una (Fase C2 · robustez transversal).
+            if error_kind in ("bad_request", "auth") or attempt == max_retries:
                 logger.error(
                     "AI call failed after all retries",
                     extra={
                         "session_id": session_id,
                         "prompt_version": prompt_version,
+                        "error_kind": error_kind,
                     }
                 )
                 return None
+            continue
+
+        # Fase C2: chequear stop_reason ANTES de usar el texto. Un corte por
+        # max_tokens en funciones que esperan JSON (recomendador, clínico,
+        # consolidación) produce JSON truncado → mejor tratarlo como fallo y
+        # dejar que el caller use su fallback determinista, que parsear basura.
+        stop_reason = getattr(response, "stop_reason", None)
+        if stop_reason == "max_tokens":
+            logger.error(
+                "AI response truncated at max_tokens · treated as failure",
+                extra={
+                    "session_id": session_id,
+                    "prompt_version": prompt_version,
+                    "max_tokens": settings.ai_max_tokens,
+                },
+            )
+            return None
+
+        # Primer bloque con .text (NO asumir content[0] · puede haber bloques
+        # no-texto al inicio según modelo/configuración). Mismo patrón que
+        # call_claude_chat.
+        output_text: Optional[str] = None
+        for block in getattr(response, "content", []) or []:
+            text = getattr(block, "text", None)
+            if text is not None:
+                output_text = text
+                break
+
+        if output_text is None:
+            logger.error(
+                "AI call returned no text block",
+                extra={
+                    "session_id": session_id,
+                    "prompt_version": prompt_version,
+                    "stop_reason": stop_reason,
+                },
+            )
+            return None
+
+        latency_ms = int((time.time() - start_time) * 1000)
+        logger.info(
+            "AI call successful",
+            extra={
+                "session_id": session_id,
+                "prompt_version": prompt_version,
+                "input_size": input_size,
+                "output_size": len(output_text),
+                "latency_ms": latency_ms,
+                "attempt": attempt + 1,
+            }
+        )
+        return output_text
 
     return None

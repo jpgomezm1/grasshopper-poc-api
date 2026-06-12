@@ -49,10 +49,12 @@ class Settings(BaseSettings):
         return DEFAULT_CORS_ORIGINS
 
     # AI Settings
-    # D-013 (Sprint 5) · pinned to claude-sonnet-4-5 across the project ·
-    # the older Haiku-3 referenced by the POC is deprecated for our uses.
-    # .env can still override AI_MODEL for short-term experimentation.
-    ai_model: str = "claude-sonnet-4-5"
+    # Fase C2 (2026-06-12) · upgrade a claude-sonnet-4-6: mismo precio que
+    # 4-5 ($3/$15 MTok), mejor calidad. Verificado contra la guía de
+    # migración: el backend no usa prefills de assistant (lo único que 4.6
+    # rechaza de nuestro uso) y solo enviamos temperature (no top_p).
+    # .env puede seguir sobreescribiendo AI_MODEL para experimentación.
+    ai_model: str = "claude-sonnet-4-6"
     ai_max_tokens: int = 1024
     ai_temperature: float = 0.7
 

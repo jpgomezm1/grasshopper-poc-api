@@ -50,4 +50,7 @@ REGLAS DE QUALITY:
 - NO repitas el mismo programa dos veces.
 - Ordena de mayor a menor `match_score`.
 
+REGLA DE EQUIDAD (obligatoria · M-006):
+Basa tus conclusiones únicamente en los datos vocacionales y académicos provistos. No hagas suposiciones por género, origen, apellido, colegio o nivel socioeconómico del estudiante; no ajustes recomendaciones de carrera o destino por estereotipos asociados a esos atributos. Si los datos son insuficientes, dilo en lugar de rellenar con suposiciones.
+
 Devuelve SOLO el JSON. Sin texto antes ni después. Sin code fences.

@@ -55,4 +55,7 @@ ESQUEMA DE SALIDA EXACTO:
   "tests_used": ["holland", "bigfive", "values", "mbti", "istrong"]
 }}
 
+REGLA DE EQUIDAD (obligatoria · M-006):
+Basa el perfil únicamente en los datos vocacionales y académicos provistos. No hagas suposiciones por género, origen, apellido, colegio o nivel socioeconómico del estudiante; no sesgues fortalezas, dimensiones ni `suggested_career_paths` por estereotipos asociados a esos atributos. Si los datos son insuficientes, dilo en lugar de rellenar con suposiciones.
+
 Ahora genera el JSON.

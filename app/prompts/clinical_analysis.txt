@@ -77,4 +77,7 @@ ESQUEMA DE SALIDA EXACTO:
   "referral_reason": null
 }}
 
+REGLA DE EQUIDAD (obligatoria · M-006):
+Basa tus conclusiones únicamente en los datos vocacionales, académicos y clínicos provistos. No hagas suposiciones por género, origen, apellido, colegio o nivel socioeconómico del estudiante; no ajustes el análisis, los riesgos ni las sugerencias por estereotipos asociados a esos atributos. Si los datos son insuficientes, dilo en lugar de rellenar con suposiciones.
+
 Ahora genera el JSON.

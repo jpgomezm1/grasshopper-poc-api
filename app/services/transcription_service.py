@@ -3,7 +3,7 @@
 import logging
 from typing import Union, BinaryIO, Tuple, Optional
 
-from openai import OpenAI
+from openai import AsyncOpenAI
 
 from app.config import get_settings
 
@@ -11,6 +11,11 @@ logger = logging.getLogger(__name__)
 
 # Type for audio file: can be BinaryIO or tuple (filename, content, content_type)
 AudioFileType = Union[BinaryIO, Tuple[str, bytes, str]]
+
+# Timeout explícito para la llamada a Whisper. Los uploads pueden llegar a
+# 25MB (límite del endpoint /transcription/transcribe), así que damos margen
+# amplio; el default del SDK (10 min) bloqueaba el worker demasiado tiempo.
+TRANSCRIPTION_TIMEOUT_S = 120.0
 
 # Context prompt to improve transcription accuracy for Spanish speakers
 # This helps Whisper understand the context and improves accuracy
@@ -48,13 +53,18 @@ async def transcribe_audio(
         logger.error("OpenAI API key not configured")
         raise ValueError("OpenAI API key not configured")
 
-    client = OpenAI(api_key=settings.openai_api_key)
+    # Cliente ASYNC: la versión síncrona bloqueaba el event loop completo
+    # del dyno mientras Whisper transcribía (todas las requests congeladas).
+    client = AsyncOpenAI(
+        api_key=settings.openai_api_key,
+        timeout=TRANSCRIPTION_TIMEOUT_S,
+    )
 
     # Use default prompt if none provided
     context_prompt = prompt or TRANSCRIPTION_PROMPT
 
     try:
-        transcript = client.audio.transcriptions.create(
+        transcript = await client.audio.transcriptions.create(
             model="whisper-1",
             file=audio_file,
             language=language,

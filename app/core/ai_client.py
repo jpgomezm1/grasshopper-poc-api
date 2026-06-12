@@ -187,7 +187,13 @@ def call_claude(
     Returns:
         The response text or None if all retries fail
     """
-    client = get_client()
+    # Timeout explícito: sin él, el SDK espera hasta 10 min por intento y el
+    # loop de reintentos propio multiplica esa espera. 120s cubre las llamadas
+    # largas de journey (reflection/synthesis/routes/advisor_brief · una
+    # recomendación fresca tarda ~48s) y es coherente con call_claude_chat
+    # (45s para chat corto). Los fallbacks deterministas de ai_service.py
+    # siguen activándose igual cuando esto devuelve None.
+    client = get_client().with_options(timeout=120.0)
     input_size = len(prompt)
     start_time = time.time()
 

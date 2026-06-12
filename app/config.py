@@ -113,6 +113,7 @@ class Settings(BaseSettings):
     rate_limit_external_test_upload: str = "10/hour"
     rate_limit_reports_send: str = "5/hour"
     rate_limit_parental_consent: str = "10/hour"  # M-006 · envío de email + firma
+    rate_limit_lead_submit: str = "10/minute"  # quiz público de leads · inserta en DB
     rate_limit_default: str = "120/minute"
 
     # Security headers (GH-S11-INFRA-05 · HSTS · CSP · X-Frame-Options · etc.)

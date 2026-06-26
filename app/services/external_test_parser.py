@@ -26,6 +26,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -76,6 +77,9 @@ class ParseOutcome:
     raw_text: str
     parsing_status: str  # "done" | "needs_review" | "failed"
     error_message: Optional[str]
+    # Metadata de la llamada IA (M-001) · None si no hubo llamada (extracción
+    # falló, PDF sin texto) o si la llamada falló antes de devolver tokens.
+    usage: Optional[dict] = None
 
 
 # -----------------------------------------------------------------------------
@@ -121,53 +125,75 @@ def _extract_json(text: str) -> dict:
 # Vision path · used when the PDF has no text layer or the upload is an image
 # -----------------------------------------------------------------------------
 
-def _call_claude_vision(prompt_text: str, image_bytes: bytes, image_mime: str) -> str:
+def _call_claude_messages(messages: list) -> tuple[str, dict]:
+    """Llama a Claude (texto o visión) y devuelve ``(texto, metadata)``.
+
+    La metadata alimenta el tracking M-001 (``model``/``tokens_input``/
+    ``tokens_output``/``latency_ms``). Robustez Fase C2: timeout explícito +
+    reintentos (antes el SDK pelado esperaba hasta 10 min sin reintentos) y el
+    texto sale del primer bloque con ``.text`` (no ``content[0]``, que puede no
+    ser texto).
+    """
+    settings = get_settings()
+    client = get_client().with_options(timeout=120.0, max_retries=2)
+    start = time.time()
+    response = client.messages.create(
+        model=settings.ai_model,
+        max_tokens=settings.ai_max_tokens or 1500,
+        temperature=0,  # determinista para parsing
+        messages=messages,
+    )
+    meta: dict = {
+        "model": settings.ai_model,
+        "latency_ms": int((time.time() - start) * 1000),
+    }
+    usage = getattr(response, "usage", None)
+    meta["tokens_input"] = getattr(usage, "input_tokens", None)
+    meta["tokens_output"] = getattr(usage, "output_tokens", None)
+
+    text: Optional[str] = None
+    for block in getattr(response, "content", []) or []:
+        t = getattr(block, "text", None)
+        if t is not None:
+            text = t
+            break
+    if text is None:
+        raise ParseError("Claude response has no text block")
+    return text, meta
+
+
+def _call_claude_vision(
+    prompt_text: str, image_bytes: bytes, image_mime: str
+) -> tuple[str, dict]:
     """Call Claude with an image attachment.
 
     Uses the configured ai_model (Sonnet recommended for vision · falls back
     to whatever is set; per D-008 we reuse the POC model).
     """
-    settings = get_settings()
-    client = get_client()
-
     import base64
     b64 = base64.standard_b64encode(image_bytes).decode("ascii")
 
-    response = client.messages.create(
-        model=settings.ai_model,
-        max_tokens=settings.ai_max_tokens or 1500,
-        temperature=0,  # deterministic for parsing
-        messages=[
-            {
-                "role": "user",
-                "content": [
-                    {
-                        "type": "image",
-                        "source": {
-                            "type": "base64",
-                            "media_type": image_mime,
-                            "data": b64,
-                        },
+    return _call_claude_messages([
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "image",
+                    "source": {
+                        "type": "base64",
+                        "media_type": image_mime,
+                        "data": b64,
                     },
-                    {"type": "text", "text": prompt_text},
-                ],
-            }
-        ],
-    )
-    return response.content[0].text
+                },
+                {"type": "text", "text": prompt_text},
+            ],
+        }
+    ])
 
 
-def _call_claude_text(prompt_text: str) -> str:
+def _call_claude_text(prompt_text: str) -> tuple[str, dict]:
     """Call Claude with plain text only · cheaper path."""
-    settings = get_settings()
-    client = get_client()
-    response = client.messages.create(
-        model=settings.ai_model,
-        max_tokens=settings.ai_max_tokens or 1500,
-        temperature=0,
-        messages=[{"role": "user", "content": prompt_text}],
-    )
-    return response.content[0].text
+    return _call_claude_messages([{"role": "user", "content": prompt_text}])
 
 
 # -----------------------------------------------------------------------------
@@ -212,9 +238,10 @@ def parse_external_test(
     )
 
     # 3) Call Claude
+    usage_meta: Optional[dict] = None
     try:
         if use_vision and is_image(content_type, filename):
-            raw_response = _call_claude_vision(
+            raw_response, usage_meta = _call_claude_vision(
                 prompt_text, file_bytes, content_type or "image/png"
             )
         elif use_vision:
@@ -232,9 +259,9 @@ def parse_external_test(
                         "available in S5 dev · upload as image (PNG/JPG) instead"
                     ),
                 )
-            raw_response = _call_claude_text(prompt_text)
+            raw_response, usage_meta = _call_claude_text(prompt_text)
         else:
-            raw_response = _call_claude_text(prompt_text)
+            raw_response, usage_meta = _call_claude_text(prompt_text)
     except Exception as exc:  # pragma: no cover - network errors
         logger.warning("claude call failed test_type=%s err=%s", test_type, exc)
         return ParseOutcome(
@@ -253,6 +280,7 @@ def parse_external_test(
             raw_text=raw_text,
             parsing_status="failed",
             error_message=str(exc),
+            usage=usage_meta,
         )
 
     # Force test_type & parser_version (defensive · don't trust Claude on these)
@@ -270,6 +298,7 @@ def parse_external_test(
             raw_text=raw_text,
             parsing_status="needs_review",
             error_message=f"schema validation failed: {exc.errors()[:3]!r}",
+            usage=usage_meta,
         )
 
     # 5) Bucket by confidence
@@ -292,4 +321,5 @@ def parse_external_test(
         raw_text=raw_text,
         parsing_status=status,
         error_message=None,
+        usage=usage_meta,
     )

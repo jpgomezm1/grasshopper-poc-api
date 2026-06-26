@@ -886,35 +886,86 @@ def _format_narrative_block(snapshot: CrmJourneySnapshot) -> str:
     return "\n".join(lines)
 
 
+# Map student budget bands to catalog tiers (best-effort).
+_BUDGET_BAND_TIERS: Dict[str, List[str]] = {
+    "bajo": ["low"],
+    "medio": ["low", "medium"],
+    "alto": ["low", "medium", "high"],
+    "low": ["low"],
+    "medium": ["low", "medium"],
+    "high": ["low", "medium", "high"],
+    "premium": ["low", "medium", "high", "premium"],
+}
+
+# Pool máximo a traer a memoria para rankear por interés. El catálogo real son
+# ~2.5k programas; con país/presupuesto el conjunto baja, pero acotamos igual.
+_CATALOG_POOL = 200
+
+
+def _budget_band_to_tiers(budget_band: Optional[str]) -> List[str]:
+    if not budget_band:
+        return []
+    return _BUDGET_BAND_TIERS.get(budget_band.lower(), [])
+
+
 def _select_catalog_for_lead(
-    db: DBSession, user: User, max_n: int = 5
+    db: DBSession,
+    user: User,
+    max_n: int = 5,
+    interests: Optional[List[str]] = None,
 ) -> List[Program]:
-    """Filter the catalog by preferred countries + budget band before AI."""
-    q = db.query(Program).filter(Program.active.is_(True))
+    """Selecciona candidatos del catálogo para el análisis IA del lead.
+
+    Antes filtraba SOLO por país + presupuesto y, sin esas señales (lo común
+    en un lead nuevo), devolvía los primeros N programas por orden de inserción
+    → candidatos irrelevantes y no deterministas. Ahora:
+
+    - Trae un pool DETERMINISTA (order by program_id) tras aplicar país +
+      presupuesto, relajando progresivamente (presupuesto → país) si el filtro
+      deja el pool vacío, en vez de saltar directo a "cualquier cosa".
+    - Rankea ese pool por coincidencia con las áreas de interés del lead
+      (contra ``area``/``subject``/``name``), la señal más relevante para
+      matchear programas y que el pre-filtro ignoraba por completo.
+    """
+    base = db.query(Program).filter(Program.active.is_(True))
     countries = list(user.preferred_countries or [])
     if countries:
-        q = q.filter(Program.country.in_(countries))
-    if user.budget_band:
-        # Map student budget bands to catalog tiers (best-effort).
-        band_map = {
-            "bajo": ["low"],
-            "medio": ["low", "medium"],
-            "alto": ["low", "medium", "high"],
-            "low": ["low"],
-            "medium": ["low", "medium"],
-            "high": ["low", "medium", "high"],
-            "premium": ["low", "medium", "high", "premium"],
-        }
-        tiers = band_map.get(user.budget_band.lower(), [])
-        if tiers:
-            q = q.filter(Program.budget_tier.in_(tiers))
-    candidates = q.limit(max_n).all()
-    if not candidates:
-        # Fallback · anything active so the AI has *something* to anchor on
-        candidates = (
-            db.query(Program).filter(Program.active.is_(True)).limit(max_n).all()
+        base = base.filter(Program.country.in_(countries))
+
+    tiers = _budget_band_to_tiers(user.budget_band)
+    scoped = base.filter(Program.budget_tier.in_(tiers)) if tiers else base
+
+    # Pool determinista, relajando filtros si quedan vacíos.
+    pool = scoped.order_by(Program.program_id).limit(_CATALOG_POOL).all()
+    if not pool and tiers:
+        pool = base.order_by(Program.program_id).limit(_CATALOG_POOL).all()
+    if not pool and countries:
+        pool = (
+            db.query(Program)
+            .filter(Program.active.is_(True))
+            .order_by(Program.program_id)
+            .limit(_CATALOG_POOL)
+            .all()
         )
-    return candidates
+
+    # Ranking por interés (best-effort · substring sobre área/subject/nombre).
+    norm = [i.strip().lower() for i in (interests or []) if i and i.strip()]
+    if norm and pool:
+        def _interest_score(p: Program) -> int:
+            haystack = " ".join(
+                filter(None, [p.area, p.subject, p.name])
+            ).lower()
+            return sum(1 for it in norm if it in haystack)
+
+        matched = [(p, _interest_score(p)) for p in pool]
+        hits = [p for p, s in matched if s > 0]
+        if hits:
+            # Orden estable: más coincidencias primero, luego program_id.
+            scores = {p.program_id: s for p, s in matched}
+            hits.sort(key=lambda p: (-scores[p.program_id], p.program_id))
+            return hits[:max_n]
+
+    return pool[:max_n]
 
 
 def _fallback_ai_analysis(
@@ -1217,7 +1268,9 @@ def regenerate_ai_analysis(
         has_open_contact_request=has_contact,
     )
 
-    catalog = _select_catalog_for_lead(db, user, max_n=5)
+    profile = snapshot.consolidated_profile
+    interests = list(profile.interests) if profile and profile.interests else []
+    catalog = _select_catalog_for_lead(db, user, max_n=5, interests=interests)
     analysis = _invoke_ai_analysis(
         user=user,
         score=score,

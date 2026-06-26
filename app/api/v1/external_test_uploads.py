@@ -50,6 +50,7 @@ from app.schemas.external_tests import (
 )
 from app.services import storage_service
 from app.services.external_test_parser import parse_external_test
+from app.services.ai_usage_service import record_ai_usage
 
 logger = logging.getLogger(__name__)
 
@@ -167,6 +168,20 @@ def _run_parse_task(upload_id: str) -> None:
             content_type=upload.content_type,
             filename=upload.original_filename,
         )
+
+        # Tracking M-001 · registra el costo IA del parseo (visión o texto).
+        # Solo hay metadata si efectivamente se llamó a Claude; best-effort.
+        if outcome.usage:
+            record_ai_usage(
+                db,
+                provider="anthropic",
+                model=outcome.usage.get("model"),
+                feature="external_test_parse",
+                tokens_input=outcome.usage.get("tokens_input"),
+                tokens_output=outcome.usage.get("tokens_output"),
+                latency_ms=outcome.usage.get("latency_ms"),
+                user_id=upload.user_id,
+            )
 
         upload.raw_text = outcome.raw_text or None
         upload.parsing_status = outcome.parsing_status

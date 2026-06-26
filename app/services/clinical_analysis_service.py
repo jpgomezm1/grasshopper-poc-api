@@ -45,6 +45,7 @@ from app.schemas.clinical import (
     BehavioralPattern,
     ClinicalAnalysis,
 )
+from app.services.ai_usage_service import record_ai_usage
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -535,6 +536,21 @@ def generate(
     )
 
     raw, metadata = _call_llm(prompt, str(student.id))
+
+    # Tracking M-001 · el análisis clínico es una llamada cara y poco
+    # frecuente: registramos éxito Y error (en error tokens=None → costo None,
+    # pero el panel ve el intento). _call_llm ya trae model/tokens/latency.
+    record_ai_usage(
+        db,
+        provider="anthropic",
+        model=metadata.get("model"),
+        feature="clinical_analysis",
+        tokens_input=metadata.get("tokens_input"),
+        tokens_output=metadata.get("tokens_output"),
+        latency_ms=metadata.get("latency_ms"),
+        user_id=student.id,
+    )
+
     if raw is None:
         raise ClinicalAnalysisFailure(_public_error_message(metadata.get("error_kind")))
 

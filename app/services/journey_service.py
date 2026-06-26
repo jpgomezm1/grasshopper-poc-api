@@ -137,10 +137,12 @@ def build_journey_response(
         if step.id == "empathy":
             why_here = answers.get("whyHere", "")
             if why_here:
-                reflection = generate_empathy_reflection(why_here, str(session.id))
+                reflection = generate_empathy_reflection(
+                    why_here, str(session.id), db=db, user_id=session.user_id
+                )
                 response.reflection_content = reflection.text
         elif step.id == "synthesis":
-            synthesis = generate_synthesis(answers, str(session.id))
+            synthesis = generate_synthesis(answers, str(session.id), db=db, user_id=session.user_id)
             response.synthesis_text = synthesis.text
             response.synthesis_chips = [
                 {"label": chip.label, "value": chip.value}
@@ -153,7 +155,7 @@ def build_journey_response(
         response.partial_summary_motivation = summary.motivation
 
     elif step.view_type == ViewType.ROUTES_PICKER:
-        routes_output = generate_routes(answers, str(session.id))
+        routes_output = generate_routes(answers, str(session.id), db=db, user_id=session.user_id)
         response.suggested_routes = [
             {
                 "key": route.key,
@@ -284,7 +286,7 @@ def _create_journal_entry_for_reflection(
         content = f"Intereses identificados: {'. '.join(summary.bullets)}. Motivacion principal: {summary.motivation}."
         tags = ["intereses", summary.motivation.lower()]
     elif step_id == "synthesis":
-        synthesis = generate_synthesis(answers, str(session.id))
+        synthesis = generate_synthesis(answers, str(session.id), db=db, user_id=session.user_id)
         content = synthesis.text
         tags = ["sintesis", "perfil"]
     else:
@@ -309,7 +311,7 @@ def _handle_route_selection(
 ) -> None:
     """Handle route selection."""
     # Get the suggested routes to find the selected one
-    routes_output = generate_routes(answers, str(session.id))
+    routes_output = generate_routes(answers, str(session.id), db=db, user_id=session.user_id)
     selected_route = next(
         (r for r in routes_output.routes if r.key == route_key),
         None

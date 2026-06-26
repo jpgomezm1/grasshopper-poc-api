@@ -2,10 +2,13 @@
 
 import logging
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, status
+from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.db.database import get_db
 from app.db.models import User
 from app.services.transcription_service import transcribe_audio
+from app.services.ai_usage_service import record_ai_usage
 
 router = APIRouter(prefix="/transcription", tags=["Transcription"])
 logger = logging.getLogger(__name__)
@@ -27,7 +30,8 @@ SUPPORTED_FORMATS = {
 @router.post("/transcribe")
 async def transcribe(
     audio: UploadFile = File(...),
-    current_user: User = Depends(get_current_user)
+    current_user: User = Depends(get_current_user),
+    db: DBSession = Depends(get_db),
 ):
     """
     Transcribe audio file to text using OpenAI Whisper.
@@ -61,7 +65,22 @@ async def transcribe(
             audio_file=(filename, content, content_type),
             language="es"
         )
-        return result
+
+        # Tracking M-001 · whisper se cobra por minuto; el costo ya viene
+        # calculado en usage. Best-effort y NO se filtra al cliente.
+        usage = result.get("usage") or {}
+        if usage:
+            record_ai_usage(
+                db,
+                provider=usage.get("provider", "openai"),
+                model=usage.get("model", "whisper-1"),
+                feature="audio_transcription",
+                latency_ms=usage.get("latency_ms"),
+                cost_usd=usage.get("cost_usd"),
+                user_id=current_user.id,
+            )
+
+        return {"text": result.get("text", "")}
     except ValueError as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,

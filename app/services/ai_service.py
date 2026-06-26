@@ -2,9 +2,16 @@
 
 import logging
 from typing import Dict, Any, List, Optional
+from uuid import UUID
 
-from app.core.ai_client import load_prompt, call_claude
+from sqlalchemy.orm import Session as DBSession
+
+from app.config import get_settings
+from app.core.ai_client import load_prompt, call_claude_with_meta
 from app.core.ai_json import parse_ai_json
+from app.services.ai_usage_service import record_ai_usage
+
+settings = get_settings()
 from app.schemas.ai_outputs import (
     EmpathyReflectionOutput,
     PartialSummaryOutput,
@@ -16,6 +23,32 @@ from app.schemas.ai_outputs import (
 )
 
 logger = logging.getLogger(__name__)
+
+
+def _track_journey_usage(
+    db: Optional[DBSession],
+    user_id: Optional[UUID],
+    metadata: dict,
+    feature: str,
+) -> None:
+    """Registra una llamada IA del journey en ai_usage_log (M-001).
+
+    Best-effort: sin ``db`` (p.ej. tests que llaman la función suelta) no
+    hace nada. ``user_id`` es ``None`` en journeys anónimos — la tabla lo
+    permite. ``record_ai_usage`` nunca levanta.
+    """
+    if db is None:
+        return
+    record_ai_usage(
+        db,
+        provider="anthropic",
+        model=metadata.get("model") or settings.ai_model,
+        feature=feature,
+        tokens_input=metadata.get("tokens_input"),
+        tokens_output=metadata.get("tokens_output"),
+        latency_ms=metadata.get("latency_ms"),
+        user_id=user_id,
+    )
 
 
 # Fallback templates for when AI fails
@@ -106,6 +139,8 @@ def derive_constraints(answers: Dict[str, Any]) -> List[str]:
 def generate_empathy_reflection(
     why_here: str,
     session_id: str,
+    db: Optional[DBSession] = None,
+    user_id: Optional[UUID] = None,
 ) -> EmpathyReflectionOutput:
     """
     Generate empathy reflection after 'whyHere' step.
@@ -113,6 +148,8 @@ def generate_empathy_reflection(
     Args:
         why_here: User's response to "What brought you here?"
         session_id: Session ID for logging
+        db: DB session para tracking M-001 (opcional)
+        user_id: dueño del journey para tracking M-001 (None si anónimo)
 
     Returns:
         EmpathyReflectionOutput with text and detected emotion
@@ -121,9 +158,17 @@ def generate_empathy_reflection(
         prompt_template = load_prompt("reflection")
         prompt = prompt_template.format(user_input=why_here)
 
-        response = call_claude(prompt, session_id, "reflection_v1")
+        response, meta = call_claude_with_meta(
+            prompt,
+            session_id=session_id,
+            feature="journey_reflection",
+            prompt_version="reflection_v1",
+            max_tokens=settings.ai_max_tokens,
+            temperature=settings.ai_temperature,
+        )
 
         if response:
+            _track_journey_usage(db, user_id, meta, "journey_reflection")
             return EmpathyReflectionOutput(
                 text=response.strip(),
                 detected_emotion=None,  # Could parse from response if needed
@@ -187,6 +232,8 @@ def generate_partial_summary(
 def generate_synthesis(
     answers: Dict[str, Any],
     session_id: str,
+    db: Optional[DBSession] = None,
+    user_id: Optional[UUID] = None,
 ) -> SynthesisOutput:
     """
     Generate full synthesis reflection.
@@ -194,6 +241,8 @@ def generate_synthesis(
     Args:
         answers: User's complete answers
         session_id: Session ID for logging
+        db: DB session para tracking M-001 (opcional)
+        user_id: dueño del journey para tracking M-001 (None si anónimo)
 
     Returns:
         SynthesisOutput with text, chips, motivations, and constraints
@@ -214,9 +263,17 @@ def generate_synthesis(
             geo_preference=answers.get("geoPreference", "No especificado"),
         )
 
-        response = call_claude(prompt, session_id, "synthesis_v1")
+        response, meta = call_claude_with_meta(
+            prompt,
+            session_id=session_id,
+            feature="journey_synthesis",
+            prompt_version="synthesis_v1",
+            max_tokens=settings.ai_max_tokens,
+            temperature=settings.ai_temperature,
+        )
 
         if response:
+            _track_journey_usage(db, user_id, meta, "journey_synthesis")
             try:
                 data = parse_ai_json(response)
                 return SynthesisOutput(
@@ -265,6 +322,8 @@ def generate_synthesis(
 def generate_routes(
     answers: Dict[str, Any],
     session_id: str,
+    db: Optional[DBSession] = None,
+    user_id: Optional[UUID] = None,
 ) -> RouteSuggestionOutput:
     """
     Generate route suggestions.
@@ -272,6 +331,8 @@ def generate_routes(
     Args:
         answers: User's complete answers
         session_id: Session ID for logging
+        db: DB session para tracking M-001 (opcional)
+        user_id: dueño del journey para tracking M-001 (None si anónimo)
 
     Returns:
         RouteSuggestionOutput with max 3 routes
@@ -297,9 +358,17 @@ def generate_routes(
             constraints=", ".join(constraints) if constraints else "Ninguna especial",
         )
 
-        response = call_claude(prompt, session_id, "routes_v1")
+        response, meta = call_claude_with_meta(
+            prompt,
+            session_id=session_id,
+            feature="journey_routes",
+            prompt_version="routes_v1",
+            max_tokens=settings.ai_max_tokens,
+            temperature=settings.ai_temperature,
+        )
 
         if response:
+            _track_journey_usage(db, user_id, meta, "journey_routes")
             try:
                 data = parse_ai_json(response)
                 routes = [GeneratedRoute(**route) for route in data["routes"][:3]]
@@ -320,6 +389,8 @@ def generate_advisor_brief(
     answers: Dict[str, Any],
     routes: List[Dict[str, Any]],
     session_id: str,
+    db: Optional[DBSession] = None,
+    user_id: Optional[UUID] = None,
 ) -> AdvisorBriefOutput:
     """
     Generate advisor brief for contact form.
@@ -328,6 +399,8 @@ def generate_advisor_brief(
         answers: User's complete answers
         routes: User's selected routes
         session_id: Session ID for logging
+        db: DB session para tracking M-001 (opcional)
+        user_id: dueño del journey para tracking M-001 (None si anónimo)
 
     Returns:
         AdvisorBriefOutput with summary and considerations
@@ -358,9 +431,17 @@ def generate_advisor_brief(
             other_routes=", ".join(r.get("name", "") for r in other_routes) if other_routes else "Ninguna",
         )
 
-        response = call_claude(prompt, session_id, "advisor_brief_v1")
+        response, meta = call_claude_with_meta(
+            prompt,
+            session_id=session_id,
+            feature="journey_advisor_brief",
+            prompt_version="advisor_brief_v1",
+            max_tokens=settings.ai_max_tokens,
+            temperature=settings.ai_temperature,
+        )
 
         if response:
+            _track_journey_usage(db, user_id, meta, "journey_advisor_brief")
             try:
                 data = parse_ai_json(response)
                 return AdvisorBriefOutput(

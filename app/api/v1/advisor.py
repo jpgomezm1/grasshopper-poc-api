@@ -67,7 +67,9 @@ def create_advisor_lead(
 
     # Generate advisor brief
     answers = session.answers or {}
-    brief_output = generate_advisor_brief(answers, routes_data, str(session_id))
+    brief_output = generate_advisor_brief(
+        answers, routes_data, str(session_id), db=db, user_id=session.user_id
+    )
 
     # Format brief as text
     brief_text = f"**Perfil del estudiante:**\n"
@@ -174,7 +176,9 @@ def get_advisor_brief_preview(
 
     # Generate brief
     answers = session.answers or {}
-    brief_output = generate_advisor_brief(answers, routes_data, str(session_id))
+    brief_output = generate_advisor_brief(
+        answers, routes_data, str(session_id), db=db, user_id=session.user_id
+    )
 
     # Format as text
     brief_text = f"**Perfil del estudiante:**\n"

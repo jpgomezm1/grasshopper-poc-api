@@ -408,20 +408,29 @@ def bulk_invite_students(
     created = 0
     skipped = 0
     errors: List[dict] = []
-    cohort_map = {c.key: c for c in db.query(Cohort).filter(Cohort.school_id == school.id).all()}
+
+    # Pre-carga en 2 queries en vez de 2 por fila (N+1): emails que ya son
+    # usuarios y emails con invitación PENDING de esta escuela. `seen` deduplica
+    # dentro del mismo lote (antes lo hacía la query, que veía la invitación
+    # recién creada).
+    emails = [row.email for row in payload.rows]
+    existing_users = {
+        e for (e,) in db.query(User.email).filter(User.email.in_(emails)).all()
+    }
+    pending_invites = {
+        e
+        for (e,) in db.query(Invitation.email)
+        .filter(
+            Invitation.email.in_(emails),
+            Invitation.school_id == school.id,
+            Invitation.status == InvitationStatus.PENDING,
+        )
+        .all()
+    }
+    seen: set = set()
     for row in payload.rows:
         try:
-            existing = (
-                db.query(User).filter(User.email == row.email).first()
-                or db.query(Invitation)
-                .filter(
-                    Invitation.email == row.email,
-                    Invitation.school_id == school.id,
-                    Invitation.status == InvitationStatus.PENDING,
-                )
-                .first()
-            )
-            if existing:
+            if row.email in existing_users or row.email in pending_invites or row.email in seen:
                 skipped += 1
                 continue
             inv = create_invitation(
@@ -431,6 +440,7 @@ def bulk_invite_students(
                 role=UserRole.STUDENT.value,
                 invited_by=user,
             )
+            seen.add(row.email)
             created += 1
             # Optional cohort assignment is deferred until the student accepts.
         except Exception as exc:  # pragma: no cover · defensive

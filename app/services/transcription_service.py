@@ -1,6 +1,7 @@
 """Audio transcription service using OpenAI Whisper."""
 
 import logging
+import time
 from typing import Union, BinaryIO, Tuple, Optional
 
 from openai import AsyncOpenAI
@@ -8,6 +9,10 @@ from openai import AsyncOpenAI
 from app.config import get_settings
 
 logger = logging.getLogger(__name__)
+
+# whisper-1 se factura por minuto de audio (no por tokens). Lo usamos para el
+# costo M-001; la duración sale de response_format="verbose_json".
+WHISPER_COST_PER_MINUTE = 0.006
 
 # Type for audio file: can be BinaryIO or tuple (filename, content, content_type)
 AudioFileType = Union[BinaryIO, Tuple[str, bytes, str]]
@@ -45,7 +50,9 @@ async def transcribe_audio(
         prompt: Optional context prompt to improve accuracy
 
     Returns:
-        dict with "text" key containing the transcription
+        dict con "text" (la transcripción) y "usage" (metadata M-001:
+        provider/model/latency_ms y, si Whisper reportó duración,
+        cost_usd/duration_s).
     """
     settings = get_settings()
 
@@ -63,20 +70,41 @@ async def transcribe_audio(
     # Use default prompt if none provided
     context_prompt = prompt or TRANSCRIPTION_PROMPT
 
+    start = time.time()
     try:
+        # verbose_json (en vez de text) para obtener `duration` y poder estimar
+        # el costo M-001. El texto sigue saliendo de .text · el parseo es
+        # defensivo para que un cambio de formato NUNCA rompa la transcripción.
         transcript = await client.audio.transcriptions.create(
             model="whisper-1",
             file=audio_file,
             language=language,
             prompt=context_prompt,
-            response_format="text"
+            response_format="verbose_json",
         )
 
-        # Clean up the transcription
-        text = transcript.strip() if isinstance(transcript, str) else transcript.text.strip()
+        latency_ms = int((time.time() - start) * 1000)
+
+        if isinstance(transcript, str):
+            text = transcript.strip()
+            duration_s = None
+        else:
+            text = (getattr(transcript, "text", "") or "").strip()
+            duration_s = getattr(transcript, "duration", None)
+
+        # Costo best-effort · cualquier problema aquí NO debe afectar al texto.
+        usage = {"provider": "openai", "model": "whisper-1", "latency_ms": latency_ms}
+        try:
+            if duration_s is not None:
+                usage["duration_s"] = float(duration_s)
+                usage["cost_usd"] = round(
+                    (float(duration_s) / 60.0) * WHISPER_COST_PER_MINUTE, 6
+                )
+        except (TypeError, ValueError):
+            pass
 
         logger.info(f"Successfully transcribed audio: {len(text)} characters")
-        return {"text": text}
+        return {"text": text, "usage": usage}
 
     except Exception as e:
         logger.error(f"Error transcribing audio: {e}")

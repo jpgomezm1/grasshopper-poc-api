@@ -56,13 +56,14 @@ def test_transcribe_usa_cliente_async_con_timeout(monkeypatch):
 
     out = asyncio.run(ts.transcribe_audio(("a.webm", b"bytes", "audio/webm")))
 
-    assert out == {"text": "hola mundo"}
+    assert out["text"] == "hola mundo"
     assert captured["api_key"] == "sk-test"
     assert captured["timeout"] == ts.TRANSCRIPTION_TIMEOUT_S == 120.0
     kwargs = captured["create_kwargs"]
     assert kwargs["model"] == "whisper-1"
     assert kwargs["language"] == "es"
-    assert kwargs["response_format"] == "text"
+    # verbose_json para obtener `duration` (costo M-001)
+    assert kwargs["response_format"] == "verbose_json"
     # Sin prompt explícito usa el contexto por defecto
     assert kwargs["prompt"] == ts.TRANSCRIPTION_PROMPT
 
@@ -73,7 +74,31 @@ def test_transcribe_respuesta_objeto_con_text(monkeypatch):
 
     out = asyncio.run(ts.transcribe_audio(("a.mp3", b"x", "audio/mp3")))
 
-    assert out == {"text": "hola"}
+    assert out["text"] == "hola"
+
+
+def test_transcribe_calcula_costo_por_duracion(monkeypatch):
+    """verbose_json trae `duration` (s) → usage.cost_usd = min * $0.006."""
+    _install_fake_client(monkeypatch, SimpleNamespace(text="hola", duration=120.0))
+
+    out = asyncio.run(ts.transcribe_audio(("a.webm", b"x", "audio/webm")))
+
+    usage = out["usage"]
+    assert usage["provider"] == "openai"
+    assert usage["model"] == "whisper-1"
+    assert usage["duration_s"] == 120.0
+    assert usage["cost_usd"] == round(2 * ts.WHISPER_COST_PER_MINUTE, 6)  # 2 min
+    assert "latency_ms" in usage
+
+
+def test_transcribe_sin_duracion_no_da_costo(monkeypatch):
+    """Sin `duration` (p.ej. SDK devuelve str) → usage sin cost_usd, texto OK."""
+    _install_fake_client(monkeypatch, "  hola  ")
+
+    out = asyncio.run(ts.transcribe_audio(("a.webm", b"x", "audio/webm")))
+
+    assert out["text"] == "hola"
+    assert "cost_usd" not in out["usage"]
 
 
 def test_transcribe_sin_api_key_levanta_valueerror(monkeypatch):

@@ -287,7 +287,15 @@ def parse_external_test(
     data["test_type"] = test_type
     data["parser_version"] = PARSER_VERSION
 
+    # El payload se valida con el schema EXACTO del test_type, NO dejando que la
+    # Union `ParsedPayload` adivine: iStrong y RIASEC comparten holland_code +
+    # los 6 GOTs y RIASEC no tiene campos propios obligatorios, así que un
+    # RIASEC válido también valida como iStrong (que va antes en la Union) → se
+    # colaba con el tipo equivocado. Validamos el payload aparte y pasamos la
+    # instancia tipada; ParserResult conserva esa instancia exacta sin
+    # re-coaccionar contra la Union.
     try:
+        data["payload"] = payload_schema.model_validate(data.get("payload") or {})
         result = ParserResult.model_validate(data)
     except ValidationError as exc:
         # Validation errors are extremely informative for prompt iteration.

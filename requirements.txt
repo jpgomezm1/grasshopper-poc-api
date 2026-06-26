@@ -6,7 +6,7 @@ pydantic-settings==2.1.0
 sqlalchemy==2.0.25
 alembic==1.13.1
 psycopg2-binary==2.9.10
-anthropic==0.18.1
+anthropic==0.112.0       # bump 0.18.1→0.112.0 (Fase C5a · habilita structured outputs; deps httpx/pydantic intactas)
 python-dotenv==1.2.2      # CVE-2026-28684 fixed in 1.2.2
 httpx==0.26.0
 # Authentication

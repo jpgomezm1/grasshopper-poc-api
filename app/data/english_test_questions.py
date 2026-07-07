@@ -60,7 +60,7 @@ ENGLISH_TEST_QUESTIONS = [
         "id": "g8",
         "section": "grammar",
         "difficulty": "C1",
-        "question": "Not until the results were published ___ the__(flaw) in the methodology.",
+        "question": "Not until the results were published ___ the flaw in the methodology.",
         "options": [
             "did they notice",
             "they noticed",

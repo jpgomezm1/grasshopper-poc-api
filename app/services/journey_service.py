@@ -43,9 +43,55 @@ from app.services.ai_service import (
 )
 
 
-def create_session(db: DBSession) -> Session:
-    """Create a new journey session."""
-    session = Session()
+# B-02 · Mapeo de valores del onboarding (users.onboarding_answers, códigos)
+# a los valores que espera el Journey (sessions.answers, textos de opción).
+# Solo campos que se solapan, para no volver a preguntarlos en el Journey.
+_ONBOARDING_LIFE_STAGE_MAP = {
+    "high_school": "Terminando el colegio",
+    "university": "En la universidad",
+    "recent_grad": "En transición / no seguro",
+    "working": "Ya trabajando",
+    "career_change": "En transición / no seguro",
+}
+_ONBOARDING_TIMELINE_MAP = {
+    "asap": "En los próximos meses",
+    "6_months": "En los próximos meses",
+    "1_year": "En 1 año",
+    "2_years": "Más adelante (solo explorando)",
+    "exploring": "Más adelante (solo explorando)",
+}
+
+
+def seed_answers_from_onboarding(onboarding: Optional[dict]) -> dict:
+    """Deriva answers del Journey a partir de las respuestas del onboarding.
+
+    Evita que el Journey vuelva a preguntar etapa de vida y horizonte de
+    tiempo que el onboarding ya capturó (B-02). Devuelve un dict con claves
+    del Journey (camelCase) solo para los valores mapeables.
+    """
+    seeded: dict = {}
+    if not onboarding:
+        return seeded
+    life_stage = onboarding.get("life_stage")
+    if life_stage in _ONBOARDING_LIFE_STAGE_MAP:
+        seeded["lifeStage"] = _ONBOARDING_LIFE_STAGE_MAP[life_stage]
+    timeline = onboarding.get("timeline")
+    if timeline in _ONBOARDING_TIMELINE_MAP:
+        seeded["timeHorizon"] = _ONBOARDING_TIMELINE_MAP[timeline]
+    return seeded
+
+
+def create_session(db: DBSession, seeded: Optional[dict] = None) -> Session:
+    """Create a new journey session.
+
+    `seeded` pre-llena `answers` (p.ej. lifeStage/timeHorizon derivados del
+    onboarding) y marca esos pasos como completados, para que el Journey no
+    vuelva a preguntarlos (B-02).
+    """
+    session = Session(
+        answers=seeded or {},
+        completed_steps=list(seeded.keys()) if seeded else [],
+    )
     db.add(session)
     db.commit()
     db.refresh(session)
@@ -225,8 +271,9 @@ def process_event(
             if step.view_type in [ViewType.REFLECTION, ViewType.PARTIAL_SUMMARY]:
                 _create_journal_entry_for_reflection(db, session, step_id, answers)
 
-            # Advance to next step
-            next_step_id = get_next_step(step_id)
+            # Advance to next step (salta pasos ya respondidos, p.ej. sembrados
+            # desde el onboarding · B-02)
+            next_step_id = get_next_step(step_id, answers)
             if next_step_id:
                 session.current_step = next_step_id
                 next_step = get_step(next_step_id)

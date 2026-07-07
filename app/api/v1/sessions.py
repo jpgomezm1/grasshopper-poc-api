@@ -18,6 +18,7 @@ from app.services.journey_service import (
     get_session,
     build_journey_response,
     process_event,
+    seed_answers_from_onboarding,
 )
 from app.services import bitrix_sync_service
 from app.services import parental_consent_service
@@ -32,14 +33,24 @@ router = APIRouter(prefix="/sessions", tags=["sessions"])
 @router.post("", response_model=JourneyResponse)
 def create_new_session(
     db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_optional_current_user),
 ):
     """Create a new journey session.
 
     Anonymous creation is intentionally allowed — students may begin their
     journey before registering. The session is linked to a user only after
     they authenticate (POST /auth/link-session or on registration).
+
+    B-02: si quien crea la sesión ya está autenticado y tiene respuestas de
+    onboarding, se siembra la sesión con etapa de vida y horizonte para que
+    el Journey no vuelva a preguntar lo que ya se capturó.
     """
-    session = create_session(db)
+    seeded = (
+        seed_answers_from_onboarding(current_user.onboarding_answers)
+        if current_user
+        else None
+    )
+    session = create_session(db, seeded=seeded)
     return build_journey_response(db, session)
 
 

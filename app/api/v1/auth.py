@@ -530,9 +530,11 @@ def update_onboarding(
     db: DBSession = Depends(get_db)
 ):
     """Update user's onboarding progress."""
-    # Merge answers
-    current_answers = current_user.onboarding_answers or {}
-    current_answers.update(request.answers)
+    # Merge answers · construimos un dict NUEVO para que SQLAlchemy detecte el
+    # cambio en la columna JSON. Mutar in-place el mismo objeto no se detecta
+    # (Column(JSON) sin MutableDict) y hacía que solo persistiera el primer
+    # campo del onboarding — el resto se perdía silenciosamente.
+    current_answers = {**(current_user.onboarding_answers or {}), **request.answers}
     current_user.onboarding_answers = current_answers
 
     # M-006 · si el onboarding trae fecha de nacimiento (ISO YYYY-MM-DD),

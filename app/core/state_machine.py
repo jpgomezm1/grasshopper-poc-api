@@ -243,10 +243,30 @@ def get_step(step_id: str) -> Optional[JourneyStep]:
     return STEPS_BY_ID.get(step_id)
 
 
-def get_next_step(current_step_id: str) -> Optional[str]:
-    """Get the next step ID."""
+def get_next_step(
+    current_step_id: str, answers: Optional[Dict[str, Any]] = None
+) -> Optional[str]:
+    """Get the next step ID.
+
+    Si se pasan `answers`, se saltan los pasos cuyo dato (`save_to`) ya está
+    presente — p.ej. `lifeStage`/`timeHorizon` sembrados desde el onboarding,
+    para no volver a preguntar lo mismo (B-02). Sin `answers`, comportamiento
+    original (un solo salto).
+    """
     step = get_step(current_step_id)
-    return step.next_step if step else None
+    if not step:
+        return None
+    next_id = step.next_step
+    if not answers:
+        return next_id
+    # Saltar pasos ya respondidos (con valor no vacío)
+    while next_id:
+        nxt = get_step(next_id)
+        if nxt and nxt.save_to and answers.get(nxt.save_to):
+            next_id = nxt.next_step
+        else:
+            break
+    return next_id
 
 
 def get_step_index(step_id: str) -> int:

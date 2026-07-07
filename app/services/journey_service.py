@@ -81,6 +81,36 @@ def seed_answers_from_onboarding(onboarding: Optional[dict]) -> dict:
     return seeded
 
 
+def seed_session_from_onboarding(session: Session, onboarding: Optional[dict]) -> bool:
+    """Aplica el seed del onboarding a una sesión (B-02).
+
+    Se usa sobre la sesión VINCULADA al usuario (la que el Journey realmente
+    consume), no sobre una anónima. Rellena `answers`/`completed_steps` con los
+    valores mapeados del onboarding SIN pisar respuestas del Journey ya dadas,
+    para no romper una sesión en progreso si el onboarding se re-ejecuta.
+
+    Construye dicts NUEVOS para que SQLAlchemy detecte el cambio (las columnas
+    JSON sin MutableDict no rastrean mutaciones in-place). Devuelve True si
+    modificó algo.
+    """
+    seeded = seed_answers_from_onboarding(onboarding)
+    if not seeded:
+        return False
+    answers = dict(session.answers or {})
+    completed = list(session.completed_steps or [])
+    changed = False
+    for key, value in seeded.items():
+        if not answers.get(key):  # no pisar lo que el Journey ya respondió
+            answers[key] = value
+            if key not in completed:
+                completed.append(key)
+            changed = True
+    if changed:
+        session.answers = answers
+        session.completed_steps = completed
+    return changed
+
+
 def create_session(db: DBSession, seeded: Optional[dict] = None) -> Session:
     """Create a new journey session.
 

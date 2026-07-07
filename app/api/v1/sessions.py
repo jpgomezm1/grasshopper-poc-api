@@ -6,7 +6,7 @@ from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 from sqlalchemy.orm import Session as DBSession
 
 from app.db.database import get_db
-from app.db.models import User
+from app.db.models import User, Session
 from app.schemas.session import (
     SessionCreate,
     SessionEventCreate,
@@ -18,7 +18,7 @@ from app.services.journey_service import (
     get_session,
     build_journey_response,
     process_event,
-    seed_answers_from_onboarding,
+    seed_session_from_onboarding,
 )
 from app.services import bitrix_sync_service
 from app.services import parental_consent_service
@@ -37,20 +37,32 @@ def create_new_session(
 ):
     """Create a new journey session.
 
-    Anonymous creation is intentionally allowed — students may begin their
-    journey before registering. The session is linked to a user only after
-    they authenticate (POST /auth/link-session or on registration).
+    Para un usuario autenticado devolvemos su sesión VINCULADA (get-or-create),
+    sembrada con los datos del onboarding (B-02), en vez de crear una sesión
+    anónima nueva. Así el Journey siempre opera sobre una sesión con dueño
+    —evita el 403 de `assert_session_access` si el front llega aquí antes de
+    hidratar `gh_session_id`— y no se fragmenta en varias sesiones. La siembra
+    solo rellena lo vacío, así que no pisa un Journey ya en progreso.
 
-    B-02: si quien crea la sesión ya está autenticado y tiene respuestas de
-    onboarding, se siembra la sesión con etapa de vida y horizonte para que
-    el Journey no vuelva a preguntar lo que ya se capturó.
+    Creación anónima: se permite para empezar antes de registrarse; el avance
+    del Journey (`submit_event`) exige auth, así que la sesión se vincula al
+    autenticarse.
     """
-    seeded = (
-        seed_answers_from_onboarding(current_user.onboarding_answers)
-        if current_user
-        else None
-    )
-    session = create_session(db, seeded=seeded)
+    if current_user is not None:
+        session = (
+            db.query(Session)
+            .filter(Session.user_id == current_user.id)
+            .first()
+        )
+        if session is None:
+            session = Session(user_id=current_user.id)
+            db.add(session)
+        seed_session_from_onboarding(session, current_user.onboarding_answers)
+        db.commit()
+        db.refresh(session)
+        return build_journey_response(db, session)
+
+    session = create_session(db)
     return build_journey_response(db, session)
 
 

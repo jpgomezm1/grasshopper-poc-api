@@ -20,6 +20,7 @@ from app.core.url_safety import build_safe_url
 from app.db.database import get_db
 from app.db.models import User, OnboardingStatus, Session, UserRole, School
 from app.schemas.school import SchoolSummary
+from app.services.journey_service import seed_session_from_onboarding
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 security = HTTPBearer()
@@ -567,11 +568,18 @@ def complete_onboarding(
     """Mark onboarding as completed and create initial journey session."""
     current_user.onboarding_status = OnboardingStatus.COMPLETED
 
-    # Create initial session for user if they don't have one
+    # Create initial session for user if they don't have one. B-02: la sembramos
+    # con etapa de vida y horizonte derivados del onboarding para que el Journey
+    # no vuelva a preguntar lo ya capturado. Se siembra sobre la sesión VINCULADA
+    # (la que el Journey realmente usa vía getUserSession/gh_session_id), tanto si
+    # es nueva como si ya existía (p.ej. creada al registrarse) y sigue fresca.
     existing_session = db.query(Session).filter(Session.user_id == current_user.id).first()
     if not existing_session:
         session = Session(user_id=current_user.id)
+        seed_session_from_onboarding(session, current_user.onboarding_answers)
         db.add(session)
+    else:
+        seed_session_from_onboarding(existing_session, current_user.onboarding_answers)
 
     db.commit()
     db.refresh(current_user)
@@ -589,6 +597,9 @@ def get_user_session(
 
     if not session:
         session = Session(user_id=current_user.id)
+        # B-02 · si el onboarding ya tiene datos, sembrar aquí también (este
+        # endpoint puede crear la sesión antes de complete-onboarding).
+        seed_session_from_onboarding(session, current_user.onboarding_answers)
         db.add(session)
         db.commit()
         db.refresh(session)

@@ -435,12 +435,16 @@ def generate_routes(
             onboarding_context=format_onboarding_context(onboarding),
         )
 
+        # R5 · presupuesto propio: el JSON de 3 rutas (4 campos de texto c/u,
+        # ahora más ricos por el contexto R4) no cabe en el default de 1024 —
+        # con la regla C2 (stop_reason=max_tokens ⇒ fallo) el truncado caía a
+        # FALLBACK_ROUTES en prod (Heroku sin AI_MAX_TOKENS; local tenía 2000).
         response, meta = call_claude_with_meta(
             prompt,
             session_id=session_id,
             feature="journey_routes",
             prompt_version="routes_v1",
-            max_tokens=settings.ai_max_tokens,
+            max_tokens=max(settings.ai_max_tokens, 2000),
             temperature=settings.ai_temperature,
         )
 

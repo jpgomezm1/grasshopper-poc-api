@@ -275,6 +275,154 @@ def calculate_istrong(answers: Dict[str, int]) -> Dict[str, object]:
 # Public dispatcher
 # ---------------------------------------------------------------------------
 
+# ── T-04 · VARK + Motivadores (algoritmo de la clienta · PDF Sprint 2 §3) ──
+
+VARK_INFO: Dict[str, Dict[str, str]] = {
+    "V": {
+        "name": "Visual",
+        "description": "Aprendes viendo: mapas mentales, infografías, diagramas y colores.",
+        "tip": "Convierte tus apuntes en esquemas y diagramas; usa colores para agrupar ideas.",
+    },
+    "A": {
+        "name": "Auditivo",
+        "description": "Aprendes escuchando: debates, podcasts, explicaciones verbales o rimas.",
+        "tip": "Graba resúmenes en audio y explícale los temas a alguien más en voz alta.",
+    },
+    "R": {
+        "name": "Lecto-Escritura",
+        "description": "Aprendes leyendo y escribiendo: listas, libros, apuntes estructurados y manuales.",
+        "tip": "Haz resúmenes escritos con tus propias palabras y listas de conceptos clave.",
+    },
+    "K": {
+        "name": "Kinestésico",
+        "description": "Aprendes haciendo: tocar, armar, experimentar, moverte y aplicar la teoría a la vida real.",
+        "tip": "Busca práctica real: experimentos, maquetas, simulaciones o caminar mientras repasas.",
+    },
+}
+
+MOTIVADOR_INFO: Dict[str, Dict[str, str]] = {
+    "LOG": {
+        "name": "Logro",
+        "description": "Te mueve resolver lo difícil: dominar habilidades complejas y superar desafíos.",
+    },
+    "IMP": {
+        "name": "Impacto Social",
+        "description": "Te mueve que tu trabajo mejore la vida de personas reales y transforme tu comunidad.",
+    },
+    "AUT": {
+        "name": "Autonomía",
+        "description": "Te mueve la libertad: crear a tu manera, ser dueño de tu tiempo y de tus reglas.",
+    },
+    "EST": {
+        "name": "Estatus y Reconocimiento",
+        "description": "Te mueve el éxito visible: que tu esfuerzo se note, inspire respeto y sea reconocido.",
+    },
+    "SEG": {
+        "name": "Seguridad y Estructura",
+        "description": "Te mueve la estabilidad: procesos claros, planificación y tranquilidad financiera.",
+    },
+}
+
+_VARK_ORDER = ["V", "A", "R", "K"]
+_MOTIVADOR_ORDER = ["LOG", "IMP", "AUT", "EST", "SEG"]
+
+
+def _forced_choice_counts(test_id: str, answers: Dict[str, object], order: List[str]) -> Dict[str, int]:
+    """Cuenta cuántas veces se eligió cada variable (1 punto por respuesta)."""
+    test = get_test_by_id(test_id)
+    counts = {k: 0 for k in order}
+    for q in test["questions"]:
+        chosen = answers.get(q["id"])
+        if chosen in counts:
+            counts[chosen] += 1
+    return counts
+
+
+def calculate_vark(answers: Dict[str, object]) -> Dict[str, object]:
+    """Estilos de aprendizaje VARK · reglas de la clienta.
+
+    Regla de Oro de Consejería (manejo de empates): si la diferencia entre el
+    puntaje más alto y el segundo más alto es de 0 o 1 punto, NO se arroja un
+    solo estilo — el alumno es "Perfil Multimodal" y el label combina los dos
+    estilos dominantes (ej. "aprendiz híbrido Visual-Kinestésico"). Desempate
+    determinista por orden canónico V, A, R, K.
+    """
+    counts = _forced_choice_counts("vark", answers, _VARK_ORDER)
+    ranked = sorted(_VARK_ORDER, key=lambda k: (-counts[k], _VARK_ORDER.index(k)))
+    top, second = ranked[0], ranked[1]
+    multimodal = (counts[top] - counts[second]) <= 1
+
+    if multimodal:
+        styles = [top, second]
+        label = f"Perfil Multimodal ({VARK_INFO[top]['name']}-{VARK_INFO[second]['name']})"
+        headline = (
+            f"Eres un aprendiz híbrido ({VARK_INFO[top]['name']}-{VARK_INFO[second]['name']}): "
+            f"combinas dos canales de entrada y te beneficias de mezclarlos al estudiar."
+        )
+    else:
+        styles = [top]
+        label = VARK_INFO[top]["name"]
+        headline = f"Tu estilo de aprendizaje predominante es {VARK_INFO[top]['name']}."
+
+    return {
+        "kind": "vark",
+        "counts": counts,
+        "multimodal": multimodal,
+        "styles": styles,
+        "label": label,
+        "headline": headline,
+        "style_info": [
+            {"code": s, **VARK_INFO[s]} for s in styles
+        ],
+    }
+
+
+def calculate_motivadores(answers: Dict[str, object]) -> Dict[str, object]:
+    """Motivadores iniciales · reglas de la clienta.
+
+    Motivador Primario = mayor puntaje; Secundario = segundo. En caso de
+    empate absoluto en el primer lugar, se FUSIONAN ambos motivadores en el
+    reporte (ej. "Te mueve el Logro con Impacto Social"). Desempate
+    determinista por orden canónico LOG, IMP, AUT, EST, SEG.
+    """
+    counts = _forced_choice_counts("motivadores", answers, _MOTIVADOR_ORDER)
+    ranked = sorted(
+        _MOTIVADOR_ORDER, key=lambda k: (-counts[k], _MOTIVADOR_ORDER.index(k))
+    )
+    top = ranked[0]
+    tied = [k for k in ranked if counts[k] == counts[top]]
+    fusion = len(tied) >= 2
+
+    if fusion:
+        primary, secondary = tied[0], tied[1]
+        label = f"{MOTIVADOR_INFO[primary]['name']} con {MOTIVADOR_INFO[secondary]['name']}"
+        headline = (
+            f"Te mueve el {MOTIVADOR_INFO[primary]['name']} con "
+            f"{MOTIVADOR_INFO[secondary]['name']}."
+        )
+    else:
+        primary = top
+        secondary = ranked[1]
+        label = MOTIVADOR_INFO[primary]["name"]
+        headline = (
+            f"Tu motivador primario es {MOTIVADOR_INFO[primary]['name']}; "
+            f"el secundario, {MOTIVADOR_INFO[secondary]['name']}."
+        )
+
+    return {
+        "kind": "motivadores",
+        "counts": counts,
+        "primary": primary,
+        "secondary": secondary,
+        "fusion": fusion,
+        "label": label,
+        "headline": headline,
+        "motivator_info": [
+            {"code": m, **MOTIVADOR_INFO[m]} for m in (primary, secondary)
+        ],
+    }
+
+
 def derive_test_extras(test_id: str, answers: Dict[str, int]) -> Dict[str, object] | None:
     """Return the test-specific structured payload (or None for tests
     that don't need extras beyond raw category scores).
@@ -285,4 +433,8 @@ def derive_test_extras(test_id: str, answers: Dict[str, int]) -> Dict[str, objec
         return calculate_mbti(answers)
     if test_id == "istrong":
         return calculate_istrong(answers)
+    if test_id == "vark":
+        return calculate_vark(answers)
+    if test_id == "motivadores":
+        return calculate_motivadores(answers)
     return None

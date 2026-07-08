@@ -387,6 +387,152 @@ VOCATIONAL_TESTS = [
             {"id": "is-c-log-5", "text": "Disfruto las profesiones administrativas con procedimientos claros", "type": "likert", "category": "C:logistica"},
         ],
     },
+    # ── T-04 · Tests entregados por la clienta (PDF feedback Sprint 2, págs. 15-18) ──
+    # Contenido TEXTUAL de la clienta (preguntas, opciones y variables). El
+    # algoritmo de calificación (Perfil Multimodal / motivador primario y
+    # secundario con fusión en empate) vive en scoring_service.calculate_vark
+    # y calculate_motivadores.
+    {
+        "id": "vark",
+        "slug": "vark",
+        "name": "Test de Estilos de Aprendizaje (VARK)",
+        "shortName": "Estilos de Aprendizaje",
+        "description": "Descubre como entra mejor la informacion a tu cerebro: Visual, Auditivo, Lecto-Escritura o Kinestesico. Entender como aprendes mejora tu rendimiento academico.",
+        "academicBasis": "Mapeo VARK adaptado (Fleming & Mills). No define una carrera: identifica el mecanismo de entrada de informacion del estudiante, clave para mejorar el GPA y los habitos de estudio.",
+        "estimatedMinutes": 4,
+        "questionCount": 5,
+        "icon": "eye",
+        "questions": [
+            {
+                "id": "vk-1",
+                "text": "Cuando tienes que estudiar para un examen difícil de ciencias o historia, ¿cómo prefieres repasar el material?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "V", "label": "Viendo mapas conceptuales, diagramas de flujo, imágenes o videos con animaciones."},
+                    {"value": "A", "label": "Grabando notas de voz, explicando el tema a un amigo o escuchando un podcast educativo."},
+                    {"value": "R", "label": "Leyendo mis apuntes del cuaderno, repasando el libro de texto o haciendo resúmenes escritos."},
+                    {"value": "K", "label": "Haciendo fichas físicas que pueda mover con las manos, maquetas o caminando mientras repito el tema."},
+                ],
+            },
+            {
+                "id": "vk-2",
+                "text": "Estás en YouTube o TikTok aprendiendo a usar un software nuevo (como edición de video o programación). ¿Qué es lo que más te ayuda a entender?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "V", "label": "Los gráficos en pantalla y ver exactamente en qué parte de la interfaz hace clic el creador."},
+                    {"value": "A", "label": "La explicación hablada del creador, sus consejos en voz alta y el ritmo de su narración."},
+                    {"value": "R", "label": "Los subtítulos detallados del video, los bloques de texto explicativos o la guía en PDF de la descripción."},
+                    {"value": "K", "label": "Abrir el programa en mi computadora al mismo tiempo e ir pausando el video para replicar los pasos yo mismo."},
+                ],
+            },
+            {
+                "id": "vk-3",
+                "text": "Si un profesor te da la libertad de elegir el formato para entregar un proyecto escolar, ¿cuál elegirías sin dudarlo?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "V", "label": "Una infografía gigante, un póster visual bien diseñado o un cómic ilustrado."},
+                    {"value": "A", "label": "Un debate en vivo con mis compañeros, una exposición oral o grabar un episodio de podcast."},
+                    {"value": "R", "label": "Un ensayo escrito estructurado, un reporte formal en formato blog o un guion de texto detallado."},
+                    {"value": "K", "label": "Un experimento en vivo, un prototipo físico en 3D o una simulación/obra de teatro interactiva."},
+                ],
+            },
+            {
+                "id": "vk-4",
+                "text": "Cuando estás tratando de recordar cómo se escribe una palabra difícil o cómo funciona una fórmula matemática, ¿qué hace tu mente?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "V", "label": "Visualiza la página del libro o el tablero del salón donde estaba escrita."},
+                    {"value": "A", "label": "Escucha internamente el sonido de la palabra o repite la fórmula cantada/hablada en mi cabeza."},
+                    {"value": "R", "label": "Escribe la palabra en un papel borrador para ver si \"se ve\" bien escrita en papel."},
+                    {"value": "K", "label": "Recuerda el movimiento de mi mano al escribirla o el laboratorio práctico donde la utilicé."},
+                ],
+            },
+            {
+                "id": "vk-5",
+                "text": "En tu tiempo libre, si entras a una app de juegos o retos mentales, ¿cuál de estos estilos prefieres?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "V", "label": "Rompecabezas visuales, juegos de buscar objetos ocultos o diseño de mapas y mundos."},
+                    {"value": "A", "label": "Trivias por voz, juegos de adivinar canciones o interactuar en canales de audio tipo \"Among Us\"."},
+                    {"value": "R", "label": "Juegos de palabras como Scrabble, crucigramas, Wordle o leer historias interactivas de opción múltiple."},
+                    {"value": "K", "label": "Simuladores de construcción, juegos de ritmo que exijan reflejos físicos o armar figuras complejas."},
+                ],
+            },
+        ],
+    },
+    {
+        "id": "motivadores",
+        "slug": "motivadores",
+        "name": "Test de Motivadores Iniciales",
+        "shortName": "Motivadores",
+        "description": "Descubre tu combustible emocional: que te mueve de verdad — el Logro, el Impacto Social, la Autonomia, el Reconocimiento o la Seguridad.",
+        "academicBasis": "Mide el motor emocional del estudiante en 5 motivadores (Logro, Impacto Social, Autonomia, Estatus/Reconocimiento, Seguridad/Estructura), con motivador primario y secundario.",
+        "estimatedMinutes": 4,
+        "questionCount": 5,
+        "icon": "flame",
+        "questions": [
+            {
+                "id": "mt-1",
+                "text": "Imagina que participas en un proyecto escolar que gana el primer lugar. ¿Qué es lo que más te haría sentir orgulloso?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "LOG", "label": "Saber que resolvimos el problema más difícil, ese que ningún otro grupo pudo solucionar."},
+                    {"value": "IMP", "label": "Ver que nuestro proyecto ayudó directamente a mejorar la vida de personas reales en el colegio o el barrio."},
+                    {"value": "AUT", "label": "Que el profesor nos dio total libertad creativa para hacerlo a nuestra manera, sin reglas aburridas."},
+                    {"value": "EST", "label": "Subir al escenario a recibir el trofeo y que todo el colegio aplauda nuestro éxito."},
+                    {"value": "SEG", "label": "Que el proceso fue súper ordenado, planificado desde el inicio y el resultado era totalmente seguro."},
+                ],
+            },
+            {
+                "id": "mt-2",
+                "text": "Si pudieras elegir el \"superpoder\" de tu equipo ideal de trabajo para una competencia, ¿cuál elegirías?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "LOG", "label": "Una mente analítica superior capaz de batir cualquier récord de puntaje."},
+                    {"value": "IMP", "label": "Una empatía gigante para unir al grupo y crear soluciones que beneficien a la comunidad."},
+                    {"value": "AUT", "label": "Una creatividad rebelde para romper el molde y hacer algo totalmente loco e innovador."},
+                    {"value": "EST", "label": "Una reputación increíble que haga que todos en el colegio respeten y admiren nuestro nombre."},
+                    {"value": "SEG", "label": "Una organización perfecta donde cada miembro sepa con precisión cronométrica qué hacer cada día."},
+                ],
+            },
+            {
+                "id": "mt-3",
+                "text": "Estás buscando una actividad extracurricular para inscribirte los sábados. ¿Cuál te llama más la atención?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "LOG", "label": "Un club de robótica o matemáticas olímpicas donde compita por resolver desafíos complejos."},
+                    {"value": "IMP", "label": "Un voluntariado ambiental o apoyo comunitario para ayudar a animales de la calle o niños pequeños."},
+                    {"value": "AUT", "label": "Un taller de arte libre, producción musical independiente o escritura donde cree mis propias obras."},
+                    {"value": "EST", "label": "El modelo de Naciones Unidas (MUN) o el consejo estudiantil para liderar debates y ser la voz del grupo."},
+                    {"value": "SEG", "label": "Un curso certificado de finanzas o programación con pasos claros, estructura fija y diploma garantizado."},
+                ],
+            },
+            {
+                "id": "mt-4",
+                "text": "¿Qué es lo que más te llega a estresar o desmotivar por completo dentro de un salón de clases?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "LOG", "label": "Que las tareas sean demasiado fáciles y repetitivas, sintiendo que no aprendo nada nuevo ni me desafío."},
+                    {"value": "IMP", "label": "Que el trabajo sea puramente teórico e individual, sin ninguna conexión con problemas reales del mundo."},
+                    {"value": "AUT", "label": "Que el profesor controle cada micro-detalle y no me deje proponer ideas o formas alternativas de trabajar."},
+                    {"value": "EST", "label": "Que mi esfuerzo pase totalmente desapercibido y nadie note cuando hago algo sobresaliente."},
+                    {"value": "SEG", "label": "El caos absoluto: que cambien las fechas de entrega a último minuto y las instrucciones sean confusas."},
+                ],
+            },
+            {
+                "id": "mt-5",
+                "text": "Cuando cierras los ojos y piensas en tu vida ideal dentro de 10 años, ¿cuál es tu mayor deseo?",
+                "type": "forced_choice",
+                "options": [
+                    {"value": "LOG", "label": "Ser un experto técnico indiscutible en mi área, habiendo dominado habilidades muy complejas."},
+                    {"value": "IMP", "label": "Saber que mi trabajo diario genera bienestar y transforma positivamente la vida de muchas personas."},
+                    {"value": "AUT", "label": "Ser dueño de mi propio tiempo, trabajar de forma independiente o liderar mi propia empresa bajo mis reglas."},
+                    {"value": "EST", "label": "Haber alcanzado una posición de alto prestigio, éxito visible y liderazgo que inspire respeto en la industria."},
+                    {"value": "SEG", "label": "Tener un trabajo altamente estable, ingresos seguros y la tranquilidad de no vivir con estrés financiero."},
+                ],
+            },
+        ],
+    },
 ]
 
 
@@ -420,6 +566,27 @@ def calculate_vocational_scores(test_id: str, answers: dict) -> dict:
         return {}
 
     questions = test["questions"]
+
+    # T-04 · tests forced_choice (VARK / Motivadores): cada opción elegida
+    # suma 1 punto a su variable. El score por categoría es el % de preguntas
+    # en las que se eligió esa variable (algoritmo de la clienta: conteo
+    # simple sobre 5 preguntas). Las categorías salen de las opciones, para
+    # que las no elegidas aparezcan en 0.
+    if questions and questions[0].get("type") == "forced_choice":
+        counts: dict = {}
+        for q in questions:
+            for opt in q.get("options", []):
+                counts.setdefault(opt["value"], 0)
+        for q in questions:
+            chosen = answers.get(q["id"])
+            if chosen in counts:
+                counts[chosen] += 1
+        total = len(questions)
+        return {
+            cat: round((n / total) * 100) if total else 0
+            for cat, n in counts.items()
+        }
+
     categories = {}
     category_counts = {}
 

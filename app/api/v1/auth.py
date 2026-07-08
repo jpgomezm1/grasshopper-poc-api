@@ -176,6 +176,11 @@ def get_current_user(
     if user is None:
         raise credentials_exception
 
+    # Auditoría R5 · un usuario desactivado (borrado Habeas Data, suspensión)
+    # no debe seguir operando con un JWT emitido antes de la desactivación.
+    if not user.is_active:
+        raise credentials_exception
+
     return user
 
 
@@ -540,8 +545,11 @@ def update_onboarding(
 
     # M-006 · si el onboarding trae fecha de nacimiento (ISO YYYY-MM-DD),
     # la mapeamos a la columna real User.birthdate (alimenta el gate de menores).
+    # Auditoría R5 · SOLO la primera vez: una vez fijada, cambiarla por el
+    # onboarding permitiría a un menor bloqueado "volverse mayor" con un PUT
+    # (bypass trivial del gate). Correcciones de fecha → soporte/admin.
     bd_raw = request.answers.get("birthdate") if isinstance(request.answers, dict) else None
-    if isinstance(bd_raw, str) and bd_raw.strip():
+    if current_user.birthdate is None and isinstance(bd_raw, str) and bd_raw.strip():
         try:
             current_user.birthdate = datetime.strptime(bd_raw.strip()[:10], "%Y-%m-%d").date()
         except ValueError:
@@ -573,7 +581,12 @@ def complete_onboarding(
     # no vuelva a preguntar lo ya capturado. Se siembra sobre la sesión VINCULADA
     # (la que el Journey realmente usa vía getUserSession/gh_session_id), tanto si
     # es nueva como si ya existía (p.ej. creada al registrarse) y sigue fresca.
-    existing_session = db.query(Session).filter(Session.user_id == current_user.id).first()
+    existing_session = (
+        db.query(Session)
+        .filter(Session.user_id == current_user.id)
+        .order_by(Session.created_at.asc())  # R5 · canónica = la más antigua
+        .first()
+    )
     if not existing_session:
         session = Session(user_id=current_user.id)
         seed_session_from_onboarding(session, current_user.onboarding_answers)
@@ -593,7 +606,12 @@ def get_user_session(
     db: DBSession = Depends(get_db)
 ):
     """Get or create user's journey session."""
-    session = db.query(Session).filter(Session.user_id == current_user.id).first()
+    session = (
+        db.query(Session)
+        .filter(Session.user_id == current_user.id)
+        .order_by(Session.created_at.asc())  # R5 · canónica = la más antigua
+        .first()
+    )
 
     if not session:
         session = Session(user_id=current_user.id)

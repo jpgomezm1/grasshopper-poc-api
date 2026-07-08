@@ -32,6 +32,7 @@ from app.db.models import (
     ConsentAuditLog,
     ConsolidatedProfileCache,
     EnglishTestResult,
+    ExternalTestUpload,
     JournalEntry,
     Report,
     SavedOferta,
@@ -511,9 +512,40 @@ def delete_my_data(
     db.query(EnglishTestResult).filter(
         EnglishTestResult.user_id == user_id
     ).delete(synchronize_session=False)
+
+    # Auditoría R5 · los uploads de tests externos guardan raw_text con
+    # nombre/edad del estudiante y un archivo en storage → deben caer con el
+    # borrado (antes persistían tras el Habeas Data).
+    upload_paths = [
+        row.file_path
+        for row in db.query(ExternalTestUpload)
+        .filter(ExternalTestUpload.user_id == user_id)
+        .all()
+        if row.file_path
+    ]
+    db.query(ExternalTestUpload).filter(
+        ExternalTestUpload.user_id == user_id
+    ).delete(synchronize_session=False)
+
+    # Auditoría R5 · los PDFs de reports viven en storage: capturar los paths
+    # ANTES de borrar las filas y eliminarlos best-effort (antes quedaban
+    # huérfanos con PII en el bucket).
+    report_paths = [
+        row.file_path
+        for row in db.query(Report).filter(Report.user_id == user_id).all()
+        if row.file_path
+    ]
     db.query(Report).filter(
         Report.user_id == user_id
     ).delete(synchronize_session=False)
+
+    from app.services.storage_service import delete_file
+
+    for _path in upload_paths + report_paths:
+        try:
+            delete_file(_path)
+        except Exception as exc:  # pragma: no cover · best-effort
+            logger.warning("data_deletion storage cleanup failed · %s", exc)
     # Sessions cascade journal_entries via the relationship.
     db.query(JourneySession).filter(
         JourneySession.user_id == user_id

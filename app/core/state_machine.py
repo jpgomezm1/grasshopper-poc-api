@@ -339,5 +339,11 @@ def validate_answer(step_id: str, payload: Dict[str, Any]) -> bool:
         max_select = step.max_select or len(step.options or [])
         return len(values) > 0 and len(values) <= max_select and all(v in (step.options or []) for v in values)
 
+    # Auditoría R5 · el paso de rutas SOLO se completa vía evento 'selection'
+    # con un route_key válido — un 'answer' vacío lo saltaba y completaba el
+    # journey sin ruta elegida.
+    if step.view_type == ViewType.ROUTES_PICKER:
+        return False
+
     # Reflections and other types don't need validation
     return True

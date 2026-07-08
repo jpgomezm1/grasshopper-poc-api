@@ -120,10 +120,13 @@ def _build_journey_block(db: DBSession, user: User) -> str:
     """
     parts: List[str] = []
 
+    # Auditoría R5 · misma sesión canónica que el resto de endpoints (la más
+    # antigua): si un race dejó duplicadas, el chat no debe leer OTRA sesión
+    # distinta a la que el front está usando.
     session = (
         db.query(Session)
         .filter(Session.user_id == user.id)
-        .order_by(Session.created_at.desc())
+        .order_by(Session.created_at.asc())
         .first()
     )
     if session is not None:

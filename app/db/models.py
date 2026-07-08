@@ -361,6 +361,11 @@ class Session(Base):
     answers = Column(JSON, default=dict, nullable=False)
     completed_steps = Column(JSON, default=list, nullable=False)
     selected_routes = Column(JSON, default=list, nullable=False)
+    # R5 (auditoría Journey) · contenido IA persistido por paso
+    # ({empathy|synthesis|routes: {hash, data}}). Lo que la usuaria VIO es lo
+    # que se guarda/selecciona/journalea — antes cada GET regeneraba con otra
+    # llamada IA y la selección de ruta comparaba contra un set distinto.
+    ai_content = Column(JSON, nullable=True)
 
     # Relationships
     user = relationship("User", back_populates="sessions")

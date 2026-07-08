@@ -124,6 +124,8 @@ def test_seed_does_not_clobber_existing_journey_answers():
     class FakeSession:
         answers = {"lifeStage": "Ya trabajando"}  # el usuario ya respondió en el Journey
         completed_steps = ["lifeStage"]
+        current_step = "welcome"  # R5 · el seed puede avanzar current_step
+        current_stage = None
 
     s = FakeSession()
     changed = seed_session_from_onboarding(s, {"life_stage": "university", "timeline": "1_year"})

@@ -17,6 +17,7 @@ PERFIL DEL USUARIO:
 - Rango de presupuesto: {budget_band}
 - Nivel de idioma: {language_level}
 - Preferencia geografica: {geo_preference}
+- Aspiraciones declaradas (en sus palabras): {declared_aspirations}
 
 MOTIVACIONES IDENTIFICADAS: {motivations}
 RESTRICCIONES IDENTIFICADAS: {constraints}

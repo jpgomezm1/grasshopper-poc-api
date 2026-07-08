@@ -12,6 +12,7 @@ RESPUESTAS DEL USUARIO:
 - Rango de presupuesto: {budget_band}
 - Nivel de idioma: {language_level}
 - Preferencia geografica: {geo_preference}
+- Aspiraciones declaradas (en sus palabras): {declared_aspirations}
 
 CONTEXTO PREVIO DEL ONBOARDING (lo que YA conto al registrarse · puede venir vacio · usalo para que la sintesis se sienta personal, citando 1-2 detalles concretos de lo que conto, sin inventar nada):
 {onboarding_context}

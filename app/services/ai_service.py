@@ -66,13 +66,15 @@ FALLBACK_SYNTHESIS = {
     "constraints": [],
 }
 
+# Auditoría R5 · fallbacks des-sesgados (refocus Sprint 2): la orientación es
+# para todos; lo internacional es una opción dentro de cada ruta, no el marco.
 FALLBACK_ROUTES = [
     {
-        "key": "LANGUAGE_PLUS_EXPERIENCE",
-        "name": "Ruta Idioma + Experiencia",
-        "why": "Perfecta si quieres mejorar un idioma mientras vives algo nuevo, sin comprometerte a algo demasiado largo.",
-        "what_it_looks_like": "Curso intensivo + actividades culturales + objetivos semanales claros.",
-        "next_step": "Definir duración ideal y ritmo (intensivo vs flexible).",
+        "key": "DISCOVER_VOCATION",
+        "name": "Ruta Descubrir tu Vocación",
+        "why": "Perfecta si aún no tienes claro qué estudiar: primero entender quién eres y qué te mueve, y desde ahí elegir con confianza.",
+        "what_it_looks_like": "Tests vocacionales + exploración de áreas de carrera + conversaciones con Hop para afinar tu perfil.",
+        "next_step": "Completar los tests pendientes y revisar tu perfil consolidado.",
     },
     {
         "key": "PRACTICAL_SKILLS_SHORT",
@@ -83,10 +85,10 @@ FALLBACK_ROUTES = [
     },
     {
         "key": "DEGREE_PATHWAY",
-        "name": "Ruta Pregrado (con camino claro)",
-        "why": "Si estas pensando en construir una carrera afuera, esta ruta ordena requisitos, idioma y tiempos.",
-        "what_it_looks_like": "Exploración de programas + requisitos + plan de preparación por etapas.",
-        "next_step": "Aterrizar país vs programa y requisitos de idioma.",
+        "name": "Ruta Carrera Universitaria (con camino claro)",
+        "why": "Si estas pensando en construir una carrera —en tu país o fuera—, esta ruta ordena opciones, requisitos y tiempos.",
+        "what_it_looks_like": "Exploración de programas (locales e internacionales) + requisitos + plan de preparación por etapas.",
+        "next_step": "Aterrizar área de estudio y comparar opciones locales e internacionales.",
     },
 ]
 
@@ -171,6 +173,10 @@ def format_onboarding_context(onboarding: Optional[Dict[str, Any]]) -> str:
 
     def _add(label: str, value: Optional[str]) -> None:
         value = (value or "").strip().replace("{", "(").replace("}", ")")
+        # Auditoría R5 · tope por campo: una respuesta de voz larguísima no
+        # debe inflar todos los prompts que reciben este contexto.
+        if len(value) > 600:
+            value = value[:600] + "…"
         if value:
             lines.append(f"- {label}: {value}")
 
@@ -326,6 +332,7 @@ def generate_synthesis(
             budget_band=answers.get("budgetBand", "No especificado"),
             language_level=answers.get("languageLevel", "No especificado"),
             geo_preference=answers.get("geoPreference", "No especificado"),
+            declared_aspirations=(answers.get("declaredAspirations") or "No especificado")[:600],
             onboarding_context=format_onboarding_context(onboarding),
         )
 
@@ -424,6 +431,7 @@ def generate_routes(
             geo_preference=answers.get("geoPreference", "No especificado"),
             motivations=", ".join(motivations),
             constraints=", ".join(constraints) if constraints else "Ninguna especial",
+            declared_aspirations=(answers.get("declaredAspirations") or "No especificado")[:600],
             onboarding_context=format_onboarding_context(onboarding),
         )
 

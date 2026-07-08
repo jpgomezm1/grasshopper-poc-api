@@ -2,7 +2,7 @@
 
 import logging
 from uuid import UUID
-from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Request
 from sqlalchemy.orm import Session as DBSession
 
 from app.db.database import get_db
@@ -32,6 +32,7 @@ router = APIRouter(prefix="/sessions", tags=["sessions"])
 
 @router.post("", response_model=JourneyResponse)
 def create_new_session(
+    request: Request,
     db: DBSession = Depends(get_db),
     current_user: User = Depends(get_optional_current_user),
 ):
@@ -46,12 +47,16 @@ def create_new_session(
 
     Creación anónima: se permite para empezar antes de registrarse; el avance
     del Journey (`submit_event`) exige auth, así que la sesión se vincula al
-    autenticarse.
+    autenticarse. Auditoría R5: con rate limit por IP (antes acumulaba filas
+    huérfanas sin tope).
     """
     if current_user is not None:
+        # Auditoría R5 · orden determinista: si un race dejó sesiones
+        # duplicadas, TODOS los endpoints usan la más antigua (la canónica).
         session = (
             db.query(Session)
             .filter(Session.user_id == current_user.id)
+            .order_by(Session.created_at.asc())
             .first()
         )
         if session is None:
@@ -61,6 +66,11 @@ def create_new_session(
         db.commit()
         db.refresh(session)
         return build_journey_response(db, session)
+
+    # Rate limit por IP SOLO para creación anónima (auditoría R5).
+    from app.core.rate_limiter import rate_limit
+
+    rate_limit("30/hour", scope="anon_sessions")(request)
 
     session = create_session(db)
     return build_journey_response(db, session)
@@ -102,7 +112,15 @@ def submit_event(
     session = assert_session_access(session_id, current_user, db)
 
     # M-006 · gate: menor de 16 (edad conocida) sin consentimiento parental.
-    if parental_consent_service.needs_parental_consent(current_user):
+    # Auditoría R5 · el gate evalúa al DUEÑO de la sesión, no al caller: un
+    # staff con acceso no debe poder avanzar el journey de un menor sin
+    # consentimiento (antes se evaluaba al staff y el gate no aplicaba).
+    gate_subject = current_user
+    if session.user_id is not None and session.user_id != current_user.id:
+        owner = db.query(User).filter(User.id == session.user_id).first()
+        if owner is not None:
+            gate_subject = owner
+    if parental_consent_service.needs_parental_consent(gate_subject):
         raise HTTPException(
             status_code=403, detail="minor_parental_consent_required"
         )

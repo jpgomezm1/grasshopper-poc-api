@@ -108,6 +108,51 @@ def invalidate_catalog_cache() -> None:
     _cache["data"] = None
 
 
+# R3-01 · etiquetas legibles por tipo de programa, para componer un nombre de
+# oferta cuando la fila del catálogo real viene a nivel INSTITUCIÓN (el Excel
+# del cliente de junio trae 2.511 filas con name == institution y area NULL).
+_TYPE_LABEL = {
+    "pregrado": "Pregrado",
+    "maestria": "Maestría",
+    "mba": "MBA",
+    "posgrado": "Posgrado",
+    "doctorado": "Doctorado",
+    "especializacion": "Especialización",
+    "diplomado": "Diplomado",
+    "curso_corto": "Curso corto",
+    "bootcamp": "Bootcamp",
+    "vacacional": "Programa vacacional",
+    "intercambio": "Intercambio",
+}
+
+
+def display_name_for_program(
+    name: Optional[str],
+    institution: Optional[str],
+    subject: Optional[str] = None,
+    area: Optional[str] = None,
+    program_type: Optional[str] = None,
+) -> str:
+    """Nombre legible de una oferta (R3-01 · feedback clienta 2026-07-08).
+
+    El catálogo real viene a nivel institución (name == institution), así que
+    las recomendaciones/cards mostraban "YMCA" como si fuera un programa. Hasta
+    que llegue el Excel a nivel programa, componemos un nombre honesto con lo
+    que sí existe: área/subject o el tipo de programa + la institución.
+    NO inventa programas: solo re-etiqueta con datos reales de la fila.
+    """
+    name = (name or "").strip()
+    institution = (institution or "").strip()
+    if name and (not institution or name.lower() != institution.lower()):
+        return name  # fila con nombre de programa real → no tocar
+
+    what = (area or "").strip() or (subject or "").strip() or _TYPE_LABEL.get(
+        program_type or "", "Programa"
+    )
+    base = institution or name or "Programa"
+    return f"{what} · {base}"
+
+
 def _row_to_oferta_dict(p: Program) -> Dict[str, Any]:
     """Mapea una fila Program (slim) al shape de oferta demo que consume
     `recommendation_service.filter_catalog`.
@@ -118,7 +163,13 @@ def _row_to_oferta_dict(p: Program) -> Dict[str, Any]:
     """
     tags = p.tags if isinstance(p.tags, list) else []
     extras = " · ".join(x for x in (p.area, p.subject) if x)
-    short_desc = f"{p.name} · {p.institution}, {p.country}"
+    # R3-01 · si la fila es institución-como-programa, el nombre visible se
+    # compone con subject/tipo para que la IA recomiende una oferta de
+    # formación y no una universidad pelada.
+    display = display_name_for_program(
+        p.name, p.institution, p.subject, p.area, p.type
+    )
+    short_desc = f"{display} · {p.institution}, {p.country}"
     if extras:
         short_desc = f"{short_desc} · {extras}"
 
@@ -128,7 +179,7 @@ def _row_to_oferta_dict(p: Program) -> Dict[str, Any]:
         "id": str(p.id),
         "program_id": p.program_id,
         "slug": p.slug,
-        "name": p.name,
+        "name": display,
         "shortDescription": short_desc,
         "category": _TYPE_TO_CATEGORY.get(p.type, "carrera_completa"),
         "tags": tags,

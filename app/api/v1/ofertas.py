@@ -24,6 +24,7 @@ from app.api.v1.auth import get_current_user
 from app.db.database import get_db
 from app.db.models import Program, SavedOferta, User
 from app.services import admission_fit_service
+from app.services.catalog_service import display_name_for_program
 
 router = APIRouter(prefix="/ofertas", tags=["Ofertas"])
 
@@ -140,6 +141,13 @@ def _program_to_oferta(p: Program) -> dict:
     image_urls = [img.get("url") for img in images if isinstance(img, dict) and img.get("url")]
     featured_image = image_urls[0] if image_urls else _DEFAULT_FEATURED_IMAGE
 
+    # R3-01 · nombre visible: si la fila es institución-como-programa
+    # (catálogo real a nivel institución), componer con subject/tipo para que
+    # la card lea como oferta de formación y no como universidad pelada.
+    display = display_name_for_program(
+        p.name, p.institution, p.subject, p.area, p.type
+    )
+
     short_desc = ""
     if p.description_long:
         short_desc = (
@@ -148,7 +156,7 @@ def _program_to_oferta(p: Program) -> dict:
             else p.description_long
         )
     else:
-        short_desc = f"{p.name} · {p.institution}, {p.country}"
+        short_desc = f"{display} · {p.institution}, {p.country}"
 
     deadlines: list = []
     if isinstance(p.admission_dates, list):
@@ -165,10 +173,10 @@ def _program_to_oferta(p: Program) -> dict:
     return {
         "id": str(p.id),
         "slug": p.slug,
-        "name": p.name,
+        "name": display,
         "shortDescription": short_desc,
         "fullDescription": p.description_long
-        or f"Programa {p.name} ofrecido por {p.institution} en {p.country}.",
+        or f"{display}, ofrecido por {p.institution} en {p.country}.",
         "highlights": p.highlights if isinstance(p.highlights, list) else [],
         "category": _TYPE_TO_CATEGORY.get(p.type, "carrera_completa"),
         "tags": p.tags if isinstance(p.tags, list) else [],

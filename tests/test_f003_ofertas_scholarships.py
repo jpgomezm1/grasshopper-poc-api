@@ -20,6 +20,8 @@ def _fake_program(**over):
         country="Canadá",
         city="Toronto",
         type="carrera",
+        area=None,
+        subject=None,
         description_long=None,
         highlights=[],
         tags=[],

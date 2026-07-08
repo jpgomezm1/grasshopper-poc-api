@@ -4,11 +4,15 @@ El usuario acaba de responder a la pregunta "Que te hizo llegar hasta aqui hoy?"
 
 "{user_input}"
 
+CONTEXTO PREVIO DEL ONBOARDING (lo que YA conto al registrarse · puede venir vacio):
+{onboarding_context}
+
 Tu tarea es generar una reflexion empatica y breve (2-3 oraciones maximo) que:
 1. Valide lo que el usuario esta sintiendo o expresando
 2. Le de confianza para seguir explorando
 3. Sea calida pero no exagerada
 4. Use un tono conversacional en espanol
+5. Si el contexto del onboarding trae informacion relevante, refleja UN detalle concreto de lo que ya conto (por ejemplo "ya me contaste que te apasiona...") para que sienta que lo recuerdas — sin repetirle todo y sin inventar nada que no este en el contexto
 
 IMPORTANTE: No uses signos de interrogacion. No hagas preguntas. Solo refleja y valida.
 

@@ -13,6 +13,9 @@ RESPUESTAS DEL USUARIO:
 - Nivel de idioma: {language_level}
 - Preferencia geografica: {geo_preference}
 
+CONTEXTO PREVIO DEL ONBOARDING (lo que YA conto al registrarse · puede venir vacio · usalo para que la sintesis se sienta personal, citando 1-2 detalles concretos de lo que conto, sin inventar nada):
+{onboarding_context}
+
 Genera una respuesta JSON con la siguiente estructura exacta:
 {{
   "text": "Una reflexion de 2-3 oraciones que resuma lo que entiendes del usuario. Usa 'Veo a alguien que...' como inicio. Termina con '¿Te refleja esto?'",

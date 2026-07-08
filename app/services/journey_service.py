@@ -13,6 +13,7 @@ from app.db.models import (
     JourneyStage as DBJourneyStage,
     JournalEntryType,
     RouteStatus,
+    User,
 )
 from app.core.state_machine import (
     get_step,
@@ -209,16 +210,38 @@ def build_journey_response(
     # Add AI-generated content based on step type
     answers = session.answers or {}
 
+    # R4 · contexto del onboarding para los pasos IA: lo que el usuario YA
+    # contó al registrarse (pasiones, hobbies, metas) se refleja en las
+    # respuestas de Hop ("ya me contaste que…") en vez de sonar genérico.
+    # Solo se consulta en pasos con IA; None si la sesión es anónima.
+    onboarding = None
+    if session.user_id is not None and step.view_type in (
+        ViewType.REFLECTION,
+        ViewType.ROUTES_PICKER,
+    ):
+        owner = db.query(User).filter(User.id == session.user_id).first()
+        onboarding = owner.onboarding_answers if owner else None
+
     if step.view_type == ViewType.REFLECTION:
         if step.id == "empathy":
             why_here = answers.get("whyHere", "")
             if why_here:
                 reflection = generate_empathy_reflection(
-                    why_here, str(session.id), db=db, user_id=session.user_id
+                    why_here,
+                    str(session.id),
+                    db=db,
+                    user_id=session.user_id,
+                    onboarding=onboarding,
                 )
                 response.reflection_content = reflection.text
         elif step.id == "synthesis":
-            synthesis = generate_synthesis(answers, str(session.id), db=db, user_id=session.user_id)
+            synthesis = generate_synthesis(
+                answers,
+                str(session.id),
+                db=db,
+                user_id=session.user_id,
+                onboarding=onboarding,
+            )
             response.synthesis_text = synthesis.text
             response.synthesis_chips = [
                 {"label": chip.label, "value": chip.value}
@@ -231,7 +254,13 @@ def build_journey_response(
         response.partial_summary_motivation = summary.motivation
 
     elif step.view_type == ViewType.ROUTES_PICKER:
-        routes_output = generate_routes(answers, str(session.id), db=db, user_id=session.user_id)
+        routes_output = generate_routes(
+            answers,
+            str(session.id),
+            db=db,
+            user_id=session.user_id,
+            onboarding=onboarding,
+        )
         response.suggested_routes = [
             {
                 "key": route.key,

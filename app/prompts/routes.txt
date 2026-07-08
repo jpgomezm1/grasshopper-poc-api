@@ -21,6 +21,9 @@ PERFIL DEL USUARIO:
 MOTIVACIONES IDENTIFICADAS: {motivations}
 RESTRICCIONES IDENTIFICADAS: {constraints}
 
+CONTEXTO PREVIO DEL ONBOARDING (lo que YA conto al registrarse · puede venir vacio · usalo para anclar las rutas a sus intereses y preocupaciones reales — por ejemplo, si conto que le apasiona la tecnologia, que alguna ruta lo refleje — sin inventar nada):
+{onboarding_context}
+
 Genera una respuesta JSON con la siguiente estructura exacta:
 {{
   "routes": [

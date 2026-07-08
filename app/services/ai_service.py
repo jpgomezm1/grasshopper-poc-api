@@ -136,11 +136,70 @@ def derive_constraints(answers: Dict[str, Any]) -> List[str]:
     return constraints
 
 
+# ── R4 · IA adaptativa con la sesión ────────────────────────────────────────
+# La clienta: "el mismo set de preguntas una y otra vez… como que no estuviera
+# inteligente". Los pasos IA del Journey ahora reciben lo que la persona YA
+# contó en el onboarding (respuestas de voz + objetivo + interés exterior)
+# para reflejarlo ("ya me contaste que…") en vez de sonar genéricos.
+
+_MAIN_GOAL_LABELS = {
+    "discover": "Descubrir sobre mí (aún no lo tiene claro)",
+    "study": "Estudiar",
+    "learn_language": "Aprender un idioma",
+    "work": "Trabajar",
+    "emigrate": "Emigrar",
+    "explore": "Explorar opciones",
+}
+
+_INTL_INTEREST_LABELS = {
+    "intl_yes": "Sí, le interesa el exterior",
+    "intl_maybe": "Tal vez, quiere ver opciones",
+    "intl_no": "No, quiere enfocarse localmente",
+}
+
+
+def format_onboarding_context(onboarding: Optional[Dict[str, Any]]) -> str:
+    """Bloque de texto con lo que el usuario YA contó en el onboarding.
+
+    Devuelve "(sin datos del onboarding)" si no hay nada — los prompts lo
+    toleran. Solo texto plano (sin llaves) → seguro para str.format.
+    """
+    if not onboarding:
+        return "(sin datos del onboarding)"
+
+    lines: List[str] = []
+
+    def _add(label: str, value: Optional[str]) -> None:
+        value = (value or "").strip().replace("{", "(").replace("}", ")")
+        if value:
+            lines.append(f"- {label}: {value}")
+
+    _add("Qué le apasiona y quiere lograr", onboarding.get("voice_passion"))
+    _add("Actividades que disfruta en su tiempo libre", onboarding.get("voice_hobbies"))
+    _add("Dónde se imagina trabajando en 5 años", onboarding.get("voice_career"))
+    _add("Fortalezas que reconoce en sí mismo/a", onboarding.get("voice_strengths"))
+    _add("Preocupaciones sobre su futuro", onboarding.get("voice_concerns"))
+
+    goals = onboarding.get("main_goal") or []
+    if isinstance(goals, str):
+        goals = [goals]
+    goal_labels = [_MAIN_GOAL_LABELS.get(g, g) for g in goals if g]
+    if goal_labels:
+        lines.append(f"- Objetivo principal declarado: {', '.join(goal_labels)}")
+
+    intl = _INTL_INTEREST_LABELS.get(onboarding.get("international_interest"))
+    if intl:
+        lines.append(f"- Interés en estudiar en el exterior: {intl}")
+
+    return "\n".join(lines) if lines else "(sin datos del onboarding)"
+
+
 def generate_empathy_reflection(
     why_here: str,
     session_id: str,
     db: Optional[DBSession] = None,
     user_id: Optional[UUID] = None,
+    onboarding: Optional[Dict[str, Any]] = None,
 ) -> EmpathyReflectionOutput:
     """
     Generate empathy reflection after 'whyHere' step.
@@ -150,13 +209,17 @@ def generate_empathy_reflection(
         session_id: Session ID for logging
         db: DB session para tracking M-001 (opcional)
         user_id: dueño del journey para tracking M-001 (None si anónimo)
+        onboarding: respuestas del onboarding (R4 · personalización)
 
     Returns:
         EmpathyReflectionOutput with text and detected emotion
     """
     try:
         prompt_template = load_prompt("reflection")
-        prompt = prompt_template.format(user_input=why_here)
+        prompt = prompt_template.format(
+            user_input=why_here,
+            onboarding_context=format_onboarding_context(onboarding),
+        )
 
         response, meta = call_claude_with_meta(
             prompt,
@@ -234,6 +297,7 @@ def generate_synthesis(
     session_id: str,
     db: Optional[DBSession] = None,
     user_id: Optional[UUID] = None,
+    onboarding: Optional[Dict[str, Any]] = None,
 ) -> SynthesisOutput:
     """
     Generate full synthesis reflection.
@@ -243,6 +307,7 @@ def generate_synthesis(
         session_id: Session ID for logging
         db: DB session para tracking M-001 (opcional)
         user_id: dueño del journey para tracking M-001 (None si anónimo)
+        onboarding: respuestas del onboarding (R4 · personalización)
 
     Returns:
         SynthesisOutput with text, chips, motivations, and constraints
@@ -261,6 +326,7 @@ def generate_synthesis(
             budget_band=answers.get("budgetBand", "No especificado"),
             language_level=answers.get("languageLevel", "No especificado"),
             geo_preference=answers.get("geoPreference", "No especificado"),
+            onboarding_context=format_onboarding_context(onboarding),
         )
 
         response, meta = call_claude_with_meta(
@@ -324,6 +390,7 @@ def generate_routes(
     session_id: str,
     db: Optional[DBSession] = None,
     user_id: Optional[UUID] = None,
+    onboarding: Optional[Dict[str, Any]] = None,
 ) -> RouteSuggestionOutput:
     """
     Generate route suggestions.
@@ -333,6 +400,7 @@ def generate_routes(
         session_id: Session ID for logging
         db: DB session para tracking M-001 (opcional)
         user_id: dueño del journey para tracking M-001 (None si anónimo)
+        onboarding: respuestas del onboarding (R4 · personalización)
 
     Returns:
         RouteSuggestionOutput with max 3 routes
@@ -356,6 +424,7 @@ def generate_routes(
             geo_preference=answers.get("geoPreference", "No especificado"),
             motivations=", ".join(motivations),
             constraints=", ".join(constraints) if constraints else "Ninguna especial",
+            onboarding_context=format_onboarding_context(onboarding),
         )
 
         response, meta = call_claude_with_meta(

@@ -22,9 +22,10 @@ from sqlalchemy.orm import Session as DBSession
 
 from app.config import get_settings
 from app.core.ai_client import call_claude_chat, load_prompt
-from app.db.models import Program, User
+from app.db.models import Program, Session, User
 from app.schemas.hop_chat import HopChatTurn
 from app.services.ai_usage_service import record_ai_usage
+from app.services.ai_service import format_onboarding_context
 from app.services.consolidation_service import get_cached_profile
 
 logger = logging.getLogger(__name__)
@@ -109,6 +110,54 @@ def _build_constraints_block(user: User) -> str:
         f"Países preferidos: {countries_txt}\n"
         f"Nivel de inglés (CEFR): {english}"
     )
+
+
+def _build_journey_block(db: DBSession, user: User) -> str:
+    """R4 · estado del journey + onboarding, para que Hop se adapte a la sesión.
+
+    La clienta: "como que no estuviera inteligente" — Hop ahora sabe en qué
+    etapa va la persona y qué contó al registrarse, y puede referenciarlo.
+    """
+    parts: List[str] = []
+
+    session = (
+        db.query(Session)
+        .filter(Session.user_id == user.id)
+        .order_by(Session.created_at.desc())
+        .first()
+    )
+    if session is not None:
+        stage = getattr(session.current_stage, "value", session.current_stage)
+        estado = "completado" if session.is_completed else f"en curso (etapa: {stage})"
+        parts.append(f"Journey vocacional: {estado}")
+        answers = session.answers or {}
+        resumen: List[str] = []
+        for key, label in (
+            ("lifeStage", "etapa de vida"),
+            ("timeHorizon", "horizonte"),
+            ("clarityLevel", "claridad"),
+            ("weeklyActivities", "actividades preferidas"),
+            ("dontWant", "quiere evitar"),
+            ("declaredAspirations", "aspiraciones declaradas"),
+        ):
+            v = answers.get(key)
+            if isinstance(v, list):
+                v = ", ".join(str(x) for x in v)
+            if v:
+                resumen.append(f"{label}: {v}")
+        interest = answers.get("interestType")
+        if isinstance(interest, list) and interest:
+            resumen.append(f"intereses: {', '.join(interest)}")
+        if resumen:
+            parts.append("Respuestas del journey: " + " · ".join(resumen))
+    else:
+        parts.append("Journey vocacional: aún no lo ha empezado")
+
+    onboarding_txt = format_onboarding_context(user.onboarding_answers)
+    if onboarding_txt != "(sin datos del onboarding)":
+        parts.append("Lo que contó al registrarse:\n" + onboarding_txt)
+
+    return "\n".join(parts) if parts else "(sin información de la sesión)"
 
 
 def _find_program(db: DBSession, oferta_id: str) -> Optional[Program]:
@@ -204,12 +253,14 @@ def run_hop_chat(
     profile_block, profile_used = _build_profile_block(db, user)
     constraints_block = _build_constraints_block(user)
     oferta_block, oferta_used = _build_oferta_block(db, oferta_id)
+    journey_block = _build_journey_block(db, user)
 
     template = load_prompt(PROMPT_NAME)
     system = (
         template.replace("{profile_block}", profile_block)
         .replace("{constraints_block}", constraints_block)
         .replace("{oferta_block}", oferta_block)
+        .replace("{journey_block}", journey_block)
     )
 
     # Cap server-side ANTES de armar messages (últimos N turnos).

@@ -35,7 +35,11 @@ from app.schemas.consolidated_profile import (
 from app.services.ai_usage_service import record_ai_usage
 from app.services.consolidation_service import (
     ConsolidationFailure,
+    _is_cache_valid,
+    gather_user_inputs,
     generate_or_get_profile,
+    get_cached_profile,
+    hash_inputs,
 )
 
 logger = logging.getLogger(__name__)
@@ -513,6 +517,47 @@ def parse_recommendations(raw: str) -> List[Dict[str, Any]]:
 
 class RecommendationFailure(RuntimeError):
     """Raised when the recommender pipeline cannot produce valid output."""
+
+
+def peek_recommendations_bundle(
+    db: DBSession,
+    user: User,
+    limit: int = 5,
+) -> Optional[Tuple[ConsolidatedProfile, List[RecommendedProgram], ConsolidatedProfileCache]]:
+    """Probe de SOLO-LECTURA del bundle cacheado vigente (fix 503 H12).
+
+    Devuelve (profile, recs, cache_row) únicamente si TODO está en cache y
+    vigente (hash del perfil + recomendaciones que referencian el catálogo
+    actual). Si haría falta generar (= llamada IA de ~45s), devuelve None y
+    NUNCA llama a la IA — el endpoint decide encolar la generación en
+    background en vez de estallar contra el timeout de 30s del router.
+    """
+    inputs = gather_user_inputs(db, user)
+    expected_hash = hash_inputs(inputs)
+    cache_row = get_cached_profile(db, user.id)
+    if cache_row is None or not _is_cache_valid(cache_row, expected_hash):
+        return None
+    try:
+        profile = ConsolidatedProfile(**cache_row.profile_data)
+    except Exception:
+        return None
+    recs_data = cache_row.recommendations_data
+    if not isinstance(recs_data, list) or not recs_data:
+        return None
+    try:
+        recs = [RecommendedProgram(**r) for r in recs_data]
+    except Exception:
+        return None
+    if not _cached_recs_match_catalog(db, recs):
+        return None
+    return profile, recs[:limit], cache_row
+
+
+def user_has_tests(db: DBSession, user: User) -> bool:
+    """Chequeo barato (solo DB) de si el estudiante ya tiene tests — para que
+    los endpoints devuelvan `empty` sin encolar una generación que fallaría
+    con NoTestsAvailable en background."""
+    return bool(gather_user_inputs(db, user)["tests"])
 
 
 def generate_recommendations(

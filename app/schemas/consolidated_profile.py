@@ -235,12 +235,15 @@ class RecommendationsBundle(BaseModel):
     profile_hash: Optional[str] = Field(
         default=None, description="Hash del input usado para generar (cache key)."
     )
-    status: Literal["ready", "empty"] = Field(
+    status: Literal["ready", "empty", "generating"] = Field(
         default="ready",
         description=(
             "`ready` → bundle generado o cacheado. `empty` → el estudiante no "
             "tiene aún tests psicométricos · profile y recommendations vacíos "
-            "(B-010 QA round 2 · evita 503 espurio en `/recommendations/me`)."
+            "(B-010 QA round 2 · evita 503 espurio en `/recommendations/me`). "
+            "`generating` → la generación corre en background (la llamada IA "
+            "tarda ~45s y el router de Heroku corta a los 30s · el FE hace "
+            "polling a GET /recommendations/me hasta ready/empty)."
         ),
     )
 

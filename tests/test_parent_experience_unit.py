@@ -254,3 +254,47 @@ def test_rsvp_status_aliases(raw, expected):
     normalised = aliases.get(raw, raw)
     assert normalised == expected
     assert normalised in ("going", "declined", "maybe")
+
+
+# ---------------------------------------------------------------------------
+# P0-13 · Perfil del hijo visible para el acudiente (Sprint 3)
+#
+# Este endpoint nunca funcionó y no tenía cobertura. Fallaba por DOS motivos
+# independientes, así que van dos tests estructurales: uno ata el acceso a la
+# columna real del modelo, y el otro ata el whitelist al esquema real.
+# ---------------------------------------------------------------------------
+
+
+def test_consolidated_profile_cache_expone_profile_data_y_no_payload():
+    """El endpoint leía `profile.payload`, que no existe -> AttributeError -> 500.
+
+    La columna real es `profile_data`. Si alguien renombra la columna, este test
+    cae antes de que el acudiente vuelva a ver un 500.
+    """
+    from app.db.models import ConsolidatedProfileCache
+
+    columnas = set(ConsolidatedProfileCache.__table__.columns.keys())
+    assert "profile_data" in columnas
+    assert "payload" not in columnas
+
+
+def test_campos_publicos_del_acudiente_existen_en_el_esquema_real():
+    """El whitelist anterior filtraba 7 claves y solo 1 ('values') existía.
+
+    Resultado: aunque se arreglara el 500, el acudiente habría visto casi nada.
+    Este test amarra la tupla al esquema Pydantic que de verdad se persiste.
+    """
+    from app.api.v1.parent_panel import PARENT_PUBLIC_PROFILE_FIELDS
+    from app.schemas.consolidated_profile import ConsolidatedProfile
+
+    campos_reales = set(ConsolidatedProfile.model_fields.keys())
+    desconocidos = [c for c in PARENT_PUBLIC_PROFILE_FIELDS if c not in campos_reales]
+    assert not desconocidos, f"Claves que el perfil consolidado nunca emite: {desconocidos}"
+
+
+def test_el_acudiente_no_recibe_la_maquinaria_de_ia_ni_los_limites_personales():
+    """B-053: no exponer modelo/prompt. Y `constraints` es información sensible."""
+    from app.api.v1.parent_panel import PARENT_PUBLIC_PROFILE_FIELDS
+
+    for prohibido in ("model_used", "prompt_version", "tests_used", "constraints"):
+        assert prohibido not in PARENT_PUBLIC_PROFILE_FIELDS

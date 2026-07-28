@@ -314,7 +314,7 @@ def _build_html_body(student_name: str, school_name: Optional[str]) -> str:
   <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #e5e1ed;border-radius:12px;padding:32px;">
     {co_brand}
     <h1 style="font-family:Quicksand,Inter,sans-serif;font-size:22px;margin:0 0 12px 0;color:#2b2433;">
-      Tu reporte de orientación vocacional
+      Tu reporte de orientación profesional
     </h1>
     <p style="font-size:15px;line-height:1.6;margin:0 0 16px 0;">
       Hola {student_name},
@@ -372,7 +372,7 @@ def send_report_email(
             reason="empty_pdf",
         )
 
-    subject = "Tu reporte de orientación vocacional · Grasshopper"
+    subject = "Tu reporte de orientación profesional · Grasshopper"
     html = _build_html_body(student_name=student_name, school_name=school_name)
 
     return get_backend().send_with_attachment(

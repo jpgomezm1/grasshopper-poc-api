@@ -68,6 +68,29 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/parent", tags=["Parent Panel"])
 
+# P0-13 · Claves del perfil consolidado que el acudiente puede ver.
+# DEBEN existir en el esquema `ConsolidatedProfile` (app/schemas/consolidated_profile.py):
+# el whitelist anterior filtraba 7 claves de las cuales 6 no las emitía nadie, así que
+# el acudiente no veía nada aunque el endpoint respondiera. Hay un test que ata esta
+# tupla al esquema real para que no vuelva a desincronizarse.
+#
+# Se excluyen a propósito:
+#   - model_used / prompt_version / tests_used -> no exponer la maquinaria de IA a la
+#     familia (misma regla que B-053).
+#   - constraints -> puede contener límites personales o económicos que el estudiante
+#     declaró y que no nos corresponde reenviar al acudiente.
+PARENT_PUBLIC_PROFILE_FIELDS = (
+    "summary_narrative",
+    "strengths",
+    "interests",
+    "values",
+    "learning_style",
+    "work_style",
+    "holland_codes",
+    "personality_dimensions",
+    "suggested_career_paths",
+)
+
 
 # ---------------------------------------------------------------------------
 # Auth gate
@@ -176,21 +199,27 @@ def child_public_profile(
     )
     if not profile:
         return {"available": False, "reason": "Tu hijo aún no tiene perfil consolidado."}
-    payload = profile.payload or {}
-    public_fields = {
-        k: v
-        for k, v in payload.items()
-        if k
-        in (
-            "areas_of_interest",
-            "values",
-            "narrative_short",
-            "summary",
-            "strengths_public",
-            "skills",
-            "next_steps",
-        )
-    }
+    # P0-13 · Ver PARENT_PUBLIC_PROFILE_FIELDS. Dos bugs independientes, ambos
+    # verificados contra el modelo y el esquema:
+    #
+    #   1) `profile.payload` no existe: la columna es `profile_data`
+    #      (models.py ConsolidatedProfileCache). Cualquier acceso levantaba
+    #      AttributeError -> 500 en cuanto el hijo tenía perfil consolidado.
+    #      Es decir: este endpoint nunca funcionó.
+    #
+    #   2) El whitelist no correspondía al esquema real. De las 7 claves que
+    #      filtraba, la única que existe en ConsolidatedProfile es `values`;
+    #      las otras 6 ("areas_of_interest", "narrative_short", "summary",
+    #      "strengths_public", "skills", "next_steps") no las emite nadie.
+    #      Aunque se arreglara (1), el acudiente habría visto casi nada.
+    #
+    # Se excluyen a propósito:
+    #   - model_used / prompt_version / tests_used -> no exponer la maquinaria de IA
+    #     a la familia (misma regla que B-053).
+    #   - constraints -> puede contener límites personales o económicos que el
+    #     estudiante declaró y que no nos corresponde reenviar al acudiente.
+    payload = profile.profile_data or {}
+    public_fields = {k: v for k, v in payload.items() if k in PARENT_PUBLIC_PROFILE_FIELDS}
     return {
         "available": True,
         "generated_at": profile.updated_at,
@@ -315,7 +344,7 @@ def child_timeline(
         milestones.append(
             ParentTimelineMilestone(
                 kind="journey_completed",
-                title="Cerró el journey vocacional",
+                title="Cerró el journey profesional",
                 detail="Su hijo completó la fase guiada del programa.",
                 occurred_at=student.journey_completed_at,
                 icon="trophy",

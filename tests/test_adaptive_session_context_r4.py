@@ -135,3 +135,45 @@ def test_build_journey_block_con_sesion():
     assert "en curso (etapa: exploracion)" in block
     assert "En la universidad" in block
     assert "intereses: Construir una carrera" in block
+
+
+# ---------------------------------------------------------------------------
+# P0-11b · Modalidad (R6-ON-5) — Sprint 3
+#
+# La pregunta de modalidad se agregó al onboarding en el mismo commit que la
+# conecta al contexto de IA, a propósito: capturar una respuesta que después
+# nadie lee es exactamente la queja de la clienta ("pareciera que nada de eso
+# lo usara"). Este test amarra las dos puntas.
+# ---------------------------------------------------------------------------
+
+
+def test_modalidad_del_onboarding_llega_al_contexto_de_ia():
+    from app.services.ai_service import format_onboarding_context
+
+    for valor, esperado in [
+        ("in_person", "Presencial"),
+        ("hybrid", "Híbrido"),
+        ("online", "Virtual"),
+        ("no_preference", "Sin preferencia"),
+    ]:
+        bloque = format_onboarding_context({"modality": valor})
+        assert "Modalidad de estudio que prefiere" in bloque
+        assert esperado in bloque
+
+
+def test_modalidad_desconocida_no_ensucia_el_contexto():
+    """Un value que no esté en el mapa se ignora, no se filtra crudo al prompt."""
+    from app.services.ai_service import format_onboarding_context
+
+    assert format_onboarding_context({"modality": "valor_inventado"}) == "(sin datos del onboarding)"
+
+
+def test_las_etiquetas_de_modalidad_cubren_las_opciones_del_front():
+    """Contrato con OnboardingPage.tsx · step 'modality'.
+
+    Si el front agrega una opción y no se mapea aquí, la respuesta se pierde en
+    silencio: el usuario contesta y la IA nunca se entera.
+    """
+    from app.services.ai_service import _MODALITY_LABELS
+
+    assert set(_MODALITY_LABELS) == {"in_person", "hybrid", "online", "no_preference"}

@@ -597,6 +597,7 @@ def _to_invitation_response(
     summary="GH-S9 · list invitations (own school)",
 )
 def list_invitations(
+    request: Request,
     bundle: tuple = Depends(_get_school_for_caller),
     db: DBSession = Depends(get_db),
     page: int = Query(1, ge=1),
@@ -624,8 +625,20 @@ def list_invitations(
         for u in db.query(User.id, User.email).filter(User.id.in_(inviter_ids)).all():
             email_map[u.id] = u.email
 
+    # P0-16 · Devolver el enlace de aceptación de las invitaciones PENDIENTES.
+    # Antes siempre venía en null, así que si el envío por correo fallaba (p. ej.
+    # RESEND_API_KEY sin configurar) una invitación masiva de 50 estudiantes dejaba
+    # cero acciones posibles: el colegio no tenía forma de hacerle llegar el enlace
+    # a nadie. Es la queja A7 de la clienta ("no sé cómo crear usuarios nuevos").
+    # Solo para pendientes: el token de una invitación aceptada o expirada ya no
+    # sirve y no hay razón para seguir exponiéndolo.
     items = [
-        _to_invitation_response(r, inviter_email=email_map.get(r.invited_by_user_id))
+        _to_invitation_response(
+            r,
+            inviter_email=email_map.get(r.invited_by_user_id),
+            request=request,
+            include_accept_url=(r.status == "pending"),
+        )
         for r in rows
     ]
     total_pages = max(1, math.ceil(total / page_size)) if total else 0

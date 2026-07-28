@@ -73,7 +73,7 @@ FALLBACK_ROUTES = [
         "key": "DISCOVER_VOCATION",
         "name": "Ruta Descubrir tu Vocación",
         "why": "Perfecta si aún no tienes claro qué estudiar: primero entender quién eres y qué te mueve, y desde ahí elegir con confianza.",
-        "what_it_looks_like": "Tests vocacionales + exploración de áreas de carrera + conversaciones con Hop para afinar tu perfil.",
+        "what_it_looks_like": "Tests de orientación + exploración de áreas de carrera + conversaciones con Hop para afinar tu perfil.",
         "next_step": "Completar los tests pendientes y revisar tu perfil consolidado.",
     },
     {
@@ -153,6 +153,13 @@ _MAIN_GOAL_LABELS = {
     "explore": "Explorar opciones",
 }
 
+_MODALITY_LABELS = {
+    "in_person": "Presencial",
+    "hybrid": "Híbrido",
+    "online": "Virtual",
+    "no_preference": "Sin preferencia (abierto a las tres)",
+}
+
 _INTL_INTEREST_LABELS = {
     "intl_yes": "Sí, le interesa el exterior",
     "intl_maybe": "Tal vez, quiere ver opciones",
@@ -196,6 +203,13 @@ def format_onboarding_context(onboarding: Optional[Dict[str, Any]]) -> str:
     intl = _INTL_INTEREST_LABELS.get(onboarding.get("international_interest"))
     if intl:
         lines.append(f"- Interés en estudiar en el exterior: {intl}")
+
+    # P0-11b · Modalidad (R6-ON-5). Se conecta aquí en el mismo commit que la agrega
+    # al onboarding: una pregunta que nadie lee es justo lo que la clienta reclama
+    # ("pareciera que nada de eso lo usara"). Ver ON-X1 en TODO_SPRINT3.
+    modality = _MODALITY_LABELS.get(onboarding.get("modality"))
+    if modality:
+        lines.append(f"- Modalidad de estudio que prefiere: {modality}")
 
     return "\n".join(lines) if lines else "(sin datos del onboarding)"
 

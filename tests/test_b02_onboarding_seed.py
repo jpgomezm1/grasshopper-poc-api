@@ -144,3 +144,42 @@ def test_seed_noop_without_onboarding():
     assert seed_session_from_onboarding(s, None) is False
     assert seed_session_from_onboarding(s, {"unrelated": "x"}) is False
     assert s.answers == {}
+
+
+# ---------------------------------------------------------------------------
+# R6-ON-1b · "Estoy en el colegio" vs "último año" (Sprint 3)
+#
+# Verónica lo pidió dos veces en la reunión del 21-07. No era redacción: el mapa
+# traducía `high_school` a "Terminando el colegio", así que un estudiante de 9°
+# le informaba a la IA que estaba a punto de graduarse.
+# ---------------------------------------------------------------------------
+
+
+def test_colegio_temprano_no_dice_que_esta_terminando():
+    from app.services.journey_service import seed_answers_from_onboarding
+
+    temprano = seed_answers_from_onboarding({"life_stage": "high_school_early"})
+    assert temprano["lifeStage"] == "En el colegio"
+    assert "Terminando" not in temprano["lifeStage"]
+
+    ultimo = seed_answers_from_onboarding({"life_stage": "high_school"})
+    assert ultimo["lifeStage"] == "Terminando el colegio"
+
+
+def test_las_opciones_del_front_tienen_mapeo_en_el_backend():
+    """Contrato con OnboardingPage.tsx · step 'life_stage'.
+
+    Si el front agrega una etapa y no se mapea aquí, `seed_answers_from_onboarding`
+    la ignora en silencio y el Journey vuelve a preguntar lo que ya se respondió
+    (que es justo la redundancia que la clienta reclama).
+    """
+    from app.services.journey_service import _ONBOARDING_LIFE_STAGE_MAP
+
+    assert set(_ONBOARDING_LIFE_STAGE_MAP) == {
+        "high_school_early",
+        "high_school",
+        "university",
+        "recent_grad",
+        "working",
+        "career_change",
+    }

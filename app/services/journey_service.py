@@ -50,6 +50,12 @@ from app.services.ai_service import (
 # a los valores que espera el Journey (sessions.answers, textos de opción).
 # Solo campos que se solapan, para no volver a preguntarlos en el Journey.
 _ONBOARDING_LIFE_STAGE_MAP = {
+    # R6-ON-1b · Antes solo existía `high_school` = "En el colegio" en la UI, pero aquí
+    # se traducía a "Terminando el colegio": un estudiante de 9° le decía a la IA que
+    # estaba a punto de graduarse. Verónica pidió separarlo dos veces en la reunión
+    # ("estoy en el colegio o estoy en último año", "Susana de 11 grados").
+    # `high_school` conserva su valor y su significado — ahora sí es cierto.
+    "high_school_early": "En el colegio",
     "high_school": "Terminando el colegio",
     "university": "En la universidad",
     "recent_grad": "En transición / no seguro",

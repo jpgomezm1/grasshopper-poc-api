@@ -22,6 +22,13 @@ import bcrypt
 import psycopg2
 from dotenv import load_dotenv
 
+# El script imprime "✓" y acentos. En Windows la consola usa cp1252 por defecto y
+# revienta con UnicodeEncodeError A MITAD del seeding — dejando datos a medias sin
+# ningún mensaje de error útil. Verificado el 2026-07-28 corriéndolo en Windows.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 DB_URL = os.environ["DATABASE_URL"]

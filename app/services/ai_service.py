@@ -73,7 +73,7 @@ FALLBACK_ROUTES = [
         "key": "DISCOVER_VOCATION",
         "name": "Ruta Descubrir tu Vocación",
         "why": "Perfecta si aún no tienes claro qué estudiar: primero entender quién eres y qué te mueve, y desde ahí elegir con confianza.",
-        "what_it_looks_like": "Tests vocacionales + exploración de áreas de carrera + conversaciones con Hop para afinar tu perfil.",
+        "what_it_looks_like": "Tests de orientación + exploración de áreas de carrera + conversaciones con Hop para afinar tu perfil.",
         "next_step": "Completar los tests pendientes y revisar tu perfil consolidado.",
     },
     {

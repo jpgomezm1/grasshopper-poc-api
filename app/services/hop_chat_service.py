@@ -132,7 +132,7 @@ def _build_journey_block(db: DBSession, user: User) -> str:
     if session is not None:
         stage = getattr(session.current_stage, "value", session.current_stage)
         estado = "completado" if session.is_completed else f"en curso (etapa: {stage})"
-        parts.append(f"Journey vocacional: {estado}")
+        parts.append(f"Journey profesional: {estado}")
         answers = session.answers or {}
         resumen: List[str] = []
         for key, label in (
@@ -154,7 +154,7 @@ def _build_journey_block(db: DBSession, user: User) -> str:
         if resumen:
             parts.append("Respuestas del journey: " + " · ".join(resumen))
     else:
-        parts.append("Journey vocacional: aún no lo ha empezado")
+        parts.append("Journey profesional: aún no lo ha empezado")
 
     onboarding_txt = format_onboarding_context(user.onboarding_answers)
     if onboarding_txt != "(sin datos del onboarding)":

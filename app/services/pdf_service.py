@@ -126,8 +126,8 @@ class ReportPayload:
 
 
 _TEST_LABELS = {
-    "riasec": ("Holland (RIASEC)", "Intereses vocacionales"),
-    "holland": ("Holland (RIASEC)", "Intereses vocacionales"),
+    "riasec": ("Holland (RIASEC)", "Intereses profesionales"),
+    "holland": ("Holland (RIASEC)", "Intereses profesionales"),
     "mbti": ("MBTI", "Tipo de personalidad"),
     "bigfive": ("Big Five", "Rasgos de personalidad"),
     "big5": ("Big Five", "Rasgos de personalidad"),
@@ -267,7 +267,7 @@ def build_payload(
                 TestCard(
                     name="Holland (RIASEC)",
                     highlight=label,
-                    description="Intereses vocacionales",
+                    description="Intereses profesionales",
                 )
             )
         except Exception:

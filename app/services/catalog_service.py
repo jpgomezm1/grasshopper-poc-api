@@ -94,6 +94,20 @@ _SLIM_COLUMNS = [
     Program.language_requirement,
     Program.tags,
     Program.scholarships_for_latam,
+    # P2-5 · `raw` trae `programs_offered`: lo que la agencia está AUTORIZADA a
+    # vender de esa institución. Verónica: "en el archivo dice que de la institución
+    # A puedo vender Foundations, pregrados y maestrías". El dato ya venía en el
+    # Excel y quedaba enterrado en esta columna, que el query slim no cargaba.
+    #
+    # `load_only` exige atributos mapeados, así que no se puede pedir solo la clave
+    # (`Program.raw["programs_offered"]` rompe con "Label object has no attribute
+    # is_property"). Se carga la columna entera, que MEDIDA contra la BD pesa 344 KB
+    # en total / 137 bytes por fila — despreciable, y se paga una vez por TTL de la
+    # caché, no por request.
+    #
+    # Cobertura real: 586 de 2562 filas (23%). Las otras 1976 se propagan como None
+    # — que no es lo mismo que "no vende nada".
+    Program.raw,
 ]
 
 # Cache módulo-level con TTL · evita re-mapear 2.511 filas en cada request.
@@ -153,6 +167,32 @@ def display_name_for_program(
     return f"{what} · {base}"
 
 
+def _normalize_programs_offered(value: Any) -> Optional[List[str]]:
+    """Limpia la lista de "qué podemos vender de esta institución".
+
+    El Excel del cliente trae duplicados y mezcla idiomas ("High School" y
+    "High school" conviven, "Idiomas" se repite dentro de la misma fila). Se
+    deduplica sin distinguir mayúsculas, conservando el orden y la primera grafía.
+
+    Devuelve None —no lista vacía— cuando no hay dato: son cosas distintas y el
+    prompt las trata distinto ("no sabemos" vs "no vende nada").
+    """
+    if not isinstance(value, list):
+        return None
+    vistos = set()
+    limpio: List[str] = []
+    for item in value:
+        texto = str(item).strip()
+        if not texto:
+            continue
+        clave = texto.lower()
+        if clave in vistos:
+            continue
+        vistos.add(clave)
+        limpio.append(texto)
+    return limpio or None
+
+
 def _row_to_oferta_dict(p: Program) -> Dict[str, Any]:
     """Mapea una fila Program (slim) al shape de oferta demo que consume
     `recommendation_service.filter_catalog`.
@@ -207,6 +247,10 @@ def _row_to_oferta_dict(p: Program) -> Dict[str, Any]:
         # afirmábamos "no tiene beca" para el 100% del catálogo cuando la verdad
         # es "no lo sabemos". True/False = decisión curada · None = sin curar.
         "scholarshipsForLatam": p.scholarships_for_latam,
+        # P2-5 · None cuando no está curado (77% del catálogo). Nunca [].
+        "programsOffered": _normalize_programs_offered(
+            (p.raw or {}).get("programs_offered") if isinstance(p.raw, dict) else None
+        ),
         "active": True,
     }
 

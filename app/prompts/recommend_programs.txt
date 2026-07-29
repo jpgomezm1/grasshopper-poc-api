@@ -34,7 +34,14 @@ CRITERIOS DE RANKING:
    - "stretch" · costo arriba pero alcanzable (justificalo en `why_match`)
 5. Si país preferido está especificado, dale prioridad a programas en esos países (pero no excluyas si el match en interés es muy alto).
 6. Becas (`beca_latam`): cuando un programa tiene `beca_latam=sí`, considéralo un plus de accesibilidad financiera — pesa especialmente si el presupuesto del estudiante es ajustado o el `budget_fit_hint` es "stretch". Si la beca influyó en la recomendación, menciónalo en `why_match` (ej. "cuenta con beca para LatAm que ayuda con el costo"). NUNCA inventes una beca: solo afírmalo si `beca_latam=sí` en el catálogo. Y al revés: `beca_latam=sin_curar` significa que NO TENEMOS EL DATO, no que no haya beca — nunca escribas que el programa "no tiene beca" ni lo presentes como desventaja; si acaso, di que está por confirmar.
-7. Datos pendientes: si `costo` o `duración` dicen "a confirmar" (o `budget_fit_hint=unknown`), trátalo como dato aún no confirmado por la institución — NO asumas que es gratis, barato ni corto; usa `budget_fit: "unknown"` (NUNCA "match": afirmar que entra en el presupuesto de alguien sin conocer el precio es una promesa que no podemos sostener) y, si el costo es relevante para este estudiante, menciona en `why_match` que está por confirmar.
+7. Qué podemos ofrecer de cada institución: algunas entradas traen `podemos_ofrecer=...`
+   con los tipos de programa que la agencia está autorizada a vender ahí (ej. "Pregrado &
+   Postgrado", "Idiomas", "Todos los programas"). Úsalo para no proponer un nivel que no
+   podemos gestionar: si dice "Idiomas", no recomiendes una maestría en esa institución.
+   Cuando la clave NO aparece, significa que ese dato no está cargado — NO que la
+   institución no ofrezca nada. En ese caso no afirmes nada sobre qué se puede gestionar.
+
+8. Datos pendientes: si `costo` o `duración` dicen "a confirmar" (o `budget_fit_hint=unknown`), trátalo como dato aún no confirmado por la institución — NO asumas que es gratis, barato ni corto; usa `budget_fit: "unknown"` (NUNCA "match": afirmar que entra en el presupuesto de alguien sin conocer el precio es una promesa que no podemos sostener) y, si el costo es relevante para este estudiante, menciona en `why_match` que está por confirmar.
 
 ESQUEMA DE SALIDA EXACTO:
 

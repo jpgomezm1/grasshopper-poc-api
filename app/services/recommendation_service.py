@@ -269,6 +269,8 @@ def filter_catalog(
                 if o.get("scholarshipsForLatam") is not None
                 else o.get("scholarships_for_latam")
             ),
+            # P2-5 · Lo que la agencia está autorizada a vender de esa institución.
+            "programs_offered": o.get("programsOffered"),
             "_budget_fit_hint": kind,
         }
         out.append(slim)
@@ -410,20 +412,28 @@ def _format_catalog_block(catalog: List[Dict[str, Any]]) -> str:
             hi = dmax if dmax is not None else dmin
             dur_str = f"{lo}-{hi} {dur.get('type') or ''}".strip()
 
-        parts.append(
-            f"- id={c['program_id']} · {c['program_name']} · "
-            f"categoría={c.get('category') or '-'} · "
-            f"países={', '.join(c.get('countries') or [])} · "
-            f"duración={dur_str} · costo={cost_str} · "
-            f"budget_tier={c.get('budget_tier') or 'a confirmar'} · "
-            f"idioma_req={c.get('language_requirement') or '-'} · "
-            f"budget_fit_hint={c.get('_budget_fit_hint') or '-'} · "
+        campos = [
+            f"id={c['program_id']}",
+            c["program_name"],
+            f"categoría={c.get('category') or '-'}",
+            f"países={', '.join(c.get('countries') or [])}",
+            f"duración={dur_str}",
+            f"costo={cost_str}",
+            f"budget_tier={c.get('budget_tier') or 'a confirmar'}",
+            f"idioma_req={c.get('language_requirement') or '-'}",
+            f"budget_fit_hint={c.get('_budget_fit_hint') or '-'}",
             # P1-19 · "sin_curar" es lo que corresponde cuando el dato es NULL.
             # Antes decía "no" para el 100% del catálogo y el modelo lo tomaba
             # como un hecho: podía escribir "no cuenta con beca" en el why_match.
-            f"beca_latam={_beca_label(c.get('scholarships_for_latam'))} · "
-            f"tags={','.join(c.get('tags') or [])}"
-        )
+            f"beca_latam={_beca_label(c.get('scholarships_for_latam'))}",
+        ]
+        # P2-5 · La clave se OMITE cuando no está curada (77% del catálogo), en vez
+        # de escribir "ninguno": el modelo no puede distinguir "no vendemos nada
+        # ahí" de "no lo tenemos cargado" si le mandamos lo mismo en ambos casos.
+        if c.get("programs_offered"):
+            campos.append(f"podemos_ofrecer={', '.join(c['programs_offered'])}")
+        campos.append(f"tags={','.join(c.get('tags') or [])}")
+        parts.append("- " + " · ".join(campos))
     return "\n".join(parts)
 
 

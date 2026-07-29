@@ -21,6 +21,11 @@ INPUT:
 5. Journal (si existe · puede contener señales emocionales):
 {journal_block}
 
+6. Lo que el estudiante contó de sí mismo al empezar, con sus propias palabras:
+{onboarding_block}
+   Presta especial atención a lo que dijo sobre sus preocupaciones y dudas: es texto
+   abierto y suele traer más señal que cualquier respuesta de opción múltiple.
+
 INSTRUCCIONES DURAS:
 
 - Devuelve EXACTAMENTE el siguiente JSON. Sin texto antes ni después. Sin code fences. Solo JSON parseable.

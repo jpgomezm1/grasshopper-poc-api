@@ -102,11 +102,24 @@ def gather_user_inputs(db: DBSession, user: User) -> Dict[str, Any]:
         "geo_preference": journey_answers.get("geoPreference"),
     }
 
+    # P1-3 · El onboarding NO entraba aquí. El perfil consolidado —el documento que
+    # define quién es el estudiante para todo lo demás— se construía solo con
+    # `session.answers` y columnas de `User`, ignorando las cinco respuestas de voz
+    # donde la persona cuenta con sus palabras qué le apasiona, qué la preocupa y
+    # qué se le da bien. Es la causa raíz de la queja de Sandra ("pareciera que
+    # nada de eso lo usara").
+    #
+    # ⚠️ Sumar esto CAMBIA el hash de inputs, así que invalida la caché de 24h y
+    # fuerza una re-generación por usuario. Es el efecto deseado (el perfil anterior
+    # se armó sin esta información), pero tiene un costo de IA de una sola vez.
+    onboarding = dict(user.onboarding_answers or {})
+
     return {
         "user_id": str(user.id),
         "demographic": demographic,
         "tests": tests_block,
         "journey_answers": journey_answers,
+        "onboarding": onboarding,
     }
 
 
@@ -171,11 +184,18 @@ def _format_journey_block(answers: Dict[str, Any]) -> str:
 
 
 def render_consolidate_prompt(inputs: Dict[str, Any]) -> str:
+    # P1-3 · Se reutiliza `format_onboarding_context` de ai_service en vez de
+    # duplicar el formateo: es el mismo bloque que ya reciben reflection, synthesis,
+    # routes y el chat de Hop, así que el perfil consolidado ve exactamente lo mismo
+    # que el resto del sistema. Import local para evitar un ciclo de imports.
+    from app.services.ai_service import format_onboarding_context
+
     template = load_prompt("consolidate_profile")
     return template.format(
         demographic_block=_format_demographic_block(inputs["demographic"]),
         tests_block=_format_tests_block(inputs["tests"]),
         journey_answers_block=_format_journey_block(inputs["journey_answers"]),
+        onboarding_block=format_onboarding_context(inputs.get("onboarding")),
     )
 
 

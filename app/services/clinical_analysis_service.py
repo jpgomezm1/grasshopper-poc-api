@@ -175,12 +175,19 @@ def _gather_inputs(db: DBSession, student: User) -> Dict[str, Any]:
             .order_by(JournalEntry.created_at.desc())
             .all()
         )
+    # P1-3 · El onboarding tampoco llegaba al análisis clínico, y ahí duele
+    # especialmente: `voice_concerns` es literalmente "¿hay algo que te preocupe o
+    # te genere dudas sobre tu futuro?" — la pregunta más relevante que le hacemos
+    # a alguien, y la psicóloga no la estaba viendo.
+    from app.services.ai_service import format_onboarding_context
+
     return {
         "demographic_block": _format_demographic(student),
         "consolidated_block": _format_consolidated(cache),
         "tests_block": _format_tests(tests),
         "journey_answers_block": _format_journey_answers(journey_answers),
         "journal_block": _format_journal(journal_rows),
+        "onboarding_block": format_onboarding_context(student.onboarding_answers),
         "_tests_count": len(tests),
         "_journal_count": len(journal_rows),
     }

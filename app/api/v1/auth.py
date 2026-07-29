@@ -529,6 +529,57 @@ def get_onboarding(current_user: User = Depends(get_current_user)):
     )
 
 
+# P1-3 · Mapeo de las respuestas del onboarding a las columnas reales de `User`.
+#
+# Los nombres de país son los del catálogo (`Program.country`), verificados contra
+# la BD: 'Canada', 'Australia', 'USA', 'UK', 'Spain', 'Germany'. El recomendador
+# hace una intersección de conjuntos (`preferred_countries & countries`), así que
+# cualquier otra grafía no coincidiría con nada y el filtro quedaría mudo.
+_ONBOARDING_COUNTRY_TO_CATALOG = {
+    "usa": "USA",
+    "canada": "Canada",
+    "spain": "Spain",
+    "uk": "UK",
+    "germany": "Germany",
+    "australia": "Australia",
+    # "other" se omite a propósito: no sabemos cuál es, y adivinar sería peor que
+    # no filtrar.
+}
+
+# (band, techo en USD). `unknown` = "No sé todavía" NO se mapea: dejar las columnas
+# en NULL es la respuesta honesta. Inventar una banda de presupuesto porque el
+# usuario dijo que no sabe es exactamente el error de P1-19.
+_ONBOARDING_BUDGET_TO_BAND = {
+    "under_5k": ("bajo", 5000),
+    "5k_15k": ("medio", 15000),
+    "15k_30k": ("alto", 30000),
+    "over_30k": ("alto", None),
+}
+
+
+def _sync_onboarding_to_user_columns(user: User, answers: dict) -> None:
+    """Copia presupuesto y países del onboarding a las columnas que el
+    recomendador realmente lee. Best-effort: nunca rompe el guardado."""
+    if not isinstance(answers, dict):
+        return
+
+    budget = answers.get("budget")
+    if budget in _ONBOARDING_BUDGET_TO_BAND:
+        band, ceiling = _ONBOARDING_BUDGET_TO_BAND[budget]
+        user.budget_band = band
+        user.budget_max_usd = ceiling
+
+    countries = answers.get("countries")
+    if isinstance(countries, list):
+        mapped = [
+            _ONBOARDING_COUNTRY_TO_CATALOG[c]
+            for c in countries
+            if c in _ONBOARDING_COUNTRY_TO_CATALOG
+        ]
+        if mapped:
+            user.preferred_countries = mapped
+
+
 @router.put("/me/onboarding", response_model=OnboardingResponse)
 def update_onboarding(
     request: OnboardingUpdateRequest,
@@ -554,6 +605,14 @@ def update_onboarding(
             current_user.birthdate = datetime.strptime(bd_raw.strip()[:10], "%Y-%m-%d").date()
         except ValueError:
             pass  # formato inválido → no rompe el onboarding
+
+    # P1-3 · El onboarding preguntaba presupuesto y países y las respuestas morían
+    # en el JSON: el motor de recomendación lee `user.budget_band`,
+    # `user.budget_max_usd` y `user.preferred_countries` (recommendation_service
+    # _format_constraints_block), columnas que NADIE escribía. Es decir, le
+    # preguntábamos al estudiante cuánto puede gastar y a dónde quiere ir, y después
+    # recomendábamos sin usarlo. Ver ON-X1 en TODO_SPRINT3.
+    _sync_onboarding_to_user_columns(current_user, current_answers)
 
     # Update status if provided
     if request.status:

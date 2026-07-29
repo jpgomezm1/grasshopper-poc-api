@@ -21,6 +21,12 @@ INPUT QUE RECIBES:
 3. Answers del journey de onboarding (libres + elecciones):
 {journey_answers_block}
 
+4. Lo que el estudiante contó de sí mismo con SUS PROPIAS PALABRAS (onboarding inicial):
+{onboarding_block}
+   Este bloque es el más valioso que tienes: son respuestas abiertas, no opciones de una
+   lista. Cuando algo de aquí coincida o choque con los tests, dilo — ahí está el insight.
+   Usa su vocabulario cuando puedas: que se reconozca en lo que lee.
+
 INSTRUCCIONES DURAS:
 
 - Devuelve EXACTAMENTE el siguiente JSON. Sin texto antes ni después. Sin code fences. Solo JSON parseable.

@@ -2378,3 +2378,49 @@ class IntegrationConfig(Base):
     )
     # created_at · migration 041_auditability_and_indices
     created_at = Column(DateTime, default=datetime.utcnow, nullable=True)
+
+
+class CVProfile(Base):
+    """A3 · lo que el estudiante responde y edita de su Hoja de Vida.
+
+    Feedback literal de la clienta:
+
+        "Hoja de vida: antes de generarla debe preguntar QUÉ HAGO ACTUALMENTE y
+         EN QUÉ COLEGIO ESTUDIO (si estoy en colegio). (...) Además DEBE PODER
+         EDITARSE (habrá cosas que uno quiera quitar o mejorar)."
+
+    Antes, `GET /me/cv` armaba el PDF de una: no preguntaba nada y no se podía
+    tocar nada. Migración `052_cv_profile`.
+
+    `overrides` guarda las ediciones del estudiante sobre lo que arma
+    `build_cv_data`: titular, resumen, fortalezas, intereses, valores, caminos, y
+    las listas de lo que decidió quitar (`excluded_activity_ids`,
+    `excluded_test_ids`). Va en JSON porque son los mismos campos que ya produce
+    el generador; volverlos columnas obligaría a migrar cada vez que el CV gane
+    una sección.
+    """
+
+    __tablename__ = "cv_profiles"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        unique=True,
+        index=True,
+    )
+
+    # --- Las dos preguntas que ella pidió ---------------------------------
+    current_occupation = Column(String(80), nullable=True)
+    occupation_detail = Column(String(200), nullable=True)
+    studies_at_school = Column(Boolean, nullable=True)
+    school_name = Column(String(200), nullable=True)
+
+    # --- Lo que el estudiante editó o quitó -------------------------------
+    overrides = Column(JSON, nullable=True)
+
+    answered_at = Column(DateTime, nullable=True)
+    updated_at = Column(
+        DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True
+    )

@@ -72,6 +72,8 @@ class CVActivity:
     period: Optional[str] = None
     description: Optional[str] = None
     achievements: List[str] = field(default_factory=list)
+    # A3 · necesario para que el estudiante pueda QUITAR una actividad del CV.
+    activity_id: Optional[str] = None
 
 
 @dataclass
@@ -82,6 +84,8 @@ class CVData:
     school_name: Optional[str] = None
     grade: Optional[str] = None
     english_level: Optional[str] = None
+    # A3 · "antes de generarla debe preguntar qué hago actualmente".
+    current_occupation: Optional[str] = None
 
     headline: Optional[str] = None
     summary: Optional[str] = None
@@ -90,7 +94,10 @@ class CVData:
     values: List[str] = field(default_factory=list)
     career_paths: List[str] = field(default_factory=list)
 
-    # (label, highlight, description)
+    # (label, highlight, description, test_id)
+    # El `test_id` va al final —y no al principio— para no romper el desempaque
+    # posicional que ya hacía la plantilla. A3 lo necesita para poder quitar un
+    # test del CV.
     test_highlights: List[tuple] = field(default_factory=list)
     activities: List[CVActivity] = field(default_factory=list)
 
@@ -152,7 +159,7 @@ def build_cv_data(
             label, desc = _TEST_LABELS.get(tid, (tid.upper(), ""))
             hl = _highlight_for(tid, getattr(tr, "scores", {}) or {})
             if hl and hl != "—":
-                highlights.append((label, hl, desc))
+                highlights.append((label, hl, desc, tid))
 
     # Actividades
     cv_activities: List[CVActivity] = []
@@ -169,6 +176,9 @@ def build_cv_data(
                 ),
                 description=getattr(a, "description", None),
                 achievements=list(getattr(a, "achievements", None) or []),
+                activity_id=(
+                    str(getattr(a, "id", "")) if getattr(a, "id", None) else None
+                ),
             )
         )
 
@@ -249,6 +259,10 @@ def _chips(items: List[str], navy: bool = False) -> str:
 
 def _html_header(cv: CVData) -> str:
     contact_bits = []
+    # A3 · "antes de generarla debe preguntar qué hago actualmente". Va primero
+    # porque es lo que ubica a quien lee la hoja de vida.
+    if cv.current_occupation:
+        contact_bits.append(f"<span>{escape(cv.current_occupation)}</span>")
     if cv.email:
         contact_bits.append(f"<span>✉ <b>{escape(cv.email)}</b></span>")
     if cv.school_name:
@@ -289,7 +303,11 @@ def _html_tests(cv: CVData) -> str:
     if not cv.test_highlights:
         return ""
     cards = []
-    for label, hl, desc in cv.test_highlights:
+    # Se desempaqueta por posición y no con `for a, b, c in ...`: A3 agregó el
+    # `test_id` como cuarto elemento y un CVData armado a mano (o guardado antes)
+    # puede seguir trayendo tuplas de 3.
+    for fila in cv.test_highlights:
+        label, hl, desc = fila[0], fila[1], fila[2]
         cards.append(
             f'<div class="test-card"><div class="t-name">{escape(label)}</div>'
             f'<div class="t-hl">{escape(str(hl))}</div>'

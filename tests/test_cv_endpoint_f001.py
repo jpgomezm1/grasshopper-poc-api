@@ -77,6 +77,21 @@ def _make_user(SessionLocal, email, *, role="student", name=None):
         db.close()
 
 
+def _answer_cv_questions(SessionLocal, user_id):
+    """A3 · desde 2026-07-29 el PDF no se genera hasta responder las preguntas
+    previas ("antes de generarla debe preguntar qué hago actualmente…"). Los tests
+    que quieren llegar al render tienen que pasar ese paso primero."""
+    from app.services import cv_profile_service
+
+    db = SessionLocal()
+    try:
+        cv_profile_service.save_answers(
+            db, user_id, current_occupation="working", occupation_detail="Panadería"
+        )
+    finally:
+        db.close()
+
+
 def _login(client, email, password="testpass123"):
     r = client.post("/api/v1/auth/login", json={"email": email, "password": password})
     assert r.status_code == 200, r.text
@@ -104,7 +119,8 @@ def test_cv_503_does_not_leak_internal_error(app_with_db, monkeypatch):
     """Cuando el render falla (GTK ausente), el cliente recibe un 503 genérico
     SIN las rutas internas de librerías del host."""
     app, SessionLocal = app_with_db
-    _, email = _make_user(SessionLocal, "student503@x.com", role="student")
+    uid, email = _make_user(SessionLocal, "student503@x.com", role="student")
+    _answer_cv_questions(SessionLocal, uid)
     client = TestClient(app)
     token = _login(client, email)
 
@@ -127,12 +143,13 @@ def test_cv_filename_sanitized_against_header_injection(app_with_db, monkeypatch
     """`name` editable por el usuario con comillas/CRLF no debe romper el header
     Content-Disposition (header injection)."""
     app, SessionLocal = app_with_db
-    _, email = _make_user(
+    uid, email = _make_user(
         SessionLocal,
         "evil@x.com",
         role="student",
         name='Juan" attachment; x="\r\nSet-Cookie: a=b',
     )
+    _answer_cv_questions(SessionLocal, uid)
     client = TestClient(app)
     token = _login(client, email)
 

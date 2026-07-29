@@ -58,7 +58,9 @@ def test_build_cv_data_maps_all_sections():
     assert data.english_level == "B2"
     assert data.headline == "Ciencias de la salud · Biomédica"
     # RIASEC top-3 → IAS · MBTI → ENFP
-    hl = {label: highlight for label, highlight, _ in data.test_highlights}
+    # A3 · las tuplas ganaron un 4º elemento (`test_id`) para que el estudiante
+    # pueda quitar un test de su hoja de vida.
+    hl = {fila[0]: fila[1] for fila in data.test_highlights}
     assert hl["Holland (RIASEC)"] == "IAS"
     assert hl["MBTI"] == "ENFP"
     assert len(data.activities) == 1

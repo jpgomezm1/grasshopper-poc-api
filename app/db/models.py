@@ -535,6 +535,15 @@ class VocationalTestResult(Base):
     # updated_at · migration 041_auditability_and_indices
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
 
+    # P1-1 · Lectura narrativa del resultado, generada por IA (migración 050).
+    # Feedback A1: "cada test tiene que darle más información al estudiante Y SU
+    # FAMILIA". `interpretation_hash` guarda el hash de los scores que la
+    # originaron: si el estudiante repite el test, deja de coincidir y se
+    # regenera — si no, seguiría leyendo la lectura del resultado anterior.
+    interpretation = Column(JSON, nullable=True)
+    interpretation_hash = Column(String(64), nullable=True)
+    interpretation_generated_at = Column(DateTime, nullable=True)
+
     user = relationship("User", back_populates="vocational_test_results")
     external_upload = relationship("ExternalTestUpload", back_populates="vocational_result")
 

@@ -17,7 +17,7 @@ from app.data.vocational_tests import (
     VOCATIONAL_TESTS,
 )
 from app.services.scoring_service import derive_test_extras
-from app.services import parental_consent_service
+from app.services import parental_consent_service, test_interpretation_service
 
 router = APIRouter(prefix="/vocational-tests", tags=["Vocational Tests"])
 
@@ -214,3 +214,67 @@ def get_test_result(
     if extras is not None:
         payload["extras"] = extras
     return payload
+
+
+# ---------------------------------------------------------------------------
+# P1-1 · Lectura narrativa del resultado (feedback A1)
+# ---------------------------------------------------------------------------
+
+
+@router.get("/{test_id}/interpretation")
+def get_test_interpretation(
+    test_id: str,
+    force: bool = False,
+    current_user: User = Depends(get_current_user),
+    db: DBSession = Depends(get_db),
+):
+    """Explicación en prosa del resultado de este test para ESTE estudiante.
+
+    Feedback A1: "cada test tiene que darle más información al estudiante y su
+    familia". Se genera bajo demanda la primera vez y se cachea contra el hash de
+    los scores: si el estudiante repite el test, se regenera sola.
+
+    Si la IA falla, responde 200 con `available: false` en vez de romper: el
+    resultado del test (los puntajes, las barras) tiene que seguir viéndose.
+    """
+    result = (
+        db.query(VocationalTestResult)
+        .filter(
+            VocationalTestResult.user_id == current_user.id,
+            VocationalTestResult.test_id == test_id,
+        )
+        .first()
+    )
+    if not result:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Todavía no has completado este test.",
+        )
+
+    test = get_test_by_id(test_id)
+    if not test:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Test no encontrado."
+        )
+
+    try:
+        data = test_interpretation_service.generate(
+            db,
+            result,
+            test_name=test.get("name") or test_id,
+            test_description=test.get("description") or "",
+            user=current_user,
+            force=force,
+        )
+    except test_interpretation_service.TestInterpretationUnavailable:
+        return {"available": False, "interpretation": None}
+
+    return {
+        "available": True,
+        "interpretation": data,
+        "generated_at": (
+            result.interpretation_generated_at.isoformat()
+            if result.interpretation_generated_at
+            else None
+        ),
+    }

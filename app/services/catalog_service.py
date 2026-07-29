@@ -202,7 +202,11 @@ def _row_to_oferta_dict(p: Program) -> Dict[str, Any]:
         # F-003 · solo el flag curado (columna). El derivado del JSON
         # `scholarships` (ofertas.py::_has_latam_scholarship) NO aplica aquí
         # porque ese JSON es pesado y no se carga en el query slim.
-        "scholarshipsForLatam": bool(p.scholarships_for_latam),
+        # P1-19 · TRI-ESTADO. Antes era `bool(...)`, que colapsaba NULL a False:
+        # el catálogo real trae este campo sin curar en las 2.511 filas, así que
+        # afirmábamos "no tiene beca" para el 100% del catálogo cuando la verdad
+        # es "no lo sabemos". True/False = decisión curada · None = sin curar.
+        "scholarshipsForLatam": p.scholarships_for_latam,
         "active": True,
     }
 

@@ -261,8 +261,13 @@ def filter_catalog(
                 "languageRequirement"
             ),
             "short_description": o.get("shortDescription"),
-            "scholarships_for_latam": bool(
-                o.get("scholarshipsForLatam") or o.get("scholarships_for_latam")
+            # P1-19 · Se preserva el tri-estado (True / False / None = sin curar).
+            # El `bool(...)` anterior era el segundo punto donde NULL se volvía
+            # False antes de llegar al prompt.
+            "scholarships_for_latam": (
+                o.get("scholarshipsForLatam")
+                if o.get("scholarshipsForLatam") is not None
+                else o.get("scholarships_for_latam")
             ),
             "_budget_fit_hint": kind,
         }
@@ -368,6 +373,20 @@ def _format_constraints_block(user: User) -> str:
     return "\n".join(rows) if rows else "(sin constraints adicionales)"
 
 
+def _beca_label(value: Optional[bool]) -> str:
+    """P1-19 · Tri-estado de beca para el bloque que ve el modelo.
+
+    Mismo patrón que ya usaba correctamente `hop_chat_service`: None NO es "no".
+    Decirle al modelo "no" cuando el dato está sin curar lo habilita a escribir
+    "este programa no cuenta con beca" como si fuera un hecho verificado.
+    """
+    if value is True:
+        return "sí"
+    if value is False:
+        return "no"
+    return "sin_curar"
+
+
 def _format_catalog_block(catalog: List[Dict[str, Any]]) -> str:
     parts = []
     for c in catalog:
@@ -399,7 +418,10 @@ def _format_catalog_block(catalog: List[Dict[str, Any]]) -> str:
             f"budget_tier={c.get('budget_tier') or 'a confirmar'} · "
             f"idioma_req={c.get('language_requirement') or '-'} · "
             f"budget_fit_hint={c.get('_budget_fit_hint') or '-'} · "
-            f"beca_latam={'sí' if c.get('scholarships_for_latam') else 'no'} · "
+            # P1-19 · "sin_curar" es lo que corresponde cuando el dato es NULL.
+            # Antes decía "no" para el 100% del catálogo y el modelo lo tomaba
+            # como un hecho: podía escribir "no cuenta con beca" en el why_match.
+            f"beca_latam={_beca_label(c.get('scholarships_for_latam'))} · "
             f"tags={','.join(c.get('tags') or [])}"
         )
     return "\n".join(parts)
@@ -483,12 +505,17 @@ def validate_against_catalog(
             "budget_tier": r.get("budget_tier") or cat.get("budget_tier"),
         }
         # C1 · el hint puede ser "unknown" (costo a confirmar) pero el schema
-        # RecommendedProgram solo acepta under|match|stretch. Normaliza a
-        # "match" tanto el hint como un eventual "unknown" copiado por la IA,
-        # para no descartar la recomendación por schema.
-        if merged.get("budget_fit") not in ("under", "match", "stretch"):
+        # P1-19 · Antes esto normalizaba a "match" cualquier valor no reconocido,
+        # incluido "unknown". Es decir: cuando NO sabíamos el costo del programa
+        # —el caso normal, porque el catálogo real trae cost_total en NULL— le
+        # afirmábamos al estudiante "Dentro del presupuesto". Y lo hacía en Python,
+        # así que arreglar solo el prompt no habría bastado.
+        # Ahora "unknown" es un valor legítimo del schema y se preserva.
+        if merged.get("budget_fit") not in ("under", "match", "stretch", "unknown"):
             hint = cat.get("_budget_fit_hint")
-            merged["budget_fit"] = hint if hint in ("under", "match", "stretch") else "match"
+            merged["budget_fit"] = (
+                hint if hint in ("under", "match", "stretch") else "unknown"
+            )
         try:
             valid.append(RecommendedProgram(**merged))
         except Exception as e:

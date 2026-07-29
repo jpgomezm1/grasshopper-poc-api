@@ -193,12 +193,13 @@ class RecommendedProgram(BaseModel):
         ..., ge=0, le=100, description="Score de afinidad 0-100."
     )
 
-    budget_fit: Literal["under", "match", "stretch"] = Field(
+    budget_fit: Literal["under", "match", "stretch", "unknown"] = Field(
         ...,
         description=(
             "under: programa está debajo del presupuesto · "
             "match: dentro del rango · "
-            "stretch: por encima pero alcanzable."
+            "stretch: por encima pero alcanzable · "
+            "unknown: no conocemos el costo del programa, no se afirma nada."
         ),
     )
 

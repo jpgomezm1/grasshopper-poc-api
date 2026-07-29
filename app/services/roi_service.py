@@ -44,6 +44,15 @@ def _summary(
     payback: Optional[float],
     net_value: Optional[int],
 ) -> str:
+    # P1-19 · Distinguir "no tenemos el precio" de "no tenemos el salario". Antes
+    # ambos casos caían en el mismo mensaje genérico, y el de matrícula desconocida
+    # ni siquiera llegaba aquí porque el costo se asumía en $0.
+    if program.cost_total is None:
+        return (
+            "Todavía no tenemos el costo confirmado de este programa, así que no "
+            "podemos estimar el retorno. Pídelo con tu asesor antes de decidir: "
+            "sin el precio, cualquier cálculo de retorno sería inventado."
+        )
     if payback is None:
         return (
             "ROI no se pudo estimar · faltan datos de salario inicial o "
@@ -71,13 +80,36 @@ def calculate_roi(program: Program) -> RoiCalculation:
     """Pure function: dada una row Program devuelve el cálculo ROI completo."""
 
     # ----- Costos -----
-    tuition_total = int(program.cost_total or 0)
-    living_year = int(program.living_cost_city_usd_year or 0)
+    # P1-19 · `cost_total` es NULL en el catálogo real: el importador nunca lo
+    # escribe (build_programs_from_catalog.py deja cost_total=None para las 2.511
+    # filas). Antes esto era `int(program.cost_total or 0)`, o sea que una matrícula
+    # DESCONOCIDA se convertía en una matrícula de CERO, y de ahí salían un payback
+    # y un rating "inversión positiva" construidos sobre la idea de que estudiar
+    # ahí es gratis. El propio prompt de recomendaciones dice "NO asumas que es
+    # gratis" — este servicio lo asumía.
+    #
+    # Ahora None se propaga como None: no sabemos, y lo decimos.
+    tuition_total: Optional[int] = (
+        int(program.cost_total) if program.cost_total is not None else None
+    )
+    living_year: Optional[int] = (
+        int(program.living_cost_city_usd_year)
+        if program.living_cost_city_usd_year is not None
+        else None
+    )
     # Estudios típicamente medidos en meses; convertimos a años (mínimo 1 año
     # de costo de vida para programas cortos de algunos meses).
-    duration_years = max((program.duration_months or 0) / 12.0, 1.0) if living_year else 0
-    living_total = int(round(living_year * duration_years)) if living_year else 0
-    total_investment = tuition_total + living_total
+    living_total: Optional[int] = None
+    if living_year is not None:
+        duration_years = max((program.duration_months or 0) / 12.0, 1.0)
+        living_total = int(round(living_year * duration_years))
+
+    # La inversión total solo existe si conocemos la matrícula. Sumar solo el costo
+    # de vida daría una cifra que parece completa y no lo es — sería peor que no dar
+    # ninguna.
+    total_investment: Optional[int] = None
+    if tuition_total is not None:
+        total_investment = tuition_total + (living_total or 0)
 
     cost_breakdown = RoiCostBreakdown(
         tuition_total_usd=tuition_total,
@@ -108,12 +140,16 @@ def calculate_roi(program: Program) -> RoiCalculation:
     )
 
     # ----- ROI calc -----
+    # P1-19 · Sin matrícula conocida no hay ROI. `total_investment is None` corta
+    # payback, net_value y rating (que pasa a "insufficient_data") en vez de
+    # producir cifras basadas en una matrícula imaginaria de $0.
     payback: Optional[float] = None
     net_value: Optional[int] = None
-    if entry_salary and entry_salary > 0 and total_investment > 0:
-        payback = round(total_investment / float(entry_salary), 2)
-    if max_earnings is not None and total_investment > 0:
-        net_value = max_earnings - total_investment
+    if total_investment is not None and total_investment > 0:
+        if entry_salary and entry_salary > 0:
+            payback = round(total_investment / float(entry_salary), 2)
+        if max_earnings is not None:
+            net_value = max_earnings - total_investment
 
     rating = _rate_roi(payback)
     summary = _summary(program, payback, net_value)

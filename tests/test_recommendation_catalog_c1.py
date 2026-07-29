@@ -15,7 +15,7 @@ cost_total/duration_months/budget_tier NULL = "a confirmar"):
       estaba muerto antes — comparaba contra 'volunteer'/'language' que no
       existen; work_travel para R sigue vivo).
   (g) F-003 · scholarships_for_latam fluye columna → catálogo → slim dict.
-  (h) validate_against_catalog normaliza budget_fit='unknown' → 'match'
+  (h) P1-19 · validate_against_catalog PRESERVA budget_fit='unknown'
       (el schema solo acepta under|match|stretch).
 
 SQLite in-memory (sin Postgres) · patrón de fixture derivado de
@@ -166,7 +166,7 @@ def _demo_oferta(oid, category):
         "cost": {"min": 1000, "max": 1000, "currency": "USD"},
         "budgetTier": "medio",
         "eligibility": {"languageRequirement": "ninguno"},
-        "scholarshipsForLatam": False, "active": True,
+        "scholarshipsForLatam": None, "active": True,
     }
 
 
@@ -204,7 +204,8 @@ def test_catalog_only_active_with_demo_shape(db_session):
     assert nulls["budgetTier"] is None
     assert nulls["eligibility"]["languageRequirement"] == "ninguno"
     assert nulls["tags"] == []                              # JSON NULL → []
-    assert nulls["scholarshipsForLatam"] is False           # None → False
+    # P1-19 · tri-estado: None se preserva (sin curar), NO se colapsa a False.
+    assert nulls["scholarshipsForLatam"] is None            # None → sin curar
 
     assert by_pid["P-PREMIUM"]["budgetTier"] == "alto"      # premium →
     assert by_pid["P-PREMIUM"]["category"] == "certificacion_corta"
@@ -386,7 +387,8 @@ def test_scholarships_flag_flows_to_slim_dict(db_session):
     assert slim_beca["scholarships_for_latam"] is True
     # y las demás no inventan beca
     slim_full = next(s for s in slim if s["program_name"] == "Ingenieria Ambiental")
-    assert slim_full["scholarships_for_latam"] is False
+    # P1-19 · sin curar sigue siendo sin curar hasta el prompt.
+    assert slim_full["scholarships_for_latam"] is None
 
 
 # ---------------------------------------------------------------------------
@@ -414,4 +416,6 @@ def test_validate_normalizes_unknown_budget_fit():
     valid, dropped = validate_against_catalog(raw, catalog_slim)
     assert dropped == []
     assert len(valid) == 1
-    assert valid[0].budget_fit == "match"
+    # P1-19 · Antes esto se forzaba a "match": afirmábamos "dentro del
+    # presupuesto" sin conocer el precio. Ahora "unknown" es legítimo.
+    assert valid[0].budget_fit == "unknown"

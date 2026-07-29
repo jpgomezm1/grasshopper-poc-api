@@ -8,10 +8,21 @@ from pydantic import BaseModel
 
 
 class RoiCostBreakdown(BaseModel):
-    tuition_total_usd: int
-    living_cost_year_usd: int
-    living_cost_total_usd: int
-    total_investment_usd: int
+    """P1-19 · Los costos son OPCIONALES a propósito.
+
+    El catálogo real (2.511 filas) trae `cost_total` en NULL — el importador nunca
+    lo escribe (`build_programs_from_catalog.py`). Antes estos campos eran `int` y
+    el servicio hacía `int(cost_total or 0)`, así que un costo DESCONOCIDO se
+    presentaba como matrícula de **$0** y alimentaba un payback y un rating de
+    "inversión positiva" ficticios.
+
+    `None` significa "no lo sabemos" y el front lo pinta como "—". Nunca 0.
+    """
+
+    tuition_total_usd: Optional[int] = None
+    living_cost_year_usd: Optional[int] = None
+    living_cost_total_usd: Optional[int] = None
+    total_investment_usd: Optional[int] = None
 
 
 class RoiVisaInfo(BaseModel):

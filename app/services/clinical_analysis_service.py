@@ -26,6 +26,7 @@ import json
 import logging
 import re
 import time
+import unicodedata
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional, Tuple
 from uuid import UUID
@@ -189,6 +190,68 @@ def _gather_inputs(db: DBSession, student: User) -> Dict[str, Any]:
 # Rule-based pattern booster (deterministic overlay)
 # ---------------------------------------------------------------------------
 
+# ---------------------------------------------------------------------------
+# P1-0 · Endurecimiento del detector de riesgo (2026-07-28)
+#
+# Este overlay determinista es la red de seguridad que corre SIEMPRE, incluso si
+# la IA falla o responde raro. Estaba abierta desde junio con tres defectos, dos
+# de ellos silenciosos:
+#
+#   1. NO normalizaba tildes. Como el corpus del estudiante viene con tildes,
+#      "presion" nunca encontraba "presión", "panic" nunca encontraba "pánico" y
+#      "vacio" nunca encontraba "vacío". Tres keywords muertas de doce.
+#
+#   2. "quier morir" NO MATCHEA NADA. Ni "quiero morir" (después de "quier" viene
+#      "o", no un espacio) ni "quiere morir" (viene "e"). Era la única keyword de
+#      ideación suicida del sistema y no podía dispararse nunca.
+#
+#   3. Exigía >=2 coincidencias para sugerir derivación. Una ideación explícita y
+#      aislada — "no quiero vivir", y nada más — no levantaba ninguna señal.
+#
+# El resultado se muestra SOLO a psicóloga / asesor / super_admin (ver
+# _require_clinical_role en api/v1/clinical.py): nunca al estudiante ni a la
+# familia. Por eso el sesgo correcto es hacia el falso positivo — que un
+# profesional revise de más, nunca que el sistema calle una señal real.
+# ---------------------------------------------------------------------------
+
+
+def _normalize(text: str) -> str:
+    """Minúsculas sin tildes, para que las keywords matcheen texto real.
+
+    "Me siento bajo mucha presión" -> "me siento bajo mucha presion"
+    """
+    if not text:
+        return ""
+    nfkd = unicodedata.normalize("NFKD", text.lower())
+    return "".join(c for c in nfkd if not unicodedata.combining(c))
+
+
+# ⚠️ RIESGO CRÍTICO · basta UNA coincidencia para levantar la señal.
+# Lenguaje explícito de ideación suicida o autolesión. Escribir SIEMPRE en forma
+# normalizada (sin tildes) porque el corpus se normaliza antes de comparar.
+CRITICAL_RISK_KEYWORDS = (
+    "suicid",           # suicidio · suicidarme · suicida
+    "quitarme la vida",
+    "acabar con mi vida",
+    "terminar con mi vida",
+    "quiero morir",
+    "quiero morirme",
+    "me quiero morir",
+    "ganas de morir",
+    "no quiero vivir",
+    "no quiero seguir viviendo",
+    "no vale la pena vivir",
+    "matarme",
+    "me mato",
+    "autolesion",       # autolesion · autolesionarme
+    "cortarme",
+    "hacerme dano",     # "hacerme daño" normalizado
+    "quiero desaparecer",
+    "ganas de desaparecer",
+    "estarian mejor sin mi",
+    "mejor sin mi",
+)
+
 # Lowercased keywords scanned across journal + journey free-text answers
 NEGATIVE_KEYWORDS = (
     "triste",
@@ -200,9 +263,13 @@ NEGATIVE_KEYWORDS = (
     "no quiero",
     "presion",
     "obligad",
-    "quier morir",
     "sin sentido",
     "vacio",
+    "sin salida",
+    "no aguanto",
+    "agotad",
+    "me siento solo",
+    "me siento sola",
 )
 
 DECISION_VOLATILITY_KEYWORDS = (
@@ -227,10 +294,27 @@ FAMILY_PRESSURE_KEYWORDS = (
 
 
 def _scan_keywords(corpus: str, kws: Tuple[str, ...]) -> int:
+    """Cuenta cuántas keywords aparecen. Normaliza tildes en ambos lados.
+
+    P1-0 · Antes solo hacía .lower(), así que cualquier keyword con tilde en el
+    texto real del estudiante ("presión", "pánico", "vacío") nunca coincidía.
+    """
     if not corpus:
         return 0
-    lower = corpus.lower()
-    return sum(1 for k in kws if k in lower)
+    normalized = _normalize(corpus)
+    return sum(1 for k in kws if _normalize(k) in normalized)
+
+
+def _matched_keywords(corpus: str, kws: Tuple[str, ...]) -> List[str]:
+    """Igual que _scan_keywords pero devuelve CUÁLES coincidieron.
+
+    Para riesgo crítico la psicóloga necesita saber qué disparó la alerta, no
+    solo cuántas cosas; sin eso tiene que releer todo el corpus a ciegas.
+    """
+    if not corpus:
+        return []
+    normalized = _normalize(corpus)
+    return [k for k in kws if _normalize(k) in normalized]
 
 
 def _build_corpus(student: User, journey_answers: Dict[str, Any], journal_rows: List[JournalEntry]) -> str:
@@ -265,6 +349,31 @@ def _rule_based_patterns(
     corpus = _build_corpus(student, journey_answers, journal_rows)
 
     out: List[BehavioralPattern] = []
+
+    # ⚠️ riesgo_critico · P1-0 · UNA sola coincidencia basta.
+    # Va primero en la lista a propósito: si hay ideación explícita, es lo primero
+    # que la psicóloga debe ver, antes que cualquier patrón vocacional.
+    critical_matches = _matched_keywords(corpus, CRITICAL_RISK_KEYWORDS)
+    if critical_matches:
+        out.append(
+            BehavioralPattern(
+                pattern="riesgo_critico",
+                confidence=0.95,
+                evidence=(
+                    "Lenguaje explícito de ideación suicida o autolesión en el texto libre "
+                    f"del estudiante. Expresiones detectadas: {', '.join(critical_matches)}. "
+                    "Revisar el journal y las respuestas abiertas completas."
+                ),
+                severity="high",
+                suggested_intervention=(
+                    "ATENCIÓN PRIORITARIA · Activar el protocolo de riesgo de la institución "
+                    "y contactar al estudiante antes de continuar con cualquier actividad de "
+                    "orientación. Derivación clínica externa. Documentar en notas privadas. "
+                    "Esta es una alerta automática por palabras clave: NO sustituye la "
+                    "valoración de un profesional, y puede ser un falso positivo."
+                ),
+            )
+        )
 
     # señales_clinicas
     neg_hits = _scan_keywords(corpus, NEGATIVE_KEYWORDS)
@@ -593,8 +702,22 @@ def generate(
         analysis.behavioral_patterns or [], rule_patterns
     )
 
+    # P1-0 · Riesgo crítico: fuerza la derivación SIEMPRE, sin importar lo que haya
+    # dicho la IA. Es el punto del overlay determinista — si el modelo minimiza o
+    # falla, el flag se levanta igual.
+    if any(p.pattern == "riesgo_critico" for p in analysis.behavioral_patterns):
+        analysis.requires_clinical_referral = True
+        analysis.referral_reason = (
+            "Lenguaje explícito de ideación suicida o autolesión detectado en el texto "
+            "libre del estudiante. Requiere valoración profesional inmediata."
+        )
+        logger.warning(
+            "ClinicalAnalysis · riesgo crítico detectado por keywords",
+            extra={"user_id": str(student.id)},
+        )
+
     # Re-evaluate referral flag if rule-based patterns surface señales_clinicas
-    if any(
+    elif any(
         p.pattern == "señales_clinicas" and p.severity in ("medium", "high")
         for p in analysis.behavioral_patterns
     ):

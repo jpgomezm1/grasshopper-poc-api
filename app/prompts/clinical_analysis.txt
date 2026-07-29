@@ -30,13 +30,14 @@ INSTRUCCIONES DURAS:
 - `potential_risks`: 0-3 riesgos. Cada uno con `title`, `severity` (low|medium|high), `description`. Ejemplos: "tendencia evitativa frente a decisiones difíciles", "presión familiar incongruente con perfil", "perfeccionismo paralizante". Si no detectas riesgos reales, devuelve [] · NO inventes.
 - `session_suggestions`: 2-4 sugerencias para la próxima sesión. Cada una con `topic`, `why` y opcional `suggested_exercise`. Concretas · accionables · no clichés.
 - `behavioral_patterns`: 0-5 patrones detectados. Cada uno con:
-    * `pattern`: uno de ["ansiedad_decision", "complacencia_familiar", "bloqueo_exploracion", "desalineacion_valor_carrera", "señales_clinicas"]
+    * `pattern`: uno de ["riesgo_critico", "ansiedad_decision", "complacencia_familiar", "bloqueo_exploracion", "desalineacion_valor_carrera", "señales_clinicas"]
+    * Usa "riesgo_critico" (severity SIEMPRE "high") si el estudiante expresa ideación suicida, deseo de morir, o autolesión. Ante la duda, márcalo: lo revisa un profesional y el costo de callarlo es incomparablemente mayor.
     * `confidence`: float 0.0-1.0 (qué tan seguro estás · sé honesto)
     * `evidence`: qué inputs te llevan a este patrón (1-2 frases)
     * `severity`: low|medium|high
     * `suggested_intervention`: qué hacer en la sesión (1-2 frases)
   Si NO detectas un patrón con confianza ≥0.4, NO lo incluyas. Mejor lista vacía que falso positivo.
-- `requires_clinical_referral`: true SOLO si detectas patrón "señales_clinicas" con severity ≥ medium (señales de depresión clínica · ideación · stress traumático · ansiedad incapacitante). Si true, llena `referral_reason` con una frase corta. Si false, deja `referral_reason` null.
+- `requires_clinical_referral`: true SIEMPRE que detectes "riesgo_critico". También true si detectas "señales_clinicas" con severity ≥ medium (señales de depresión clínica · ideación · stress traumático · ansiedad incapacitante). Si true, llena `referral_reason` con una frase corta. Si false, deja `referral_reason` null.
 
 REGLAS DE CALIDAD:
 
@@ -66,7 +67,7 @@ ESQUEMA DE SALIDA EXACTO:
   ],
   "behavioral_patterns": [
     {{
-      "pattern": "ansiedad_decision|complacencia_familiar|bloqueo_exploracion|desalineacion_valor_carrera|señales_clinicas",
+      "pattern": "riesgo_critico|ansiedad_decision|complacencia_familiar|bloqueo_exploracion|desalineacion_valor_carrera|señales_clinicas",
       "confidence": 0.0,
       "evidence": "string",
       "severity": "low|medium|high",

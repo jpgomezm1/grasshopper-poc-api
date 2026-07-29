@@ -154,6 +154,10 @@ class SessionSuggestion(BaseModel):
 
 class BehavioralPattern(BaseModel):
     pattern: Literal[
+        # P1-0 · Riesgo crítico (ideación suicida / autolesión). Lo emite el overlay
+        # determinista con UNA sola coincidencia de keyword; la IA también puede
+        # emitirlo. Es el de mayor severidad y va primero en la lista.
+        "riesgo_critico",
         "ansiedad_decision",
         "complacencia_familiar",
         "bloqueo_exploracion",

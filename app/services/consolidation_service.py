@@ -77,12 +77,21 @@ def gather_user_inputs(db: DBSession, user: User) -> Dict[str, Any]:
 
     tests_block: List[Dict[str, Any]] = []
     for vr in voc_results:
+        # A6 · El top-3 que el ESTUDIANTE declaró después de ver este resultado.
+        # Ella lo pidió explícitamente: "con ese autoanálisis el sistema debería
+        # ofrecerle opciones según su top-3 y/o según lo que la IA considera del
+        # test". Entra al perfil consolidado para que la IA pueda contrastar lo
+        # que la persona CREE con lo que el test MIDE, en vez de ignorar uno u otro.
+        declaradas = None
+        if isinstance(vr.self_assessment, dict):
+            declaradas = vr.self_assessment.get("careers") or None
         tests_block.append(
             {
                 "test_id": vr.test_id,
                 "source": vr.source or "internal",
                 "scores": vr.scores or {},
                 "completed_at": vr.created_at.isoformat() if vr.created_at else None,
+                "self_assessment": declaradas,
             }
         )
 
@@ -164,10 +173,21 @@ def _format_tests_block(tests: List[Dict[str, Any]]) -> str:
     parts = []
     for t in tests:
         scores_compact = json.dumps(t["scores"], ensure_ascii=False, sort_keys=True)
-        parts.append(
+        bloque = (
             f"### {t['test_id']} · source={t['source']}\n"
             f"scores: {scores_compact}"
         )
+        # A6 · lo que la persona dijo de sí misma tras ver ESTE resultado.
+        declaradas = t.get("self_assessment")
+        if declaradas:
+            enumeradas = "; ".join(
+                f"{i}. {c}" for i, c in enumerate(declaradas, start=1)
+            )
+            bloque += (
+                f"\ncarreras que el estudiante cree que le encajan tras este test "
+                f"(1 = la que más): {enumeradas}"
+            )
+        parts.append(bloque)
     return "\n\n".join(parts)
 
 

@@ -544,6 +544,15 @@ class VocationalTestResult(Base):
     interpretation_hash = Column(String(64), nullable=True)
     interpretation_generated_at = Column(DateTime, nullable=True)
 
+    # A6 · Lo que el ESTUDIANTE cree que le encaja, después de ver este resultado
+    # (migración 051). Feedback en mayúsculas de la clienta: "según el conocimiento
+    # que adquieres de ti mismo con el último test realizado, ¿qué carreras piensas
+    # que se acomodan? Escribe 3 opciones, siendo 1 la que más se acomoda".
+    # Formato: {"careers": ["primera", "segunda", "tercera"]} en orden de preferencia.
+    # Va por test —no una sola vez— porque la autopercepción cambia con cada test.
+    self_assessment = Column(JSON, nullable=True)
+    self_assessment_at = Column(DateTime, nullable=True)
+
     user = relationship("User", back_populates="vocational_test_results")
     external_upload = relationship("ExternalTestUpload", back_populates="vocational_result")
 

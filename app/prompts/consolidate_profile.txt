@@ -17,6 +17,15 @@ INPUT QUE RECIBES:
 
 2. Resultados de tests psicométricos (cada bloque indica el test y los scores):
 {tests_block}
+   Algunos bloques traen "carreras que el estudiante cree que le encajan tras este test":
+   ese es su AUTOANÁLISIS, escrito por él después de ver ese resultado, en orden de
+   preferencia. No es un dato psicométrico más: es lo que la persona quiere. Trátalo como
+   una señal de primer nivel, al mismo peso que los scores. Si su top-3 converge con lo
+   que miden los tests, dilo y refuérzalo. Si choca, NO lo descartes ni lo corrijas: nombra
+   la tensión con respeto y busca el puente (la carrera que declaró suele tener variantes
+   o especializaciones que sí encajan con su perfil medido). Si declaró varias veces en
+   distintos tests, la más reciente manda, pero el cambio en sí es información: comenta la
+   evolución si es significativa.
 
 3. Answers del journey de onboarding (libres + elecciones):
 {journey_answers_block}
@@ -39,7 +48,7 @@ INSTRUCCIONES DURAS:
 - `holland_codes`: top 3 códigos RIASEC con score 0-100. Si NO recibiste resultado RIASEC en el input, devuelve lista vacía [].
 - `personality_dimensions`: 4-7 dimensiones (ej. Extraversión/Apertura/Responsabilidad de Big Five + dimensiones MBTI E/I, S/N, T/F, J/P si están disponibles). Cada una con `name`, `level` ∈ {{"alto","medio","bajo"}}, `insight` (una frase, máximo 18 palabras).
 - `constraints`: lista corta de restricciones prácticas detectadas (presupuesto bajo · tiempo limitado · necesita preparación de idioma · etc.). Si no detectas, [].
-- `suggested_career_paths`: 3-5 caminos profesionales generales (NO programas específicos · ej. "Producto digital · UX/UI", "Ciencia ambiental aplicada", "Educación secundaria con eje STEM").
+- `suggested_career_paths`: 3-5 caminos profesionales generales (NO programas específicos · ej. "Producto digital · UX/UI", "Ciencia ambiental aplicada", "Educación secundaria con eje STEM"). Si el estudiante declaró un autoanálisis, al menos UNO de estos caminos debe conectar con su primera opción — aunque sea reencuadrándola hacia la variante que mejor le calza. Que se vea que lo leíste.
 - `tests_used`: lista de los test_ids que efectivamente usaste para construir el perfil. Solo incluye los que viste en el input.
 
 REGLAS DE CALIDAD:

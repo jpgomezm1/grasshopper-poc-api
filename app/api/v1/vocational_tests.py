@@ -288,3 +288,121 @@ def get_test_interpretation(
             else None
         ),
     }
+
+
+# ---------------------------------------------------------------------------
+# A6 · Autoanálisis del estudiante después de ver su resultado
+#
+# Feedback literal de la clienta (el único punto que escribió EN MAYÚSCULAS):
+#   "ESTO NO ESTÁ FUNCIONANDO: una vez realizo un test de orientación, no me
+#    pregunta: según el conocimiento que adquieres de ti mismo con el último
+#    test realizado, ¿qué carreras profesionales piensas que se acomodan a tus
+#    valores, habilidades e intereses? Escribe 3 opciones, siendo 1 la que más
+#    se acomoda. Porque con ese autoanálisis el sistema debería ofrecerle
+#    opciones según su top-3 y/o según lo que la IA considera del test."
+# ---------------------------------------------------------------------------
+
+
+class SelfAssessmentRequest(BaseModel):
+    """Las 3 carreras que el estudiante cree que le encajan, EN ORDEN."""
+
+    careers: list[str]
+
+
+def _find_result(db: DBSession, user_id, test_id: str) -> VocationalTestResult:
+    result = (
+        db.query(VocationalTestResult)
+        .filter(
+            VocationalTestResult.user_id == user_id,
+            VocationalTestResult.test_id == test_id,
+        )
+        .first()
+    )
+    if not result:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Todavía no has completado este test.",
+        )
+    return result
+
+
+@router.get("/{test_id}/self-assessment")
+def get_self_assessment(
+    test_id: str,
+    current_user: User = Depends(get_current_user),
+    db: DBSession = Depends(get_db),
+):
+    """Lo que el estudiante respondió para ESTE test, más lo último que dijo en otro.
+
+    `previous_careers` existe para pre-llenar el formulario. Ella también criticó
+    la fatiga de cuestionarios, así que después del segundo test no se le pide
+    escribir tres carreras desde cero: se le muestra lo que dijo antes y ajusta.
+    """
+    result = _find_result(db, current_user.id, test_id)
+
+    ultima_en_otro_test = None
+    previas = (
+        db.query(VocationalTestResult)
+        .filter(
+            VocationalTestResult.user_id == current_user.id,
+            VocationalTestResult.test_id != test_id,
+            VocationalTestResult.self_assessment.isnot(None),
+        )
+        .all()
+    )
+    # Orden en Python y no en SQL: self_assessment_at puede ser NULL en filas
+    # viejas y el orden de los NULL difiere entre SQLite y Postgres.
+    previas.sort(key=lambda r: r.self_assessment_at or datetime.min, reverse=True)
+    for r in previas:
+        if isinstance(r.self_assessment, dict) and r.self_assessment.get("careers"):
+            ultima_en_otro_test = r.self_assessment["careers"]
+            break
+
+    propia = result.self_assessment if isinstance(result.self_assessment, dict) else {}
+    return {
+        "careers": propia.get("careers") or [],
+        "answered_at": (
+            result.self_assessment_at.isoformat() if result.self_assessment_at else None
+        ),
+        "previous_careers": ultima_en_otro_test or [],
+    }
+
+
+@router.put("/{test_id}/self-assessment")
+def save_self_assessment(
+    test_id: str,
+    request: SelfAssessmentRequest,
+    current_user: User = Depends(get_current_user),
+    db: DBSession = Depends(get_db),
+):
+    """Guarda el top-3 declarado. El ORDEN importa: "siendo 1 la que más se acomoda"."""
+    result = _find_result(db, current_user.id, test_id)
+
+    limpias = [c.strip() for c in (request.careers or []) if c and c.strip()][:3]
+    if not limpias:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Escribe al menos una opción.",
+        )
+
+    result.self_assessment = {"careers": limpias}
+    result.self_assessment_at = datetime.utcnow()
+    db.commit()
+
+    # El autoanálisis alimenta el perfil consolidado y las recomendaciones. Si no
+    # se invalida la caché, el perfil seguiría sin conocerlo hasta que expire el
+    # TTL — y el estudiante vería recomendaciones que ignoran lo que acaba de
+    # escribir, que es exactamente lo que ella está reclamando.
+    try:
+        from app.services import consolidation_service
+
+        invalidar = getattr(consolidation_service, "invalidate_cache", None)
+        if callable(invalidar):
+            invalidar(db, current_user.id)
+    except Exception:  # pragma: no cover - la caché expira sola
+        pass
+
+    return {
+        "careers": limpias,
+        "answered_at": result.self_assessment_at.isoformat(),
+    }

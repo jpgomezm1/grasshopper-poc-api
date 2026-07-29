@@ -123,7 +123,9 @@ def seed_session_from_onboarding(session: Session, onboarding: Optional[dict]) -
         # aunque ya tenga respuesta.
         current = get_step(session.current_step)
         if current is not None and current.save_to and answers.get(current.save_to):
-            nxt = get_next_step(session.current_step, answers)
+            # P1-5 · el onboarding ya está en el scope de esta función; pasarlo
+            # permite que el reencuadre también respete los pasos que no aplican.
+            nxt = get_next_step(session.current_step, answers, onboarding)
             if nxt:
                 session.current_step = nxt
                 nxt_step = get_step(nxt)
@@ -452,9 +454,11 @@ def process_event(
             if step.view_type in [ViewType.REFLECTION, ViewType.PARTIAL_SUMMARY]:
                 _create_journal_entry_for_reflection(db, session, step_id, answers)
 
-            # Advance to next step (salta pasos ya respondidos, p.ej. sembrados
-            # desde el onboarding · B-02)
-            next_step_id = get_next_step(step_id, answers)
+            # Advance to next step. Se saltan (a) los ya respondidos —p.ej.
+            # sembrados desde el onboarding, B-02— y (b) los que NO APLICAN a esta
+            # persona según su onboarding (P1-5, `skip_if`). Sin pasar el
+            # onboarding aquí, la condición del paso nunca se evaluaría.
+            next_step_id = get_next_step(step_id, answers, _owner_onboarding(db, session))
             if next_step_id:
                 session.current_step = next_step_id
                 next_step = get_step(next_step_id)

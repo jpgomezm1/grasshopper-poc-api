@@ -1,6 +1,6 @@
 """Journey state machine matching frontend's JOURNEY_STEPS."""
 
-from typing import Optional, List, Dict, Any
+from typing import Callable, Optional, List, Dict, Any
 from dataclasses import dataclass
 from enum import Enum
 
@@ -43,6 +43,19 @@ class JourneyStep:
     helper: Optional[str] = None
     save_to: Optional[str] = None
     next_step: Optional[str] = None
+
+    # P1-5 · Condición de aplicabilidad. Recibe el onboarding del dueño de la sesión
+    # y devuelve True cuando el paso NO tiene sentido para esta persona.
+    #
+    # Hasta ahora la única razón para saltar un paso era "ya lo respondió"
+    # (`save_to` con valor). Faltaba la otra: "no aplica". Por eso a quien decía
+    # que quiere estudiar en su país se le seguía preguntando "cuando piensas en
+    # irte, ¿qué pesa más?" — reproducido y capturado en el QA del 28-07.
+    #
+    # Se resuelve con una condición REAL y no sembrando una respuesta inventada:
+    # registrar que alguien contestó algo que nunca contestó es justo el tipo de
+    # dato falso que este sprint viene quitando.
+    skip_if: Optional[Callable[[Dict[str, Any]], bool]] = None
 
 
 # Journey steps configuration - mirrors frontend's JOURNEY_STEPS exactly
@@ -210,6 +223,11 @@ JOURNEY_STEPS: List[JourneyStep] = [
         ],
         save_to="geoPreference",
         next_step="synthesis",
+        # P1-5 · La pregunta presupone que la persona se va a ir. A quien respondió
+        # "En mi país" en el onboarding no se le hace: se le estaba preguntando
+        # "cuando piensas en irte" cinco minutos después de decir que se queda.
+        skip_if=lambda ctx: (ctx.get("onboarding") or {}).get("international_interest")
+        == "intl_no",
     ),
     JourneyStep(
         id="synthesis",
@@ -244,25 +262,48 @@ def get_step(step_id: str) -> Optional[JourneyStep]:
 
 
 def get_next_step(
-    current_step_id: str, answers: Optional[Dict[str, Any]] = None
+    current_step_id: str,
+    answers: Optional[Dict[str, Any]] = None,
+    onboarding: Optional[Dict[str, Any]] = None,
 ) -> Optional[str]:
     """Get the next step ID.
 
-    Si se pasan `answers`, se saltan los pasos cuyo dato (`save_to`) ya está
-    presente — p.ej. `lifeStage`/`timeHorizon` sembrados desde el onboarding,
-    para no volver a preguntar lo mismo (B-02). Sin `answers`, comportamiento
-    original (un solo salto).
+    Se salta un paso por DOS razones distintas:
+
+    1. **Ya está respondido** — su `save_to` tiene valor en `answers`. Es el caso
+       de `lifeStage`/`timeHorizon` sembrados desde el onboarding (B-02): no
+       volvemos a preguntar lo mismo.
+    2. **No aplica a esta persona** — su `skip_if` da True con el `onboarding` del
+       dueño de la sesión. P1-5: hasta ahora esta razón no existía, y por eso a
+       quien decía que quiere estudiar en su país se le seguía preguntando "cuando
+       piensas en irte, ¿qué pesa más?".
+
+    Sin `answers` ni `onboarding`, comportamiento original (un solo salto).
     """
     step = get_step(current_step_id)
     if not step:
         return None
     next_id = step.next_step
-    if not answers:
+    if not answers and not onboarding:
         return next_id
-    # Saltar pasos ya respondidos (con valor no vacío)
+
+    answers = answers or {}
+    ctx = {"answers": answers, "onboarding": onboarding or {}}
+
     while next_id:
         nxt = get_step(next_id)
-        if nxt and nxt.save_to and answers.get(nxt.save_to):
+        if not nxt:
+            break
+        ya_respondido = bool(nxt.save_to and answers.get(nxt.save_to))
+        no_aplica = False
+        if nxt.skip_if is not None:
+            try:
+                no_aplica = bool(nxt.skip_if(ctx))
+            except Exception:
+                # Una condición mal escrita no puede dejar al usuario atascado:
+                # ante la duda, se muestra el paso.
+                no_aplica = False
+        if ya_respondido or no_aplica:
             next_id = nxt.next_step
         else:
             break

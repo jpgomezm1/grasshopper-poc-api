@@ -225,6 +225,7 @@ def get_test_result(
 def get_test_interpretation(
     test_id: str,
     force: bool = False,
+    only_cached: bool = False,
     current_user: User = Depends(get_current_user),
     db: DBSession = Depends(get_db),
 ):
@@ -256,6 +257,15 @@ def get_test_interpretation(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Test no encontrado."
         )
+
+    # P1-2 · El snapshot y los PDFs piden `only_cached=true`: nunca deben disparar
+    # una generación. Si se dejara generar, descargar un reporte con 4 tests tardaría
+    # minutos y costaría IA en cada clic.
+    if only_cached:
+        cacheada = test_interpretation_service.get_cached(result)
+        if cacheada is None:
+            return {"available": False, "interpretation": None}
+        return {"available": True, "interpretation": cacheada}
 
     try:
         data = test_interpretation_service.generate(

@@ -55,6 +55,12 @@ class TestCard:
     name: str
     highlight: str
     description: str
+    # P1-2 · Lectura en prosa del resultado (feedback A2: "debe haber bajo cada test
+    # un reporte corto, en palabras fáciles, de qué significa eso"). Sale de la
+    # caché que genera P1-1: el PDF NUNCA llama a la IA — se generaría en cada
+    # descarga y el reporte tardaría una eternidad. Si no hay lectura cacheada,
+    # queda None y la tarjeta se ve como antes.
+    reading: Optional[str] = None
 
 
 @dataclass
@@ -123,6 +129,36 @@ class ReportPayload:
 # -----------------------------------------------------------------------------
 # Payload builder · maps DB models → template context
 # -----------------------------------------------------------------------------
+
+
+def _cached_reading(test_result: Any) -> Optional[str]:
+    """Resumen de la lectura del test, SOLO si ya está cacheada.
+
+    P1-2 · Feedback A2: "debe haber bajo cada test un reporte corto, en palabras
+    fáciles, de qué significa eso". La lectura completa la genera P1-1; acá se
+    reutiliza el `summary` (2-3 frases): el formato del PDF no da para el desglose
+    entero y el estudiante ya lo tiene en pantalla.
+
+    Deliberadamente NO genera nada: si el PDF llamara a la IA por cada test, una
+    descarga con 4 tests tardaría minutos y costaría en cada clic.
+
+    Valida que el hash siga vigente — si el estudiante repitió el test, la lectura
+    vieja no se imprime.
+    """
+    data = getattr(test_result, "interpretation", None)
+    if not isinstance(data, dict):
+        return None
+    try:
+        from app.services.test_interpretation_service import scores_hash
+
+        vigente = getattr(test_result, "interpretation_hash", None) == scores_hash(
+            getattr(test_result, "scores", {}) or {}
+        )
+    except Exception:
+        vigente = False
+    if not vigente:
+        return None
+    return (data.get("summary") or "").strip() or None
 
 
 _TEST_LABELS = {
@@ -256,7 +292,12 @@ def build_payload(
             label, desc = _TEST_LABELS.get(tid, (tid.upper(), ""))
             highlight = _highlight_for(tid, getattr(tr, "scores", {}) or {})
             test_cards.append(
-                TestCard(name=label, highlight=highlight, description=desc)
+                TestCard(
+                    name=label,
+                    highlight=highlight,
+                    description=desc,
+                    reading=_cached_reading(tr),
+                )
             )
     # Fallback if no tests but profile has Holland codes
     if not test_cards and getattr(profile, "holland_codes", None):

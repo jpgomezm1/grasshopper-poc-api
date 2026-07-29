@@ -228,3 +228,48 @@ def test_render_real_pdf_bytes():
     pdf = pdf_service.render_report_pdf(payload)
     assert pdf[:4] == b"%PDF"
     assert len(pdf) > 5_000  # sanity floor
+
+
+# ---------------------------------------------------------------------------
+# P1-2 · La lectura del test en el PDF (feedback A2)
+#
+# "Debe haber bajo cada test un reporte corto, en palabras fáciles, de qué
+# significa eso." La lectura la genera P1-1; el PDF SOLO consume la caché.
+# ---------------------------------------------------------------------------
+
+
+def _resultado_con_lectura(scores, summary, hash_ok=True):
+    from types import SimpleNamespace
+    from app.services.test_interpretation_service import scores_hash
+
+    return SimpleNamespace(
+        test_id="holland",
+        scores=scores,
+        interpretation={"summary": summary},
+        interpretation_hash=scores_hash(scores) if hash_ok else "otro-hash",
+    )
+
+
+def test_el_pdf_usa_la_lectura_cacheada():
+    from app.services.pdf_service import _cached_reading
+
+    r = _resultado_con_lectura({"A": 80}, "Te mueves mejor cuando puedes crear algo propio.")
+    assert _cached_reading(r) == "Te mueves mejor cuando puedes crear algo propio."
+
+
+def test_si_repitio_el_test_no_se_imprime_la_lectura_vieja():
+    """Imprimir en un PDF la lectura de un resultado que ya no existe sería peor
+    que no imprimir nada: queda en papel y se lo lleva la familia."""
+    from app.services.pdf_service import _cached_reading
+
+    assert _cached_reading(_resultado_con_lectura({"A": 80}, "vieja", hash_ok=False)) is None
+
+
+def test_sin_lectura_cacheada_el_pdf_no_genera_nada():
+    """El PDF NUNCA debe llamar a la IA: con 4 tests una descarga tardaría minutos
+    y costaría en cada clic."""
+    from types import SimpleNamespace
+    from app.services.pdf_service import _cached_reading
+
+    assert _cached_reading(SimpleNamespace(test_id="holland", scores={"A": 80})) is None
+    assert _cached_reading(SimpleNamespace()) is None

@@ -285,6 +285,7 @@
       font-size: 9pt;
       color: var(--muted);
     }
+    .test-reading { font-size: 9.5pt; line-height: 1.45; color: #1A1A1A; margin-top: 6px; }
 
     /* ---------- Programs (page 6) ---------- */
     .program-card {
@@ -508,6 +509,12 @@
           <p class="test-name">{{ t.name }}</p>
           <p class="test-highlight">{{ t.highlight }}</p>
           <p class="test-desc">{{ t.description }}</p>
+          {# P1-2 · feedback A2: "debe haber bajo cada test un reporte corto, en
+             palabras faciles, de que significa eso". Solo aparece si ya hay lectura
+             cacheada (el PDF nunca llama a la IA). #}
+          {% if t.reading %}
+            <p class="test-reading">{{ t.reading }}</p>
+          {% endif %}
         </div>
       {% endfor %}
     </div>

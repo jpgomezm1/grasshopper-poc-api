@@ -44,9 +44,12 @@ def test_client_payload_never_leaks_correct_answer():
         assert "correct" not in item
 
 
-def test_all_correct_answers_score_full_c1():
+def test_all_correct_answers_score_full():
+    """A5 · el techo ya no es C1 sino B2: la tabla de equivalencia que publica la
+    agencia asigna B2 hasta 60/60 (C1 empieza en IELTS 7.0, que este examen no
+    mide). Antes este test fijaba C1, que era una derivación nuestra."""
     answers = {q["id"]: q["correct"] for q in ENGLISH_TEST_QUESTIONS}
     res = calculate_score(answers)
     assert res["score"] == len(ENGLISH_TEST_QUESTIONS)
     assert res["percentage"] == 100
-    assert res["cefr_level"] == "C1"
+    assert res["cefr_level"] == "B2"

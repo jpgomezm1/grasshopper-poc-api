@@ -148,38 +148,45 @@ def test_la_tabla_cubre_0_a_60_sin_huecos_ni_solapes():
 
 
 @pytest.mark.parametrize(
-    "puntaje,ielts,clase",
+    "puntaje,ielts,clase,cefr",
     [
-        (0, "< 4", "Elementary"),
-        (7, "< 4", "Elementary"),
-        (8, "4", "Pre Intermediate"),
-        (17, "4", "Pre Intermediate"),
-        (18, "4.5", "Intermediate"),
-        (29, "4.5", "Intermediate"),
-        (30, "5", "Upper Intermediate"),
-        (39, "5", "Upper Intermediate"),
-        (40, "5.5", "Advanced"),
-        (47, "5.5", "Advanced"),
-        (48, "6", "IELTS & Uni preparation"),
-        (55, "6", "IELTS & Uni preparation"),
-        (56, "6.5", "ESP"),
-        (60, "6.5", "ESP"),
+        (0, "3.5", "Elemental", "A2"),
+        (7, "3.5", "Elemental", "A2"),
+        (8, "4.0", "Pre intermedio", "B1"),
+        (17, "4.0", "Pre intermedio", "B1"),
+        (18, "4.5", "Intermedio", "B1"),
+        (29, "4.5", "Intermedio", "B1"),
+        (30, "5.0", "Intermedio alto", "B1"),
+        (39, "5.0", "Intermedio alto", "B1"),
+        (40, "5.5", "Avanzado", "B2"),
+        (47, "5.5", "Avanzado", "B2"),
+        (48, "6.0", "Avanzado académico", "B2"),
+        (55, "6.0", "Avanzado académico", "B2"),
+        (56, "6.5", "Nivel postgrado", "B2"),
+        (60, "6.5", "Nivel postgrado", "B2"),
     ],
 )
-def test_los_bordes_de_la_tabla_son_los_del_pdf(puntaje, ielts, clase):
-    """Los bordes son lo que más fácil se copia mal, y mover uno cambia el nivel
-    que se le informa al estudiante."""
+def test_la_tabla_es_la_que_publica_la_agencia(puntaje, ielts, clase, cefr):
+    """Transcrita de `AMES - equivalencia IELTS.jpg`, que es la página "Test de
+    inglés gratuito" de la propia agencia.
+
+    Las cuatro columnas son de ella, **incluido el CEFR**. La primera versión de
+    esto derivaba el CEFR por nuestra cuenta y difería del suyo en tres franjas:
+    un estudiante con 58/60 veía C1 en la plataforma mientras su web publica B2
+    para ese mismo puntaje. Mover un borde o una etiqueta aquí vuelve a abrir esa
+    contradicción, y el CEFR además filtra qué programas se le recomiendan.
+    """
     p = placement_for(puntaje)
     assert p["ielts_equivalent"] == ielts
     assert p["class_placement"] == clase
+    assert p["cefr_level"] == cefr
 
 
-def test_el_rango_mas_bajo_se_lee_como_menor_que_4():
-    """AMES imprime "> 4" en la fila 0-7. Es imposible —las filas de arriba son 4,
-    4.5, 5— así que se interpreta como "< 4" y queda anotado para confirmar con
-    la clienta. Este test existe para que la interpretación sea explícita y no se
-    "corrija" de vuelta al literal del PDF sin darse cuenta."""
-    assert placement_for(3)["ielts_equivalent"] == "< 4"
+def test_el_techo_del_instrumento_es_B2_no_C1():
+    """Su tabla asigna B2 hasta 60/60; C1 empieza en IELTS 7.0, que este examen no
+    mide. Es el punto donde más nos habíamos desviado."""
+    assert placement_for(60)["cefr_level"] == "B2"
+    assert "C1" not in {c for *_, c in banco._PLACEMENT}
 
 
 def test_el_cefr_nunca_baja_al_subir_el_puntaje():
@@ -201,15 +208,15 @@ def test_todo_correcto_da_60_y_el_techo_del_instrumento():
     r = calculate_score(perfecto)
     assert r["score"] == 60
     assert r["percentage"] == 100
-    assert r["cefr_level"] == "C1"
-    assert r["class_placement"] == "ESP"
+    assert r["cefr_level"] == "B2"
+    assert r["class_placement"] == "Nivel postgrado"
 
 
 def test_sin_responder_no_revienta_y_no_regala_nivel():
     r = calculate_score({})
     assert r["score"] == 0
-    assert r["cefr_level"] == "A1"
-    assert r["class_placement"] == "Elementary"
+    assert r["cefr_level"] == "A2"
+    assert r["class_placement"] == "Elemental"
 
 
 def test_una_respuesta_desconocida_no_cuenta_como_correcta():
@@ -243,6 +250,34 @@ def test_se_expone_la_particion_real_de_ames():
     assert r["ames_parts"]["Part 1"]["total"] == 40
     assert r["ames_parts"]["Part 2"]["total"] == 20
     assert r["instrument"] == "AMES English Placement Test"
+
+
+def test_el_endpoint_no_puede_descartar_la_ubicacion():
+    """La tarjeta "Según el examen de ubicación de AMES" del front está condicionada
+    a `class_placement`. La primera versión calculaba el campo y el response model
+    del endpoint lo tiraba, así que la tarjeta **nunca se renderizaba**: código
+    muerto que pasó typecheck, build y toda la suite.
+
+    Este test fija el contrato desde el modelo de respuesta, no desde el servicio.
+    """
+    from app.api.v1.english_test import TestResultResponse
+
+    campos = set(TestResultResponse.model_fields)
+    for campo in ("ielts_equivalent", "class_placement", "instrument"):
+        assert campo in campos, f"el endpoint volvería a descartar {campo}"
+
+    # Y que lo que produce el servicio quepa en el modelo.
+    r = calculate_score({})
+    TestResultResponse(
+        score=r["score"],
+        total_questions=r["total_questions"],
+        percentage=r["percentage"],
+        cefr_level=r["cefr_level"],
+        section_scores=r["section_scores"],
+        ielts_equivalent=r["ielts_equivalent"],
+        class_placement=r["class_placement"],
+        instrument=r["instrument"],
+    )
 
 
 def test_el_puntaje_por_seccion_refleja_lo_respondido():

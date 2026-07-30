@@ -44,20 +44,28 @@ justamente lo que le da valor al cambio. La app sigue en español; el examen no.
    anterior sí lo traía porque nos lo habíamos inventado. Poner una etiqueta CEFR
    por ítem que AMES no declara sería mostrarle al estudiante un dato falso.
 
-## ⚠️ Dos discrepancias del documento original · pendientes de confirmar
+## La tabla de equivalencia es la de ELLA, literal
 
-1. La tabla de AMES dice que el rango **0-7 equivale a "> 4" de IELTS**. Es
-   imposible: los rangos superiores son 4, 4.5, 5… Se interpreta como **"< 4"**
-   (por debajo de 4), que es lo único coherente. Está anotado para que Verónica lo
-   confirme; no se corrigió su documento en silencio.
-2. Los nombres de clase de AMES y la columna IELTS **no concuerdan** con la
-   equivalencia CEFR habitual: AMES llama "Advanced" a un IELTS 5.5, que en la
-   escala estándar es B2, no C1. Como el CEFR es lo que la plataforma le muestra al
-   estudiante y lo que usa para filtrar programas, se derivó del **eje IELTS**, que
-   es el estandarizado, y de forma conservadora. Se exponen los tres valores
-   (puntaje, IELTS aproximado y la ubicación textual de AMES) para no esconder nada.
-   **Si Verónica prefiere que manden los nombres de clase de AMES, se cambia solo
-   `_PLACEMENT`.**
+El insumo de A5 traía **tres** archivos, no dos. El tercero —
+`AMES - equivalencia IELTS.jpg`— es la página **"Test de inglés gratuito" de la
+propia agencia**, y trae la tabla completa con seis columnas, incluida
+**Common European Framework**. `_PLACEMENT` la reproduce tal cual: los puntajes,
+el IELTS, el CEFR y los nombres de clase en español que ella publica.
+
+Esto corrigió tres cosas que en la primera versión resolvimos por nuestra cuenta:
+
+- El **CEFR** se derivaba con criterio nuestro y difería del suyo en tres franjas.
+  La peor: 56-60 nosotros decíamos **C1** y su web publica **B2**. Ese valor se
+  persiste en `user.english_cefr_level`, se le muestra a los asesores, se imprime
+  en la hoja de vida y viaja al CRM — o sea, le estábamos mostrando a un
+  estudiante un nivel distinto al que la agencia publica para el mismo puntaje.
+- El **"> 4"** de la fila 0-7 del PDF, que habíamos leído como "< 4": su tabla dice
+  **3.5**. No hacía falta interpretar nada, el dato estaba.
+- Los **nombres de clase**: usábamos los del PDF en inglés ("ESP", "IELTS & Uni
+  preparation"); ella publica "Nivel postgrado" y "Avanzado académico".
+
+Si alguna vez hay que cambiar la equivalencia, se cambia **solo `_PLACEMENT`**:
+nada más en el archivo depende de ella.
 """
 from __future__ import annotations
 
@@ -328,24 +336,24 @@ ENGLISH_TEST_QUESTIONS: List[Dict[str, Any]] = _build()
 
 
 # ---------------------------------------------------------------------------
-# Tabla de ubicación de AMES · `AMES - clave de respuestas.pdf`, página 2
+# Tabla de equivalencia · transcrita de `AMES - equivalencia IELTS.jpg`, que es
+# la página "Test de inglés gratuito" DE LA PROPIA AGENCIA.
 #
-# (mínimo, máximo, IELTS aproximado, ubicación de AMES, CEFR nuestro)
+# (mínimo, máximo, IELTS, ubicación de clase, CEFR)
 #
-# El CEFR se deriva del eje IELTS, no de los nombres de clase de AMES · ver la
-# discrepancia 2 del docstring. Cambiar SOLO esta tabla si Verónica decide otra
-# cosa: nada más en el archivo depende de la equivalencia.
+# Las cuatro columnas son de ELLA, incluido el CEFR. No se deriva nada: si la
+# plataforma le mostrara a un estudiante un nivel distinto al que publica su web
+# para el mismo puntaje, el dato de la plataforma sería el equivocado.
 # ---------------------------------------------------------------------------
 
 _PLACEMENT = [
-    # AMES imprime "> 4" en esta fila · imposible, se lee como "< 4".
-    (0, 7, "< 4", "Elementary", "A1"),
-    (8, 17, "4", "Pre Intermediate", "A2"),
-    (18, 29, "4.5", "Intermediate", "B1"),
-    (30, 39, "5", "Upper Intermediate", "B1"),
-    (40, 47, "5.5", "Advanced", "B2"),
-    (48, 55, "6", "IELTS & Uni preparation", "B2"),
-    (56, 60, "6.5", "ESP", "C1"),
+    (0, 7, "3.5", "Elemental", "A2"),
+    (8, 17, "4.0", "Pre intermedio", "B1"),
+    (18, 29, "4.5", "Intermedio", "B1"),
+    (30, 39, "5.0", "Intermedio alto", "B1"),
+    (40, 47, "5.5", "Avanzado", "B2"),
+    (48, 55, "6.0", "Avanzado académico", "B2"),
+    (56, 60, "6.5", "Nivel postgrado", "B2"),
 ]
 
 _SECTIONS = ("grammar", "vocabulary", "reading")

@@ -70,6 +70,36 @@ _ONBOARDING_TIMELINE_MAP = {
     "exploring": "Más adelante (solo explorando)",
 }
 
+# P1-4 / S9 · `main_goal` (onboarding, multi) → `interestType` (journey, multi).
+#
+# SOLO las equivalencias inequívocas. `discover` ("entenderme mejor y saber qué me
+# conviene") y `study` ("definir qué estudiar") NO están aquí a propósito: ninguna
+# de las opciones del journey dice eso, y forzarlas a "Construir una carrera" sería
+# registrar que la persona eligió algo que no eligió. Si alguna de esas dos aparece
+# entre lo que respondió, no se siembra nada y el journey vuelve a preguntar — que
+# es incómodo pero honesto.
+_ONBOARDING_GOAL_TO_INTEREST = {
+    "learn_language": "Mejorar un idioma",
+    "work": "Construir una carrera",
+    "emigrate": "Vivir en otro país",
+    "explore": "No estoy seguro aún",
+}
+_GOALS_SIN_EQUIVALENTE = {"discover", "study"}
+
+# `budget` (onboarding) → `budgetBand` (journey).
+#
+# La escala del journey es cualitativa y más gruesa que los rangos en dólares del
+# onboarding, así que 15k-30k y +30k caen los dos en "Flexible". `unknown` sí tiene
+# equivalente exacto y es el que más importa: a quien dijo "no sé todavía" se le
+# estaba volviendo a preguntar lo mismo.
+_ONBOARDING_BUDGET_TO_JOURNEY = {
+    "under_5k": "Bajo",
+    "5k_15k": "Medio",
+    "15k_30k": "Flexible",
+    "over_30k": "Flexible",
+    "unknown": "Prefiero no definirlo ahora",
+}
+
 
 def seed_answers_from_onboarding(onboarding: Optional[dict]) -> dict:
     """Deriva answers del Journey a partir de las respuestas del onboarding.
@@ -87,6 +117,29 @@ def seed_answers_from_onboarding(onboarding: Optional[dict]) -> dict:
     timeline = onboarding.get("timeline")
     if timeline in _ONBOARDING_TIMELINE_MAP:
         seeded["timeHorizon"] = _ONBOARDING_TIMELINE_MAP[timeline]
+
+    # P1-4 · Hasta aquí solo se sembraban 2 de ~11 campos, así que el journey
+    # seguía repreguntando objetivo y presupuesto.
+    metas = onboarding.get("main_goal")
+    if isinstance(metas, list) and metas:
+        # Si eligió alguna meta sin equivalente limpio, no se siembra NADA: sembrar
+        # solo una parte dejaría el paso por respondido con la mitad de lo que dijo.
+        if not (set(metas) & _GOALS_SIN_EQUIVALENTE):
+            intereses = [
+                _ONBOARDING_GOAL_TO_INTEREST[m]
+                for m in metas
+                if m in _ONBOARDING_GOAL_TO_INTEREST
+            ]
+            # De-dup conservando el orden en que las eligió.
+            vistos = set()
+            intereses = [i for i in intereses if not (i in vistos or vistos.add(i))]
+            if intereses:
+                seeded["interestType"] = intereses
+
+    presupuesto = onboarding.get("budget")
+    if presupuesto in _ONBOARDING_BUDGET_TO_JOURNEY:
+        seeded["budgetBand"] = _ONBOARDING_BUDGET_TO_JOURNEY[presupuesto]
+
     return seeded
 
 
@@ -108,29 +161,47 @@ def seed_session_from_onboarding(session: Session, onboarding: Optional[dict]) -
     answers = dict(session.answers or {})
     completed = list(session.completed_steps or [])
     changed = False
+
+    venia_en_welcome = session.current_step == "welcome"
     for key, value in seeded.items():
         if not answers.get(key):  # no pisar lo que el Journey ya respondió
             answers[key] = value
             if key not in completed:
                 completed.append(key)
             changed = True
-    if changed:
+    if changed or venia_en_welcome:
         session.answers = answers
         session.completed_steps = completed
-        # Auditoría R5 · si la sesión estaba PARADA exactamente en un paso que
-        # acabamos de sembrar (p.ej. re-onboarding con journey a medio camino),
-        # avanzar al siguiente paso pendiente — si no, el paso se re-pregunta
-        # aunque ya tenga respuesta.
+
+        # Se reposiciona la sesión por DOS razones distintas:
+        #
+        # 1. Auditoría R5 · estaba PARADA en un paso que acabamos de sembrar (p.ej.
+        #    re-onboarding con el journey a medio camino): si no se avanza, el paso
+        #    se re-pregunta aunque ya tenga respuesta.
+        # 2. P1-4 · estaba en `welcome` ("Antes de pensar en países o programas…
+        #    quiero entenderte un poco"). A quien acaba de responder 10-13 preguntas
+        #    de onboarding eso le suena a que se empieza de cero. Verónica lo dijo
+        #    tal cual: "me hizo 13 preguntas y me va a volver a decir que
+        #    comencemos". Una sesión anónima conserva su bienvenida: esta función
+        #    solo corre cuando el onboarding trajo datos.
         current = get_step(session.current_step)
-        if current is not None and current.save_to and answers.get(current.save_to):
-            # P1-5 · el onboarding ya está en el scope de esta función; pasarlo
-            # permite que el reencuadre también respete los pasos que no aplican.
+        hay_que_avanzar = venia_en_welcome or (
+            current is not None
+            and current.save_to
+            and answers.get(current.save_to)
+        )
+        if hay_que_avanzar:
+            # `get_next_step` resuelve la cadena completa: salta lo ya respondido y
+            # lo que no aplica. Fijar el paso a mano se saltaría el `skip_if` del
+            # siguiente — `whyHere`, que duplica `main_goal`, es justo ese caso.
+            # P1-5 · pasar el onboarding permite respetar los pasos que no aplican.
             nxt = get_next_step(session.current_step, answers, onboarding)
             if nxt:
                 session.current_step = nxt
                 nxt_step = get_step(nxt)
                 if nxt_step:
                     session.current_stage = DBJourneyStage(nxt_step.stage.value)
+                changed = True
     return changed
 
 

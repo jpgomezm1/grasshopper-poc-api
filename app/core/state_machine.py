@@ -76,6 +76,19 @@ JOURNEY_STEPS: List[JourneyStep] = [
         placeholder="Cuéntame en 1-2 frases...",
         save_to="whyHere",
         next_step="empathy",
+        # P1-4 / S9 · Esta pregunta es la PRIMERA del journey, justo después de que
+        # la persona respondió 10-13 preguntas de onboarding. Y el onboarding ya le
+        # preguntó lo mismo con otras palabras: "¿Qué quieres resolver con esta
+        # orientación?" (`main_goal`).
+        #
+        # Es la queja que más repitieron las dos personas que probaron:
+        #   Sandra  · "siento que me está volviendo a preguntar"
+        #   Verónica· "me hizo 13 preguntas y me va a volver a decir que comencemos"
+        #
+        # No se siembra una respuesta —`whyHere` es texto libre y `main_goal` son
+        # opciones, inventar la frase sería falsear lo que dijo—; simplemente no se
+        # vuelve a preguntar.
+        skip_if=lambda ctx: bool((ctx.get("onboarding") or {}).get("main_goal")),
     ),
     JourneyStep(
         id="empathy",

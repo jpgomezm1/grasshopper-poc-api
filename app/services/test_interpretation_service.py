@@ -43,7 +43,11 @@ from app.services.scoring_service import (
 
 logger = logging.getLogger(__name__)
 
-PROMPT_VERSION = "interpret_test_v1"
+# v2 · A1 · El bloque de puntajes ahora incluye el RESULTADO interpretado (`_extras`)
+# y el prompt trata las dimensiones bipolares como tales. Subir la versión invalida
+# las lecturas cacheadas: las de MBTI, iStrong, VARK y Motivadores se escribieron sin
+# ver el resultado del test, así que hay que regenerarlas.
+PROMPT_VERSION = "interpret_test_v2"
 
 
 class TestInterpretationUnavailable(Exception):
@@ -159,6 +163,106 @@ def format_scores_block(test_id: str, scores: Dict[str, Any]) -> str:
             "Dimensiones sin etiqueta legible en interpret_test",
             extra={"test_id": test_id, "dimensiones": desconocidas},
         )
+
+    extra = _resultado_block(test_id, scores or {})
+    if extra:
+        return "\n".join(filas) + "\n\n" + extra
+    return "\n".join(filas)
+
+
+def _resultado_block(test_id: str, scores: Dict[str, Any]) -> str:
+    """El RESULTADO ya interpretado del test · lo que vive en `_extras`.
+
+    A1 · `format_scores_block` filtraba `scores` a valores numéricos, así que
+    `_extras` se descartaba entero. El modelo escribía la lectura de MBTI, iStrong,
+    VARK y Motivadores **sin ver el resultado del test**: nunca supo el tipo de 4
+    letras, ni el código de iStrong, ni la Regla de Oro Multimodal de VARK.
+
+    El caso más visible era VARK: la regla multimodal se evalúa sobre conteos, pero
+    al prompt solo llegaban porcentajes, así que la IA podía narrar un estilo único
+    dominante en la misma pantalla donde el sistema muestra "Perfil Multimodal".
+
+    Y en MBTI, las dimensiones son **bipolares**: pedirle al modelo "las 3 más
+    altas" sobre EI/SN/TF/JP no significa nada — un introvertido marcado (EI=15)
+    recibía como pilares las dimensiones donde MENOS se define. Por eso aquí cada
+    dimensión se expresa como su preferencia, no como un número suelto.
+    """
+    extras = scores.get("_extras")
+    if not isinstance(extras, dict):
+        return ""
+
+    etiquetas = _label_map(test_id)
+    filas: List[str] = []
+
+    if test_id == "mbti":
+        tipo = extras.get("type")
+        info = extras.get("type_info") or {}
+        if tipo:
+            nombre = info.get("name")
+            filas.append(f"TIPO: {tipo}" + (f" · {nombre}" if nombre else ""))
+        if info.get("summary"):
+            filas.append(f"Qué caracteriza a este tipo: {info['summary']}")
+        dims = extras.get("dimensions") or {}
+        for clave, dato in dims.items():
+            if not isinstance(dato, dict):
+                continue
+            etiqueta = etiquetas.get(clave, (clave, ""))[0]
+            letra = dato.get("letter", "")
+            fuerza = dato.get("preference")
+            # La "preferencia" es lo que importa: la distancia al punto medio.
+            filas.append(
+                f"- {etiqueta} → se inclina a «{letra}»"
+                + (f" (intensidad {fuerza})" if fuerza is not None else "")
+            )
+
+    elif test_id == "istrong":
+        gots = [
+            extras.get("primary_got"),
+            extras.get("secondary_got"),
+            extras.get("tertiary_got"),
+        ]
+        nombres = [etiquetas[g][0] for g in gots if g and g in etiquetas]
+        if nombres:
+            filas.append("ÁREAS DOMINANTES: " + " · ".join(nombres))
+        bis = [b for b in (extras.get("top_bis") or []) if b in etiquetas]
+        if bis:
+            filas.append(
+                "INTERESES CONCRETOS MÁS ALTOS: "
+                + " · ".join(etiquetas[b][0] for b in bis)
+            )
+
+    elif test_id == "vark":
+        if extras.get("label"):
+            filas.append(f"RESULTADO: {extras['label']}")
+        if extras.get("multimodal"):
+            # Explícito para que el modelo no narre un estilo único dominante.
+            filas.append(
+                "Es un perfil MULTIMODAL: combina varios canales y NO tiene un solo "
+                "estilo dominante. No lo describas como si tuviera uno."
+            )
+        estilos = [e for e in (extras.get("styles") or []) if e in etiquetas]
+        if estilos:
+            filas.append(
+                "Canales que combina: " + " · ".join(etiquetas[e][0] for e in estilos)
+            )
+        if extras.get("headline"):
+            filas.append(f"Lectura del sistema: {extras['headline']}")
+
+    elif test_id == "motivadores":
+        if extras.get("label"):
+            filas.append(f"RESULTADO: {extras['label']}")
+        if extras.get("fusion"):
+            filas.append(
+                "Los dos motivadores están empatados: descríbelo como una fusión, "
+                "no como uno solo."
+            )
+        for papel, clave in (("primario", "primary"), ("secundario", "secondary")):
+            valor = extras.get(clave)
+            if valor and valor in etiquetas:
+                filas.append(f"Motivador {papel}: {etiquetas[valor][0]}")
+        if extras.get("headline"):
+            filas.append(f"Lectura del sistema: {extras['headline']}")
+
     return "\n".join(filas)
 
 

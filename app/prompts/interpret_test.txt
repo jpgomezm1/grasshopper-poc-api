@@ -65,6 +65,15 @@ REGLAS DE CONTENIDO:
 1. `pillars`: incluye las 3 dimensiones MÁS ALTAS. Si alguna dimensión es notablemente baja
    y eso aporta información útil, puedes incluir una cuarta y decir qué implica que sea baja
    — sin presentarlo como carencia.
+   ⚠️ EXCEPCIÓN: si el bloque de puntajes trae una sección con el RESULTADO ya
+   interpretado (TIPO, ÁREAS DOMINANTES, RESULTADO), **esa sección manda sobre los
+   números**. Ahí las dimensiones pueden ser BIPOLARES: un puntaje bajo no significa
+   "poco", significa que se inclina al otro polo. En ese caso NO ordenes por número
+   —"la más alta" no quiere decir nada— sino que construye los pilares sobre las
+   preferencias que te indica esa sección, y **nombra el resultado explícitamente**
+   (el tipo de 4 letras, el perfil multimodal, el motivador) en `headline` o
+   `summary`. Si dice que el perfil combina varios canales o que hay una fusión, NO
+   lo describas como si tuviera uno solo dominante.
 2. `areas`: 3 áreas. Cada `why_it_fits` DEBE mencionar al menos una dimensión concreta del
    resultado. Nada de "encaja con tu perfil" sin explicar por qué.
 3. `for_family`: es lo que la clienta pidió explícitamente. No lo omitas ni lo dejes

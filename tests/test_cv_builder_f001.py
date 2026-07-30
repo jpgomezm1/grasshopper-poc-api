@@ -35,7 +35,10 @@ def test_build_cv_data_maps_all_sections():
         ),
     ]
     tests = [
-        NS(test_id="riasec", scores={"investigative": 88, "artistic": 75, "social": 60}),
+        # A2 · las claves reales de Holland son las letras R/I/A/S/E/C. Este fixture
+        # usaba palabras en inglés ("investigative"…) que producción nunca genera, así
+        # que pasaba en verde mientras el PDF real imprimía siglas.
+        NS(test_id="holland", scores={"I": 88, "A": 75, "S": 60, "R": 20}),
         NS(test_id="mbti", scores={"type": "ENFP"}),
     ]
     profile = {
@@ -57,11 +60,12 @@ def test_build_cv_data_maps_all_sections():
     assert data.grade == "11A"
     assert data.english_level == "B2"
     assert data.headline == "Ciencias de la salud · Biomédica"
-    # RIASEC top-3 → IAS · MBTI → ENFP
     # A3 · las tuplas ganaron un 4º elemento (`test_id`) para que el estudiante
     # pueda quitar un test de su hoja de vida.
     hl = {fila[0]: fila[1] for fila in data.test_highlights}
-    assert hl["Holland (RIASEC)"] == "IAS"
+    # A2 · nombres, no siglas — también en la hoja de vida, que comparte
+    # `_highlight_for` con el PDF del correo.
+    assert hl["Holland (RIASEC)"] == "Investigador · Artístico · Social"
     assert hl["MBTI"] == "ENFP"
     assert len(data.activities) == 1
     assert data.activities[0].category_label == "Deporte"

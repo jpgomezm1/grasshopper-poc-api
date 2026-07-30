@@ -507,7 +507,7 @@
       {% for t in test_cards %}
         <div class="card alt test-card">
           <p class="test-name">{{ t.name }}</p>
-          <p class="test-highlight">{{ t.highlight }}</p>
+          {% if t.highlight %}<p class="test-highlight">{{ t.highlight }}</p>{% endif %}
           <p class="test-desc">{{ t.description }}</p>
           {# P1-2 · feedback A2: "debe haber bajo cada test un reporte corto, en
              palabras faciles, de que significa eso". Solo aparece si ya hay lectura

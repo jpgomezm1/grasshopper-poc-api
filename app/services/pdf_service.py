@@ -53,7 +53,9 @@ DEFAULT_LOGO_PATH = Path(__file__).parent.parent / "templates" / "static" / "gra
 class TestCard:
     """A test result rendered as a card in page 3."""
     name: str
-    highlight: str
+    # A2 · `None` cuando no hay un resumen legible que mostrar. Antes se imprimía
+    # "—", que es peor que una sigla: es una tarjeta sin dato.
+    highlight: Optional[str]
     description: str
     # P1-2 · Lectura en prosa del resultado (feedback A2: "debe haber bajo cada test
     # un reporte corto, en palabras fáciles, de qué significa eso"). Sale de la
@@ -161,15 +163,27 @@ def _cached_reading(test_result: Any) -> Optional[str]:
     return (data.get("summary") or "").strip() or None
 
 
+# A2 · Este mapa tenía TRES claves que no existen (`riasec`, `big5`, `anchors`) y le
+# faltaban las tres reales (`career-anchors`, `vark`, `motivadores`). Los ids de verdad
+# están en `app/data/vocational_tests.py`. El efecto: 3 de 8 tests caían al fallback
+# `tid.upper()` y salían impresos como "CAREER-ANCHORS" con descripción vacía, en el
+# PDF que se manda por correo a la familia — que es justo el que ella descargó y sobre
+# el que escribió "muestra solo barras con siglas, sin ninguna explicación".
+#
+# Las claves viejas se conservan como alias: hay resultados guardados con ellas.
 _TEST_LABELS = {
-    "riasec": ("Holland (RIASEC)", "Intereses profesionales"),
     "holland": ("Holland (RIASEC)", "Intereses profesionales"),
-    "mbti": ("MBTI", "Tipo de personalidad"),
     "bigfive": ("Big Five", "Rasgos de personalidad"),
-    "big5": ("Big Five", "Rasgos de personalidad"),
     "values": ("Valores laborales", "Lo que te mueve"),
-    "istrong": ("iStrong", "Áreas afines"),
-    "anchors": ("Anclas de carrera", "Motivadores profesionales"),
+    "career-anchors": ("Anclas de carrera", "Qué no estarías dispuesto a negociar"),
+    "mbti": ("MBTI", "Tipo de personalidad"),
+    "istrong": ("iStrong", "Áreas profesionales afines"),
+    "vark": ("Estilos de aprendizaje (VARK)", "Cómo aprendes mejor"),
+    "motivadores": ("Motivadores iniciales", "Qué te mueve a empezar"),
+    # Alias históricos
+    "riasec": ("Holland (RIASEC)", "Intereses profesionales"),
+    "big5": ("Big Five", "Rasgos de personalidad"),
+    "anchors": ("Anclas de carrera", "Qué no estarías dispuesto a negociar"),
 }
 
 
@@ -181,56 +195,97 @@ def _format_es_date(dt: datetime) -> str:
     return f"{dt.day} de {months[dt.month - 1]} de {dt.year}"
 
 
-def _highlight_for(test_id: str, scores: Dict[str, Any]) -> str:
-    """Pick a short, human-readable highlight from a test's scores blob."""
+def _top_labels(test_id: str, scores: Dict[str, Any], cuantos: int) -> str:
+    """Las N dimensiones más altas, con su NOMBRE, no con su sigla.
+
+    Reutiliza los mapas de etiquetas de `test_interpretation_service` en vez de
+    duplicarlos por tercera vez (ya están duplicados entre back y front · deuda
+    anotada en P1-1).
+    """
+    from app.services.test_interpretation_service import _label_map
+
+    etiquetas = _label_map(test_id)
+    numericos = [
+        (k, float(v))
+        for k, v in scores.items()
+        if k != "_extras" and isinstance(v, (int, float))
+    ]
+    if not numericos:
+        return ""
+    top = sorted(numericos, key=lambda kv: kv[1], reverse=True)[:cuantos]
+    nombres = [
+        (etiquetas.get(k, (k, ""))[0] if etiquetas else k) for k, _ in top
+    ]
+    return " · ".join(n for n in nombres if n)
+
+
+def _highlight_for(test_id: str, scores: Dict[str, Any]) -> Optional[str]:
+    """Un resumen corto y LEGIBLE del resultado de un test.
+
+    A2 · La versión anterior devolvía siglas ("SIA", "O · N") o "—" para 6 de los 8
+    tests, en el PDF que se manda por correo. Su queja fue literalmente esa: siglas
+    sin explicación. Ahora devuelve nombres, y `None` —no "—"— cuando de verdad no
+    hay nada que decir, para que la plantilla omita la línea en vez de imprimir un
+    guion suelto.
+
+    Los tests con `_extras` (MBTI, iStrong, VARK, Motivadores) traen su resultado ya
+    interpretado por `scoring_service`; leerlo de ahí evita re-derivarlo mal.
+    """
     if not scores:
-        return "—"
+        return None
 
     tid = (test_id or "").lower()
+    extras = scores.get("_extras") if isinstance(scores.get("_extras"), dict) else {}
 
-    if tid in {"riasec", "holland"}:
-        # Top 3 letters from RIASEC scores
-        try:
-            top = sorted(
-                ((k, float(v)) for k, v in scores.items() if isinstance(v, (int, float))),
-                key=lambda kv: kv[1],
-                reverse=True,
-            )[:3]
-            code = "".join(k[0].upper() for k, _ in top if k)
-            return code or "—"
-        except Exception:
-            return "—"
+    # VARK y Motivadores ya traen una etiqueta pensada para leerse.
+    if tid in {"vark", "motivadores"}:
+        return (extras.get("label") or "").strip() or None
 
     if tid == "mbti":
-        return str(scores.get("type") or scores.get("code") or "—")
-
-    if tid in {"bigfive", "big5"}:
-        try:
-            top = sorted(
-                ((k, float(v)) for k, v in scores.items() if isinstance(v, (int, float))),
-                key=lambda kv: kv[1],
-                reverse=True,
-            )[:2]
-            label = " · ".join(k.capitalize() for k, _ in top)
-            return label or "—"
-        except Exception:
-            return "—"
+        tipo = (extras.get("type") or scores.get("type") or "").strip()
+        nombre = ((extras.get("type_info") or {}).get("name") or "").strip()
+        if tipo and nombre:
+            return f"{tipo} · {nombre}"
+        return tipo or None
 
     if tid == "istrong":
-        # iStrong stores top areas (D-011 banco propio)
-        top_areas = scores.get("top_areas") or scores.get("areas") or []
-        if isinstance(top_areas, list) and top_areas:
-            initials = "".join(str(a)[0].upper() for a in top_areas[:3] if a)
-            return initials or "—"
-        return "—"
+        # iStrong guarda dos niveles: los GOT (letras tipo Holland: "R", "I", "A") y
+        # los BIS, que son los intereses concretos ("R:mecanica"). Se usan los BIS
+        # porque son los que dicen algo — "Mecánica e ingeniería aplicada" en vez de
+        # "RIA", que es literalmente el código de su queja.
+        from app.services.test_interpretation_service import _label_map
+
+        etiquetas = _label_map("istrong")
+        nombres = [
+            etiquetas[b][0]
+            for b in (extras.get("top_bis") or [])
+            if b in etiquetas
+        ]
+        if nombres:
+            return " · ".join(nombres[:2])
+        # Sin BIS, se cae a los GOT — traducidos, nunca la letra suelta.
+        gots = [
+            etiquetas[g][0]
+            for g in (extras.get("primary_got"), extras.get("secondary_got"))
+            if g and g in etiquetas
+        ]
+        if gots:
+            return " · ".join(gots)
+        return _top_labels("istrong", scores, 2) or None
+
+    if tid in {"holland", "riasec"}:
+        return _top_labels("holland", scores, 3) or None
+
+    if tid in {"bigfive", "big5"}:
+        return _top_labels("bigfive", scores, 2) or None
 
     if tid == "values":
-        top_values = scores.get("top_values") or scores.get("values") or []
-        if isinstance(top_values, list) and top_values:
-            return " · ".join(str(v).capitalize() for v in top_values[:2])
-        return "—"
+        return _top_labels("values", scores, 2) or None
 
-    return "—"
+    if tid in {"career-anchors", "anchors"}:
+        return _top_labels("career-anchors", scores, 2) or None
+
+    return None
 
 
 def build_payload(

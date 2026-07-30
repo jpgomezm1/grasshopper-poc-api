@@ -138,7 +138,10 @@ def test_build_payload_test_cards_from_results():
     assert "MBTI" in names
     assert "Big Five" in names
     riasec = next(t for t in payload.test_cards if t.name == "Holland (RIASEC)")
-    assert riasec.highlight == "SIA"  # Top 3: S, I, A
+    # A2 · antes esto fijaba "SIA". La clienta se quejó exactamente de eso: "muestra
+    # solo barras con siglas, sin ninguna explicación". El destacado ahora se
+    # imprime con los nombres de las dimensiones, en el mismo orden.
+    assert riasec.highlight == "Social · Investigador · Artístico"
     mbti = next(t for t in payload.test_cards if t.name == "MBTI")
     assert mbti.highlight == "ENFJ"
 

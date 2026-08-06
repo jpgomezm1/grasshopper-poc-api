@@ -28,11 +28,17 @@ from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy.orm import Session as DBSession
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from app.db.database import get_db
 from app.db.models import School, User, UserRole, VocationalTestResult
-from app.services import cv_pdf_service, cv_profile_service, extracurricular_service
+from app.services import (
+    cv_pdf_service,
+    cv_profile_service,
+    extracurricular_service,
+    linkedin_import_service,
+)
+from app.services.ai_usage_service import record_ai_usage
 from app.services.auth_service import get_current_user
 
 logger = logging.getLogger(__name__)
@@ -206,6 +212,66 @@ def get_cv_profile(
     _solo_estudiantes(current_user)
     cv, perfil = _armar_cv(db, current_user)
     return _serializar(cv, perfil)
+
+
+class LinkedInImportRequest(BaseModel):
+    """CV-2 · El texto que la persona copió de su propio perfil de LinkedIn."""
+
+    profile_text: str = Field(..., min_length=1, max_length=20000)
+
+
+@router_me.post(
+    "/import-linkedin",
+    summary="CV-2 · estructurar el perfil de LinkedIn que la persona pegó",
+)
+def import_linkedin(
+    request: LinkedInImportRequest,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Devuelve una PROPUESTA · no escribe la hoja de vida.
+
+    Se pidió un scraper de LinkedIn. No se construyó como scraper: sus términos
+    de servicio lo prohíben, y además no funcionaría con perfiles privados. En su
+    lugar la persona pega su propio perfil y la IA lo estructura — mismo
+    resultado, sin exponer a la agencia.
+
+    **No aplica nada.** Devuelve un borrador para que lo revise y confirme con el
+    `PUT /profile` de siempre. Es su hoja de vida y lleva su nombre; pisarla sin
+    preguntar sería justo lo contrario de lo que pidió A3 ("debe poder editarse").
+    """
+    _solo_estudiantes(current_user)
+
+    try:
+        propuesta, meta = linkedin_import_service.importar_desde_texto(
+            request.profile_text
+        )
+    except linkedin_import_service.LinkedInImportError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail={"code": "linkedin_import_failed", "message": str(exc)},
+        )
+
+    # M-001 · todo consumo de IA queda auditado. Si falla el registro no se
+    # pierde el trabajo que la persona ya esperó.
+    try:
+        record_ai_usage(
+            db,
+            user_id=current_user.id,
+            feature="cv_linkedin_import",
+            model=meta.get("model"),
+            tokens_input=meta.get("tokens_input"),
+            tokens_output=meta.get("tokens_output"),
+            latency_ms=meta.get("latency_ms"),
+        )
+    except Exception:  # noqa: BLE001
+        logger.warning("No se pudo registrar el uso de IA de import-linkedin")
+
+    return {
+        "proposal": propuesta,
+        # Listo para mandarlo tal cual al PUT /profile si la persona lo acepta.
+        "suggested_overrides": linkedin_import_service.a_overrides(propuesta),
+    }
 
 
 @router_me.put("/profile", summary="A3 · responder las preguntas y editar mi hoja de vida")

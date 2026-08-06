@@ -55,13 +55,18 @@ CONSENT_EVENTS = frozenset(
         "crm_sync.revoked",
         "parental.granted",
         "parental.revoked",
+        # RM-1 · acompañamiento periódico. Se registra aparte del consentimiento
+        # de datos porque es otra cosa: una persona puede aceptar que tratemos su
+        # información y no querer que le escribamos.
+        "communications.granted",
+        "communications.revoked",
         "data_export",
         "data_deletion",
     }
 )
 
-# Three independent consent kinds.
-CONSENT_KINDS = ("data_processing", "crm_sync", "parental")
+# Cuatro tipos de consentimiento independientes.
+CONSENT_KINDS = ("data_processing", "crm_sync", "parental", "communications")
 
 
 # -----------------------------------------------------------------------------
@@ -119,6 +124,37 @@ def has_crm_consent(user: User) -> Tuple[bool, Optional[str]]:
     return True, None
 
 
+def can_send_communications(user: User) -> Tuple[bool, Optional[str]]:
+    """RM-1 · ¿Se le puede mandar un mensaje de acompañamiento a esta persona?
+
+    El pedido fue que el asistente contacte cada tanto ("¿cómo vas con tu
+    proyecto? ¿tomaste el curso de inglés?"). Antes de escribir la primera línea
+    del scheduler hay que poder responder esta pregunta, porque **una parte de
+    los usuarios son menores de edad**.
+
+    Orden de comprobaciones, fail-fast y por deny-by-default:
+
+      1. Consentimiento de tratamiento de datos (cubre todo lo demás).
+      2. Consentimiento explícito de comunicaciones — es independiente: alguien
+         puede aceptar que tratemos sus datos y no querer que le escribamos.
+      3. Si es menor, además el consentimiento parental. Y `is_minor` devuelve
+         True cuando no hay fecha de nacimiento, así que ante la duda **no se
+         manda nada**.
+
+    Devuelve `(puede, motivo_si_no)`. El motivo sirve para explicarlo en logs y
+    en el panel, sin tener que adivinar por qué alguien no recibió su mensaje.
+    """
+    if user is None:
+        return False, "no_user"
+    if user.consent_data_processing_at is None:
+        return False, "no_data_processing_consent"
+    if user.consent_communications_at is None:
+        return False, "no_communications_consent"
+    if is_minor(user) and user.consent_parental_at is None:
+        return False, "no_parental_consent"
+    return True, None
+
+
 def consent_state(user: User) -> Dict[str, Any]:
     """Serializable snapshot · used by /me/consents and /me/data."""
     settings = get_settings()
@@ -148,6 +184,16 @@ def consent_state(user: User) -> Dict[str, Any]:
                 else None
             ),
             "required": is_minor(user),
+        },
+        # RM-1 · acompañamiento periódico. Aparece aquí para que la persona lo
+        # vea y lo pueda revocar en la misma pantalla que el resto.
+        "communications": {
+            "granted": user.consent_communications_at is not None,
+            "granted_at": (
+                user.consent_communications_at.isoformat()
+                if user.consent_communications_at
+                else None
+            ),
         },
         "policy_version_current": settings.privacy_policy_version,
         "needs_re_acceptance": (
@@ -216,6 +262,8 @@ def grant_consent(
         user.consent_crm_sync_at = now
     elif kind == "parental":
         user.consent_parental_at = now
+    elif kind == "communications":
+        user.consent_communications_at = now
     return _audit(
         db,
         user,
@@ -243,6 +291,8 @@ def revoke_consent(
         user.consent_crm_sync_at = None
     elif kind == "parental":
         user.consent_parental_at = None
+    elif kind == "communications":
+        user.consent_communications_at = None
     return _audit(
         db,
         user,

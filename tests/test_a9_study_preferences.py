@@ -311,6 +311,45 @@ def test_la_ciudad_llega_al_crm(app_with_db):
         db.close()
 
 
+def test_las_tres_respuestas_llegan_al_modelo_de_ia(app_with_db):
+    """Preguntar y no leer la respuesta es el mismo bug con otra ropa.
+
+    La primera versión de A9 guardaba las tres respuestas, las validaba contra
+    una taxonomía y hasta invalidaba la caché del perfil por ellas — y NINGUNA
+    llegaba al prompt. Exactamente el defecto del `voice_career` fantasma y del
+    `city` que nadie escribía, que este mismo sprint viene corrigiendo.
+    """
+    from app.services.ai_service import format_onboarding_context
+
+    bloque = format_onboarding_context(
+        {
+            "city": "Medellín",
+            "preferred_cities": ["Toronto", "Madrid"],
+            "study_area": "health",
+        }
+    )
+    assert "Medellín" in bloque
+    assert "Toronto" in bloque
+    # El área viaja como etiqueta legible, no como el id interno
+    assert "Salud y bienestar" in bloque
+    assert "health" not in bloque
+
+
+def test_no_saber_que_estudiar_se_le_dice_al_modelo(app_with_db):
+    """"Todavía no lo tengo claro" NO es lo mismo que no haber respondido.
+
+    Si el modelo no distingue una de otra, da por hecho una dirección que la
+    persona dijo explícitamente que no tiene.
+    """
+    from app.services.ai_service import format_onboarding_context
+
+    con_duda = format_onboarding_context({"study_area": "undecided"})
+    sin_responder = format_onboarding_context({})
+
+    assert "no lo tiene claro" in con_duda.lower()
+    assert con_duda != sin_responder
+
+
 def test_la_ciudad_de_destino_no_contamina_la_de_residencia(app_with_db):
     """El error que se evitó: "Toronto" en el dossier de quien vive en Medellín.
 

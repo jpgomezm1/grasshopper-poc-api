@@ -159,7 +159,7 @@ def importar_desde_texto(perfil: str) -> tuple[Dict[str, Any], Dict[str, Any]]:
     if len(perfil) > MAX_CHARS:
         perfil = perfil[:MAX_CHARS]
 
-    from app.services.ai_client import get_client
+    from app.core.ai_client import get_client
 
     settings = get_settings()
     client = get_client().with_options(timeout=120.0, max_retries=2)

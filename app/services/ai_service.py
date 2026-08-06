@@ -160,6 +160,25 @@ _MODALITY_LABELS = {
     "no_preference": "Sin preferencia (abierto a las tres)",
 }
 
+# A9 · Las 10 áreas de ISCED-F 2013 (UNESCO) que se le ofrecen al estudiante.
+# El id se guarda; la etiqueta es lo que ve el modelo. Debe seguir a la lista de
+# `app/api/v1/study_preferences.py` y a `Front/.../src/lib/studyAreas.ts`.
+_STUDY_AREA_LABELS = {
+    "education": "Educación",
+    "arts_humanities": "Artes y humanidades",
+    "social_sciences": "Ciencias sociales, periodismo e información",
+    "business_law": "Administración, negocios y derecho",
+    "natural_sciences": "Ciencias naturales, matemáticas y estadística",
+    "ict": "Tecnología y sistemas",
+    "engineering": "Ingeniería, industria y construcción",
+    "agriculture": "Agricultura, ambiente y veterinaria",
+    "health": "Salud y bienestar",
+    "services": "Servicios",
+    # No es lo mismo que no haber respondido: dijo explícitamente que no lo sabe,
+    # y eso el modelo tiene que saberlo para no dar por hecho una dirección.
+    "undecided": "Todavía no lo tiene claro (lo dijo explícitamente)",
+}
+
 _INTL_INTEREST_LABELS = {
     "intl_yes": "Sí, le interesa el exterior",
     "intl_maybe": "Tal vez, quiere ver opciones",
@@ -219,6 +238,29 @@ def format_onboarding_context(onboarding: Optional[Dict[str, Any]]) -> str:
     modality = _MODALITY_LABELS.get(onboarding.get("modality"))
     if modality:
         lines.append(f"- Modalidad de estudio que prefiere: {modality}")
+
+    # A9 · Dónde vive, dónde le gustaría estudiar y qué área le interesa.
+    #
+    # Se conectan AQUÍ y no sólo en el endpoint que las guarda. Una revisión
+    # encontró que la primera versión guardaba las tres respuestas, las validaba
+    # contra una taxonomía y hasta invalidaba la caché del perfil por ellas —
+    # pero NINGUNA llegaba al modelo. O sea: se le preguntaba a la persona y
+    # después se recomendaba sin usarlo, que es literalmente el defecto que este
+    # sprint viene corrigiendo en otros sitios (`voice_career`, el `city`
+    # fantasma). Escribir la pregunta y no leer la respuesta es el mismo bug con
+    # otra ropa.
+    _add("Ciudad donde vive", onboarding.get("city"))
+
+    destinos = onboarding.get("preferred_cities") or []
+    if isinstance(destinos, str):
+        destinos = [destinos]
+    destinos = [str(c).strip() for c in destinos if str(c).strip()][:3]
+    if destinos:
+        lines.append(f"- Ciudades donde le gustaría estudiar: {', '.join(destinos)}")
+
+    area = _STUDY_AREA_LABELS.get(onboarding.get("study_area"))
+    if area:
+        lines.append(f"- Área de estudio que le interesa continuar: {area}")
 
     return "\n".join(lines) if lines else "(sin datos del onboarding)"
 

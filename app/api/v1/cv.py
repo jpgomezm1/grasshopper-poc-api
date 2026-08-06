@@ -257,6 +257,7 @@ def import_linkedin(
     try:
         record_ai_usage(
             db,
+            provider="anthropic",
             user_id=current_user.id,
             feature="cv_linkedin_import",
             model=meta.get("model"),

@@ -254,8 +254,18 @@ def _format_activities_block(activities: List[Dict[str, Any]]) -> str:
     """
     if not activities:
         return "(El estudiante todavía no registró actividades.)"
+
+    # Topes de tamaño · el mismo cuidado que `ai_service.format_onboarding_context`
+    # tiene con las respuestas de voz. `description` admite hasta 4000 caracteres
+    # por actividad y no hay límite de cuántas puede registrar una persona: sin
+    # esto, alguien con veinte actividades largas infla este prompt —y su costo—
+    # sin que nada lo frene.
+    MAX_ACTIVIDADES = 12
+    MAX_DESCRIPCION = 400
+    MAX_LOGROS = 4
+
     lineas = []
-    for a in activities:
+    for a in activities[:MAX_ACTIVIDADES]:
         partes = [a["name"]]
         if a.get("role"):
             partes.append(f"su rol: {a['role']}")
@@ -264,10 +274,16 @@ def _format_activities_block(activities: List[Dict[str, Any]]) -> str:
         partes.append("en curso" if a.get("en_curso") else "ya terminada")
         linea = f"- [{a.get('category') or 'otra'}] " + " · ".join(partes)
         if a.get("description"):
-            linea += f"\n    lo describe así: {a['description']}"
+            desc = str(a["description"])[:MAX_DESCRIPCION]
+            linea += f"\n    lo describe así: {desc}"
         if a.get("achievements"):
-            linea += "\n    logros: " + "; ".join(a["achievements"])
+            linea += "\n    logros: " + "; ".join(a["achievements"][:MAX_LOGROS])
         lineas.append(linea)
+
+    sobrantes = len(activities) - MAX_ACTIVIDADES
+    if sobrantes > 0:
+        # Que el modelo sepa que hay más, en vez de creer que son todas.
+        lineas.append(f"- (y {sobrantes} actividad(es) más que no caben aquí)")
     return "\n".join(lineas)
 
 

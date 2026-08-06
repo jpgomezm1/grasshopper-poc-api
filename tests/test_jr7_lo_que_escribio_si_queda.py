@@ -110,9 +110,43 @@ def test_el_prompt_pide_evidencia_en_palabras_de_la_persona():
     )
 
     bajo = prompt.lower()
-    assert "porque" in bajo
-    # La instrucción clave: preferir lo que la persona escribió sobre el puntaje
-    assert "puntaje" in bajo
+    # Un `"puntaje" in prompt` no sirve: la palabra aparece en varios sitios del
+    # prompt y el test pasaría aunque se borrara la instrucción. Se busca la
+    # instrucción concreta.
+    assert "escribió o hizo" in bajo or "escribio o hizo" in bajo
+    assert "antes que un puntaje" in bajo
+    assert "no inventes" in bajo
+    # Y que pida la frase en segunda persona empezando por "Porque…"
+    assert 'empezando por "porque' in bajo
+
+
+def test_el_bloque_de_actividades_tiene_tope_de_tamano():
+    """Sin tope, veinte actividades largas inflan el prompt y su costo.
+
+    `description` admite 4000 caracteres por actividad y no hay límite de cuántas
+    puede registrar una persona. El resto del mismo prompt sí recorta (las
+    respuestas de voz se cortan a 600); esto no lo hacía.
+    """
+    from app.services.consolidation_service import _format_activities_block
+
+    muchas = [
+        {
+            "category": "deporte",
+            "name": f"Actividad {i}",
+            "role": "Participante",
+            "hours_per_week": 3,
+            "en_curso": True,
+            "description": "x" * 4000,
+            "achievements": [f"logro {j}" for j in range(20)],
+        }
+        for i in range(30)
+    ]
+    bloque = _format_activities_block(muchas)
+
+    # Con 30 actividades de 4000 caracteres sin tope, esto pasaría de 120.000
+    assert len(bloque) < 12000, f"el bloque creció a {len(bloque)} caracteres"
+    # Y el modelo tiene que saber que hay más, no creer que son todas
+    assert "más que no caben" in bloque
 
 
 def test_las_actividades_cambian_el_hash_de_entrada():

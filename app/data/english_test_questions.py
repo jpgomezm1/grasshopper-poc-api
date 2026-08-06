@@ -6,7 +6,7 @@ La clienta lo pidió desde el primer feedback: el test de inglés tenía 20 preg
 **inventadas por nosotros**, no un instrumento real. Con este feedback llegó el
 insumo: el examen escaneado de 60 preguntas, la clave de respuestas y la tabla de
 equivalencia de AMES International. Los tres archivos están en
-`Feedback nuevo/Sprint 3/`.
+`Docs/Cliente/Recibidos del cliente/Sprint 3 (jul 2026)/` del workspace.
 
 Transcrito de:
   - `AMES - examen 60 preguntas.pdf`      (9 páginas escaneadas)

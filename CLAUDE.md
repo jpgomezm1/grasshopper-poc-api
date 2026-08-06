@@ -94,5 +94,27 @@ dejando la auditoría vacía en silencio (ya pasó).
 Comentarios **en español y explicando el porqué**, no el qué. Este repo documenta sus
 decisiones no obvias en el propio código; mantenlo.
 
-Contexto completo del proyecto y del producto: `CLAUDE.md` y `00-EMPEZAR-AQUI.md` en la raíz
-del workspace (un nivel por encima de estos repos).
+---
+
+## 📄 Dónde está el contexto que NO vive en este repo
+
+Este repo tiene el código; el **porqué** está en el workspace, un nivel por encima. Si lo
+clonaste suelto desde GitHub, **pídelo antes de tomar decisiones de producto** — hay mucha
+cosa que parece un descuido y es deliberada.
+
+| Qué buscas | Dónde |
+|---|---|
+| Estado real, con evidencia `archivo:línea` | `Docs/Entrega/ESTADO_REAL_VERIFICADO.md` |
+| **Por qué algo se hizo distinto a como se pidió** | `Docs/Entrega/DECISIONES_DE_IMPLEMENTACION.md` |
+| Qué hace daño si lo tocas | `Docs/Entrega/RIESGOS_Y_DEUDA.md` |
+| Lo no construido, con spec lista | `Docs/Entrega/PROPUESTAS_PENDIENTES.md` |
+| **El razonamiento crudo detrás de cada decisión** | `Docs/Transcripts/` |
+
+**Los transcripts son el único sitio donde queda por qué se descartó la alternativa.**
+`Reuniones/` tiene la reunión con el cliente del 21-07 (de ahí salieron los 25 ítems de
+feedback); `Sesiones de trabajo/` tiene las sesiones de desarrollo en markdown, con su
+`INDICE.md`. Las más útiles: **28-07** (validación de 89 ítems contra el código) y **05-08**
+(el cierre R6 y el despliegue).
+
+Consúltalos **antes de "arreglar" algo raro** y **antes de cambiar copy**: suele haber una
+frase textual del cliente detrás.

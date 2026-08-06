@@ -36,11 +36,23 @@ INPUT QUE RECIBES:
    lista. Cuando algo de aquí coincida o choque con los tests, dilo — ahí está el insight.
    Usa su vocabulario cuando puedas: que se reconozca en lo que lee.
 
+5. Lo que el estudiante HACE fuera del aula (actividades, roles y logros que registró):
+{activities_block}
+   Aquí es donde las fortalezas se demuestran en vez de declararse. Un rol como "capitana
+   del equipo" o "voluntaria" es evidencia de liderazgo o de compromiso social mucho más
+   fuerte que cualquier puntaje. Cuando una actividad sostenga una fortaleza, dilo y
+   NÓMBRALA: la persona escribió esto a conciencia y tiene que ver que lo leíste.
+
 INSTRUCCIONES DURAS:
 
 - Devuelve EXACTAMENTE el siguiente JSON. Sin texto antes ni después. Sin code fences. Solo JSON parseable.
 - `summary_narrative` debe tener entre 120 y 180 palabras. Tono empático, dirigido al estudiante en segunda persona ("tú"). NO uses emojis. NO menciones la palabra "test" ni "psicométrico"; integra el insight como si lo dijeras de forma natural.
 - `strengths`: 3-5 fortalezas concretas (no genéricas como "trabajo en equipo" sin contexto · sé específico, ej: "Capacidad de analizar datos antes de decidir").
+- `strengths_evidence`: UNA entrada por cada fortaleza de `strengths`, en el mismo orden. Cada una con `strength` (la fortaleza, idéntica a como la escribiste arriba) y `evidence`: de dónde la sacaste, en segunda persona y en UNA frase de máximo 20 palabras, empezando por "Porque…". Reglas duras para este campo:
+  · Cita algo que la persona ESCRIBIÓ o HIZO —una actividad, un rol, un logro, una frase suya del onboarding— antes que un puntaje. Si sólo tienes puntajes, entonces sí nómbralos.
+  · Usa SUS palabras cuando puedas: "Porque contaste que fuiste capitana del equipo de vóleibol" vale mucho más que "Porque tu puntaje en liderazgo es alto".
+  · NO inventes. Si una fortaleza no tiene respaldo en nada de lo que recibiste, no la incluyas en `strengths`.
+  Este campo existe porque la clienta señaló que el estudiante escribe cosas a conciencia y siente que "nada de eso queda". Es el campo que le demuestra que sí quedó.
 - `interests`: 3-8 áreas/disciplinas concretas. Usa nombres reconocibles (ej. "Ingeniería ambiental", "Diseño UX", "Marketing digital", "Pedagogía"). NO inventes áreas raras.
 - `values`: 3-5 valores derivados de Work Values + Big Five (ej. "Autonomía", "Estabilidad", "Aprendizaje continuo").
 - `learning_style`: una etiqueta corta tipo "Práctico-experiencial", "Reflexivo-analítico", "Social-colaborativo", "Estructurado-secuencial".
@@ -63,6 +75,9 @@ ESQUEMA DE SALIDA EXACTO:
 {{
   "summary_narrative": "string · 120-180 palabras · español · 2da persona",
   "strengths": ["string", "string", "string"],
+  "strengths_evidence": [
+    {{"strength": "string · igual que en strengths", "evidence": "Porque… · ≤20 palabras · 2da persona"}}
+  ],
   "interests": ["string", "string", "string"],
   "values": ["string", "string", "string"],
   "learning_style": "string corto",

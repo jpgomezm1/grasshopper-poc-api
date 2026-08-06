@@ -1,0 +1,98 @@
+# Contexto para agentes · backend GrassHopper
+
+> FastAPI + SQLAlchemy + Alembic · Python **3.11.7** (fijado en `runtime.txt`) · Heroku.
+> API de una plataforma de orientación profesional **en producción, con usuarios reales**,
+> parte de ellos **menores de edad**.
+
+---
+
+## 🔴 Antes de tocar nada
+
+1. **`main` es despliegue.** Pushear a `main` despliega Y corre `alembic upgrade head` en
+   producción. No se mergea sin autorización de JP. Trabaja en ramas.
+2. **Las migraciones deben ser aditivas y nullable**, e idempotentes (mira cualquiera de
+   `alembic/versions/05*.py`: comprueban si la columna existe antes de crearla). Un
+   `alembic heads` con **más de un head** rompe el release.
+3. **No toques `clinical_analysis_service.py`.** El detector de riesgo suicida tiene falsos
+   positivos conocidos —*"no quiero vivir en el exterior"* dispara protocolo— y **bajarle
+   sensibilidad lo valida la psicóloga de la agencia**, no quien programa.
+4. **`scripts/seed_test_data.py` no se corre tal cual**: mete ~50 programas con precios
+   inventados en la tabla que sirve el catálogo real, y `--clean` borra cuentas de verdad.
+5. **Bitrix es el CRM de producción del cliente.** Cero escrituras sin autorización.
+6. **Datos clínicos: sólo psicóloga, asesor y super_admin** (`_require_clinical_role`). Nunca
+   el estudiante ni la familia. Base legal: Ley 1581/2012 art. 5 y Ley 1090/2006.
+
+---
+
+## Los dos errores que más se repiten aquí
+
+### 1. Escribir un campo que nadie lee, o leer uno que nadie escribe
+
+Ha pasado **cuatro veces**: `voice_career` se sigue leyendo aunque ya nadie lo escriba;
+`answers["city"]` se leía en tres sitios sin que ninguna pregunta lo produjera; el
+`class_placement` del test de inglés era código muerto en el endpoint; y las respuestas de A9
+se guardaban sin llegar al prompt.
+
+**Regla:** si añades una pregunta, **conéctala al consumidor en el mismo commit**. Si añades
+un campo que lee la IA, verifica que algo lo escriba. Ambos lados o ninguno.
+
+### 2. Tests que pasan sin ejercitar el camino real
+
+El 05-08, once tests en verde convivían con una funcionalidad **rota al 100%**: el módulo
+importaba `app.services.ai_client` (no existe; es `app.core.ai_client`), y ese import vive
+dentro de la función, así que ningún test lo tocaba — el archivo decía literalmente *"no se
+llama al modelo de verdad en ningún test"*.
+
+**Regla:** mockea la **frontera** (el cliente HTTP, el SDK), no la función que estás probando.
+Y prueba tu test al revés: revierte el arreglo y comprueba que falla.
+
+---
+
+## Estructura
+
+```
+app/
+  api/v1/      43 routers · auth.py, me.py, cv.py, vocational_tests.py, clinical.py…
+  core/        state_machine.py (los 16 pasos del journey), ai_client.py, security…
+  services/    48 servicios · ai_service, consolidation_service, crm_service, dossier_service…
+  prompts/     14 prompts de IA · texto plano con {placeholders}
+  data/        bancos de datos estáticos · english_test_questions.py (AMES, 60 preguntas)
+  schemas/     Pydantic
+  db/models.py  el modelo entero, incluidos los 7 roles
+alembic/versions/   57 migraciones
+tests/              94 archivos · ~1343 tests
+```
+
+**IA:** modelo por defecto `claude-sonnet-4-6` (`app/config.py`), sobreescribible con
+`AI_MODEL`. **Todo consumo se registra** con `record_ai_usage(...)` — ojo, `provider` es
+obligatorio y keyword-only; olvidarlo lanza `TypeError` que un `except` puede tragarse
+dejando la auditoría vacía en silencio (ya pasó).
+
+---
+
+## Entorno local · lo que muerde
+
+- **OneDrive deshidrata el `.venv`.** Si aparecen errores raros de import, recrearlo:
+  `python3.11 -m venv .venv` + `pip install -r requirements.txt`.
+- **La rama local de Neon (`local-jp`) no tiene las migraciones 051 y 052** → cualquier script
+  que lea `vocational_test_results` o `cv_profiles` falla en local. Producción sí las tiene.
+- **El PDF da 503 en Windows** (WeasyPrint necesita GTK). Pon `CLINICAL_PDF_ENABLED=false`.
+- **El `.env` local apunta al MISMO Neon que producción.** Cualquier prueba "de verdad"
+  escribe datos reales. Los tests usan SQLite en memoria a propósito.
+- **PowerShell suele funcionar donde Bash falla** (el clasificador bloquea comandos de forma
+  intermitente).
+
+---
+
+## Antes de dar algo por terminado
+
+```powershell
+.venv\Scripts\python.exe -m pytest -q          # exit 0, no sólo "sin salida"
+.venv\Scripts\python.exe -m alembic heads      # UN solo head
+```
+
+Comentarios **en español y explicando el porqué**, no el qué. Este repo documenta sus
+decisiones no obvias en el propio código; mantenlo.
+
+Contexto completo del proyecto y del producto: `CLAUDE.md` y `00-EMPEZAR-AQUI.md` en la raíz
+del workspace (un nivel por encima de estos repos).

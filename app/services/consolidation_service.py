@@ -123,13 +123,55 @@ def gather_user_inputs(db: DBSession, user: User) -> Dict[str, Any]:
     # se armó sin esta información), pero tiene un costo de IA de una sola vez.
     onboarding = dict(user.onboarding_answers or {})
 
+    # JR-7 · Las actividades extracurriculares NO entraban aquí, y ese era
+    # justamente el ejemplo que puso la clienta: escribió a conciencia que había
+    # sido "capitana del equipo de vóleibol" y sintió que "nada de eso queda".
+    # Tenía razón de forma literal — `ExtracurricularActivity` sólo se usaba para
+    # el CRUD y el PDF del CV; no aparecía ni una vez en el pipeline de IA. El
+    # modelo lo documentaba como "Etapa 2 (sprint siguiente): IA gap analysis".
+    #
+    # Aquí es donde más pesa: el perfil consolidado es el documento que define
+    # quién es el estudiante para todo lo demás.
+    activities = _gather_activities(db, user)
+
     return {
         "user_id": str(user.id),
         "demographic": demographic,
         "tests": tests_block,
         "journey_answers": journey_answers,
         "onboarding": onboarding,
+        "activities": activities,
     }
+
+
+def _gather_activities(db: DBSession, user: User) -> List[Dict[str, Any]]:
+    """Actividades extracurriculares · lo que la persona hace fuera del aula.
+
+    Orden determinista (por nombre) porque el resultado se hashea para la caché.
+    """
+    from app.db.models import ExtracurricularActivity
+
+    filas = (
+        db.query(ExtracurricularActivity)
+        .filter(ExtracurricularActivity.user_id == user.id)
+        .order_by(ExtracurricularActivity.name.asc())
+        .all()
+    )
+    salida: List[Dict[str, Any]] = []
+    for a in filas:
+        logros = a.achievements if isinstance(a.achievements, list) else []
+        salida.append(
+            {
+                "category": a.category,
+                "name": a.name,
+                "role": a.role,
+                "hours_per_week": a.hours_per_week,
+                "en_curso": a.end_date is None,
+                "description": a.description,
+                "achievements": [str(x) for x in logros if x],
+            }
+        )
+    return salida
 
 
 def hash_inputs(inputs: Dict[str, Any]) -> str:
@@ -203,6 +245,48 @@ def _format_journey_block(answers: Dict[str, Any]) -> str:
     return "\n".join(rows)
 
 
+def _format_activities_block(activities: List[Dict[str, Any]]) -> str:
+    """JR-7 · Lo que la persona hace fuera del aula, en el prompt.
+
+    Se escribe en frases y no como JSON crudo porque el modelo tiene que poder
+    CITARLO de vuelta ("porque fuiste capitana del equipo de vóleibol"), y para
+    eso necesita leerlo como lo escribiría una persona.
+    """
+    if not activities:
+        return "(El estudiante todavía no registró actividades.)"
+
+    # Topes de tamaño · el mismo cuidado que `ai_service.format_onboarding_context`
+    # tiene con las respuestas de voz. `description` admite hasta 4000 caracteres
+    # por actividad y no hay límite de cuántas puede registrar una persona: sin
+    # esto, alguien con veinte actividades largas infla este prompt —y su costo—
+    # sin que nada lo frene.
+    MAX_ACTIVIDADES = 12
+    MAX_DESCRIPCION = 400
+    MAX_LOGROS = 4
+
+    lineas = []
+    for a in activities[:MAX_ACTIVIDADES]:
+        partes = [a["name"]]
+        if a.get("role"):
+            partes.append(f"su rol: {a['role']}")
+        if a.get("hours_per_week"):
+            partes.append(f"{a['hours_per_week']} h/semana")
+        partes.append("en curso" if a.get("en_curso") else "ya terminada")
+        linea = f"- [{a.get('category') or 'otra'}] " + " · ".join(partes)
+        if a.get("description"):
+            desc = str(a["description"])[:MAX_DESCRIPCION]
+            linea += f"\n    lo describe así: {desc}"
+        if a.get("achievements"):
+            linea += "\n    logros: " + "; ".join(a["achievements"][:MAX_LOGROS])
+        lineas.append(linea)
+
+    sobrantes = len(activities) - MAX_ACTIVIDADES
+    if sobrantes > 0:
+        # Que el modelo sepa que hay más, en vez de creer que son todas.
+        lineas.append(f"- (y {sobrantes} actividad(es) más que no caben aquí)")
+    return "\n".join(lineas)
+
+
 def render_consolidate_prompt(inputs: Dict[str, Any]) -> str:
     # P1-3 · Se reutiliza `format_onboarding_context` de ai_service en vez de
     # duplicar el formateo: es el mismo bloque que ya reciben reflection, synthesis,
@@ -216,6 +300,7 @@ def render_consolidate_prompt(inputs: Dict[str, Any]) -> str:
         tests_block=_format_tests_block(inputs["tests"]),
         journey_answers_block=_format_journey_block(inputs["journey_answers"]),
         onboarding_block=format_onboarding_context(inputs.get("onboarding")),
+        activities_block=_format_activities_block(inputs.get("activities") or []),
     )
 
 

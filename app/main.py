@@ -31,6 +31,7 @@ from app.api.v1 import (
     transcription,
     english_test,
     vocational_tests,
+    study_preferences,
     ofertas,
     lead_profile,
     schools,
@@ -198,6 +199,7 @@ app.include_router(advisor.router, prefix="/api/v1")
 app.include_router(transcription.router, prefix="/api/v1")
 app.include_router(english_test.router, prefix="/api/v1")
 app.include_router(vocational_tests.router, prefix="/api/v1")
+app.include_router(study_preferences.router, prefix="/api/v1")
 app.include_router(ofertas.router, prefix="/api/v1")
 app.include_router(lead_profile.router, prefix="/api/v1")
 app.include_router(schools.router, prefix="/api/v1")

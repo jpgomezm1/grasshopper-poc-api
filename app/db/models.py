@@ -248,6 +248,11 @@ class User(Base):
     consent_data_processing_version = Column(String(20), nullable=True)
     consent_crm_sync_at = Column(DateTime, nullable=True)
     consent_parental_at = Column(DateTime, nullable=True)
+    # RM-1 · consentimiento para el acompañamiento periódico ("¿cómo vas con tu
+    # proyecto?"). Es INDEPENDIENTE del de tratamiento de datos: alguien puede
+    # aceptar que tratemos su información y no querer que le escribamos.
+    # NULL = no otorgado → no se le manda nada (ver consent_service.can_send_communications).
+    consent_communications_at = Column(DateTime, nullable=True)
 
     # CRM pipeline · GH-CRM-001 · 2026-05-03 (migration 016)
     # Tracks the lead's position in the commercial funnel, separate from

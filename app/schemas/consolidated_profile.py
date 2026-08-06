@@ -40,6 +40,22 @@ class PersonalityDimension(BaseModel):
     )
 
 
+class StrengthEvidence(BaseModel):
+    """JR-7 · Una fortaleza y en qué se apoya.
+
+    "Liderazgo" a secas no le dice nada a nadie. "Porque contaste que fuiste
+    capitana del equipo de vóleibol" le demuestra al estudiante que lo que
+    escribió se leyó — que es exactamente lo que la clienta reclamó que faltaba.
+    """
+
+    strength: str = Field(..., description="La fortaleza · igual que en `strengths`.")
+    evidence: str = Field(
+        ...,
+        max_length=240,
+        description="De dónde sale, en 2da persona. Empieza por 'Porque…'.",
+    )
+
+
 class HollandCode(BaseModel):
     """Top-3 RIASEC type with concrete percentage from the test."""
 
@@ -81,6 +97,23 @@ class ConsolidatedProfile(BaseModel):
         min_length=3,
         max_length=5,
         description="Top 3-5 fortalezas en lenguaje natural.",
+    )
+
+    # JR-7 · De dónde salió cada fortaleza.
+    #
+    # La clienta señaló que el estudiante escribe cosas a conciencia —su ejemplo
+    # textual: "capitana del equipo de vóleibol"— y siente que "nada de eso
+    # queda". Antes de esto tenía razón: la tarjeta de perfil mostraba fortalezas
+    # sueltas y el encabezado sólo las atribuía a "N tests", nunca a lo que la
+    # persona había escrito.
+    #
+    # Es OPCIONAL a propósito: los perfiles generados antes de este cambio no lo
+    # traen, y deben seguir siendo válidos. El frontend muestra la evidencia sólo
+    # cuando existe.
+    strengths_evidence: List[StrengthEvidence] = Field(
+        default_factory=list,
+        max_length=5,
+        description="Por cada fortaleza, en qué se apoya. Vacío en perfiles antiguos.",
     )
 
     # Áreas afines (campos profesionales / industrias / disciplinas)

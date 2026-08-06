@@ -189,6 +189,15 @@ def format_onboarding_context(onboarding: Optional[Dict[str, Any]]) -> str:
 
     _add("Qué le apasiona y quiere lograr", onboarding.get("voice_passion"))
     _add("Actividades que disfruta en su tiempo libre", onboarding.get("voice_hobbies"))
+    # R6-ON-6 · A quien ya trabaja se le pregunta por su experiencia en vez de
+    # por sus hobbies (misma ranura del onboarding, según la etapa de vida). Se
+    # conecta AQUÍ, en el mismo commit que la agrega: una pregunta que nadie lee
+    # es exactamente el defecto del `voice_career` fantasma, que sigue leyéndose
+    # dos líneas más abajo aunque ya nadie la escriba.
+    _add(
+        "Su experiencia hasta ahora, y qué le gustó y qué no",
+        onboarding.get("voice_experience"),
+    )
     _add("Dónde se imagina trabajando en 5 años", onboarding.get("voice_career"))
     _add("Fortalezas que reconoce en sí mismo/a", onboarding.get("voice_strengths"))
     _add("Preocupaciones sobre su futuro", onboarding.get("voice_concerns"))

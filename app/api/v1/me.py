@@ -507,6 +507,12 @@ class StudentDashboardResponse(BaseModel):
     routes_count: int
     should_show_completion: bool
     journey_completed_at: Optional[datetime] = None
+    # A4/JR-5 · La guía "¿y ahora qué hago?" necesita distinguir los dos tipos:
+    # `tests_completed` los suma, así que con ese número solo no se puede saber
+    # si a la persona le falta un test vocacional o el de inglés — y el siguiente
+    # paso que hay que proponerle es distinto en cada caso.
+    vocational_tests_completed: int = 0
+    english_test_completed: bool = False
 
 
 def _evaluate_journey_complete(db: DBSession, student: User) -> tuple[bool, int, int]:
@@ -560,6 +566,12 @@ def get_dashboard(
         routes_count=routes_count,
         should_show_completion=should_show,
         journey_completed_at=current_user.journey_completed_at,
+        vocational_tests_completed=(
+            db.query(VocationalTestResult)
+            .filter(VocationalTestResult.user_id == current_user.id)
+            .count()
+        ),
+        english_test_completed=bool(current_user.english_test_completed),
     )
 
 

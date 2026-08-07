@@ -1095,6 +1095,16 @@ class BitrixSyncLog(Base):
     # `payload` va ENMASCARADO (`bitrix_client.safe_summary`) · los logs no
     # llevan PII, y eso no cambia.
     payload = Column(JSON, nullable=True)
+    # Hash del payload REAL, sin enmascarar · migración 058 (2026-08-07).
+    #
+    # Existe porque el dedup comparaba los dos lados enmascarados: `NAME: "Ana"`
+    # y `NAME: "Ana María"` daban el mismo hash, así que **cambiar el nombre de
+    # un estudiante nunca llegaba al CRM del cliente**. El hash permite comparar
+    # datos reales sin escribirlos en ningún log.
+    #
+    # NULL en las filas anteriores a la migración · el dedup lo trata como
+    # "no sé" y sincroniza, que es el lado seguro.
+    payload_hash = Column(String(32), nullable=True, index=True)
     bitrix_response = Column(JSON, nullable=True)
 
     status = Column(String(20), default=BitrixSyncStatus.PENDING.value, nullable=False, index=True)

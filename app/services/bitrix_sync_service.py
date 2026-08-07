@@ -191,7 +191,12 @@ def _start_log(
         entity_id=entity_id,
         user_id=user_id,
         action=action,
+        # El log guarda el payload ENMASCARADO (sin PII) y, aparte, el hash del
+        # payload REAL. Los dos lados de esa pareja importan: el primero es lo
+        # que se puede leer en un log; el segundo es lo único con lo que el
+        # dedup puede notar que cambió un nombre. Ver `_is_duplicate_of_last`.
         payload=safe_summary(payload),
+        payload_hash=_payload_hash(payload),
         status=BitrixSyncStatus.PENDING.value,
         provider="stub",  # overwritten on finish
         attempts=0,
@@ -243,6 +248,19 @@ def _last_successful_log(
             BitrixSyncLog.status.in_(
                 [BitrixSyncStatus.SUCCESS.value, BitrixSyncStatus.STUB.value]
             ),
+            # Un `skip_dedup` NO es una sincronización: su `payload` es un
+            # marcador (`{"reason": "payload_unchanged"}`), no los campos que se
+            # mandaron. Tomarlo como "lo último que sincronizamos" hacía que el
+            # dedup comparara contra ese marcador y, por tanto, **nunca
+            # dedupara en la llamada siguiente a un skip**.
+            #
+            # Es además lo que volvía intermitente a
+            # `test_sync_user_lead_creates_then_updates`: con marcas de tiempo
+            # empatadas, el `prior` salía unas veces el `create` (y el bug del
+            # nombre enmascarado afloraba → fallo) y otras el `skip_dedup` (que
+            # nunca deduplica → el test pasaba por casualidad). Excluirlos hace
+            # la elección determinista.
+            BitrixSyncLog.action != "skip_dedup",
         )
         .order_by(BitrixSyncLog.created_at.desc())
         .first()
@@ -261,16 +279,33 @@ def _payload_hash(fields: Dict[str, Any]) -> str:
 def _is_duplicate_of_last(
     prior: Optional[BitrixSyncLog], fields: Dict[str, Any]
 ) -> bool:
-    """True if the previous successful sync had the exact same payload hash.
+    """True if the previous successful sync had the exact same payload.
 
     GH-S11 · prevents redundant Bitrix calls when journey status / scores
-    haven't changed between consecutive triggers. Both sides are compared
-    after ``safe_summary`` so PII masking doesn't introduce false negatives.
+    haven't changed between consecutive triggers.
+
+    ⚠️ **Se compara contra `prior.payload_hash`, no contra `prior.payload`.**
+
+    Hasta el 2026-08-07 esto comparaba los dos lados pasados por
+    ``safe_summary``, con la idea de que enmascarar ambos evitaba falsos
+    negativos. El efecto era el contrario: `safe_summary` convierte cualquier
+    campo con "name" en ``***``, así que `NAME: "Ana"` y `NAME: "Ana María"`
+    daban el MISMO hash. **Cambiar el nombre de un estudiante se declaraba
+    duplicado y nunca llegaba al CRM del cliente** — y el `TITLE` del lead
+    tampoco lleva el nombre, así que no había por dónde colarse. Lo mismo pasaba
+    con el apellido y con dos correos que compartieran primera letra y dominio.
+
+    `payload_hash` guarda el hash del payload REAL. El `payload` del log sigue
+    enmascarado: el arreglo no filtra PII, porque un hash es irreversible.
+
+    Sin `payload_hash` (filas anteriores a la migración 058) devuelve False y se
+    sincroniza. Una llamada de más a Bitrix es barata; un cambio que no llega al
+    CRM es justamente el bug.
     """
-    if not prior or not prior.payload:
+    if not prior or not prior.payload_hash:
         return False
     try:
-        return _payload_hash(prior.payload) == _payload_hash(safe_summary(fields))
+        return prior.payload_hash == _payload_hash(fields)
     except Exception:
         return False
 

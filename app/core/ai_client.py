@@ -269,6 +269,125 @@ def call_claude_with_meta(
     return output_text, metadata
 
 
+def call_claude_tool(
+    prompt: str,
+    *,
+    tool_name: str,
+    tool_description: str,
+    input_schema: dict,
+    session_id: str,
+    feature: str,
+    system: Optional[str] = None,
+    max_tokens: int = 2000,
+    temperature: float = 0.0,
+    prompt_version: Optional[str] = None,
+    timeout: float = 120.0,
+) -> tuple[Optional[dict], dict]:
+    """Extracción con forma garantizada · **tool use forzado**.
+
+    Devuelve el `input` del tool call como dict ya parseado por el SDK, en vez
+    de texto que haya que pasar por :func:`app.core.ai_json.parse_ai_json`. El
+    modelo no puede responder con prosa: `tool_choice` lo obliga a llamar la
+    herramienta.
+
+    **Por qué tool use y no `output_config.format`** (structured outputs, que
+    el SDK 0.112 ya soporta): esa API está disponible en un conjunto acotado de
+    modelos que **no incluye `claude-sonnet-4-6`**, que es el modelo por defecto
+    de este proyecto (`app/config.py`). El tool use forzado funciona en todos y
+    da la misma garantía de forma. Si algún día el default sube a un modelo que
+    lo soporte, esto se puede migrar — pero no antes, o el extractor rompe en
+    producción y no en los tests.
+
+    ⚠️ El `input` viene **parseado por el SDK**. No hacer string matching sobre
+    él: los modelos 4.6+ pueden escapar Unicode y barras distinto.
+
+    Returns:
+        (input_del_tool_call, metadata). Misma metadata que
+        :func:`call_claude_with_meta`, para que el tracking M-001 sea idéntico.
+    """
+    client = get_client().with_options(timeout=timeout, max_retries=2)
+    start_time = time.time()
+    metadata: dict = {"model": settings.ai_model, "feature": feature}
+    if prompt_version is not None:
+        metadata["prompt_version"] = prompt_version
+
+    kwargs: dict = {
+        "model": settings.ai_model,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        "messages": [{"role": "user", "content": prompt}],
+        "tools": [
+            {
+                "name": tool_name,
+                "description": tool_description,
+                "input_schema": input_schema,
+            }
+        ],
+        "tool_choice": {"type": "tool", "name": tool_name},
+    }
+    if system is not None:
+        kwargs["system"] = system
+
+    try:
+        response = client.messages.create(**kwargs)
+    except Exception as e:
+        metadata["latency_ms"] = int((time.time() - start_time) * 1000)
+        metadata["error_kind"] = classify_anthropic_error(e)
+        logger.warning(
+            "AI tool call failed",
+            extra={
+                "session_id": session_id,
+                "feature": feature,
+                "error_kind": metadata["error_kind"],
+                "error": str(e),  # SOLO a logs
+                "latency_ms": metadata["latency_ms"],
+            },
+        )
+        return None, metadata
+
+    metadata["latency_ms"] = int((time.time() - start_time) * 1000)
+    usage = getattr(response, "usage", None)
+    metadata["tokens_input"] = getattr(usage, "input_tokens", None)
+    metadata["tokens_output"] = getattr(usage, "output_tokens", None)
+    metadata["stop_reason"] = getattr(response, "stop_reason", None)
+
+    # Un corte por max_tokens deja el JSON del tool call incompleto · mismo
+    # criterio que call_claude_with_meta: se trata como fallo, no como dato.
+    if metadata["stop_reason"] == "max_tokens":
+        metadata["error_kind"] = "truncated"
+        logger.error(
+            "AI tool call truncated at max_tokens · treated as failure",
+            extra={"session_id": session_id, "feature": feature, "max_tokens": max_tokens},
+        )
+        return None, metadata
+
+    for block in getattr(response, "content", []) or []:
+        if getattr(block, "type", None) == "tool_use":
+            tool_input = getattr(block, "input", None)
+            if isinstance(tool_input, dict):
+                logger.info(
+                    "AI tool call successful",
+                    extra={
+                        "session_id": session_id,
+                        "feature": feature,
+                        "tokens_input": metadata["tokens_input"],
+                        "tokens_output": metadata["tokens_output"],
+                        "latency_ms": metadata["latency_ms"],
+                    },
+                )
+                return tool_input, metadata
+
+    # tool_choice forzado hace esto improbable, pero si el modelo devuelve solo
+    # texto NO se intenta rescatar parseando: un fallback silencioso aquí es
+    # cómo se cuelan datos inventados en campos que alimentan el journey.
+    metadata["error_kind"] = "empty_response"
+    logger.error(
+        "AI tool call returned no tool_use block",
+        extra={"session_id": session_id, "feature": feature},
+    )
+    return None, metadata
+
+
 def call_claude(
     prompt: str,
     session_id: str,

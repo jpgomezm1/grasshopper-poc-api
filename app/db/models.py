@@ -1116,6 +1116,63 @@ class LeadProfile(Base):
         return f"<LeadProfile id={self.id}>"
 
 
+class BotConversation(Base):
+    """Conversación del perfilador comercial · el bot que reemplaza el Typeform.
+
+    Es pública y anónima: vive sin `User`, igual que `LeadProfile`. La diferencia
+    con esa tabla es que aquí SÍ hay quien lea — `lead_profiles` se escribe desde
+    `lead_profile.py:70` y ningún otro sitio del backend la consulta, así que los
+    leads del quiz llevan meses cayendo en un pozo. La bandeja del bot existe
+    para que eso no se repita.
+
+    `hechos` guarda los ~20 datos ya validados contra el catálogo (nunca texto
+    crudo del modelo); `transcript` guarda la conversación entera, que es lo que
+    el asesor quiere leer antes de llamar.
+    """
+    __tablename__ = "bot_conversations"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
+
+    # Contacto · se llena a medida que la persona lo va diciendo, no al final.
+    name = Column(String(255), nullable=True)
+    email = Column(String(255), nullable=True)
+    phone = Column(String(50), nullable=True)
+
+    # Estado de la conversación
+    hechos = Column(JSON, default=dict, nullable=False)
+    transcript = Column(JSON, default=list, nullable=False)
+    is_completed = Column(Boolean, default=False, nullable=False)
+
+    # Veredicto comercial · lo escribe `bot_lead_scoring.evaluar`
+    score = Column(Integer, nullable=True)
+    band = Column(String(20), nullable=True)      # hot · warm · cold
+    route = Column(String(20), nullable=True)     # asesor · telemercadeo · descartar
+    alarms = Column(JSON, nullable=True)
+    score_rationale = Column(JSON, nullable=True)
+
+    # Derivación a GrassHopper · la "miga de pan" de la reunión del 21-07
+    wants_orientation = Column(Boolean, default=False, nullable=False)
+
+    # Si la persona después se registra, se cuelga aquí para no repreguntarle
+    # en el onboarding lo que el bot ya sabe.
+    converted_user_id = Column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"), nullable=True
+    )
+
+    # Trazabilidad de campaña · el Typeform ya traía utm_*
+    utm_source = Column(String(120), nullable=True)
+    utm_medium = Column(String(120), nullable=True)
+    utm_campaign = Column(String(120), nullable=True)
+
+    # Estado del envío al CRM del cliente · hoy Bitrix corre en stub
+    crm_synced_at = Column(DateTime, nullable=True)
+
+    def __repr__(self) -> str:
+        return f"<BotConversation id={self.id} route={self.route}>"
+
+
 class ConsentAuditLog(Base):
     """Immutable audit trail for consent grants and revocations.
 

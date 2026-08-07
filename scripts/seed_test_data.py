@@ -171,6 +171,17 @@ SUPER_ADMINS_EXTRA = [
     ("sebastian@stayirrelevant.com", "Sebastián García"),
 ]
 
+# 🔴 Cuentas REALES de personas reales · el seed las crea (upsert idempotente)
+# pero `--clean` NUNCA debe borrarlas.
+#
+# Verónica y Sebastián son el cliente. Sus cuentas tienen su historial de pruebas
+# —incluido el intento del test de inglés que llevamos semanas queriendo que
+# repitan— y borrarlas destruye datos que nadie puede regenerar. Estaban dentro
+# del DELETE de `clean()` porque comparten lista con las cuentas sembradas.
+CUENTAS_REALES_NO_BORRAR = frozenset(
+    {"veronica@stayirrelevant.com", "sebastian@stayirrelevant.com"}
+)
+
 
 # ============================================================
 # GH ADVISORS (orientadores Grasshopper · GH-ROLES-001)
@@ -248,7 +259,7 @@ def _create_user(cur, email, name, role, school_id=None, password_hash=PASSWORD_
     return cur.fetchone()[0]
 
 
-def seed():
+def seed(con_programas: bool = True):
     conn = psycopg2.connect(DB_URL)
     cur = conn.cursor()
 
@@ -257,8 +268,22 @@ def seed():
     print("=" * 60)
 
     # ---- 1. Programs (50) ----
-    print("\n[1/6] Programs...")
-    for idx, p in enumerate(PROGRAMS_DATA, 1):
+    #
+    # 🔴 Estos 50 programas tienen PRECIOS INVENTADOS (Harvard a $78.000) y
+    # entran a la MISMA tabla `programs` que sirve `/ofertas` y el recomendador,
+    # con `active=true` y sin ninguna marca que los distinga de los reales.
+    # Contra producción eso le muestra precios falsos a un cliente real.
+    #
+    # Por eso ahora hay que pedirlos explícitamente: para cargar datos de demo
+    # de colegio (el pedido A7 de Verónica) NO se necesitan, y ese es el caso de
+    # uso que llevó a correr este script contra producción.
+    if not con_programas:
+        print("\n[1/6] Programs... OMITIDOS (--sin-programas)")
+        print("      · no se tocó el catálogo real")
+    else:
+        print("\n[1/6] Programs...")
+        print("      ⚠️  precios inventados · NO correr así contra producción")
+    for idx, p in enumerate(PROGRAMS_DATA if con_programas else [], 1):
         program_id = f"SEED-{idx:03d}"
         slug = f"seed-{p[0].lower().replace(' ', '-').replace('.', '')}-{idx:03d}"
         cur.execute("""
@@ -274,7 +299,8 @@ def seed():
                 budget_tier = EXCLUDED.budget_tier, updated_at = NOW()
         """, (str(uuid.uuid4()), program_id, p[0], slug, p[2], p[3], p[1], p[4],
               p[5], p[6], p[7], p[8], p[9], p[10], p[11], p[12]))
-    print(f"  ✓ {len(PROGRAMS_DATA)} programas seeded")
+    if con_programas:
+        print(f"  ✓ {len(PROGRAMS_DATA)} programas seeded")
 
     # ---- 2. Super admins + GH internal team (advisor + commercial) ----
     print("\n[2/6] Super admins · GH advisors · GH commercials...")
@@ -420,16 +446,23 @@ def clean():
     print("=" * 60)
 
     # Borrar emails seed (students + admins + psychologists + super admins + gh team)
-    extra_emails = (
-        tuple(e for e, _ in SUPER_ADMINS_EXTRA)
-        + tuple(e for e, _ in GH_ADVISORS)
-        + tuple(e for e, _ in GH_COMMERCIALS)
+    #
+    # Se excluyen las cuentas reales del cliente · ver CUENTAS_REALES_NO_BORRAR.
+    extra_emails = tuple(
+        correo
+        for correo, _ in (SUPER_ADMINS_EXTRA + GH_ADVISORS + GH_COMMERCIALS)
+        if correo not in CUENTAS_REALES_NO_BORRAR
     )
+    # Los paréntesis del OR son deliberados: sin ellos SQL evalúa
+    # `(A AND B) OR C`, y bastaba agregar una condición nueva arriba para que el
+    # DELETE se comiera filas que nadie pretendía tocar.
     cur.execute("""
-        DELETE FROM users WHERE email LIKE '%@grasshopper.dev' AND email != 'jp@grasshopper.dev'
-        OR email IN %s
+        DELETE FROM users
+        WHERE (email LIKE '%@grasshopper.dev' AND email != 'jp@grasshopper.dev')
+           OR email IN %s
     """, (extra_emails,))
     print(f"  ✓ {cur.rowcount} users deleted")
+    print(f"  · protegidas (no se tocan): {', '.join(sorted(CUENTAS_REALES_NO_BORRAR))}")
 
     # Borrar schools (cascade licenses)
     cur.execute("DELETE FROM licenses WHERE school_id IN (SELECT id FROM schools WHERE slug LIKE 'seed-%')")
@@ -490,8 +523,17 @@ def print_credentials():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--clean", action="store_true", help="Remove all seeded data")
+    parser.add_argument(
+        "--sin-programas",
+        action="store_true",
+        help=(
+            "no carga los 50 programas de prueba (precios inventados). "
+            "ÚSALO SIEMPRE contra producción: para datos de demo de colegio no "
+            "hacen falta y ensucian el catálogo real."
+        ),
+    )
     args = parser.parse_args()
     if args.clean:
         clean()
     else:
-        seed()
+        seed(con_programas=not args.sin_programas)

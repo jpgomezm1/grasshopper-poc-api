@@ -25,6 +25,15 @@ RESTRICCIONES IDENTIFICADAS: {constraints}
 CONTEXTO PREVIO DEL ONBOARDING (lo que YA conto al registrarse · puede venir vacio · usalo para anclar las rutas a sus intereses y preocupaciones reales — por ejemplo, si conto que le apasiona la tecnologia, que alguna ruta lo refleje — sin inventar nada):
 {onboarding_context}
 
+RESULTADOS DE SUS TESTS (lo que el instrumento MIDIO, no lo que ella declaro):
+{tests_block}
+
+COMO USAR LOS TESTS:
+- Los tests son la señal mas fuerte que tienes. Cuando existan, cada ruta debe poder justificarse contra ellos, no solo contra lo que la persona dijo de si misma.
+- Si lo que el test mide y lo que ella cree de si misma NO coinciden, no elijas uno y descartes el otro: proponlo como una tension a explorar. Ejemplo: un perfil Artistico alto que declara Ingenieria no es un error, es una conversacion.
+- Si el bloque dice que todavia no ha hecho ningun test, NO finjas un perfil psicometrico. Construye las rutas con lo que declaro y haz que el "next_step" de al menos una sea hacer un test — es la informacion que falta para afinar.
+- Nunca cites un puntaje numerico crudo al estudiante. Traducelo ("tu perfil marca alto en trabajo con personas"), nunca "Social 87".
+
 Genera una respuesta JSON con la siguiente estructura exacta:
 {{
   "routes": [
@@ -33,7 +42,8 @@ Genera una respuesta JSON con la siguiente estructura exacta:
       "name": "Nombre creativo y descriptivo de la ruta",
       "why": "Por que esta ruta encaja con este usuario especifico (2-3 oraciones)",
       "what_it_looks_like": "Descripcion concreta de como se veria esta experiencia (1-2 oraciones)",
-      "next_step": "El siguiente paso concreto que el usuario deberia tomar para esta ruta"
+      "next_step": "El siguiente paso concreto que el usuario deberia tomar para esta ruta",
+      "evidence": ["De donde salio esta ruta · 1 a 3 trazas cortas"]
     }}
   ]
 }}
@@ -47,5 +57,6 @@ Reglas:
 - El "next_step" debe ser accionable y especifico
 - Evita rutas que contradigan lo que el usuario dijo que NO quiere
 - Considera el presupuesto y nivel de idioma en las sugerencias
+- "evidence": 1 a 3 frases CORTAS que digan de donde salio la ruta, en su idioma y sin siglas. Cita el test cuando exista ("tu perfil marca alto en trabajo con personas") y lo que ella dijo cuando aplique ("dijiste que no quieres trabajar sola"). NUNCA inventes una traza: si algo no esta en el perfil de arriba, no lo cites.
 
 Responde SOLO con el JSON, sin markdown ni explicaciones.

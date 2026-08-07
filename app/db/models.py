@@ -454,6 +454,14 @@ class Route(Base):
     what_it_looks_like = Column(Text, nullable=False)
     next_step = Column(Text, nullable=False)
 
+    # §1 · De dónde salió la ruta · mismo patrón que JR-7 usó con las fortalezas.
+    # La clienta no sabía de dónde venía lo que el sistema le mostraba.
+    evidence = Column(JSON, nullable=True)
+    # §1 · True = son las sugerencias estáticas de fallback, no una lectura de
+    # este perfil. Nullable porque las rutas anteriores no lo tienen y `None`
+    # significa "generada antes de que existiera esta marca".
+    is_generic = Column(Boolean, nullable=True)
+
     # Status
     status = Column(Enum(RouteStatus), default=RouteStatus.ACTIVE, nullable=False)
     is_primary = Column(Boolean, default=False, nullable=False)

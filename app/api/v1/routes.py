@@ -113,6 +113,76 @@ def get_routes(
     return routes
 
 
+@router.post("/{session_id}/generate", response_model=List[RouteResponse])
+def generate_routes_for_session(
+    session_id: UUID,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Genera rutas a partir de los tests, **sin exigir terminar el journey**.
+
+    Verónica hizo tests, abandonó el journey a mitad y vio "Rutas" vacía:
+    *"¿por qué todavía no sale nada?"*. Hasta §1 las rutas sólo existían al
+    llegar al paso 16 de 17, así que su pantalla estaba vacía por diseño.
+
+    **Por qué un POST y no generar dentro del GET.** Meter una llamada de IA en
+    un GET lo vuelve lento e impredecible; el proyecto ya resuelve esto al lado
+    con las recomendaciones (`recommendations.py`), que generan aparte. El GET
+    sigue siendo de sólo lectura.
+
+    Requiere **al menos un test**: sin eso las rutas serían las mismas que ya
+    salen del journey y no aportarían nada nuevo.
+    """
+    from app.services.ai_service import generate_routes
+    from app.services.recommendation_service import user_has_tests
+    from app.services.test_interpretation_service import format_tests_for_prompt
+
+    session = assert_session_access(session_id, current_user, db)
+
+    if not user_has_tests(db, current_user):
+        raise HTTPException(
+            status_code=409,
+            detail="no_tests_yet",
+        )
+
+    tests_block = format_tests_for_prompt(db, current_user.id)
+    salida = generate_routes(
+        session.answers or {},
+        str(session.id),
+        db=db,
+        user_id=current_user.id,
+        onboarding=current_user.onboarding_answers or {},
+        tests_block=tests_block,
+    )
+
+    # Se reemplazan las rutas previas de esta sesión: son la versión sin tests
+    # de lo mismo, y dejarlas conviviendo le mostraría dos juegos de rutas
+    # contradictorios sin forma de saber cuál manda.
+    db.query(Route).filter(Route.session_id == session.id).delete()
+
+    creadas: List[Route] = []
+    for idx, r in enumerate(salida.routes):
+        fila = Route(
+            session_id=session.id,
+            key=r.key,
+            name=r.name,
+            why=r.why,
+            what_it_looks_like=r.what_it_looks_like,
+            next_step=r.next_step,
+            evidence=list(r.evidence or []),
+            is_generic=bool(r.is_generic),
+            status=RouteStatus.ACTIVE,
+            is_primary=(idx == 0),
+        )
+        db.add(fila)
+        creadas.append(fila)
+    db.commit()
+    for fila in creadas:
+        db.refresh(fila)
+
+    return creadas
+
+
 @router.post("/{session_id}/{route_id}/status", response_model=RouteResponse)
 def update_route_status(
     session_id: UUID,

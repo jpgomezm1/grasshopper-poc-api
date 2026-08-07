@@ -94,6 +94,8 @@ _SLIM_COLUMNS = [
     Program.language_requirement,
     Program.tags,
     Program.scholarships_for_latam,
+    # A8 · prioridad comercial · la lee el scoring del recomendador.
+    Program.priority,
     # P2-5 · `raw` trae `programs_offered`: lo que la agencia está AUTORIZADA a
     # vender de esa institución. Verónica: "en el archivo dice que de la institución
     # A puedo vender Foundations, pregrados y maestrías". El dato ya venía en el
@@ -222,6 +224,11 @@ def _row_to_oferta_dict(p: Program) -> Dict[str, Any]:
         "name": display,
         "shortDescription": short_desc,
         "category": _TYPE_TO_CATEGORY.get(p.type, "carrera_completa"),
+        # A8 · el NIVEL crudo, además de la categoría. `category` colapsa
+        # pregrado, maestría, MBA y doctorado en "carrera_completa", así que no
+        # sirve para saber si un programa le queda grande a la persona. El
+        # filtro de nivel (academic_level.py) necesita el tipo sin colapsar.
+        "programType": p.type,
         "tags": tags,
         "countries": [p.country],
         "cities": [p.city] if p.city else [],
@@ -248,6 +255,9 @@ def _row_to_oferta_dict(p: Program) -> Dict[str, Any]:
         # es "no lo sabemos". True/False = decisión curada · None = sin curar.
         "scholarshipsForLatam": p.scholarships_for_latam,
         # P2-5 · None cuando no está curado (77% del catálogo). Nunca [].
+        # A8 · None = sin priorizar. El scoring lo ignora en ese caso, para no
+        # convertir "nadie la ha priorizado" en "va de última".
+        "priority": p.priority,
         "programsOffered": _normalize_programs_offered(
             (p.raw or {}).get("programs_offered") if isinstance(p.raw, dict) else None
         ),

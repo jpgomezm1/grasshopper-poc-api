@@ -818,6 +818,16 @@ class Program(Base):
     active = Column(Boolean, default=True, nullable=False, index=True)
     raw = Column(JSON, nullable=True)
 
+    # A8 · Prioridad comercial 1-10 · migración 056 (2026-08-07).
+    # Verónica, 21-07: "¿tengo cómo ponerle estrellas para que determine qué
+    # sale primero?". La escribe el equipo de la agencia desde el panel de
+    # super_admin (PATCH /v1/programs/{id}).
+    #
+    # NULL a propósito y sin default: "sin priorizar" NO es "prioridad baja".
+    # Poner 0 o 5 por defecto sería inventar un juicio comercial que nadie
+    # emitió, y el orden del catálogo lo reflejaría como si fuera real.
+    priority = Column(Integer, nullable=True, index=True)
+
     # ---- Editorial fields (Bloque B · migration 015) ----
     description_long = Column(Text, nullable=True)
     institution_logo_url = Column(String(500), nullable=True)

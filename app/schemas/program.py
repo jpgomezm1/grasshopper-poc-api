@@ -247,6 +247,10 @@ class ProgramUpdate(ProgramEditorialFields):
     alliance_type: Optional[str] = None
     language_requirement: Optional[str] = Field(default=None, max_length=50)
     active: Optional[bool] = None
+    # A8 · prioridad comercial 1-10 ("¿tengo cómo ponerle estrellas para que
+    # determine qué sale primero?"). El rango se valida aquí y no sólo en la
+    # UI: un 50 metido por API desbalancearía el scoring del recomendador.
+    priority: Optional[int] = Field(default=None, ge=1, le=10)
 
     @field_validator("type")
     @classmethod
@@ -319,6 +323,9 @@ class ProgramResponse(ProgramBase):
     duration_months: Optional[int] = None
     cost_total: Optional[int] = None
     budget_tier: Optional[str] = None
+    # A8 · None = sin priorizar, que NO es prioridad baja. El panel debe
+    # mostrarlo como "sin priorizar" y no como un 0.
+    priority: Optional[int] = None
 
     model_config = ConfigDict(from_attributes=True)
 

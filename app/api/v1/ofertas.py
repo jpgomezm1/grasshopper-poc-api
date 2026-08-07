@@ -17,7 +17,7 @@ from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
-from sqlalchemy import or_
+from sqlalchemy import or_, nullslast
 from sqlalchemy.orm import Session as DBSession, load_only
 
 from app.api.v1.auth import get_current_user
@@ -35,6 +35,26 @@ router = APIRouter(prefix="/ofertas", tags=["Ofertas"])
 
 # Program.type uses values from Excel import (pregrado · maestria · mba · etc.)
 # Oferta.category uses the legacy POC enum the frontend already understands.
+def orden_del_catalogo():
+    """A8 · El orden en que el estudiante ve el catálogo.
+
+    Verónica, 21-07: *"¿tengo cómo ponerle estrellas para que determine qué
+    sale primero?"*. Primero lo que la agencia priorizó (10 → 1), después el
+    resto por nombre como siempre.
+
+    `nullslast()` no es decorativo: **en Postgres, `ORDER BY x DESC` pone los
+    NULL PRIMERO**. Hoy las 2.511 filas están sin priorizar, así que sin esto
+    el catálogo entero se ordenaría por un campo vacío y la prioridad no
+    ordenaría nada. SQLite (los tests) los pone al revés y dejaría pasar el
+    bug, por eso hay un test que compila esto contra el dialecto de Postgres.
+
+    Vive en una función y no inline para que el test pueda afirmar sobre EL
+    MISMO objeto que usa el endpoint · misma regla que `nextStep.ts` en el
+    front: una decisión, una función.
+    """
+    return (nullslast(Program.priority.desc()), Program.name.asc())
+
+
 _TYPE_TO_CATEGORY = {
     "pregrado": "carrera_completa",
     "maestria": "carrera_completa",
@@ -321,7 +341,7 @@ def list_ofertas(
             )
         )
 
-    programs = q.order_by(Program.name.asc()).all()
+    programs = q.order_by(*orden_del_catalogo()).all()
     ofertas = [_program_to_oferta(p) for p in programs]
 
     # languageRequirement filter post-mapping (porque la columna es texto libre)

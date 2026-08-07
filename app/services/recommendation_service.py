@@ -28,6 +28,7 @@ from app.core.ai_client import call_claude_with_meta, load_prompt
 from app.data.ofertas import get_all_ofertas
 from app.db.models import ConsolidatedProfileCache, Program, User
 from app.services.catalog_service import get_catalog_for_recommender
+from app.services import academic_level
 from app.schemas.consolidated_profile import (
     ConsolidatedProfile,
     RecommendedProgram,
@@ -36,6 +37,7 @@ from app.services.ai_usage_service import record_ai_usage
 from app.services.consolidation_service import (
     ConsolidationFailure,
     _is_cache_valid,
+    _latest_session_answers,
     gather_user_inputs,
     generate_or_get_profile,
     get_cached_profile,
@@ -111,11 +113,39 @@ def _budget_match_kind(
     return "stretch"
 
 
+def etapa_de_vida(db: DBSession, user: User) -> Optional[str]:
+    """A8 · Dónde está académicamente esta persona, mire donde mire.
+
+    El dato vive en DOS sitios y ninguno lo tiene siempre:
+
+      - `users.onboarding_answers["life_stage"]` · código (`high_school`)
+      - `sessions.answers["lifeStage"]` · texto de opción del journey
+        (`"Terminando el colegio"`)
+
+    El onboarding siembra el journey (`seed_answers_from_onboarding`) pero **no
+    al revés**, así que quien entró directo al journey no tiene nada en `User`.
+    Se consultan los dos, onboarding primero por ser el más estructurado.
+    `academic_level.normalizar_etapa` entiende ambos vocabularios.
+
+    Devuelve None si ninguno de los dos lo tiene · sin etapa no se filtra nada.
+    """
+    del_onboarding = (user.onboarding_answers or {}).get("life_stage")
+    if academic_level.normalizar_etapa(del_onboarding):
+        return del_onboarding
+
+    try:
+        answers = _latest_session_answers(db, user.id)
+    except Exception:  # pragma: no cover · una sesión ilegible no puede
+        return None    # tumbar la recomendación entera
+    return (answers or {}).get("lifeStage")
+
+
 def filter_catalog(
     user: User,
     profile: ConsolidatedProfile,
     catalog: Optional[List[Dict[str, Any]]] = None,
     cap: int = CATALOG_CAP_FOR_PROMPT,
+    life_stage: Optional[str] = None,
 ) -> List[Dict[str, Any]]:
     """Filter the catalog before passing to AI.
 
@@ -128,6 +158,11 @@ def filter_catalog(
         score by interest match is high (we keep them but tag them).
       - Preferred countries: prefers (not exclude) those countries.
       - Drops programs that clearly fail language requirement vs CEFR.
+      - A8 · Nivel académico: descarta lo IMPOSIBLE para la etapa de la
+        persona (una maestría sin pregrado terminado) y pondera lo que sí le
+        corresponde. `life_stage` viaja por parámetro y no se saca de `user`
+        aquí porque puede venir del onboarding o de la última sesión del
+        journey, y resolver eso exige DB — que este filtro no tiene.
 
     Output is sorted by a heuristic relevance score so that if we cap
     the list, we keep the most likely matches.
@@ -156,7 +191,31 @@ def filter_catalog(
 
     filtered: List[Tuple[float, Dict[str, Any], str]] = []
 
-    for o in all_ofertas:
+    # A8 · Nivel académico vs etapa de vida · se resuelve ANTES del bucle y
+    # sobre esta lista trabaja todo lo demás, **incluido el fallback de más
+    # abajo**. Ese fallback ("si no quedó nada, devuelve el catálogo") existe
+    # para relajar presupuesto e idioma, y estaba deshaciendo este descarte: a
+    # un estudiante de 11° cuyo filtro quedara vacío le volvían a entrar las
+    # maestrías. Un nivel imposible no es una preferencia que se pueda relajar.
+    #
+    # Sólo cae sobre lo que exige un título que la persona todavía no puede
+    # tener (ver academic_level.py: el `type` está adivinado, así que filtrar
+    # por gusto escondería oferta real).
+    viables = [
+        o for o in all_ofertas
+        if academic_level.evaluar(o.get("programType"), life_stage)
+        != academic_level.IMPOSIBLE
+    ]
+    if life_stage and len(viables) < len(all_ofertas):
+        logger.info(
+            "A8 · nivel académico descartó %d de %d opciones",
+            len(all_ofertas) - len(viables), len(all_ofertas),
+            extra={"life_stage": life_stage},
+        )
+
+    for o in viables:
+        nivel = academic_level.evaluar(o.get("programType"), life_stage)
+
         # Language hard-filter (only if user has a CEFR level on file)
         if user_lang_rank > 0:
             req = (
@@ -229,6 +288,21 @@ def filter_catalog(
         if o.get("scholarshipsForLatam") or o.get("scholarships_for_latam"):
             score += 0.6 if (kind == "stretch" or budget_band == "bajo") else 0.3
 
+        # A8 · el nivel que SÍ le corresponde a la etapa pesa, pero no manda:
+        # 0.8 lo pone por delante de un país preferido (1.0) sólo cuando además
+        # hay algo más a favor. Lo demás queda neutro, ni premiado ni castigado.
+        if nivel == academic_level.PREFERIDO:
+            score += 0.8
+
+        # A8 · prioridad comercial de la institución (1-10, la pone el equipo
+        # de la agencia desde el panel). Ver `Program.priority`: sin dato es
+        # None y no suma nada — no es lo mismo "no priorizada" que "prioridad
+        # baja". El techo de 0.9 la deja por debajo de un match de nivel: la
+        # prioridad desempata, no decide por encima del encaje con la persona.
+        prioridad = o.get("priority")
+        if isinstance(prioridad, int) and 1 <= prioridad <= 10:
+            score += prioridad * 0.09
+
         filtered.append((score, o, kind))
 
     # Drop budget=stretch with very low score · keep prompt focused
@@ -236,7 +310,9 @@ def filter_catalog(
 
     # If after filtering we have nothing, fall back to top-by-budget tier
     if not filtered:
-        for o in all_ofertas[:cap]:
+        # A8 · `viables`, no `all_ofertas`: relajar presupuesto e idioma sí,
+        # el nivel académico no.
+        for o in viables[:cap]:
             kind = _budget_match_kind(o, budget_band, budget_max_usd)
             filtered.append((0.5, o, kind))
 
@@ -252,6 +328,10 @@ def filter_catalog(
             "program_slug": o.get("slug"),
             "program_name": o["name"],
             "category": o.get("category"),
+            # A8 · el nivel sin colapsar · `category` no distingue un pregrado
+            # de un doctorado y el modelo necesita esa diferencia para no
+            # proponerle a alguien algo que le queda grande.
+            "program_type": o.get("programType"),
             "countries": o.get("countries", []),
             "duration": o.get("duration"),
             "budget_tier": o.get("budgetTier"),
@@ -360,8 +440,19 @@ def _format_profile_block(profile: ConsolidatedProfile) -> str:
     )
 
 
-def _format_constraints_block(user: User) -> str:
+def _format_constraints_block(user: User, life_stage: Optional[str] = None) -> str:
     rows = []
+    # A8 · la etapa va PRIMERO porque condiciona todo lo demás: de nada sirve
+    # que el presupuesto alcance para una maestría si la persona está en 11°.
+    etapa = academic_level.etapa_legible(life_stage)
+    if etapa:
+        rows.append(f"- Etapa académica: {etapa}")
+        fuera = academic_level.niveles_fuera_de_alcance(life_stage)
+        if fuera:
+            rows.append(
+                "- Niveles que TODAVÍA no puede cursar (no los recomiendes ni "
+                f"los sugieras como paso inmediato): {', '.join(sorted(fuera))}"
+            )
     if user.budget_band:
         rows.append(f"- Presupuesto cualitativo: {user.budget_band}")
     if user.budget_max_usd:
@@ -416,6 +507,10 @@ def _format_catalog_block(catalog: List[Dict[str, Any]]) -> str:
             f"id={c['program_id']}",
             c["program_name"],
             f"categoría={c.get('category') or '-'}",
+            # A8 · el nivel crudo. Se omite la clave cuando no hay dato en vez
+            # de escribir "-": el catálogo demo no trae tipo y decirle "nivel=-"
+            # al modelo lo invita a razonar sobre un guion.
+            *([f"nivel={c['program_type']}"] if c.get("program_type") else []),
             f"países={', '.join(c.get('countries') or [])}",
             f"duración={dur_str}",
             f"costo={cost_str}",
@@ -442,12 +537,13 @@ def render_recommend_prompt(
     user: User,
     catalog: List[Dict[str, Any]],
     limit: int,
+    life_stage: Optional[str] = None,
 ) -> str:
     template = load_prompt("recommend_programs")
     return template.format(
         limit=limit,
         profile_block=_format_profile_block(profile),
-        constraints_block=_format_constraints_block(user),
+        constraints_block=_format_constraints_block(user, life_stage),
         catalog_block=_format_catalog_block(catalog),
     )
 
@@ -647,14 +743,19 @@ def generate_recommendations(
     # 3) Filter catalog · C1: fuente real (tabla programs · 2.511) con
     #    fallback al demo estático si la tabla está vacía (dev sin seed).
     catalog_source = _get_catalog_source(db)
-    catalog = filter_catalog(user, profile, catalog=catalog_source)
+    life_stage = etapa_de_vida(db, user)
+    catalog = filter_catalog(
+        user, profile, catalog=catalog_source, life_stage=life_stage
+    )
     if not catalog:
         raise RecommendationFailure(
             "No hay programas en el catálogo que cumplan tus filtros básicos."
         )
 
     # 4) Render + call
-    prompt = render_recommend_prompt(profile, user, catalog, limit=limit)
+    prompt = render_recommend_prompt(
+        profile, user, catalog, limit=limit, life_stage=life_stage
+    )
     raw, metadata = _call_claude_for_recommendations(prompt, str(user.id))
 
     # Tracking M-001 · best-effort (record_ai_usage nunca lanza). Se registra

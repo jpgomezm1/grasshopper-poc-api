@@ -71,12 +71,24 @@ class ConsentToggleRequest(BaseModel):
     data_processing: Optional[bool] = None
     crm_sync: Optional[bool] = None
     parental: Optional[bool] = None
+    # RM-1 · acompañamiento periódico ("¿cómo vas con tu proyecto?").
+    #
+    # Faltaba, y era el motivo por el que RM-1 no podía enviar NADA: la columna
+    # `consent_communications_at` existía, `can_send_communications()` la exigía
+    # y `grant_consent(kind="communications")` sabía escribirla — pero este
+    # schema no tenía el campo, así que la API no podía recibir el permiso y el
+    # gate respondía "no" para el 100% de los usuarios, siempre.
+    communications: Optional[bool] = None
 
 
 class ConsentStateResponse(BaseModel):
     data_processing: Dict[str, Any]
     crm_sync: Dict[str, Any]
     parental: Dict[str, Any]
+    # RM-1 · `consent_state()` ya lo devolvía, pero al no estar declarado aquí
+    # Pydantic lo descartaba de la respuesta: la persona otorgaba el permiso y
+    # la pantalla no tenía cómo saber que quedó otorgado.
+    communications: Dict[str, Any]
     policy_version_current: str
     needs_re_acceptance: bool
 
@@ -329,6 +341,28 @@ def export_my_data(
 
 
 # ---------------------------------------------------------------------------
+# GET /me/consents · estado actual
+# ---------------------------------------------------------------------------
+
+
+@router.get(
+    "/me/consents",
+    response_model=ConsentStateResponse,
+    summary="Estado de los consentimientos del usuario (Ley 1581 Art. 8.a)",
+)
+def get_my_consents(
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """RM-1 · Faltaba: existía el POST para cambiarlos, pero no había forma de
+    LEERLOS. Una pantalla de preferencias no puede pintar un interruptor sin
+    saber si está prendido, así que el estado sólo se conocía como efecto
+    secundario de cambiarlo.
+    """
+    return ConsentStateResponse(**consent_state(current_user))
+
+
+# ---------------------------------------------------------------------------
 # POST /me/consents · toggle on/off per finalidad
 # ---------------------------------------------------------------------------
 
@@ -357,6 +391,7 @@ def update_my_consents(
         ("data_processing", payload.data_processing),
         ("crm_sync", payload.crm_sync),
         ("parental", payload.parental),
+        ("communications", payload.communications),
     ]
 
     for kind, value in pairs:

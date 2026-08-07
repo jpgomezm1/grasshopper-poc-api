@@ -59,6 +59,8 @@ NOTIFICATION_TYPES = frozenset({
     "task.assigned",
     "school_event.created",
     "program.recommended",
+    # RM-1 · acompañamiento periódico ("¿cómo vas con tu proyecto?")
+    "outreach.nudge",
     # GH-PARENT-EXPERIENCE · 2026-05-05 · Bloque A
     # Parent-facing notifications (1-way · read-only inbox · NO chat).
     "legal_document_pending",

@@ -1092,6 +1092,8 @@ class BitrixSyncLog(Base):
     )
 
     action = Column(String(40), nullable=False)
+    # `payload` va ENMASCARADO (`bitrix_client.safe_summary`) · los logs no
+    # llevan PII, y eso no cambia.
     payload = Column(JSON, nullable=True)
     bitrix_response = Column(JSON, nullable=True)
 
@@ -1269,6 +1271,53 @@ class Notification(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     # updated_at · migration 041_auditability_and_indices
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
+
+
+class OutreachLog(Base):
+    """RM-1 · Una fila por mensaje de acompañamiento · migración 057.
+
+    Existe por tres razones distintas, y ninguna es opcional:
+
+    1. **No repetirle a la misma persona.** `outreach_service` lo consulta antes
+       de armar la lista. Sin esta tabla, cada corrida del scheduler volvería a
+       escribirle a todo el mundo.
+    2. **Auditoría.** Parte de los usuarios son menores de edad. Tiene que poder
+       responderse "¿qué se le mandó a esta persona y con qué permiso?" sin
+       adivinar. Por eso se guarda también lo que NO se envió y el motivo
+       (`resultado`), no sólo lo entregado.
+    3. Para que el equipo de la agencia vea el historial de una cuenta.
+
+    `resultado` distingue enviado · sin_consentimiento · fallo_envio ·
+    simulacro. `simulacro` es lo que escribe el preview: se ve qué habría
+    salido sin que salga nada.
+    """
+
+    __tablename__ = "outreach_logs"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
+
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    # Clave estable del motivo (`outreach_service.Motivo.clave`).
+    motivo = Column(String(50), nullable=False, index=True)
+    canal = Column(String(20), nullable=False)  # email · in_app
+    resultado = Column(String(30), nullable=False, index=True)
+
+    # Qué se le dijo · guardado para poder mostrarlo tal cual en el panel.
+    asunto = Column(String(255), nullable=True)
+    cuerpo = Column(Text, nullable=True)
+    # True cuando el texto vino de la plantilla determinista y no del modelo.
+    es_plantilla = Column(Boolean, nullable=True)
+    # Motivo del no-envío cuando `resultado` no es "enviado".
+    detalle = Column(String(255), nullable=True)
+
+    def __repr__(self) -> str:
+        return f"<OutreachLog user={self.user_id} motivo={self.motivo} → {self.resultado}>"
 
 
 class PushSubscription(Base):

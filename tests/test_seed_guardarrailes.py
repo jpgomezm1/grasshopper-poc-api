@@ -92,3 +92,97 @@ def test_reset_de_ingles_no_borra_sin_confirmar():
         "se borra antes de comprobar --confirmar · el dry-run no es dry"
     )
     assert "db.delete" in despues
+
+
+# ---------------------------------------------------------------------------
+# Los alumnos demo tienen que tener resultados de verdad
+# ---------------------------------------------------------------------------
+#
+# Encontrado en producción el 2026-08-07: la siembra insertaba
+# `{"sample": "scores"}` con test_id "riasec"/"big5". Al correr el backfill de
+# lecturas (A2) la IA no tenía nada que leer y escribió sobre QUÉ ES cada test
+# en vez de sobre la persona — tres alumnos distintos compartían titular y
+# resumen. Reprodujimos nosotros mismos la queja de la clienta ("le salen unas
+# siglas y ya") justo en las cuentas que ella abre para ver el producto.
+
+
+def _seed_module():
+    import importlib.util
+
+    ruta = Path(__file__).resolve().parent.parent / "scripts" / "seed_test_data.py"
+    spec = importlib.util.spec_from_file_location("seed_test_data", ruta)
+    mod = importlib.util.module_from_spec(spec)
+    try:
+        spec.loader.exec_module(mod)
+    except SystemExit:  # pragma: no cover · el script parsea args al importarse
+        pass
+    return mod
+
+
+def test_no_queda_ningun_placeholder_de_puntajes(fuente):
+    """El defecto original, fijado para que no vuelva.
+
+    Se miran sólo las líneas de CÓDIGO: el comentario que explica el defecto
+    cita el placeholder a propósito, y no tiene por qué hacer fallar el test.
+    """
+    codigo = "\n".join(
+        l for l in fuente.splitlines() if not l.strip().startswith("#")
+    )
+    assert '"sample": "scores"' not in codigo
+    assert "'sample': 'scores'" not in codigo
+
+
+def test_los_test_id_sembrados_son_los_que_el_producto_reconoce(fuente):
+    """`test_interpretation_service._label_map` devuelve {} para cualquier id
+    que no sea de su lista, y entonces la lectura sale sin etiquetas legibles.
+    "riasec" y "big5" NO están en esa lista; "holland" y "bigfive" sí."""
+    from app.services.test_interpretation_service import _label_map
+
+    for tid in _seed_module()._DIMENSIONES:
+        assert _label_map(tid), f"la siembra usa '{tid}' y el producto no lo reconoce"
+
+
+def test_dos_alumnos_no_reciben_el_mismo_perfil():
+    """Si todos salieran iguales, la demo volvería a mostrar el problema."""
+    m = _seed_module()
+    perfiles = {tuple(m._puntajes_demo("holland", a).values()) for a in range(30)}
+    assert len(perfiles) == 30, "hay alumnos demo con perfiles idénticos"
+
+    dominantes = {
+        max(m._puntajes_demo("holland", a), key=m._puntajes_demo("holland", a).get)
+        for a in range(30)
+    }
+    assert len(dominantes) >= 5, f"poca variedad de perfiles: {sorted(dominantes)}"
+
+
+def test_un_alumno_no_saca_lo_mismo_en_dos_tests_distintos():
+    """La primera versión de la fórmula no miraba el test_id, así que holland y
+    bigfive daban los mismos números para la misma persona."""
+    m = _seed_module()
+    holland = list(m._puntajes_demo("holland", 4).values())
+    bigfive = list(m._puntajes_demo("bigfive", 4).values())
+    assert holland[: len(bigfive)] != bigfive
+
+
+def test_los_puntajes_son_reproducibles_entre_corridas():
+    """`hashlib` y no `hash()`, que está salteado por proceso · si no, sembrar
+    dos veces da perfiles distintos y una demo deja de poder repetirse."""
+    m = _seed_module()
+    assert m._puntajes_demo("mbti", 9) == m._puntajes_demo("mbti", 9)
+
+
+def test_los_puntajes_caen_en_el_rango_de_un_test_real():
+    m = _seed_module()
+    for tid in m._DIMENSIONES:
+        for valor in m._puntajes_demo(tid, 3).values():
+            assert 0 <= valor <= 100, f"{tid} produjo {valor}"
+
+
+def test_un_test_id_desconocido_falla_ruidosamente():
+    """Antes cualquier id colaba y el problema aparecía meses después en
+    producción · ahora revienta al sembrar."""
+    import pytest
+
+    m = _seed_module()
+    with pytest.raises(ValueError, match="sin dimensiones"):
+        m._puntajes_demo("test-que-no-existe", 1)

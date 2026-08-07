@@ -240,6 +240,71 @@ STUDENT_NAMES = [
 # Journey distributions per school: 3 NOT_STARTED · 5 IN_PROGRESS · 2 COMPLETED
 
 
+# ---------------------------------------------------------------------------
+# Puntajes de los tests de los alumnos demo
+# ---------------------------------------------------------------------------
+#
+# Antes aquí se insertaba `{"sample": "scores"}` con `test_id` "riasec"/"big5".
+# Los dos datos estaban mal y se notó en producción el 2026-08-07:
+#
+#   1. `{"sample": "scores"}` no es un resultado. Al correr el backfill de
+#      lecturas (A2), la IA no tenía nada que leer y escribió sobre QUÉ ES cada
+#      test en vez de sobre la persona — tres alumnos distintos compartían
+#      titular y resumen. Es exactamente la queja de la clienta ("le salen unas
+#      siglas y ya"), reproducida por nosotros en las cuentas que ella abre para
+#      ver el producto.
+#   2. "riasec" y "big5" no son ids que el producto conozca:
+#      `test_interpretation_service._label_map` sólo entiende holland ·
+#      bigfive · values · career-anchors · mbti · istrong · vark · motivadores,
+#      y devuelve `{}` para cualquier otro → "Dimensiones sin etiqueta legible".
+#
+# Las formas de abajo están COPIADAS de resultados reales de producción, no
+# inventadas. Los valores varían por alumno para que dos perfiles demo no se
+# lean igual: si todos salieran iguales, la demo volvería a mostrar el problema.
+
+_DIMENSIONES = {
+    "holland": ["R", "I", "A", "S", "E", "C"],
+    "bigfive": ["O", "C", "E", "A", "N"],
+    "mbti": ["EI", "SN", "TF", "JP"],
+    "istrong": [
+        "R:mecanica", "R:naturaleza", "I:ciencias", "I:tecnologia",
+        "A:visual", "A:performativa", "S:educacion", "S:salud-mental",
+        "E:ventas", "E:liderazgo", "C:datos", "C:administracion",
+    ],
+}
+
+
+def _puntajes_demo(test_id: str, semilla: int) -> dict:
+    """Puntajes 0-100 variados y reproducibles para un alumno demo.
+
+    Determinista a propósito (deriva de `semilla`, el índice del alumno): correr
+    la siembra dos veces produce los mismos perfiles, así que una demo se puede
+    repetir y comparar. No se usa `random` para no depender del estado global.
+    """
+    dims = _DIMENSIONES.get(test_id)
+    if not dims:
+        raise ValueError(
+            f"test_id '{test_id}' sin dimensiones definidas · añádelo a "
+            f"_DIMENSIONES y verifica que `_label_map` lo reconozca"
+        )
+    # SHA-256 sobre (test_id, dimensión, alumno) y no una fórmula aritmética.
+    # La primera versión usaba `semilla*37 + idx*53 + len(d)*11` y tenía dos
+    # fallas que sólo se ven al mirar la salida: `holland` y `bigfive` daban los
+    # MISMOS números para un alumno (la fórmula no miraba el test), y alumnos
+    # cercanos salían casi idénticos (26 vs 27). Un hash mezcla de verdad.
+    #
+    # `hashlib` y no `hash()`: el built-in está salteado por proceso, así que
+    # dos corridas de la siembra darían perfiles distintos y una demo dejaría de
+    # ser repetible.
+    import hashlib
+
+    def _valor(dim: str) -> int:
+        crudo = f"{test_id}|{dim}|{semilla}".encode("utf-8")
+        return 12 + int.from_bytes(hashlib.sha256(crudo).digest()[:4], "big") % 89
+
+    return {d: _valor(d) for d in dims}
+
+
 def _create_user(cur, email, name, role, school_id=None, password_hash=PASSWORD_HASH,
                  onboarding_status="NOT_STARTED", english_completed=False, english_level=None):
     cur.execute("""
@@ -371,26 +436,22 @@ def seed(con_programas: bool = True):
                               onboarding_status=status, english_completed=english_completed,
                               english_level=english_level)
 
-            # Sample vocational tests for IN_PROGRESS and COMPLETED students
+            # Tests vocacionales de los alumnos IN_PROGRESS y COMPLETED.
             if status == "IN_PROGRESS":
-                # 1-2 tests
-                tests = ["riasec", "big5"][:1 + (i % 2)]
-                for tid in tests:
-                    cur.execute("""
-                        INSERT INTO vocational_test_results (id, user_id, created_at, test_id,
-                                                             answers, scores, source)
-                        VALUES (%s, %s, NOW(), %s, '{}', %s, 'internal')
-                        ON CONFLICT DO NOTHING
-                    """, (str(uuid.uuid4()), uid, tid, json.dumps({"sample": "scores"})))
+                tests = ["holland", "bigfive"][:1 + (i % 2)]
             elif status == "COMPLETED":
-                # 4 tests
-                for tid in ["riasec", "big5", "mbti", "istrong"]:
-                    cur.execute("""
-                        INSERT INTO vocational_test_results (id, user_id, created_at, test_id,
-                                                             answers, scores, source)
-                        VALUES (%s, %s, NOW(), %s, '{}', %s, 'internal')
-                        ON CONFLICT DO NOTHING
-                    """, (str(uuid.uuid4()), uid, tid, json.dumps({"sample": "scores"})))
+                tests = ["holland", "bigfive", "mbti", "istrong"]
+            else:
+                tests = []
+
+            for tid in tests:
+                cur.execute("""
+                    INSERT INTO vocational_test_results (id, user_id, created_at, test_id,
+                                                         answers, scores, source)
+                    VALUES (%s, %s, NOW(), %s, '{}', %s, 'internal')
+                    ON CONFLICT DO NOTHING
+                """, (str(uuid.uuid4()), uid, tid,
+                      json.dumps(_puntajes_demo(tid, student_idx))))
 
         print(f"  ✓ 10 students en {s['name']} (3 not_started · 5 in_progress · 2 completed)")
 

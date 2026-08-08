@@ -1,0 +1,158 @@
+[
+ {
+  "institucion_ficha": "The University of Adelaide",
+  "nombre_real": "Adelaide University",
+  "dominio": "adelaide.edu.au",
+  "url_programas": "https://adelaide.edu.au/study/degrees/compare-degrees/",
+  "pais": "Australia",
+  "ciudad": "Adelaide",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado, Postgrado, Investigacion, cursos cortos",
+  "cantidad_aprox": "? (cientos, 6 colleges)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CAMBIO DE NOMBRE: el sitio ya se presenta como \"Adelaide University\" (fusion con UniSA), no \"The University of Adelaide\" · catalogo por buscador dinam",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "University of West England",
+  "nombre_real": "University of the West of England, Bristol (UWE Bristol)",
+  "dominio": "uwe.ac.uk",
+  "url_programas": "https://courses.uwe.ac.uk/Search/",
+  "pais": "UK",
+  "ciudad": "Bristol",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Undergraduate 116 · Foundation 60 · Degree Apprenticeship 25 · Postgraduate taught 133 · Professional/Short 296 · PG Research 17",
+  "cantidad_aprox": "647",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Nombre de la ficha mal escrito: es \"University of the WEST of England\". Catálogo = buscador dinámico paginado (54 páginas x 12 resultados) con filtro ",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "NIT - National Institute of Technology Pty. Ltd",
+  "nombre_real": "National Institute of Technology (RTO 41143 · CRICOS 03420M)",
+  "dominio": "nitaustralia.edu.au",
+  "url_programas": "https://www.nitaustralia.edu.au/our-courses-and-programs/",
+  "pais": "Australia",
+  "ciudad": "Perth",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert III/IV, Diploma, Advanced Diploma, Graduate Diploma, Professional Year (ICT e Ingenieria), micro-credenciales",
+  "cantidad_aprox": "~25+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el sitio se presenta solo como \"National Institute of Technology\" (el \"Pty Ltd\" es la razon social) · ficha marca \"Vocacionales\" pero tambien otorga G",
+  "_est": 25
+ },
+ {
+  "institucion_ficha": "ALTEC College",
+  "nombre_real": "Pass Global Pty Ltd t/a ALTEC College",
+  "dominio": "altec.edu.au",
+  "url_programas": "https://www.altec.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Ingles, Cert III-IV, Dip, Adv Dip, Grad Dip",
+  "cantidad_aprox": "~16",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 16
+ },
+ {
+  "institucion_ficha": "University of Tasmania International Pathway College",
+  "nombre_real": "University of Tasmania International Pathway College",
+  "dominio": "utas.edu.au",
+  "url_programas": "",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "?",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Cloudflare JS challenge: 403 tambien con UA de Chrome, devuelve \"Just a moment...\" · sitio VIVO pero no auditable sin navegador real. Ademas el domini",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Warsaw University of Business",
+  "nombre_real": "Warszawska Uczelnia Ekonomiczna (WUE) · ul. Smulikowskiego 6/8, Varsovia",
+  "dominio": "wwsb.edu.pl",
+  "url_programas": "https://moderna.edu.pl/pl/wubp/",
+  "pais": "Polonia",
+  "ciudad": "Varsovia",
+  "puede_vender": [],
+  "niveles_vistos": "Licenciatura, Máster y Posgrado/MBA: Zarządzanie, Pedagogika, Bezpieczeństwo Narodowe, Psychologia, Ekonomia, Logistyka, Dziennikarstwo",
+  "cantidad_aprox": "~10-12",
+  "veredicto_auditoria": "corregir",
+  "alerta": "DOBLE REBRAND, LA FICHA VA DOS NOMBRES ATRÁS. Cadena: \"Warszawska Wyższa Szkoła Biznesu\" (wwsb) → \"Warszawska Uczelnia Biznesu i Psychologii «Moderna»",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Kapitel Zwei",
+  "nombre_real": "Kapitel Zwei. Deutsch-Sprachschule Berlin GmbH (Am Kollnischen Park 1, 10179 Berlin)",
+  "dominio": "kapitel-zwei.de",
+  "url_programas": "https://kapitel-zwei.de/en/german-language-course-berlin/ y https://kapitel-zwei.de/en/course-dates/",
+  "pais": "Germany",
+  "ciudad": "Berlin",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "SOLO idiomas: aleman A1-C2 intensivo, conversacion, gramatica, fonetica, telc A1-C1, TestDaF, aleman medico (Arztekammer), in-company, online",
+  "cantidad_aprox": "~10+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha correcta (la mas limpia del lote) · unico matiz: el campo `sitio` apunta a la subcarpeta /en/ y no a la raiz — un fetcher que normalice a la rai",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Schiller Langue School",
+  "nombre_real": "Schiller Language School GmbH & Co. KG",
+  "dominio": "german-language.school",
+  "url_programas": "https://german-language.school/german-language-courses",
+  "pais": "Germany",
+  "ciudad": "Berlin",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas (aleman) + preparacion universitaria, aleman medico, formacion vocacional, examenes telc",
+  "cantidad_aprox": "~6 niveles A1-C1 + vias especializadas",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio de la ficha esta MUERTO en www: NXDOMAIN confirmado contra 8.8.8.8 para www.schiller-language-school.com. El apex si resuelve (80.67.16.8) ",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "UNSW Global",
+  "nombre_real": "UNSW College (UNSW Global Pty Limited ABN 62 086 418 582 trading as UNSW College)",
+  "dominio": "www.unswglobal.unsw.edu.au",
+  "url_programas": "https://www.unswcollege.edu.au/study",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Foundation, Diploma, Applied Degree, Academic English/ELICOS, Pre-Masters",
+  "cantidad_aprox": "~5 tipos de programa",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REBRAND: \"UNSW Global\" ya es solo la razon social, la marca comercial es UNSW College y el dominio de la ficha es un 301 · corregir el dominio para qu",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "James Madison University",
+  "nombre_real": "\"James Madison University International Study Center\"; el pie dice literalmente \"Maintained by Study Group\"",
+  "dominio": "isc.jmu.edu",
+  "url_programas": "https://isc.jmu.edu/programs/",
+  "pais": "USA",
+  "ciudad": "Virginia",
+  "puede_vender": [
+   "Undergraduate, International year"
+  ],
+  "niveles_vistos": "International Year (pathway de 1 a 4 semestres) + Direct Admission (pregrado). Menciona 15 grados STEM-designated de JMU pero no los lista. Sin pre-master, sin postgrado, sin English-only",
+  "cantidad_aprox": "2",
+  "veredicto_auditoria": "observacion",
+  "alerta": "El `sitio` NO da acceso al catalogo de JMU (jmu.edu, cientos de programas) sino al ISC de Study Group con solo 2 rutas. `puede_vender: \"Undergraduate,",
+  "_est": 2
+ }
+]

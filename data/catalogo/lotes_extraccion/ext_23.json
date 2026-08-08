@@ -1,0 +1,163 @@
+[
+ {
+  "institucion_ficha": "De Montfort University",
+  "nombre_real": "De Montfort University",
+  "dominio": "dmu.ac.uk",
+  "url_programas": "https://www.dmu.ac.uk/Study/Courses/Courses.aspx",
+  "pais": "UK",
+  "ciudad": "Leicester",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Foundation & Pre master",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado, postgrado, Foundation, distance learning, apprenticeships",
+  "cantidad_aprox": "~300",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Capilano University",
+  "nombre_real": "Capilano University",
+  "dominio": "www.capilanou.ca",
+  "url_programas": "https://www.capilanou.ca/programs--courses/ (buscador en /search--select/)",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificados, Diplomas, Associate Degrees (Arts/Sciences), Bachelors (Arts, Science, Business, Education, Design, Animation), postgrados",
+  "cantidad_aprox": "50+",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 50
+ },
+ {
+  "institucion_ficha": "Macallan College",
+  "nombre_real": "Macallan College Pty Ltd trading as Macallan College",
+  "dominio": "macallan.edu.au",
+  "url_programas": "https://macallan.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Adelaide, Sydney, Brisbane, Perth",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert III x13, Cert IV x4, Diploma x7, Advanced Diploma x2, Graduate Diploma x1, General English x1",
+  "cantidad_aprox": "30+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "RTO 41030 / CRICOS 03468F, activo. `puede_vender` dice \"Vocacionales (Cert, Dip, Adv Dip)\" pero tambien hay un Graduate Diploma y General English fuer",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "University of Wollongong (UoW)",
+  "nombre_real": "University of Wollongong (UOW)",
+  "dominio": "uow.edu.au",
+  "url_programas": "https://www.uow.edu.au/study/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado, postgrado, doctorado + pathways",
+  "cantidad_aprox": "19 areas tematicas; sin conteo publicado",
+  "veredicto_auditoria": "observacion",
+  "alerta": "El dominio tambien alberga entidades separadas: UOW College, UOW Dubai, UOW Hong Kong, UOW Malaysia, UOW India. Al extraer programas hay que separar l",
+  "_est": 19
+ },
+ {
+  "institucion_ficha": "Canada College of Technology and Business - CCTB",
+  "nombre_real": "Canadian College of Technology and Business (CCTB)",
+  "dominio": "canadianctb.ca",
+  "url_programas": "https://www.canadianctb.ca/programs/diplomas",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Solo diplomas (Tecnologia 6, Negocios 3, Hospitalidad 2, Continuing Ed/Pathways 2), varios con Co-op",
+  "cantidad_aprox": "~13",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NOMBRE MAL EN LA FICHA: es \"CANADIAN College\", no \"Canada College\" · puede_vender dice \"Todos los programas\" pero solo otorga diplomas: no hay pregrad",
+  "_est": 13
+ },
+ {
+  "institucion_ficha": "Canadian College",
+  "nombre_real": "Canadian College · y \"The Canadian College of English Language\" (CCEL) como division de idiomas",
+  "dominio": "canadiancollege.com",
+  "url_programas": "https://canadiancollege.com/es/ -> paginas /es/*-program",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diplomas de carrera (6: Business Mgmt, Hospitality, International Trade, Project Mgmt, IT, Digital Marketing), ingles CCEL, micro-credenciales, pathway",
+  "cantidad_aprox": "~12",
+  "veredicto_auditoria": "observacion",
+  "alerta": "DOS MARCAS BAJO UN DOMINIO (Canadian College = diplomas de carrera; CCEL = ingles): la ficha las colapsa en una · NO otorga grados, solo diplomas y ce",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Kangan Institute",
+  "nombre_real": "Bendigo Kangan Institute ABN 74 802 942 886 trading as Kangan Institute (RTO 3077 · CRICOS 01218G)",
+  "dominio": "www.kangan.edu.au",
+  "url_programas": "https://www.kangan.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert III/IV, Diploma, Adv Diploma (VET puro) · SIN bachelor",
+  "cantidad_aprox": "~10 departamentos",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender dice \"Todos los programas\" pero NO otorga ningun grado: solo VET · la entidad legal real es Bendigo Kangan Institute, no \"Kangan Institut",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Victoria University (Sydney)",
+  "nombre_real": "Victoria University (CRICOS 00124K Melbourne · 02475D Sydney y Brisbane) · el campus se llama \"VU Sydney\"",
+  "dominio": "www.vu.edu.au",
+  "url_programas": "https://www.vu.edu.au/vu-sydney/courses-at-vu-sydney",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Higher Education Diploma, Pregrado, Postgrado",
+  "cantidad_aprox": "? (3 niveles; se ven ~7 especializaciones de master + Bachelor of Early Childhood Education)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "La ficha apunta a un PATH de campus dentro del dominio de la universidad. La oferta de VU Sydney es un SUBCONJUNTO de Victoria University: extraer de ",
+  "_est": 7
+ },
+ {
+  "institucion_ficha": "ILAC College",
+  "nombre_real": "ILAC International College",
+  "dominio": "ilacinternationalcollege.com",
+  "url_programas": "https://ilacinternationalcollege.com/programs/",
+  "pais": "Canada",
+  "ciudad": "Vancouver, Toronto",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma (Business Administration, Sales & Marketing); micro-credenciales (AI for Non-Technical Professionals, Designing AI Workflows, Accelerated Digital Marketing, Intro to Project Management)",
+  "cantidad_aprox": "2 diplomas + ~4 micro-credenciales + credit transfer",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El nombre real es \"ILAC International College\", no \"ILAC College\". Catalogo MUY pequeno (2 diplomas reales) — `puede_vender`=\"Todos los programas\" sug",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "UCEDA",
+  "nombre_real": "UCEDA International",
+  "dominio": "uceda.edu",
+  "url_programas": "https://uceda.edu/f1-intensive-esl/ · /part-time-esl/ · /aupair/",
+  "pais": "USA",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "ESL \"todos los niveles\": F1 Intensive ESL, B1/B2 Part-Time ESL, J1 Au Pair ESL",
+  "cantidad_aprox": "3 programas principales",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Sin cierre ni contenido ajeno. Ficha incompleta: `ciudad` null (tiene varios campus), `category` null y `puede_vender` vacio pese a ser claramente Idi",
+  "_est": 3
+ }
+]

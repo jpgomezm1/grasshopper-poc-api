@@ -83,7 +83,7 @@ _IMPOSIBLES = {
 }
 
 _PREFERIDOS = {
-    EN_COLEGIO: {"intercambio", "vacacional"},
+    EN_COLEGIO: {"secundaria", "intercambio", "vacacional"},
     TERMINANDO_COLEGIO: {"pregrado", "bachelor", "intercambio", "vacacional"},
     EN_UNIVERSIDAD: {"pregrado", "bachelor", "intercambio", "curso_corto", "diplomado"},
     EGRESADO: {"maestria", "posgrado", "especializacion", "diplomado", "curso_corto"},

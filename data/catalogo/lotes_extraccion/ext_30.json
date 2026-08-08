@@ -1,0 +1,168 @@
+[
+ {
+  "institucion_ficha": "Niagara College",
+  "nombre_real": "Niagara College",
+  "dominio": "niagaracollege.ca",
+  "url_programas": "https://www.niagaracollege.ca/programs/search/",
+  "pais": "Canada",
+  "ciudad": "Ontario",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma, Graduate Certificate, Bachelor, part-time",
+  "cantidad_aprox": "100+ a tiempo completo",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "ILA Montpellier",
+  "nombre_real": "Institut Linguistique Adenet (ILA)",
+  "dominio": "ila-france.es",
+  "url_programas": "https://www.ila-france.es/cursos-frances",
+  "pais": "France",
+  "ciudad": "Montpellier",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas (francés general/intensivo, DELF-DALF, verano, profesional, 50+, junior)",
+  "cantidad_aprox": "~40",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 40
+ },
+ {
+  "institucion_ficha": "Australian Pacific College (APC)",
+  "nombre_real": "Australian Pacific College (APC) & English Unlimited (EU) · APC Education Group / Young Rabbit Pty Ltd · RTO 90396 · CRICOS 01331F",
+  "dominio": "apc.edu.au",
+  "url_programas": "https://www.apc.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne, Sydney",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Idiomas/ELICOS (General, Academic, IELTS, Cambridge, junior) + Certificate II-IV + Diploma + Advanced Diploma + Graduate Diploma of Management",
+  "cantidad_aprox": "~33",
+  "veredicto_auditoria": "observacion",
+  "alerta": "La ficha lista 2 ciudades (Melbourne, Sydney) pero el sitio opera 5 campus: Sydney, Melbourne, Brisbane, Gold Coast y Adelaide. La marca hermana \"Engl",
+  "_est": 33
+ },
+ {
+  "institucion_ficha": "ICMP ( The institute)",
+  "nombre_real": "The Institute of Contemporary Music Performance (ICMP Management Ltd, reg. 04780788)",
+  "dominio": "icmp.ac.uk",
+  "url_programas": "https://www.icmp.ac.uk/study-at-icmp/find-a-course",
+  "pais": "UK",
+  "ciudad": "Londres",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cursos cortos, Cert HE, BA (3 anos), MA",
+  "cantidad_aprox": "20+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Nombre de la ficha truncado/ambiguo (\"ICMP ( The institute)\"). La ficha dice Londres pero opera tambien Liverpool, Leeds y Glasgow. Pertenece a AD Edu",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "SPD - Scoula Politecnica di Design",
+  "nombre_real": "SPD - Scuola Politecnica di Design",
+  "dominio": "scuoladesign.com",
+  "url_programas": "https://www.scuoladesign.com/courses/",
+  "pais": "Italy",
+  "ciudad": "Milan",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Foundation, 4 BA, 8 MA, preparatorios, cursos cortos",
+  "cantidad_aprox": "~15",
+  "veredicto_auditoria": "corregir",
+  "alerta": "ERROR DE TIPEO EN LA FICHA: \"Scoula\" debe ser \"Scuola\" · category \"Universidad\" es incorrecta: es escuela privada de diseno, no universidad",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "Newdeal Institut",
+  "nombre_real": "Newdeal Institut — se presenta como \"KLF Bordeaux – Newdeal Institut\", escuela del grupo KLF (Keep Learning French)",
+  "dominio": "francais.newdealinstitut.com",
+  "url_programas": "https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/",
+  "pais": "France",
+  "ciudad": "Budeos",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: estandar, intensivo, university pathway, premium intensivo, DELF/DALF, clases particulares, au pair, seniors, online, frances profesional/business, grupos, programas junior de verano",
+  "cantidad_aprox": "~12",
+  "veredicto_auditoria": "observacion",
+  "alerta": "La `ciudad` de la ficha dice \"Budeos\" — typo de Burdeos/Bordeaux, corregir. Grupo KLF confirmado en el sitio (coincide con partner_group). Es centro e",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Skills Australia",
+  "nombre_real": "Skills Australia Institute (SAI) · RTO 52010 · CRICOS 03548F · ABN 78 126 274 682",
+  "dominio": "skillsaustralia.edu.au",
+  "url_programas": "https://www.skillsaustralia.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Perth, Adelaide",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert III, Cert IV, Diploma y GRADUATE Diploma (Business, Early Childhood, Automotive, Construccion)",
+  "cantidad_aprox": "~11",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el nombre real es \"Skills Australia Institute\", la ficha lo trunca a \"Skills Australia\" · campus Cannington/Perth WA y Adelaide SA coinciden con la fi",
+  "_est": 11
+ },
+ {
+  "institucion_ficha": "Curtin College",
+  "nombre_real": "Colleges of Business and Technology (WA) Pty Ltd trading as Curtin College · CRICOS 02042G",
+  "dominio": "curtincollege.edu.au",
+  "url_programas": "https://www.curtincollege.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Perth",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma pathway + Master Qualifying Program (no hay grados propios)",
+  "cantidad_aprox": "~8",
+  "veredicto_auditoria": "observacion",
+  "alerta": "NO otorga pregrado propio: son diplomas-pathway que dan entrada a 2do ano en Curtin University · la ficha marca \"Todos los programas\" y eso SOBREVENDE",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "New Zealand School of Tourism",
+  "nombre_real": "New Zealand School of Tourism (NZST) · nombre comercial del PTE registrado Yoobee Colleges Ltd",
+  "dominio": "nzschooloftourism.co.nz",
+  "url_programas": "https://nzschooloftourism.co.nz/courses",
+  "pais": "New Zealand",
+  "ciudad": "Dunedin, Hamilton",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Vocational and Higher Education"
+  ],
+  "niveles_vistos": "NZQA nivel 3 (1) · 4 (2) · 5 (2) · 6 (1) · certificados y diplomas en Aviacion/Flight Attending y Travel & Tourism",
+  "cantidad_aprox": "6",
+  "veredicto_auditoria": "corregir",
+  "alerta": "La matricula y el titulo los emite Yoobee Colleges Ltd, no NZST — el pie de pagina lo dice textual. partner_group=\"UP Education\" es correcto (Yoobee p",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Vocational Training Institute",
+  "nombre_real": "Vocational Training Institute (RTO 41111)",
+  "dominio": "www.vocationalinstitute.com.au",
+  "url_programas": "https://www.vocationalinstitute.com.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Diploma, Advanced Diploma y Graduate Diploma (los 3 son BSB de liderazgo/gestión)",
+  "cantidad_aprox": "3",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Catálogo minúsculo: 3 cursos, todos de gestión BSB. Bloque COVID-19 sin actualizar desde hace años. Ficha sin ciudad, sin category y con puede_vender ",
+  "_est": 3
+ }
+]

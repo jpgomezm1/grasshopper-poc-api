@@ -1,0 +1,165 @@
+[
+ {
+  "institucion_ficha": "EBS Universitat",
+  "nombre_real": "EBS Universitat fur Wirtschaft und Recht",
+  "dominio": "ebs.edu",
+  "url_programas": "https://www.ebs.edu/ (por escuela, rutas /studium/)",
+  "pais": "Germany",
+  "ciudad": "Oestrich-Winkel",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "9 Bachelor/Master en BWL + 2 en Jura + 55 programas de Weiterbildung (Executive); niveles Bachelor, Master, Doctorado, Executive Ed",
+  "cantidad_aprox": "~66",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Es parte de SRH Hochschulen desde 2016 (no es independiente). Sin avisos de insolvencia ni cierre. El nombre en ficha va sin dieresis (\"Universitat\" e",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "NABA",
+  "nombre_real": "NABA - Nuova Accademia di Belle Arti",
+  "dominio": "www.naba.it",
+  "url_programas": "https://www.naba.it/en/undergraduate · /en/postgraduate · /en/academic-masters",
+  "pais": "Italy",
+  "ciudad": "Milan",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor of Arts (AFAM I nivel), Master of Arts (AFAM II nivel), Academic Masters de 1 ano (~14), PhD en Artistic Practice, foundation/summer/semester abroad",
+  "cantidad_aprox": "~40+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "`puede_vender` INCONSISTENTE: la ficha habilita \"Vocacionales (Cert, Dip, Adv Dip)\" y NABA solo otorga titulos ACADEMICOS reconocidos por el MUR itali",
+  "_est": 40
+ },
+ {
+  "institucion_ficha": "Australian College of Applied Professions (ACAP)",
+  "nombre_real": "ACAP University College",
+  "dominio": "acap.edu.au",
+  "url_programas": "https://www.acap.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Cert a Master",
+  "cantidad_aprox": "~30+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "RENOMBRADA: hoy es ACAP University College (TEQSA)",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "ELISAVA",
+  "nombre_real": "Elisava Facultad de Diseno e Ingenieria de Barcelona",
+  "dominio": "elisava.net",
+  "url_programas": "https://www.elisava.net/grados/ y https://www.elisava.net/masters/",
+  "pais": "Spain",
+  "ciudad": "Barcelona",
+  "puede_vender": [
+   "Postgrado, study abroad y summer"
+  ],
+  "niveles_vistos": "Grado (2), Master/Postgrado (mayoria), cursos cortos, summer, study abroad, Doctorado",
+  "cantidad_aprox": "~20+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "PUEDE_VENDER INCOMPLETO: la ficha solo permite \"Postgrado, study abroad y summer\" pero Elisava SI otorga GRADOS (Diseno e Innovacion · Ingenieria de D",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Menzies Institute of Technology",
+  "nombre_real": "logo y footer dicen \"Menzies College of Nursing & Health Pty Ltd\"; el cuerpo del texto todavia dice \"Menzies Institute of Technology\"",
+  "dominio": "menzies.vic.edu.au",
+  "url_programas": "https://menzies.vic.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert III/IV y Diploma (automotriz, enfermeria, dental, aged care, community services) + curso de preparacion OBA",
+  "cantidad_aprox": "~15",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REBRANDING en curso: el nombre legal visible ya es \"Menzies College of Nursing & Health\" · el sitio NO publica RTO ni CRICOS en ninguna parte (verific",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "Sarina Russo",
+  "nombre_real": "The Sarina Russo Group - Employment, Education & Training",
+  "dominio": "sarinarusso.com.au",
+  "url_programas": "https://sarinarusso.com.au/training-education/vocational-training/find-a-course/",
+  "pais": "Australia",
+  "ciudad": "Queensland",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Pregrado & Postgrado",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Ingles general/academico, VET, higher education",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "DOMINIO DE GRUPO, no de la escuela: SRG es sobre todo servicios de empleo. Las entidades educativas son Sarina Russo Institute (SRI) y Russo Business ",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "UOW College Australia",
+  "nombre_real": "UOW College Australia (RTO 91159 · CRICOS 02723D)",
+  "dominio": "uowcollege.edu.au",
+  "url_programas": "https://www.uowcollege.edu.au/courses-pathways/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Ingles, Foundation, University prep, Cert y Diploma VET, cursos cortos",
+  "cantidad_aprox": "~11 areas",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 11
+ },
+ {
+  "institucion_ficha": "Nortwest College",
+  "nombre_real": "Nortwest College (Nortwest Pty Ltd · ABN 17 123 969 175 · RTO 91781 · CRICOS 03256G)",
+  "dominio": "nortwest.edu.au",
+  "url_programas": "https://www.nortwest.edu.au/Courses.aspx",
+  "pais": "Australia",
+  "ciudad": "Adelaide",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Vocacional Cert/Dip/Adv Dip + Graduate Diploma of Management + ELICOS",
+  "cantidad_aprox": "~8 areas",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Ficha dice \"College Publico\" pero es RTO PRIVADO; ficha dice Adelaide pero la sede principal son 2 campus en Sydney (George St y York St) + Melbourne ",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "Neuro Business School",
+  "nombre_real": "NEURO Business School",
+  "dominio": "eunbs.com",
+  "url_programas": "https://eunbs.com/ (listado en home, sin pagina /programas dedicada)",
+  "pais": "Spain",
+  "ciudad": "Barcelona",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor (3a) x2, Master (1a) x3, Executive MBA x1",
+  "cantidad_aprox": "6",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Titulos NO propios: los bachelor y el master en IA los \"valida\" Utamed y los master/MBA los valida UVic-UCC. Escuela privada, no universidad. Verifica",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Linguaviva",
+  "nombre_real": "Linguaviva Educational Group",
+  "dominio": "www.linguavivagroup.com",
+  "url_programas": "https://linguavivagroup.com/italian-language-courses-in-italy/",
+  "pais": "Italy",
+  "ciudad": "Milan, Florencia",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas (italiano), junior/verano, academico, online",
+  "cantidad_aprox": "~4 familias de cursos",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio es del GRUPO, no de una escuela concreta. Tiene 3 sedes: Florencia, Milan y Lignano Sabbiadoro; la ficha solo lista \"Milan, Florencia\" (fal",
+  "_est": 4
+ }
+]

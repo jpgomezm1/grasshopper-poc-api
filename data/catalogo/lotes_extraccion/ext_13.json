@@ -1,0 +1,224 @@
+[
+ {
+  "institucion_ficha": "UP Education",
+  "nombre_real": "UP Education",
+  "dominio": "www.up.education",
+  "url_programas": "https://www.up.education/study/tertiary-providers",
+  "pais": "International",
+  "ciudad": null,
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Vocacional/tertiary hasta pathway universitario",
+  "cantidad_aprox": "270 cursos declarados · ~21 instituciones miembro · 64 campus",
+  "veredicto_auditoria": "corregir",
+  "alerta": "ES UN GRUPO PARAGUAS, no una institucion. Agrupa ~21 colleges con marca y sitio propios (Yoobee, NZMA, NZ School of Tourism, NZ Institute of Sport, NZ",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Vancouver Island University VIU",
+  "nombre_real": "Vancouver Island University (900 Fifth Street, Nanaimo, British Columbia)",
+  "dominio": "www.viu.ca",
+  "url_programas": "https://www.viu.ca/programs",
+  "pais": "Canada",
+  "ciudad": null,
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificate, Diploma, Bachelor, Master, oficios/trades y preparacion academica",
+  "cantidad_aprox": "\"100+\"",
+  "veredicto_auditoria": "observacion",
+  "alerta": "la ficha tiene ciudad null y el error facil aqui es asumir \"Vancouver\": la universidad esta en NANAIMO, en la isla, no en la ciudad de Vancouver · pue",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Queensland Academy of Technology (QAT)",
+  "nombre_real": "Queensland Academy of Technology (QAT), nombre comercial de Australia Moreton Education Group Pty Ltd (ABN 68 105823309)",
+  "dominio": "qat.qld.edu.au",
+  "url_programas": "https://qat.qld.edu.au/international/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Certificate III (2), Certificate IV (4), Diploma (5), Advanced Diploma (2), Graduate Diploma (1), ELICOS/IELTS (2), cursos cortos (7)",
+  "cantidad_aprox": "22",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Lista estatica y enumerable, la mejor del lote. Pero la ficha tiene `category`=null, `partner_group`=null y `puede_vender` VACIO: hoy no se puede vend",
+  "_est": 22
+ },
+ {
+  "institucion_ficha": "KEELE UNIVERSITY INTERNATIONAL COLLEGE (KUIC)",
+  "nombre_real": "Keele University International College (KUIC)",
+  "dominio": "kuic.keele.ac.uk",
+  "url_programas": "https://kuic.keele.ac.uk/study/",
+  "pais": "UK",
+  "ciudad": "Staffordshire",
+  "puede_vender": [
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "Foundation, International Year One, Pre-Master's",
+  "cantidad_aprox": "~17 areas (15 UG + 2 PG)",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 17
+ },
+ {
+  "institucion_ficha": "QIBA - Queensland International Business Academy",
+  "nombre_real": "Queensland International Business Academy (QIBA Pty Ltd)",
+  "dominio": "qiba.edu.au",
+  "url_programas": "https://qiba.edu.au/all-courses/",
+  "pais": "Australia",
+  "ciudad": "Brisbane, Sydney, Canberra",
+  "puede_vender": [],
+  "niveles_vistos": "Certificate IV, Diploma, Advanced Diploma (VET), ELICOS, PTE prep, Professional Year",
+  "cantidad_aprox": "13+",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 13
+ },
+ {
+  "institucion_ficha": "Texas State University",
+  "nombre_real": "Texas State University (pagina alojada por INTO, no por la universidad)",
+  "dominio": "intostudy.com",
+  "url_programas": "https://www.intostudy.com/en/universities/texas-state-university (SPA)",
+  "pais": "USA",
+  "ciudad": "Texas",
+  "puede_vender": [
+   "Graduate Degrees",
+   "Undergraduate and Graduate"
+  ],
+  "niveles_vistos": "Pathway + undergraduate + graduate",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "⚠️ Patron (a): el `sitio` apunta al proveedor de pathways INTO, NO al dominio oficial de la universidad (txstate.edu). La pagina esta viva (200, 67 KB",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "AIT",
+  "nombre_real": "Academy of Interactive Technology · Institute of Higher Education",
+  "dominio": "ait.edu.au",
+  "url_programas": "https://www.ait.edu.au/courses/",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "Bachelor + Diploma",
+  "cantidad_aprox": "~10",
+  "veredicto_auditoria": "observacion",
+  "alerta": "otorga BACHELOR pero la ficha solo permite Vocacionales · deja fuera los pregrados",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Impact English College",
+  "nombre_real": "Impact English College · CRICOS Provider Code 02995B",
+  "dominio": "impactenglish.edu.au",
+  "url_programas": "https://www.impactenglish.edu.au/courses.html",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: General, Extreme, Barista/Cafe English, Cambridge B2 First & C1 Advanced, IELTS/EAP, Business English + Demi Pair + Career Launch (ningun VET)",
+  "cantidad_aprox": "8",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ORIGEN INESTABLE: 2 de 5 peticiones devolvieron 522 \"Connection timed out\" de Cloudflare (home y /courses.html) y las otras 3 dieron 200 · no es bloqu",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "University of Sheffield",
+  "nombre_real": "University of Sheffield International College (USIC)",
+  "dominio": "usic.sheffield.ac.uk",
+  "url_programas": "https://usic.sheffield.ac.uk/programmes",
+  "pais": "UK",
+  "ciudad": "Sheffield",
+  "puede_vender": [
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "English Language Preparation, International Foundation Year (1.5 o 2 semestres), International Year One, Pre-Masters (1.5 o 2 semestres)",
+  "cantidad_aprox": "4",
+  "veredicto_auditoria": "corregir",
+  "alerta": "La ficha se llama \"University of Sheffield\" pero el dominio es el PATHWAY COLLEGE, operado por Study Group (\"Maintained by Study Group\" en el footer),",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "Baylor University",
+  "nombre_real": "Baylor University International Study Center",
+  "dominio": "isc.baylor.edu",
+  "url_programas": "no existe (isc.baylor.edu/programs da 404)",
+  "pais": "USA",
+  "ciudad": "Texas",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "International Year, Master, Undergraduate Degree"
+  ],
+  "niveles_vistos": "—",
+  "cantidad_aprox": "0",
+  "veredicto_auditoria": "corregir",
+  "alerta": "FICHA MUERTA COMERCIALMENTE. El dominio responde 200 pero sirve UNA sola pagina de aviso: \"Our contract with the university is in its final year... th",
+  "_est": 0
+ },
+ {
+  "institucion_ficha": "INTO Universities",
+  "nombre_real": "INTO University Partnerships",
+  "dominio": "www.intoglobal.com",
+  "url_programas": "- (el home corporativo no lista programas; el sitio de estudiante es intostudy.com, dominio aparte)",
+  "pais": "International",
+  "ciudad": "UK, USA, China",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "n/a",
+  "cantidad_aprox": "0 en este dominio",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el dominio de la ficha es el sitio CORPORATIVO B2B de INTO: no tiene ni un programa enumerable, solo servicios para instituciones · para extraer progr",
+  "_est": 0
+ },
+ {
+  "institucion_ficha": "Hermes Colleges",
+  "nombre_real": "HERMES - Colleges Network",
+  "dominio": "hermescolleges.ca",
+  "url_programas": "ninguna (solo directorio: https://hermescolleges.ca/colleges/)",
+  "pais": "Canada",
+  "ciudad": "Montreal",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "ninguno enumerable aqui",
+  "cantidad_aprox": "0 en este dominio",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NO ES UNA INSTITUCION: es una red de 6 colleges (Veritas, Matrix, Aviron Quebec, Ascent, Academie d'apprentissage Lawrence/Markham, Cegep Marie-Victor",
+  "_est": 0
+ },
+ {
+  "institucion_ficha": "St Lawrence's College",
+  "nombre_real": "St Laurence's College",
+  "dominio": "slc.qld.edu.au",
+  "url_programas": "no tiene catalogo de programas (https://www.slc.qld.edu.au/enrol/international-students)",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Anios 5 a 12 (Primaria, Middle, Senior) + VET escolar",
+  "cantidad_aprox": "0 programas vendibles",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NOMBRE MAL ESCRITO EN LA FICHA: es \"St LAURENCE'S College\", no \"St Lawrence's\" · y NO ES UN COLLEGE: es un colegio catolico de varones (Edmund Rice) e",
+  "_est": 0
+ },
+ {
+  "institucion_ficha": "Texas A&M University-Corpus Christi",
+  "nombre_real": "Texas A&M University-Corpus Christi International Study Center · pie de pagina: \"Maintained by Study Group\"",
+  "dominio": "isc.tamucc.edu",
+  "url_programas": "NO EXISTE",
+  "pais": "USA",
+  "ciudad": "Texas",
+  "puede_vender": [
+   "Sólo Postgrado"
+  ],
+  "niveles_vistos": "?",
+  "cantidad_aprox": "0",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CRITICO · EL DOMINIO NO SIRVE PARA EXTRAER: isc.tamucc.edu no es el sitio de la universidad sino un MICROSITIO DE MARKETING de Study Group · sitemap.x",
+  "_est": 0
+ }
+]

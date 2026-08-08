@@ -1,0 +1,163 @@
+[
+ {
+  "institucion_ficha": "University of Roehampton",
+  "nombre_real": "University of Roehampton",
+  "dominio": "www.roehampton.ac.uk",
+  "url_programas": "https://www.roehampton.ac.uk/study/",
+  "pais": "UK",
+  "ciudad": "Londres",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Undergraduate (~104), Postgraduate taught (~75), Postgraduate research (~3), Foundation, Higher Technical Qualifications, apprenticeships, short courses",
+  "cantidad_aprox": "~182",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Las paginas de listado (/study/undergraduate-courses/) NO renderizan cursos sin JS (0 enlaces a curso en el HTML crudo) · el catalogo SI es enumerable",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Conestoga College",
+  "nombre_real": "Conestoga College (razón social: Conestoga College Institute of Technology and Advanced Learning)",
+  "dominio": "conestogac.on.ca",
+  "url_programas": "https://www.conestogac.on.ca/fulltime",
+  "pais": "Canada",
+  "ciudad": "Kitchener",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Ontario College Certificate, Diploma, Advanced Diploma, Degree, Graduate Certificate, Certificate of Achievement, Apprenticeship",
+  "cantidad_aprox": "276",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Catálogo NO enumerable de una pasada: /fulltime declara \"Showing 276 results\" pero es un buscador con filtros (fecha de inicio, área, campus, duración",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "La Trobe College Australia",
+  "nombre_real": "La Trobe College Australia (Navitas Bundoora Pty Ltd, ABN 92 143 736 789)",
+  "dominio": "latrobecollegeaustralia.edu.au",
+  "url_programas": "https://www.latrobecollegeaustralia.edu.au/study-options/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Foundation Studies (2), Ingles (3), Undergraduate Certificates (6), Diplomas (9)",
+  "cantidad_aprox": "~25",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha sin ciudad (es Melbourne/Bundoora), sin category y con puede_vender VACIO para un college con ~25 programas · partner_group deberia decir Navita",
+  "_est": 25
+ },
+ {
+  "institucion_ficha": "University Canada West",
+  "nombre_real": "University Canada West (UCW) · el pie dice \"UCW is part of: Global University Systems\"",
+  "dominio": "ucanwest.ca",
+  "url_programas": "https://www.ucanwest.ca/programs",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Idiomas",
+   "Foundation & Pre master",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Associate, Bachelor, MBA (presencial y online), University Access Program, micro-credenciales",
+  "cantidad_aprox": "~17 (5 pregrado + 2 posgrado + 1 preparatorio + 9 micro-credenciales)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender promete \"Idiomas\" y \"Foundation & Pre master\": el sitio NO tiene ESL/EAP propio ni foundation — solo el University Access Program · tipo_",
+  "_est": 17
+ },
+ {
+  "institucion_ficha": "St George International College",
+  "nombre_real": "St. George International College (SGIC)",
+  "dominio": "www.sgiccanada.com",
+  "url_programas": "https://www.sgiccanada.com/programs",
+  "pais": "Canada",
+  "ciudad": "Toronto, Vancouver",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "SOLO idiomas y afines: General English/ESL, SSP-I/SSP-A, English for Medicine, English for Professionals, Business English, IELTS prep, i-TESOL, TYCP, Pathway Program (UCPP), Summer & Winter Camps, High School",
+  "cantidad_aprox": "~12",
+  "veredicto_auditoria": "corregir",
+  "alerta": "`puede_vender` SOBREDIMENSIONADO: la ficha dice \"Todos los programas\" pero SGIC es una escuela de idiomas (Toronto y Vancouver) — no hay diplomas, ni ",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "International Business School Barcelona ESEI",
+  "nombre_real": "ESEI International Business School Barcelona",
+  "dominio": "www.eseibusinessschool.com",
+  "url_programas": "https://www.eseibusinessschool.com/programmes/",
+  "pais": "Spain",
+  "ciudad": "Barcelona",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor, Master, MBA, Online Masters, cursos cortos",
+  "cantidad_aprox": "~12",
+  "veredicto_auditoria": "observacion",
+  "alerta": "tipo_adivinado=\"curso_corto\" es incorrecto (da Bachelor/Master/MBA). Titulacion NO oficial espanola: \"ESEI Private Degree\", Titulo Propio UCAM y titul",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "The Quality Training and Hospitality College",
+  "nombre_real": "The Quality Training and Hospitality College Pty Ltd trading as Quality College of Australia · ABN 71 062 309 755 · RTO 1036 · CRICOS 02880B",
+  "dominio": "qca.edu.au",
+  "url_programas": "https://www.qca.edu.au/international-student-courses/ y https://www.qca.edu.au/domestic-student-courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Certificate III Commercial Cookery, Certificate IV Kitchen Management, Diploma y Advanced Diploma of Hospitality Management, Individual Support, Food Safety Supervisor (VET puro, ningun grado)",
+  "cantidad_aprox": "~8-9",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el nombre de la ficha es la RAZON SOCIAL; el nombre comercial con el que opera es \"Quality College of Australia\" · catalogo PARTIDO en dos listas inco",
+  "_est": 9
+ },
+ {
+  "institucion_ficha": "Ermitage International School",
+  "nombre_real": "Ermitage International School Paris",
+  "dominio": "ermitage.fr",
+  "url_programas": "https://www.ermitage.fr/french-bilingual-programs y /ib-programs",
+  "pais": "France",
+  "ciudad": null,
+  "puede_vender": [
+   "High School",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pre-K, Primaria, College, Lycee, IB PYP/MYP/DP (3 a 18 anios)",
+  "cantidad_aprox": "~5-6 rutas",
+  "veredicto_auditoria": "corregir",
+  "alerta": "es COLEGIO, no tiene \"programas\" vendibles como catalogo · el footer enlaza al grupo paraguas Ermitage Education Group · ficha tipo_adivinado \"interca",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "The University of Business and International Studies UBIS S.A.",
+  "nombre_real": "UBIS - University of Business, Innovation and Sustainability",
+  "dominio": "ubisglobal.com",
+  "url_programas": "https://ubisglobal.com/programs/",
+  "pais": "Suiza",
+  "ciudad": "Geneve",
+  "puede_vender": [
+   "Pregrado & Postgrado"
+  ],
+  "niveles_vistos": "DBA, MBA, MA-IR, BBA, BA-IR",
+  "cantidad_aprox": "5 + microcredenciales",
+  "veredicto_auditoria": "corregir",
+  "alerta": "YA NO ES SUIZA: /locations/ solo lista \"UBIS Online Global\" y \"Washington D.C. Campus Headquarters\" (1100 15th St NW) y el sitio se autodefine \"US-Bas",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "University of Hartford",
+  "nombre_real": "University of Hartford International Pathway Program / International Study Center — \"Maintained by Study Group\"",
+  "dominio": "pathways.hartford.edu",
+  "url_programas": "https://pathways.hartford.edu/programs",
+  "pais": "USA",
+  "ciudad": "West Hartford",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pathway: International Year (pregrado), Master's International Year (postgrado), Direct Admissions, pre-sessional de ingles",
+  "cantidad_aprox": "2 pathways + Direct Admission + English Language Institute",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CRITICO: el `sitio` apunta al International Study Center de Study Group, no a hartford.edu. `puede_vender: \"Todos los programas\"` es FALSO por esta vi",
+  "_est": 2
+ }
+]

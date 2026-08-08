@@ -1,0 +1,156 @@
+[
+ {
+  "institucion_ficha": "Chisholm Institute",
+  "nombre_real": "Chisholm Institute, se presenta comercialmente como \"Chisholm TAFE\" (RTO 0260 · CRICOS 00881F · TEQSA PRV12123)",
+  "dominio": "chisholm.edu.au",
+  "url_programas": "https://www.chisholm.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Cert I-IV, Diploma, Adv Diploma, BACHELOR (via Higher Education College), aprendizajes y cursos cortos",
+  "cantidad_aprox": "~20 areas / cientos de cursos",
+  "veredicto_auditoria": "corregir",
+  "alerta": "ficha con category null, ciudad null y puede_vender VACIO para un TAFE que llega hasta bachelor y posgrado · tipo_adivinado \"curso_corto\" es incorrect",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Excelsia University College",
+  "nombre_real": "Excelsia University College (TEQSA PRV12064 · CRICOS 02664K · ABN 50 360 319 774)",
+  "dominio": "excelsia.edu.au",
+  "url_programas": "https://excelsia.edu.au/study/",
+  "pais": "Australia",
+  "ciudad": "Sidney",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "~8 Bachelor · ~30 posgrado (Grad Cert/Dip, Master, PhD en Organisational Leadership) · ~8 cursos cortos · 2 ELICOS (EAP y General English)",
+  "cantidad_aprox": "~50",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Sin avisos de cierre ni teach-out; operacion activa (primer graduado de PhD 04/05/2026). Mudanza de campus a Pennant Hills (1 City View Road) desde ju",
+  "_est": 50
+ },
+ {
+  "institucion_ficha": "RCIIS",
+  "nombre_real": "RCIIS · Study English in Canada",
+  "dominio": "rciis.ca",
+  "url_programas": "https://rciis.ca/list-of-programs",
+  "pais": "Canada",
+  "ciudad": null,
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)"
+  ],
+  "niveles_vistos": "Solo inglés (+2 de francés), niveles principiante a avanzado, cursos de 4-12 semanas",
+  "cantidad_aprox": "~30",
+  "veredicto_auditoria": "observacion",
+  "alerta": "category=\"College Privado\" y puede_vender=\"Vocacionales (Cert, Dip, Adv Dip)\" CONTRADICEN el sitio: es escuela de idiomas pura, cero diplomas vocacion",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "Academique",
+  "nombre_real": "Academique",
+  "dominio": "academique.com.au",
+  "url_programas": "https://www.academique.com.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Ingles, Cert III/IV, Dip, Adv Dip",
+  "cantidad_aprox": "~16-18",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ciudad null en la ficha (Southport, Gold Coast)",
+  "_est": 18
+ },
+ {
+  "institucion_ficha": "Western Sydney University - Sydney City Campus",
+  "nombre_real": "Western Sydney University Sydney City Campus",
+  "dominio": "city.westernsydney.edu.au",
+  "url_programas": "https://city.westernsydney.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado (9) · Postgrado/master (5) · pathways",
+  "cantidad_aprox": "~14",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El path de la ficha redirige a otro host (subdominio city.). El campus opera con Navitas como socio operador (link \"Agent Information\" a Navitas): la ",
+  "_est": 14
+ },
+ {
+  "institucion_ficha": "Frances King School of English",
+  "nombre_real": "Frances King School of English (Londres, fundada 1973, acreditada British Council)",
+  "dominio": "www.francesking.com",
+  "url_programas": "https://francesking.com/school-of-english-london/courses-london/",
+  "pais": "UK",
+  "ciudad": "Londres",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: General English, IELTS, 30+, 50+ English & Culture, Business English, Family Programme, Academic Year, YMS, privadas, Bildungsurlaub",
+  "cantidad_aprox": "~12",
+  "veredicto_auditoria": "corregir",
+  "alerta": "-",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Discover English",
+  "nombre_real": "Discover English (CRICOS 03262J)",
+  "dominio": "www.discoverenglish.vic.edu.au",
+  "url_programas": "https://www.discoverenglish.vic.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: General English, EIAP (IELTS/academico), Cambridge B2 First / C1 Advanced / C2 Proficiency, English+Demi-Pair, English+Hotel Internship, English+Teaching, study tours, programa junior",
+  "cantidad_aprox": "~10",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio de la ficha (.com.au) ya NO es del colegio: esta en un parking \"DNS Package\" cuyo certificado TLS es de suspended.dnspackage.com y hace 301",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Victoria University of Wellington",
+  "nombre_real": "Te Herenga Waka - Victoria University of Wellington",
+  "dominio": "www.wgtn.ac.nz",
+  "url_programas": "https://www.wgtn.ac.nz/study/programmes-courses",
+  "pais": "New Zealand",
+  "ciudad": "Wellington",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado, Postgrado taught, Postgrado research/doctorado",
+  "cantidad_aprox": "? (7 facultades)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El nombre oficial en el sitio lleva el prefijo maori \"Te Herenga Waka\"; la ficha guarda solo la mitad inglesa. Ojo tambien con el dominio: es wgtn.ac.",
+  "_est": 7
+ },
+ {
+  "institucion_ficha": "Mckenzie College",
+  "nombre_real": "McKenzie College of Design",
+  "dominio": "mckenzie.edu",
+  "url_programas": "https://www.mckenzie.edu/programs",
+  "pais": "Canada",
+  "ciudad": "New Brunswick",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Certificado (Visual Arts Foundation 8 meses) y Diplomas de 10 meses (Visual Communication Design, Video Game Art, TV & Game Animation)",
+  "cantidad_aprox": "4 + ingles",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NOMBRE INCOMPLETO EN LA FICHA: es \"McKenzie College of DESIGN\" (escuela de disenio privada, Moncton NB desde 1988) · puede_vender dice SOLO \"Idiomas\" ",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "William Blue College of Hospitality Management at Torrens University Australia",
+  "nombre_real": "Torrens University Australia · William Blue figura como marca historica",
+  "dominio": "torrens.edu.au",
+  "url_programas": "https://www.torrens.edu.au/courses/hospitality",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Diploma, Associate Degree y Bachelor of Business (Hospitality & Tourism Management)",
+  "cantidad_aprox": "3 en esa pagina",
+  "veredicto_auditoria": "corregir",
+  "alerta": "MARCA RETIRADA: la URL de la ficha es literalmente /about/our-heritage/ · el sitio dice \"Part of Torrens University Australia since 2017\" · William Bl",
+  "_est": 3
+ }
+]

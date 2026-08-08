@@ -1,0 +1,148 @@
+[
+ {
+  "institucion_ficha": "Universidad Europea de Madrid o Valencia",
+  "nombre_real": "Universidad Europea",
+  "dominio": "universidadeuropea.com",
+  "url_programas": "https://universidadeuropea.com/oferta-academica/",
+  "pais": "Spain",
+  "ciudad": "Madrid, Valencia, Canarias",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Grado, Master, Formacion Profesional (FP), Doctorado",
+  "cantidad_aprox": "300+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "DOMINIO PARAGUAS + FICHA AMBIGUA: un solo registro (\"Madrid o Valencia\") cubre lo que en el sitio son 4 sedes con personalidad juridica distinta (Univ",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "FDU Vancouver",
+  "nombre_real": "Fairleigh Dickinson University",
+  "dominio": "www.fdu.edu",
+  "url_programas": "https://www.fdu.edu/academics/programs/",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Undergraduate and Graduate Programs",
+   "Undergraduate and Graduate Programs"
+  ],
+  "niveles_vistos": "Pregrado y posgrado",
+  "cantidad_aprox": "100+ majors y concentraciones",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio es el de la universidad MATRIZ en New Jersey, USA (campus Florham/Madison y Metropolitan/Teaneck), no el del campus de la ficha. El campus ",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Anglo continental",
+  "nombre_real": "Anglo-Continental Educational Group",
+  "dominio": "anglo-continental.com",
+  "url_programas": "https://www.anglo-continental.com/english-courses-in-england/",
+  "pais": "UK",
+  "ciudad": "Bournemouth",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Ingles, prep examenes, CELTA, junior, 50+",
+  "cantidad_aprox": "~20+",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "LSI",
+  "nombre_real": "Language Studies International (LSI)",
+  "dominio": "lsi.edu",
+  "url_programas": "https://www.lsi.edu/sp/cursos-de-idiomas",
+  "pais": "International",
+  "ciudad": "UK, Canada, USA, Australia, NZ",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Ingles general e intensivo, examenes (IELTS/TOEFL/Cambridge), Business/Medical/Legal/Aviation English, juniors 6-17, CELTA, frances, aleman",
+  "cantidad_aprox": "~20 tipos de curso x 14 escuelas",
+  "veredicto_auditoria": "observacion",
+  "alerta": "PAISES INCOMPLETOS: la ficha dice \"UK, Canada, USA, Australia, NZ\" y faltan FRANCIA (Paris) y SUIZA (Zurich) · Australia es solo Brisbane · no es una ",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Queensland International Business Academy (QIBA)",
+  "nombre_real": "Queensland International Business Academy (QIBA Pty Ltd) · RTO 5304 · CRICOS 01515J",
+  "dominio": "qiba.edu.au",
+  "url_programas": "https://qiba.edu.au/all-courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "1 Certificado IV · 6 Diplomas · 3 Advanced Diplomas · 1 Graduate Diploma · ELICOS/PTE · Professional Year",
+  "cantidad_aprox": "13",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Operando desde 1986, sin avisos de cierre ni cambio de dueno. INCONSISTENCIA GEOGRAFICA: pese a llamarse \"Queensland\", la sede esta en SYDNEY (Level 5",
+  "_est": 13
+ },
+ {
+  "institucion_ficha": "CodeCore College",
+  "nombre_real": "CodeCore College",
+  "dominio": "codecore.ca",
+  "url_programas": "https://codecore.ca/programs/bootcamp (no hay indice unico; menu Programs)",
+  "pais": "Canada",
+  "ciudad": "New Westminster",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Cursos Vocacionales"
+  ],
+  "niveles_vistos": "Vocacional: bootcamp, certificados, diplomas y advanced diplomas (tech, business, education assistant)",
+  "cantidad_aprox": "~12",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CIUDAD ERRADA + campus en transicion: el sitio dice \"recently relocated and will shortly relaunch in our new location in the fast-growing city of Prin",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Niagara College Toronto",
+  "nombre_real": "Niagara College - Toronto",
+  "dominio": "www.niagaracollegetoronto.ca",
+  "url_programas": "https://www.niagaracollegetoronto.ca/programs",
+  "pais": "Canada",
+  "ciudad": "Toronto",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificado (1), Diploma (5), Graduate Certificate (4)",
+  "cantidad_aprox": "~9-10",
+  "veredicto_auditoria": "observacion",
+  "alerta": "No es un college independiente: es una sede PPP donde Toronto School of Management (grupo GUS) entrega credenciales de Niagara College. El sitio no pu",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Universal Higher Education UHE",
+  "nombre_real": "Universal Higher Education / UHE Australia (CRICOS 03848E · PRV14288 · ABN 57 608 244 417)",
+  "dominio": "uhe.edu.au",
+  "url_programas": "https://www.uhe.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor (2), Master (2), Grad Cert (1), Grad Dip (1)",
+  "cantidad_aprox": "6",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CONTRADICE LA FICHA: puede_vender dice \"Vocacionales (Cert, Dip, Adv Dip)\" y UHE NO TIENE NI UNA cualificacion VET · es proveedor de educacion superio",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Centro de Enseñanza Universitaria SEK S.A - Universidad Camilo Jose Cela",
+  "nombre_real": "Universidad Camilo José Cela",
+  "dominio": "www.ucjc.edu",
+  "url_programas": "https://www.ucjc.edu/oferta-academica/",
+  "pais": "Spain",
+  "ciudad": "Madrid",
+  "puede_vender": [
+   "Portafolio Posgrados"
+  ],
+  "niveles_vistos": "Grado, Máster, Doctorado, FP de grado superior, Expertos/Diplomas de especialización",
+  "cantidad_aprox": "? (amplio, 5 áreas de conocimiento)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El nombre de ficha mezcla la razón social con la marca; el sitio se presenta solo como \"Universidad Camilo José Cela\" (SEK Education Group es el grupo",
+  "_est": 5
+ }
+]

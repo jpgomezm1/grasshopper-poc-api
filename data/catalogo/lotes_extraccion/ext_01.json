@@ -1,0 +1,158 @@
+[
+ {
+  "institucion_ficha": "AIBT",
+  "nombre_real": "Australia Institute of Business and Technology · RTO 41138 · CRICOS 03430J",
+  "dominio": "aibtglobal.edu.au",
+  "url_programas": "https://aibtglobal.edu.au/courses/",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "Cert III/IV, Dip, Adv Dip, Grad Dip",
+  "cantidad_aprox": "90+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "sitio PARAGUAS de 5 escuelas internas · muchos cursos \"Currently Not Accepting Enrolments\" · filtrar por disponibilidad",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "FAU - Florida Atlantic University",
+  "nombre_real": "Florida Atlantic University",
+  "dominio": "fau.edu",
+  "url_programas": "https://www.fau.edu/programs/",
+  "pais": "USA",
+  "ciudad": "Boca Raton, FL",
+  "puede_vender": [
+   "Pregrado",
+   "Postgrado",
+   "Pregrado + Posgrado"
+  ],
+  "niveles_vistos": "Bachelor, grados combinados, Master, Doctorado, certificados de pre/pos-grado",
+  "cantidad_aprox": "170+ segun la home (la tabla lista 300+ entradas)",
+  "veredicto_auditoria": "observacion",
+  "alerta": "catalogo con filtros dinamicos por grado y colegio · NO hay rastro en el sitio del pathway \"Study Group\" que declara el partner_group de la ficha (ni ",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "SIR WILFRID LAURIER School Board",
+  "nombre_real": "Sir Wilfrid Laurier School Board",
+  "dominio": "www.swlauriersb.qc.ca",
+  "url_programas": "https://www.swlauriersb.qc.ca/en/schools/our-schools/",
+  "pais": "Canada",
+  "ciudad": "Brantford",
+  "puede_vender": [
+   "High School",
+   "High School"
+  ],
+  "niveles_vistos": "Preescolar, Primaria, Secundaria, Educacion de Adultos, Formacion Profesional (vocational)",
+  "cantidad_aprox": "30+ escuelas y centros (lista paginada)",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CRITICO: `ciudad: \"Brantford\"` esta MAL — Brantford esta en ONTARIO; este board es de QUEBEC (sede en Rosemere, sirve Laval, Laurentides y Lanaudiere)",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "Insenia",
+  "nombre_real": "Insenia Design School Madrid",
+  "dominio": "insenia.org",
+  "url_programas": "https://www.insenia.es/ (listado por secciones, no hay indice unico)",
+  "pais": "Spain",
+  "ciudad": "Madrid",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Masteres profesionales (homologados por UDIMA), cursos profesionales 12 meses, cursos cortos",
+  "cantidad_aprox": "~10-15",
+  "veredicto_auditoria": "corregir",
+  "alerta": "tipo_adivinado \"pregrado\" y puede_vender \"Pregrado & Postgrado / Todos los programas\" NO CORRESPONDEN: no otorga pregrado, solo masteres profesionales",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "James Cook University Brisbane (JCUB)",
+  "nombre_real": "? (Cloudflare managed challenge \"Just a moment...\")",
+  "dominio": "jcub.edu.au",
+  "url_programas": "",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "?",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el dominio de la ficha YA NO ES SUYO: 301 permanente al campus Brisbane dentro de jcu.edu.au · el destino devuelve challenge de Cloudflare incluso con",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "IMG Academy",
+  "nombre_real": "IMG Academy",
+  "dominio": "www.imgacademy.com",
+  "url_programas": "https://www.imgacademy.com/sport-camps",
+  "pais": "USA",
+  "ciudad": "Florida",
+  "puede_vender": [
+   "Campamentos",
+   "Full Time"
+  ],
+  "niveles_vistos": "Boarding school (grados 6-12), Post-Graduate, campamentos deportivos por deporte, programas de adultos, coaching online (IMG Academy+), recruiting NCSA",
+  "cantidad_aprox": "12+ deportes en camps; ademas boarding school y post-graduate",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`sitio` contiene un query string de tracking de afiliado (`?rep=9681`) que hay que limpiar antes de crawlear — no es el dominio canonico. `ciudad: \"Fl",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Western Sydney University International College",
+  "nombre_real": "Western Sydney University International College",
+  "dominio": "internationalcollege.westernsydney.edu.au",
+  "url_programas": "https://internationalcollege.westernsydney.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Foundation (4: general, Business, Health Science and Nursing, Science) y Diploma (4: Arts, Business, Engineering, ICT)",
+  "cantidad_aprox": "~8",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Es \"A Member of Navitas\" pero la ficha tiene partner_group NULL (comparar con las otras fichas Navitas del lote, que si lo traen). Ficha con category ",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "CCEL Christchurch",
+  "nombre_real": "Christchurch College of English (CCEL)",
+  "dominio": "www.ccel.co.nz",
+  "url_programas": "https://www.ccel.co.nz/courses/",
+  "pais": "New Zealand",
+  "ciudad": "Christchurch",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Idiomas (General English, EAP 1 y 2, Exam Prep, High School Prep, Grupos)",
+  "cantidad_aprox": "~6",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Nombre real es \"Christchurch College of English\", la ficha usa solo la sigla. Campus dentro de University of Canterbury (Ilam). Navitas confirmado en ",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "All Saints Anglican School",
+  "nombre_real": "All Saints Anglican School",
+  "dominio": "asas.qld.edu.au",
+  "url_programas": "https://www.asas.qld.edu.au/our-school/programs",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pre-Prep a Year 12",
+  "cantidad_aprox": "~3",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha sin ciudad (Merrimac, Gold Coast)",
+  "_est": 3
+ },
+ {
+  "institucion_ficha": "Academies Australasia Hair & Beauty",
+  "nombre_real": "Brisbane and Gold Coast School of Hairdressing, Barbering and Beauty",
+  "dominio": "brishair.com.au",
+  "url_programas": "https://www.brishair.com.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Peluqueria y Barberia",
+  "cantidad_aprox": "2 lineas",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CONFIRMA el caso Brisbane desde otra ficha: sin NI UN programa de estetica",
+  "_est": 2
+ }
+]

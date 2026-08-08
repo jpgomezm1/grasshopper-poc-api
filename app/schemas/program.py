@@ -15,6 +15,15 @@ VALID_CURRENCIES = {"USD", "EUR", "GBP", "CAD", "AUD", "CHF", "COP"}
 
 # Bloque B · expanded program types (migration 015)
 VALID_PROGRAM_TYPES = {
+    # Educación secundaria · agregado 2026-08-08.
+    #
+    # Faltaba, y "High School" es la categoría MAS GRANDE del catalogo del
+    # cliente (647 de 2.511 fichas). Lo destapo la primera pasada de extraccion
+    # de programas: un colegio de Pre-Prep a Year 12 aporto 2 filas, y una ficha
+    # cuyo `puede_vender` dice literalmente "High School" perdio su producto
+    # principal. `intercambio` no servia de sustituto: un semestre fuera y un
+    # bachillerato completo son productos distintos.
+    "secundaria",
     "pregrado",
     "posgrado",
     "maestria",

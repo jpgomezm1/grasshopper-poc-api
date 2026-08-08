@@ -33,6 +33,10 @@ logger = logging.getLogger(__name__)
 # Program.type viene del Excel import; category es el enum legacy del POC que
 # el front (y el scoring del recomendador) ya entienden.
 _TYPE_TO_CATEGORY = {
+    # `semestre_academico` es el balde existente mas cercano · un bachillerato
+    # completo no es un semestre, pero crear una categoria nueva obliga a tocar
+    # el front (tabs, filtros, labels). Si se hace, cambiar aqui Y en ofertas.py.
+    "secundaria": "semestre_academico",
     "pregrado": "carrera_completa",
     "maestria": "carrera_completa",
     "mba": "carrera_completa",
@@ -128,6 +132,7 @@ def invalidate_catalog_cache() -> None:
 # oferta cuando la fila del catálogo real viene a nivel INSTITUCIÓN (el Excel
 # del cliente de junio trae 2.511 filas con name == institution y area NULL).
 _TYPE_LABEL = {
+    "secundaria": "Bachillerato",
     "pregrado": "Pregrado",
     "maestria": "Maestría",
     "mba": "MBA",

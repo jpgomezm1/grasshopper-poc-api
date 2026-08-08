@@ -1,0 +1,152 @@
+[
+ {
+  "institucion_ficha": "Australian College of Technology",
+  "nombre_real": "Academies Australasia Group Limited",
+  "dominio": "academies.edu.au",
+  "url_programas": "menu COURSES por ciudad",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Cert, Dip, Adv Dip, Bachelor",
+  "cantidad_aprox": "180-250",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Es un GRUPO (9 campus + Singapur), no esta institucion. El sitio nunca menciona el nombre",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "University of Plymouth International College UPIC",
+  "nombre_real": "Navitas Pty Limited ABN 69 109 613 309",
+  "dominio": "www.navitas.com",
+  "url_programas": "https://www.navitas.com/study/colleges-campuses/",
+  "pais": "UK",
+  "ciudad": "Plymouth",
+  "puede_vender": [
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "n/a (el holding no imparte)",
+  "cantidad_aprox": "100+ colleges y campus en 11 paises",
+  "veredicto_auditoria": "corregir",
+  "alerta": "SITIO DE HOLDING: el `sitio` de la ficha es navitas.com, la matriz, no el dominio del college · UPIC si existe: el directorio lista \"University of Ply",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "ACBI",
+  "nombre_real": "Australian College of Business Intelligence · RTO 40835 · CRICOS 03426E",
+  "dominio": "acbi.edu.au",
+  "url_programas": "https://www.acbi.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Sydney",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert IV, Dip, Adv Dip, Grad Dip",
+  "cantidad_aprox": "~26",
+  "veredicto_auditoria": "corregir",
+  "alerta": "BLOQUEA BOTS: 403 sin User-Agent de navegador (Cloudflare). Con UA de Chrome responde 200",
+  "_est": 26
+ },
+ {
+  "institucion_ficha": "French in Normandy",
+  "nombre_real": "French in Normandy IH Rouen",
+  "dominio": "frenchinnormandy.com",
+  "url_programas": "https://www.frenchinnormandy.com/french-courses-france/",
+  "pais": "France",
+  "ciudad": "Normandy",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas todos los niveles (CEFR) + prep DELF/DALF/TCF + teacher training Erasmus+ + French 50+/gastronomia",
+  "cantidad_aprox": "~15",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "Centre for English Language in the University of South Australia (CELUSA)",
+  "nombre_real": "Adelaide University (NO aparece \"CELUSA\" en ningun lado)",
+  "dominio": "international.unisa.edu.au",
+  "url_programas": "https://adelaide.edu.au/study/english-language-centre/ (del sucesor, no de CELUSA)",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas / pathway",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "FICHA MUERTA. La URL exacta de la ficha da 404, el path padre /pre-entry-and-pathway-programs/ da 404, y todo international.unisa.edu.au redirige a ad",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Peninsula Grammar",
+  "nombre_real": "Peninsula Grammar (CRICOS 00333A, Mount Eliza, VIC)",
+  "dominio": "tps.vic.edu.au",
+  "url_programas": "https://www.peninsulagrammar.vic.edu.au/international-students/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Kinder (K3-K4), Junior (Prep-Año 4), Middle (5-8), Pre Senior (9), Senior (10-12) · K-12, no educación superior",
+  "cantidad_aprox": "? (K3-Año 12, no es catálogo de programas)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "TLS ROTO EN EL DOMINIO DE LA FICHA: https://www.tps.vic.edu.au y https://tps.vic.edu.au fallan el handshake (\"failed to receive handshake\", openssl: \"",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "SAE Creative Media Institute",
+  "nombre_real": "SAE Institute Pty Ltd ABN 21 093 057 973, trading as SAE University College",
+  "dominio": "www.sae.edu.au",
+  "url_programas": "https://sae.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Diploma, Associate Degree, Bachelor, Postgraduate Cert/Dip, Máster",
+  "cantidad_aprox": "? (~10 disciplinas, varios niveles c/u)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "RENOMBRADA a \"SAE University College\" — la ficha usa el nombre viejo. Pertenece al grupo NAVITAS (49 campus globales); el dominio .edu.au cubre solo l",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Arbutus College",
+  "nombre_real": "Arbutus College",
+  "dominio": "arbutuscollege.com",
+  "url_programas": "https://arbutuscollege.com/program-finder/",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma/certificado + co-op",
+  "cantidad_aprox": "~6",
+  "veredicto_auditoria": "observacion",
+  "alerta": "no se confirmo oferta de idiomas que la ficha marca",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Charlton Brown",
+  "nombre_real": "Charlton Brown Pty Ltd trading as Charlton Brown (RTO 2508)",
+  "dominio": "charltonbrown.edu.au",
+  "url_programas": "https://charltonbrown.edu.au/course/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Certificado, Diploma, Advanced Diploma, ELICOS, paquetes pathway",
+  "cantidad_aprox": "? (5 facultades: ELICOS, Educacion/Salud/Comunidad, Hospitalidad/Cocina, Ingenieria/IT, Negocios)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio de la ficha (.com.au) redirige a otro host (.edu.au) — actualizar. Es miembro del NIET Group (logos NIET/Rhodes/UniTrack): dominio y marca ",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "ECA Professional Year",
+  "nombre_real": "Education Centre of Australia (ECA) Professional Year",
+  "dominio": "www.professionalyear.info",
+  "url_programas": "https://www.professionalyear.info/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Professional Year ACS (1 ano) + Internships",
+  "cantidad_aprox": "2",
+  "veredicto_auditoria": "observacion",
+  "alerta": "El `sitio` es un dominio `.info` de marca de un programa, no el dominio institucional de ECA. Catalogo de solo 2 items. `category: null` y `puede_vend",
+  "_est": 2
+ }
+]

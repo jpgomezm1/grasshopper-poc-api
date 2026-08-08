@@ -1,0 +1,165 @@
+[
+ {
+  "institucion_ficha": "Red River College",
+  "nombre_real": "Red River College Polytechnic (RRC Polytech)",
+  "dominio": "rrc.ca",
+  "url_programas": "https://www.rrc.ca/explore/",
+  "pais": "Canada",
+  "ciudad": "Manitoba",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificate, Diploma, Advanced Diploma, Degree, Apprenticeship, micro-credentials, part-time/online",
+  "cantidad_aprox": "150+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CAMBIO DE NOMBRE: hoy es \"Red River College Polytechnic\" / marca \"RRC Polytech\"; la ficha usa el nombre viejo. La ciudad real es Winnipeg (la ficha po",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Navitas",
+  "nombre_real": "Navitas Pty Limited (ABN 69 109 613 309)",
+  "dominio": "navitas.com",
+  "url_programas": "https://www.navitas.com/study/courses/",
+  "pais": "International",
+  "ciudad": "Varios",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pathway · Foundation · Diploma · pregrado · postgrado",
+  "cantidad_aprox": "700+ programas en 100+ colleges",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NO ES UNA INSTITUCIÓN · es el HOLDING: 100+ colleges y campus en 18 países, 38 universidades socias, ~60.000 estudiantes/año. `puede_vender`=\"Todos lo",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "RUFA - Rome University of Fine Arts",
+  "nombre_real": "Rome University of Fine Arts - RUFA",
+  "dominio": "unirufa.it",
+  "url_programas": "https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/ (7 subsecciones bajo /offerta-formativa/)",
+  "pais": "Italy",
+  "ciudad": "Roma",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Triennali/bachelor 10 · Secondo livello/master 6 · Master accademici 4 · Dottorati di ricerca · Corsi brevi · Foundation Course · Summer Academy",
+  "cantidad_aprox": "~25",
+  "veredicto_auditoria": "observacion",
+  "alerta": "El índice /offerta-formativa/ y /en/academic-offer/ dan 404 · sólo responden las 7 subsecciones → catálogo NO enumerable desde una sola URL. `puede_ve",
+  "_est": 25
+ },
+ {
+  "institucion_ficha": "University of New York in Prague",
+  "nombre_real": "University of New York in Prague (UNYP)",
+  "dominio": "www.unyp.cz",
+  "url_programas": "https://www.unyp.cz/academic-programs/",
+  "pais": "Republica Checa",
+  "ciudad": "Praga",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor (7), Master (3), MBA (1, con 6 concentraciones), PhD (1), Foundation/preparatorios (4)",
+  "cantidad_aprox": "~16",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 16
+ },
+ {
+  "institucion_ficha": "MLC College of Business Technology and Healthcare",
+  "nombre_real": "MLC College of Business Technology and Healthcare",
+  "dominio": "mlccollege.com",
+  "url_programas": "https://www.mlc-college.com/diploma-programs",
+  "pais": "Canada",
+  "ciudad": "Montreal",
+  "puede_vender": [],
+  "niveles_vistos": "Diploma 1 y 2 anios + Postgraduate Diploma + certificaciones profesionales (tech, healthcare, business, IT)",
+  "cantidad_aprox": "? (sin conteo en el sitio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CIUDAD MAL EN LA FICHA: el sitio da direccion Unit 4, 5865 McLaughlin Road, MISSISSAUGA, Ontario L5R3V5 · la ficha dice Montreal. Ademas puede_vender ",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "BowValley College",
+  "nombre_real": "Bow Valley College",
+  "dominio": "international.bowvalleycollege.ca",
+  "url_programas": "https://www.bowvalleycollege.ca/program-list",
+  "pais": "Canada",
+  "ciudad": "Alberta",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificado, Diploma, Post-diploma, Grado",
+  "cantidad_aprox": "? (catálogo amplio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El subdominio \"international\" ya no es sitio propio: cae en una página de \"apply\". El sitio a indexar es www.bowvalleycollege.ca/program-list. ciudad ",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Inforum Education",
+  "nombre_real": "Inforum Education Australia — CRICOS 02894G, colegio acreditado nivel 1 del Department of Home Affairs",
+  "dominio": "inforum.com.au",
+  "url_programas": "https://inforum.com.au/english-courses/ (`/courses/` da 404)",
+  "pais": "Australia",
+  "ciudad": "Gold Coast",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Solo idiomas: General English (Elementary-Advanced), IELTS, Cambridge FCE, Cambridge CAE, High School Preparation, Young Learners, English + Demi Pair, cursos cortos, study tours, workshops",
+  "cantidad_aprox": "~10",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`tipo_adivinado: \"vacacional\"` subestima: es un ELICOS acreditado con preparacion para high school y 18 anos de operacion (10.000+ estudiantes, ST Sta",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Site Institute",
+  "nombre_real": "Site Institute (RTO 32479 · CRICOS 03475G)",
+  "dominio": "si.edu.au",
+  "url_programas": "NO existe pagina indice: https://si.edu.au/courses/ da 404. Los cursos cuelgan de https://si.edu.au/trades/ y https://si.edu.au/engineering-and-civil/",
+  "pais": "Australia",
+  "ciudad": "Brisbane",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificate III (Carpentry, Cabinet Making), Diploma y Dual Diploma (Engineering Technical / Civil Construction Design), English for Engineering, Industry Safety Induction",
+  "cantidad_aprox": "~6",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CATALOGO NO ENUMERABLE desde una sola URL: hay que recorrer 2 secciones + paginas sueltas. Ficha dice Brisbane y el sitio confirma South Brisbane QLD.",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "LCI Language Consultants Intenational",
+  "nombre_real": "LCI Language Centers (Language Consultants International)",
+  "dominio": "englishlci.edu",
+  "url_programas": "https://www.englishlci.edu/programs/*.php (el indice /programs/ devuelve 403, las paginas hijas si responden 200)",
+  "pais": "USA",
+  "ciudad": "Colorado",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Idiomas: Intensive English, Executive English, Academic English, General English, Private/Specialized",
+  "cantidad_aprox": "~5",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CIUDAD ERRONEA: la ficha dice Colorado y el sitio dice HOUSTON, TEXAS (area Galleria, tel 832) · CERO menciones de Colorado o Denver en todo el HTML c",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "National Institute of Education and Technology (NIET)",
+  "nombre_real": "Australia Academy International trading as National Institute of Education and Technology (NIET) · RTO 41422 · CRICOS 03590D · ABN 32 607 251 623",
+  "dominio": "www.niet.edu.au",
+  "url_programas": "https://www.niet.edu.au/course",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Graduate Diploma of Management (Learning)",
+  "cantidad_aprox": "1 (UNO)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CATALOGO PRACTICAMENTE VACIO: el buscador del propio sitio dice \"Displaying 1 Available Courses\" y el HTML crudo solo tiene un enlace de curso (/cours",
+  "_est": 1
+ }
+]

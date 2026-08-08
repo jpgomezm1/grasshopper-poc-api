@@ -1,0 +1,174 @@
+[
+ {
+  "institucion_ficha": "University of Surrey",
+  "nombre_real": "University of Surrey",
+  "dominio": "www.surrey.ac.uk",
+  "url_programas": "https://www.surrey.ac.uk/undergraduate y https://www.surrey.ac.uk/postgraduate",
+  "pais": "UK",
+  "ciudad": "Guildford",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Pregrado & Postgrado"
+  ],
+  "niveles_vistos": "Pregrado, Postgrado taught, Postgrado research, Foundation, CPD y cursos cortos",
+  "cantidad_aprox": "300+ pregrado + postgrado",
+  "veredicto_auditoria": "observacion",
+  "alerta": "El `puede_vender` incluye \"Foundation & Pre master\", pero esos pathways de Study Group NO viven en surrey.ac.uk sino en el dominio separado del Intern",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Australian National Institute of Management and Commerce (IMC)",
+  "nombre_real": "Australian National Institute of Management and Commerce (IMC) — \"Top Education Group Ltd ACN 098 139 176 trading as...\"",
+  "dominio": "www.imc.edu.au",
+  "url_programas": "https://www.imc.edu.au/study/find-a-course/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado (Bachelor, incl. Bachelor of Laws), Postgrado (MBA, Master of Professional Accounting, Marketing, FinTech)",
+  "cantidad_aprox": "40+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "`sitio` sin esquema (`www.imc.edu.au`, sin https://). Contradiccion de ficha: `tipo_adivinado: curso_corto`, `category: null` y `puede_vender: []` per",
+  "_est": 40
+ },
+ {
+  "institucion_ficha": "Le Cordon Bleu",
+  "nombre_real": "Le Cordon Bleu International B.V.",
+  "dominio": "cordonbleu.edu",
+  "url_programas": "https://www.cordonbleu.edu/programmes/es y campus Madrid en https://www.cordonbleu.edu/madrid/inicio/es",
+  "pais": "Spain",
+  "ciudad": "Madrid",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diplomas profesionales (Grand Diplome, Cocina, Pasteleria, Cocina Espanola, Plant-Based), Grado de Gastronomia (con Univ. Francisco de Vitoria), Bachelor/Master en hospitality, cursos cortos",
+  "cantidad_aprox": "~30+ campus a nivel red · ~7-8 programas en Madrid",
+  "veredicto_auditoria": "observacion",
+  "alerta": "el dominio es el de la RED MUNDIAL, no el de la sede de Madrid · la ficha dice Spain/Madrid pero el dominio raiz mezcla programas de 30+ paises · para",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "Ikon Institute of Australia",
+  "nombre_real": "Ikon Institute of Australia (ABN 95 112 989 581, TEQSA PRV14055, CRICOS 03581E)",
+  "dominio": "ikon.edu.au",
+  "url_programas": "https://ikon.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Sydney, Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma, Bachelor, Grad Cert, Grad Dip, Master",
+  "cantidad_aprox": "~20",
+  "veredicto_auditoria": "corregir",
+  "alerta": "`partner_group` dice \"ALG - Australian Learning Group\" pero el sitio declara propiedad de EDU Holdings Limited (ALG aparece solo como marca hermana en",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Ifalpes",
+  "nombre_real": "IFALPES KLF Annecy — \"escuela de frances del grupo Keep Learning French\"",
+  "dominio": "ifalpes.com",
+  "url_programas": "https://ifalpes.com/french-courses/",
+  "pais": "France",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas: standard, intensivo, premium/super intensivo, university pathway, preparacion de examenes, clases privadas (online y presencial), seniors, principiantes, business, grupos, campamentos junior, formacion de profesores (Erasmus+), clases nocturnas online",
+  "cantidad_aprox": "~15",
+  "veredicto_auditoria": "corregir",
+  "alerta": "La marca actual es \"IFALPES KLF Annecy\": la escuela ya opera bajo el grupo Keep Learning French (Montpellier, Lyon, Burdeos, Toulouse), pero la ficha ",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "Global College Australasia",
+  "nombre_real": "Global College Australasia (RTO 45088 · CRICOS 03564F)",
+  "dominio": "www.globalcollege.edu.au",
+  "url_programas": "NO tiene pagina unica de catalogo · menu \"Programs\" en https://globalcollege.edu.au/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Cert III/IV, Diploma, Adv Diploma, Post-Graduate (VET), ELICOS",
+  "cantidad_aprox": "~12",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el campo `sitio` viene SIN protocolo (http/https) — rompe cualquier fetcher que no lo normalice · esta en Perth WA (2 campus en East Perth) y la ficha",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Exportise",
+  "nombre_real": "Exsportise",
+  "dominio": "exsportise.co.uk",
+  "url_programas": "https://www.exsportise.co.uk/academies",
+  "pais": "UK",
+  "ciudad": null,
+  "puede_vender": [
+   "Summer programs",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Campamentos residenciales de verano ingles + deporte/musica/danza, 9-17 anios",
+  "cantidad_aprox": "~11 academias",
+  "veredicto_auditoria": "corregir",
+  "alerta": "ERROR DE TIPEO EN LA FICHA: \"Exportise\" debe ser \"Exsportise\" · NO ES UNA INSTITUCION: es un operador que renta 4 internados (Haileybury, Oundle, Seaf",
+  "_est": 11
+ },
+ {
+  "institucion_ficha": "Oceania Polytechnic Institute of Education Pty Ltd",
+  "nombre_real": "Oceania Polytechnic Institute of Education (OPIE) · Registered Training Organisation",
+  "dominio": "www.opie.vic.edu.au",
+  "url_programas": "https://www.opie.vic.edu.au/#courses (los cursos viven en paginas sueltas opie.vic.edu.au/course-<codigo>/)",
+  "pais": "Australia",
+  "ciudad": "Melbourne, Werribee, Maidstone",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificate III (3), Certificate IV (1), Diploma (2), Advanced Diploma (2)",
+  "cantidad_aprox": "~8",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Sedes coherentes con la ficha: campus principal West Melbourne + talleres en Maidstone y Werribee. Ningun curso marcado como \"not accepting enrolments",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "ICHM",
+  "nombre_real": "ICHM Pty Ltd (ABN 64 080 984 738 · CRICOS 02914G · TEQSA PRV12099) — International College of Hotel Management",
+  "dominio": "www.ichm.edu.au",
+  "url_programas": "https://www.ichm.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Certificate of Hotel/Tourism/Hospitality Operations, Bachelor of Business (Hospitality Mgmt), Graduate Certificate, Graduate Diploma, Master of International Hotel Management, Study Abroad",
+  "cantidad_aprox": "~6",
+  "veredicto_auditoria": "corregir",
+  "alerta": "la ficha guarda SOLO LA SIGLA \"ICHM\", sin el nombre real — imposible de validar por nombre y colisiona con otras siglas · ficha degradada: `sitio` en ",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Academy of English",
+  "nombre_real": "Academy of English · CRICOS 02399M",
+  "dominio": "academies.edu.au",
+  "url_programas": "https://academies.edu.au/courses-syd-english/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Solo ELICOS",
+  "cantidad_aprox": "~3",
+  "veredicto_auditoria": "corregir",
+  "alerta": "SIN SITIO PROPIO: apunta al dominio del grupo",
+  "_est": 3
+ },
+ {
+  "institucion_ficha": "Montgomery International School",
+  "nombre_real": "Montgomery International School",
+  "dominio": "www.mischool.be",
+  "url_programas": "https://www.mischool.be/academics",
+  "pais": "Germany",
+  "ciudad": null,
+  "puede_vender": [
+   "High School",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "PYP (5,5-11 anos), MYP (11-16), DP (16-19); cada uno en version inglesa o bilingue frances-ingles",
+  "cantidad_aprox": "3 programas IB + Early Years Montessori",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CRITICO: `pais: \"Germany\"` esta MAL — la escuela esta en BRUSELAS, BELGICA (133 rue du Duc, 1200 Brussels), consistente con el TLD .be y con el CNAME ",
+  "_est": 3
+ }
+]

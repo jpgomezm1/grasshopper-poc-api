@@ -1,0 +1,159 @@
+[
+ {
+  "institucion_ficha": "Anglia Ruskin University - ARU",
+  "nombre_real": "Anglia Ruskin University (ARU)",
+  "dominio": "aru.ac.uk",
+  "url_programas": "https://aru.ac.uk/study/course-search",
+  "pais": "UK",
+  "ciudad": "Chelmsford, Cambridge",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado, postgrado, PhD, college 16-18, apprenticeships",
+  "cantidad_aprox": "cientos",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha 2 ciudades, el sitio declara 4 campus",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "UniApply",
+  "nombre_real": "UniApply (opera bajo NoPaperForms Solutions Limited · misma casa que Meritto)",
+  "dominio": "uniapply.com",
+  "url_programas": "https://www.uniapply.com/ (buscador dinamico)",
+  "pais": "International",
+  "ciudad": null,
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Colegios K-12 en India",
+  "cantidad_aprox": "miles (ej. Bangalore 3.813 colegios, Delhi 1.798)",
+  "veredicto_auditoria": "observacion",
+  "alerta": "NO ES UNA INSTITUCION: es un marketplace B2C/B2B de busqueda y comparacion de COLEGIOS EN INDIA (40+ ciudades) · pais \"International\" es enganoso: es ",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "AHMI",
+  "nombre_real": "Australian Health and Management Institute · RTO 70252 · CRICOS 03595K",
+  "dominio": "ahmi.edu.au",
+  "url_programas": "https://www.ahmi.edu.au/courses",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "Cert III/IV, Dip, Adv Dip + cursos cortos",
+  "cantidad_aprox": "~28",
+  "veredicto_auditoria": "observacion",
+  "alerta": "pese al nombre, el grueso es construccion/trades",
+  "_est": 28
+ },
+ {
+  "institucion_ficha": "Browns English Language School",
+  "nombre_real": "BROWNS English Language School Pty Ltd trading as BROWNS English Language School y BROWNS Professional",
+  "dominio": "brownsenglish.edu.au",
+  "url_programas": "https://brownsenglish.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Ingles general y academico, IELTS, Junior Programs (primaria y secundaria), Study + Work (vocacional via BROWNS Professional)",
+  "cantidad_aprox": "15+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El www de la ficha redirige al apex — corregir. RTO 31998 / CRICOS 02663M, sin grupo matriz. FICHA VACIA vs realidad: `category`=null, `partner_group`",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "Ravensbourne University",
+  "nombre_real": "Ravensbourne University London",
+  "dominio": "ravensbourne.ac.uk",
+  "url_programas": "https://www.ravensbourne.ac.uk/study",
+  "pais": "UK",
+  "ciudad": "London",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pre-degree, Undergraduate, Postgraduate, Professional Development",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "nombre real incluye \"London\" · partner_group \"Oxford International\" NO se menciona en ningun lado del sitio · catalogo es BUSCADOR dinamico (course se",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Long Island University",
+  "nombre_real": "Long Island University",
+  "dominio": "universitiesintheusa.com/...",
+  "url_programas": "https://www.liu-international.com/programs",
+  "pais": "USA",
+  "ciudad": "Brooklyn, Post",
+  "puede_vender": [
+   "Pregrado & Postgrado"
+  ],
+  "niveles_vistos": "Pregrado, Postgrado",
+  "cantidad_aprox": "? (undergrad + grad)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El `sitio` de la ficha es una URL de un agregador de marketing de Study Group (universitiesintheusa.com) que ya hace 301 permanente a liu-internationa",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Tr4inright",
+  "nombre_real": "Tr4inright (Pan Bird Pty Ltd t/a Tr4inright · RTO 22281 · CRICOS 03618G · ABN 96 080 249 369)",
+  "dominio": "tr4inright.edu.au",
+  "url_programas": "https://tr4inright.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [],
+  "niveles_vistos": "Cert III/IV, Diploma, Adv Diploma, Grad Diploma (construccion, carpinteria, liderazgo, civil) + ELICOS (General English, EAP)",
+  "cantidad_aprox": "~9",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha sin category y con puede_vender VACIO · es un RTO vocacional CON ELICOS, no un \"curso_corto\" · acepta internacionales (CRICOS)",
+  "_est": 9
+ },
+ {
+  "institucion_ficha": "ELSIS",
+  "nombre_real": "ELSIS - English Language Schools (CRICOS 02644C) · \"ELSIS is now part of the ECA College\"",
+  "dominio": "elsis.edu.au",
+  "url_programas": "no hay indice unico: /general-english/, /eap/, /study-pathways/, /english-workshops/, /study-tour/, /study-tour-with-universities/",
+  "pais": "Australia",
+  "ciudad": "Melbourne, Sydney",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: General English, EAP, pathways, workshops, study tours",
+  "cantidad_aprox": "6",
+  "veredicto_auditoria": "observacion",
+  "alerta": "4 campus activos (Sydney, Melbourne, Brisbane, Adelaide) y la ficha solo lista 2 · el propio sitio declara la absorcion en ECA College, marca a vigila",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Canadian ESL Centre",
+  "nombre_real": "Canadian ESL Centre",
+  "dominio": "www.canadianeslcentre.com",
+  "url_programas": "https://canadianeslcentre.com/programs/",
+  "pais": "Canada",
+  "ciudad": "Londres",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: ESL 6 niveles, TOEFL iBT 3 niveles, IELTS General y Academic, TOEIC 6 niveles",
+  "cantidad_aprox": "~4",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CIUDAD MAL ETIQUETADA: la ficha dice ciudad \"Londres\" y pais Canada · es London, ONTARIO (direccion en el sitio: 521 Village Green Ave, Room 101, Lond",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "Ascenda School of Management",
+  "nombre_real": "Acsenda School of Management",
+  "dominio": "acsenda.com",
+  "url_programas": "https://acsenda.com/academic-programs/",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor (BBA, Hospitality) + pathways",
+  "cantidad_aprox": "2 grados",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NOMBRE MAL ESCRITO: es Acsenda con C. Ficha marca Idiomas pero la oferta es de grado",
+  "_est": 2
+ }
+]

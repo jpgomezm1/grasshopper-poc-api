@@ -1,0 +1,156 @@
+[
+ {
+  "institucion_ficha": "AIBT",
+  "nombre_real": "Australia Institute of Business and Technology",
+  "dominio": "aibtglobal.edu.au",
+  "url_programas": "https://aibtglobal.edu.au/courses/",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "Cert III/IV, Dip, Adv Dip, Grad Dip",
+  "cantidad_aprox": "~90+",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "The University of New South Wales (UNSW)",
+  "nombre_real": "UNSW Sydney",
+  "dominio": "unsw.edu.au",
+  "url_programas": "https://www.unsw.edu.au/study/find-a-degree-or-course",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado, Postgrado coursework, Investigacion HDR, cursos cortos, microcredenciales, online",
+  "cantidad_aprox": "? (cientos, 10 areas de estudio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender VACIO y tipo_adivinado \"curso_corto\" para una universidad Group of Eight completa · category null · el sitio se presenta como \"UNSW Sydne",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "EQUALS International",
+  "nombre_real": "EQUALS International (Aust) Pty Ltd · TEQSA PRV14279 · RTO 3492 · CRICOS 02804C",
+  "dominio": "equals.edu.au",
+  "url_programas": "https://equals.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Adelaide",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert II/III/IV, Diploma, Advanced Diploma, Bachelor (1), Master (1), cursos cortos",
+  "cantidad_aprox": "~27",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha sin category pese a ser dual (VET + educacion superior) · varios cursos NO estan abiertos hoy: Certificate III in Information Technology figura ",
+  "_est": 27
+ },
+ {
+  "institucion_ficha": "Speos, Paris Photographic Institute",
+  "nombre_real": "Speos International Photography School",
+  "dominio": "speos-photo.com",
+  "url_programas": "https://speos-photo.com/en/1-year-photography-programs/",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "1 anio intensivo, 2 anios, cortos 2-5 meses, workshops",
+  "cantidad_aprox": "~12-15",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NOMBRE DISTINTO: el sitio se llama \"Speos International Photography School\", no \"Paris Photographic Institute\" · no otorga master tradicional pese a q",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "George Mason University",
+  "nombre_real": "George Mason University",
+  "dominio": "www2.gmu.edu",
+  "url_programas": "https://www.gmu.edu/academics",
+  "pais": "USA",
+  "ciudad": "Virginia",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado, Postgrado, continuing/professional education",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el dominio de la ficha (www2) es un 301 al canonico www.gmu.edu · corregir el dominio para que la extraccion no dependa del redirect",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "College de Paris",
+  "nombre_real": "? (no hay sitio)",
+  "dominio": "collegedeparis.com",
+  "url_programas": "",
+  "pais": "France",
+  "ciudad": "Paris",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "?",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "SITIO CAIDO. DNS publico (8.8.8.8) resuelve bien (Cloudflare: 104.21.85.71 / 172.67.203.128), asi que NO es NXDOMAIN — pero el origen no sirve nada: h",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Eynesbury College",
+  "nombre_real": "Eynesbury College (EEA, ABN 20 008 194 689)",
+  "dominio": "eynesbury.edu.au",
+  "url_programas": "https://www.eynesbury.edu.au/programs/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Foundation, 5 Diplomas, Grad Cert, ELICOS",
+  "cantidad_aprox": "~9",
+  "veredicto_auditoria": "observacion",
+  "alerta": "pathway a Adelaide University · ficha sin category, SIN partner_group (deberia decir Navitas, como Curtin College) y puede_vender VACIO",
+  "_est": 9
+ },
+ {
+  "institucion_ficha": "Alpadia",
+  "nombre_real": "Alpadia Language Schools",
+  "dominio": "alpadia.com",
+  "url_programas": "https://www.alpadia.com/es/cursos-idiomas",
+  "pais": "International",
+  "ciudad": "Montreux",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas, campamentos, ano academico, prep examenes",
+  "cantidad_aprox": "~6",
+  "veredicto_auditoria": "observacion",
+  "alerta": "partner_group dice Kaplan; Kaplan la cedio a Inspirit Capital",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Ance",
+  "nombre_real": "Australian National College of English",
+  "dominio": "ance.vic.edu.au",
+  "url_programas": "https://ance.vic.edu.au/course/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Ingles/ELICOS",
+  "cantidad_aprox": "~5",
+  "veredicto_auditoria": "corregir",
+  "alerta": "catalogada VET pero solo ofrece ingles",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "Taylors College Sydney",
+  "nombre_real": "Navitas Australia Pty Limited (CRICOS 01682E) trading as Taylors College",
+  "dominio": "www.taylorssydney.edu.au",
+  "url_programas": "https://www.taylorssydney.edu.au/programs/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Foundation / preparacion pre-universitaria",
+  "cantidad_aprox": "2",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el sitio NUNCA se llama \"Taylors College Sydney\": dice \"Taylors College\" operado por Navitas · SOLO 2 programas (University of Sydney Foundation Progr",
+  "_est": 2
+ }
+]

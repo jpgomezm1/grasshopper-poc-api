@@ -1,0 +1,145 @@
+[
+ {
+  "institucion_ficha": "Educatius Group",
+  "nombre_real": "Educatius Group",
+  "dominio": "educatius.org",
+  "url_programas": "https://www.educatius.org/high-school-abroad/programs",
+  "pais": "International",
+  "ciudad": "USA, UK, IRLANDA, CANADA",
+  "puede_vender": [
+   "High school"
+  ],
+  "niveles_vistos": "High school / secundaria + Educatius Academy (high school online)",
+  "cantidad_aprox": "3 tipos de programa (Select, Classic, Boarding) sobre 350+ colegios",
+  "veredicto_auditoria": "observacion",
+  "alerta": "NO ES UNA INSTITUCION: es una agencia de intercambio que coloca estudiantes en 350+ colegios ajenos en 15 destinos (USA, UK, Escocia, Irlanda, Francia",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Ahts Training & Education",
+  "nombre_real": "Alliance College (ex Adelaide Hospitality and Tourism School)",
+  "dominio": "alliancecollege.edu.au",
+  "url_programas": "https://alliancecollege.edu.au/alliance-courses",
+  "pais": "Australia",
+  "ciudad": "Adelaide",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)"
+  ],
+  "niveles_vistos": "Cert II/III/IV, Diploma, Adv Dip, Grad Dip, ELICOS",
+  "cantidad_aprox": "~40+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REBRANDING: ficha con nombre y dominio viejos; ahora Adelaide Y Sydney",
+  "_est": 40
+ },
+ {
+  "institucion_ficha": "Bexhill College",
+  "nombre_real": "Bexhill 6th Form College (Penland Road, Bexhill-on-Sea, East Sussex TN40 2JG)",
+  "dominio": "bexhillcollege.ac.uk",
+  "url_programas": "https://www.bexhillcollege.ac.uk/courses/",
+  "pais": "UK",
+  "ciudad": "Penland Road",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "A Level, T Level, BTEC, GCSE-equivalente, adultos",
+  "cantidad_aprox": "40+ A Levels, mas T Levels, BTEC L3, L2, L1 y cursos de adultos",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El nombre real incluye \"6th Form\" y eso cambia lo que se puede vender: es un centro POST-16 (16-18 anos), NO otorga grados ni educacion superior · pue",
+  "_est": 40
+ },
+ {
+  "institucion_ficha": "Australian Federation College",
+  "nombre_real": "Australian Federation College · RTO 45616 · CRICOS 03854G",
+  "dominio": "afcollege.edu.au",
+  "url_programas": "seccion Courses (sin indice unico)",
+  "pais": "Australia",
+  "ciudad": "Tasmania",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert IV a Grad Dip, ELICOS",
+  "cantidad_aprox": "~18",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha dice solo Tasmania; tiene Launceston y Melbourne",
+  "_est": 18
+ },
+ {
+  "institucion_ficha": "Western Sydney Univeristy - City campus Only",
+  "nombre_real": "Western Sydney University Sydney City Campus (Level 4, 255 Elizabeth Street, Sydney NSW 2000)",
+  "dominio": "westernsydney.edu.au/city",
+  "url_programas": "https://city.westernsydney.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Perth",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "9 pregrados + 5 postgrados (MBA, Prof Accounting, Health Science) + pathways",
+  "cantidad_aprox": "~14",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CIUDAD FALSA: la ficha dice \"Perth\" y el campus esta en SYDNEY, NSW -- un estudiante colombiano puede tomar la decision de viaje sobre un dato erroneo",
+  "_est": 14
+ },
+ {
+  "institucion_ficha": "Swinburne University of Technology (Sydney)",
+  "nombre_real": "Swinburne University of Technology",
+  "dominio": "swinburne.edu.au/sydney",
+  "url_programas": "https://www.swinburne.edu.au/courses/find-a-course/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado, Posgrado, VET/TAFE, pathways",
+  "cantidad_aprox": "? (buscador dinámico)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "EL CAMPUS DE SYDNEY YA NO EXISTE. La URL exacta de la ficha devuelve 301 permanente a la página de localizaciones, que enumera SOLO Hawthorn, Croydon ",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "UTS College",
+  "nombre_real": "UTS College Limited (ABN 39 001 425 065)",
+  "dominio": "www.utscollege.edu.au",
+  "url_programas": "https://utscollege.edu.au/programs",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Foundation, Diploma, Pre-Master's, Inglés académico, Cambridge AS/A Levels",
+  "cantidad_aprox": "? (10+ áreas de estudio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Es el pathway college de UTS (entidad controlada por la universidad, ex-Insearch), NO la University of Technology Sydney: no confundir al asignar prog",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Admiral Farragut Academy",
+  "nombre_real": "Admiral Farragut Academy",
+  "dominio": "farragut.org",
+  "url_programas": "https://farragut.org/academics/",
+  "pais": "USA",
+  "ciudad": "San Petersburgo, Florida",
+  "puede_vender": [
+   "High School",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "K-12",
+  "cantidad_aprox": "~6",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Pacific English Study (PES)",
+  "nombre_real": "Pacific English Study (CRICOS 03215E)",
+  "dominio": "www.pacificenglishstudy.com",
+  "url_programas": "https://pacificenglishschool.com/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas ELICOS: General English full-time dia / tarde / condensado, General English + Surfing, IELTS, PTE",
+  "cantidad_aprox": "6",
+  "veredicto_auditoria": "corregir",
+  "alerta": "`sitio` sin protocolo en la ficha (`www.pacificenglishstudy.com`) Y el dominio redirige 301 a OTRO dominio (pacificenglishschool.com): actualizar. La ",
+  "_est": 6
+ }
+]

@@ -1,0 +1,169 @@
+[
+ {
+  "institucion_ficha": "OntarioTech University",
+  "nombre_real": "Ontario Tech University",
+  "dominio": "ontariotechu.ca",
+  "url_programas": "https://ontariotechu.ca/programs/",
+  "pais": "Canada",
+  "ciudad": "Ontario",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Foundation & Pre master",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado, Postgrado, transferencia college-to-university, educacion continua, online",
+  "cantidad_aprox": "? — 6 facultades + School of AI + School of Graduate and Postdoctoral Studies; 100+ programas co-op de entrada directa",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El nombre real lleva espacio (\"Ontario Tech University\"); la ficha escribe \"OntarioTech\". `ciudad`=\"Ontario\" es la PROVINCIA, no la ciudad — el campus",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "South Australian Government Schools",
+  "nombre_real": "Department for Education T/A South Australian Government Schools",
+  "dominio": "www.internationalstudents.sa.edu.au",
+  "url_programas": "https://www.internationalstudents.sa.edu.au/en/find-a-school/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Primaria y secundaria publica + study tours + programas de vacaciones + homestay",
+  "cantidad_aprox": "150+ COLEGIOS (no programas)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NO ES UNA INSTITUCION VENDIBLE COMO FICHA UNICA: es el International Student Program del DEPARTAMENTO DE EDUCACION de Australia del Sur — una red de m",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "MIU City University Miami",
+  "nombre_real": "MIU City University Miami, Inc.",
+  "dominio": "educacion.miuniversity.edu",
+  "url_programas": "https://miuniversity.edu/",
+  "pais": "USA",
+  "ciudad": "Miami",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor (~2), Master (~10), Continuing Education / certificados (~11)",
+  "cantidad_aprox": "~23",
+  "veredicto_auditoria": "observacion",
+  "alerta": "La URL de la ficha NO es la home institucional: es una landing de captacion con >100 caracteres de UTM/gclid/gbraid · reemplazar por https://miunivers",
+  "_est": 23
+ },
+ {
+  "institucion_ficha": "Box Hill",
+  "nombre_real": "Box Hill Institute",
+  "dominio": "boxhill.edu.au",
+  "url_programas": "https://www.boxhill.edu.au/courses/study-options/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificate, Diploma, Advanced Diploma, Undergraduate degree, Apprenticeships/Pre-apprenticeships, Short courses, VCE/VDSS y ELICOS (English for Academic Purposes)",
+  "cantidad_aprox": "? (17 study areas + slugs de curso individuales)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Sitio JS-renderizado y SIN sitemap.xml: las raíces obvias (/courses/, /courses, /study/, /study-areas/) devuelven 404 y sólo funcionan subrutas concre",
+  "_est": 17
+ },
+ {
+  "institucion_ficha": "HOLMESGLEN",
+  "nombre_real": "Holmesglen Institute of TAFE · RTO 0416 · IHE PRV12129 · CRICOS 00012G · ABN 40 096 756 729",
+  "dominio": "holmesglen.edu.au",
+  "url_programas": "https://www.holmesglen.edu.au/explore-courses",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert I-IV, Diploma, Advanced Diploma, Bachelor, aprendizajes, cursos cortos, ingles (EAL)",
+  "cantidad_aprox": "? sin contador · 13 areas de estudio",
+  "veredicto_auditoria": "corregir",
+  "alerta": "catalogo detras de buscador dinamico (sort/filter, sin contador) · el \"Idiomas\" de la ficha se sostiene solo por el area \"English, education and teach",
+  "_est": 13
+ },
+ {
+  "institucion_ficha": "Domus Academy",
+  "nombre_real": "Domus Academy (razón social: Nuova Accademia S.r.l., via C. Darwin 20, Milán)",
+  "dominio": "www.domusacademy.com",
+  "url_programas": "https://www.domusacademy.com/programmes/master-courses-postgraduate/",
+  "pais": "Italy",
+  "ciudad": "Milan",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor of Arts, Máster/MA de 1 y 2 años, semestre, cursos cortos, workshops",
+  "cantidad_aprox": "~12 másteres + BA + cursos cortos",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Comparte razón social con NABA (Nuova Accademia S.r.l.), así que partner_group es correcto pero está mal escrito (\"Nouva Accademia NABA\"). category=\"U",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Dmad",
+  "nombre_real": "Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad",
+  "dominio": "www.dmad.es",
+  "url_programas": "https://www.dmad.es/masters-posgrados/",
+  "pais": "Spain",
+  "ciudad": "Madrid",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Master propio, Ciclo Formativo de Grado Superior (FP oficial), diplomas, cursos",
+  "cantidad_aprox": "~10 masters + 2 CFGS + diplomas y cursos",
+  "veredicto_auditoria": "observacion",
+  "alerta": "puede_vender dice \"Pregrado & Postgrado\" y es FALSO: DMAD no otorga grado oficial ni postgrado oficial, solo titulos propios y FP (Tecnico Superior de",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "GeSS Education",
+  "nombre_real": "GeSS Education",
+  "dominio": "gesseducation.edu.au",
+  "url_programas": "https://www.gesseducation.edu.au/gess-education-course-finder-and-guide/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "VET (Cert/Dip) + pathways a universidad",
+  "cantidad_aprox": "6 categorias de curso; sin conteo ni listado plano",
+  "veredicto_auditoria": "corregir",
+  "alerta": "⚠️ NO publica RTO ni CRICOS propios. Se describe como \"Queensland's newest state-of-the-art education campus\" y entrega cursos DE RTOs socios (CBC Ins",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "University of Bradford",
+  "nombre_real": "University of Bradford",
+  "dominio": "www.bradford.ac.uk",
+  "url_programas": "https://www.bradford.ac.uk/international/international-college/ (pathway)",
+  "pais": "UK",
+  "ciudad": "Bradford",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Solo pathway"
+  ],
+  "niveles_vistos": "International Foundation Year, International Year Zero, International Year One, International Year Two, International Incorporated Masters",
+  "cantidad_aprox": "5 pathway",
+  "veredicto_auditoria": "observacion",
+  "alerta": "El `sitio` https://www.bradford.ac.uk/external/ sirve la HOME de la universidad, no el pathway college. Patron (a). La ficha dice \"Solo pathway / Foun",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "Coder Academy",
+  "nombre_real": "Academy of Interactive Technology Pty Ltd trading as Coder Academy Australia (RTO 90511 · PRV12005 · CRICOS 02155J)",
+  "dominio": "coderacademy.edu.au",
+  "url_programas": "https://coderacademy.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": "Brisbane",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Cursos Vocacionales"
+  ],
+  "niveles_vistos": "Diploma of Data Science (Higher Education) · la home menciona bootcamps que NO estan en /courses",
+  "cantidad_aprox": "1",
+  "veredicto_auditoria": "corregir",
+  "alerta": "PARTNER_GROUP DESACTUALIZADO: el operador ya no es RedHill Education sino AIT (Academy of Interactive Technology, ait.edu.au) · SENAL DE WIND-DOWN: so",
+  "_est": 1
+ }
+]

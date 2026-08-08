@@ -1,0 +1,168 @@
+[
+ {
+  "institucion_ficha": "USQ (University of Southern Queensland)",
+  "nombre_real": "University of Southern Queensland (UniSQ)",
+  "dominio": "usq.edu.au",
+  "url_programas": "https://www.unisq.edu.au/study/degrees-and-courses",
+  "pais": "Australia",
+  "ciudad": "Queensland",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado, Postgrado, Investigacion/PhD, Pathways, Cursos cortos, Dobles titulaciones",
+  "cantidad_aprox": "? (cientos)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El `sitio` de la ficha esta obsoleto: usq.edu.au redirige 301 a unisq.edu.au tras el rebrand a UniSQ. Actualizar el dominio. `puede_vender` incluye \"I",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "EQUALS International (Aust)",
+  "nombre_real": "EQUALS International (Aust) Pty Ltd",
+  "dominio": "equals.edu.au",
+  "url_programas": "https://equals.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "VET (Cert a Diploma) + Higher Ed hasta Master of Social Work",
+  "cantidad_aprox": "40+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "ficha con category null y puede_vender VACIO pese a tener 40+ cursos, CRICOS activo y admision internacional abierta: hay que llenarla",
+  "_est": 40
+ },
+ {
+  "institucion_ficha": "IEM Digital Business School",
+  "nombre_real": "IEM Digital Business School — Escuela de Negocios en Valencia",
+  "dominio": "iembs.com",
+  "url_programas": "https://iembs.com/masters/ y https://iembs.com/cursos/",
+  "pais": "Spain",
+  "ciudad": null,
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Master (~10), dobles titulaciones master (~5), cursos intensivos (~15), formacion in-company. NO hay grado ni FP",
+  "cantidad_aprox": "~20-30",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`puede_vender` INCONSISTENTE en dos frentes: habilita \"Pregrado & Postgrado\" cuando no existe ningun pregrado/grado, y habilita \"Vocacionales (Cert, D",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "Signet Institute",
+  "nombre_real": "Signet Institute Of Australia",
+  "dominio": "signet.edu.au",
+  "url_programas": "https://signet.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne, Sydney, Adelaide",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificate III (9), Certificate IV (3), Diploma (5), Advanced Diploma (2), Graduate Diploma (1)",
+  "cantidad_aprox": "~19-20",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CATALOGO NO ENUMERABLE: el sitio es una SPA React que devuelve HTML vacio (\"You need to enable JavaScript\") · la unica via de extraccion es el sitemap",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Langue Onze",
+  "nombre_real": "KLF TOULOUSE - LANGUE ONZE",
+  "dominio": "langueonze.com",
+  "url_programas": "https://langueonze.com/nos-cours-de-francais/",
+  "pais": "France",
+  "ciudad": "toulouse",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Solo idiomas · frances A1-C2, adultos y adolescentes",
+  "cantidad_aprox": "~15",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el sitio ya opera bajo la marca del grupo KLF, coherente con partner_group · ficha correcta en lo demas",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "English Language Centre ELC",
+  "nombre_real": "English Language Center (ELC)",
+  "dominio": "elc.edu",
+  "url_programas": "https://elc.edu/english-courses/",
+  "pais": "USA",
+  "ciudad": "California",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "SOLO idiomas (ingles): Adult Summer Campus + Summer Junior",
+  "cantidad_aprox": "2 familias de programa · 12 niveles de ingles",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender \"Todos los programas\" es FALSO: no hay ni un grado ni un vocacional, solo cursos de ingles · la ficha dice ciudad \"California\" pero opera",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Deakin College",
+  "nombre_real": "Melbourne Institute of Business and Technology Pty Ltd trading as Deakin College",
+  "dominio": "www.deakincollege.edu.au",
+  "url_programas": "https://www.deakincollege.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne , Geelong, Warrambool",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Idiomas",
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "Foundation (1), Diploma (9 disciplinas), Masters Qualifying Program (1)",
+  "cantidad_aprox": "~11",
+  "veredicto_auditoria": "observacion",
+  "alerta": "BIEN: el dominio es el propio del college, NO apunta a navitas.com (el patron que mordio en otros lotes). Pero `puede_vender` incluye \"Idiomas\" y el s",
+  "_est": 11
+ },
+ {
+  "institucion_ficha": "HAWTHORN",
+  "nombre_real": "Hawthorn Melbourne (razon social en el pie: Hawthorn Learning Pty Ltd · ABN 50 124 208 171)",
+  "dominio": "www.hawthornenglish.edu.au",
+  "url_programas": "https://www.hawthornenglish.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Idiomas"
+  ],
+  "niveles_vistos": "SOLO idiomas: ingles general, ingles academico y preparacion para universidad y secundaria",
+  "cantidad_aprox": "~8",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender INCONSISTENTE: la ficha promete \"Vocacionales (Cert, Dip, Adv Dip)\" pero el sitio no ofrece ni un Certificate ni un Diploma · es exclusiv",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "Texila College",
+  "nombre_real": "Texila College Australia Pty Ltd (ABN 20 614 451 286 · CRICOS 03894K · PRV14276)",
+  "dominio": "www.texila.edu.au",
+  "url_programas": "https://texila.edu.au/our-courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Idiomas"
+  ],
+  "niveles_vistos": "SOLO Bachelor of Business (AQF 7)",
+  "cantidad_aprox": "1 grado con 6 especializaciones (Accounting, Hospitality Mgmt, Information Systems, Management, Marketing, International Business)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender ES FALSO EN SUS DOS ENTRADAS: dice \"Vocacionales (Cert, Dip, Adv Dip)\" e \"Idiomas\" y el sitio no tiene NI UN certificado, NI UN diploma, ",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Saint Stephen's College",
+  "nombre_real": "Saint Stephen's College — CRICOS 01938G",
+  "dominio": "saintstephenscollege.net.au",
+  "url_programas": "https://www.saintstephenscollege.net.au/learning/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "K-12: Early Learning Centre, Junior College, Senior College (pathways QCE), programas Optima de enriquecimiento, co-curriculares; seccion \"International\" con alojamiento y soporte para estudiantes internacionales",
+  "cantidad_aprox": "4 etapas + programas de enriquecimiento",
+  "veredicto_auditoria": "corregir",
+  "alerta": "FICHA VACIA para una institucion perfectamente vendible: `ciudad: null`, `category: null`, `partner_group: null`, `puede_vender: []` y `tipo_adivinado",
+  "_est": 4
+ }
+]

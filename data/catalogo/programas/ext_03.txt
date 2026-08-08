@@ -1,0 +1,328 @@
+# Lote 03 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Australia Institute of Business and Technology (aibtglobal.edu.au) ---
+Australia Institute of Business and Technology | General English (Beginner to Upper Intermediate) | curso_corto | Idiomas | no indicada | - | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Accounting and Bookkeeping | curso_corto | Negocios | no indicada | FNS40222 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Accounting | diplomado | Negocios | no indicada | FNS50222 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Accounting | diplomado | Negocios | no indicada | FNS60222 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Project Management Practice | curso_corto | Negocios | no indicada | BSB40920 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Project Management | diplomado | Negocios | no indicada | BSB50820 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Program Management | diplomado | Negocios | no indicada | BSB60720 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB60420 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Graduate Diploma of Strategic Leadership | posgrado | Negocios | no indicada | BSB80320 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Graduate Diploma of Management (Learning) | posgrado | Negocios | no indicada | BSB80120 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Individual Support (Ageing) | curso_corto | Salud | no indicada | CHC33021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Individual Support (Disability) | curso_corto | Salud | no indicada | CHC33021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Individual Support (Ageing and Disability) | curso_corto | Salud | no indicada | CHC33021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Ageing Support | curso_corto | Salud | no indicada | CHC43015 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Remedial Massage | diplomado | Salud | no indicada | HLT52021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Massage Therapy | curso_corto | Salud | no indicada | HLT42021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Community Services | diplomado | Servicios Sociales | no indicada | CHC52025 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Early Childhood Education and Care | curso_corto | Educación | no indicada | CHC30125 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Early Childhood Education and Care | diplomado | Educación | no indicada | CHC50125 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Air Conditioning and Refrigeration | curso_corto | Ingeniería | no indicada | UEE32225 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Air Conditioning and Refrigeration Servicing | curso_corto | Ingeniería | no indicada | UEE42725 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Air Conditioning and Refrigeration Engineering | diplomado | Ingeniería | no indicada | UEE62525 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Light Vehicle Mechanical Technology | curso_corto | Ingeniería | no indicada | AUR30620 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Automotive Mechanical Diagnosis | curso_corto | Ingeniería | no indicada | AUR40226 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Automotive Electrical Technology | curso_corto | Ingeniería | no indicada | AUR40626 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Automotive Management | diplomado | Negocios | no indicada | AUR50126 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Information Technology | curso_corto | Tecnología | no indicada | ICT40120 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Information Technology (Telecommunications Network Engineering) | diplomado | Tecnología | no indicada | ICT50220 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Information Technology (Telecommunications Network Engineering) | diplomado | Tecnología | no indicada | ICT60220 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Painting and Decorating | curso_corto | Oficios | no indicada | CPC30620 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Logistics | diplomado | Logística | no indicada | TLI50224 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Supply Chain Management | diplomado | Logística | no indicada | TLI60222 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT50422 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT60322 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Patisserie | curso_corto | Hospitalidad | no indicada | SIT31021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Patisserie | curso_corto | Hospitalidad | no indicada | SIT40721 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Commercial Cookery | curso_corto | Hospitalidad | no indicada | SIT30821 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Kitchen Management | curso_corto | Hospitalidad | no indicada | SIT40521 | https://aibtglobal.edu.au/courses/
+
+# --- UNSW Sydney (unsw.edu.au) · PREGRADO ---
+UNSW Sydney | Bachelor of Engineering (Honours) | bachelor | Ingeniería | 4 años | 3707 | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours
+UNSW Sydney | Bachelor of Engineering (Honours) (Aerospace Engineering) | bachelor | Ingeniería | 4 años | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-aerospace
+UNSW Sydney | Bachelor of Engineering (Honours) (Civil) | bachelor | Ingeniería | 4 años | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-civil
+UNSW Sydney | Bachelor of Engineering (Honours) (Electrical) | bachelor | Ingeniería | 4 años | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-electrical
+UNSW Sydney | Bachelor of Engineering (Honours) (Environmental) | bachelor | Ingeniería | 4 años | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-environmental
+UNSW Sydney | Bachelor of Engineering (Honours) (Mechanical Engineering) | bachelor | Ingeniería | 4 años | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-mechanical
+UNSW Sydney | Bachelor of Engineering (Honours) (Mining) | bachelor | Ingeniería | 4 años | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-mining
+UNSW Sydney | Bachelor of Engineering (Honours) (Computer) | bachelor | Ingeniería | 4 años | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-computer
+UNSW Sydney | Bachelor of Engineering (Honours) / Engineering Science | bachelor | Ingeniería | no indicada | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-engineering-science
+UNSW Sydney | Bachelor of Engineering (Honours) / Science | bachelor | Ingeniería | no indicada | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-science
+UNSW Sydney | Bachelor of Engineering (Honours) / Commerce | bachelor | Ingeniería | no indicada | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-commerce
+UNSW Sydney | Bachelor of Engineering (Honours) / Computer Science | bachelor | Ingeniería | no indicada | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-computer-science
+UNSW Sydney | Bachelor of Engineering (Honours) / Arts | bachelor | Ingeniería | no indicada | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-arts
+UNSW Sydney | Bachelor of Commerce | bachelor | Negocios | no indicada | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-commerce
+UNSW Sydney | Bachelor of Commerce / Arts | bachelor | Negocios | no indicada | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-commerce-arts
+UNSW Sydney | Bachelor of Commerce / Science | bachelor | Negocios | no indicada | - | https://www.unsw.edu.au/study/undergraduate/bachelor-of-commerce-science
+UNSW Sydney | Bachelor of Data Science and Decisions | bachelor | Tecnología | 144 UOC | 3959 | https://www.unsw.edu.au/study/undergraduate/bachelor-of-data-science-and-decisions
+
+# --- UNSW Sydney (unsw.edu.au) · POSGRADO (Business School) ---
+UNSW Sydney | Master of Actuarial Studies | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Actuarial Studies (Extension) | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of AI Leadership and Strategy (Online) | maestria | Tecnología | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Analytics (Online) | maestria | Tecnología | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Analytics (Marketing) (Online) | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Applied Economics | maestria | Economía | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Applied Finance (Online) | maestria | Finanzas | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Economics | maestria | Economía | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Human Resource Management (Online) | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Human Resource Management (Diversity, Equity and Inclusion) (Online) | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Human Resource Management (Human Resource Analytics) | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Human Resource Management (Leadership and Organisational Development) | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | MBA Full-Time | mba | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | MBA Full-Time (Extension) | mba | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | MBA Part-Time (Executive) | mba | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | MBAX (Change) | mba | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | MBAX (Finance) | mba | Finanzas | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | MBAX (Law) | mba | Derecho | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | MBAX (Social Impact) | mba | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | MBAX (Technology) | mba | Tecnología | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Commerce | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/study/postgraduate/master-of-commerce
+UNSW Sydney | Master of Commerce (Extension) | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/study/postgraduate/master-of-commerce-extension
+UNSW Sydney | Master of Finance | maestria | Finanzas | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Financial Analysis | maestria | Finanzas | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Financial Technology (Online) | maestria | Finanzas | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of International Business | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Law / MBA (Law) | mba | Derecho | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Management (Online) | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Professional Accounting | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Professional Accounting (Extension) | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Master of Taxation | maestria | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Diploma in AI Leadership and Strategy (Online) | posgrado | Tecnología | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Diploma in Analytics (Online) | posgrado | Tecnología | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Diploma in Applied Finance (Online) | posgrado | Finanzas | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Diploma in Financial Technology (Online) | posgrado | Finanzas | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Diploma in Social Impact | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Diploma in Entrepreneurship | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Actuarial Analytics | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in AI Strategy (Online) | posgrado | Tecnología | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Applied Finance (Online) | posgrado | Finanzas | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Analytics (Online) | posgrado | Tecnología | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Business (Online) | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Business Analytics | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/study/postgraduate/graduate-certificate-in-business-analytics
+UNSW Sydney | Graduate Certificate in Change Management | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Commerce | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Diversity, Equity, and Inclusion | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Economics | posgrado | Economía | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Human Resource Management | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Human Resource Analytics | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Leadership and Organisational Development | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Financial Technology (Online) | posgrado | Finanzas | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Leadership | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Management | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Marketing Analytics | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Social Impact | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Strategic Management | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Taxation | posgrado | Negocios | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+UNSW Sydney | Graduate Certificate in Technology Management | posgrado | Tecnología | no indicada | - | https://www.unsw.edu.au/business/study-with-us/postgraduate/postgraduate-degrees
+
+# --- EQUALS International (equals.edu.au) ---
+EQUALS International | Master of Social Work (Qualifying) | maestria | Trabajo Social | 104 semanas | CRS1401661 | https://equals.edu.au/courses/
+EQUALS International | Bachelor of Human Services | bachelor | Trabajo Social | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Diploma in Human Services | diplomado | Trabajo Social | 52 semanas | CRS1400642 | https://equals.edu.au/courses/
+EQUALS International | Diploma of Community Services | diplomado | Servicios Sociales | 104 semanas | CHC52025 | https://equals.edu.au/courses/
+EQUALS International | Diploma of Early Childhood Education and Care | diplomado | Educación | 38 semanas | CHC50125 | https://equals.edu.au/courses/
+EQUALS International | Diploma of Mental Health | diplomado | Salud | 52 semanas | CHC53315 | https://equals.edu.au/courses/
+EQUALS International | Advanced Diploma of Community Sector Management | diplomado | Servicios Sociales | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Certificate III in Early Childhood Education and Care | curso_corto | Educación | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Certificate III in Individual Support (Ageing and Disability) | curso_corto | Salud | 18 semanas | CHC33021 | https://equals.edu.au/courses/
+EQUALS International | Advanced Diploma of Nursing (Mental Health) | diplomado | Salud | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Diploma of Nursing | diplomado | Salud | 78 semanas | HLT54121 | https://equals.edu.au/courses/
+EQUALS International | Certificate III in Pathology (Pathology Collection) | curso_corto | Salud | 34 semanas | HLT37525 | https://equals.edu.au/courses/
+EQUALS International | Certificate III in Dental Assisting | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Certificate III in Allied Health Assistance | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Certificate III in Health Administration | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Certificate III in Health Services Assistance | curso_corto | Salud | 13 semanas | HLT33115 | https://equals.edu.au/courses/
+EQUALS International | Advanced Diploma of Ayurveda | diplomado | Salud | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Diploma of Ayurvedic Lifestyle Consultation | diplomado | Salud | 52 semanas | HLT52615 | https://equals.edu.au/courses/
+EQUALS International | Diploma Remedial Massage | diplomado | Salud | 52 semanas | HLT52021 | https://equals.edu.au/courses/
+EQUALS International | Provide First Aid | curso_corto | Salud | no indicada | HLTAID011 | https://equals.edu.au/courses/
+EQUALS International | Provide Cardiopulmonary Resuscitation | curso_corto | Salud | no indicada | HLTAID009 | https://equals.edu.au/courses/
+EQUALS International | Mental Health First Aid | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Safe Handling Practices Workshop | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Assist Clients with Medication | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Certificate II in Electrotechnology (Career Start) | curso_corto | Ingeniería | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Certificate II in Engineering Pathways | curso_corto | Ingeniería | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Diploma of Leadership and Management | diplomado | Negocios | 52 semanas | BSB50420 | https://equals.edu.au/courses/
+EQUALS International | Certificate II in Skills for Work and Vocational Pathways | curso_corto | Formación Básica | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | White Card Course | curso_corto | Construcción | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Safe Environments for Children and Young People - Through Their Eyes | curso_corto | Servicios Sociales | no indicada | - | https://equals.edu.au/courses/
+EQUALS International | Introduction to Working Safely in Health and Community Services | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/
+
+# --- Speos International Photography School (speos-photo.com) ---
+Speos International Photography School | Accelerated Bachelor in 1 year - The Entrepreneurial Photographer | bachelor | Artes (Fotografía) | 1 año | RNCP39859 | https://speos-photo.com/en/1-year-photography-programs/accelerated-bachelor-the-entrepreneurial-photographer/
+Speos International Photography School | Professional Photography in 1 year | diplomado | Artes (Fotografía) | 1 año | - | https://speos-photo.com/en/1-year-photography-programs/professional/
+Speos International Photography School | Expert in Digital Visual Creation: Photography, 3D, AI, Video | diplomado | Artes (Fotografía) | 1 año | - | https://speos-photo.com/en/1-year-photography-programs/expert-in-digital-visual-creation-photography-3d-ai-video/
+Speos International Photography School | Photojournalism by Speos & Agence France-Presse (AFP) | diplomado | Comunicación (Fotoperiodismo) | 1 año | - | https://speos-photo.com/en/1-year-photography-programs/photojournalism-program-by-afp-speos/
+Speos International Photography School | Creative Documentary with Magnum Photos | diplomado | Artes (Fotografía) | 1 año | - | https://speos-photo.com/en/1-year-photography-programs/creative-documentary-by-magnum-photo/
+Speos International Photography School | Professional Photography in 2 years | diplomado | Artes (Fotografía) | 2 años | - | https://speos-photo.com/en/2-year-photography-programs/professional/
+Speos International Photography School | The Entrepreneurial Photographer in 2 years | diplomado | Artes (Fotografía) | 2 años | - | https://speos-photo.com/en/2-year-photography-programs/the-entrepreneurial-photographer/
+Speos International Photography School | Professional Photography Fundamentals - 5 months | curso_corto | Artes (Fotografía) | 5 meses | - | https://speos-photo.com/en/short-photography-programs/photo-fundamentals-paris/
+Speos International Photography School | Photojournalism by Polka & Speos - 5 months | curso_corto | Comunicación (Fotoperiodismo) | 5 meses | - | https://speos-photo.com/en/short-photography-programs/photojournalism-polka-paris/
+Speos International Photography School | ICP x Speos Summer Photography Program | vacacional | Artes (Fotografía) | 2 meses | - | https://speos-photo.com/en/short-photography-programs/icp-x-speos-summer-photography-program/
+Speos International Photography School | Summer Photography Course - Introduction to Photography in 2 months | vacacional | Artes (Fotografía) | 2 meses | - | https://speos-photo.com/en/short-photography-programs/summer-photography-course-introduction-to-photography-in-2-months/
+Speos International Photography School | Workshop - Artificial Intelligence-Powered Image Creation | curso_corto | Artes (Fotografía) | no indicada | - | https://speos-photo.com/en/photography-workshops/workshop-ai-powered-image-creation/
+Speos International Photography School | Workshops in Paris | curso_corto | Artes (Fotografía) | no indicada | - | https://speos-photo.com/en/photography-workshops/paris/
+
+# --- George Mason University (gmu.edu · catalogo en catalog.gmu.edu) · PREGRADO ---
+George Mason University | Accounting | bachelor | Negocios | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Anthropology | bachelor | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Applied Computer Science | bachelor | Tecnología | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Applied Science | bachelor | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Art and Visual Technology | bachelor | Artes | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Art History | bachelor | Artes | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Astronomy | bachelor | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Biology | bachelor | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Bioengineering | bachelor | Ingeniería | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Business | bachelor | Negocios | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Chemistry | bachelor | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Civil and Infrastructure Engineering | bachelor | Ingeniería | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Community Health | bachelor | Salud | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Computational and Data Sciences | bachelor | Tecnología | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Computer Engineering | bachelor | Ingeniería | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Computer Science | bachelor | Tecnología | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Conflict Analysis and Resolution | bachelor | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Criminology, Law and Society | bachelor | Derecho | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Dance | bachelor | Artes | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Elementary Education | bachelor | Educación | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Environmental Science | bachelor | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Environmental and Sustainability Studies | bachelor | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Film and Video Studies | bachelor | Artes | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Forensic Science | bachelor | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Foreign Languages | bachelor | Idiomas | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Geography | bachelor | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Global Affairs | bachelor | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Health Administration | bachelor | Salud | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Health Informatics | bachelor | Salud | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Human Development and Family Science | bachelor | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Inclusive Early Childhood Education | bachelor | Educación | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Individualized Study | bachelor | Interdisciplinar | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Information Technology | bachelor | Tecnología | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Integrative Studies | bachelor | Interdisciplinar | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | International Security and Law | bachelor | Derecho | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Kinesiology | bachelor | Salud | no indicada | - | https://catalog.gmu.edu/programs/
+
+# --- George Mason University · POSGRADO (maestrias) ---
+George Mason University | Accounting, MS | maestria | Negocios | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Anthropology, MA | maestria | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Applied and Engineering Physics, MS | maestria | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Artificial Intelligence, MS | maestria | Tecnología | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Art History, MA | maestria | Artes | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Arts Education, MA | maestria | Educación | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Arts Management, MA | maestria | Artes | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Biodefense, MS | maestria | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Bioinformatics and Computational Biology, MS | maestria | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Bioinformatics Management, MS | maestria | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Biology, MS | maestria | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Biostatistics, MS | maestria | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Business Administration, MBA | mba | Negocios | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Business Analytics, MS | maestria | Negocios | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Chemistry, MS | maestria | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Climate Science, MS | maestria | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Communication, MA | maestria | Comunicación | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Computational Science, MS | maestria | Tecnología | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Computational Social Science, MS | maestria | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Computer Engineering, MS | maestria | Ingeniería | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Computer Science, MS | maestria | Tecnología | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Conflict Analysis and Resolution, MS | maestria | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Counseling, MEd | maestria | Salud | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Creative Writing, MFA | maestria | Artes | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Criminal Justice, MA | maestria | Derecho | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Criminology, Law and Society, MA | maestria | Derecho | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Juris Master | maestria | Derecho | no indicada | - | https://www.law.gmu.edu/academics/degrees/
+George Mason University | Master of Laws (LLM) in Cyber, Intelligence, and National Security Law | maestria | Derecho | no indicada | - | https://www.law.gmu.edu/academics/degrees/
+George Mason University | Master of Laws (LLM) in Global Antitrust Law & Economics | maestria | Derecho | no indicada | - | https://www.law.gmu.edu/academics/degrees/
+George Mason University | Master of Laws (LLM) in Intellectual Property | maestria | Derecho | no indicada | - | https://www.law.gmu.edu/academics/degrees/
+George Mason University | Master of Laws (LLM) in U.S. Law | maestria | Derecho | no indicada | - | https://www.law.gmu.edu/academics/degrees/
+
+# --- George Mason University · DOCTORADOS ---
+George Mason University | Biodefense, PhD | doctorado | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Bioengineering, PhD | doctorado | Ingeniería | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Biosciences, PhD | doctorado | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Business, PhD | doctorado | Negocios | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Chemistry and Biochemistry, PhD | doctorado | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Climate Dynamics, PhD | doctorado | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Communication, PhD | doctorado | Comunicación | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Computational Sciences and Informatics, PhD | doctorado | Tecnología | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Computational Social Science, PhD | doctorado | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Criminology, Law and Society, PhD | doctorado | Derecho | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Cultural Studies, PhD | doctorado | Ciencias Sociales | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Economics, PhD | doctorado | Economía | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Education, PhD | doctorado | Educación | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Electrical and Computer Engineering, PhD | doctorado | Ingeniería | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Environmental Science and Public Policy, PhD | doctorado | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Geology and Earth Science, PhD | doctorado | Ciencias | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | History, PhD | doctorado | Humanidades | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Information Technology, PhD | doctorado | Tecnología | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Linguistics, PhD | doctorado | Humanidades | no indicada | - | https://catalog.gmu.edu/programs/
+George Mason University | Juris Doctor | doctorado | Derecho | no indicada | - | https://www.law.gmu.edu/academics/degrees/
+
+# --- College de Paris (collegedeparis.com) ---
+College de Paris | Bachelor in Business Administration | bachelor | Negocios | 3 años (6 semestres) | RNCP nivel 5 y 6 | https://www.collegedeparis.com/programs/bachelor-in-business-administration/
+College de Paris | Mastère International Marketing | maestria | Negocios (Marketing) | 2 años (4 semestres) | RNCP - Manager du développement commercial | https://www.collegedeparis.com/programs/mastere-in-international-marketing/
+College de Paris | Global MBA | mba | Negocios | 2 años (4 semestres) | RNCP 38583 | https://www.collegedeparis.com/programs/global-mba/
+College de Paris | Global Online MBA | mba | Negocios | 12 a 18 meses | 90 ECTS | https://www.collegedeparis.com/programs/global-online-mba/
+
+# --- Eynesbury College (eynesbury.edu.au) ---
+Eynesbury College | Foundation Studies Program | curso_corto | Preparación Universitaria | 8 o 12 meses | 074931M | https://www.eynesbury.edu.au/programs/foundation-studies/
+Eynesbury College | Diploma of Arts | diplomado | Artes y Humanidades | no indicada | - | https://www.eynesbury.edu.au/programs/diploma-programs/
+Eynesbury College | Diploma of Business Studies | diplomado | Negocios | no indicada | - | https://www.eynesbury.edu.au/programs/diploma-programs/
+Eynesbury College | Diploma of Computing and IT Studies | diplomado | Tecnología | no indicada | - | https://www.eynesbury.edu.au/programs/diploma-programs/
+Eynesbury College | Diploma of Engineering | diplomado | Ingeniería | no indicada | - | https://www.eynesbury.edu.au/programs/diploma-programs/
+Eynesbury College | Diploma of Health Science | diplomado | Salud | no indicada | - | https://www.eynesbury.edu.au/programs/diploma-programs/
+Eynesbury College | ELICOS | curso_corto | Idiomas | no indicada | - | https://www.eynesbury.edu.au/programs/
+Eynesbury College | Graduate Certificate in Business and Management | posgrado | Negocios | no indicada | - | https://www.eynesbury.edu.au/programs/
+Eynesbury College | Navitas UniStart International Foundation Year | curso_corto | Preparación Universitaria | no indicada | - | https://www.eynesbury.edu.au/programs/
+
+# --- Alpadia Language Schools (alpadia.com) ---
+Alpadia Language Schools | Curso de francés - Estándar 20 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/frances
+Alpadia Language Schools | Curso de francés - Semi-Intensivo 25 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/frances
+Alpadia Language Schools | Curso de francés - Intensivo 25 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/frances
+Alpadia Language Schools | Curso de francés - Premium 30 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/frances
+Alpadia Language Schools | Curso de francés - Combi 5 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/frances
+Alpadia Language Schools | Curso de francés - Combi 10 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/frances
+Alpadia Language Schools | Curso de francés - Clases Particulares | curso_corto | Idiomas | flexible | - | https://www.alpadia.com/es/cursos-idiomas/frances
+Alpadia Language Schools | Curso de preparación de examen de francés (DELF/DALF/TCF) | curso_corto | Idiomas | 4 semanas | - | https://www.alpadia.com/es/cursos-idiomas/frances
+Alpadia Language Schools | Curso de alemán - Estándar 20 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/aleman
+Alpadia Language Schools | Curso de alemán - Semi-Intensivo 25 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/aleman
+Alpadia Language Schools | Curso de alemán - Intensivo 25 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/aleman
+Alpadia Language Schools | Curso de alemán - Premium 30 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/aleman
+Alpadia Language Schools | Curso de alemán - Combi 5 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/aleman
+Alpadia Language Schools | Curso de alemán - Combi 10 | curso_corto | Idiomas | 1-48 semanas | - | https://www.alpadia.com/es/cursos-idiomas/aleman
+Alpadia Language Schools | Curso de alemán - Clases Particulares | curso_corto | Idiomas | flexible | - | https://www.alpadia.com/es/cursos-idiomas/aleman
+Alpadia Language Schools | Curso de preparación de examen de alemán | curso_corto | Idiomas | 4 semanas | - | https://www.alpadia.com/es/cursos-idiomas/aleman
+Alpadia Language Schools | Clases Online en Directo (francés y alemán) | curso_corto | Idiomas | no indicada | - | https://www.alpadia.com/es/cursos-idiomas
+Alpadia Language Schools | Campamentos de verano de francés (8-17 años) | vacacional | Idiomas | no indicada | - | https://www.alpadia.com/es/cursos-idiomas
+Alpadia Language Schools | Campamentos de verano de alemán (8-17 años) | vacacional | Idiomas | no indicada | - | https://www.alpadia.com/es/cursos-idiomas
+Alpadia Language Schools | Campamentos de verano de inglés (8-17 años) | vacacional | Idiomas | no indicada | - | https://www.alpadia.com/es/cursos-idiomas
+Alpadia Language Schools | Año Académico en el Extranjero | intercambio | Idiomas | no indicada | - | https://www.alpadia.com/es/cursos-idiomas
+
+# --- Australian National College of English · ANCE (ance.vic.edu.au) ---
+Australian National College of English | General English | curso_corto | Idiomas | ~15 semanas por nivel (4 niveles) | - | https://ance.vic.edu.au/course/general-english/
+Australian National College of English | IELTS Preparation | curso_corto | Idiomas | no indicada | - | https://ance.vic.edu.au/ielts-preparation-2/
+Australian National College of English | English for Academic Purposes (EAP) | curso_corto | Idiomas | no indicada | - | https://ance.vic.edu.au/english-for-academic-purposes-2/
+Australian National College of English | Business English | curso_corto | Idiomas | no indicada | - | https://ance.vic.edu.au/business-english-2/
+Australian National College of English | Graduate TESOL Teacher Mentor Program | curso_corto | Educación | no indicada | - | https://ance.vic.edu.au/graduate-tesol-teacher-mentor-program-2/
+
+# --- Taylors College (taylorssydney.edu.au) ---
+Taylors College | University of Sydney Foundation Program (USFP) | curso_corto | Preparación Universitaria | duración flexible | - | https://www.taylorssydney.edu.au/programs/
+Taylors College | High Achievers Preparation Program (HAPP) | curso_corto | Preparación Universitaria | 14 semanas | - | https://www.taylorssydney.edu.au/programs/
+
+# RESUMEN: instituciones=10 con_programas=10 total_programas=286 sin_catalogo=0
+
+# NOTAS:
+# AIBT · encontrados 39 vs "~90+" de la auditoria. El "90+ courses & promotions" del sitio incluye paquetes combinados (ej. BSB50820+BSB60720, AUR30620+AUR40216+AUR50116) y la misma cualificacion repetida por campus (Adelaide/Brisbane/Hobart/Melbourne/Sydney). Las 39 son cualificaciones UNICAS con codigo nacional. El listado NO publica duracion ni CRICOS por curso en la pagina de catalogo; habria que abrir 39 fichas para completar esos dos campos. El sitio marca varios cursos como "not currently accepting enrolments" segun campus/intake, pero no dice cuales en el catalogo agregado — validar antes de vender. RTO 41138 · CRICOS provider 03430J.
+# UNSW · SUBCONTEO GRAVE Y DELIBERADO: extraidos 75 de varios cientos. El degree finder (/study/find-a-degree-or-course) y /study/undergraduate se renderizan por JS y devuelven cero resultados a un fetch; el handbook tampoco pagina. Lo extraido es lo verificable hoy: catalogo completo de posgrado de UNSW Business School (58) + los degrees de pregrado que se pudieron confirmar pagina por pagina (17, casi todos Engineering + Commerce). FALTAN casi por completo las otras 8 areas de estudio (Medicine & Health, Law, Science & Environment, Media/Design/Fine Arts, Architecture, Education & Social Work, Humanities, Data & Technology no-business). NO tratar este lote como catalogo UNSW completo.
+# GMU · SUBCONTEO: extraidos 87 de los 210 que el propio sitio declara (78 pregrados + 94 maestrias + 38 doctorados). catalog.gmu.edu/programs/ es una sola pagina enorme con filtro JS: el fetch se trunca alfabeticamente y solo entrega de la A a la L. Faltan los programas M-Z. Se EXCLUYERON a proposito los ~130 "minors" del catalogo (no son programas vendibles por si solos a un estudiante internacional) y los certificates de pregrado. Dominio corregido: la ficha traia www2.gmu.edu que es un 301 — se uso www.gmu.edu / catalog.gmu.edu / law.gmu.edu.
+# College de Paris · LA AUDITORIA SE EQUIVOCO AL DECLARARLO CAIDO. collegedeparis.com resuelve y sirve contenido en www.collegedeparis.com (el apex hace 301 a collegedeparis.fr, que si devuelve 403; el .fr es la web corporativa francesa). Solo se extrajeron 4 programas VERIFICADOS ficha por ficha porque las paginas indice (/programs/, /program_level/bachelor/) devuelven 404 o se renderizan vacias por JS. OJO CON LA NATURALEZA DE LA ENTIDAD: no es una escuela, es un holding de 20+ escuelas miembro (Ascencia Business School, Keyce Academy, Euclea, ELFE, Exchange College, ECAR...) y los 4 programas extraidos los opera Ascencia, no "College de Paris". Para catalogo real hay que entrar escuela por escuela.
+# EQUALS International · 31 extraidos vs "~27" de la auditoria — cuadra. Se EXCLUYO "Certificate III in Information Technology" (ICT30120, 40 semanas) porque la auditoria lo reporto cerrado a inscripciones. Solo 14 de 31 traen codigo nacional; los cursos cortos/microcredenciales (First Aid, White Card, Mental Health First Aid) mayormente sin codigo. El curso "Safe Environments for Children and Young People | Through Their Eyes" trae un PIPE en el nombre oficial del sitio — se reemplazo por " - " para no romper el parser; corregir si el loader escapa delimitadores.
+# Speos · 13 extraidos vs "~12-15" — cuadra. Nombre corregido: es "Speos International Photography School", NO "Paris Photographic Institute" (la ficha original estaba mal). Confirmado que NO otorga master: el titulo mas alto es un bachelor RNCP nivel 6 (RNCP39859, registrado 28/11/2024) del programa acelerado de 1 anio. Los programas de 1 y 2 anios se marcaron como "diplomado" por prudencia salvo el que si tiene RNCP de bachelor. El sitio publica precios — no se transcribieron.
+# Eynesbury · 9 extraidos vs "~9" — cuadra exacto. Solo el Foundation Studies Program publica CRICOS (074931M); los 5 diplomas y el Graduate Certificate no publican ni CRICOS ni duracion en el sitio. Pathway a Adelaide University (los diplomas dan entrada a 2do anio). Confirmado grupo Navitas (el sitio lista "Navitas UniStart"), corregir el partner_group vacio de la ficha.
+# Alpadia · 21 extraidos vs "~6" de la auditoria. La auditoria conto CATEGORIAS de la portada; aqui se desglosaron las variantes reales de curso por idioma (Estandar 20 / Semi-Intensivo 25 / Intensivo 25 / Premium 30 / Combi 5 / Combi 10 / Particulares / prep. examen), que es lo que un asesor cotiza. Se EXCLUYERON los "English Courses" porque los entrega Kaplan International, no Alpadia, y los servicios de University Placement y Career Counseling porque no son programas. Sobre la alerta de la ficha: Kaplan ya no es dueno, paso a Inspirit Capital — el partner_group esta desactualizado.
+# ANCE · 5 extraidos vs "~5" — cuadra. CONFIRMADA la correccion de la auditoria: es 100% ELICOS/ingles, NO es VET; recategorizar. El unico codigo oficial visible es el CRICOS de PROVEEDOR (03134F), no hay codigos por curso, por eso van con "-". La URL de catalogo de la ficha (/course/) da 404 en el indice pero /course/general-english/ si existe — el resto de cursos cuelga de rutas sueltas con sufijo "-2".
+# Taylors College · 2 extraidos vs "2" — cuadra exacto. CONFIRMADA la correccion: el sitio nunca se llama "Taylors College Sydney"; es "Taylors College", operado por Navitas Australia Pty Limited (CRICOS 01682E). Los 2 programas son pathway exclusivo a University of Sydney. No publica CRICOS por programa, solo dice que los Foundation Programs estan registrados en CRICOS.

@@ -56,6 +56,7 @@ def orden_del_catalogo():
 
 
 _TYPE_TO_CATEGORY = {
+    "secundaria": "semestre_academico",
     "pregrado": "carrera_completa",
     "maestria": "carrera_completa",
     "mba": "carrera_completa",
@@ -80,7 +81,7 @@ _CATEGORY_TO_TYPES = {
     ],
     "certificacion_corta": ["diplomado", "curso_corto", "bootcamp"],
     "curso_idiomas": ["vacacional"],
-    "semestre_academico": ["intercambio"],
+    "semestre_academico": ["intercambio", "secundaria"],
     "work_travel": [],  # No hay equivalente en programs
     "practicas": [],
     "voluntariado": [],

@@ -1,6 +1,6 @@
 # Auditoría del catálogo de instituciones
 
-**380 instituciones auditadas** de las 630 con sitio propio (el catálogo completo son 2.511 filas, todas a nivel institución).
+**630 instituciones auditadas** de las 630 con sitio propio (el catálogo completo son 2.511 filas, todas a nivel institución).
 
 Cada ficha se visitó **sólo en su dominio oficial**. Ver `README.md` para por qué eso no es opcional.
 
@@ -8,21 +8,21 @@ Cada ficha se visitó **sólo en su dominio oficial**. Ver `README.md` para por 
 
 | Veredicto | Fichas | % | Qué significa |
 |---|---:|---:|---|
-| `inservible` | 119 | 31% | **No se puede usar.** Extraer de aquí produce información falsa |
-| `corregir` | 101 | 27% | Usable después de arreglar el dominio o el nombre |
-| `revisar_a_mano` | 65 | 17% | Necesita ojos humanos: bloquea bots o su catálogo no es una lista |
-| `observacion` | 73 | 19% | Usable, con un detalle que conviene mirar |
-| `ok` | 22 | 6% | Sin observaciones |
+| `inservible` | 189 | 30% | **No se puede usar.** Extraer de aquí produce información falsa |
+| `corregir` | 181 | 29% | Usable después de arreglar el dominio o el nombre |
+| `revisar_a_mano` | 104 | 17% | Necesita ojos humanos: bloquea bots o su catálogo no es una lista |
+| `observacion` | 128 | 20% | Usable, con un detalle que conviene mirar |
+| `ok` | 28 | 4% | Sin observaciones |
 
 ## Por qué cada una quedó inservible
 
-- **el dominio es de otra institución** · 55
-- **duplicado de otra ficha** · 21
-- **dominio muerto** · 16
-- **no es una institución (agencia)** · 13
-- **no es una institución (red)** · 11
-- **la institución cerró** · 2
-- **el convenio terminó** · 1
+- **el dominio es de otra institución** · 89
+- **duplicado de otra ficha** · 37
+- **dominio muerto** · 24
+- **no es una institución (red)** · 17
+- **no es una institución (agencia)** · 15
+- **la institución cerró** · 5
+- **el convenio terminó** · 2
 
 ## Las inservibles, una por una
 
@@ -122,7 +122,6 @@ Cada ficha se visitó **sólo en su dominio oficial**. Ver `README.md` para por 
 | Australian Technical And Management College (ATMC) | dominio muerto | SUBDOMINIO DE LA FICHA MUERTO: vet.atmc.edu.au da NXDOMAIN en 8.8.8.8 (el apex atmc.edu.au resuelve a 154.210. |
 | TAFE Western Australia | el dominio es de otra institución | NO es una institucion sino la oficina que comercializa y matricula internacionales para la red TAFE WA (Albany |
 | Cork English Academy | duplicado de otra ficha | acreditada ACELS y miembro de MEI · puede_vender trae "Idiomas" DUPLICADO · catalogo pequeño y enumerable, sin |
-| TLA The Language Academy | dominio muerto | SITIO CAIDO POR ERROR DE SERVIDOR: HTTP 500 Internal Server Error consistente en apex, www, http->https y ruta |
 | Study Group | no es una institución (agencia) | NO ES UNA INSTITUCION: es un proveedor de pathways / red que co-disena programas con universidades (la ficha l |
 | University of Sussex | el dominio es de otra institución | CATALOGO NO ENUMERABLE: /study/ es un buscador dinamico con dropdown de nivel/materia, no una lista estatica — |
 | Milan Polytechnic University - MIP - POLIMI | el dominio es de otra institución | FICHA FANTASMA MIXTA (patron a): el nombre es el de MIP —la escuela de negocios— pero el `sitio` es el dominio |
@@ -147,6 +146,77 @@ Cada ficha se visitó **sólo en su dominio oficial**. Ver `README.md` para por 
 | Oregon State University | el dominio es de otra institución | `partner_group: INTO` NO VERIFICABLE en el dominio oficial: la home no menciona INTO y el subdominio `into.ore |
 | New Brunswick International Student Program NBISP | duplicado de otra ficha | CRITICO: el `sitio` apunta a CAPS-I, una ASOCIACION paraguas de distritos escolares publicos canadienses, no a |
 | Scots English College | duplicado de otra ficha | `sitio` sin esquema en la ficha. `ciudad: "Nueva Gales del Sur"` es el estado, no la ciudad: real es Sydney co |
+| University of Arizona | el dominio es de otra institución | catalogo detras de BUSCADOR dinamico (degree-search con filtros por categoria), no lista plana · tipo_adivinad |
+| Oxford International | el dominio es de otra institución | NO ES UNA INSTITUCION: es un grupo que opera centros de idiomas y colleges pathway y ademas RECLUTA VIA AGENTE |
+| Charles Darwin University | el dominio es de otra institución | el catalogo real NO vive en el sitio web sino en una app Oracle APEX con sesion (stapps.cdu.edu.au): la extrac |
+| Mercy University | el dominio es de otra institución | la ficha ya usa el nombre nuevo (correcto: el cambio Mercy College -> Mercy University ya esta hecho) · catalo |
+| Phoenix Academy | duplicado de otra ficha | el dominio de la ficha ya no es el canonico (301 a phoenix.edu.au; phoenix.wa.edu.au sobrevive solo para el po |
+| Universal Institute of Technology | dominio muerto | ? |
+| Stott's Colleges | el dominio es de otra institución | REBRANDING: el dominio de la ficha redirige y la marca "Stott's" NO APARECE EN NINGUNA PARTE del sitio nuevo · |
+| Uceda School | duplicado de otra ficha | SEDES INCOMPLETAS: la ficha dice "Orlando, New York, Palm Beach" pero el sitio lista ademas PROVO (Utah) y LAS |
+| SAIbT South Australia Institute of Business and Technology | la institución cerró | CERRADA: el sitio solo sirve el aviso "SAIBT is no longer accepting new students" y redirige a Eynesbury Colle |
+| Illinois State University | el dominio es de otra institución | PARTNER_GROUP OBSOLETO: "INTO" no aparece NI UNA VEZ en el sitio · verificado con busqueda de palabra completa |
+| Study Group Australia | la institución cerró | LA DIVISION AUSTRALIA YA NO EXISTE: el titulo del sitio es literalmente "Study in the UK, Europe or the USA wi |
+| PGA Institute | dominio muerto | MUERTO EFECTIVO, NO BLOQUEADO: DNS resuelve bien contra 8.8.8.8 (104.20.16.23 y 172.66.159.174, Cloudflare) pe |
+| LAL | el dominio es de otra institución | FANTASMA GEOGRAFICO: la ficha dice pais UK y ciudades "Londres, Brighton" · el HTML crudo tiene CERO ocurrenci |
+| Manhattan Language | duplicado de otra ficha | sin hallazgos materiales · HTML crudo limpio (los aciertos de "cbd" eran el id de widget Elementor "0cbdcea",  |
+| The William Light Institute (WLI) | dominio muerto | MUERTO CONFIRMADO: DNS resuelve contra 8.8.8.8 (www.wli.edu.au -> td-ccm-neg-87-45.wixdns.net / 34.149.87.45 · |
+| Eyenesbury College | el dominio es de otra institución | CUATRO PROBLEMAS: (a) nombre MAL ESCRITO en la ficha ("Eyenesbury"); (b) el `sitio` es el dominio HOLDING navi |
+| High School SD73 Kamloops-Thompson International student proogram | el dominio es de otra institución | NO ES UNA INSTITUCION sino un DISTRITO ESCOLAR con varias escuelas · la marca del dominio de la ficha ("ISP Ca |
+| TALK International | duplicado de otra ficha | El nombre vivo en el sitio es "TALK English Schools", no "TALK International" · Atlanta (la ciudad de la ficha |
+| CES - Centre of English Studies | duplicado de otra ficha | NO ES UNA INSTITUCION UNICA sino una RED de 9 sedes -- la extraccion tiene que resolver "que curso esta en que |
+| Gateway School of English | duplicado de otra ficha | ficha dice ciudad "Julians" y la direccion del sitio es San Gwann (colindante con St Julian's) · el mismo siti |
+| EIE Institute of Education | el dominio es de otra institución | CAMBIO DE NOMBRE Y DE ALCANCE: se presenta como "European Business School", no como "Institute of Education" · |
+| Kaplan International English (Australia) | el dominio es de otra institución | FANTASMA: ni "Kaplan International English" ni "Kaplan English" aparecen en el sitio · la URL de la ficha es u |
+| Study in Valencia | no es una institución (agencia) | NO ES INSTITUCION: es un intermediario/consorcio de colocacion · la docencia la imparten centros socios (muest |
+| Sainte Victoire International School | el dominio es de otra institución | DOBLE PROBLEMA: (a) el dominio de la ficha esta OBSOLETO, es un 301 al dominio real svis.fr · (b) "ERMITAGE ED |
+| Hawthorn Melbourne | dominio muerto | MUERTO CON DOS SENALES INDEPENDIENTES: (a) el servidor devuelve 503 "No server is available to handle this req |
+| Communicate School | dominio muerto | MUERTO: el DNS resuelve pero NINGUN puerto acepta conexion · probado 80 y 443, con y sin www, http y https, co |
+| ILEM SRL - ACCADEMIA DI BELLE ARTI "ALDO GALLI" | el dominio es de otra institución | El `sitio` de la ficha apunta al sitio ESPANOL del GRUPO IED (pagina de localidad), no al college. Patron (a). |
+| LSF/IEF | el dominio es de otra institución | La sigla "IEF" de la ficha NO aparece en ningun lado del sitio. Rebranding a KLF (Keep Learning French) ya con |
+| HighSchool Upper Canada District SB | no es una institución (red) | Cloudflare JS challenge ("Just a moment...", cf-mitigated: challenge) devuelve 403 incluso a /robots.txt y /si |
+| RMIT English Worldwide | el dominio es de otra institución | REBRAND COMPLETO: "RMIT English Worldwide"/"REW" NO aparece ni una vez en el destino. La marca fue absorbida e |
+| The University of Adelaide (UoA) | el dominio es de otra institución | FUSIÓN CONSUMADA: el sitio se presenta íntegramente como "Adelaide University"; "The University of Adelaide" n |
+| Study Abroad Canada Language Institute | el dominio es de otra institución | CAMBIO DE NOMBRE: hoy es "Study Abroad Canada COLLEGE (SACC)"; la frase "Study Abroad Canada Language Institut |
+| UC INTERNATIONAL COLLEGE (UCIC) | el dominio es de otra institución | FANTASMA + DOMINIO DEL HOLDING: la ficha apunta a navitas.com, que es el grupo. "UC International College" apa |
+| International House - Newcastle | duplicado de otra ficha | DOMINIO DE LA RED, NO DE LA ESCUELA. ihworld.com es la organización franquiciadora IH World: "IH Newcastle" fi |
+| Queens College | el dominio es de otra institución | EL PATHWAY DE NAVITAS NO ESTÁ EN ESTE DOMINIO. `partner_group` = "Navitas" y `puede_vender` = "Foundation, Yea |
+| IELI - Intensive English Language Institute | dominio muerto | DOMINIO MUERTO · NXDOMAIN confirmado contra 8.8.8.8 (la zona sa.edu.au sí existe · el subdominio ieli no). Bus |
+| Westfield Education | duplicado de otra ficha | El nombre real de la escuela es "Westfield Secondary School" · no hay catálogo de cursos enumerable (son divis |
+| Government Education and Training International Tasmania (GETI) | el dominio es de otra institución | FANTASMA: el acrónimo GETI NO APARECE en ninguna parte del sitio (marca retirada). NO es institución sino el p |
+| Hofstra University | el dominio es de otra institución | `partner_group`="INTO" NO SE PUDO CONFIRMAR: cero menciones de INTO en hofstra.edu, la página /admission/inter |
+| High School Abbotsford 34 SD | no es una institución (red) | NO ES UN HIGH SCHOOL sino un DISTRITO ESCOLAR público de BC. El dominio de la ficha es el corporativo del dist |
+| Institute Stralang | dominio muerto | DOMINIO DE LA FICHA MUERTO · stralang.es, www.stralang.es y stralang.fr todos NXDOMAIN contra 8.8.8.8. El corr |
+| Yoobee School of Design | el dominio es de otra institución | NOMBRE DESACTUALIZADO: ya no es "Yoobee School of Design" sino "Yoobee College of Creative Innovation". Campus |
+| Kaplan | no es una institución (red) | RED de escuelas, no una institución · el dominio es del grupo y no de cada escuela → la extracción tiene que b |
+| Victoria College of Hotel and Tourism Management | el dominio es de otra institución | SITIO COMPROMETIDO (crítico) · WordPress con inyección masiva de spam SEO: posts de casinos en alemán ("Casino |
+| CCI-LEX | duplicado de otra ficha | ciudad en ficha = "Alberta" (provincia); la real es Edmonton. La ficha guarda solo la sigla, no el nombre larg |
+| Lexis English | no es una institución (red) | Es un GRUPO de campus, no una escuela. La ficha lista 4 ciudades; el sitio opera 6 en Australia (suma Noosa y  |
+| Suffolk University | el convenio terminó | partner_group="INTO" NO tiene un solo rastro en el sitio (0 menciones de INTO/into.com en el HTML crudo). Conv |
+| High Schol Coquitlam SD 43 | el dominio es de otra institución | FANTASMA. La ficha nombra el distrito escolar PÚBLICO SD43 pero el dominio es Coquitlam College, un colegio PR |
+| Oxford House - OHC | no es una institución (red) | Es una RED de 12 escuelas en 5 países (Australia: Cairns, Brisbane, Gold Coast, Sydney, Melbourne · UK: Londre |
+| The Campbell Institute Limited | dominio muerto | MUERTO. El dominio de la ficha no resuelve a ninguna IP: campbell.ac.nz conserva NS en Azure DNS (ns1-01.azure |
+| University of Canberra College | el dominio es de otra institución | FICHA FANTASMA: `sitio` apunta a NAVITAS.COM, el holding — ni un solo programa de UC College es extraible desd |
+| Seton Hill University | el dominio es de otra institución | partner_group "Wellspring" NO APARECE en ninguna parte del sitio oficial — es el MISMO patron que Loyola Unive |
+| SACE | duplicado de otra ficha | /courses/ DEVUELVE 404 aunque el menu diga "Courses": el catalogo NO es enumerable desde una lista, hay que re |
+| EC English | no es una institución (red) | El dominio es el GRUPO GLOBAL, no la escuela de Dublin de la ficha: EC opera en 7 paises y ~17 campus (USA, Ca |
+| Millersville University | el dominio es de otra institución | Miembro del Pennsylvania State System of Higher Education (PASSHE). El partner_group "Wellspring" de la ficha  |
+| Newcastle University | el dominio es de otra institución | CIUDAD ERRADA: la ficha dice "Londres" y el campus principal es Newcastle upon Tyne. El sitio no menciona ning |
+| Royal Holloway university of London | el dominio es de otra institución | Ciudad de ficha imprecisa: forma parte de University of London pero el campus esta en Egham, Surrey, no en Lon |
+| Language Links | el dominio es de otra institución | Nombre legal completo es "Language Links International"; la ficha usa la marca corta. Level 1, 120 Roe Street, |
+| VELOCITY EDUCATION & TRAINING | dominio muerto | DOMINIO MUERTO CONFIRMADO: velocity.edu.au y www.velocity.edu.au dan NXDOMAIN contra DNS publico 8.8.8.8, y la |
+| Nacel France | no es una institución (agencia) | NO ES INSTITUCION: es una agencia/red de viajes educativos de 50 anios que revende programas de terceros en 25 |
+| University College Dublin | el dominio es de otra institución | FICHA FANTASMA + PAIS ERRADO. El dominio no pertenece a University College Dublin sino al centro pathway que S |
+| NZLC | duplicado de otra ficha | Sin avisos de cierre ni cambio de dueno. La ficha solo registra Auckland (Level 3, 242 Queen Street) pero tamb |
+| High School Greater Victoria SD 61 | duplicado de otra ficha | El `sitio` apunta al DISTRITO, no al programa internacional que una agencia vende. El dominio correcto para ve |
+| Massey University College | el dominio es de otra institución | FANTASMA PARCIAL: "Massey University College" NO existe en el sitio — no hay ningun college de pathway con ese |
+| Dublin International Study centre | duplicado de otra ficha | Progresa a University College Dublin (UCD). ATENCION: comparte exactamente la misma infraestructura Akamai/IP  |
+| College international Mont-Tremblant | el dominio es de otra institución | FANTASMA: la escuela NO EXISTE todavia. El propio formulario de admision dice "DEMANDE D'INTERET POUR L'INSCRI |
+| Shorelight Universities | duplicado de otra ficha | NO ES UNA INSTITUCION: es una empresa de reclutamiento y servicios para estudiantes internacionales que no imp |
+| ICM - International College of Manitoba | el dominio es de otra institución | CRITICO / FANTASMA: el `sitio` apunta a la UNIVERSIDAD paraguas, no al college. Las palabras "ICM", "Internati |
+| The University of Western Australia (UWA) | duplicado de otra ficha | DUPLICADO CROSS-LOTE: la misma institucion y el mismo dominio estan en `lote_38.json` como `university-of-west |
+| In Florence Academy | duplicado de otra ficha | `puede_vender` trae "Idiomas" DUPLICADO (["Idiomas","Idiomas"]). Revisado el HTML crudo (261 KB) con UA de nav |
+| Elite School of Beauty and Spa | la institución cerró | La entidad que MATRICULA no es "Elite School of Beauty and Spa" sino Yoobee Colleges Ltd: el nombre de la fich |
 
 ---
 

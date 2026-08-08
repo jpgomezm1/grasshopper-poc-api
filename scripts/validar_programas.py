@@ -89,6 +89,28 @@ def main() -> int:
             f["nivel"] = f["nivel"].lower()
             ok.append(f)
 
+    # Instituciones reextraídas · hay que descartar la versión vieja ANTES de
+    # deduplicar, no después.
+    #
+    # El orden importa y ya mordió: la deduplicación se queda con la PRIMERA
+    # aparición, y los lotes se leen ordenados por nombre de archivo. Torrens
+    # salió en el lote 11 y se reextrajo mejor en el 35; al deduplicar primero,
+    # las 177 filas del 35 que compartían nombre con el 11 caían como
+    # "duplicado", y la limpieza posterior borraba las del 11 — Torrens se
+    # quedaba con 33 de sus 210 programas y el informe no decía nada raro.
+    from limpiar_programas import SOLO_DEL_LOTE
+
+    supera = []
+    for f in ok:
+        bueno = SOLO_DEL_LOTE.get(f["institucion"].lower())
+        if bueno and f["lote"] != bueno:
+            malas.append({"lote": f["lote"], "linea": "-",
+                          "motivo": f"extracción superada por el lote {bueno}",
+                          "contenido": f"{f['institucion']} | {f['nombre']}"[:180]})
+            continue
+        supera.append(f)
+    ok = supera
+
     # Duplicados exactos · misma institución y mismo nombre de programa
     vistos, unicos, dups = set(), [], 0
     for f in ok:

@@ -80,6 +80,25 @@ ALIAS = {
     "unisa · university of south australia": "Adelaide University",
 }
 
+# ---------------------------------------------------------------------------
+# 4 · Instituciones extraídas más de una vez, con una versión mejor
+# ---------------------------------------------------------------------------
+# Torrens quedó en tres lotes: el 11 la extrajo entera (224 filas), el 24 volvió
+# a hacerlo mal creyéndola otra institución (5 filas, bajo la marca absorbida
+# "William Blue College"), y el 35 la reextrajo verificando contra el sitio vivo.
+# La deduplicación normal NO las colapsa: son filas con nombres distintos, no
+# repetidos, así que las tres versiones sobrevivirían sumadas.
+#
+# Gana el lote 35: mismo número de programas con CRICOS verificado (91) que el
+# 11, menos 47 "single subjects" —que la propia página describe como asignaturas
+# sueltas hacia un grado, o sea componentes, no credenciales— y más 33 cursos del
+# subdominio `shortcourses.torrensonline.com`, que el 11 no podía ver por la
+# regla de un solo dominio.
+SOLO_DEL_LOTE = {
+    "torrens university australia": "35",
+    "william blue college of hospitality management": "35",
+}
+
 
 def _motivo(f: dict) -> str | None:
     """El primer motivo por el que esta fila no debería cargarse, o None."""
@@ -88,6 +107,9 @@ def _motivo(f: dict) -> str | None:
     if f["institucion"].lower() in CPD_INSTITUCIONES:
         if f["nivel"] in CPD_NIVELES:
             return "CPD / Skills Bootcamp UK · cerrado a estudiantes extranjeros"
+    bueno = SOLO_DEL_LOTE.get(f["institucion"].lower())
+    if bueno and f["lote"] != bueno:
+        return f"extracción superada por el lote {bueno}"
     return None
 
 

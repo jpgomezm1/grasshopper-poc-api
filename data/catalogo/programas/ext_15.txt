@@ -1,0 +1,790 @@
+# Lote 15 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Fairleigh Dickinson University · campus Vancouver (www.fdu.edu) ---
+Fairleigh Dickinson University | Business Administration BBA (Vancouver) | bachelor | Negocios | no indicada | - | https://www.fdu.edu/program/bba-business-administration/
+Fairleigh Dickinson University | Information Technology BSIT (Vancouver) | bachelor | Tecnología | no indicada | - | https://www.fdu.edu/program/bs-information-technology-vancouver/
+Fairleigh Dickinson University | Individualized Studies BAIS (Vancouver) | bachelor | Humanidades | no indicada | - | https://www.fdu.edu/program/ba-individualized-studies-vancouver/
+Fairleigh Dickinson University | Administrative Studies MAS (Vancouver) | maestria | Negocios | no indicada | - | https://www.fdu.edu/program/administrative-studies-mas-vancouver/
+Fairleigh Dickinson University | Applied Computer Science MSACS (Vancouver) | maestria | Tecnología | no indicada | - | https://www.fdu.edu/program/msacs-applied-computer-science/
+Fairleigh Dickinson University | Health Administration MHA (Vancouver) | maestria | Salud | no indicada | - | https://www.fdu.edu/program/health-administration-mha-vancouver/
+Fairleigh Dickinson University | Hospitality Management Studies MHMS (Vancouver) | maestria | Hospitalidad | no indicada | - | https://www.fdu.edu/program/mhms-hospitality-management-studies-vancouver/
+Fairleigh Dickinson University | Esports Media, Broadcasting & Content Creation | curso_corto | Comunicación | no indicada | - | https://www.fdu.edu/program/cpe-esports-media-broadcasting-content-creation/
+Fairleigh Dickinson University | Game Technology Enhanced by AI | curso_corto | Tecnología | no indicada | - | https://www.fdu.edu/program/cpe-game-technology-enhanced-by-ai/
+Fairleigh Dickinson University | Interdisciplinary Certificate in International Collaboration | curso_corto | Ciencias Sociales | no indicada | - | https://www.fdu.edu/program/interdisciplinary-certificate-in-international-collaboration/
+Fairleigh Dickinson University | Interdisciplinary Undergraduate Certificate in Leadership | curso_corto | Negocios | no indicada | - | https://www.fdu.edu/program/interdisciplinary-undergraduate-certificate-in-leadership/
+
+# --- Fairleigh Dickinson University · pregrado campus New Jersey / Online (www.fdu.edu) ---
+Fairleigh Dickinson University | Accounting BS | bachelor | Negocios | no indicada | - | https://www.fdu.edu/program/bs-accounting/
+Fairleigh Dickinson University | Allied Health Technology BS (Health Science) | bachelor | Salud | no indicada | - | https://www.fdu.edu/program/bs-allied-health-technologies-health-science-concentration-completion-with-associate/
+Fairleigh Dickinson University | Allied Health Technology BS (Respiratory Care) | bachelor | Salud | no indicada | - | https://www.fdu.edu/program/respiratory-care-bs/
+Fairleigh Dickinson University | Art BA | bachelor | Artes | no indicada | - | https://www.fdu.edu/program/ba-art/
+Fairleigh Dickinson University | Digital and Multimedia Storytelling BA | bachelor | Comunicación | no indicada | - | https://www.fdu.edu/program/bachelor-of-arts-digital-and-multimedia-storytelling/
+Fairleigh Dickinson University | Science and Technical Writing BA | bachelor | Comunicación | no indicada | - | https://www.fdu.edu/program/bachelor-of-arts-in-science-and-technical-writing/
+Fairleigh Dickinson University | Biochemistry BS | bachelor | Ciencias | no indicada | - | https://www.fdu.edu/program/bs-biochemistry/
+Fairleigh Dickinson University | Biology BS | bachelor | Ciencias | no indicada | - | https://www.fdu.edu/program/bs-biology/
+Fairleigh Dickinson University | Business Administration BS | bachelor | Negocios | no indicada | - | https://www.fdu.edu/program/bs-business-administration/
+Fairleigh Dickinson University | Civil Engineering BS | bachelor | Ingeniería | no indicada | - | https://www.fdu.edu/program/bs-civil-engineering/
+Fairleigh Dickinson University | Civil Engineering Technology BS | bachelor | Ingeniería | no indicada | - | https://www.fdu.edu/program/bs-civil-engineering-technology/
+Fairleigh Dickinson University | Clinical Laboratory Science/Medical Technology BS | bachelor | Salud | no indicada | - | https://www.fdu.edu/program/bs-clinical-laboratory-science/
+Fairleigh Dickinson University | Communication BA | bachelor | Comunicación | no indicada | - | https://www.fdu.edu/program/ba-communication-florham/
+Fairleigh Dickinson University | Computer Science BS | bachelor | Tecnología | no indicada | - | https://www.fdu.edu/program/bs-computer-science-florham/
+Fairleigh Dickinson University | Construction Engineering Technology BS | bachelor | Ingeniería | no indicada | - | https://www.fdu.edu/program/bs-construction-engineering-technology/
+Fairleigh Dickinson University | Criminal Justice BA | bachelor | Derecho | no indicada | - | https://www.fdu.edu/program/ba-criminal-justice/
+Fairleigh Dickinson University | Criminology & Criminal Justice BA | bachelor | Derecho | no indicada | - | https://www.fdu.edu/program/criminology-criminal-justice-ba/
+Fairleigh Dickinson University | Criminology BA | bachelor | Derecho | no indicada | - | https://www.fdu.edu/program/ba-criminology/
+Fairleigh Dickinson University | Degree Completion BA | bachelor | Humanidades | no indicada | - | https://www.fdu.edu/program/ba-degree-completion/
+Fairleigh Dickinson University | Electrical Engineering BS | bachelor | Ingeniería | no indicada | - | https://www.fdu.edu/program/bs-electrical-engineering/
+Fairleigh Dickinson University | Electrical Engineering Technology BS | bachelor | Ingeniería | no indicada | - | https://www.fdu.edu/program/bs-electrical-engineering-technology/
+Fairleigh Dickinson University | Film and Animation BA | bachelor | Artes | no indicada | - | https://www.fdu.edu/program/ba-film-and-animation-film/
+Fairleigh Dickinson University | Finance BS | bachelor | Negocios | no indicada | - | https://www.fdu.edu/program/bs-finance/
+Fairleigh Dickinson University | General Science AS | pregrado | Ciencias | no indicada | - | https://www.fdu.edu/program/associate-of-science-in-general-science-2/
+Fairleigh Dickinson University | Graphic Design BA | bachelor | Artes | no indicada | - | https://www.fdu.edu/program/ba-graphic-design/
+Fairleigh Dickinson University | Health Information Management BS | bachelor | Salud | no indicada | - | https://www.fdu.edu/program/bs-allied-health-technology-health-science-concentration/
+Fairleigh Dickinson University | Health Studies BS | bachelor | Salud | no indicada | - | https://www.fdu.edu/program/bs-health-studies/
+Fairleigh Dickinson University | Hospitality and Tourism Management BA | bachelor | Hospitalidad | no indicada | - | https://www.fdu.edu/program/ba-hospitality-tourism/
+Fairleigh Dickinson University | Humanities BA | bachelor | Humanidades | no indicada | - | https://www.fdu.edu/program/ba-humanities/
+Fairleigh Dickinson University | Individualized Studies BA | bachelor | Humanidades | no indicada | - | https://www.fdu.edu/program/individualized-studies-ba-with-concentration-in-arts/
+Fairleigh Dickinson University | Information Technology BS | bachelor | Tecnología | no indicada | - | https://www.fdu.edu/program/bs-information-technology/
+Fairleigh Dickinson University | Liberal Arts AA | pregrado | Humanidades | no indicada | - | https://www.fdu.edu/program/aa-liberal-arts/
+Fairleigh Dickinson University | Marketing BS | bachelor | Negocios | no indicada | - | https://www.fdu.edu/program/bs-marketing/
+Fairleigh Dickinson University | Mathematics BA | bachelor | Ciencias | no indicada | - | https://www.fdu.edu/program/ba-mathematics-metro/
+Fairleigh Dickinson University | Mechanical Engineering BS | bachelor | Ingeniería | no indicada | - | https://www.fdu.edu/program/bs-mechanical-engineering/
+Fairleigh Dickinson University | Mechanical Engineering Technology BS | bachelor | Ingeniería | no indicada | - | https://www.fdu.edu/program/bs-mechanical-engineering-technology/
+Fairleigh Dickinson University | Medical Imaging Science BS | bachelor | Salud | no indicada | - | https://www.fdu.edu/program/bs-medical-imaging/
+Fairleigh Dickinson University | Nursing BSN | bachelor | Enfermería | no indicada | - | https://www.fdu.edu/program/bs-nursing/
+Fairleigh Dickinson University | Nursing Accelerated BSN | bachelor | Enfermería | no indicada | - | https://www.fdu.edu/program/accelerated-bs-nursing/
+Fairleigh Dickinson University | Psychology BA | bachelor | Psicología | no indicada | - | https://www.fdu.edu/program/ba-psychology/
+Fairleigh Dickinson University | Radiography AS | pregrado | Salud | no indicada | - | https://www.fdu.edu/program/as-radiography/
+Fairleigh Dickinson University | Radiologic Technology BS | bachelor | Salud | no indicada | - | https://www.fdu.edu/program/bs-allied-health-technology-radiologic-technology-concentration/
+Fairleigh Dickinson University | Science BS | bachelor | Ciencias | no indicada | - | https://www.fdu.edu/program/bs-science/
+Fairleigh Dickinson University | Social Sciences BA | bachelor | Ciencias Sociales | no indicada | - | https://www.fdu.edu/program/ba-social-sciences/
+Fairleigh Dickinson University | Sports Management BA | bachelor | Ciencias del Deporte | no indicada | - | https://www.fdu.edu/program/ba-sport-management/
+
+# --- Fairleigh Dickinson University · posgrado campus New Jersey / Online (www.fdu.edu) ---
+Fairleigh Dickinson University | Accounting MBA | mba | Negocios | no indicada | - | https://www.fdu.edu/program/mba-accounting/
+Fairleigh Dickinson University | Accounting MS | maestria | Negocios | no indicada | - | https://www.fdu.edu/program/ms-accounting/
+Fairleigh Dickinson University | Administrative Science MAS | maestria | Negocios | no indicada | - | https://www.fdu.edu/program/mas-administrative-science/
+Fairleigh Dickinson University | Administrative Science MAS (Online) | maestria | Negocios | no indicada | - | https://www.fdu.edu/program/og-mas/
+Fairleigh Dickinson University | Data Analytics MBA | mba | Negocios | no indicada | - | https://www.fdu.edu/program/data-analytics-mba/
+Fairleigh Dickinson University | Finance MBA | mba | Negocios | no indicada | - | https://www.fdu.edu/program/mba-finance/
+Fairleigh Dickinson University | International Business MBA | mba | Negocios | no indicada | - | https://www.fdu.edu/program/mba-international-business/
+Fairleigh Dickinson University | Management MBA | mba | Negocios | no indicada | - | https://www.fdu.edu/program/mba-management/
+Fairleigh Dickinson University | Marketing MBA | mba | Negocios | no indicada | - | https://www.fdu.edu/program/mba-marketing/
+Fairleigh Dickinson University | Business Administration MBA (Online) | mba | Negocios | no indicada | - | https://www.fdu.edu/program/og-mba/
+Fairleigh Dickinson University | Pharmaceutical Management MBA | mba | Negocios | no indicada | - | https://www.fdu.edu/program/mba-pharmaceutical-management/
+Fairleigh Dickinson University | Supply Chain Management MBA | mba | Negocios | no indicada | - | https://www.fdu.edu/program/mba-supply-chain-management/
+Fairleigh Dickinson University | Health Science MHS | maestria | Salud | no indicada | - | https://www.fdu.edu/program/mhs-health-science/
+Fairleigh Dickinson University | Healthcare Administration MHA | maestria | Salud | no indicada | - | https://www.fdu.edu/program/master-of-healthcare-administration-mha/
+Fairleigh Dickinson University | Healthcare Administration MSN | maestria | Enfermería | no indicada | - | https://www.fdu.edu/program/healthcare-administration-msn/
+Fairleigh Dickinson University | Healthcare Education Administration MSN | maestria | Enfermería | no indicada | - | https://www.fdu.edu/program/healthcare-education-administration-msn/
+Fairleigh Dickinson University | Infection Preventionist MSN | maestria | Enfermería | no indicada | - | https://www.fdu.edu/program/infection-preventionist-msn/
+Fairleigh Dickinson University | Nursing Entry Level MSN | maestria | Enfermería | no indicada | - | https://www.fdu.edu/program/nursing-entry-level-msn/
+Fairleigh Dickinson University | Nursing MSN Advanced Practice/Nurse Practitioner | maestria | Enfermería | no indicada | - | https://www.fdu.edu/program/msn-nursing/
+Fairleigh Dickinson University | Nursing Practice DNP | doctorado | Enfermería | no indicada | - | https://www.fdu.edu/program/dnp-doctor-of-nursing-practice/
+Fairleigh Dickinson University | Occupational Therapy OTD | doctorado | Salud | no indicada | - | https://www.fdu.edu/program/otd-occupational-therapy-2/
+Fairleigh Dickinson University | PA Studies MS | maestria | Salud | no indicada | - | https://www.fdu.edu/program/ms-pa-studies/
+Fairleigh Dickinson University | Pharmacy PharmD | doctorado | Salud | no indicada | - | https://www.fdu.edu/program/pharmd-doctor-of-pharmacy/
+Fairleigh Dickinson University | Doctor of Medical Science DMSc | doctorado | Salud | no indicada | - | https://www.fdu.edu/program/doctor-of-medical-science-dmsc/
+Fairleigh Dickinson University | Clinical Forensic Psychology MA | maestria | Psicología | no indicada | - | https://www.fdu.edu/program/ma-forensic-psychology/
+Fairleigh Dickinson University | Clinical Mental Health Counseling MA | maestria | Psicología | no indicada | - | https://www.fdu.edu/program/ma-clinical-mental-health-counseling/
+Fairleigh Dickinson University | Clinical Psychology PhD | doctorado | Psicología | no indicada | - | https://www.fdu.edu/program/phd-clinical-psychology/
+Fairleigh Dickinson University | Clinical Psychology PhD: Forensic Track | doctorado | Psicología | no indicada | - | https://www.fdu.edu/program/phd-clinical-psychology-forensic-track/
+Fairleigh Dickinson University | Clinical Psychopharmacology MS | maestria | Psicología | no indicada | - | https://www.fdu.edu/program/ms-clinical-psychopharmacology-post-doctoral/
+Fairleigh Dickinson University | General Theoretical Psychology MA | maestria | Psicología | no indicada | - | https://www.fdu.edu/program/ma-general-theoretical-psychology/
+Fairleigh Dickinson University | Industrial Organizational Psychology MA | maestria | Psicología | no indicada | - | https://www.fdu.edu/program/ma-industrial-organizational-psychology/
+Fairleigh Dickinson University | School Psychology MA plus Certification | maestria | Psicología | no indicada | - | https://www.fdu.edu/program/ma-school-psychology-with-certification/
+Fairleigh Dickinson University | School Psychology PsyD Advanced | doctorado | Psicología | no indicada | - | https://www.fdu.edu/program/advanced-psyd-school-psychology/
+Fairleigh Dickinson University | School Psychology PsyD Traditional | doctorado | Psicología | no indicada | - | https://www.fdu.edu/program/five-year-psyd-school-psychology/
+Fairleigh Dickinson University | Computer Science MS | maestria | Tecnología | no indicada | - | https://www.fdu.edu/program/ms-computer-science-2/
+Fairleigh Dickinson University | Computer Science MS (Florham) | maestria | Tecnología | no indicada | - | https://www.fdu.edu/program/ms-computer-science/
+Fairleigh Dickinson University | Cybersecurity and Information Assurance MS | maestria | Tecnología | no indicada | - | https://www.fdu.edu/program/ms-cybersecurity-and-information-assurance/
+Fairleigh Dickinson University | Management Information Systems MS | maestria | Tecnología | no indicada | - | https://www.fdu.edu/program/ms-management-information-systems/
+Fairleigh Dickinson University | Education for Certified Teachers MA | maestria | Educación | no indicada | - | https://www.fdu.edu/program/ma-education-for-certified-teachers/
+Fairleigh Dickinson University | Educational Leadership MA | maestria | Educación | no indicada | - | https://www.fdu.edu/program/ma-educational-leadership/
+Fairleigh Dickinson University | Teaching MAT | maestria | Educación | no indicada | - | https://www.fdu.edu/program/mat-teaching/
+Fairleigh Dickinson University | Leadership Ed.D. (Online) | doctorado | Educación | no indicada | - | https://www.fdu.edu/program/leadership-edd-online-grad/
+Fairleigh Dickinson University | Criminal Justice MA | maestria | Derecho | no indicada | - | https://www.fdu.edu/program/ma-criminal-justice/
+Fairleigh Dickinson University | Master of Science in Homeland Security Administration (MSHS) | maestria | Ciencias Sociales | no indicada | - | https://www.fdu.edu/program/ms-homeland-security-administration/
+Fairleigh Dickinson University | Master of Science in Homeland Security Administration (MSHS) - Online | maestria | Ciencias Sociales | no indicada | - | https://www.fdu.edu/program/online-mshs/
+Fairleigh Dickinson University | Public Administration MPA | maestria | Ciencias Sociales | no indicada | - | https://www.fdu.edu/program/mpa-public-administration/
+Fairleigh Dickinson University | Public Administration and Public Health MPA/MPH (Online) | maestria | Salud | no indicada | - | https://www.fdu.edu/program/og-mpa-mph/
+Fairleigh Dickinson University | Public Health MPH (Online) | maestria | Salud | no indicada | - | https://www.fdu.edu/program/og-mph/
+Fairleigh Dickinson University | Animation MA | maestria | Artes | no indicada | - | https://www.fdu.edu/program/ma-animation-2/
+Fairleigh Dickinson University | Animation MFA | maestria | Artes | no indicada | - | https://www.fdu.edu/program/mfa-animation/
+Fairleigh Dickinson University | Biology MS | maestria | Ciencias | no indicada | - | https://www.fdu.edu/program/ms-biology-2/
+Fairleigh Dickinson University | Biology MS: Biotechnology concentration | maestria | Ciencias | no indicada | - | https://www.fdu.edu/program/ms-biology-biotechnology-concentration/
+Fairleigh Dickinson University | Biology MS: Business concentration | maestria | Ciencias | no indicada | - | https://www.fdu.edu/program/ms-biology-business-concentration/
+Fairleigh Dickinson University | Global Affairs MA | maestria | Ciencias Sociales | no indicada | - | https://www.fdu.edu/program/ma-global-affairs/
+Fairleigh Dickinson University | Hospitality Management Studies MHMS | maestria | Hospitalidad | no indicada | - | https://www.fdu.edu/program/mhms-hospitality-management-studies/
+Fairleigh Dickinson University | Social Work MSW (Online) | maestria | Ciencias Sociales | no indicada | - | https://www.fdu.edu/program/og-social-work-msw/
+Fairleigh Dickinson University | Sports Management MSM | maestria | Ciencias del Deporte | no indicada | - | https://www.fdu.edu/program/msm-sport-management/
+
+# --- Anglo-Continental Educational Group (anglo-continental.com) ---
+Anglo-Continental Educational Group | General English - 20 Lessons Per Week | curso_corto | Idiomas | 20 lecciones/semana | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/general-english/
+Anglo-Continental Educational Group | General English (Long Term) - 20 Lessons Per Week | curso_corto | Idiomas | 20 lecciones/semana · larga duración | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/general-english/
+Anglo-Continental Educational Group | General English - 30 Lessons Per Week | curso_corto | Idiomas | 30 lecciones/semana | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/general-english/
+Anglo-Continental Educational Group | General English (Long Term) - 30 Lessons Per Week | curso_corto | Idiomas | 30 lecciones/semana · larga duración | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/general-english/
+Anglo-Continental Educational Group | Online English | curso_corto | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/online-english/
+Anglo-Continental Educational Group | Academic Study | curso_corto | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/academic-study/
+Anglo-Continental Educational Group | Intensive English Course Plus IELTS Examination Practice | curso_corto | Idiomas | 20 lecciones generales + 10 de examen/semana | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/examination-english-courses/
+Anglo-Continental Educational Group | B1 Preliminary Examination Practice + Intensive Course | curso_corto | Idiomas | 20 lecciones generales + 10 de examen/semana | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/examination-english-courses/
+Anglo-Continental Educational Group | B2 First Examination Practice + Intensive Course | curso_corto | Idiomas | 20 lecciones generales + 10 de examen/semana | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/examination-english-courses/
+Anglo-Continental Educational Group | C1 Advanced Examination Practice + Intensive Course | curso_corto | Idiomas | 20 lecciones generales + 10 de examen/semana | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/examination-english-courses/
+Anglo-Continental Educational Group | OET Online Course | curso_corto | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/oet-online-course/
+Anglo-Continental Educational Group | Club 50+ | curso_corto | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/club-50/
+Anglo-Continental Educational Group | Bildungsurlaub | curso_corto | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/english-for-adults/bildungsurlaub/
+Anglo-Continental Educational Group | English for Business | curso_corto | Idiomas | 20 lecciones generales + 10 especializadas/semana · módulos de 2-4 semanas | - | https://www.anglo-continental.com/english-courses-in-england/business-executive/business-and-specialised/
+Anglo-Continental Educational Group | English for Medical Professionals | curso_corto | Salud | 20 lecciones generales + 10 especializadas/semana · módulos de 2-4 semanas | - | https://www.anglo-continental.com/english-courses-in-england/business-executive/business-and-specialised/
+Anglo-Continental Educational Group | English for Medical Students | curso_corto | Salud | 20 lecciones generales + 10 especializadas/semana · módulos de 2-4 semanas | - | https://www.anglo-continental.com/english-courses-in-england/business-executive/business-and-specialised/
+Anglo-Continental Educational Group | English for Law | curso_corto | Derecho | 20 lecciones generales + 10 especializadas/semana · módulos de 2-4 semanas | - | https://www.anglo-continental.com/english-courses-in-england/business-executive/business-and-specialised/
+Anglo-Continental Educational Group | Executive | curso_corto | Negocios | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/business-executive/executive-english-courses/
+Anglo-Continental Educational Group | CELTA - Cambridge Certificate in English Language Teaching to Adults | curso_corto | Educación | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/teacher-training/celta-english-language-teaching-courses/
+Anglo-Continental Educational Group | Language and Methodology of English Teaching | curso_corto | Educación | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/teacher-training/language-and-methodology-english-course/
+Anglo-Continental Educational Group | Introduction to Aviation English | curso_corto | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/aviation-english/introduction-to-aviation-english/
+Anglo-Continental Educational Group | English for Pilots and Air Traffic Controllers | curso_corto | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/aviation-english/english-for-pilots-and-air-traffic-controllers/
+Anglo-Continental Educational Group | Teaching Methodology Course for Aviation English Teachers | curso_corto | Educación | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/aviation-english/teaching-methodology-course-for-aviation-english-teachers/
+Anglo-Continental Educational Group | Special Aviation Programme | curso_corto | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/aviation-english/special-aviation-programme/
+Anglo-Continental Educational Group | Young Learners and Teenagers Courses | vacacional | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/english-courses-for-children-young-adults/young-learners/
+Anglo-Continental Educational Group | Vacation Course (January to May) | vacacional | Idiomas | 20 lecciones/semana · 16-17 años | - | https://www.anglo-continental.com/english-courses-in-england/english-courses-for-children-young-adults/vacation-english-courses/
+Anglo-Continental Educational Group | Vacation Course (June, July and August) | vacacional | Idiomas | 20 lecciones/semana · 16-17 años | - | https://www.anglo-continental.com/english-courses-in-england/english-courses-for-children-young-adults/vacation-english-courses/
+Anglo-Continental Educational Group | IELTS Preparation Vacation Course | vacacional | Idiomas | 30 lecciones/semana · 16-17 años | - | https://www.anglo-continental.com/english-courses-in-england/english-courses-for-children-young-adults/vacation-english-courses/
+Anglo-Continental Educational Group | Parent + Child | vacacional | Idiomas | no indicada | - | https://www.anglo-continental.com/english-courses-in-england/english-courses-for-children-young-adults/parent-child-2/
+
+# --- Language Studies International · LSI (lsi.edu) ---
+Language Studies International | General 20 | curso_corto | Idiomas | 20 lecciones/semana · 1-50 semanas | - | https://www.lsi.edu/sp/cursos-generales-intensivos
+Language Studies International | Intensivo 24 | curso_corto | Idiomas | 24 lecciones/semana · 1-50 semanas | - | https://www.lsi.edu/sp/cursos-generales-intensivos
+Language Studies International | Intensivo 25 | curso_corto | Idiomas | 25 lecciones/semana · 1-50 semanas | - | https://www.lsi.edu/sp/cursos-generales-intensivos
+Language Studies International | Intensivo 30 | curso_corto | Idiomas | 30 lecciones/semana · 1-50 semanas | - | https://www.lsi.edu/sp/cursos-generales-intensivos
+Language Studies International | Curso en la Tarde | curso_corto | Idiomas | 10 lecciones/semana · 1-11 semanas | - | https://www.lsi.edu/sp/cursos-generales-intensivos
+Language Studies International | Curso Plus 5 (clases individuales) | curso_corto | Idiomas | 5 lecciones individuales/semana | - | https://www.lsi.edu/sp/cursos-generales-intensivos
+Language Studies International | Curso Plus 10 (clases individuales) | curso_corto | Idiomas | 10 lecciones individuales/semana | - | https://www.lsi.edu/sp/cursos-generales-intensivos
+Language Studies International | Francés intensivo | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/cursos-generales-intensivos
+Language Studies International | Alemán intensivo | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/cursos-generales-intensivos
+Language Studies International | Preparación para exámenes | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/curso-preparación-exámenes
+Language Studies International | Cursos online para el TOEFL | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/toefl
+Language Studies International | Cursos online para el IELTS | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/ielts
+Language Studies International | Cursos para el TOEIC | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/toeic
+Language Studies International | Curso de preparación para los exámenes de Cambridge English (Online) | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/cambridge-english-language-courses-online
+Language Studies International | Inglés para negocios | curso_corto | Negocios | no indicada | - | https://www.lsi.edu/sp/english-for-business-courses.php
+Language Studies International | Inglés médico | curso_corto | Salud | no indicada | - | https://www.lsi.edu/sp/medical-english-course.php
+Language Studies International | Inglés Jurídico | curso_corto | Derecho | no indicada | - | https://www.lsi.edu/sp/legal-english-course.php
+Language Studies International | Inglés para Aviación | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/english-for-aviation.php
+Language Studies International | Inglés para Hablar en Público y Presentaciones | curso_corto | Comunicación | no indicada | - | https://www.lsi.edu/sp/public-speaking-and-presentation-course.php
+Language Studies International | Inglés para la enseñanza | curso_corto | Educación | no indicada | - | https://www.lsi.edu/sp/english-for-teaching.php
+Language Studies International | Entrenamiento de CELTA | curso_corto | Educación | no indicada | - | https://www.lsi.edu/sp/cambridge-celta-courses
+Language Studies International | Campamentos de verano | vacacional | Idiomas | no indicada | - | https://www.lsi.edu/sp/cursos-de-inglés-para-jóvenes
+Language Studies International | Viajes de estudio | vacacional | Idiomas | no indicada | - | https://www.lsi.edu/sp/cursos-de-inglés-para-jóvenes
+Language Studies International | Aprende Inglés Online | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/online/inglesa
+Language Studies International | Aprender Francés en línea | curso_corto | Idiomas | 10-25 horas/semana | - | https://www.lsi.edu/sp/online-private-french-lessons.php
+Language Studies International | Aprender Alemán en línea | curso_corto | Idiomas | 10-25 horas/semana | - | https://www.lsi.edu/sp/online-private-german-lessons.php
+Language Studies International | Clases privadas y grupos personalizados | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/online-private-english-lessons.php
+Language Studies International | Study University Pathways Programmes Online | curso_corto | Preparación Universitaria | no indicada | - | https://www.lsi.edu/sp/online-university-pathways-courses
+Language Studies International | Inglés Académico | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/inglés-académico-para-la-universidad
+Language Studies International | Período escolar en el extranjero/Año académico en el extranjero | intercambio | Idiomas | trimestre o año académico | - | https://www.lsi.edu/sp/academic-term-and-year-abroad
+Language Studies International | Club 40+ | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/cursos-de-idiomas
+Language Studies International | Programa Estudia y Trabaja | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/study-and-work-programmes.php
+Language Studies International | Estudia y Trabaja de niñero/a | curso_corto | Idiomas | no indicada | - | https://www.lsi.edu/sp/estudia-y-trabaja-de-niñera
+
+# --- Queensland International Business Academy · QIBA (qiba.edu.au) ---
+Queensland International Business Academy | General English Program | curso_corto | Idiomas | 4-60 semanas | 080115D | https://qiba.edu.au/courses/080115d-general-english-program/
+Queensland International Business Academy | English for Academic Study | curso_corto | Idiomas | 10-24 semanas | 022758E | https://qiba.edu.au/courses/022758e-english-for-academic-study/
+Queensland International Business Academy | PTE-Academic Exam Preparation Course | curso_corto | Idiomas | 4-24 semanas | 096939K | https://qiba.edu.au/courses/096939k-pte-academic-exam-preparation-course/
+Queensland International Business Academy | Certificate IV in Kitchen Management | curso_corto | Hospitalidad | 78 semanas | SIT40521 | https://qiba.edu.au/courses/sit40521-certificate-iv-in-kitchen-management/
+Queensland International Business Academy | Diploma of Business (Operations) | diplomado | Negocios | 52 semanas | BSB50120 | https://qiba.edu.au/courses/bsb50120-diploma-of-business-operations/
+Queensland International Business Academy | Diploma of Leadership and Management | diplomado | Negocios | 52 semanas | BSB50420 | https://qiba.edu.au/courses/bsb50420-diploma-of-leadership-and-management/
+Queensland International Business Academy | Advanced Diploma of Leadership and Management | diplomado | Negocios | 52 semanas | BSB60420 | https://qiba.edu.au/courses/bsb60420-advanced-diploma-of-leadership-and-management/
+Queensland International Business Academy | Diploma of Hospitality Management | diplomado | Hospitalidad | 78 semanas | SIT50422 | https://qiba.edu.au/courses/sit50422-diploma-of-hospitality-management/
+Queensland International Business Academy | Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | 78 semanas | SIT60322 | https://qiba.edu.au/courses/sit60322-advanced-diploma-of-hospitality-management/
+Queensland International Business Academy | Diploma of Information Technology | diplomado | Tecnología | 78 semanas | ICT50220 | https://qiba.edu.au/courses/ict50220-diploma-of-information-technology/
+Queensland International Business Academy | Advanced Diploma of Information Technology | diplomado | Tecnología | 52 semanas | ICT60220 | https://qiba.edu.au/courses/ict60220-advanced-diploma-of-information-technology/
+Queensland International Business Academy | Graduate Diploma of Management (Learning) | posgrado | Negocios | 52 semanas | BSB80120 | https://qiba.edu.au/courses/bsb80120-graduate-diploma-of-management-learning/
+Queensland International Business Academy | Professional Year in Information Technology | curso_corto | Tecnología | no indicada | - | https://qiba.edu.au/courses/professional-year-in-information-technology/
+
+# --- Universal Higher Education · UHE Australia (uhe.edu.au) ---
+Universal Higher Education | Bachelor of Information Technology | bachelor | Tecnología | no indicada | 102223C | https://www.uhe.edu.au/bachelor-of-information-technology
+Universal Higher Education | Master of Information Technology | maestria | Tecnología | no indicada | 114614M | https://www.uhe.edu.au/master-information-technology
+Universal Higher Education | Master of Engineering Management | maestria | Ingeniería | no indicada | 114008M | https://www.uhe.edu.au/mem
+Universal Higher Education | Graduate Certificate in Information Technology | posgrado | Tecnología | no indicada | 114615K | https://www.uhe.edu.au/graduatecertificateininformationtechnology
+Universal Higher Education | Graduate Diploma of Information Technology | posgrado | Tecnología | no indicada | 114616J | https://www.uhe.edu.au/graduatediplomaofinformationtechnology
+
+# --- CodeCore College (codecore.ca) ---
+CodeCore College | CodeCore Developer Bootcamp | bootcamp | Tecnología | 12 semanas | - | https://www.codecore.ca/programs/bootcamp/
+CodeCore College | Web Applications Development Diploma | diplomado | Tecnología | no indicada | - | https://codecore.ca/programs/web-application-development-diploma
+CodeCore College | Advanced Web Application Development Diploma | diplomado | Tecnología | 48 semanas | - | https://codecore.ca/programs/advanced-web-application-development-diploma/
+CodeCore College | Advanced Web Application Development Diploma Co-op | diplomado | Tecnología | no indicada | - | https://codecore.ca/programs/advanced-web-application-development-diploma-co-op/
+CodeCore College | Advanced Diploma in Computing - Software Development | diplomado | Tecnología | no indicada | - | https://codecore.ca/programs/advanced-diploma-in-computing-software-development
+CodeCore College | Robotics and Automation | diplomado | Ingeniería | 2 años (2º año por transferencia a University of the Fraser Valley) | - | https://codecore.ca/programs/robotics-and-automation/
+CodeCore College | Advanced Diploma in Business | diplomado | Negocios | 60 semanas | - | https://codecore.ca/programs/advanced-diploma-in-business/
+CodeCore College | Business Administration Diploma - Management Specialization | diplomado | Negocios | no indicada | - | https://www.codecore.ca/programs/business-administration-diploma-management-specialization/
+CodeCore College | Business Administration Diploma - Accounting Specialization | diplomado | Negocios | no indicada | - | https://www.codecore.ca/programs/business-administration-diploma-accounting-specialization/
+CodeCore College | General Business Certificate | curso_corto | Negocios | no indicada | - | https://codecore.ca/programs/business-general-program
+CodeCore College | Education Assistant (Teacher's Assistant) | diplomado | Educación | no indicada | - | https://codecore.ca/programs/education-assistant
+
+# --- Niagara College - Toronto (www.niagaracollegetoronto.ca) ---
+Niagara College - Toronto | Personal Support Worker | curso_corto | Salud | 1 año | - | https://www.niagaracollegetoronto.ca/programs/certificate/personal-support-worker
+Niagara College - Toronto | Business | diplomado | Negocios | 2 años | - | https://www.niagaracollegetoronto.ca/programs/undergraduate-diploma/business
+Niagara College - Toronto | Business - Accounting | diplomado | Negocios | 2 años | - | https://www.niagaracollegetoronto.ca/programs/undergraduate-diploma/business-accounting
+Niagara College - Toronto | Business - Sales and Marketing | diplomado | Negocios | 2 años | - | https://www.niagaracollegetoronto.ca/programs/undergraduate-diploma/business-sales-and-marketing
+Niagara College - Toronto | Computer Programming | diplomado | Tecnología | 2 años | - | https://www.niagaracollegetoronto.ca/programs/undergraduate-diploma/computer-programming
+Niagara College - Toronto | Business (TSOM Pathway) | diplomado | Negocios | 2 años | - | https://www.niagaracollegetoronto.ca/programs/undergraduate-diploma/business-tsom-pathway
+Niagara College - Toronto | Hospitality and Tourism Management | posgrado | Hospitalidad | 1 año | - | https://www.niagaracollegetoronto.ca/programs/graduate-certificate/hospitality-and-tourism-management
+Niagara College - Toronto | Human Resources Management | posgrado | Negocios | 1 año | - | https://www.niagaracollegetoronto.ca/programs/graduate-certificate/human-resources-management
+Niagara College - Toronto | International Business Management | posgrado | Negocios | 1 año | - | https://www.niagaracollegetoronto.ca/programs/graduate-certificate/international-business-management
+Niagara College - Toronto | Nursing Leadership and Healthcare Management | posgrado | Salud | 1 año | - | https://www.niagaracollegetoronto.ca/programs/graduate-certificate/nursing-leadership-and-healthcare-management
+
+# --- Universidad Camilo José Cela · grados y dobles grados (www.ucjc.edu) ---
+Universidad Camilo José Cela | Grado en Liderazgo Biofarmacéutico, Innovación y Tecnología en Salud (BLISS) | pregrado | Salud | 4 años | - | https://www.ucjc.edu/grados/liderazgo-biofarmaceutico-innovacion-y-tecnologia-en-salud/
+Universidad Camilo José Cela | Grado en Nutrición Humana y Dietética | pregrado | Salud | 4 años | - | https://www.ucjc.edu/grados/nutricion-humana-dietetica/
+Universidad Camilo José Cela | Grado en Marketing y Tecnología | pregrado | Negocios | 4 años | - | https://www.ucjc.edu/grados/marketing/
+Universidad Camilo José Cela | Grado en Farmacia | pregrado | Salud | 5 años | - | https://www.ucjc.edu/grados/farmacia/
+Universidad Camilo José Cela | Grado en Pedagogía | pregrado | Educación | 4 años | - | https://www.ucjc.edu/grados/pedagogia/
+Universidad Camilo José Cela | Grado en Ingeniería Informática Biomédica | pregrado | Ingeniería | 4 años | - | https://www.ucjc.edu/grados/ingenieria-informatica-biomedica/
+Universidad Camilo José Cela | Grado en Psicología | pregrado | Psicología | 4 años | - | https://www.ucjc.edu/grados/psicologia/
+Universidad Camilo José Cela | Grado en Biomedicina | pregrado | Salud | 4 años | - | https://www.ucjc.edu/grados/biomedicina/
+Universidad Camilo José Cela | Grado en Odontología | pregrado | Odontología | 5 años | - | https://www.ucjc.edu/grados/odontologia/
+Universidad Camilo José Cela | Grado en Fisioterapia | pregrado | Salud | 4 años | - | https://www.ucjc.edu/grados/fisioterapia/
+Universidad Camilo José Cela | Grado en Medicina | pregrado | Salud | 6 años | - | https://www.ucjc.edu/grados/medicina/
+Universidad Camilo José Cela | Grado en Enfermería | pregrado | Enfermería | 4 años | - | https://www.ucjc.edu/grados/enfermeria/
+Universidad Camilo José Cela | Grado en Ciencias de la Actividad Física y el Deporte (CCAFYD) | pregrado | Ciencias del Deporte | 4 años | - | https://www.ucjc.edu/grados/ciencias-actividad-fisica-deporte/
+Universidad Camilo José Cela | Grado en Gestión y Comunicación de Moda | pregrado | Negocios | 4 años | - | https://www.ucjc.edu/grados/gestion-y-comunicacion-de-la-moda/
+Universidad Camilo José Cela | Grado en Diseño de Moda | pregrado | Artes | 4 años | - | https://www.ucjc.edu/grados/diseno-moda/
+Universidad Camilo José Cela | Grado en Diseño de Interiores | pregrado | Artes | 4 años | - | https://www.ucjc.edu/grados/diseno-interiores/
+Universidad Camilo José Cela | Grado en Artes Digitales | pregrado | Artes | 4 años | - | https://www.ucjc.edu/grados/artes-digitales/
+Universidad Camilo José Cela | Grado en Cine y Ficción Audiovisual | pregrado | Comunicación | 4 años | - | https://www.ucjc.edu/grados/cine-ficcion-audiovisual/
+Universidad Camilo José Cela | Grado en Protocolo y Organización de Eventos | pregrado | Hospitalidad | 4 años | - | https://www.ucjc.edu/grados/protocolo-organizacion-eventos/
+Universidad Camilo José Cela | Grado en Transporte y Logística | pregrado | Negocios | 4 años | - | https://www.ucjc.edu/grados/transporte-logistica/
+Universidad Camilo José Cela | Grado en Emprendimiento y Gestión de Empresas | pregrado | Negocios | 4 años | - | https://www.ucjc.edu/grados/emprendimiento-gestion-empresas/
+Universidad Camilo José Cela | Grado en Empresa y Tecnología | pregrado | Negocios | 4 años | - | https://www.ucjc.edu/grados/empresa-tecnologia/
+Universidad Camilo José Cela | Grado en Ingeniería Robótica e Inteligencia Artificial | pregrado | Ingeniería | 4 años | - | https://www.ucjc.edu/grados/ingenieria-robotica-inteligencia-artificial/
+Universidad Camilo José Cela | Grado en Ingeniería Informática | pregrado | Ingeniería | 4 años | - | https://www.ucjc.edu/grados/ingenieria-informatica/
+Universidad Camilo José Cela | Grado en Ingeniería Telemática | pregrado | Ingeniería | 4 años | - | https://www.ucjc.edu/grados/ingenieria-telematica/
+Universidad Camilo José Cela | Grado en Derecho | pregrado | Derecho | 4 años | - | https://www.ucjc.edu/grados/derecho/
+Universidad Camilo José Cela | Grado en Maestro en Educación Primaria | pregrado | Educación | 4 años | - | https://www.ucjc.edu/grados/maestro-educacion-primaria/
+Universidad Camilo José Cela | Grado en Maestro en Educación Infantil | pregrado | Educación | 4 años | - | https://www.ucjc.edu/grados/maestro-educacion-infantil/
+Universidad Camilo José Cela | Grado en Relaciones Internacionales | pregrado | Ciencias Sociales | 4 años | - | https://www.ucjc.edu/grados/relaciones-internacionales/
+Universidad Camilo José Cela | Grado en Comunicación Audiovisual y Nuevos Medios | pregrado | Comunicación | 4 años | - | https://www.ucjc.edu/grados/comunicacion-audiovisual-nuevos-medios/
+Universidad Camilo José Cela | Grado en Criminología y Seguridad | pregrado | Derecho | 4 años | - | https://www.ucjc.edu/grados/criminologia-seguridad/
+Universidad Camilo José Cela | Grado en Publicidad Creativa | pregrado | Comunicación | 4 años | - | https://www.ucjc.edu/grados/publicidad-creativa/
+Universidad Camilo José Cela | Doble Titulación en Criminología y Seguridad + Psicología | pregrado | Derecho | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-criminologia-seguridad-psicologia/
+Universidad Camilo José Cela | Doble Titulación en CAFYD y Fisioterapia | pregrado | Ciencias del Deporte | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-ccafyd-fisioterapia/
+Universidad Camilo José Cela | Doble Titulación en Nutrición Humana y Dietética + CCAFYD | pregrado | Salud | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-nutricion-humana-dietetica-ccafyd/
+Universidad Camilo José Cela | Doble Titulación en Nutrición Humana y Dietética + Enfermería | pregrado | Salud | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-nutricion-humana-dietetica-enfermeria/
+Universidad Camilo José Cela | Doble Titulación en Farmacia + Nutrición Humana y Dietética | pregrado | Salud | 6 años | - | https://www.ucjc.edu/grados/doble-titulacion-farmacia-nutricion-humana-dietetica/
+Universidad Camilo José Cela | Doble Titulación en Nutrición Humana y Dietética + Fisioterapia | pregrado | Salud | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-nutricion-humana-dietetica-fisioterapia/
+Universidad Camilo José Cela | Doble Titulación en Enfermería + Fisioterapia | pregrado | Enfermería | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-enfermeria-fisioterapia/
+Universidad Camilo José Cela | Doble Titulación en Maestro en Educación Primaria + Psicología | pregrado | Educación | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-maestro-educacion-primaria-psicologia/
+Universidad Camilo José Cela | Doble Titulación en Maestro en Educación Infantil + Psicología | pregrado | Educación | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-maestro-educacion-infantil-psicologia/
+Universidad Camilo José Cela | Doble Titulación en Publicidad Creativa + Protocolo y Organización de Eventos | pregrado | Comunicación | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-publicidad-creativa-protocolo-organizacion-eventos/
+Universidad Camilo José Cela | Doble Grado en Ingeniería Telemática + Ingeniería Robótica e Inteligencia Artificial | pregrado | Ingeniería | 5 años | - | https://www.ucjc.edu/grados/doble-grado-en-ingenieria-telematica-ingenieria-robotica-e-inteligencia-artificial/
+Universidad Camilo José Cela | Doble Titulación en Comunicación Audiovisual + Cine y Ficción Audiovisual | pregrado | Comunicación | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-comunicacion-audiovisual-cine-ficcion-audiovisual/
+Universidad Camilo José Cela | Doble Titulación en Ingeniería Informática + Ingeniería Robótica e Inteligencia Artificial | pregrado | Ingeniería | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-ingenieria-informatica-ingenieria-robotica-inteligencia-artificial/
+Universidad Camilo José Cela | Doble Titulación en Criminología y Seguridad + Derecho | pregrado | Derecho | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-criminologia-seguridad-derecho/
+Universidad Camilo José Cela | Doble Titulación en Relaciones Internacionales + Derecho | pregrado | Derecho | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-relaciones-internacionales-derecho/
+Universidad Camilo José Cela | Doble Titulación en Maestro en Educación Primaria + Infantil | pregrado | Educación | 4,5 años | - | https://www.ucjc.edu/grados/doble-titulacion-maestro-educacion-primaria-infantil/
+Universidad Camilo José Cela | Doble Titulación en Comunicación Audiovisual y Nuevos Medios + Publicidad Creativa | pregrado | Comunicación | 5 años | - | https://www.ucjc.edu/grados/doble-titulacion-comunicacion-audiovisual-nuevos-medios-publicidad-creativa/
+
+# --- Universidad Camilo José Cela · másteres (www.ucjc.edu) ---
+Universidad Camilo José Cela | Máster Universitario en Marketing Digital, Comunicación y Redes Sociales | maestria | Negocios | 1 año | - | https://www.ucjc.edu/master/marketing-digital-comunicacion-redes-sociales/
+Universidad Camilo José Cela | Máster Universitario en Ciencia de Datos | maestria | Tecnología | 1 año | - | https://www.ucjc.edu/master/ciencia-datos/
+Universidad Camilo José Cela | Máster Universitario en Recursos Humanos: Organización y Gestión del Talento | maestria | Negocios | 1 año | - | https://www.ucjc.edu/master/recursos-humanos-organizacion-gestion-talento/
+Universidad Camilo José Cela | Máster Universitario en Necesidades Educativas Especiales y Educación Inclusiva | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/necesidades-educativas-especiales-educacion-inclusiva/
+Universidad Camilo José Cela | Máster Universitario en Tecnología Digital Aplicada a la Práctica Docente | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/tecnologia-digital-aplicada-a-practica-docente/
+Universidad Camilo José Cela | Máster Universitario en Competencias Docentes Avanzadas | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/competencias-docentes-avanzadas/
+Universidad Camilo José Cela | Máster Universitario en Estrategia y Gestión de la Sostenibilidad de la Empresa | maestria | Negocios | 1 año | - | https://www.ucjc.edu/master/master-universitario-en-estrategia-y-gestion-de-la-sostenibilidad-de-la-empresa/
+Universidad Camilo José Cela | Máster Universitario en Educación Internacional y Bilingüismo | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/educacion-internacional-bilinguismo/
+Universidad Camilo José Cela | Máster Universitario en Valoración del Daño Corporal, Pericia Médica y Resolución Extrajudicial de Conflictos de Responsabilidad Sanitaria | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/valoracion-dano-corporal-pericia-medica-resolucion-extrajudicial-conflictos-responsabilidad-sanitaria/
+Universidad Camilo José Cela | Máster Universitario en Urgencias en Montaña y Medios Inhóspitos | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/urgencias-montana-medios-inhospitos/
+Universidad Camilo José Cela | Máster Universitario en Sexología: Educación Sexual y Asesoramiento Sexológico | maestria | Psicología | 1 año y 6 meses | - | https://www.ucjc.edu/master/sexologia-educacion-sexual-asesoramiento-sexologico/
+Universidad Camilo José Cela | Máster Universitario en Salud Escolar | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/salud-escolar/
+Universidad Camilo José Cela | Máster Universitario en Psicología General Sanitaria | maestria | Psicología | 2 años | - | https://www.ucjc.edu/master/psicologia-general-sanitaria/
+Universidad Camilo José Cela | Máster Universitario en Osteopatía Integrativa | maestria | Salud | 2 años | - | https://www.ucjc.edu/master/osteopatia-integrativa/
+Universidad Camilo José Cela | Máster Universitario en Fisioterapia y Readaptación en el Deporte | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/fisioterapia-readaptacion-deporte/
+Universidad Camilo José Cela | Máster Universitario en Evaluación y Rehabilitación Neuropsicológicas | maestria | Psicología | 1 año | - | https://www.ucjc.edu/master/evaluacion-rehabilitacion-neuropsicologicas/
+Universidad Camilo José Cela | Máster Universitario en Estudio de las Intervenciones en Emergencias, Catástrofes y Cooperación Internacional | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/estudio-las-intervenciones-emergencias-catastrofes-cooperacion-internacional/
+Universidad Camilo José Cela | Máster Universitario en Entrenamiento de Fuerza y Rendimiento Neuromuscular | maestria | Ciencias del Deporte | 1 año | - | https://www.ucjc.edu/master/entrenamiento-fuerza-rendimiento-neuromuscular/
+Universidad Camilo José Cela | Máster Universitario en Enfermería en Cuidados Críticos Intrahospitalarios | maestria | Enfermería | 1 año | - | https://www.ucjc.edu/master/enfermeria-cuidados-criticos-intrahospitalarios/
+Universidad Camilo José Cela | Máster Universitario en Ejercicio y Nutrición para la Salud | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/ejercicio-nutricion-para-salud/
+Universidad Camilo José Cela | Máster Universitario en Derecho Sanitario | maestria | Derecho | 1 año | - | https://www.ucjc.edu/master/derecho-sanitario/
+Universidad Camilo José Cela | Máster Universitario en Atención Temprana | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/atencion-temprana/
+Universidad Camilo José Cela | Máster Universitario en Investigación y Gestión en Enfermería | maestria | Enfermería | 1 año | - | https://www.ucjc.edu/master/investigacion-en-enfermeria/
+Universidad Camilo José Cela | Máster de Formación Permanente en Electrofisiología Cardiaca y Arritmología Clínica | maestria | Salud | 2 años | - | https://www.ucjc.edu/master/electrofisiologia-cardiaca-arritmologia-clinica/
+Universidad Camilo José Cela | Máster de Formación Permanente en Athletic Training and Therapy | maestria | Ciencias del Deporte | 2 años | - | https://www.ucjc.edu/master/athletic-training-and-therapy/
+Universidad Camilo José Cela | Máster de Formación Permanente en Fisioterapia del Suelo Pélvico: Urología, Ginecología y Obstetricia | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/fisioterapia-del-suelo-pelvico-urologia-ginecologia-y-obstetricia/
+Universidad Camilo José Cela | Máster de Formación Permanente en Monitorización y Gestión de Ensayos Clínicos | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/monitorizacion-y-gestion-de-ensayos-clinicos/
+Universidad Camilo José Cela | Máster de Formación Permanente en Fabricación, Calidad y Registros en la Industria Farmacéutica | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/fabricacion-calidad-registros-industria-farmaceutica/
+Universidad Camilo José Cela | Máster de Formación Permanente en Investigación Clínica Avanzada en Oncología | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/investigacion-clinica-aplicada-oncologia/
+Universidad Camilo José Cela | Máster de Formación Permanente en Urgencias Pediátricas | maestria | Salud | 2 años | - | https://www.ucjc.edu/master/urgencias-pediatricas/
+Universidad Camilo José Cela | MBA y LIDERAZGO en Industria Farmacéutica y Biotecnológica | mba | Negocios | 1 año | - | https://www.ucjc.edu/master/mba-y-liderazgo-en-industria-farmaceutica-y-biotecnologica/
+Universidad Camilo José Cela | MBA y LIDERAZGO en Industrias de Tecnologías Médicas y Sanitarias | mba | Negocios | 1 año | - | https://www.ucjc.edu/master/mba-y-liderazgo-en-industrias-de-tecnologias-medicas-y-sanitarias/
+Universidad Camilo José Cela | Máster de Formación Permanente en Medical Affairs, Medical Advisor y Medical Scientific Liaison (MSL) | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/medical-affairs-medical-advisor-y-medical-scientific-liaison-msl/
+Universidad Camilo José Cela | Máster de Formación Permanente en Ensayos Clínicos | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/ensayos-clinicos/
+Universidad Camilo José Cela | Máster Universitario en Financial Analytics e Inteligencia Artificial Aplicada a las Finanzas | maestria | Negocios | 1 año | - | https://www.ucjc.edu/master/financial-analytics-e-inteligencia-artificial-aplicada-a-las-finanzas/
+Universidad Camilo José Cela | Máster de Formación Permanente en Medicina de Urgencias | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/medicina-de-urgencias/
+Universidad Camilo José Cela | Máster de Formación Permanente en Epilepsia | maestria | Salud | 54 semanas | - | https://www.ucjc.edu/master/epilepsia/
+Universidad Camilo José Cela | Máster de Formación Permanente en Programación y Desarrollo Web Full Stack | maestria | Tecnología | 1 año | - | https://www.ucjc.edu/master/programacion-y-desarrollo-web-full-stack/
+Universidad Camilo José Cela | Máster de Formación Permanente en Medicina del Sueño | maestria | Salud | 1 año | - | https://www.ucjc.edu/master/medicina-del-sueno/
+Universidad Camilo José Cela | Máster de Formación Permanente en Cirugía Oral e Implantología basada en Nuevas Tecnologías | maestria | Odontología | 2 años | - | https://www.ucjc.edu/master/cirugia-oral-e-implantologia-basada-en-nuevas-tecnologias/
+Universidad Camilo José Cela | Máster de Formación Permanente en Cine y Creación Audiovisual | maestria | Comunicación | 1 año | - | https://www.ucjc.edu/master/cine-y-creacion-audiovisual/
+Universidad Camilo José Cela | Máster de Formación Permanente en Diseño de Interiores y Decoración | maestria | Artes | 1 año | - | https://www.ucjc.edu/master/diseno-interiores/
+Universidad Camilo José Cela | Máster de Formación Permanente en Marketing de Moda | maestria | Negocios | 1 año | - | https://www.ucjc.edu/master/marketing-moda/
+Universidad Camilo José Cela | MBA en Marcas de Lujo | mba | Negocios | 1 año | - | https://www.ucjc.edu/master/mba-marcas-lujo-lifestyle/
+Universidad Camilo José Cela | Máster de Formación Permanente en Creatividad Publicitaria | maestria | Comunicación | 1 año | - | https://www.ucjc.edu/master/creatividad-publicitaria/
+Universidad Camilo José Cela | Máster de Formación Permanente en Metodología didáctica para la enseñanza de la Matemática en Educación Infantil y Primaria | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/metodologia-didactica-para-ensenanza-matematica-educacion-infantil-primaria/
+Universidad Camilo José Cela | Máster de Formación Permanente en Periodismo Multimedia con Inteligencia Artificial | maestria | Comunicación | 1 año | - | https://www.ucjc.edu/master/periodismo/
+Universidad Camilo José Cela | Máster Universitario en Comunicación Política y Empresarial | maestria | Comunicación | 1 año | - | https://www.ucjc.edu/master/comunicacion-politica-empresarial/
+Universidad Camilo José Cela | Máster Universitario en Relaciones Internacionales y Comunicación | maestria | Ciencias Sociales | 1 año | - | https://www.ucjc.edu/master/relaciones-internacionales-comunicacion/
+Universidad Camilo José Cela | Máster Universitario en Orientación e Intervención Psicopedagógica | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/orientacion-intervencion-psicopedagogica/
+Universidad Camilo José Cela | Máster Universitario en Dirección de Empresas Logísticas y de la Cadena de Suministro | maestria | Negocios | 1 año | - | https://www.ucjc.edu/master/direccion-empresas-logisticas-cadena-suministro/
+Universidad Camilo José Cela | Máster Universitario en Dirección de la Empresa Familiar | maestria | Negocios | 1 año | - | https://www.ucjc.edu/master/direccion-empresa-familiar/
+Universidad Camilo José Cela | Máster Universitario en People Analytics y Gestión del Talento Digital | maestria | Negocios | 1 año | - | https://www.ucjc.edu/master/people-analytics-y-gestion-del-talento-digital/
+Universidad Camilo José Cela | Máster Universitario en Ciberseguridad | maestria | Tecnología | 1 año | - | https://www.ucjc.edu/master/ciberseguridad/
+Universidad Camilo José Cela | Máster Universitario en Dirección, Innovación y Liderazgo de Centros Educativos | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/direccion-innovacion-liderazgo-centros-educativos/
+Universidad Camilo José Cela | Máster Universitario en Neurociencia Cognitiva y Educación | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/neurociencia-cognitiva-educacion/
+Universidad Camilo José Cela | Máster Universitario en Políticas y Gobernanza de los Sistemas Educativos | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/politicas-gobernanza-los-sistemas-educativos/
+Universidad Camilo José Cela | Máster Universitario en Políticas Públicas de Seguridad y Defensa | maestria | Ciencias Sociales | 1 año | - | https://www.ucjc.edu/master/politicas-publicas-seguridad-defensa/
+Universidad Camilo José Cela | Máster Universitario en Enseñanza de Español Como Lengua Extranjera | maestria | Idiomas | 1 año | - | https://www.ucjc.edu/master/ensenanza-espanol-como-lengua-extranjera/
+Universidad Camilo José Cela | Máster Universitario en Dirección de Protocolo, Producción, Organización y Diseño de Eventos | maestria | Hospitalidad | 1 año | - | https://www.ucjc.edu/master/direccion-protocolo-produccion-organizacion-diseno-eventos/
+Universidad Camilo José Cela | Máster Universitario en Acceso a la Profesión de Abogado y Procurador de los Tribunales | maestria | Derecho | 1,5 años | - | https://www.ucjc.edu/master/acceso-a-profesion-abogado/
+Universidad Camilo José Cela | Máster Universitario en Educación Secundaria | maestria | Educación | 1 año | - | https://www.ucjc.edu/master/educacion-secundaria/
+Universidad Camilo José Cela | Máster Universitario en Inteligencia Artificial con AWS | maestria | Tecnología | 1 año | - | https://www.ucjc.edu/master/inteligencia-artificial/
+Universidad Camilo José Cela | Máster Universitario en Tecnologías Disruptivas para la Industria 4.0 | maestria | Tecnología | 1 año | - | https://www.ucjc.edu/master/tecnologias-disruptivas-para-la-industria-4-0/
+
+# --- Universidad Camilo José Cela · doctorados y FP (www.ucjc.edu) ---
+Universidad Camilo José Cela | Doctorado en Ciencias de la Salud | doctorado | Salud | no indicada | - | https://www.ucjc.edu/doctorados/ciencias-salud/
+Universidad Camilo José Cela | Doctorado en Ciencias de la Educación | doctorado | Educación | no indicada | - | https://www.ucjc.edu/doctorados/ciencias-educacion/
+Universidad Camilo José Cela | Doctorado en Ciencias Jurídicas y Económicas | doctorado | Derecho | no indicada | - | https://www.ucjc.edu/doctorados/ciencias-juridicas-economicas/
+Universidad Camilo José Cela | Ciclo Formativo de Grado Superior en Hípica | diplomado | Ciencias del Deporte | 1 año | - | https://www.ucjc.edu/formacion-profesional/grado-superior-hipica/
+Universidad Camilo José Cela | Ciclo Formativo de Grado Superior en Laboratorio Clínico y Biomédico | diplomado | Salud | 2 años | - | https://www.ucjc.edu/formacion-profesional/grado-superior-laboratorio-clinico-biomedico/
+Universidad Camilo José Cela | Ciclo Formativo de Grado Superior en Enseñanza y Animación Sociodeportiva | diplomado | Ciencias del Deporte | 2 años | - | https://www.ucjc.edu/formacion-profesional/grado-superior-ensenanza-animacion-sociodeportiva/
+Universidad Camilo José Cela | Ciclo Formativo de Grado Superior en Higiene Bucodental | diplomado | Odontología | 2 años | - | https://www.ucjc.edu/formacion-profesional/grado-superior-higiene-bucodental/
+Universidad Camilo José Cela | Ciclo Formativo de Grado Superior en Transporte y Logística | diplomado | Negocios | 2 años | - | https://www.ucjc.edu/formacion-profesional/grado-superior-transporte-logistica/
+Universidad Camilo José Cela | Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Web | diplomado | Tecnología | 2 años | - | https://www.ucjc.edu/formacion-profesional/grado-superior-desarrollo-aplicaciones-web/
+Universidad Camilo José Cela | Ciclo Formativo de Grado Superior en Administración de Sistemas Informáticos en Red (ASIR) | diplomado | Tecnología | 2 años | - | https://www.ucjc.edu/formacion-profesional/grado-superior-administracion-sistemas-informaticos-red/
+Universidad Camilo José Cela | Ciclo Formativo de Grado Medio en Hípica | curso_corto | Ciencias del Deporte | 2 años | - | https://www.ucjc.edu/formacion-profesional/grado-medio-hipica/
+Universidad Camilo José Cela | Programa de Especialización de FP en Ciberseguridad en entornos de las Tecnologías de la Información | especializacion | Tecnología | 1 año | - | https://www.ucjc.edu/curso-especializacion/programa-de-especializacion-de-formacion-profesional-en-ciberseguridad-en-entornos-de-las-tecnologias-de-la-informacion/
+
+# --- Universidad Europea (universidadeuropea.com + creativecampus.universidadeuropea.com) ---
+Universidad Europea | Grado en Medicina | pregrado | Salud | no indicada | - | https://universidadeuropea.com/grado-medicina-madrid/
+Universidad Europea | Grado en Enfermería | pregrado | Salud | no indicada | - | https://universidadeuropea.com/grado-enfermeria-madrid/
+Universidad Europea | Grado en Biomedicina | pregrado | Salud | no indicada | - | https://universidadeuropea.com/grado-biomedicina-madrid/
+Universidad Europea | Grado en Biotecnología | pregrado | Salud | no indicada | - | https://universidadeuropea.com/grado-biotecnologia-madrid/
+Universidad Europea | Grado en Psicología | pregrado | Psicología | no indicada | - | https://universidadeuropea.com/grado-psicologia-madrid/
+Universidad Europea | Grado en Veterinaria | pregrado | Veterinaria | no indicada | - | https://universidadeuropea.com/grado-veterinaria-madrid/
+Universidad Europea | Grado en Farmacia | pregrado | Salud | no indicada | - | https://universidadeuropea.com/grado-farmacia-madrid-semipresencial/
+Universidad Europea | Grado en Logopedia | pregrado | Salud | no indicada | - | https://universidadeuropea.com/grado-logopedia-online/
+Universidad Europea | Grado en Nutrición | pregrado | Salud | no indicada | - | https://universidadeuropea.com/grado-nutricion-dietetica-online/
+Universidad Europea | Grado en Ciencias Ambientales | pregrado | Ciencias | no indicada | - | https://universidadeuropea.com/grado-medio-ambiente-online/
+Universidad Europea | Grado en Medio Ambiente | pregrado | Ciencias | no indicada | - | https://universidadeuropea.com/grado-medio-ambiente-madrid/
+Universidad Europea | Grado en Física | pregrado | Ciencias | no indicada | - | https://universidadeuropea.com/grado-fisica-madrid/
+Universidad Europea | Grado en Matemáticas | pregrado | Ciencias | no indicada | - | https://universidadeuropea.com/grado-matematicas-online/
+Universidad Europea | Grado en Ingeniería Matemática | pregrado | Ingeniería | no indicada | - | https://universidadeuropea.com/grado-ingenieria-matematica-analisis-datos-madrid/
+Universidad Europea | Doble Grado en Física y Matemáticas | pregrado | Ciencias | no indicada | - | https://universidadeuropea.com/doble-grado-fisica-matematicas-valencia/
+Universidad Europea | Doble Grado en Física y Ciencia de Datos | pregrado | Ciencias | no indicada | - | https://universidadeuropea.com/doble-grado-fisica-ciencia-datos-valencia/
+Universidad Europea | Grado en Arquitectura | pregrado | Arquitectura | no indicada | - | https://universidadeuropea.com/grado-arquitectura-madrid/
+Universidad Europea | Grado en Fundamentos de la Arquitectura | pregrado | Arquitectura | no indicada | - | https://universidadeuropea.com/grado-fundamentos-arquitectura-canarias/
+Universidad Europea | Doble Grado en Arquitectura y Diseño de Interiores | pregrado | Arquitectura | no indicada | - | https://universidadeuropea.com/doble-grado-fundamentos-arquitectura-diseno-madrid/
+Universidad Europea | Grado en Publicidad | pregrado | Comunicación | no indicada | - | https://universidadeuropea.com/grado-publicidad-madrid/
+Universidad Europea | Grado en Periodismo | pregrado | Comunicación | no indicada | - | https://universidadeuropea.com/grado-periodismo-madrid/
+Universidad Europea | Grado en Comunicación Audiovisual | pregrado | Comunicación | no indicada | - | https://universidadeuropea.com/grado-comunicacion-audiovisual-madrid/
+Universidad Europea | Grado en Marketing | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/grado-marketing-madrid/
+Universidad Europea | Doble Grado en Periodismo y Comunicación Audiovisual | pregrado | Comunicación | no indicada | - | https://universidadeuropea.com/doble-grado-periodismo-comunicacion-audiovisual-madrid/
+Universidad Europea | Doble Grado en Publicidad y Comunicación Audiovisual | pregrado | Comunicación | no indicada | - | https://universidadeuropea.com/doble-grado-publicidad-comunicacion-audiovisual-madrid/
+Universidad Europea | Doble Grado en Periodismo + Relaciones Internacionales | pregrado | Comunicación | no indicada | - | https://universidadeuropea.com/doble-grado-periodismo-relaciones-internacionales-madrid/
+Universidad Europea | Doble Grado en Publicidad y Diseño Gráfico Digital | pregrado | Comunicación | no indicada | - | https://universidadeuropea.com/doble-grado-diseno-grafico-publicidad-canarias/
+Universidad Europea | Grado en Criminología | pregrado | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/grado-criminologia-madrid/
+Universidad Europea | Doble Grado en Criminología y Psicología | pregrado | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/doble-grado-criminologia-psicologia-madrid/
+Universidad Europea | Doble Grado en Derecho y Criminología | pregrado | Derecho | no indicada | - | https://universidadeuropea.com/doble-grado-criminologia-derecho-valencia/
+Universidad Europea | Grado en Derecho | pregrado | Derecho | no indicada | - | https://universidadeuropea.com/grado-derecho-madrid/
+Universidad Europea | Doble Grado en Derecho + ADE | pregrado | Derecho | no indicada | - | https://universidadeuropea.com/doble-grado-derecho-ade-madrid/
+Universidad Europea | Doble Grado en Derecho y Relaciones Internacionales | pregrado | Derecho | no indicada | - | https://universidadeuropea.com/doble-grado-derecho-relaciones-internacionales-madrid/
+Universidad Europea | Grado en Relaciones Internacionales | pregrado | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/grado-relaciones-internacionales-madrid/
+Universidad Europea | Grado en Historia | pregrado | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/grado-historia-online/
+Universidad Europea | Grado en Ciencias de la Actividad Física y del Deporte | pregrado | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/grado-ciencias-actividad-fisica-deporte-madrid/
+Universidad Europea | Grado en Ciencia y Tecnología Aplicadas al Deporte | pregrado | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/grado-ciencia-tecnologia-deporte-madrid/
+Universidad Europea | Grado en Gestión Deportiva | pregrado | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/grado-gestion-deportiva-madrid/
+Universidad Europea | Grado en Técnico Deportivo Fútbol | pregrado | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/grado-actividad-fisica-entrenador-futbol-madrid/
+Universidad Europea | Doble Grado en Ciencias de la Actividad Física y del Deporte + Fisioterapia | pregrado | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/doble-grado-ciencias-actividad-fisica-deporte-fisioterapia-madrid/
+Universidad Europea | Doble Grado en CAFYD y Maestro/a en Educación Primaria | pregrado | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/doble-grado-cafyd-educacion-primaria-madrid/
+Universidad Europea | Grado en Educación Primaria | pregrado | Educación | no indicada | - | https://universidadeuropea.com/grado-educacion-primaria-madrid/
+Universidad Europea | Grado en Educación Infantil | pregrado | Educación | no indicada | - | https://universidadeuropea.com/grado-educacion-infantil-malaga/
+Universidad Europea | Grado en Pedagogía | pregrado | Educación | no indicada | - | https://universidadeuropea.com/grado-pedagogia-online/
+Universidad Europea | Doble Grado en Maestro en Educación Primaria y Educación Infantil | pregrado | Educación | no indicada | - | https://universidadeuropea.com/doble-grado-maestro-educacion-infantil-primaria-malaga/
+Universidad Europea | Doble Grado en Maestro en Educación Primaria y Pedagogía | pregrado | Educación | no indicada | - | https://universidadeuropea.com/doble-grado-educacion-primaria-pedagogia-online/
+Universidad Europea | Grado en Administración y Dirección de Empresas | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/grado-administracion-direccion-empresas-ade/
+Universidad Europea | Grado en Economía | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/grado-economia-madrid/
+Universidad Europea | Grado en Business Analytics | pregrado | Tecnología | no indicada | - | https://universidadeuropea.com/grado-business-analytics-madrid/
+Universidad Europea | Grado en Relaciones Laborales y Recursos Humanos | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/grado-relaciones-laborales-recursos-humanos-online/
+Universidad Europea | Grado en Inteligencia y Analítica de Negocio | pregrado | Tecnología | no indicada | - | https://universidadeuropea.com/grado-inteligencia-analitica-negocios-online/
+Universidad Europea | Doble Grado en Business Analytics + ADE | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/doble-grado-ade-business-analytics-madrid/
+Universidad Europea | Doble Grado en Business Analytics y Economía | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/doble-grado-business-analytics-economia-madrid/
+Universidad Europea | Doble Grado en ADE y Marketing | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/doble-grado-direccion-empresas-marketing-valencia/
+Universidad Europea | Doble Grado en ADE + Dirección Internacional de Empresas de Turismo y Ocio | pregrado | Hospitalidad | no indicada | - | https://universidadeuropea.com/doble-grado-ade-turismo-canarias/
+Universidad Europea | Global Bachelor's Degree in Business Administration | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/en/global-bachelor-degree-business-administration-madrid/
+Universidad Europea | Global Bachelor in Business Management and Entrepreneurship | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/en/degree-business-management-entrepreneurship-valencia/
+Universidad Europea | Global Bachelor Double Degree in International Business and International Relations | pregrado | Negocios | no indicada | - | https://universidadeuropea.com/en/double-degree-international-business-relations-madrid/
+Universidad Europea | Foundation Year in Business & Marketing | curso_corto | Negocios | no indicada | - | https://universidadeuropea.com/en/course-business-marketing-foundation-year-madrid/
+Universidad Europea | Grado en Traducción y Comunicación Intercultural | pregrado | Idiomas | no indicada | - | https://universidadeuropea.com/grado-traduccion-valencia/
+Universidad Europea | Grado en Traducción e Interpretación | pregrado | Idiomas | no indicada | - | https://universidadeuropea.com/grado-traduccion-interpretacion-online/
+Universidad Europea | Grado en Ingeniería Biomédica | pregrado | Ingeniería | no indicada | - | https://universidadeuropea.com/grado-ingenieria-biomedica-madrid/
+Universidad Europea | Grado en Ingeniería Informática | pregrado | Ingeniería | no indicada | - | https://universidadeuropea.com/grado-ingenieria-informatica-madrid/
+Universidad Europea | Grado en Ingeniería de Sistemas Industriales | pregrado | Ingeniería | no indicada | - | https://universidadeuropea.com/grado-ingenieria-sistemas-industriales-madrid/
+Universidad Europea | Grado en Ingeniería Aeroespacial | pregrado | Ingeniería | no indicada | - | https://universidadeuropea.com/grado-ingenieria-aeroespacial-madrid/
+Universidad Europea | Grado en Ingeniería de Organización Industrial | pregrado | Ingeniería | no indicada | - | https://universidadeuropea.com/grado-ingenieria-organizacion-industrial-online/
+Universidad Europea | Grado en Telecomunicaciones | pregrado | Ingeniería | no indicada | - | https://universidadeuropea.com/grado-telecomunicaciones-madrid-semipresencial/
+Universidad Europea | Grado en Ciberseguridad | pregrado | Tecnología | no indicada | - | https://universidadeuropea.com/grado-ciberseguridad-madrid/
+Universidad Europea | Grado en Ciencia de Datos | pregrado | Tecnología | no indicada | - | https://universidadeuropea.com/grado-ciencias-datos-online/
+Universidad Europea | Grado en Inteligencia Artificial | pregrado | Tecnología | no indicada | - | https://universidadeuropea.com/grado-inteligencia-artificial-madrid/
+Universidad Europea | Doble Grado en Ingeniería Matemáticas en Ciencia de Datos + Ingeniería Informática | pregrado | Ingeniería | no indicada | - | https://universidadeuropea.com/doble-grado-ingenieria-matematica-informatica-madrid/
+Universidad Europea | Doble Grado en Ingeniería de Organización Industrial + ADE | pregrado | Ingeniería | no indicada | - | https://universidadeuropea.com/doble-grado-ingenieria-organizacion-industrial-ade-valencia/
+Universidad Europea | Doble Grado en Farmacia + Biotecnología | pregrado | Salud | no indicada | - | https://universidadeuropea.com/doble-grado-farmacia-biotecnologia-madrid/
+Universidad Europea | Doble Grado en Farmacia + Nutrición Humana y Dietética | pregrado | Salud | no indicada | - | https://universidadeuropea.com/doble-grado-farmacia-nutricion-dietetica-madrid/
+Universidad Europea | Grado en Animación | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-animacion-madrid/
+Universidad Europea | Grado en Diseño | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-diseno-madrid/
+Universidad Europea | Grado en Diseño Gráfico | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-diseno-grafico-madrid/
+Universidad Europea | Grado en Ilustración y Diseño Audiovisual | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-diseno-audiovisual-ilustracion-madrid/
+Universidad Europea | Grado en Gestión del Diseño | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-gestion-diseno-madrid/
+Universidad Europea | Grado en Diseño de Producto | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-diseno-producto-madrid/
+Universidad Europea | Grado en Diseño de Interiores | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-diseno-interiores-madrid/
+Universidad Europea | Grado en Diseño de Moda | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-diseno-moda-madrid/
+Universidad Europea | Grado en Gestión y Comunicación de Moda | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-gestion-comunicacion-moda-madrid/
+Universidad Europea | Grado en Diseño de Videojuegos | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/grado-diseno-videojuegos-madrid/
+Universidad Europea | Doble Grado en Diseño Gráfico e Ilustración | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/doble-grado-diseno-ilustracion-madrid/
+Universidad Europea | Doble Grado en Animación y Diseño de Videojuegos | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/doble-grado-animacion-diseno-videojuegos-madrid/
+Universidad Europea | Doble Grado en Ilustración y Animación | pregrado | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/doble-grado-ilustracion-animacion-madrid/
+Universidad Europea | Doble Grado en Diseño de Videojuegos e Ingeniería Informática | pregrado | Tecnología | no indicada | - | https://creativecampus.universidadeuropea.com/doble-grado-diseno-videojuegos-informatica-madrid/
+Universidad Europea | Programa de Doctorado Interuniversitario en Innovación Socioeducativa | doctorado | Educación | no indicada | - | https://universidadeuropea.com/doctorado-innovacion-socioeducativa-madrid-semipresencial/
+Universidad Europea | Programa de Doctorado Interuniversitario en Intervención Psicológica | doctorado | Psicología | no indicada | - | https://universidadeuropea.com/doctorado-intervencion-psicologica-madrid-semipresencial/
+Universidad Europea | Programa de Doctorado en Sostenibilidad y Circularidad | doctorado | Ciencias | no indicada | - | https://universidadeuropea.com/doctorado-sostenibilidad-madrid/
+Universidad Europea | Programa de Doctorado en Actividad Física y Deporte | doctorado | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/doctorado-actividad-fisica-deporte-madrid-semipresencial/
+Universidad Europea | Programa de Doctorado en Biomedicina y Ciencias de la Salud | doctorado | Salud | no indicada | - | https://universidadeuropea.com/doctorado-biomedicina-ciencias-salud-madrid-semipresencial/
+Universidad Europea | Programa de Doctorado en Ingeniería de Control y Sistemas Inteligentes | doctorado | Ingeniería | no indicada | - | https://universidadeuropea.com/doctorado-ingenieria-sistemas-inteligentes-salud-medioambiente-madrid-semipresencial/
+Universidad Europea | Programa de Doctorado en Ingeniería de Instrumentación Industrial | doctorado | Ingeniería | no indicada | - | https://universidadeuropea.com/doctorado-ingenieria-instrumentacion-industrial-madrid-semipresencial/
+Universidad Europea | Programa de Doctorado en Medicina y Cirugía | doctorado | Salud | no indicada | - | https://universidadeuropea.com/doctorado-medicina-cirugia-madrid-semipresencial/
+Universidad Europea | Técnico Superior en Asistencia a la Dirección | diplomado | Negocios | no indicada | - | https://universidadeuropea.com/tecnico-superior-asistencia-direccion-online/
+Universidad Europea | Técnico Superior en Administración y Finanzas | diplomado | Negocios | no indicada | - | https://universidadeuropea.com/tecnico-superior-administracion-finanzas-madrid/
+Universidad Europea | Técnico Superior en Comercio Internacional | diplomado | Negocios | no indicada | - | https://universidadeuropea.com/tecnico-superior-comercio-internacional-madrid/
+Universidad Europea | Técnico Superior en Gestión de Ventas y Espacios Comerciales | diplomado | Negocios | no indicada | - | https://universidadeuropea.com/tecnico-superior-gestion-ventas-espacios-comerciales-online/
+Universidad Europea | Técnico Superior en Transporte y Logística | diplomado | Negocios | no indicada | - | https://universidadeuropea.com/tecnico-superior-transporte-logistica-online/
+Universidad Europea | Técnico Superior en Desarrollo de Aplicaciones Web (DAW) | diplomado | Tecnología | no indicada | - | https://universidadeuropea.com/tecnico-superior-desarrollo-aplicaciones-web-madrid/
+Universidad Europea | Técnico Superior en Desarrollo de Aplicaciones Multiplataforma (DAM) | diplomado | Tecnología | no indicada | - | https://universidadeuropea.com/tecnico-superior-desarrollo-aplicaciones-multiplataforma-madrid/
+Universidad Europea | Técnico Superior en Administración de Sistemas Informáticos en Red (ASIR) | diplomado | Tecnología | no indicada | - | https://universidadeuropea.com/tecnico-superior-sistemas-informaticos-madrid/
+Universidad Europea | Técnico Superior en Dietética | diplomado | Salud | 2 años · 2.000 horas | - | https://universidadeuropea.com/tecnico-superior-dietetica-madrid/
+Universidad Europea | Técnico Superior en Documentación y Administración Sanitarias | diplomado | Salud | no indicada | - | https://universidadeuropea.com/tecnico-superior-documentacion-sanitaria-online/
+Universidad Europea | Técnico Superior en Anatomía Patológica y Citodiagnóstico | diplomado | Salud | no indicada | - | https://universidadeuropea.com/tecnico-superior-anatomia-patologica-citodiagnostico-madrid/
+Universidad Europea | Técnico Superior en Audiología Protésica | diplomado | Salud | no indicada | - | https://universidadeuropea.com/tecnico-superior-audiologia-protesica-madrid/
+Universidad Europea | Técnico Superior en Imagen para el Diagnóstico y Medicina Nuclear | diplomado | Salud | no indicada | - | https://universidadeuropea.com/tecnico-superior-imagen-diagnostico-medicina-nuclear-madrid/
+Universidad Europea | Técnico Superior en Laboratorio Clínico y Biomédico | diplomado | Salud | no indicada | - | https://universidadeuropea.com/tecnico-superior-laboratorio-clinico-biomedico-madrid/
+Universidad Europea | Técnico Superior en Higiene Bucodental | diplomado | Odontología | no indicada | - | https://universidadeuropea.com/tecnico-superior-higiene-bucodental-madrid/
+Universidad Europea | Técnico Superior en Integración Social | diplomado | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/tecnico-superior-integracion-social-online/
+Universidad Europea | Técnico Superior en Educación Infantil | diplomado | Educación | no indicada | - | https://universidadeuropea.com/tecnico-superior-educacion-infantil-madrid/
+Universidad Europea | Técnico Superior en Acondicionamiento Físico (TSAF) | diplomado | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/tecnico-superior-acondicionamiento-fisico-madrid/
+Universidad Europea | Técnico Superior en Enseñanza y Animación Sociodeportiva (TSEAS) | diplomado | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/tecnico-superior-ensenanza-animacion-sociodeportiva-madrid/
+Universidad Europea | Técnico Superior en Animaciones 3D, Juegos y Entornos Interactivos | diplomado | Artes | no indicada | - | https://universidadeuropea.com/tecnico-superior-animacion-3d-entornos-interactivos-madrid/
+Universidad Europea | Técnico Superior en Marketing y Publicidad | diplomado | Comunicación | no indicada | - | https://universidadeuropea.com/tecnico-superior-marketing-publicidad-madrid/
+Universidad Europea | Técnico Superior en Realización de Proyectos Audiovisuales y Espectáculos | diplomado | Comunicación | no indicada | - | https://universidadeuropea.com/tecnico-superior-realizacion-audiovisual-madrid/
+Universidad Europea | Curso de Especialización en Ciberseguridad en Entornos de las Tecnologías de la Información | especializacion | Tecnología | no indicada | - | https://universidadeuropea.com/master-fp-especializacion-ciberseguridad-madrid/
+Universidad Europea | Curso de Especialización en Inteligencia Artificial y Big Data | especializacion | Tecnología | no indicada | - | https://universidadeuropea.com/master-fp-especializacion-inteligencia-artificial-big-data-madrid/
+Universidad Europea | Curso de Especialización en Posicionamiento en Buscadores (SEO/SEM) y Comunicación en Redes Sociales | especializacion | Comunicación | no indicada | - | https://universidadeuropea.com/master-fp-especializacion-posicionamiento-buscadores-madrid/
+Universidad Europea | Curso de Especialización en Redacción de Contenidos Digitales para Marketing y Ventas | especializacion | Comunicación | no indicada | - | https://universidadeuropea.com/master-fp-especializacion-contenidos-digitales-madrid/
+Universidad Europea | Máster Universitario en Dirección de Empresas - MBA | mba | Negocios | no indicada | - | https://universidadeuropea.com/master-direccion-empresas-mba/
+Universidad Europea | Executive MBA – Máster en Dirección de Empresas | mba | Negocios | no indicada | - | https://universidadeuropea.com/master-direccion-empresas-mba/executive-online/
+Universidad Europea | Máster de Formación Permanente en Dirección y Administración de Empresas - MBA | mba | Negocios | no indicada | - | https://universidadeuropea.com/master-direccion-empresas-mba-malaga-online/
+Universidad Europea | Máster Universitario en Dirección y Gestión de Tecnologías de la Información. MBA TI | mba | Tecnología | no indicada | - | https://universidadeuropea.com/master-mba-tic-online/
+Universidad Europea | Máster Universitario en Dirección de Entidades Deportivas MBA | mba | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-gestion-deportiva-real-madrid/
+Universidad Europea | Private Master's Degree MBA in Sports Management | mba | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/en/master-sports-management-real-madrid/
+Universidad Europea | Máster Universitario en Dirección y Gestión de Empresas de Moda - MBA | mba | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-direccion-empresas-moda-madrid/
+Universidad Europea | Máster Universitario en Analítica de Negocios (Business Analytics) | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-business-analytics-madrid/
+Universidad Europea | Máster de Formación Permanente en Business Analytics | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-business-analytics-valencia/
+Universidad Europea | Máster Universitario en Análisis de Grandes Cantidades de Datos (Big Data) | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-big-data-analytics-malaga/
+Universidad Europea | Máster Universitario en Análisis de Datos Masivos (Big Data) | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-big-data-analytics-madrid/
+Universidad Europea | Máster de Formación Permanente en Data Science | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-data-science-madrid/
+Universidad Europea | Máster Universitario en Ciberseguridad | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-ciberseguridad-madrid/
+Universidad Europea | Máster de Formación Permanente en Ciberseguridad | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-ciberseguridad-malaga/
+Universidad Europea | Máster Universitario en Desarrollo de Aplicaciones Web | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-desarrollo-web-online/
+Universidad Europea | Máster Universitario en Desarrollo y Operaciones en la Nube | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-cloud-computing-devops-online/
+Universidad Europea | Máster Universitario en Inteligencia Artificial | maestria | Tecnología | 60 ECTS | - | https://universidadeuropea.com/master-inteligencia-artificial-online/
+Universidad Europea | Máster de Formación Permanente en Inteligencia Artificial Aplicada | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/curso-inteligencia-artificial-online/
+Universidad Europea | Máster de Formación Permanente en Inteligencia Artificial | maestria | Tecnología | no indicada | - | https://universidadeuropea.com/master-inteligencia-artificial-malaga/
+Universidad Europea | Máster de Formación Permanente en Inteligencia Artificial aplicada al Deporte | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-inteligencia-artificial-deporte-online/
+Universidad Europea | Master de Formación Permanente en Inteligencia Artificial en Salud | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-inteligencia-artificial-salud-online/
+Universidad Europea | Máster Universitario en Negocios Digitales | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-digital-business-online/
+Universidad Europea | Máster Universitario en Negocios Internacionales | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-negocios-internacionales-madrid/
+Universidad Europea | Máster Universitario en Gestión de Negocios Internacionales | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-negocios-internacionales-online/
+Universidad Europea | Máster Universitario en Comercio y Relaciones Económicas Internacionales | maestria | Negocios | no indicada | - | https://universidadeuropea.com/en/master-business-economics-madrid/
+Universidad Europea | Máster Universitario en Auditoría de Cuentas | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-auditoria-cuentas-madrid/
+Universidad Europea | Máster en Formación Permanente en Dirección Financiera | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-direccion-financiera-canarias/
+Universidad Europea | Máster de Formación Permanente en Dirección Estratégica de la Industria del Lujo | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-industria-lujo-malaga/
+Universidad Europea | Máster Universitario en Dirección Logística y Gestión de la Cadena de Suministro | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-direccion-logistica-cadena-suministro-online/
+Universidad Europea | Máster Universitario en Logística | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-logistica-madrid/
+Universidad Europea | Máster Universitario en Dirección de Comercio Electrónico | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-ecommerce-online/
+Universidad Europea | Máster Universitario en Dirección de Procesos Estratégicos | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-direccion-procesos-estrategicos-online/
+Universidad Europea | Máster Universitario en Dirección y Gestión de Proyectos – Project Management | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-project-management-madrid/
+Universidad Europea | Máster Universitario en Gestión de Proyectos / Project Management | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-gestion-proyectos-online/
+Universidad Europea | Master de Formación Permanente en Gestión de Proyectos (Project Management) | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-gestion-proyectos-semipresencial/
+Universidad Europea | Private Master's Degree in Project Management and Applied AI | maestria | Negocios | no indicada | - | https://universidadeuropea.com/en/master-project-management-valencia/
+Universidad Europea | Máster Universitario en Gestión de Proyectos Sostenibles | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-gestion-proyectos-sostenibles-online/
+Universidad Europea | Máster Universitario en Gestión Administrativa | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-gestion-administrativa-online/
+Universidad Europea | Máster Universitario en Economía Global y Geopolítica | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-economia-geopolitica-madrid/
+Universidad Europea | Master's Degree in Global Economics and Geopolitics | maestria | Negocios | no indicada | - | https://universidadeuropea.com/en/master-geopolitics-madrid/
+Universidad Europea | Máster Universitario en Finanzas Verdes e Inversión Responsable | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-finanzas-sostenibles-online/
+Universidad Europea | Máster Universitario en Industria 4.0: Transformación y Estrategia Digital | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-industria-4-0-madrid/
+Universidad Europea | Máster Universitario en Sostenibilidad, Economía Circular y ESG | maestria | Ciencias | no indicada | - | https://universidadeuropea.com/master-sostenibilidad-madrid/
+Universidad Europea | Máster de Formación Permanente en Sostenibilidad, Economía Circular y ESG | maestria | Ciencias | no indicada | - | https://universidadeuropea.com/master-sostenibilidad-valencia/
+Universidad Europea | Advanced Postgraduate Diploma in Sustainability Leadership | especializacion | Negocios | no indicada | - | https://universidadeuropea.com/en/course-in-sustainable-business-valencia/
+Universidad Europea | Máster Universitario en Prevención de Riesgos Laborales | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-prevencion-riesgos-laborales-canarias-online/
+Universidad Europea | Máster Universitario en Sistemas Integrados de Gestión | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-sistemas-integrados-gestion-online/
+Universidad Europea | Máster Universitario en Ingeniería de Organización, Dirección de Proyectos y Empresas | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-ingenieria-organizacion-industrial-madrid/
+Universidad Europea | Máster de Formación Permanente en Ingeniería de Organización, Dirección de Proyectos y Empresas | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-ingenieria-organizacion-direccion-proyectos-valencia/
+Universidad Europea | Máster Universitario en Ingeniería Industrial (Habilitante) | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-ingenieria-industrial-madrid/
+Universidad Europea | Máster Universitario en Ingeniería Aeronáutica (Habilitante) | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-ingenieria-aeronautica-madrid/
+Universidad Europea | Máster Universitario en Ingeniería de Caminos, Canales y Puertos (Habilitante) | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-ingenieria-caminos-canales-puertos-madrid/
+Universidad Europea | Máster en Ingeniería de Automoción | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-ingenieria-automocion-madrid/
+Universidad Europea | Máster Universitario en Ingeniería Física de Nuevos Materiales | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-ingenieria-fisica-madrid/
+Universidad Europea | Máster Universitario en Robótica y Automatización | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-automatizacion-robotica-madrid/
+Universidad Europea | Máster Universitario en Matemática Aplicada a la Ingeniería y Computación | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-ingenieria-matematica-online/
+Universidad Europea | Máster de Formación Permanente en Sistemas Espaciales | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-sistemas-espaciales-madrid/
+Universidad Europea | Máster Universitario en Energías Renovables | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-energias-renovables-online/
+Universidad Europea | Máster de Formación Permanente en Energías Renovables | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-energias-renovables-valencia/
+Universidad Europea | Máster Universitario en Transición Energética Renovable | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-transicion-energetica-renovable-madrid/
+Universidad Europea | Máster de Formación Permanente en Infraestructuras Inteligentes y Sostenibles | maestria | Ingeniería | no indicada | - | https://universidadeuropea.com/master-infraestructuras-inteligentes-sostenibles-online/
+Universidad Europea | Máster Universitario en Gestión Internacional de la Edificación y la Construcción | maestria | Arquitectura | no indicada | - | https://universidadeuropea.com/master-construccion-edificacion-online/
+Universidad Europea | Máster Universitario en Arquitectura (Habilitante) | maestria | Arquitectura | no indicada | - | https://universidadeuropea.com/master-arquitectura-madrid/
+Universidad Europea | Máster Universitario en Arquitectura Sostenible y Bioconstrucción | maestria | Arquitectura | no indicada | - | https://universidadeuropea.com/master-arquitectura-sostenible-madrid/
+Universidad Europea | Máster de Formación Permanente en Arquitectura Diseño e Innovación | maestria | Arquitectura | no indicada | - | https://universidadeuropea.com/master-arquitectura-diseno-innovacion-valencia/
+Universidad Europea | Máster Universitario en Diseño Urbano y Movilidad Sostenible | maestria | Arquitectura | no indicada | - | https://universidadeuropea.com/master-diseno-urbano-movilidad-madrid/
+Universidad Europea | Máster Universitario en Modelado de Información de Construcción (BIM) | maestria | Arquitectura | no indicada | - | https://universidadeuropea.com/master-bim-online/
+Universidad Europea | Postgrado de Especialización Universitaria en Gestión de Proyectos, BIM Manager | especializacion | Arquitectura | no indicada | - | https://universidadeuropea.com/master-gestion-proyectos-bim-valencia/
+Universidad Europea | Máster Universitario en Gestión Ambiental y Energética de las Organizaciones | maestria | Ciencias | no indicada | - | https://universidadeuropea.com/master-gestion-ambiental-energetica-online/
+Universidad Europea | Máster de Formación Permanente en Ecosistemas y Biodiversidad | maestria | Ciencias | no indicada | - | https://universidadeuropea.com/master-biodiversidad-online/
+Universidad Europea | Máster de Formación Permanente en Gestión de Riesgos Naturales y Cambio Climático | maestria | Ciencias | no indicada | - | https://universidadeuropea.com/master-cambio-climatico-online/
+Universidad Europea | Máster Universitario en Dirección de Marketing | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-direccion-marketing-madrid/
+Universidad Europea | Máster Universitario en Marketing | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-marketing-valencia/
+Universidad Europea | Máster Universitario en Marketing Digital | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-marketing-madrid/
+Universidad Europea | Máster de Formación Permanente en Marketing Digital y Big Data | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-marketing-digital-big-data-valencia/
+Universidad Europea | Private Master's Degree in Digital Marketing | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/en/master-marketing-valencia/
+Universidad Europea | Máster Universitario en Comercio Electrónico y Marketing Digital | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-ecommerce-canarias/
+Universidad Europea | Máster Universitario en Comunicación y Marketing Político | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-comunicacion-politica-online/
+Universidad Europea | Máster de Formación Permanente en Comunicación y Marketing en Sostenibilidad | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-comunicacion-marketing-sostenible-online/
+Universidad Europea | Máster Universitario en Dirección Comercial y Ventas | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-direccion-comercial-ventas-madrid/
+Universidad Europea | Máster en Formación Permanente en Dirección Comercial y Ventas | maestria | Negocios | no indicada | - | https://universidadeuropea.com/master-direccion-comercial-ventas-valencia/
+Universidad Europea | Máster Universitario en Dirección de Comunicación y Asuntos Públicos | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-direccion-comunicacion-asuntos-publicos-madrid/
+Universidad Europea | Máster de Formación Permanente en Dirección de Comunicación y Asuntos Públicos (Public Affairs) | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-direccion-comunicacion-valencia/
+Universidad Europea | Máster de Formación Permanente en Dirección de Protocolo y Organización de Eventos | maestria | Hospitalidad | no indicada | - | https://universidadeuropea.com/master-protocolo-organizacion-eventos-online/
+Universidad Europea | Máster Universitario en Comunicación y Emprendimiento Digital | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-comunicacion-emprendimiento-digital-madrid/
+Universidad Europea | Máster de Formación Permanente en Producción Creativa de Ficción y Documentales | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-produccion-cinematografica-documental-madrid/
+Universidad Europea | Máster en Formación Permanente en Televisión, Plataformas y Contenidos Audiovisuales | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-contenidos-audiovisuales-mediaset-madrid/
+Universidad Europea | Máster Universitario en Marketing y Comunicación de Moda | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-marketing-moda-madrid/
+Universidad Europea | Máster Universitario en Asesoría Fiscal | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-asesoria-fiscal-online/
+Universidad Europea | Máster Universitario en Asesoría Jurídica de la Empresa | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-asesoria-juridica-empresa-online/
+Universidad Europea | Máster Universitario en Fiscalidad Internacional | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-fiscalidad-internacional-online/
+Universidad Europea | Máster Universitario en Derecho Laboral y Seguridad Social | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-derecho-laboral-online/
+Universidad Europea | Máster Universitario en Derecho Penal Económico | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-derecho-penal-economico-online/
+Universidad Europea | Máster Universitario en Derecho del Urbanismo y Gestión Inmobiliaria | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-derecho-urbanistico-online/
+Universidad Europea | Máster Universitario en Gestión Pública | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-gestion-publica-online/
+Universidad Europea | Máster Universitario en Abogacía y Procura | maestria | Derecho | 90 ECTS · 15-18 meses | - | https://universidadeuropea.com/master-abogacia-madrid/
+Universidad Europea | Máster Universitario en Ciberdelincuencia | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-ciberdelincuencia-online/
+Universidad Europea | Máster Universitario en Criminología Aplicada | maestria | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/master-criminologia-online/
+Universidad Europea | Máster Universitario en Violencia de Género y Políticas de Igualdad | maestria | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/master-violencia-genero-online/
+Universidad Europea | Máster Universitario en Terrorismo, Seguridad y Defensa | maestria | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/master-terrorismo-seguridad-defensa-online/
+Universidad Europea | Máster Universitario en Mediación para la Resolución de Conflictos | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-mediacion-online/
+Universidad Europea | Máster Universitario en Derecho Digital y Tecnológico | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-derecho-digital-online/
+Universidad Europea | Máster Universitario en Derecho de Familia | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-derecho-familia-online/
+Universidad Europea | Máster Universitario en Derecho Ambiental | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-derecho-ambiental-online/
+Universidad Europea | Máster Universitario en Derechos Humanos | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-derechos-humanos-online/
+Universidad Europea | Máster Universitario en Propiedad Intelectual y Derecho Tecnológico | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-propiedad-intelectual-online/
+Universidad Europea | Máster Universitario en Protección de Datos | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-proteccion-datos-online/
+Universidad Europea | Máster Universitario en Gestión del Negocio Marítimo y el Derecho Marítimo | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-derecho-maritimo-online/
+Universidad Europea | Máster Universitario en Derecho Deportivo | maestria | Derecho | no indicada | - | https://universidadeuropea.com/master-derecho-deportivo-real-madrid/
+Universidad Europea | International Master in Sports Law, LLM | maestria | Derecho | no indicada | - | https://universidadeuropea.com/en/master-sports-law-real-madrid/
+Universidad Europea | Máster Universitario en Cooperación Internacional para el Desarrollo | maestria | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/master-cooperacion-internacional-online/
+Universidad Europea | Private Master's Degree in Geopolitics and Global Business Strategy | maestria | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/en/master-geopolitics-valencia/
+Universidad Europea | Private Master's Degree in International Leadership and Negotiation | maestria | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/en/master-international-leadership-negotiation-valencia/
+Universidad Europea | Master's Degree International Relations | maestria | Ciencias Sociales | no indicada | - | https://universidadeuropea.com/en/master-international-relations-valencia/
+Universidad Europea | Master di Formazione Permanente in Bisogni Educativi Speciali (BES) | maestria | Educación | no indicada | - | https://universidadeuropea.com/it/master-bisogni-educativi-speciali-online/
+Universidad Europea | Máster Universitario en Docencia Universitaria | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-docencia-universitaria-valencia-online/
+Universidad Europea | Máster Universitario en Educación STEAM | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-educacion-steam-online/
+Universidad Europea | Máster Universitario en Inteligencia Emocional Educativa | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-inteligencia-emocional-online/
+Universidad Europea | Máster Universitario en Investigación Educativa | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-investigacion-educativa-online/
+Universidad Europea | Máster Universitario en Educación Intercultural | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-educacion-inclusiva-intercultural-online/
+Universidad Europea | Máster Universitario en Metodologías Activas | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-metodologias-activas-online/
+Universidad Europea | Máster Universitario en Necesidades Educativas Especiales | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-necesidades-educativas-especiales-online/
+Universidad Europea | Máster Universitario en Neuroeducación y Dificultades de Aprendizaje | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-neuroeducacion-online/
+Universidad Europea | Máster Universitario en Tecnología Educativa y Competencias Digitales | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-tecnologia-educativa-online/
+Universidad Europea | Máster Universitario en Atención Temprana | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-atencion-temprana-online/
+Universidad Europea | Máster Universitario en Educación Bilingüe | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-educacion-bilingue-online/
+Universidad Europea | Máster Universitario en Educación Especial | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-educacion-especial-online/
+Universidad Europea | Máster Universitario en Educación Universitaria | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-educacion-universitaria-online/
+Universidad Europea | Máster Universitario en Enseñanza de Español como Lengua Extranjera (ELE) | maestria | Idiomas | no indicada | - | https://universidadeuropea.com/master-ele-online/
+Universidad Europea | Máster Universitario en Enseñanza de Inglés como Lengua Extranjera (TEFL) | maestria | Idiomas | no indicada | - | https://universidadeuropea.com/master-ensenanza-ingles-lengua-extranjera-online/
+Universidad Europea | Máster Universitario en Formación del Profesorado de Educación Secundaria Obligatoria y Bachillerato | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-formacion-profesorado-madrid-semipresencial/
+Universidad Europea | Máster Universitario en Innovación Educativa | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-innovacion-educativa-online/
+Universidad Europea | Máster Universitario en Organización y Dirección de Centros Docentes | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-direccion-centros-docentes-online/
+Universidad Europea | Máster Universitario en Psicopedagogía | maestria | Educación | no indicada | - | https://universidadeuropea.com/master-psicopedagogia-online/
+Universidad Europea | Máster Universitario en Fisioterapia Aplicada en Patología Neurológica | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-fisioterapia-neurologica-valencia/
+Universidad Europea | Máster Universitario en Fisioterapia Invasiva y Terapia Manual | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-fisioterapia-invasiva-valencia/
+Universidad Europea | Máster Universitario en Fisioterapia Invasiva | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Fisioterapia Deportiva | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-fisioterapia-deportiva-real-madrid-semipresencial/
+Universidad Europea | Máster de Formación Permanente en Fisioterapia Deportiva y Readaptación de Lesiones | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-fisioterapia-deportiva-malaga/
+Universidad Europea | Máster Universitario en Fisioterapia en Pacientes Oncológicos | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Fisioterapia en el Paciente Pediátrico | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Fisioterapia en Patología Cardiorrespiratoria | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster de Formación Permanente en Fisioterapia de Suelo Pélvico | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-fisioterapia-suelo-pelvico-malaga/
+Universidad Europea | Máster de Formación Permanente en Fisioterapia Dermatofuncional | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-fisioterapia-dermatofuncional-madrid/
+Universidad Europea | Private Master's Degree in Physiotherapy for Musculoskeletal Pain | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Master in Exercise and Sports Physiotherapy (MPhty) | maestria | Salud | no indicada | - | https://universidadeuropea.com/en/master-sports-physiotherapy-real-madrid/
+Universidad Europea | Máster Universitario en Terapia Manual Ortopédica en el Tratamiento del Dolor | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-terapia-tratamiento-dolor-madrid/
+Universidad Europea | Máster Universitario en Atención Farmacéutica y Servicios Profesionales Farmacéuticos Asistenciales | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-atencion-farmaceutica-online/
+Universidad Europea | Máster Universitario en Descubrimiento de Fármacos | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-descubrimiento-farmacos-madrid/
+Universidad Europea | Máster en Formación Permanente en Industria Farmacéutica y Biotecnológica | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-industria-farmaceutica-biotecnologica-madrid/
+Universidad Europea | Máster Universitario en Biotecnología Clínica | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-biotecnologia-salud-madrid/
+Universidad Europea | Máster de Formación Permanente en Biotecnología Aplicada a las Técnicas de Reproducción Humana Asistida, Genética e Investigación | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-biotecnologia-reproduccion-humana-asistida-valencia/
+Universidad Europea | Máster de Formación Permanente en Biotecnología aplicada a la Reproducción Humana Asistida, Embriología y Genética | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-biotecnologia-reproduccion-humana-asistida-online/
+Universidad Europea | Máster de Formación Permanente en Genómica Clínica, Medicina de Precisión y Asesoramiento Genético | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-genomica-clinica-madrid-semipresencial/
+Universidad Europea | Máster de Formación Permanente en Medicina Estética Avanzada | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster en Flebología Clínica y Abordaje de las Alteraciones Estéticas de los Miembros Inferiores | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-flebologia-online/
+Universidad Europea | Máster de Formación Permanente en Medicina de Urgencias, Emergencias | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Urgencias, Emergencias y Críticos en Enfermería | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-urgencias-emergencias-enfermeria-madrid/
+Universidad Europea | Máster Universitario en Salud Pública | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-salud-publica-online/
+Universidad Europea | Máster de Formación Permanente en Evaluación, Contratación y Acceso al Mercado Sanitario | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-economia-salud-semipresencial/
+Universidad Europea | Máster de Formación Permanente en Gestión y Dirección de Servicios de Admisión y Documentación Clínica | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-documentacion-medica-madrid-semipresencial/
+Universidad Europea | Máster Universitario en Nutrición Clínica | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-nutricion-clinica-madrid/
+Universidad Europea | Máster Universitario en Nutrición Infantil | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-nutricion-infantil-online/
+Universidad Europea | Máster Universitario en Nutrición en la Infancia y Adolescencia | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Nutrición, Composición Corporal y Metabolismo | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Trastornos del Comportamiento Alimentario y Obesidad | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-trastornos-comportamiento-alimentario-madrid/
+Universidad Europea | Máster de Formación Permanente en Prevención de Trastornos Conducta Alimentaria | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster de Formación Permanente Microbiota y Probióticos | maestria | Salud | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster en Tumores Musculoesqueléticos | maestria | Salud | no indicada | - | https://universidadeuropea.com/master-tumores-musculoesqueletico-online/
+Universidad Europea | Máster de Formación Permanente en Dolor Orofacial, Medicina Oral y Medicina Dental del Sueño | maestria | Odontología | no indicada | - | https://universidadeuropea.com/master-medicina-oral-madrid/
+Universidad Europea | Máster de Formación Permanente en Endodoncia y Odontología Restauradora | maestria | Odontología | no indicada | - | https://universidadeuropea.com/master-endodoncia-odontologia-restauradora-valencia/
+Universidad Europea | Máster de Formación Permanente en Estética Dental | maestria | Odontología | no indicada | - | https://universidadeuropea.com/master-estetica-dental-madrid/
+Universidad Europea | Máster en Formación Permanente en Estética y Rehabilitación Oral | maestria | Odontología | no indicada | - | https://universidadeuropea.com/master-estetica-dental-valencia/
+Universidad Europea | Máster de Formación Permanente en Implantología, Periodoncia y Nuevas Tecnologías | maestria | Odontología | no indicada | - | https://universidadeuropea.com/master-cirugia-implantologia-bucal-malaga/
+Universidad Europea | Máster Universitario en Implantología Oral Avanzada | maestria | Odontología | no indicada | - | https://universidadeuropea.com/master-implantologia-oral-valencia/
+Universidad Europea | Máster de Formación Permanente en Periodoncia y Osteointegración | maestria | Odontología | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Ortodoncia Avanzada | maestria | Odontología | no indicada | - | https://universidadeuropea.com/master-ortodoncia-avanzada-madrid/
+Universidad Europea | Máster Universitario en Psicología General Sanitaria | maestria | Psicología | no indicada | - | https://universidadeuropea.com/master-psicologia-general-sanitaria-madrid/
+Universidad Europea | Máster Universitario en Psicología Infantil y Juvenil | maestria | Psicología | no indicada | - | https://universidadeuropea.com/master-psicologia-desarrollo-infanto-juvenil-madrid/
+Universidad Europea | Máster Universitario en Psicología Jurídica y Forense | maestria | Psicología | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Doble Máster en Psicología General Sanitaria y Neuropsicología | maestria | Psicología | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Doble Máster en Psicología General Sanitaria y Psicología Forense | maestria | Psicología | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Intervención Psicológica en Crisis | maestria | Psicología | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Terapia Psicológica de Pareja y Sexualidad | maestria | Psicología | no indicada | - | https://universidadeuropea.com/masters-biomedicas-salud/
+Universidad Europea | Máster Universitario en Psicología del Deporte | maestria | Psicología | no indicada | - | https://universidadeuropea.com/master-psicologia-deportiva-real-madrid/
+Universidad Europea | Máster de Formación Permanente en Psicología Deportiva y del Rendimiento | maestria | Psicología | no indicada | - | https://universidadeuropea.com/master-psicologia-deportiva-malaga/
+Universidad Europea | Private Master's Degree in Sports Psychology | maestria | Psicología | no indicada | - | https://universidadeuropea.com/en/master-sports-exercise-psychology-real-madrid/
+Universidad Europea | Máster de Formación Permanente en Gestión Integral, Bienestar y Veterinaria en Acuarios y Zoológicos del Siglo XXI | maestria | Veterinaria | no indicada | - | https://universidadeuropea.com/master-cuidado-animales-zoologico-acuario-madrid/
+Universidad Europea | Máster Universitario en Entrenamiento de Alto Rendimiento Deportivo | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-alto-rendimiento-deportivo-real-madrid/
+Universidad Europea | Máster Universitario en Ejercicio Físico en Patologías Crónicas y Poblaciones Especiales | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-actividad-fisica-patologias-madrid/
+Universidad Europea | Máster Universitario en Entrenamiento y Alimentación Deportiva | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-entrenamiento-nutricion-deportiva-malaga/
+Universidad Europea | Master Universitario en Entrenamiento y Nutrición Deportiva | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-entrenamiento-nutricion-deportiva-real-madrid/
+Universidad Europea | Máster Universitario en Alimentación en la Actividad Física y el Deporte | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-nutricion-actividad-fisica-deporte-online/
+Universidad Europea | Private Master's Degree in Sports Nutrition | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/en/master-sports-nutrition-real-madrid-online/
+Universidad Europea | Máster Universitario en Investigación en Ciencias de la Actividad Física y del Deporte | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-investigacion-ciencias-deporte-online/
+Universidad Europea | Máster de Formación Permanente en Medicina y Ciencias del Deporte | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-medicina-deportiva-real-madrid-online/
+Universidad Europea | Máster de Formación Permanente en Lesiones Traumatológicas en el Deporte | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-lesiones-traumatologicas-deporte-online/
+Universidad Europea | Máster de Formación Permanente en Prevención y Readaptación Deportiva | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-readaptacion-deportiva-madrid/
+Universidad Europea | Máster de Formación Permanente en Gestión Deportiva | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-gestion-deportiva-malaga/
+Universidad Europea | Máster de Formación Permanente en Gestión de Eventos y Recintos Deportivos | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-turismo-deportivo-real-madrid/
+Universidad Europea | Máster de Formación Permanente en Dirección de Fútbol | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-direccion-futbol-real-madrid/
+Universidad Europea | Máster de Formación Permanente en Big Data y Análisis de Datos en el Deporte | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-big-data-analisis-scouting-futbol-real-madrid/
+Universidad Europea | International Private Master's Degree in Basketball Coaching and Management | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/en/master-basketball-coaching-management-real-madrid/
+Universidad Europea | Private Master's Degree in High Performance Conditioning. Sport Scientist | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/en/master-high-performance-sports-real-madrid/
+Universidad Europea | Private Master's Degree in Sports Analytics | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/en/master-sport-analysis-analytics-real-madrid/
+Universidad Europea | Private Master's Degree in Sports Technologies and Innovation | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/en/master-sports-technologies-digital-transformation-real-madrid/
+Universidad Europea | Private Master's Degree in ESG: Sustainability in Sport | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/en/master-sustainability-sport-real-madrid-online/
+Universidad Europea | Private Master's Degree in Sports Marketing & eSports Management | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/en/master-sports-marketing-esport-management-real-madrid-online/
+Universidad Europea | Máster Universitario en Marketing Deportivo | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-marketing-deportivo-real-madrid/
+Universidad Europea | Máster Universitario en Comunicación y Periodismo Deportivo | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/master-periodismo-deportivo-real-madrid/
+Universidad Europea | Master in Sports Journalism and Communications | maestria | Comunicación | no indicada | - | https://universidadeuropea.com/en/master-communication-sports-journalism-real-madrid/
+Universidad Europea | Máster de Formación Permanente en Dirección y Gestión del Mantenimiento en Céspedes Deportivos | maestria | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-greenkeeping-malaga/
+Universidad Europea | Máster Universitario en Animación 3D | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-animacion-3d-madrid/
+Universidad Europea | Máster de Formación Permanente en Escultura Digital, Modelado y Texturizado | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-escultura-digital-online/
+Universidad Europea | Máster de Formación Permanente en VFX y Postproducción | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-postproduccion-audiovisual-vfx-madrid/
+Universidad Europea | Máster Universitario en Diseño de Videojuegos | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-videojuegos-madrid/
+Universidad Europea | Máster de Formación Permanente en Programación de Videojuegos | maestria | Tecnología | no indicada | - | https://creativecampus.universidadeuropea.com/master-programacion-videojuegos-online/
+Universidad Europea | Máster de Formación Permanente en Concept Art y Diseño de Personajes para Videojuegos | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-concept-art-online/
+Universidad Europea | Máster Universitario en Diseño Gráfico Digital | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-diseno-grafico-madrid/
+Universidad Europea | Private Master's Degree in Digital Graphic Design | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/en/master-graphic-design-online/
+Universidad Europea | Máster Universitario en Diseño UX/UI | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-ux-ui-madrid/
+Universidad Europea | Private Master's Degree in UX/UI Online Design | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/en/master-ux-design-online/
+Universidad Europea | Máster de Formación Permanente en Branding, Creación y Diseño de Marcas | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-branding-madrid/
+Universidad Europea | Máster de Formación Permanente en Ilustración | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-ilustracion-online/
+Universidad Europea | Máster de Formación Permanente en IA Generativa Aplicada al Diseño | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-inteligencia-artificial-aplicada-diseno-online/
+Universidad Europea | Máster de Formación Permanente en Diseño de la Felicidad | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-diseno-felicidad-madrid/
+Universidad Europea | Máster Universitario en Diseño de Producto | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-diseno-producto-madrid/
+Universidad Europea | Máster Universitario en Diseño de Interiores (Creative Campus) | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-diseno-interiores-madrid/
+Universidad Europea | Private Master's Degree in Interior Design | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/en/master-interior-design-online/
+Universidad Europea | Máster Universitario en Diseño de Espacios Comerciales – Retail Design 2.0 | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-diseno-espacios-comerciales-online/
+Universidad Europea | Máster Universitario en Diseño de Espacios Exteriores y Paisajismo | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-paisajismo-online/
+Universidad Europea | Máster Universitario en Diseño de Espacios Hoteleros y Gastronómicos | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-diseno-espacios-gastronomicos-madrid/
+Universidad Europea | Máster de Formación Permanente en Diseño de Iluminación | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-iluminacion-madrid/
+Universidad Europea | Máster de Formación Permanente en Diseño y Producción Escenográfica | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-escenografia-madrid/
+Universidad Europea | Máster Universitario en Diseño de Moda | maestria | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/master-diseno-moda-online/
+Universidad Europea | Máster Universitario en Diseño de Interiores (Valencia) | maestria | Artes | no indicada | - | https://universidadeuropea.com/master-diseno-interiores-valencia/
+Universidad Europea | Postgrado de Experto Universitario en Reumatología Pediátrica | especializacion | Salud | no indicada | - | https://universidadeuropea.com/master-reumatologia-pediatrica-online/
+Universidad Europea | Posgrado de Experto Universitario en Analítica Deportiva | especializacion | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/curso-scouting-analista-futbol-real-madrid-online/
+Universidad Europea | Postgrado de Especialización Universitaria en Arquitectura Aplicada | especializacion | Arquitectura | no indicada | - | https://universidadeuropea.com/master-arquitectura-aplicada-valencia/
+Universidad Europea | Postgrado de Especialización Universitaria en Arquitectura Industrializada | especializacion | Arquitectura | no indicada | - | https://universidadeuropea.com/curso-arquitectura-industrializada-valencia/
+Universidad Europea | Postgrado de Experto Universitario en Atención Temprana | especializacion | Educación | no indicada | - | https://universidadeuropea.com/curso-atencion-temprana-online/
+Universidad Europea | Postgrado de Experto Universitario en Atención a la Diversidad en las Aulas | especializacion | Educación | no indicada | - | https://universidadeuropea.com/curso-atencion-diversidad-online/
+Universidad Europea | Postgraduate Diploma in Basketball Physical Training | especializacion | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/en/course-basketball-physical-training-online/
+Universidad Europea | Postgrado de Experto Universitario en Big Data Fundamentals | especializacion | Tecnología | no indicada | - | https://universidadeuropea.com/curso-big-data-online/
+Universidad Europea | Postgrado de Experto Universitario en Business Intelligence and Decision Making | especializacion | Tecnología | no indicada | - | https://universidadeuropea.com/curso-business-intelligence-online/
+Universidad Europea | Postgrado de Experto Universitario en Cambio Climático | especializacion | Ciencias | no indicada | - | https://universidadeuropea.com/curso-cambio-climatico-online/
+Universidad Europea | Postgrado de Experto Universitario en Cirugía de Tejidos Blandos en Pequeños Animales | especializacion | Veterinaria | no indicada | - | https://universidadeuropea.com/curso-cirugia-veterinaria-madrid/
+Universidad Europea | Postgrado de Experto Universitario en Competencias Docentes | especializacion | Educación | no indicada | - | https://universidadeuropea.com/curso-competencias-docentes-online/
+Universidad Europea | Postgrado de Especialización Universitaria en Compliance | especializacion | Derecho | no indicada | - | https://universidadeuropea.com/master-compliance-valencia/
+Universidad Europea | Postgrado de Experto Universitario en Comportamiento del Consumidor | especializacion | Comunicación | no indicada | - | https://universidadeuropea.com/curso-comportamiento-consumidor-online/
+Universidad Europea | Postgrado de Experto Universitario en Comunicación Corporativa | especializacion | Comunicación | no indicada | - | https://universidadeuropea.com/curso-comunicacion-corporativa-valencia/
+Universidad Europea | Postgrado de Experto Universitario en Criptomonedas | especializacion | Negocios | no indicada | - | https://universidadeuropea.com/curso-criptomonedas-online/
+Universidad Europea | Postgrado de Especialización Universitaria en Data Analytics e Inteligencia Artificial | especializacion | Tecnología | no indicada | - | https://universidadeuropea.com/curso-data-analytics-inteligencia-artificial-canarias/
+Universidad Europea | Postgrado de Experto Universitario en Data Science | especializacion | Tecnología | no indicada | - | https://universidadeuropea.com/curso-data-science-online/
+Universidad Europea | Postgrado de Especialización Universitaria en Dermofarmacia y Cosmética | especializacion | Salud | no indicada | - | https://universidadeuropea.com/curso-dermofarmacia-cosmetica-online/
+Universidad Europea | Postgrado de Especialización Universitaria en Diseño e Innovación Digital | especializacion | Artes | no indicada | - | https://universidadeuropea.com/master-diseno-digital-valencia/
+Universidad Europea | Postgrado de Experto Universitario en Educación Bilingüe | especializacion | Educación | no indicada | - | https://universidadeuropea.com/curso-educacion-bilingue-online/
+Universidad Europea | Postgrado de Experto Universitario en Educación Personalizada | especializacion | Educación | no indicada | - | https://universidadeuropea.com/curso-educacion-personalizada-online/
+Universidad Europea | Curso Universitario en Eficiencia Energética y Rehabilitación Net Zero de Edificación | especializacion | Arquitectura | no indicada | - | https://universidadeuropea.com/curso-eficiencia-energetica-rehabilitacion-edificios-canarias/
+Universidad Europea | Postgrado de Experto Universitario en Ejercicio Físico y Cáncer | especializacion | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/curso-experto-ejercicio-cancer-madrid/
+Universidad Europea | Postgrado de Experto Universitario en Ejercicio Terapéutico en Pacientes con Dolor Musculoesquelético | especializacion | Salud | no indicada | - | https://universidadeuropea.com/curso-ejercicio-terapeutico-madrid/
+Universidad Europea | Postgrado de Experto Universitario en Emprendimiento | especializacion | Negocios | no indicada | - | https://universidadeuropea.com/curso-emprendimiento-online/
+Universidad Europea | Postgrado de Especialización Universitaria en Enfermería Dermoestética | especializacion | Salud | no indicada | - | https://universidadeuropea.com/curso-experto-enfermeria-dermoestetica-madrid/
+Universidad Europea | Postgrado de Especialización Universitaria en Enfermería de Quirófano, Anestesia y Reanimación Postquirúrgica | especializacion | Salud | no indicada | - | https://universidadeuropea.com/master-enfermeria-quirofano-malaga/
+Universidad Europea | Postgrado de Experto Universitario en Entrenamiento y Readaptación Deportiva | especializacion | Ciencias del Deporte | no indicada | - | https://universidadeuropea.com/master-entrenamiento-readaptacion-deportiva-canarias/
+Universidad Europea | Postgrado de Experto Universitario en Endodoncia Clínica Avanzada | especializacion | Odontología | no indicada | - | https://universidadeuropea.com/curso-endodoncia-clinica-malaga/
+Universidad Europea | Postgrado de Experto Universitario en Fisioterapia Invasiva para las disfunciones del sistema neuro-musculoesquelético | especializacion | Salud | no indicada | - | https://universidadeuropea.com/curso-experto-fisioterapia-invasiva-canarias/
+Universidad Europea | Postgrado de Experto Universitario en Gestión Global del Talento | especializacion | Negocios | no indicada | - | https://universidadeuropea.com/curso-gestion-talento-online/
+Universidad Europea | Postgrado de Especialización Universitaria en Gestión Sanitaria | especializacion | Salud | no indicada | - | https://universidadeuropea.com/curso-gestion-sanitaria-online/
+Universidad Europea | Postgrado de Experto Universitario en Herramientas Digitales Docentes | especializacion | Educación | no indicada | - | https://universidadeuropea.com/curso-herramientas-tecnologicas-docentes-online/
+Universidad Europea | Postgrado de Experto Universitario en Hidrógeno Verde | especializacion | Ingeniería | no indicada | - | https://universidadeuropea.com/curso-hidrogeno-verde-online/
+Universidad Europea | Postgrado de Experto Universitario en IA Aplicada a la Energía | especializacion | Tecnología | no indicada | - | https://universidadeuropea.com/curso-ia-aplicada-sector-energetico-online/
+Universidad Europea | Postgrado de Experto Universitario en IA Aplicada a la Salud Mental | especializacion | Tecnología | no indicada | - | https://universidadeuropea.com/curso-inteligencia-artificial-salud-mental-online/
+Universidad Europea | Postgrado de Experto Universitario en Diseño de Iluminación | especializacion | Artes | no indicada | - | https://creativecampus.universidadeuropea.com/curso-iluminacion-madrid/
+Universidad Europea | Postgrado de Experto en Inteligencia Artificial Aplicada al Marketing | especializacion | Comunicación | no indicada | - | https://universidadeuropea.com/curso-inteligencia-artificial-aplicada-marketing-valencia/
+Universidad Europea | Postgrado de Especialización Universitaria en Intervenciones Asistidas con Animales | especializacion | Salud | no indicada | - | https://universidadeuropea.com/curso-terapia-asistida-animales-madrid/
+Universidad Europea | Postgrado de Especialización Universitaria en Intervenciones Psicológicas en Atención Primaria | especializacion | Psicología | no indicada | - | https://universidadeuropea.com/postgrado-intervenciones-psicologicas-atencion-primaria-madrid/
+Universidad Europea | Postgrado de Experto Universitario en LegalTech | especializacion | Derecho | no indicada | - | https://universidadeuropea.com/curso-legaltech-online/
+Universidad Europea | Postgrado de Experto Universitario en Marketing Sanitario | especializacion | Comunicación | no indicada | - | https://universidadeuropea.com/curso-marketing-sanitario-online/
+Universidad Europea | Postgrado de Experto Universitario en Mercado de Capitales | especializacion | Negocios | no indicada | - | https://universidadeuropea.com/curso-mercado-capitales-online/
+Universidad Europea | Postgrado de Experto Universitario en Neurorehabilitación Pediátrica | especializacion | Salud | no indicada | - | https://universidadeuropea.com/curso-fisioterapia-pediatrica-madrid/
+Universidad Europea | Postgrado de Especialización Universitaria en Nutrición Personalizada e Inteligencia Artificial | especializacion | Salud | no indicada | - | https://universidadeuropea.com/curso-nutrigenomica-madrid/
+Universidad Europea | Postgrado de Experto Universitario en Orientación y Mediación Escolar | especializacion | Educación | no indicada | - | https://universidadeuropea.com/curso-mediacion-escolar-online/
+Universidad Europea | Postgrado de Experto Universitario en Peritación y Valoración del Daño Corporal en Odontología | especializacion | Odontología | no indicada | - | https://universidadeuropea.com/curso-valoracion-dano-corporal-online/
+Universidad Europea | Postgrado de Experto Universitario en Odontología Digital | especializacion | Odontología | no indicada | - | https://universidadeuropea.com/curso-experto-odontologia-digital-madrid/
+Universidad Europea | Postgrado de Especialización Universitaria en Product Management y Estrategia de Negocio | especializacion | Negocios | no indicada | - | https://universidadeuropea.com/master-product-manager-online/
+Universidad Europea | Programa de Experto en Radiología Musculoesquelética | especializacion | Salud | no indicada | - | https://universidadeuropea.com/curso-radiologia-musculoesqueletica-semipresencial/
+Universidad Europea | Postgrado de Experto Universitario en Rehabilitación Neuro-Oclusal en Odontopediatría | especializacion | Odontología | no indicada | - | https://universidadeuropea.com/curso-rehabilitacion-neuro-oclusal-madrid/
+
+# RESUMEN: instituciones=9 con_programas=9 total_programas=749 sin_catalogo=0
+
+# NOTAS:
+# Universidad Europea · 410 extraidos vs "300+" de la auditoria — supera el control, PERO EL CATALOGO REAL ES AUN MAYOR: los contadores del propio sitio declaran ~160 masteres oficiales + ~100 masteres de formacion permanente + ~127 cursos/postgrados de experto + ~95 grados/dobles + 22 FP superior + 4 cursos de especializacion FP + 8 doctorados, del orden de 500 titulaciones. Estas 410 filas cubren ~4/5 y estan DEDUPLICADAS por titulacion (el sitio publica una URL por sede/modalidad del mismo programa). El faltante se concentra en el tramo alto de /cursos-universitarios/, /masters-universitarios/oficiales/ y /formacion-permanente-propios/, que cargan de 50 en 50 con boton "Cargar mas" y truncan la segunda mitad al hacer fetch. NO tratar como catalogo completo. CORRECCIONES A LA FICHA: (1) no son 3 sedes sino 5 — Madrid, Valencia, Canarias, MALAGA y ALICANTE; (2) existe un SUBDOMINIO con catalogo propio, creativecampus.universidadeuropea.com (diseno, moda, videojuegos, animacion, interiores: 14 grados + 25 posgrados), mas escuelas con oferta diferenciada (Real Madrid Universidad Europea, Escuela de Sostenibilidad) — un solo registro "Madrid o Valencia" esconde toda esa estructura. Ningun listado publica duracion ni codigo RUCT (solo se confirmaron 3: Abogacia y Procura 90 ECTS, Master en IA 60 ECTS, TS en Dietetica 2 anios/2.000 h). El sitio SI publica precios y becas en las fichas — no se transcribieron. OJO: 14 filas del area de salud/psicologia apuntan a la pagina indice /masters-biomedicas-salud/ porque su ficha individual no se pudo aislar, y unos pocos nombres llegaron truncados desde el listado (ej. "Medicina de Urgencias, Emergencias") — confirmar contra ficha antes de publicar al cliente.
+# Fairleigh Dickinson · 113 extraidos vs "100+" de la ficha — cuadra en volumen, pero OJO CON LO QUE SE VENDE. CONFIRMADA la alerta de la auditoria: fdu.edu es el dominio de la matriz en New Jersey. Se aislo el campus de la ficha con el filtro ?fwp_campus=vancouver y el campus de VANCOUVER solo tiene 11 programas (3 bachelor, 4 master, 4 certificados); los otros 102 son Florham/Metropolitan (New Jersey) u Online. Estan agrupados en 3 bloques separados en el archivo para que el asesor no los mezcle. El sitio NO publica duracion ni codigo por programa en el Program Finder (habria que abrir 113 fichas), por eso van todos con "no indicada" y "-". Se EXCLUYERON los minors (2D Animation Minor, 3D Animation Minor, etc.) porque no son un grado vendible por si solo, y los "50+ graduate certificates" que el finder menciona pero no enumera. El filtro ?fwp_program_level=doctoral devuelve vacio (render JS); los doctorados que aparecen aqui salieron del listado de graduate.
+# Anglo-Continental · 29 extraidos vs "~20+" — cuadra. Se desgloso General English en sus 4 variantes reales (20 y 30 lecciones/semana, cada una en version estandar y Long Term) porque es lo que un asesor cotiza. Se EXCLUYERON 2 items: "ICAO / EASA English Language Proficiency test" (es un EXAMEN, no un curso) y "YMS Working Holiday Programme" (restringido a nacionalidades del Youth Mobility Scheme britanico — Colombia NO es elegible). Se dejo "Bildungsurlaub", pero es un curso homologado como permiso formativo aleman: util solo para residentes en Alemania. El sitio no publica duracion en semanas en ninguna pagina de catalogo.
+# LSI · 33 extraidos vs "~20 tipos de curso x 14 escuelas" — cuadra a nivel de TIPO de curso; la multiplicacion por escuela no se hizo (serian ~460 filas duplicadas). CONFIRMADA la alerta de la auditoria sobre paises: la pagina de escuelas lista 14 sedes e incluye PARIS (Francia) y ZURICH (Suiza), que faltaban en la ficha; Australia es efectivamente solo Brisbane. Corregir el campo pais. No todas las 14 escuelas dictan los 33 cursos — validar disponibilidad por sede antes de cotizar. Se incluyeron "Programa Estudia y Trabaja" y "Estudia y Trabaja de ninero/a", pero se EXCLUYO "Vacaciones y trabajo (Working Holiday)" por depender de una visa de working holiday que Colombia no tiene con la mayoria de los destinos de LSI.
+# QIBA · 13 extraidos vs "13" — cuadra exacto. Se EXCLUYO "Corporate Training" (capacitacion in-company, no es un programa vendible a un estudiante). Los 3 cursos de ingles traen CRICOS de CURSO (080115D, 022758E, 096939K) y los 9 VET traen codigo nacional; el "Professional Year in Information Technology" no publica ni codigo ni duracion y exige haber terminado ya un titulo australiano — no es programa de entrada desde Colombia. INCONSISTENCIA GEOGRAFICA CONFIRMADA por la ficha: se llama "Queensland" pero opera desde Sydney.
+# UHE · 5 extraidos vs "6" de la auditoria. La diferencia es deliberada: se EXCLUYO el "Bachelor of Multinational Film Production" (CRICOS 102224B) porque el propio sitio lo marca como "currently not accepting applications". CONFIRMADA LA CONTRADICCION de la ficha: puede_vender dice "Vocacionales (Cert, Dip, Adv Dip)" y UHE NO TIENE NI UNA cualificacion VET — es proveedor de educacion superior (PRV14288), todo su catalogo es Bachelor/Master/Graduate. Hay que corregir puede_vender. Los 5 traen CRICOS de curso; ninguno publica duracion.
+# CodeCore · 11 extraidos vs "~12" — cuadra, PERO CON UNA ADVERTENCIA GRAVE: el certificado TLS de codecore.ca ESTA VENCIDO. Ni codecore.ca ni www.codecore.ca se pueden abrir hoy (error "certificate has expired" en todos los intentos, no es el MITM local). Un estudiante que haga clic en el link vera una advertencia de seguridad del navegador. Como consecuencia, estas 11 filas NO se leyeron de la pagina: los nombres y las URLs canonicas salen del indice de busqueda del propio dominio, y solo 3 duraciones pudieron confirmarse (bootcamp 12 semanas, Advanced Web App Dev 48 semanas, Advanced Diploma in Business 60 semanas). VERIFICAR ANTES DE VENDER. Ademas, CONFIRMADA la alerta: la ciudad de la ficha (New Westminster) esta desactualizada — el college se reubico y relanza en PRINCE GEORGE, BC. Ningun programa publica codigo provincial (PTIB).
+# Niagara College - Toronto · 10 extraidos vs "~9-10" — cuadra exacto. CONFIRMADA la alerta: no es un college independiente sino una sede PPP donde Toronto School of Management (grupo GUS) entrega las credenciales de Niagara College — de ahi que uno de los programas se llame literalmente "Business (TSOM Pathway)". El sitio no publica ningun codigo de programa (ni MTCU ni DLI), solo duracion en anios.
+# UCJC · 125 extraidos (49 grados/dobles + 64 masteres + 3 doctorados + 9 FP). La auditoria no habia logrado contar ("? amplio"): este es el conteo real. La paginacion de WordPress (/grados/page/N/ y /master/page/N/) SI funciona y se recorrieron las 9 + 11 paginas completas. Nombre corregido: el sitio se presenta solo como "Universidad Camilo Jose Cela"; "Centro de Ensenanza Universitaria SEK S.A" es la razon social y SEK Education Group el grupo. OJO CON puede_vender: la ficha dice "Portafolio Posgrados" y aqui hay 49 grados + 12 FP que quedarian fuera de lo autorizado — validar con la clienta si se amplia el alcance o si se cargan solo los 67 de posgrado. Los masteres de Formacion Permanente son titulos propios (no oficiales del Ministerio) — se marcaron como "maestria" pero conviene distinguirlos ante la familia. La UCJC no publica codigo RUCT ni de plan en las fichas de catalogo, por eso todos van con "-".

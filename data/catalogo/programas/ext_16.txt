@@ -1,0 +1,387 @@
+# Lote 16 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Western Washington University · via students.studygroup.com · USA ---
+# OJO: no es catalogo propio · son los "highlighted programmes" de la pagina comercial de Study Group (ver NOTAS)
+Western Washington University | Biochemistry BS | bachelor | Ciencias | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Biology BS | bachelor | Ciencias | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Business Administration BA | bachelor | Negocios | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Computer Science BS | bachelor | Tecnología | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Data Science BS | bachelor | Tecnología | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Economics BA | bachelor | Economía | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Electrical Engineering BS | bachelor | Ingeniería | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Environmental Science BS | bachelor | Medio Ambiente | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Geology BA/BS | bachelor | Ciencias | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Industrial Design BS | bachelor | Diseño | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Manufacturing Engineering BS | bachelor | Ingeniería | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Manufacturing and Supply Chain Management BS | bachelor | Negocios | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Marine and Coastal Science BS | bachelor | Ciencias | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Psychology BS | bachelor | Psicología | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Urban Planning & Sustainable Development BA | bachelor | Urbanismo | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Business MBA | mba | Negocios | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+Western Washington University | Computer Science MS | maestria | Tecnología | no indicada | - | https://students.studygroup.com/study-options/direct-admit/western-washington-university
+
+# --- TAFE International Western Australia (TIWA) · CRICOS 00020G · tafeinternational.wa.edu.au · Australia ---
+# Catalogo VET completo (4 paginas · 98 cursos) + programa de escuelas publicas de secundaria
+TAFE International Western Australia (TIWA) | Advanced Diploma of Apparel, Fashion and Textiles | diplomado | Moda | no indicada | MST60122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Civil and Structural Engineering | diplomado | Ingeniería | no indicada | 52873WA | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Civil Construction Design | diplomado | Construcción | no indicada | RII60520 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Creative Product Development (Photography) | diplomado | Artes | no indicada | CUA60425 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Engineering | diplomado | Ingeniería | no indicada | MEM60122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Engineering Technology - Electrical | diplomado | Ingeniería | no indicada | UEE62122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Engineering [Mechanical] | diplomado | Ingeniería | no indicada | MEM60122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Graphic Design | diplomado | Diseño | no indicada | CUA60320 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Interior Design | diplomado | Diseño | no indicada | MSF60122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Marine Engineering [Class 1] | diplomado | Ingeniería | no indicada | MAR60120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Maritime Operations [Master Unlimited] | diplomado | Marítimo | no indicada | MAR60220 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Screen and Media (Animation and Game Art) | diplomado | Cine y Audiovisuales | no indicada | CUA60620 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Screen and Media (Digital Cinema) | diplomado | Cine y Audiovisuales | no indicada | CUA60620 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Surveying | diplomado | Construcción | no indicada | CPP60121 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Advanced Diploma of Visual Arts | diplomado | Artes | no indicada | CUA60720 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Accounting | diplomado | Negocios | no indicada | FNS50222 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Apparel, Fashion and Textiles [Business] | diplomado | Moda | no indicada | MST50122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Apparel, Fashion and Textiles [Design and product development] | diplomado | Moda | no indicada | MST50122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Aquaculture | diplomado | Ciencias Animales | no indicada | SFI50119 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Automotive Technology | diplomado | Automotriz | no indicada | AUR50216 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Aviation [Aviation Management] | diplomado | Aviación | no indicada | AVI50119 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Beauty Therapy | diplomado | Belleza y Estética | no indicada | SHB50121 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Building and Construction [Building] | diplomado | Construcción | no indicada | CPC50220 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Building Design | diplomado | Construcción | no indicada | CPP50921 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Business | diplomado | Negocios | no indicada | BSB50120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue
+TAFE International Western Australia (TIWA) | Diploma of Civil and Structural Engineering | diplomado | Ingeniería | no indicada | 52889WA | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Civil Construction Design | diplomado | Construcción | no indicada | RII50520 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Community Services | diplomado | Servicios Sociales | no indicada | CHC52025 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Early Childhood Education and Care | diplomado | Educación | no indicada | CHC50125 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Electronics and Communications Engineering | diplomado | Ingeniería | no indicada | UEE50520 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Engineering - Technical | diplomado | Ingeniería | no indicada | MEM50222 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Engineering - Technical [Drafting] | diplomado | Ingeniería | no indicada | MEM50222 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Environmental Monitoring and Technology | diplomado | Medio Ambiente | no indicada | MSS50222 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Event Management | diplomado | Hospitalidad | no indicada | SIT50322 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Graphic Design | diplomado | Diseño | no indicada | CUA50720 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT50422 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Information Technology [Advanced Networking] | diplomado | Tecnología | no indicada | ICT50220 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Information Technology [Advanced Programming] | diplomado | Tecnología | no indicada | ICT50220 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Information Technology [Back End Web Development] | diplomado | Tecnología | no indicada | ICT50220 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Information Technology [Front End Web Development] | diplomado | Tecnología | no indicada | ICT50220 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Interior Design | diplomado | Diseño | no indicada | MSF50222 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Laboratory Technology | diplomado | Ciencias | no indicada | MSL50122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Marine Engineering [Engineer Class 3 Near Coastal] | diplomado | Ingeniería | no indicada | MAR50120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Marine Engineering [Engineer Watchkeeper Specialist] | diplomado | Ingeniería | no indicada | MAR50120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Maritime Operations [Master up to 500 GT] | diplomado | Marítimo | no indicada | MAR50320 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Maritime Operations [Watchkeeper Deck] | diplomado | Marítimo | no indicada | MAR50320 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Nursing | diplomado | Enfermería | no indicada | HLT54121 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Photography and Digital Imaging | diplomado | Artes | no indicada | CUA50925 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Remedial Massage | diplomado | Salud | no indicada | HLT52021 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Screen and Media – Animation & Game Art | diplomado | Cine y Audiovisuales | no indicada | CUA51020 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=1
+TAFE International Western Australia (TIWA) | Diploma of Screen and Media (Film & Television) | diplomado | Cine y Audiovisuales | no indicada | CUA51020 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Diploma of Screen and Media (Specialist Make-Up Services) | diplomado | Belleza y Estética | no indicada | CUA51020 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Diploma of Surveying | diplomado | Construcción | no indicada | CPP50121 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Diploma of Travel and Tourism Management | diplomado | Turismo | no indicada | SIT50122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Diploma of Visual Arts | diplomado | Artes | no indicada | CUA51120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Accounting and Bookkeeping | curso_corto | Negocios | no indicada | FNS40222 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Automotive Mechanical Diagnosis | curso_corto | Automotriz | no indicada | AUR40216 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Building and Construction (Building) | curso_corto | Construcción | no indicada | CPC40120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Business | curso_corto | Negocios | no indicada | BSB40120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Community Services | curso_corto | Servicios Sociales | no indicada | CHC42021 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Design (Graphic Design) | curso_corto | Diseño | no indicada | CUA40725 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Electronics and Communications | curso_corto | Ingeniería | no indicada | UEE40720 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Hospitality | curso_corto | Hospitalidad | no indicada | SIT40422 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Information Technology | curso_corto | Tecnología | no indicada | ICT40120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Information Technology (Networking) | curso_corto | Tecnología | no indicada | ICT40120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Information Technology (Programming) | curso_corto | Tecnología | no indicada | ICT40120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Information Technology (Web Development) | curso_corto | Tecnología | no indicada | ICT40120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Kitchen Management | curso_corto | Gastronomía | no indicada | SIT40521 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Laboratory Techniques | curso_corto | Ciencias | no indicada | MSL40122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Marketing and Communication | curso_corto | Negocios | no indicada | BSB40820 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Patisserie | curso_corto | Gastronomía | no indicada | SIT40721 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Preparation for Health and Nursing Studies | curso_corto | Salud | no indicada | 52895WA | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Residential Drafting | curso_corto | Construcción | no indicada | CPP40121 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Surveying and Spatial Information Services (Surveying) | curso_corto | Construcción | no indicada | CPP41721 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Veterinary Nursing | curso_corto | Veterinaria | no indicada | ACM40418 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=2
+TAFE International Western Australia (TIWA) | Certificate IV in Visual Arts | curso_corto | Artes | no indicada | CUA41320 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate IV in Youth Work | curso_corto | Servicios Sociales | no indicada | CHC40421 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Animal Care Services | curso_corto | Ciencias Animales | no indicada | ACM30122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Apparel, Fashion and Textiles | curso_corto | Moda | no indicada | MST31022 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Aquaculture | curso_corto | Ciencias Animales | no indicada | SFI30119 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Barbering | curso_corto | Belleza y Estética | no indicada | SHB30516 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Bricklaying and Blocklaying | curso_corto | Construcción | no indicada | CPC33020 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Carpentry | curso_corto | Construcción | no indicada | CPC30220 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Commercial Cookery | curso_corto | Gastronomía | no indicada | SIT30821 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Community Services | curso_corto | Servicios Sociales | no indicada | CHC32015 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Design Fundamentals | curso_corto | Diseño | no indicada | CUA30720 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Early Childhood Education and Care | curso_corto | Educación | no indicada | CHC30125 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Engineering - Technical | curso_corto | Ingeniería | no indicada | MEM30522 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Events | curso_corto | Hospitalidad | no indicada | SIT30522 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Hairdressing | curso_corto | Belleza y Estética | no indicada | SHB30416 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Individual Support [Ageing] | curso_corto | Salud | no indicada | CHC33021 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Information Technology | curso_corto | Tecnología | no indicada | ICT30120 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Laboratory Skills | curso_corto | Ciencias | no indicada | MSL30122 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Light Vehicle Mechanical Technology | curso_corto | Automotriz | no indicada | AUR30620 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Patisserie | curso_corto | Gastronomía | no indicada | SIT31021 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Screen and Media | curso_corto | Cine y Audiovisuales | no indicada | CUA31020 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Surveying and Spatial Information Services | curso_corto | Construcción | no indicada | CPP30226 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+TAFE International Western Australia (TIWA) | Certificate III in Tourism | curso_corto | Turismo | no indicada | SIT30125 | https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue?page=3
+# Programa de escuelas publicas de secundaria (WA Government Schools · administrado por TIWA)
+TAFE International Western Australia (TIWA) | Western Australian Government Schools · secondary (Year 7-12 · WACE) | secundaria | Educación Secundaria | minimo 2 school terms | - | https://www.tafeinternational.wa.edu.au/western-australian-government-schools
+TAFE International Western Australia (TIWA) | Western Australian Government Schools · short term enrolments and student exchange | intercambio | Educación Secundaria | no indicada | - | https://www.tafeinternational.wa.edu.au/wa-government-schools/short-term-enrolments-student-exchange
+
+# --- Australian Ideal College (AIC) · CRICOS 03053G · RTO 91679 · aic.edu.au · Australia ---
+Australian Ideal College | FNS30322 Certificate III in Accounts Administration | curso_corto | Negocios | no indicada | FNS30322 | https://aic.edu.au/accounting-courses/
+Australian Ideal College | FNS40222 Certificate IV in Accounting and Bookkeeping | curso_corto | Negocios | no indicada | FNS40222 | https://aic.edu.au/accounting-courses/
+Australian Ideal College | FNS50222 Diploma of Accounting | diplomado | Negocios | no indicada | FNS50222 | https://aic.edu.au/accounting-courses/
+Australian Ideal College | FNS60222 Advanced Diploma of Accounting | diplomado | Negocios | no indicada | FNS60222 | https://aic.edu.au/accounting-courses/
+Australian Ideal College | BSB30120 Certificate III in Business (Administration) | curso_corto | Negocios | no indicada | BSB30120 | https://aic.edu.au/business-courses/
+Australian Ideal College | BSB40120 Certificate IV in Business (Administration) | curso_corto | Negocios | no indicada | BSB40120 | https://aic.edu.au/business-courses/
+Australian Ideal College | BSB50420 Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 | https://aic.edu.au/business-courses/
+Australian Ideal College | BSB60420 Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB60420 | https://aic.edu.au/business-courses/
+Australian Ideal College | BSB40820 Certificate IV in Marketing and Communication | curso_corto | Negocios | no indicada | BSB40820 | https://aic.edu.au/business-courses/
+Australian Ideal College | BSB50620 Diploma of Marketing and Communication | diplomado | Negocios | no indicada | BSB50620 | https://aic.edu.au/business-courses/
+Australian Ideal College | BSB60520 Advanced Diploma of Marketing and Communication | diplomado | Negocios | no indicada | BSB60520 | https://aic.edu.au/business-courses/
+Australian Ideal College | BSB80120 Graduate Diploma of Management (Learning) | posgrado | Negocios | 52 semanas | BSB80120 · CRICOS 106057B | https://aic.edu.au/business-courses/graduate-diploma-of-management-learning/
+Australian Ideal College | BSB40920 Certificate IV in Project Management Practice | curso_corto | Negocios | no indicada | BSB40920 | https://aic.edu.au/diploma-of-project-management/
+Australian Ideal College | BSB50820 Diploma of Project Management | diplomado | Negocios | 52 semanas | BSB50820 · CRICOS 104042C | https://aic.edu.au/diploma-of-project-management/
+Australian Ideal College | CHC52025 Diploma of Community Service | diplomado | Servicios Sociales | 78 semanas | CHC52025 · CRICOS 120939F | https://aic.edu.au/chc52025-diploma-of-community-service-2/
+Australian Ideal College | SIT50122 Diploma of Travel and Tourism Management | diplomado | Turismo | no indicada | SIT50122 | https://aic.edu.au/tourism-hospitality-courses/
+Australian Ideal College | SIT60122 Advanced Diploma of Travel and Tourism Management | diplomado | Turismo | no indicada | SIT60122 | https://aic.edu.au/tourism-hospitality-courses/
+Australian Ideal College | SIT50422 Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT50422 | https://aic.edu.au/tourism-hospitality-courses/
+Australian Ideal College | SIT60322 Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT60322 | https://aic.edu.au/tourism-hospitality-courses/
+Australian Ideal College | General English (GE) | curso_corto | Idiomas | no indicada | - | https://aic.edu.au/english-courses/
+Australian Ideal College | English for Academic Purposes (EAP) | curso_corto | Idiomas | no indicada | - | https://aic.edu.au/english-courses/
+Australian Ideal College | Credentialed Community Language (CCL) Testing · non-award | curso_corto | Idiomas | 8 semanas | - | https://aic.edu.au/ccl-training/
+
+# --- Kings Education · kingseducation.com · UK + USA ---
+# Programas academicos UK (Kings Colleges)
+Kings Education | A-levels | secundaria | Educación Secundaria | no indicada | - | https://www.kingseducation.com/uk-uni/a-levels/
+Kings Education | GCSEs | secundaria | Educación Secundaria | no indicada | - | https://www.kingseducation.com/uk-uni/gcse/
+Kings Education | International High School Programme | secundaria | Educación Secundaria | no indicada | - | https://www.kingseducation.com/uk-uni/ihsp/
+Kings Education | Mini High School Programme | intercambio | Educación Secundaria | 4, 6 u 8 semanas | - | https://www.kingseducation.com/uk-uni/mini-high-school-programme/
+Kings Education | Degree Pathways | curso_corto | Preparación Universitaria | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Degree Pathway · Allied Health Sciences | curso_corto | Salud | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Degree Pathway · Architecture | curso_corto | Arquitectura | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Degree Pathway · Business and Management | curso_corto | Negocios | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Degree Pathway · Computer Science | curso_corto | Tecnología | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Degree Pathway · Economics and Finance | curso_corto | Economía | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Degree Pathway · Humanities, Politics, Law and International Relations | curso_corto | Humanidades | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Degree Pathway · Media and Creative Arts | curso_corto | Artes | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Degree Pathway · Medicine | curso_corto | Medicina | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Degree Pathway · Maths, Science and Engineering | curso_corto | Ingeniería | un año | - | https://www.kingseducation.com/uk-uni/degree-pathways/
+Kings Education | Creative Arts Degree Pathways (School of Art and Design · UAL approved) | curso_corto | Artes | no indicada | - | https://www.kingseducation.com/school-of-art-and-design/
+Kings Education | Academic Study Programme | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/uk-uni/academic-study-programme
+Kings Education | International Business Foundation | curso_corto | Negocios | no indicada | - | https://www.kingseducation.com/uk-uni/international-business-foundation/
+Kings Education | Academic English Preparation | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/uk-uni/english-preparation
+Kings Education | Academic Preparation Programme | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/uk-uni/academic-preparation-programme
+Kings Education | Oxbridge Preparation | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/uk-uni/oxbridge-preparation/
+Kings Education | Medical School Preparation | curso_corto | Medicina | no indicada | - | https://www.kingseducation.com/uk-uni/prepare-for-medicine/
+Kings Education | The Kings Head Start Programme | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/uk-uni/the-kings-head-start-programme
+Kings Education | Summer Academy: STEM | vacacional | Ciencias | no indicada | - | https://www.kingseducation.com/uk-uni/summer-academy/stem
+Kings Education | Summer Academy: Medical | vacacional | Medicina | no indicada | - | https://www.kingseducation.com/uk-uni/summer-academy/medical
+Kings Education | Summer Academy: Business and Economics | vacacional | Negocios | no indicada | - | https://www.kingseducation.com/uk-uni/summer-academy/business-and-economics
+Kings Education | Summer Academy: Leaders of Tomorrow | vacacional | Liderazgo | no indicada | - | https://www.kingseducation.com/uk-uni/summer-academy/leaders
+# Idiomas (Kings English · 16+)
+Kings Education | General English | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/general-english
+Kings Education | Intensive English | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/intensive-course/
+Kings Education | Diploma of General English | diplomado | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/diploma-of-general-english/
+Kings Education | Diploma of Intensive English | diplomado | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/diploma-of-intensive-english/
+Kings Education | Vacation English | vacacional | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/vacation-course
+Kings Education | Gap Year Programmes | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/gap-year-programmes
+Kings Education | Discovery Programmes | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/discovery-programmes/
+Kings Education | Discover London | vacacional | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/discover-london
+Kings Education | Discover New York | vacacional | Idiomas | no indicada | - | https://www.kingseducation.com/young-learners/discover-new-york/
+Kings Education | IELTS Preparation | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/ielts-preparation
+Kings Education | IELTS SmartClasses | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/ielts-smartclass/
+Kings Education | Cambridge English Exam Preparation | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/cambridge-english-exam-preparation
+Kings Education | TOEFL Preparation | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/toefl-preparation
+Kings Education | University Preparation in the UK | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/learn-english/university-preparation-in-the-uk
+Kings Education | University Preparation in the US | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/learn-english/university-preparation-in-the-us
+Kings Education | English for Business | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/learn-english/english-for-business
+Kings Education | English Plus Art and Design | curso_corto | Artes | no indicada | - | https://www.kingseducation.com/learn-english/english-plus-art-and-design
+Kings Education | English for Fashion | curso_corto | Moda | no indicada | - | https://www.kingseducation.com/learn-english/english-for-fashion
+Kings Education | English Plus Law | curso_corto | Derecho | no indicada | - | https://www.kingseducation.com/learn-english/english-plus-law
+# Young Learners (8-17)
+Kings Education | Summer Course & Summer Course Plus | vacacional | Idiomas | no indicada | - | https://www.kingseducation.com/young-learners/summer-course
+Kings Education | Experience Bournemouth and Experience London | vacacional | Idiomas | no indicada | - | https://www.kingseducation.com/young-learners/experience
+Kings Education | Parent & Child | vacacional | Idiomas | no indicada | - | https://www.kingseducation.com/young-learners/parent-and-child-programme/
+Kings Education | Spring Programme | vacacional | Idiomas | no indicada | - | https://www.kingseducation.com/young-learners/spring-programme/
+Kings Education | Study Tours | vacacional | Idiomas | no indicada | - | https://www.kingseducation.com/young-learners/year-round-study-tours/
+Kings Education | High School in the UK | secundaria | Educación Secundaria | no indicada | - | https://www.kingseducation.com/young-learners/uk-secondary-school/
+Kings Education | High School in the USA | secundaria | Educación Secundaria | no indicada | - | https://www.kingseducation.com/young-learners/us-secondary-school/
+# USA (Kings Premium Universities)
+Kings Education | GO: 50 · Transfer to Top 50 Universities | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/us-uni/go-50/
+Kings Education | GO: 100 · Transfer to Top 100 Universities | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/us-uni/go-100/
+Kings Education | GO: Rochester · Guaranteed Transfer to University of Rochester | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/us-uni/go-rochester/
+Kings Education | GO: California · Guaranteed Transfer to California Universities | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/us-uni/go-california/
+Kings Education | GO: Wisconsin · Transfer within University of Wisconsin System | curso_corto | Preparación Universitaria | no indicada | - | https://www.kingseducation.com/us-uni/go-wisconsin/
+Kings Education | GO: Prepared | curso_corto | Idiomas | no indicada | - | https://www.kingseducation.com/us-uni/go-prepared
+
+# --- International Business University (IBU) · ibu.ca · Canada ---
+International Business University (IBU) | BCOM in Business Management | bachelor | Negocios | no indicada | - | https://ibu.ca/bcom-in-business-management/
+International Business University (IBU) | BCOM in Digital Sales and Marketing Management | bachelor | Negocios | no indicada | - | https://ibu.ca/bcom-in-digital-sales-and-marketing-management/
+International Business University (IBU) | BCOM in International Management and Technology | bachelor | Negocios | no indicada | - | https://ibu.ca/bcom-in-international-management-and-technology/
+International Business University (IBU) | MBA in Technology, Innovation and Entrepreneurship | mba | Negocios | no indicada | - | https://ibu.ca/mba-graduate/technology-innovation-and-entrepreneurship/
+International Business University (IBU) | MBA in Global Business Management | mba | Negocios | no indicada | - | https://ibu.ca/mba-graduate/global-business-management/
+International Business University (IBU) | MBA in Financial and Management Analytics | mba | Negocios | no indicada | - | https://ibu.ca/mba-graduate/financial-and-management-analytics/
+International Business University (IBU) | General Stream MBA | mba | Negocios | no indicada | - | https://ibu.ca/mba-graduate/general-stream-mba/
+International Business University (IBU) | MBA in Information Systems Management | mba | Tecnología | no indicada | - | https://ibu.ca/mba-graduate/information-systems-management/
+International Business University (IBU) | MBA in Digital Health and Data Analytics | mba | Salud | no indicada | - | https://ibu.ca/mba-graduate/digital-health-and-data-analytics/
+International Business University (IBU) | MBA in Healthcare Management | mba | Salud | no indicada | - | https://ibu.ca/mba-graduate/healthcare-management/
+International Business University (IBU) | MBA in Technology, Innovation, and Entrepreneurship (Online) | mba | Negocios | no indicada | - | https://ibu.ca/online-mba/technology-innovation-and-entrepreneurship/
+International Business University (IBU) | MBA in Global Business Management (Online) | mba | Negocios | no indicada | - | https://ibu.ca/online-mba/global-business-management/
+International Business University (IBU) | MBA in Healthcare Management (Online) | mba | Salud | no indicada | - | https://ibu.ca/online-mba/healthcare-management/
+International Business University (IBU) | MSc in Applied AI (Industrial Innovation) | maestria | Tecnología | no indicada | - | https://ibu.ca/msc-in-applied-artificial-intelligence/industrial-innovation/
+International Business University (IBU) | MSc in Applied AI (Data Engineering) | maestria | Tecnología | no indicada | - | https://ibu.ca/msc-in-applied-artificial-intelligence/data-engineering/
+
+# --- Drew University · drew.edu · USA ---
+# Nombres derivados de los slugs del sitemap propio de Drew (drew.edu/academics-sitemap.xml) · ver NOTAS
+# Pregrado · College of Liberal Arts
+Drew University | Accounting | bachelor | Negocios | no indicada | - | https://drew.edu/academics/accounting/
+Drew University | Africana Studies | bachelor | Estudios Culturales | no indicada | - | https://drew.edu/academics/africana-studies/
+Drew University | American Studies | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/american-studies/
+Drew University | Anthropology | bachelor | Ciencias Sociales | no indicada | - | https://drew.edu/academics/anthropology/
+Drew University | Applied Leadership | bachelor | Negocios | no indicada | - | https://drew.edu/academics/applied-leadership/
+Drew University | Applied Performance in Theatre and Dance | bachelor | Artes Escénicas | no indicada | - | https://drew.edu/academics/applied-performance-theatre-dance/
+Drew University | Archaeology | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/archaeology/
+Drew University | Art History | bachelor | Artes | no indicada | - | https://drew.edu/academics/art-history/
+Drew University | Asian Studies | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/asian-studies/
+Drew University | Biochemistry and Molecular Biology | bachelor | Ciencias | no indicada | - | https://drew.edu/academics/biochemistry-molecular-biology/
+Drew University | Biology | bachelor | Ciencias | no indicada | - | https://drew.edu/academics/biology/
+Drew University | Business | bachelor | Negocios | no indicada | - | https://drew.edu/academics/business/
+Drew University | Chemistry | bachelor | Ciencias | no indicada | - | https://drew.edu/academics/chemistry/
+Drew University | Chinese Studies | bachelor | Idiomas | no indicada | - | https://drew.edu/academics/chinese-studies/
+Drew University | Classical Studies | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/classical-studies/
+Drew University | Computer Science | bachelor | Tecnología | no indicada | - | https://drew.edu/academics/computer-science/
+Drew University | Creative Art and Technology | bachelor | Artes | no indicada | - | https://drew.edu/academics/creative-art-technology/
+Drew University | Creative Writing | bachelor | Letras | no indicada | - | https://drew.edu/academics/creative-writing/
+Drew University | Cybersecurity | bachelor | Tecnología | no indicada | - | https://drew.edu/academics/cybersecurity/
+Drew University | Dance | bachelor | Artes Escénicas | no indicada | - | https://drew.edu/academics/dance/
+Drew University | Data Science | bachelor | Tecnología | no indicada | - | https://drew.edu/academics/data-science/
+Drew University | Digital Humanities | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/digital-humanities/
+Drew University | Economics | bachelor | Economía | no indicada | - | https://drew.edu/academics/economics/
+Drew University | Education and Society | bachelor | Educación | no indicada | - | https://drew.edu/academics/education-society/
+Drew University | Engineering Physics | bachelor | Ingeniería | no indicada | - | https://drew.edu/academics/engineering-physics/
+Drew University | English | bachelor | Letras | no indicada | - | https://drew.edu/academics/english/
+Drew University | Environmental Justice | bachelor | Medio Ambiente | no indicada | - | https://drew.edu/academics/environmental-justice/
+Drew University | Environmental Science BS | bachelor | Medio Ambiente | no indicada | - | https://drew.edu/academics/environmental-science-bs/
+Drew University | Environmental Studies and Sustainability | bachelor | Medio Ambiente | no indicada | - | https://drew.edu/academics/environmental-studies-sustainability/
+Drew University | European Studies | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/european-studies/
+Drew University | Film Studies | bachelor | Cine y Audiovisuales | no indicada | - | https://drew.edu/academics/film-studies/
+Drew University | Finance BS | bachelor | Negocios | no indicada | - | https://drew.edu/academics/finance-bs/
+Drew University | French and Francophone Studies | bachelor | Idiomas | no indicada | - | https://drew.edu/academics/french-francophone-studies/
+Drew University | German Studies | bachelor | Idiomas | no indicada | - | https://drew.edu/academics/german-studies/
+Drew University | History | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/history/
+Drew University | Holocaust Studies | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/holocaust-studies/
+Drew University | Humanities | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/humanities/
+Drew University | International Relations | bachelor | Ciencias Políticas | no indicada | - | https://drew.edu/academics/international-relations/
+Drew University | Italian | bachelor | Idiomas | no indicada | - | https://drew.edu/academics/italian/
+Drew University | Jewish Studies | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/jewish-studies/
+Drew University | Latin American Studies | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/latin-american-studies/
+Drew University | Law, Justice and Society | bachelor | Derecho | no indicada | - | https://drew.edu/academics/law-justice-society/
+Drew University | Linguistic Studies | bachelor | Idiomas | no indicada | - | https://drew.edu/academics/linguistic-studies/
+Drew University | Literature | bachelor | Letras | no indicada | - | https://drew.edu/academics/literature/
+Drew University | Marketing | bachelor | Negocios | no indicada | - | https://drew.edu/academics/marketing/
+Drew University | Mathematics | bachelor | Matemáticas | no indicada | - | https://drew.edu/academics/mathematics/
+Drew University | Media and Communications | bachelor | Comunicación | no indicada | - | https://drew.edu/academics/media-communications/
+Drew University | Medieval Studies | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/medieval-studies/
+Drew University | Middle East Studies | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/middle-east-studies/
+Drew University | Museum Studies and Cultural Management | bachelor | Artes | no indicada | - | https://drew.edu/academics/museum-studies-cultural-management/
+Drew University | Music | bachelor | Música | no indicada | - | https://drew.edu/academics/music/
+Drew University | Musical Theatre | bachelor | Artes Escénicas | no indicada | - | https://drew.edu/academics/musical-theatre/
+Drew University | Neuroscience | bachelor | Ciencias | no indicada | - | https://drew.edu/academics/neuroscience/
+Drew University | Philosophy | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/philosophy/
+Drew University | Photography | bachelor | Artes | no indicada | - | https://drew.edu/academics/photography/
+Drew University | Physics | bachelor | Ciencias | no indicada | - | https://drew.edu/academics/physics/
+Drew University | Political Science | bachelor | Ciencias Políticas | no indicada | - | https://drew.edu/academics/political-science/
+Drew University | Psychology | bachelor | Psicología | no indicada | - | https://drew.edu/academics/psychology/
+Drew University | Public Health | bachelor | Salud | no indicada | - | https://drew.edu/academics/public-health/
+Drew University | Sociology | bachelor | Ciencias Sociales | no indicada | - | https://drew.edu/academics/sociology/
+Drew University | Spanish | bachelor | Idiomas | no indicada | - | https://drew.edu/academics/spanish/
+Drew University | Statistics | bachelor | Matemáticas | no indicada | - | https://drew.edu/academics/statistics/
+Drew University | Theatre Arts | bachelor | Artes Escénicas | no indicada | - | https://drew.edu/academics/theatre-arts/
+Drew University | Western Heritage | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/western-heritage/
+Drew University | Women's and Gender Studies | bachelor | Ciencias Sociales | no indicada | - | https://drew.edu/academics/womens-gender-studies/
+Drew University | World Literature | bachelor | Letras | no indicada | - | https://drew.edu/academics/world-literature/
+Drew University | Writing and Communication Studies | bachelor | Comunicación | no indicada | - | https://drew.edu/academics/writing-communication-studies/
+Drew University | Writing Studies | bachelor | Letras | no indicada | - | https://drew.edu/academics/writing-studies/
+# Semestres tematicos (programas de un semestre)
+Drew University | Semester on Wall Street | intercambio | Negocios | un semestre | - | https://drew.edu/academics/semester-on-wall-street/
+Drew University | Semester on Contemporary Art | intercambio | Artes | un semestre | - | https://drew.edu/academics/semester-on-contemporary-art/
+# Dual degree programs (pregrado + posgrado con instituciones socias)
+Drew University | Accounting Dual Degree | bachelor | Negocios | no indicada | - | https://drew.edu/academics/accounting-dual-degree/
+Drew University | Data Science Dual Degree | bachelor | Tecnología | no indicada | - | https://drew.edu/academics/data-science-dual-degree/
+Drew University | Engineering Dual Degree | bachelor | Ingeniería | no indicada | - | https://drew.edu/academics/engineering-dual-degree/
+Drew University | Medical Humanities Dual Degree | bachelor | Humanidades | no indicada | - | https://drew.edu/academics/medical-humanities-dual-degree/
+Drew University | Medicine Dual Degree | bachelor | Medicina | no indicada | - | https://drew.edu/academics/medicine-dual-degree/
+Drew University | Nutrition and Dietetics Dual Degree | bachelor | Salud | no indicada | - | https://drew.edu/academics/nutrition-dietetics-dual-degree/
+Drew University | Public Health Dual Degree | bachelor | Salud | no indicada | - | https://drew.edu/academics/public-health-dual-degree/
+Drew University | Religion Dual Degree | bachelor | Teología | no indicada | - | https://drew.edu/academics/religion-dual-degree/
+Drew University | Teaching Dual Degree | bachelor | Educación | no indicada | - | https://drew.edu/academics/teaching-dual-degree/
+# Posgrado · Caspersen School of Graduate Studies
+Drew University | Master of Letters in Arts and Letters (MLitt) | maestria | Humanidades | no indicada | - | https://drew.edu/academics/arts-letters-mlitt-dlitt/
+Drew University | Doctor of Letters in Arts and Letters (DLitt) | doctorado | Humanidades | no indicada | - | https://drew.edu/academics/arts-letters-mlitt-dlitt/
+Drew University | Master of Science in Data Science (MS) | maestria | Tecnología | no indicada | - | https://drew.edu/academics/data-science-ms/
+Drew University | Master of Science in Finance (MS) | maestria | Negocios | no indicada | - | https://drew.edu/academics/finance-ms/
+Drew University | Master of Education (MEd) | maestria | Educación | no indicada | - | https://drew.edu/academics/education-med/
+Drew University | Master of Arts in Teaching (MAT) | maestria | Educación | no indicada | - | https://drew.edu/academics/teaching-mat/
+Drew University | Master of Arts in Medical Humanities, Health and Society (MA) | maestria | Salud | no indicada | - | https://drew.edu/academics/medical-humanities-health-and-society-ma-dmh/
+Drew University | Doctor of Medical Humanities (DMH) | doctorado | Salud | no indicada | - | https://drew.edu/academics/medical-humanities-health-and-society-ma-dmh/
+Drew University | Doctor of Philosophy (PhD) · Graduate Division of Religion | doctorado | Teología | no indicada | - | https://drew.edu/academics/doctor-of-philosophy/
+# Certificados de posgrado · Caspersen
+Drew University | Certificate in Conflict Resolution and Leadership (CRL) | especializacion | Ciencias Sociales | no indicada | - | https://drew.edu/academics/conflict-resolution-leadership-crl-csgs/
+Drew University | Certificate in Contemplative Professional Studies | especializacion | Humanidades | no indicada | - | https://drew.edu/academics/contemplative-professional/
+Drew University | Certificate in Data Science | especializacion | Tecnología | no indicada | - | https://drew.edu/academics/data-science-csgs/
+Drew University | Certificate in English as a Second Language (ESL) | especializacion | Idiomas | no indicada | - | https://drew.edu/academics/english-as-a-second-language-esl/
+Drew University | Certificate in Medical Humanities (CMH) | especializacion | Salud | no indicada | - | https://drew.edu/academics/medical-humanities-cmh/
+Drew University | Certificate in Teacher of Students with Disabilities (TOSD) | especializacion | Educación | no indicada | - | https://drew.edu/academics/teacher-of-students-with-disabilities-tosd/
+Drew University | Certificate in Teaching Writing | especializacion | Educación | no indicada | - | https://drew.edu/academics/teaching-writing/
+Drew University | Paraprofessional Teacher Pathway | especializacion | Educación | no indicada | - | https://drew.edu/academics/paraprofessional-teacher-pathway/
+# Drew Theological School
+Drew University | Master of Divinity (MDiv) | maestria | Teología | no indicada | - | https://drew.edu/academics/divinity-mdiv/
+Drew University | Master of Arts in Religion (MAR) | maestria | Teología | no indicada | - | https://drew.edu/academics/religion-mar/
+Drew University | Master of Sacred Theology (STM) | maestria | Teología | no indicada | - | https://drew.edu/academics/sacred-theology-stm/
+Drew University | Master of Arts in Theology and Ministry (MATM) | maestria | Teología | no indicada | - | https://drew.edu/academics/theology-and-ministry-matm/
+Drew University | Doctor of Ministry (DMin) | doctorado | Teología | no indicada | - | https://drew.edu/academics/ministry-dmin/
+Drew University | Certificate in Anglican Studies | especializacion | Teología | no indicada | - | https://drew.edu/academics/anglican-studies-dts/
+Drew University | Certificate in Graduate Theological Studies | especializacion | Teología | no indicada | - | https://drew.edu/academics/graduate-theological-studies-dts/
+Drew University | Certificate in Interfaith Peacebuilding | especializacion | Teología | no indicada | - | https://drew.edu/academics/interfaith-peacebuilding-dts/
+Drew University | Certificate in Religion, Ecology and Justice | especializacion | Teología | no indicada | - | https://drew.edu/academics/religion-ecology-and-justice/
+Drew University | Certificate in Restorative Justice and Prison Ministries | especializacion | Teología | no indicada | - | https://drew.edu/academics/restorative-justice-prison-ministries-dts/
+Drew University | Certificate in United Methodist Studies | especializacion | Teología | no indicada | - | https://drew.edu/academics/united-methodist-studies-dts/
+
+# --- Atpal Languages · atpalcanada.com · Canada (Montreal) ---
+Atpal Languages | Plus / Pathway (English or French) | curso_corto | Idiomas | no indicada | - | https://atpalcanada.com/programs/
+Atpal Languages | Standard (English or French) | curso_corto | Idiomas | no indicada | - | https://atpalcanada.com/programs/
+Atpal Languages | Elite (English or French) | curso_corto | Idiomas | no indicada | - | https://atpalcanada.com/programs/
+Atpal Languages | Booster Pathway (English or French · part-time) | curso_corto | Idiomas | no indicada | - | https://atpalcanada.com/programs/
+Atpal Languages | Test Preparation Courses (TOEFL · IELTS · TEF · TCF) | curso_corto | Idiomas | no indicada | - | https://atpalcanada.com/programs/
+Atpal Languages | Online Kiss French | curso_corto | Idiomas | no indicada | - | https://atpalcanada.com/programs/
+Atpal Languages | English Booster Pathway (online · part-time) | curso_corto | Idiomas | no indicada | - | https://atpalcanada.com/programs/
+Atpal Languages | IEC Inbound (English/French for international applicants) | curso_corto | Idiomas | no indicada | - | https://atpalcanada.com/programs/
+
+# --- ES Dubai (English Studies Dubai) · esdubai.com · UAE ---
+ES Dubai | General English | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/general-english/
+ES Dubai | ES Flex | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/es-flex/
+ES Dubai | IELTS Preparation | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/ielts/
+ES Dubai | English for IELTS – Pre-intermediate Level | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/english-for-ielts-pre-intermediate/
+ES Dubai | English for IELTS – Intermediate Level | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/
+ES Dubai | Speaking Class | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/speaking-class/
+ES Dubai | Academic English | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/academic-english/
+ES Dubai | Business English | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/business-english/
+ES Dubai | English Private Lessons | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/english-private-lessons/
+ES Dubai | English for Job Hunting | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/english-for-job-hunting/
+ES Dubai | English for Marketing | curso_corto | Idiomas | no indicada | - | https://esdubai.com/es/courses/english-for-marketing/
+ES Dubai | CELTA | curso_corto | Educación | no indicada | - | https://esdubai.com/es/courses/celta/
+
+# --- King's Christian College · CRICOS 00341A · kingscollege.qld.edu.au · Australia ---
+King's Christian College | High School (Year 7-12) | secundaria | Educación Secundaria | no indicada | CRICOS 00341A | https://www.kingscollege.qld.edu.au/learning/high-school
+King's Christian College | King's Trade (Trade Training Centre · pathways vocacionales en secundaria) | secundaria | Formación Vocacional | no indicada | CRICOS 00341A | https://www.kingscollege.qld.edu.au/learning/kings-trade
+
+# RESUMEN: instituciones=9 con_programas=9 total_programas=341 sin_catalogo=0
+# NOTAS:
+# Western Washington University — CONFIRMADA la alerta de auditoria: international.wwu.edu ya NO es sitio propio; la pagina destino dice literal "We've moved! This page was previously on international.wwu.edu". Lo que hay es una landing comercial de Study Group con "Highlighted undergraduate/postgraduate degree programmes" — 17 programas, NO las "200+" que la propia pagina declara. Extraje los 17 destacados (son nombres reales de titulaciones WWU) pero ESTO NO ES EL CATALOGO: para vender WWU en serio hay que ir a wwu.edu/majors, que no es el dominio de la ficha. Ninguna URL de programa individual · todas apuntan a la misma landing. Recomiendo re-auditar el dominio de la ficha.
+# TAFE International Western Australia (TIWA) — 98 cursos VET extraidos de las 4 paginas del catalogo (25+25+25+23) vs "Choose from 100 courses" declarado: cuadra. TODOS traen codigo nacional verificable; el sitio NO publica CRICOS por curso ni duracion en el listado (estan en la ficha de cada curso, no recorridas). Confirmada la alerta: TIWA NO es una escuela sino el brazo del gobierno de WA — el mismo dominio vende (a) los TAFE del estado y (b) las escuelas publicas de secundaria. Agregue 2 filas de escuelas: secundaria Year 7-12 (WACE, minimo 2 school terms) e intercambio corto. NO incluí primaria (Year 1-6) porque el vocabulario de `nivel` no tiene un valor para primaria — si la agencia vende primaria, falta ese valor.
+# Kings Education — 58 programas encontrados vs "~15-20" de la auditoria: la auditoria subconto por mucho (solo miro la home). Confirmada la alerta de nombre: la marca es "Kings Education"/"Kings Colleges", nunca "Kings College" singular. EXCLUI /partner-schools/ (cursos pre-universitarios dictados localmente en Albania, China, Myanmar, Taiwan, Tailandia y Vietnam — son para residentes de esos paises, no vendibles a un colombiano). El sitio no publica duracion en los indices; solo Degree Pathways ("un año") y Mini High School ("4, 6 u 8 semanas") la declaran.
+# Drew University — drew.edu renderiza el catalogo con JS: /academic/programs-of-study/, /academics/ y las paginas de escuela devuelven 200 pero solo navegacion, sin listado (rule 2 en accion). Reconstrui la lista desde el sitemap propio de Drew (drew.edu/academics-sitemap.xml, 107 filas): las URLs son verificadas, pero los NOMBRES estan derivados del slug, no copiados literal del H1 — el revisor deberia spot-checkear una muestra antes de cargar. Ademas: (a) no pude distinguir major de minor, marque todo el CLA como `bachelor`; (b) EXCLUI las ~15 paginas "pre-professional" (dentistry, medicine-md, optometry, pharmacy, veterinary-medicine, nursing, law, forestry...) porque son tracks de asesoria, NO titulaciones que Drew otorgue — meterlas habria inflado el catalogo con programas inexistentes; (c) EXCLUI history-of-religions por nivel ambiguo. `cantidad_aprox` venia como "?" asi que no hay control contra el cual contrastar.
+# Australian Ideal College — 22 cursos recorriendo las 7 categorias (no hay indice unico, confirmada la alerta). Solo 3 publican CRICOS + duracion (BSB80120 106057B/52 sem · BSB50820 104042C/52 sem · CHC52025 120939F/78 sem); las paginas de categoria listan solo nombre + codigo nacional. Incluí el CCL Testing (curso no-award de 8 semanas) porque es matriculable, aunque su utilidad real es puntaje de visa australiana, no formacion.
+# International Business University (IBU) — 15 programas vs ~13 de la auditoria: la diferencia son los 3 MBA online, que duplican streams presenciales (Technology Innovation, Global Business Management, Healthcare Management). Marcados "(Online)" en el nombre para que el asesor no los ofrezca como estudio en Canada. Confirmada la alerta de sigla ambigua: guardar como "International Business University (IBU)", nunca "IBU" solo.
+# ES Dubai — 12 cursos vs ~8 de la auditoria: aparecieron 4 mas (English Private Lessons, English for Job Hunting, English for Marketing, y el segundo nivel de English for IELTS). El indice no publica horas semanales ni duracion — estan dentro de cada ficha de curso. El link de "English for IELTS – Intermediate" en el sitio apunta a un ?page_id= sin slug limpio, asi que use el indice como url_fuente.
+# Atpal Languages — 8 cursos. Confirmado: ensena ingles Y frances (la ficha original decia solo idiomas). EXCLUI "Pathways" (es un servicio de asesoria para inscribirse en colegios publicos/privados, no un curso) e "IEC Outgoing" (es para canadienses que salen al exterior, no vendible desde Colombia). El sitio publica intensidad semanal (20-31 h/sem) pero NO duracion total, por eso todas van "no indicada".
+# King's Christian College — CONFIRMADA la alerta: NO es educacion superior, es un colegio cristiano K-12 con 4 campus en SE Queensland. Aporta solo 2 filas vendibles (High School Y7-12 y King's Trade), ambas `secundaria`. Early Learning (2.5-5 años) y Primary (Prep-Y6) quedaron fuera por la misma razon que TIWA: el vocabulario de `nivel` no tiene valores para preescolar ni primaria. El `puede_vender` de la ficha esta VACIO — si la agencia efectivamente coloca estudiantes ahi, hay que llenarlo; si no, esta institucion no deberia estar en el catalogo.

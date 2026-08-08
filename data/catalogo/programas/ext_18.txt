@@ -1,0 +1,531 @@
+# Lote 18 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Douglas College (douglascollege.ca) ---
+Douglas College | Behaviour Intervention (Certificate) | curso_corto | Ciencias Sociales | 1 año | - | https://www.douglascollege.ca/program/cnbhvi
+Douglas College | Child and Youth Care (Bachelor of Arts) | bachelor | Ciencias Sociales | 4 años | - | https://www.douglascollege.ca/program/bacycc
+Douglas College | Child and Youth Care (Diploma) | diplomado | Ciencias Sociales | 2 años | - | https://www.douglascollege.ca/program/dpcycc
+Douglas College | Classroom and Community Support - Behaviour Intervention (Diploma) | diplomado | Educación | 4 semestres | - | https://www.douglascollege.ca/program/dpccsif
+Douglas College | Community Rehabilitation (Bachelor) | bachelor | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/bcr
+Douglas College | Diploma in Child and Youth Care | diplomado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/dpcyccab
+Douglas College | Disability and Applied Behaviour Analysis (Certificate) | curso_corto | Ciencias Sociales | 1 año | - | https://www.douglascollege.ca/program/atdaba
+Douglas College | Early Childhood Education (Certificate) | curso_corto | Educación | 3 semestres | - | https://www.douglascollege.ca/program/ctece
+Douglas College | Early Childhood Education (Diploma) | diplomado | Educación | 4 semestres | - | https://www.douglascollege.ca/program/dpeces
+Douglas College | Early Childhood Education: Infant/Toddler (Certificate) | curso_corto | Educación | 2 semestres | - | https://www.douglascollege.ca/program/cnecei
+Douglas College | Early Childhood Education: Special Needs - Inclusive Practices (Certificate) | curso_corto | Educación | 2 semestres | - | https://www.douglascollege.ca/program/cneces
+Douglas College | Education Assistance and Inclusion (Certificate) | curso_corto | Educación | 1 año | - | https://www.douglascollege.ca/program/cteaci
+Douglas College | Inclusive Education and Disability Studies (Diploma) | diplomado | Educación | 2 años | - | https://www.douglascollege.ca/program/dpieds
+Douglas College | Sign Language Interpretation (Diploma) | diplomado | Ciencias Sociales | 5 semestres | - | https://www.douglascollege.ca/program/dpsli
+Douglas College | Social Work (Bachelor) | bachelor | Ciencias Sociales | 4 años | - | https://www.douglascollege.ca/program/bsowk
+Douglas College | Therapeutic Recreation (Bachelor) | bachelor | Ciencias Sociales | 4 años | - | https://www.douglascollege.ca/program/btr
+Douglas College | Therapeutic Recreation (Diploma) | diplomado | Ciencias Sociales | 2 años | - | https://www.douglascollege.ca/program/dptrt
+Douglas College | Youth Justice (Diploma) | diplomado | Derecho | 2 años | - | https://www.douglascollege.ca/program/dpyjw
+Douglas College | Accounting (Bachelor of Business Administration) | bachelor | Negocios | 4 años | - | https://www.douglascollege.ca/program/bbaa
+Douglas College | Accounting (Certificate) | curso_corto | Negocios | 1 año | - | https://www.douglascollege.ca/program/ctacct
+Douglas College | Accounting (Diploma) | diplomado | Negocios | 4 semestres | - | https://www.douglascollege.ca/program/dpacct
+Douglas College | Accounting (Post-Baccalaureate Diploma) | posgrado | Negocios | 2 años | - | https://www.douglascollege.ca/program/pbacct
+Douglas College | Accounting (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdacct
+Douglas College | Accounting Studies (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdaccs
+Douglas College | Accounting and Finance (Post-Baccalaureate Diploma ) | posgrado | Negocios | 2 años | - | https://www.douglascollege.ca/program/pbaccf
+Douglas College | Advanced Human Resource Management (Post-Baccalaureate Diploma) | posgrado | Negocios | 2 años | - | https://www.douglascollege.ca/program/pbdhrmgt
+Douglas College | Advanced Supply Chain Management (Post-Baccalaureate Diploma) | posgrado | Negocios | 2 años | - | https://www.douglascollege.ca/program/pbdadvscm
+Douglas College | Applied Accounting (Certificate) | curso_corto | Negocios | 1 año | - | https://www.douglascollege.ca/program/ctacte
+Douglas College | Applied Bookkeeping | curso_corto | Tecnología | 2 semestres | - | https://www.douglascollege.ca/program/ctoadab
+Douglas College | Basic Office Skills (Certificate) | curso_corto | Negocios | 2 semestres | - | https://www.douglascollege.ca/program/cnoada
+Douglas College | Business Law (Post-Degree Diploma) | posgrado | Derecho | 1 año | - | https://www.douglascollege.ca/program/pdblaw
+Douglas College | Certificate in Office Admin | curso_corto | Negocios | 2 semestres | - | https://www.douglascollege.ca/program/ctoadlf
+Douglas College | Citation in Office Admin | curso_corto | Negocios | 1 semestre | - | https://www.douglascollege.ca/program/cnoadl
+Douglas College | Commerce and Business Administration (Diploma) | diplomado | Negocios | 4 semestres | - | https://www.douglascollege.ca/program/dpcomm
+Douglas College | Computer and Information Systems (Post-Baccalaureate Diploma) | posgrado | Tecnología | 2 años | - | https://www.douglascollege.ca/program/pbdcis
+Douglas College | Computing Science and Information Systems (Certificate) | curso_corto | Tecnología | 2 semestres | - | https://www.douglascollege.ca/program/ctcsi
+Douglas College | Computing Studies and Information Systems (Diploma) | diplomado | Tecnología | 2 años | - | https://www.douglascollege.ca/program/dpcsti
+Douglas College | Data Analytics (Post-Degree Diploma) | posgrado | Tecnología | 1 año | - | https://www.douglascollege.ca/program/pddata
+Douglas College | Digital Marketing (Post-Baccalaureate Diploma) | posgrado | Negocios | 2 años | - | https://www.douglascollege.ca/program/pbdmark
+Douglas College | Diploma in Business Management - New Ventures | diplomado | Negocios | 4 semestres | - | https://www.douglascollege.ca/program/dpmgtn
+Douglas College | Economics (Associate Degree) | pregrado | Negocios | 4 semestres | - | https://www.douglascollege.ca/program/aaecon
+Douglas College | Emerging Technology (Post-Degree Diploma) | posgrado | Tecnología | 1 año | - | https://www.douglascollege.ca/program/pdemtc
+Douglas College | Finance (Post-Baccalaureate Diploma) | posgrado | Negocios | 2 años | - | https://www.douglascollege.ca/program/pbfinc
+Douglas College | Financial Analysis (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdfian
+Douglas College | Financial Planning (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdfipl
+Douglas College | Financial Services (Bachelor of Business Administration) | bachelor | Negocios | 8 semestres | - | https://www.douglascollege.ca/program/bbafa
+Douglas College | Financial Services (Diploma) | diplomado | Negocios | 4 semestres | - | https://www.douglascollege.ca/program/dpfsmt
+Douglas College | General Business (Certificate) | curso_corto | Negocios | 2 semestres | - | https://www.douglascollege.ca/program/ctgbus
+Douglas College | General Business (Diploma) | diplomado | Negocios | 4 semestres | - | https://www.douglascollege.ca/program/dpmgtg
+Douglas College | Global Banking and Economics (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdgbe
+Douglas College | Hospitality Management (Diploma) | diplomado | Hospitalidad | 4 semestres | - | https://www.douglascollege.ca/program/dphosp
+Douglas College | Hospitality Management (Post-Degree Diploma) | posgrado | Hospitalidad | 1 año | - | https://www.douglascollege.ca/program/pdhosp
+Douglas College | Hospitality Marketing (Post-Degree Diploma) | posgrado | Hospitalidad | 1 año | - | https://www.douglascollege.ca/program/pdhomk
+Douglas College | Hospitality Services Management (Post Baccalaureate Diploma) | posgrado | Hospitalidad | 4 semestres | - | https://www.douglascollege.ca/program/pbhsmt
+Douglas College | Human Resource Management (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pddhrmgt
+Douglas College | Information Technology Project Management (Post-Baccalaureate Diploma) | posgrado | Tecnología | 2 años | - | https://www.douglascollege.ca/program/pbditpm
+Douglas College | Information and Communication Technology (Post-Degree Diploma) | posgrado | Tecnología | 1 año | - | https://www.douglascollege.ca/program/pdict
+Douglas College | International Business Management (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdibm
+Douglas College | International Supply Chain Management (Post-Baccalaureate Diploma) | posgrado | Negocios | 2 años | - | https://www.douglascollege.ca/program/pbdiscm
+Douglas College | Legal Office Administration (Certificate) | curso_corto | Derecho | 2 semestres | - | https://www.douglascollege.ca/program/ctoadla
+Douglas College | Legal Office Skills - Online | curso_corto | Derecho | 2 años | - | https://www.douglascollege.ca/program/cnodml
+Douglas College | Management (Bachelor of Business Administration) | bachelor | Negocios | 4 años | - | https://www.douglascollege.ca/program/bbamgmt
+Douglas College | Management (Diploma) | diplomado | Negocios | 4 semestres | - | https://www.douglascollege.ca/program/dpmgtb
+Douglas College | Marketing (Bachelor) | bachelor | Negocios | 8 semestres | - | https://www.douglascollege.ca/program/bbamark
+Douglas College | Marketing (Certificate) | curso_corto | Negocios | 2 semestres | - | https://www.douglascollege.ca/program/ctmark
+Douglas College | Marketing (Diploma) | diplomado | Negocios | 4 semestres | - | https://www.douglascollege.ca/program/dpmark
+Douglas College | Marketing (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdmark
+Douglas College | Medical Office Administration (Certificate) | curso_corto | Salud | 2 semestres | - | https://www.douglascollege.ca/program/ctoadm
+Douglas College | Medical Office Assistant - Online | curso_corto | Salud | 2 años | - | https://www.douglascollege.ca/program/cnmoa
+Douglas College | Office Administration (Diploma) | diplomado | Negocios | 4 semestres | - | https://www.douglascollege.ca/program/dpoadm
+Douglas College | Project Management (Post-Baccalaureate Diploma) | posgrado | Negocios | 2 años | - | https://www.douglascollege.ca/program/pbdpmgt
+Douglas College | Project Management (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdpmgt
+Douglas College | Sales (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdsale
+Douglas College | Supply Chain Management (Post-Degree Diploma) | posgrado | Negocios | 1 año | - | https://www.douglascollege.ca/program/pdscmgt
+Douglas College | Web Development Specialization: Diploma in Computing Science and Information Systems | diplomado | Tecnología | 4 semestres | - | https://www.douglascollege.ca/program/dpcsiweb
+Douglas College | Web and Mobile Computing | curso_corto | Tecnología | 2 semestres | - | https://www.douglascollege.ca/program/actcsiweb
+Douglas College | Academic Foundations for Potential Health Information Management Applicants (Certificate) | curso_corto | Preparación Universitaria | 1 año | - | https://www.douglascollege.ca/program/ctafph
+Douglas College | Academic Foundations for Potential Nursing Applicants (Certificate) | curso_corto | Preparación Universitaria | 1 año | - | https://www.douglascollege.ca/program/ctafpn
+Douglas College | Academic Foundations for Potential Psychiatric Nursing Applicants (Certificate) | curso_corto | Preparación Universitaria | 1 año | - | https://www.douglascollege.ca/program/ctafpp
+Douglas College | Community Mental Health Work | curso_corto | Psicología | 1 semestre | - | https://www.douglascollege.ca/program/cncmhw
+Douglas College | Health Care Assisting (Certificate) | curso_corto | Salud | 2 semestres | - | https://www.douglascollege.ca/program/cthca
+Douglas College | Health Care Support Work | curso_corto | Salud | 3 semestres | - | https://www.douglascollege.ca/program/cthcsw
+Douglas College | Health Information Management (Bachelor of Science) | bachelor | Salud | 4 años | - | https://www.douglascollege.ca/program/bschim
+Douglas College | Health Information Management (Post-Baccalaureate Diploma) | posgrado | Salud | 2 años | - | https://www.douglascollege.ca/program/pdhim
+Douglas College | Licensed Practical Nurse Access to Psychiatric Nursing (Bachelor of Science) | bachelor | Enfermería | 5 semestres | - | https://www.douglascollege.ca/program/bspnurl
+Douglas College | Medical Office Administration (Certificate) | curso_corto | Salud | 1 año | - | https://www.douglascollege.ca/program/ctmoad
+Douglas College | Mental Health and Substance Use Work (Certificate) | curso_corto | Psicología | 2 semestres | - | https://www.douglascollege.ca/program/ctmhsu
+Douglas College | Nursing (Bachelor of Science) | bachelor | Enfermería | 4 años | - | https://www.douglascollege.ca/program/bsnurs
+Douglas College | Psychiatric Nursing (Bachelor of Science Degree Completion) | bachelor | Enfermería | a ritmo propio | - | https://www.douglascollege.ca/program/bspnurr
+Douglas College | Psychiatric Nursing (Bachelor of Science) | bachelor | Enfermería | 4 años | - | https://www.douglascollege.ca/program/bspnur
+Douglas College | Academic Foundations (Certificate) | curso_corto | Preparación Universitaria | 2 semestres | - | https://www.douglascollege.ca/program/ctafnd
+Douglas College | Academic Foundations (Indigenous Studies) | curso_corto | Preparación Universitaria | 2 semestres | - | https://www.douglascollege.ca/program/ctafis
+Douglas College | Anthropology (Associate Degree) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/aaanth
+Douglas College | Asian Studies (Associate Degree) | pregrado | Ciencias Sociales | 2 años | - | https://www.douglascollege.ca/program/aaas
+Douglas College | Associate of Arts (Associate Degree) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/asarts
+Douglas College | Associate of Arts (Limited Enrolment) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/asartsl
+Douglas College | Criminal Justice Studies (Certificate) | curso_corto | Derecho | 2 semestres | - | https://www.douglascollege.ca/program/ctcrim
+Douglas College | Criminology (Associate Degree) | pregrado | Derecho | 4 semestres | - | https://www.douglascollege.ca/program/aacrim
+Douglas College | Criminology (Diploma) | diplomado | Derecho | 4 semestres | - | https://www.douglascollege.ca/program/dpcrim
+Douglas College | Criminology, Applied (Bachelor of Arts) | bachelor | Derecho | 4 años | - | https://www.douglascollege.ca/program/baacrim
+Douglas College | Criminology, Applied (Bachelor of Arts, Honours) | bachelor | Derecho | 8 semestres | - | https://www.douglascollege.ca/program/baacrmh
+Douglas College | Environmental Studies (Associate Degree) | pregrado | Ciencias Sociales | 2 años | - | https://www.douglascollege.ca/program/asarte
+Douglas College | Future Professional Pilots (Associate Degree) | pregrado | Ingeniería | 4 semestres | - | https://www.douglascollege.ca/program/aafpp
+Douglas College | Future Teachers (Associate Degree) | pregrado | Educación | 4 semestres | - | https://www.douglascollege.ca/program/aaft
+Douglas College | General Studies (Diploma) | diplomado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/dpgens
+Douglas College | Geography and the Environment (Associate Degree) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/asgeog
+Douglas College | History (Associate Degree) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/aahist
+Douglas College | Legal Studies (Diploma) | diplomado | Derecho | 4 semestres | - | https://www.douglascollege.ca/program/dplegal
+Douglas College | Liberal Arts (Diploma) | diplomado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/dplart
+Douglas College | Philosophy (Associate Degree) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/aaphil
+Douglas College | Political Science (Associate Degree) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/aapoli
+Douglas College | Psychology, Applied (Bachelor of Arts) | bachelor | Psicología | 4 años | - | https://www.douglascollege.ca/program/baapsyc
+Douglas College | Psychology, Applied (Bachelor of Arts, Honours) | bachelor | Psicología | 4 años | - | https://www.douglascollege.ca/program/baapsyh
+Douglas College | Psychosocial Rehabilitation (Graduate Diploma) | posgrado | Psicología | 1 año | - | https://www.douglascollege.ca/program/gdpsrc
+Douglas College | Sociology (Associate Degree) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/aasoci
+Douglas College | Women's Studies and Gender Relations (Associate of Arts) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/asartw
+Douglas College | Applied Audio (Advanced Certificate) | curso_corto | Artes | 2 semestres | - | https://www.douglascollege.ca/program/adaudi
+Douglas College | Communications (Associate Degree) | pregrado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/aacmns
+Douglas College | Communications (Certificate) | curso_corto | Artes | 2 semestres | - | https://www.douglascollege.ca/program/ctcomm
+Douglas College | Creative Writing (Associate Degree) | pregrado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/asartc
+Douglas College | English (Associate Degree) | pregrado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/aaengl
+Douglas College | Foundation for Music Therapy Studies (Diploma) | diplomado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/dpfmts
+Douglas College | Gender, Sexualities and Women's Studies (Associate Degree) | pregrado | Ciencias Sociales | 4 semestres | - | https://www.douglascollege.ca/program/asartg
+Douglas College | Global Competency (Certificate) | curso_corto | Ciencias Sociales | 1 año | - | https://www.douglascollege.ca/program/ctgcc
+Douglas College | Intercultural and International Studies (Associate Degree) | pregrado | Ciencias Sociales | 2 años | - | https://www.douglascollege.ca/program/asarti
+Douglas College | Modern Languages (Associate Degree) | pregrado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/aamodl
+Douglas College | Modern Languages (Certificate) | curso_corto | Artes | 2 semestres | - | https://www.douglascollege.ca/program/ctmodl
+Douglas College | Music (Diploma) | diplomado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/dpmusc
+Douglas College | Music Technology (Certificate) | curso_corto | Artes | 2 semestres | - | https://www.douglascollege.ca/program/ctmtch
+Douglas College | Music Technology (Diploma) | diplomado | Artes | 2 años | - | https://www.douglascollege.ca/program/dpmtch
+Douglas College | Musicianship, Basic (Certificate) | curso_corto | Artes | 2 semestres | - | https://www.douglascollege.ca/program/ctbmus
+Douglas College | Performing and Fine Arts (Associate of Arts) | pregrado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/aapefa
+Douglas College | Performing and Fine Arts (Certificate) | curso_corto | Artes | 2 semestres | - | https://www.douglascollege.ca/program/ctpfa
+Douglas College | Print Futures: Professional Writing | diplomado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/dpprfu
+Douglas College | Professional Communication (Post-Degree Diploma) | posgrado | Artes | 1 año | - | https://www.douglascollege.ca/program/pdpcom
+Douglas College | Proficiency in Academic College English (Certificate) | curso_corto | Artes | a ritmo propio | - | https://www.douglascollege.ca/program/cnella
+Douglas College | Stagecraft and Event Technology (Diploma) | diplomado | Diseño | 4 semestres | - | https://www.douglascollege.ca/program/dpstge
+Douglas College | Teaching English as a Second Language (Certificate) | curso_corto | Educación | 1 semestre | - | https://www.douglascollege.ca/program/cntesl
+Douglas College | Theatre (Associate Degree) | pregrado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/aathea
+Douglas College | Theatre (Diploma) | diplomado | Artes | 4 semestres | - | https://www.douglascollege.ca/program/dpthea
+Douglas College | Associate of Science (Associate Degree) | pregrado | Ciencias | 4 semestres | - | https://www.douglascollege.ca/program/asscie
+Douglas College | Bachelor of Physical Education and Coaching - Elementary | bachelor | Educación | 8 semestres | - | https://www.douglascollege.ca/program/bpece
+Douglas College | Bachelor of Physical Education and Coaching - Secondary | bachelor | Educación | 8 semestres | - | https://www.douglascollege.ca/program/bpecs
+Douglas College | Biology (Associate Degree) | pregrado | Ciencias | 4 semestres | - | https://www.douglascollege.ca/program/asbiol
+Douglas College | Chemistry (Associate Degree) | pregrado | Ciencias | 4 semestres | - | https://www.douglascollege.ca/program/aschem
+Douglas College | Computing Science (Associate Degree) | pregrado | Tecnología | 2 años | - | https://www.douglascollege.ca/program/ascmpt
+Douglas College | Computing Science (Certificate) | curso_corto | Tecnología | 2 semestres | - | https://www.douglascollege.ca/program/ctcsci
+Douglas College | Computing Science (Diploma) | diplomado | Tecnología | 4 semestres | - | https://www.douglascollege.ca/program/dpcpsc
+Douglas College | Earth & Environmental Sciences (Associate Degree) | pregrado | Ciencias | 2 años | - | https://www.douglascollege.ca/program/aseaes
+Douglas College | Engineering Foundations (Certificate) | curso_corto | Ingeniería | 1 año | - | https://www.douglascollege.ca/program/ctegfnd
+Douglas College | Engineering and Fabrication Technologies (Diploma) | diplomado | Ingeniería | 2 años | - | https://www.douglascollege.ca/program/dpegess
+Douglas College | Environmental Science (Associate Degree) | pregrado | Ciencias | 4 semestres | - | https://www.douglascollege.ca/program/asensc
+Douglas College | Fabrication Technologies (Certificate) | curso_corto | Ingeniería | 3 semestres | - | https://www.douglascollege.ca/program/ctftec
+Douglas College | Geological Resources (Diploma) | diplomado | Ingeniería | 2 años | - | https://www.douglascollege.ca/program/dpgeor
+Douglas College | Hearing Aid Sciences (Diploma) | diplomado | Salud | 2 años | - | https://www.douglascollege.ca/program/dphear
+Douglas College | Kinesiology (Post-Degree Diploma) | posgrado | Salud | 1 año | - | https://www.douglascollege.ca/program/pddkin
+Douglas College | Mathematics (Associate Degree Arts) | pregrado | Ciencias | 4 semestres | - | https://www.douglascollege.ca/program/aamath
+Douglas College | Mathematics (Associate Degree Science) | pregrado | Ciencias | 4 semestres | - | https://www.douglascollege.ca/program/asmath
+Douglas College | Mathematics and Science Teaching (Graduate Diploma) | posgrado | Educación | 2 años | - | https://www.douglascollege.ca/program/pdmsct
+Douglas College | Opticianry (Diploma) | diplomado | Salud | 2 años | - | https://www.douglascollege.ca/program/dpopti
+Douglas College | Physical Education and Coaching (Bachelor) | bachelor | Educación | 4 años | - | https://www.douglascollege.ca/program/bpec
+Douglas College | Physical and Health Education (Graduate Diploma) | posgrado | Salud | 2 años | - | https://www.douglascollege.ca/program/gdphe
+Douglas College | Sport Science (Diploma) | diplomado | Salud | 4 semestres | - | https://www.douglascollege.ca/program/dpspor
+Douglas College | Veterinary Technology (Diploma) | diplomado | Salud | 2 años | - | https://www.douglascollege.ca/program/dpvtec
+
+# --- Swinburne University of Technology (www.swinburne.edu.au) ---
+Swinburne University of Technology | Bachelor of Accounting | bachelor | Negocios | 3 years full-time | 088381K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-accounting/
+Swinburne University of Technology | Bachelor of Accounting/Bachelor of Applied Innovation | bachelor | Negocios | 4 years full-time | 108345M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-accounting-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Animation | bachelor | Diseño | 3 years full-time | 092511D | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-animation/
+Swinburne University of Technology | Bachelor of Animation/Bachelor of Applied Innovation | bachelor | Diseño | 4 years full-time | 108346K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-animation-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Artificial Intelligence | bachelor | Tecnología | 3 years full-time or equivalent part-time | 121174E | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-artificial-intelligence/
+Swinburne University of Technology | Bachelor of Artificial Intelligence (Professional) | bachelor | Tecnología | 4 years full-time or equivalent part-time | 121175D | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-artificial-intelligence-professional/
+Swinburne University of Technology | Bachelor of Artificial Intelligence in Business | bachelor | Tecnología | 3 years full-time | 118260M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-artificial-intelligence-in-business/
+Swinburne University of Technology | Bachelor of Arts | bachelor | Artes | 3 years full-time | 088388C | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts/
+Swinburne University of Technology | Bachelor of Arts/Bachelor of Applied Innovation | bachelor | Artes | 4 years full-time | 108347J | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Arts/Bachelor of Business | bachelor | Negocios | 4 years full-time | 080215M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-business/
+Swinburne University of Technology | Bachelor of Arts/Bachelor of Psychological Sciences | bachelor | Psicología | 4 years full-time | 106700B | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-psychological-sciences/
+Swinburne University of Technology | Bachelor of Arts/Bachelor of Science | bachelor | Artes | 4 years full-time | 080214A | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-arts-bachelor-of-science/
+Swinburne University of Technology | Bachelor of Aviation | bachelor | Ingeniería | 3 years full-time | 063365E | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-aviation/
+Swinburne University of Technology | Bachelor of Aviation Management | bachelor | Ingeniería | 3 years full-time | 093355C | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-aviation-management/
+Swinburne University of Technology | Bachelor of Aviation Management (Professional) | bachelor | Ingeniería | 4 years full-time | 120881H | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-aviation-management-professional/
+Swinburne University of Technology | Bachelor of Aviation Management/Bachelor of Applied Innovation | bachelor | Ingeniería | 4 years full-time | 108348H | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-aviation-management-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Aviation and Piloting | bachelor | Ingeniería | 3 years full-time | 093354D | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-aviation-and-piloting/
+Swinburne University of Technology | Bachelor of Aviation/Bachelor of Business | bachelor | Ingeniería | 4 years full-time or equivalent part-time | 079135K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-aviation-bachelor-of-business/
+Swinburne University of Technology | Bachelor of Biomedical Science | bachelor | Salud | 3 years full time | 116519E | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-biomedical-science/
+Swinburne University of Technology | Bachelor of Business | bachelor | Negocios | 3 years full-time | 088382J | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business/
+Swinburne University of Technology | Bachelor of Business (Professional) | bachelor | Negocios | 4 years full-time | 095883G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business-professional/
+Swinburne University of Technology | Bachelor of Business Analytics | bachelor | Tecnología | 3 years full-time | 118264G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business-analytics/
+Swinburne University of Technology | Bachelor of Business Analytics and Analysis/Bachelor of Applied Innovation | bachelor | Tecnología | 4 years full-time | 109239E | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business-analytics-and-analysis-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Business Analytics/Bachelor of Applied Innovation | bachelor | Tecnología | 4 years full-time | 118261K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business-analytics-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Business Analytics/Bachelor of Business | bachelor | Tecnología | 4 years full-time | 118262J | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business-analytics-bachelor-of-business/
+Swinburne University of Technology | Bachelor of Business Analytics/Bachelor of Cyber Security | bachelor | Tecnología | 4 years full-time | 118263H | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business-analytics-bachelor-of-cyber-security/
+Swinburne University of Technology | Bachelor of Business/Bachelor of Applied Innovation | bachelor | Negocios | 4 years full-time | 108350C | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-business-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Computer Science | bachelor | Tecnología | 3 years full-time. | 088400A | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-computer-science/
+Swinburne University of Technology | Bachelor of Computer Science (Honours) | bachelor | Tecnología | 1 year full-time | 083473B | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-computer-science-honours/
+Swinburne University of Technology | Bachelor of Computer Science (Professional) | bachelor | Tecnología | 4 years full-time | 095880K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-computer-science-professional/
+Swinburne University of Technology | Bachelor of Computer Science/Bachelor of Applied Innovation | bachelor | Tecnología | 4 years full-time | 108352A | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-computer-science-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Construction Management (Honours) | bachelor | Ingeniería | 4 years full-time | 118324M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-construction-management-honours/
+Swinburne University of Technology | Bachelor of Construction Management (Honours) | bachelor | Ingeniería | 4 years full-time | 118324M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-digital-construction-management/
+Swinburne University of Technology | Bachelor of Construction Management (Honours) (Professional) | bachelor | Ingeniería | 5 years full-time | 120951K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-construction-management-honours-professional/
+Swinburne University of Technology | Bachelor of Criminal Justice and Criminology | bachelor | Derecho | 3 years full-time | 098002K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology-online/
+Swinburne University of Technology | Bachelor of Criminal Justice and Criminology | bachelor | Derecho | 3 years full-time | 098002K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology/
+Swinburne University of Technology | Bachelor of Criminal Justice and Criminology/Bachelor of Applied Innovation | bachelor | Derecho | 4 years full-time | 108351B | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Criminal Justice and Criminology/Bachelor of Cyber Security | bachelor | Derecho | 4 years | 111769E | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminal-justice-and-criminology-bachelor-of-cyber-security/
+Swinburne University of Technology | Bachelor of Criminology and Criminal Justice | bachelor | Derecho | 3 years full-time or equivalent part-time | 098002K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-criminology-and-criminal-justice/
+Swinburne University of Technology | Bachelor of Cyber Security | bachelor | Tecnología | 3 years full-time | 109148H | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-cyber-security/
+Swinburne University of Technology | Bachelor of Data Science | bachelor | Tecnología | 3 years full-time | 109149G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-data-science/
+Swinburne University of Technology | Bachelor of Design | bachelor | Diseño | 3 years full-time | 088395D | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design/
+Swinburne University of Technology | Bachelor of Design (Architecture) | bachelor | Diseño | 3 years full-time | 095610K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-architecture/
+Swinburne University of Technology | Bachelor of Design (Communication Design) (Honours) | bachelor | Diseño | 4 years full-time | 079130D | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-communication-design-honours/
+Swinburne University of Technology | Bachelor of Design (Fashion) | bachelor | Diseño | 3 years full time | 116377C | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-fashion/
+Swinburne University of Technology | Bachelor of Design (Honours) | bachelor | Diseño | 4 years full-time | 079130D | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-honours/
+Swinburne University of Technology | Bachelor of Design (Industrial Design) (Honours) | bachelor | Diseño | 4 years full-time | 085305B | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-industrial-design-honours/
+Swinburne University of Technology | Bachelor of Design (Interior Architecture) (Honours) | bachelor | Diseño | 4 years full-time | 085306A | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-interior-architecture-honours/
+Swinburne University of Technology | Bachelor of Design/Bachelor of Applied Innovation | bachelor | Diseño | 4 years full-time | 108353M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Design/Bachelor of Business | bachelor | Diseño | 4 years full-time | 088391G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-bachelor-of-business/
+Swinburne University of Technology | Bachelor of Design/Bachelor of Media and Communication | bachelor | Diseño | 4 years full-time | 095612G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-design-bachelor-of-media-and-communication/
+Swinburne University of Technology | Bachelor of Education (Early Childhood Teaching) | bachelor | Educación | 4 years full-time | 0101392 | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-education-early-childhood-teaching/
+Swinburne University of Technology | Bachelor of Education (Early Childhood and Primary) | bachelor | Educación | 4 years full-time | 098491K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-education-early-childhood-and-primary/
+Swinburne University of Technology | Bachelor of Education (Primary) | bachelor | Educación | 4 years full-time | 0100751 | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-education-primary/
+Swinburne University of Technology | Bachelor of Education Studies | bachelor | Educación | 3 years full-time | 0100245 | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-education-studies/
+Swinburne University of Technology | Bachelor of Engineering (Honours) | bachelor | Ingeniería | 4 years full-time | 107337H | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours/
+Swinburne University of Technology | Bachelor of Engineering (Honours) (Professional) | bachelor | Ingeniería | 5 years full-time | 107338G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-professional/
+Swinburne University of Technology | Bachelor of Engineering (Honours) /Bachelor of Applied Innovation | bachelor | Ingeniería | 5 years | 108362K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Engineering (Honours)/ Bachelor of Arts | bachelor | Ingeniería | 5 years full-time | 108363J | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-bachelor-of-arts/
+Swinburne University of Technology | Bachelor of Engineering (Honours)/Bachelor of Business | bachelor | Ingeniería | 5 years full-time | 107339F | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-bachelor-of-business/
+Swinburne University of Technology | Bachelor of Engineering (Honours)/Bachelor of Computer Science | bachelor | Tecnología | 5 years full-time | 107340B | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-bachelor-of-computer-science/
+Swinburne University of Technology | Bachelor of Engineering (Honours)/Bachelor of Science | bachelor | Ingeniería | 5 years full-time | 107341A | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-honours-bachelor-of-science/
+Swinburne University of Technology | Bachelor of Engineering Technology | bachelor | Ingeniería | 3 years full time | 116130D | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-engineering-technology/
+Swinburne University of Technology | Bachelor of Exercise and Sport Science | bachelor | Salud | 3 years full-time | 097922M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-exercise-and-sport-science/
+Swinburne University of Technology | Bachelor of Film and Television (Honours) | bachelor | Artes | 4 years full-time | 092513B | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-film-and-television-honours/
+Swinburne University of Technology | Bachelor of Forensic Psychological Science | bachelor | Psicología | 3 years full-time | 119097J | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-forensic-psychological-sciences/
+Swinburne University of Technology | Bachelor of Games and Interactivity | bachelor | Tecnología | 3 years full-time | 088399M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-games-and-interactivity/
+Swinburne University of Technology | Bachelor of Games and Interactivity/ Bachelor of Animation | bachelor | Diseño | 4 years full-time | 095611J | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-games-and-interactivity-bachelor-of-animation/
+Swinburne University of Technology | Bachelor of Games and Interactivity/Bachelor of Applied Innovation | bachelor | Tecnología | 4 years full-time | 108355J | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-games-and-interactivity-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Games and Interactivity/Bachelor of Computer Science | bachelor | Tecnología | 4 years full-time | 088393F | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-games-and-interactivity-bachelor-of-computer-science/
+Swinburne University of Technology | Bachelor of Health Science | bachelor | Salud | 3 years full-time | 077669G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science/
+Swinburne University of Technology | Bachelor of Health Science (Honours) | bachelor | Salud | 1 year full time | 088687C | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-honours/
+Swinburne University of Technology | Bachelor of Health Science (Professional) | bachelor | Salud | 4 years full-time | 095885E | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-professional/
+Swinburne University of Technology | Bachelor of Health Science/Bachelor of Applied Innovation | bachelor | Salud | 4 years full-time | 108356H | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Health Science/Bachelor of Arts | bachelor | Salud | 4 years full-time | 0100752 | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-arts/
+Swinburne University of Technology | Bachelor of Health Science/Bachelor of Business | bachelor | Salud | 4 years full-time | 093361E | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-business/
+Swinburne University of Technology | Bachelor of Health Science/Bachelor of Media and Communication | bachelor | Salud | 4 years full-time | 093359K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-media-and-communication/
+Swinburne University of Technology | Bachelor of Health Science/Bachelor of Science | bachelor | Salud | 4 years | 093360F | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-health-science-bachelor-of-science/
+Swinburne University of Technology | Bachelor of Information and Communication Technology | bachelor | Tecnología | 3 years full-time | 088401M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-information-and-communication-technology/
+Swinburne University of Technology | Bachelor of Information and Communication Technology (Professional) | bachelor | Tecnología | 4 years full-time | 095881J | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-information-and-communication-technology-professional/
+Swinburne University of Technology | Bachelor of Laws | bachelor | Derecho | 3 years full-time | 119074E | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws/
+Swinburne University of Technology | Bachelor of Laws / Bachelor of Psychological Sciences | bachelor | Psicología | 4.5 years full-time | 119096K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-psychological-sciences/
+Swinburne University of Technology | Bachelor of Laws/ Bachelor of Criminal Justice and Criminology | bachelor | Derecho | 5 years full-time | 119076C | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-criminal-justice-and-criminology/
+Swinburne University of Technology | Bachelor of Laws/ Bachelor of Media and Communication | bachelor | Derecho | 4.5 years full-time or equivalent part-time | 119095M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-media-and-communication/
+Swinburne University of Technology | Bachelor of Laws/Bachelor of Arts | bachelor | Derecho | 4.5 years full-time | 119073F | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-arts/
+Swinburne University of Technology | Bachelor of Laws/Bachelor of Business | bachelor | Derecho | 5 years full-time | 085631K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-business/
+Swinburne University of Technology | Bachelor of Laws/Bachelor of Business Analytics | bachelor | Derecho | 5 years full-time | 119075D | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-business-analytics/
+Swinburne University of Technology | Bachelor of Laws/Bachelor of Computer Science | bachelor | Derecho | 5 years full-time | 092703G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-computer-science/
+Swinburne University of Technology | Bachelor of Laws/Bachelor of Cyber Security | bachelor | Derecho | 5 years | 111770A | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-cyber-security/
+Swinburne University of Technology | Bachelor of Laws/Bachelor of Engineering (Honours) | bachelor | Derecho | 6.5 years | 107342M | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-engineering-honours/
+Swinburne University of Technology | Bachelor of Laws/Bachelor of Science | bachelor | Derecho | 5 years full-time | 085633G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-laws-bachelor-of-science/
+Swinburne University of Technology | Bachelor of Media and Communication | bachelor | Artes | 3 years full-time | 088390J | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication/
+Swinburne University of Technology | Bachelor of Media and Communication (Professional) | bachelor | Artes | 4 years full-time | 095886D | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication-professional/
+Swinburne University of Technology | Bachelor of Media and Communication/Bachelor of Applied Innovation | bachelor | Artes | 4 years full-time | 108358F | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Media and Communication/Bachelor of Business | bachelor | Negocios | 4 years full-time | 088392G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-media-and-communication-bachelor-of-business/
+Swinburne University of Technology | Bachelor of Nursing | bachelor | Enfermería | 3 years full-time | 097923K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-nursing/
+Swinburne University of Technology | Bachelor of Nutrition | bachelor | Salud | 3 years full time | 116518F | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-nutrition/
+Swinburne University of Technology | Bachelor of Psychological Sciences | bachelor | Psicología | Full-time only | 088389B | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-psychological-sciences/
+Swinburne University of Technology | Bachelor of Psychological Sciences (Honours) | bachelor | Psicología | 1 year full-time | 0100754 | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-psychological-sciences-honours/
+Swinburne University of Technology | Bachelor of Psychological Sciences/Bachelor of Criminal Justice and Criminology | bachelor | Psicología | 4 years full-time | 0100753 | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-psychological-sciences-bachelor-of-criminal-justice-and-criminology/
+Swinburne University of Technology | Bachelor of Psychology (Honours) | bachelor | Psicología | 4 years full-time | 088386E | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-psychology-honours/
+Swinburne University of Technology | Bachelor of Psychology and Cognitive Neuroscience | bachelor | Psicología | 3 years full-time | 119098H | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-psychology-and-cognitive-neuroscience/
+Swinburne University of Technology | Bachelor of Science | bachelor | Ciencias | 3 years full-time | 088402K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-science/
+Swinburne University of Technology | Bachelor of Science (Honours) | bachelor | Ciencias | 1 year full-time | 073629C | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-science-honours/
+Swinburne University of Technology | Bachelor of Science (Professional) | bachelor | Ciencias | 4 years full-time | 095882G | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-science-professional/
+Swinburne University of Technology | Bachelor of Science/Bachelor of Applied Innovation | bachelor | Ciencias | 4 years full-time | 108360A | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-science-bachelor-of-applied-innovation/
+Swinburne University of Technology | Bachelor of Screen Production | bachelor | Artes | 3 years full-time | 105727K | https://www.swinburne.edu.au/course/undergraduate/bachelor-of-screen-production/
+Swinburne University of Technology | Certificate III in Early Childhood Education and Care | curso_corto | Educación | 12 months | 110206D | https://www.swinburne.edu.au/course/tafe/certificate-iii-in-early-childhood-education-and-care/
+Swinburne University of Technology | English Language Intensive Course for Overseas Students (ELICOS) | curso_corto | Preparación Universitaria | 5 weeks (duration ranges 5 to 60 weeks) | 0102124 | https://www.swinburne.edu.au/course/degree-pathway/elicos-english-language-intensive-course/
+Swinburne University of Technology | Postgraduate Qualifying Program | curso_corto | Preparación Universitaria | 6 months | 0101744 | https://www.swinburne.edu.au/course/degree-pathway/postgraduate-qualifying-program/
+Swinburne University of Technology | Swinburne Foundation Program | curso_corto | Preparación Universitaria | 8 months full-time | 113264C | https://www.swinburne.edu.au/course/degree-pathway/swinburne-foundation-program/
+Swinburne University of Technology | UniLink Bridging Program | curso_corto | Preparación Universitaria | 4 months full-time | 112999E | https://www.swinburne.edu.au/course/degree-pathway/unilink-bridging-program-te-ubp1/
+Swinburne University of Technology | Advanced Diploma of Engineering Technology - Electrical | diplomado | Ingeniería | 2 years full-time | 115162D | https://www.swinburne.edu.au/course/tafe/advanced-diploma-of-engineering-technology-electrical/
+Swinburne University of Technology | Diploma of Accounting | diplomado | Negocios | 6 months full-time | 112487G | https://www.swinburne.edu.au/course/tafe/diploma-of-accounting/
+Swinburne University of Technology | Diploma of Arts and Communication (UniLink) | diplomado | Preparación Universitaria | 8 months full-time | 089744B | https://www.swinburne.edu.au/course/degree-pathway/diploma-of-arts-and-communication-unilink-dp-artcom/
+Swinburne University of Technology | Diploma of Business (UniLink) | diplomado | Preparación Universitaria | 8 months full-time | 085473G | https://www.swinburne.edu.au/course/degree-pathway/diploma-of-business-unilink-dp-bus1/
+Swinburne University of Technology | Diploma of Design (UniLink) | diplomado | Preparación Universitaria | 8 months full-time | 085471K | https://www.swinburne.edu.au/course/degree-pathway/diploma-of-design-unilink-dp-des1/
+Swinburne University of Technology | Diploma of Early Childhood Education and Care | diplomado | Educación | 12 months full-time | 110207C | https://www.swinburne.edu.au/course/tafe/diploma-of-early-childhood-education-and-care/
+Swinburne University of Technology | Diploma of Engineering (UniLink) | diplomado | Preparación Universitaria | 8 months full-time | 085477D | https://www.swinburne.edu.au/course/degree-pathway/diploma-of-engineering-unilink-dp-eng1/
+Swinburne University of Technology | Diploma of Health Science (UniLink) | diplomado | Preparación Universitaria | 8 months full-time | 088689A | https://www.swinburne.edu.au/course/degree-pathway/diploma-of-health-science-unilink-dp-hsc1/
+Swinburne University of Technology | Diploma of Information Technology (UniLink) | diplomado | Preparación Universitaria | 8 months full-time | 085475F | https://www.swinburne.edu.au/course/degree-pathway/diploma-of-information-technology-unilink-dp-ict1/
+Swinburne University of Technology | Diploma of Science (UniLink) | diplomado | Preparación Universitaria | 8 months full-time | 089746M | https://www.swinburne.edu.au/course/degree-pathway/diploma-of-science-unilink-dp-sci/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Negocios | 3 years | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-business-integrated/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Negocios | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-business/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Diseño | 3 years | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-design-integrated/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Diseño | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-design/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Ingeniería | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-engineering/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Salud | 3 years full-time | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-health-sciences-integrated/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Salud | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-health-sciences/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Ciencias Sociales | 3 years | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-humanities-arts-and-social-sciences-integrated/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Ciencias Sociales | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-humanities-arts-and-social-sciences/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Tecnología | 3 years | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-information-and-communication-technology-integrated/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Tecnología | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-information-and-communication-technology/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Tecnología | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-information-systems/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Derecho | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-law/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Ciencias | 3 years | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-science-integrated/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Ciencias | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-science/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Derecho | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-technology-innovation-business-and-law/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Diseño | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-technology-innovation-health-arts-and-design/
+Swinburne University of Technology | Doctor of Philosophy | doctorado | Ingeniería | 4 years maximum | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-technology-innovation-science-engineering-and-technology/
+Swinburne University of Technology | Doctor of Philosophy (Clinical Psychology) | doctorado | Psicología | 4 years full-time | 064191C | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-clinical-psychology/
+Swinburne University of Technology | Doctor of Philosophy and Graduate Certificate of Research and Innovation Management | doctorado | Negocios | 4 years maximum | 096282B | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-and-graduate-certificate-of-research-and-innovation-management-business/
+Swinburne University of Technology | Doctor of Philosophy and Graduate Certificate of Research and Innovation Management | doctorado | Diseño | 4 Years maximum | 096282B | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-and-graduate-certificate-of-research-and-innovation-management-design/
+Swinburne University of Technology | Doctor of Philosophy and Graduate Certificate of Research and Innovation Management | doctorado | Ingeniería | 4 years maximum | 096282B | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-and-graduate-certificate-of-research-and-innovation-management-engineering/
+Swinburne University of Technology | Doctor of Philosophy and Graduate Certificate of Research and Innovation Management | doctorado | Salud | 4 years maximum | 096282B | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-and-graduate-certificate-of-research-and-innovation-management-health-sciences/
+Swinburne University of Technology | Doctor of Philosophy and Graduate Certificate of Research and Innovation Management | doctorado | Ciencias Sociales | 4 years maximum | 096282B | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-and-graduate-certificate-of-research-and-innovation-management-humanities-arts-and-social-sciences/
+Swinburne University of Technology | Doctor of Philosophy and Graduate Certificate of Research and Innovation Management | doctorado | Tecnología | 4 year maximum | 096282B | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-and-graduate-certificate-of-research-and-innovation-management-information-and-communication-technology/
+Swinburne University of Technology | Doctor of Philosophy and Graduate Certificate of Research and Innovation Management | doctorado | Tecnología | 4 years maximum | 096282B | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-and-graduate-certificate-of-research-and-innovation-management-information-systems/
+Swinburne University of Technology | Doctor of Philosophy and Graduate Certificate of Research and Innovation Management | doctorado | Derecho | 4 years maximum | 096282B | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-and-graduate-certificate-of-research-and-innovation-management-law/
+Swinburne University of Technology | Doctor of Philosophy and Graduate Certificate of Research and Innovation Management | doctorado | Ciencias | 4 years maximum | 096282B | https://www.swinburne.edu.au/course/research/doctor-of-philosophy-and-graduate-certificate-of-research-and-innovation-management-science/
+Swinburne University of Technology | Doctor of Psychology (Clinical and Forensic Psychology) | doctorado | Psicología | 4 years maximum | 083182B | https://www.swinburne.edu.au/course/research/doctor-of-psychology-clinical-and-forensic-psychology/
+Swinburne University of Technology | International Exchange Program | intercambio | Multidisciplinar | 6 months full-time | 031146C | https://www.swinburne.edu.au/course/inbound/one-semester-exchange/
+Swinburne University of Technology | International Exchange Program (12 Months) | intercambio | Multidisciplinar | 1 year full-time | 031147B | https://www.swinburne.edu.au/course/inbound/two-semesters-exchange/
+Swinburne University of Technology | International Study Abroad Program | intercambio | Multidisciplinar | 6 months full-time | 030775D | https://www.swinburne.edu.au/course/inbound/study-abroad-one-semester-exchange/
+Swinburne University of Technology | International Study Abroad Program (12 Months) | intercambio | Multidisciplinar | 1 year full-time | 030776C | https://www.swinburne.edu.au/course/inbound/study-abroad-two-semesters-exchange/
+Swinburne University of Technology | Master of Architecture | maestria | Ingeniería | 2 years full-time | 098495F | https://www.swinburne.edu.au/course/postgraduate/master-of-architecture/
+Swinburne University of Technology | Master of Architecture and Urban Design | maestria | Diseño | 2 years full-time | 098496E | https://www.swinburne.edu.au/course/postgraduate/master-of-architecture-and-urban-design/
+Swinburne University of Technology | Master of Arts (Research) | maestria | Artes | 2 years | 046751C | https://www.swinburne.edu.au/course/research/master-of-arts-research/
+Swinburne University of Technology | Master of Business (Research) | maestria | Negocios | 2 years full-time | 046752B | https://www.swinburne.edu.au/course/research/master-of-business-research/
+Swinburne University of Technology | Master of Business Administration | mba | Negocios | 2 years full-time | 102648M | https://www.swinburne.edu.au/course/postgraduate/master-of-business-administration/
+Swinburne University of Technology | Master of Business Information Systems | maestria | Tecnología | 2 years full-time | 092700K | https://www.swinburne.edu.au/course/postgraduate/master-of-business-information-systems/
+Swinburne University of Technology | Master of Construction Management Practice | maestria | Ingeniería | 1 year full time | 107394K | https://www.swinburne.edu.au/course/postgraduate/master-of-construction-management-practice/
+Swinburne University of Technology | Master of Construction and Infrastructure Management | maestria | Ingeniería | 2 years full-time | 088131F | https://www.swinburne.edu.au/course/postgraduate/master-of-construction-and-infrastructure-management/
+Swinburne University of Technology | Master of Cyber Security | maestria | Tecnología | 2 years full-time | 098492J | https://www.swinburne.edu.au/course/postgraduate/master-of-cyber-security/
+Swinburne University of Technology | Master of Data Science | maestria | Tecnología | 2 years full-time | 099117B | https://www.swinburne.edu.au/course/postgraduate/master-of-data-science/
+Swinburne University of Technology | Master of Design | maestria | Diseño | 2 years full-time | 088128A | https://www.swinburne.edu.au/course/postgraduate/master-of-design/
+Swinburne University of Technology | Master of Design (Research) | maestria | Diseño | 2 years | 046753A | https://www.swinburne.edu.au/course/research/master-of-design-research/
+Swinburne University of Technology | Master of Dietetics | maestria | Salud | 2 years full-time | 0100999 | https://www.swinburne.edu.au/course/postgraduate/master-of-dietetics/
+Swinburne University of Technology | Master of Educational Leadership | maestria | Educación | 1 year full-time | 117595G | https://www.swinburne.edu.au/course/postgraduate/master-of-educational-leadership/
+Swinburne University of Technology | Master of Engineering (Research) | maestria | Ingeniería | 2 years full-time | 046754M | https://www.swinburne.edu.au/course/research/master-of-engineering-research/
+Swinburne University of Technology | Master of Engineering Practice | maestria | Ingeniería | 1 years full-time | 103428D | https://www.swinburne.edu.au/course/postgraduate/master-of-engineering-practice/
+Swinburne University of Technology | Master of Engineering Practice/ Master of Construction Management Practice | maestria | Ingeniería | 2 years full-time | 107395J | https://www.swinburne.edu.au/course/postgraduate/master-of-engineering-practice-master-of-construction-management-practice/
+Swinburne University of Technology | Master of Engineering Science | maestria | Ingeniería | 2 years full-time | 097335G | https://www.swinburne.edu.au/course/postgraduate/master-of-engineering-science/
+Swinburne University of Technology | Master of Finance | maestria | Negocios | 2 years full-time | 102233A | https://www.swinburne.edu.au/course/postgraduate/master-of-finance/
+Swinburne University of Technology | Master of Health Sciences (Research) | maestria | Salud | 2 year full-time | 082697E | https://www.swinburne.edu.au/course/research/master-of-health-sciences-research/
+Swinburne University of Technology | Master of Human Resource Management | maestria | Negocios | 2 years | 102651E | https://www.swinburne.edu.au/course/postgraduate/master-of-human-resource-management/
+Swinburne University of Technology | Master of Information Technology | maestria | Tecnología | 2 years full-time | 001742J | https://www.swinburne.edu.au/course/postgraduate/master-of-information-technology/
+Swinburne University of Technology | Master of Information Technology (Professional Computing) | maestria | Tecnología | 2 years full-time | 061755G | https://www.swinburne.edu.au/course/postgraduate/master-of-information-technology-professional-computing/
+Swinburne University of Technology | Master of Information and Communication Technologies (Research) | maestria | Tecnología | 2 years | 082696F | https://www.swinburne.edu.au/course/research/master-of-information-and-communication-technologies-research/
+Swinburne University of Technology | Master of Law (Research) | maestria | Derecho | 2 years | 096402K | https://www.swinburne.edu.au/course/research/master-of-law-research/
+Swinburne University of Technology | Master of Marketing | maestria | Negocios | 2 years full-time | 102652D | https://www.swinburne.edu.au/course/postgraduate/master-of-marketing/
+Swinburne University of Technology | Master of Media and Communication | maestria | Artes | 2 years full-time | 093362D | https://www.swinburne.edu.au/course/postgraduate/master-of-media-and-communication/
+Swinburne University of Technology | Master of Occupational Therapy | maestria | Salud | 2 years | 089748J | https://www.swinburne.edu.au/course/postgraduate/master-of-occupational-therapy/
+Swinburne University of Technology | Master of Physiotherapy | maestria | Salud | 2 years full-time | 098499B | https://www.swinburne.edu.au/course/postgraduate/master-of-physiotherapy/
+Swinburne University of Technology | Master of Professional Accounting | maestria | Negocios | 2 years full-time | 116706B | https://www.swinburne.edu.au/course/postgraduate/master-of-professional-accounting/
+Swinburne University of Technology | Master of Professional Engineering | maestria | Ingeniería | 2 years full-time | 085866B | https://www.swinburne.edu.au/course/postgraduate/master-of-professional-engineering/
+Swinburne University of Technology | Master of Project Management | maestria | Negocios | 2 years full-time | 102653C | https://www.swinburne.edu.au/course/postgraduate/master-of-project-management/
+Swinburne University of Technology | Master of Research | maestria | Negocios | 2 year | 094718F | https://www.swinburne.edu.au/course/research/master-of-research-business/
+Swinburne University of Technology | Master of Research | maestria | Diseño | 2 year | 094718f | https://www.swinburne.edu.au/course/research/master-of-research-design/
+Swinburne University of Technology | Master of Research | maestria | Salud | 2 year | 094718F | https://www.swinburne.edu.au/course/research/master-of-research-health-sciences/
+Swinburne University of Technology | Master of Research | maestria | Ciencias Sociales | 2 years | 094718F | https://www.swinburne.edu.au/course/research/master-of-research-humanities-arts-and-social-sciences/
+Swinburne University of Technology | Master of Research | maestria | Tecnología | 2 year | 094718F | https://www.swinburne.edu.au/course/research/master-of-research-information-and-communication-technology/
+Swinburne University of Technology | Master of Research | maestria | Ciencias | 2 year | 094718F | https://www.swinburne.edu.au/course/research/master-of-research-science/
+Swinburne University of Technology | Master of Science (Biotechnology) | maestria | Ciencias | 2 years full-time | 055216G | https://www.swinburne.edu.au/course/postgraduate/master-of-science-biotechnology/
+Swinburne University of Technology | Master of Science (Research) | maestria | Ciencias | 2 years | 008343A | https://www.swinburne.edu.au/course/research/master-of-science-research/
+Swinburne University of Technology | Master of Social Impact | maestria | Ciencias Sociales | 18 months | 095609C | https://www.swinburne.edu.au/course/postgraduate/master-of-social-impact/
+Swinburne University of Technology | Master of Supply Chain Innovation | maestria | Negocios | 2 years full-time | 102654B | https://www.swinburne.edu.au/course/postgraduate/master-of-supply-chain-innovation/
+Swinburne University of Technology | Master of Teaching (Secondary) | maestria | Educación | 2 years full-time | 0100750 | https://www.swinburne.edu.au/course/postgraduate/master-of-teaching-secondary/
+Swinburne University of Technology | Graduate Certificate in Construction Management | posgrado | Ingeniería | 12 months part-time | 074405M | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-in-construction-management/
+Swinburne University of Technology | Graduate Certificate of Aviation | posgrado | Ingeniería | 6 months | 1 | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-aviation/
+Swinburne University of Technology | Graduate Certificate of Business Administration | posgrado | Negocios | 6 months full-time | 097340M | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-business-administration/
+Swinburne University of Technology | Graduate Certificate of Business Information Systems | posgrado | Tecnología | 6 months full time | 102645C | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-business-information-systems/
+Swinburne University of Technology | Graduate Certificate of Cyber Security | posgrado | Tecnología | 1 year full-time | 098493G | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-cyber-security/
+Swinburne University of Technology | Graduate Certificate of Cyber Security Management | posgrado | Tecnología | 6 months full-time | 001742J | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-cybersecurity-management-swinburne-online/
+Swinburne University of Technology | Graduate Certificate of Data Science | posgrado | Tecnología | 12 months full-time | 099118A | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-data-science/
+Swinburne University of Technology | Graduate Certificate of Design | posgrado | Diseño | 6 months full-time | 088130G | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-design/
+Swinburne University of Technology | Graduate Certificate of Engineering | posgrado | Ingeniería | 6 months full time | 097338E | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-engineering/
+Swinburne University of Technology | Graduate Certificate of Entrepreneurship | posgrado | Negocios | 6 months full time | 081746J | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-entrepreneurship/
+Swinburne University of Technology | Graduate Certificate of Human Resource Management | posgrado | Negocios | 6 months full-time | 092706D | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-human-resource-management/
+Swinburne University of Technology | Graduate Certificate of Information Technology | posgrado | Tecnología | 12 months full time | 083471D | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-information-technology/
+Swinburne University of Technology | Graduate Certificate of Marketing | posgrado | Negocios | 6 months full-time | 075389J | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-marketing/
+Swinburne University of Technology | Graduate Certificate of Professional Accounting | posgrado | Negocios | 6 months full-time | 067407A | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-professional-accounting/
+Swinburne University of Technology | Graduate Certificate of Project Management | posgrado | Negocios | 6 months full-time | 075389J | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-project-management-swinburne-online/
+Swinburne University of Technology | Graduate Certificate of Project Management | posgrado | Negocios | 6 months full-time | 092695B | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-project-management/
+Swinburne University of Technology | Graduate Certificate of Social Impact | posgrado | Ciencias Sociales | 1 year part-time | 095160J | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-social-impact/
+Swinburne University of Technology | Graduate Certificate of Supply Chain Innovation | posgrado | Negocios | 1 year part-time | 095825F | https://www.swinburne.edu.au/course/postgraduate/graduate-certificate-of-supply-chain-innovation/
+Swinburne University of Technology | Graduate Diploma of Cyber Security | posgrado | Tecnología | 1 year full-time | 098492J | https://www.swinburne.edu.au/course/postgraduate/graduate-diploma-of-cyber-security/
+Swinburne University of Technology | Graduate Diploma of Early Childhood Teaching | posgrado | Educación | 1 year full-time | 113014K | https://www.swinburne.edu.au/course/postgraduate/graduate-diploma-of-early-childhood-teaching/
+Swinburne University of Technology | Graduate Diploma of Information Technology | posgrado | Tecnología | 1.5 years full-time | 083472C | https://www.swinburne.edu.au/course/postgraduate/graduate-diploma-of-information-technology/
+Swinburne University of Technology | Graduate Diploma of Science (Biotechnology) | posgrado | Ciencias | 1 year full-time | 055215G | https://www.swinburne.edu.au/course/postgraduate/graduate-diploma-of-science-biotechnology/
+Swinburne University of Technology | Associate Degree of Applied Artificial Intelligence | pregrado | Tecnología | 2 years full-time | 119239M | https://www.swinburne.edu.au/course/undergraduate/associate-degree-of-applied-artificial-intelligence/
+Swinburne University of Technology | Associate Degree of Aviation | pregrado | Ingeniería | 2 years full-time or equivalent part-time | 119364F | https://www.swinburne.edu.au/course/undergraduate/associate-degree-of-aviation/
+Swinburne University of Technology | Associate Degree of Engineering | pregrado | Ingeniería | 2 years full-time | 108893E | https://www.swinburne.edu.au/course/undergraduate/associate-degree-of-engineering/
+
+# --- Les ateliers FL (sejour.fl-france.fr) ---
+Les ateliers FL | Cours standard | curso_corto | Idiomas | 20 leçons/semaine | - | https://sejour.fl-france.fr/adultes/
+Les ateliers FL | Cours intensif | curso_corto | Idiomas | 30 leçons/semaine | - | https://sejour.fl-france.fr/adultes/
+Les ateliers FL | Cours combinés | curso_corto | Idiomas | 26-30 leçons/semaine | - | https://sejour.fl-france.fr/adultes/
+Les ateliers FL | Cours standard long séjour | curso_corto | Idiomas | 20 leçons/semaine | - | https://sejour.fl-france.fr/adultes/
+Les ateliers FL | Cours intensif long séjour | curso_corto | Idiomas | 30 leçons/semaine | - | https://sejour.fl-france.fr/adultes/
+Les ateliers FL | Cours particuliers | curso_corto | Idiomas | mínimo 2 leçons/semaine | - | https://sejour.fl-france.fr/adultes/
+Les ateliers FL | Vivre le français en ligne | curso_corto | Idiomas | 2 leçons/semaine | - | https://sejour.fl-france.fr/fl-online-school/
+Les ateliers FL | Français pour expatriés | curso_corto | Idiomas | 1,5 horas/semana | - | https://sejour.fl-france.fr/adultes/
+Les ateliers FL | Français et Préparation Université / Grande école | curso_corto | Preparación Universitaria | 30 leçons/semaine | - | https://sejour.fl-france.fr/examens/
+Les ateliers FL | Préparation au DELF / DALF | curso_corto | Idiomas | 26 leçons/semaine | - | https://sejour.fl-france.fr/examens/
+Les ateliers FL | Pathway - Préparation aux Études Supérieures en France | curso_corto | Preparación Universitaria | 20-24 leçons/semaine | - | https://sejour.fl-france.fr/examens/
+Les ateliers FL | TCF IRN | curso_corto | Idiomas | taller preparatorio (Nice) | - | https://sejour.fl-france.fr/examens/
+Les ateliers FL | Stage pour professeurs de Français Langue Étrangère (Erasmus +) | curso_corto | Educación | 26 leçons/semaine | - | https://sejour.fl-france.fr/francais-professionnel/
+Les ateliers FL | Français + Job | curso_corto | Idiomas | 20 leçons/semaine + 2 talleres de francés profesional | - | https://sejour.fl-france.fr/francais-professionnel/
+Les ateliers FL | Français + Stage | curso_corto | Idiomas | 22 leçons/semaine | - | https://sejour.fl-france.fr/francais-professionnel/
+Les ateliers FL | Français + Surf Camp d'été Biarritz | vacacional | Idiomas | 20 leçons/semaine · 15-17 años | - | https://sejour.fl-france.fr/kids-juniors/
+Les ateliers FL | Français + Camp multi-activités à Biarritz | vacacional | Idiomas | 20 leçons/semaine · 13-17 años | - | https://sejour.fl-france.fr/kids-juniors/
+Les ateliers FL | Programme Au Pair | curso_corto | Idiomas | trimestral · 12 semanas (10 de clase) · 8 leçons/semaine | - | https://sejour.fl-france.fr/au-pair/
+
+# --- William Angliss Institute (www.angliss.edu.au) ---
+William Angliss Institute | Master of International Hospitality Entrepreneurship | maestria | Hospitalidad | 2 years | CRS1401173 · CRICOS 109375H | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Master of International Hotel Leadership | maestria | Hospitalidad | 2 years | CRS1401161 · CRICOS 109250K | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Bachelor of Resort and Hotel Management | bachelor | Hospitalidad | 3 years | CRS1400274 · CRICOS 089144D | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Bachelor of Resort and Hotel Management (Professional Practice) | bachelor | Hospitalidad | 4 years | CRS1400277 · CRICOS 089145C | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Bachelor of Tourism and Hospitality Management | bachelor | Turismo | 3 years | CRS1201419 · CRICOS 117777A | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Bachelor of Tourism and Hospitality Management (Professional Practice) | bachelor | Turismo | 4 years | CRS1201421 · CRICOS 058617K | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Bachelor of Event Management | bachelor | Eventos | 3 years | CRS1400177 · CRICOS 085672A | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Bachelor of Culinary Management | bachelor | Gastronomía | 3 years | CRS1201418 · CRICOS 117776B | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Bachelor of Culinary Management (Professional Practice) | bachelor | Gastronomía | 4 years | CRS1201422 · CRICOS 058616M | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Study Abroad Program | intercambio | Multidisciplinar | 6 months (one semester) | CRICOS 070200A | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Study Abroad Program | intercambio | Multidisciplinar | 12 months | CRICOS 070201M | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Certificate III in Commercial Cookery | curso_corto | Gastronomía | 12 months | SIT30821 · CRICOS 109776B | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Certificate IV in Kitchen Management | curso_corto | Gastronomía | 18 months | SIT40521 · CRICOS 109638A | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Diploma of Hospitality Management | diplomado | Hospitalidad | 12 a 24 months según pathway | SIT50422 · CRICOS 111090C | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | 18 a 30 months según pathway | SIT60322 · CRICOS 111091B | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Certificate III in Patisserie | curso_corto | Gastronomía | 12 months | SIT31021 · CRICOS 109760K | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Certificate IV in Patisserie | curso_corto | Gastronomía | 18 months | SIT40721 · CRICOS 109459D | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Certificate III in Baking | curso_corto | Gastronomía | 12 months | FBP30521 · CRICOS 107366C | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Diploma of Food Science & Technology | diplomado | Ciencias de los Alimentos | 12 months | FBP50121 · CRICOS 107351K | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Certificate III in Hospitality | curso_corto | Hospitalidad | 6 months | SIT30622 · CRICOS 111087J | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Certificate III in Tourism | curso_corto | Turismo | 6 months | SIT30125 · CRICOS 111086K | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Diploma of Travel & Tourism Management | diplomado | Turismo | 12 months | SIT50122 · CRICOS 111088H | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Certificate III in Aviation (Cabin Crew) | curso_corto | Turismo | 6 months | AVI30219 · CRICOS 0101251 | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+William Angliss Institute | Diploma of Event Management | diplomado | Eventos | 12 months | SIT50322 · CRICOS 111089G | https://www.angliss.edu.au/siteassets/pdf-files/publications/2026_international_course_guide_angliss.pdf
+
+# --- Australian International College Of Language (aicol.com.au) ---
+Australian International College Of Language | General English Course | curso_corto | Idiomas | no indicada | CRICOS 016907C | https://aicol.com.au/general-english-course-aicol/
+Australian International College Of Language | English for Academic Purposes | curso_corto | Idiomas | no indicada | CRICOS 016908B | https://aicol.com.au/english-for-academic-purposes-aicol/
+Australian International College Of Language | IELTS Test Preparation | curso_corto | Idiomas | no indicada | CRICOS 106677G | https://aicol.com.au/ielts-test-preparation-in-australia-aicol/
+Australian International College Of Language | English for High School Preparation | curso_corto | Idiomas | no indicada | CRICOS 022332J | https://aicol.com.au/high-school-preparation-course/
+Australian International College Of Language | Primary School Preparation Course (AICOL PSP) | curso_corto | Idiomas | no indicada | CRICOS 120596B | https://aicol.com.au/primary-school-preparation-aicol-psp/
+Australian International College Of Language | English Course for Kids | curso_corto | Idiomas | no indicada · 6-13 años | CRICOS 032656F | https://aicol.com.au/english-course-for-kids-aicol/
+Australian International College Of Language | Cambridge B2 FCE Course | curso_corto | Idiomas | no indicada | - | https://aicol.com.au/cambridge-b2-fce-course-aicol/
+Australian International College Of Language | Cambridge C1 Advanced CAE Course | curso_corto | Idiomas | no indicada | - | https://aicol.com.au/cambridge-cae-course/
+Australian International College Of Language | Parent and Child English School | curso_corto | Idiomas | no indicada | - | https://aicol.com.au/parent-and-child-english-school/
+Australian International College Of Language | English and Sport | curso_corto | Idiomas | no indicada | - | https://aicol.com.au/english-and-sport/
+
+# --- Worldwide Internships (worldwideinternships.org) ---
+Worldwide Internships | Hospitalidad - AUSTRALIA | intercambio | Hospitalidad | no indicada | - | https://worldwideinternships.org/hospitalidad/
+Worldwide Internships | Hospitalidad - ESTADOS UNIDOS | intercambio | Hospitalidad | no indicada | - | https://worldwideinternships.org/hospitalidad/
+Worldwide Internships | Hospitalidad - EMIRATOS & QATAR | intercambio | Hospitalidad | no indicada | - | https://worldwideinternships.org/hospitalidad/
+Worldwide Internships | Hospitalidad - ESPAÑA | intercambio | Hospitalidad | no indicada | - | https://worldwideinternships.org/hospitalidad/
+Worldwide Internships | Hospitalidad - FRANCIA | intercambio | Hospitalidad | no indicada | - | https://worldwideinternships.org/hospitalidad/
+Worldwide Internships | Hospitalidad - MÉXICO | intercambio | Hospitalidad | no indicada | - | https://worldwideinternships.org/hospitalidad/
+Worldwide Internships | Hospitalidad - PORTUGAL | intercambio | Hospitalidad | no indicada | - | https://worldwideinternships.org/hospitalidad/
+Worldwide Internships | Hospitalidad - REP. DOMINICANA | intercambio | Hospitalidad | no indicada | - | https://worldwideinternships.org/hospitalidad/
+Worldwide Internships | Hospitalidad - TAILANDIA | intercambio | Hospitalidad | no indicada | - | https://worldwideinternships.org/hospitalidad/
+Worldwide Internships | Negocios - Nueva York (Estados Unidos) | intercambio | Negocios | no indicada | - | https://worldwideinternships.org/negocios/
+Worldwide Internships | Negocios - Barcelona (España) | intercambio | Negocios | no indicada | - | https://worldwideinternships.org/negocios/
+Worldwide Internships | Negocios - Bangkok (Tailandia) | intercambio | Negocios | no indicada | - | https://worldwideinternships.org/negocios/
+
+# --- Trebas Institute Quebec Inc. (trebas.com) ---
+Trebas Institute Quebec Inc. | Film and Television Production | diplomado | Artes | 12 Months (51 Weeks) | NWY.1F | https://www.trebas.com/programs/creative/film-and-television-production/
+Trebas Institute Quebec Inc. | Audio and Video Post-production | diplomado | Artes | 20 Months (87 Weeks) | NWY.1Y | https://www.trebas.com/programs/creative/audio-and-video-post-production/
+Trebas Institute Quebec Inc. | Sound Design | diplomado | Artes | 12 Months (51 Weeks) | NNC.0V | https://www.trebas.com/programs/creative/sound-design/
+Trebas Institute Quebec Inc. | E-commerce and Online Business Management | diplomado | Negocios | 16 Months or 24 Months (70 or 104 Weeks) | LCA.FQ | https://www.trebas.com/programs/business/e-commerce-and-online-business-management/
+Trebas Institute Quebec Inc. | Show and Event Management | diplomado | Eventos | 12 Months (51 Weeks) | LCL.00 | https://www.trebas.com/programs/business/show-and-event-management/
+Trebas Institute Quebec Inc. | Music Business Administration | diplomado | Negocios | 12 Months (51 Weeks) | NNC.0E | https://www.trebas.com/programs/business/music-business-administration/
+Trebas Institute Quebec Inc. | Business Administration | diplomado | Negocios | 16 Months or 24 Months (70 or 104 Weeks) | LCA.GG | https://www.trebas.com/programs/business/business-administration/
+Trebas Institute Quebec Inc. | Supply Chain Management | diplomado | Negocios | 18 Months (78 Weeks) | LCA.GH | https://www.trebas.com/programs/business/supply-chain-management/
+Trebas Institute Quebec Inc. | Analytics, Big Data and Business Intelligence | diplomado | Tecnología | 24 Months (105 Weeks) | LEA.DT | https://www.trebas.com/programs/technology/analytics-big-data-and-business-intelligence/
+Trebas Institute Quebec Inc. | Computer Security Analyst | diplomado | Tecnología | 17 Months (74 Weeks) | LEA.DU | https://www.trebas.com/programs/technology/computer-security-analyst/
+
+# --- Strathfield College (www.strathfieldcollege.edu.au) ---
+Strathfield College | Certificate III in Light Vehicle Mechanical Technology | curso_corto | Automotriz | no indicada | AUR30620 · CRICOS 103670E | https://www.strathfieldcollege.edu.au/automotive
+Strathfield College | Certificate IV in Automotive Mechanical Diagnosis | curso_corto | Automotriz | no indicada | AUR40216 | https://www.strathfieldcollege.edu.au/automotive
+Strathfield College | Diploma of Automotive Management | diplomado | Automotriz | no indicada | AUR50116 | https://www.strathfieldcollege.edu.au/automotive
+Strathfield College | Certificate III in Carpentry | curso_corto | Construcción | no indicada | CPC30220 | https://www.strathfieldcollege.edu.au/carpentry
+Strathfield College | Certificate III in Painting and Decorating | curso_corto | Construcción | no indicada | CPC30620 | https://www.strathfieldcollege.edu.au/carpentry
+Strathfield College | Certificate III in Wall and Floor Tiling | curso_corto | Construcción | no indicada | CPC31320 | https://www.strathfieldcollege.edu.au/carpentry
+Strathfield College | Diploma of Building and Construction (Building) | diplomado | Construcción | no indicada | CPC50220 | https://www.strathfieldcollege.edu.au/carpentry
+Strathfield College | Certificate III in Commercial Cookery | curso_corto | Gastronomía | no indicada | SIT30821 | https://www.strathfieldcollege.edu.au/hospitality
+Strathfield College | Certificate IV in Kitchen Management | curso_corto | Gastronomía | no indicada | SIT40521 | https://www.strathfieldcollege.edu.au/hospitality
+Strathfield College | Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT50422 | https://www.strathfieldcollege.edu.au/hospitality
+Strathfield College | Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.strathfieldcollege.edu.au/hospitality
+Strathfield College | Certificate IV in Business | curso_corto | Negocios | no indicada | BSB40120 | https://www.strathfieldcollege.edu.au/business
+Strathfield College | Diploma of Business | diplomado | Negocios | no indicada | BSB50120 | https://www.strathfieldcollege.edu.au/business
+Strathfield College | Advanced Diploma of Business | diplomado | Negocios | no indicada | BSB60120 | https://www.strathfieldcollege.edu.au/business
+Strathfield College | Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 | https://www.strathfieldcollege.edu.au/leadership-management
+Strathfield College | Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB60420 | https://www.strathfieldcollege.edu.au/leadership-management
+Strathfield College | Certificate IV in Marketing and Communication | curso_corto | Negocios | no indicada | BSB40820 | https://www.strathfieldcollege.edu.au/marketing-communication
+Strathfield College | Diploma of Marketing & Communication | diplomado | Negocios | no indicada | BSB50620 | https://www.strathfieldcollege.edu.au/marketing-communication
+Strathfield College | Diploma of Information Technology | diplomado | Tecnología | no indicada | ICT50220 | https://www.strathfieldcollege.edu.au/information-technology
+Strathfield College | Advanced Diploma of Information Technology | diplomado | Tecnología | no indicada | ICT60220 | https://www.strathfieldcollege.edu.au/information-technology
+Strathfield College | Graduate Diploma of Management (Learning) | posgrado | Negocios | no indicada | BSB80120 | https://www.strathfieldcollege.edu.au/graduate-courses
+
+# --- Cardiff University International Study Centre (isc.cardiff.ac.uk) ---
+Cardiff University International Study Centre | International Foundation Year - Engineering, Science and Computing | curso_corto | Preparación Universitaria | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-foundation-year
+Cardiff University International Study Centre | International Foundation Year - Business, Finance and Management | curso_corto | Preparación Universitaria | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-foundation-year
+Cardiff University International Study Centre | International Foundation Year - Health and Life Sciences | curso_corto | Preparación Universitaria | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-foundation-year
+Cardiff University International Study Centre | International Foundation Year - Law, Social Sciences and Humanities | curso_corto | Preparación Universitaria | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-foundation-year
+Cardiff University International Study Centre | Accelerated International Foundation - Business, Economics, Accounting & Finance | curso_corto | Preparación Universitaria | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/accelerated-international-foundation-year
+Cardiff University International Study Centre | Accelerated International Foundation - Engineering, Physical Science and Computer Science | curso_corto | Preparación Universitaria | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/accelerated-international-foundation-year
+Cardiff University International Study Centre | International Year One - Engineering | curso_corto | Ingeniería | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-year-one
+Cardiff University International Study Centre | International Year One - Accounting and Finance | curso_corto | Negocios | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-year-one
+Cardiff University International Study Centre | International Year One - Business Management | curso_corto | Negocios | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-year-one
+Cardiff University International Study Centre | International Year One - Computer Science and Cyber Security | curso_corto | Tecnología | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-year-one
+Cardiff University International Study Centre | International Year One - Law | curso_corto | Derecho | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-year-one
+Cardiff University International Study Centre | International Year One - Psychology | curso_corto | Psicología | no indicada | - | https://isc.cardiff.ac.uk/programmes/ug/international-year-one
+Cardiff University International Study Centre | Pre-Master's - Business, Economics, Social Sciences and Humanities | curso_corto | Preparación Universitaria | no indicada | - | https://isc.cardiff.ac.uk/programmes/pg/pre-masters
+Cardiff University International Study Centre | English Language Preparation | curso_corto | Idiomas | no indicada | - | https://isc.cardiff.ac.uk/programmes/pre-courses/english-language-courses
+Cardiff University International Study Centre | Prepare for Success | curso_corto | Preparación Universitaria | no indicada | - | https://isc.cardiff.ac.uk/programmes/pre-courses/prepare-for-success
+Cardiff University International Study Centre | AI Digital Literacy | curso_corto | Tecnología | no indicada | - | https://isc.cardiff.ac.uk/programmes/pre-courses/ai-digital-literacy
+
+# RESUMEN: instituciones=9 con_programas=9 total_programas=498 sin_catalogo=0
+
+# NOTAS:
+# Douglas College · 164 extraidos vs "100+" de la auditoria — cuadra y la supera. Fuente: las 201 fichas /program/<codigo> del sitemap oficial (sitemap.xml?page=1|2), leyendo los campos Drupal 'Credential type' y 'Length of program', no el buscador JS del catalogo. Se EXCLUYERON 20 'Concentration' y 8 'Minor' (no son credenciales vendibles por si solas) y 8 programas de empleo para residentes locales con barreras (Basic Occupational Education x3, Local Industry Skills Training x3, Customer Service and Cashier Training, Career and Employment Preparation). CONFIRMADA la alerta de la ficha: los campus son New Westminster y Coquitlam (Metro Vancouver), no Vancouver ciudad. El sitio NO publica codigo oficial por programa mas alla del slug interno (aaanth, pdict...) — por eso todos van con '-'; si el loader lo quiere, el slug de la URL sirve de ID estable. Mapeo de credenciales usado: Certificate/Advanced Certificate -> curso_corto, Diploma -> diplomado, Associate Degree -> pregrado, Bachelor -> bachelor, Post-Degree/Post-Baccalaureate/Graduate Diploma -> posgrado.
+# Swinburne · 223 extraidos de 456 fichas de curso. NO es subconteo: se filtro a proposito. El sitemap /course/sitemap.xml da 748 URLs (456 cursos base + majors); de esas 456, solo 223 publican CRICOS propio de curso, y CRICOS propio = habilitado para estudiante internacional. Las 233 excluidas son (a) TAFE/aprendizajes solo para residentes australianos (106), (b) short courses no acreditados (65), (c) duplicados '-online' de Swinburne Online sin CRICOS (Bachelor of Business, Bachelor of Laws, MBA online...) que no dan visa de estudio, y (d) posgrados de practica clinica/docencia restringidos. Las paginas de area (/courses/find-a-course/<area>/) se renderizan por JS y solo muestran 3-5 cursos destacados: por ahi la extraccion habria dado ~60. Las guias PDF que devuelve el buscador del propio sitio son de 2016-2020 — no se usaron. Los 'Doctor of Philosophy' y 'Master of Research' se repiten con el mismo nombre y el mismo CRICOS (064191C / 096282B) porque el nombre publicado no dice la disciplina: se diferencian por el area, que se saco del slug de la URL. La duracion es la version 'international' del sitio cuando existe.
+# Les ateliers FL (France Langue) · 18 extraidos vs "~15-20" — cuadra. CONFIRMADO EL REBRAND de la auditoria: la marca es 'Les ateliers FL' y el dominio comercial es sejour.fl-france.fr. CONFIRMADO tambien que NO hay Martinique: las sedes que el sitio opera son Paris, Nice, Bordeaux, Biarritz y Lyon (la ficha original listaba Martinique de mas). No hay catalogo unico: se recorrieron /adultes/, /examens/, /francais-professionnel/, /kids-juniors/, /au-pair/ y /fl-online-school/. Se OMITIO el bloque 'Français Plus' (cocina, tenis, golf, vino, moda) porque su pagina propia (/adultes/francais-plus/) devuelve 404 y la portada solo enumera categorias sin nombres de curso — hay ahi ~6-8 programas mas que un asesor si vende; recuperarlos exige entrar por otra ruta. El sitio publica precios y fechas de intake — no se transcribieron. Ningun curso tiene codigo oficial.
+# William Angliss Institute · 24 extraidos. La auditoria conto '~20 secciones de catalogo' (Foods, Tourism, Hospitality, Events, Hotel Management), que son categorias, no cursos. Las paginas de categoria del sitio no publican ni codigo nacional ni CRICOS ni duracion; TODO el dato verificable salio del International Course Guide 2026 en PDF, que es la url_fuente de las 24 filas. Nombre corregido: 'William Angliss Institute' (la ficha lo traia en MAYUSCULAS y sin 'Institute'). CONFIRMADA la alerta de campus: el guide marca Melb/Syd en los VET de cocina y hospitalidad, o sea SYDNEY tambien opera — corregir la ficha que solo registra Melbourne. Se EXCLUYERON: los aprendizajes (Certificate III in Commercial Cookery formato apprenticeship, Certificate III in Meat Processing Retail Butcher) y el VETDSS Certificate II in Cookery, que son para residentes/escolares locales; y ELICOS, porque Angliss NO lo entrega — lo subcontrata a 7 centros externos (Browns, Discover English, Navitas English...). Diploma y Advanced Diploma of Hospitality Management aparecen con duraciones distintas segun el pathway de entrada (12-24 y 18-30 meses); se registro el rango.
+# AICOL · 10 extraidos vs '~12+' — cerca. CONFIRMADO que es 100% idiomas (la ficha traia pais, ciudad y puede_vender VACIOS: es Australia, Sydney, y solo ELICOS). 6 de los 10 traen CRICOS propio de curso; los 4 Cambridge/familia/deporte no publican codigo, lo que sugiere que corren bajo el CRICOS del General English — validar antes de venderlos como curso con visa. El sitio no publica duracion en semanas en la pagina de catalogo.
+# Worldwide Internships · 12 extraidos vs '~12' — cuadra exacto (9 destinos de Hospitalidad + 3 de Negocios). OJO CON LOS NOMBRES: el sitio NO le pone nombre formal a cada programa, solo tarjetas por destino bajo dos categorias; los nombres de las 12 filas se COMPUSIERON como 'Categoria - Destino'. Los 8 destinos de Hospitalidad estan verbatim como aparecen (ESTADOS UNIDOS, EMIRATOS & QATAR, ESPAÑA, FRANCIA, MEXICO, PORTUGAL, REP. DOMINICANA, TAILANDIA); AUSTRALIA aparecio en una lectura de la pagina y no en otra — verificar. Nivel: se mapeo a 'intercambio' porque el vocabulario cerrado no tiene 'pasantia' y es lo mas cercano (programa de movilidad, no curso). Ninguno publica duracion ni codigo.
+# Trebas · 10 extraidos vs '~10' — cuadra exacto. CONFIRMADA la correccion de la auditoria: NO hay grados ni idiomas, los 10 programas son ACS (Attestation of College Studies) de Quebec — la ficha decia 'Todos los programas' y esta mal. Solo campus Montreal. Los codigos (NWY.1F, LCA.GG, LEA.DT...) son los codigos ministeriales de Quebec y son verificables. Duraciones tomadas literal del sitio, incluidas holidays y study breaks segun aclara la propia ficha del programa. Mapeo: ACS -> diplomado.
+# Strathfield College · 21 extraidos vs '8 areas' de la auditoria — la auditoria conto areas, no cursos; se abrieron las 8 y se sacaron los cursos individuales. CONFIRMADAS las 2 alertas: la ficha no trae protocolo en el sitio (es https://www.strathfieldcollege.edu.au) y ciudad viene null porque son 2 campus, Sydney (Surry Hills, no Strathfield pese al nombre) y Melbourne. PROBLEMA DE VERIFICABILIDAD: solo 1 de los 21 cursos publica CRICOS propio (AUR30620 -> 103670E); el resto solo muestra el CRICOS de PROVEEDOR (02736K) y el RTO 91223, y ninguno publica duracion. Los 3 Certificate III de construccion (Carpentry, Painting, Tiling) son cualificaciones que en Australia suelen cursarse como apprenticeship: aqui se incluyeron porque el colegio es proveedor CRICOS y los lista como curso de tiempo completo, pero CONFIRMAR con el colegio que admiten estudiante internacional antes de venderlos.
+# Cardiff University ISC · 16 extraidos vs '~4 pathways + 4 pre-courses' — la auditoria conto tipos de programa, aqui se desglosaron las rutas por materia, que es lo que un asesor cotiza (4 rutas de International Foundation Year, 2 de Accelerated Foundation, 6 de International Year One, 1 Pre-Master's, 3 pre-courses). CONFIRMADA LA ALERTA MAS IMPORTANTE: el dominio NO es Cardiff University (seria cardiff.ac.uk) — isc.cardiff.ac.uk es el International Study Centre operado por Study Group, y solo vende pathways, NO los grados de la universidad. Se EXCLUYO 'Enhanced Induction' por ser una induccion de llegada, no un programa. El sitio no publica duracion de ninguna ruta ni codigos oficiales. El International Year One da entrada a 2do anio de grado pero se mapeo a curso_corto por ser pathway (no es un pregrado completo).

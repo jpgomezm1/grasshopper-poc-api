@@ -1,0 +1,426 @@
+# Lote 10 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Red River College Polytechnic (RRC Polytech) (rrc.ca · catalogue.rrc.ca) ---
+Red River College Polytechnic | 3D Computer Graphics | diplomado | Artes Digitales | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | ASL - English Interpretation | diplomado | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Academic English Prog for University and College Entrance | curso_corto | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Academic Foundations | curso_corto | Preparación Universitaria | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Administrative Assistant | curso_corto | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Aerospace Manufacturing | curso_corto | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Aircraft Maintenance Engineer | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Aircraft Maintenance Engineer (Introduction to) | curso_corto | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Aircraft Structural Repair Technician | curso_corto | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Animation | diplomado | Artes Digitales | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Application Development and Delivery | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Applied Accounting | curso_corto | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Applied Biology | diplomado | Ciencias | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Applied Chemistry | diplomado | Ciencias | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Applied Commerce Education - After Degree | pregrado | Educación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Applied Commerce Education - Integrated | pregrado | Educación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Applied Data Science and Artificial Intelligence | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Applied Environmental Studies | diplomado | Medio Ambiente | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Architectural Technology | diplomado | Arquitectura | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Architectural/Engineering Technology | diplomado | Arquitectura | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Automotive Technician-Certificate | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Automotive Technician-Diploma | diplomado | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Automotive Technology | diplomado | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Baking and Pastry Arts | curso_corto | Gastronomía | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Accountancy CE | posgrado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Administration | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Administration - Accounting | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Administration - Financial Services | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Administration - General | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Administration - Human Resource Management | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Administration - Marketing | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Administration - Tourism Management | diplomado | Turismo | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Administration Integrated | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Administration-Logistics and Supply Chain Mgmt | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business Management CE | posgrado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business, Accounting and Management - International | curso_corto | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Business/Technology Teacher Education - Accelerated | diplomado | Educación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | CNC Machining and Advanced Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | CNC Machinist Technician | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Cabinetry and Woodworking - Certificate | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Carpentry | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Child and Youth Care | diplomado | Servicios Sociales | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Civil Engineering Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | College Transition | curso_corto | Preparación Universitaria | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Collision Refinishing | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Collision Repair and Refinishing | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Comm for Internationally Educated Health Professionals | curso_corto | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Communication Design | posgrado | Diseño | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Communication for Business and Entrepreneurship | curso_corto | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Communication for Business and Finance | curso_corto | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Communication for Engineers and Technologists | curso_corto | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Communication for Health Professions | curso_corto | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Community Development | diplomado | Servicios Sociales | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Construction Management | bachelor | Construcción | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Creative Communications | diplomado | Comunicación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Culinary Arts | diplomado | Gastronomía | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Culinary Skills | curso_corto | Gastronomía | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Culinary Skills Indigenous | curso_corto | Gastronomía | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Cybersecurity | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Data Science and Machine Learning | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Dental Assisting | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Diagnostic Cardiac Sonography - Echocardiography (Advanced Diploma) | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Diagnostic Cardiac Sonography - Echocardiography (Post-Graduate) | posgrado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Diagnostic Medical Sonography - Ultrasound | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Digital Film and Media Production | posgrado | Comunicación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Digital Media Design | curso_corto | Diseño | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Digital Media Design-Interaction Design and Development | diplomado | Diseño | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Digital Media Design-Video and Motion Graphics | diplomado | Diseño | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Disability and Community Support | diplomado | Servicios Sociales | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Early Childhood Education | diplomado | Educación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Early Childhood Education - Workplace | diplomado | Educación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Educational Assistant Certificate | curso_corto | Educación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Electrical | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Electrical Engineering Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Electrical Trades | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Electronic Engineering Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Electronics Technician | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Engineering and Construction Technologies | posgrado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | English for Academic and Professional Purposes | curso_corto | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Entertainment Production | curso_corto | Artes | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Environmental Engineering Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Full Stack Web Development | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Game Development - Art | diplomado | Artes Digitales | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Game Development - Programming | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Geomatics Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Grade 11 | secundaria | Educación General | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Grade 12 | secundaria | Educación General | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Graphic Design | diplomado | Diseño | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Hairstyling | diplomado | Belleza y Estética | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Health Care Aide | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Health Care Aide and Health Unit Clerk | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Health Care Aide and Personal Support Worker | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Health Information Management | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Health Unit Clerk | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Heavy Duty Equipment Mechanic | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Hospitality Business Management | diplomado | Hospitalidad | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Hospitality and Tourism Management | diplomado | Hospitalidad | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Hotel & Restaurant Management | diplomado | Hospitalidad | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | IT Operations | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Indigenous Language - Cree | curso_corto | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Indigenous Language - Ojibwe | curso_corto | Idiomas | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Indigenous Social Entrepreneurship | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Industrial Arts Education - After Degree | pregrado | Educación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Industrial Arts Education - Integrated | pregrado | Educación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Industrial Arts/Technology Teacher Education-Accelerated | diplomado | Educación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Industrial Mechanic/Millwright | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Industrial Networking Technology | curso_corto | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Information Security (Advanced Diploma) | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Information Security (Post-Graduate) | posgrado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Instrumentation and Control Engineering Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Interior Decorating | curso_corto | Diseño | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | International Business | diplomado | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | International Pathway to Nursing | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Introduction to Electrical Engineering Technology | curso_corto | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Introduction to Engineering Technology | curso_corto | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Introduction to Trades | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Legal Assistant | curso_corto | Derecho | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Library and Information Technology | diplomado | Bibliotecología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | MRI and Spectroscopy | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Magnetic Resonance Imaging - 1st Discipline | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Manufacturing Computer Aided Drafting (CAD) | curso_corto | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Marine and Powersports Technician | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Mechanical Engineering Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Medical Assistant | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Medical Assistant and Patient Care | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Medical Device Reprocessing Technician | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Medical Laboratory Sciences | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Medical Radiologic Technology | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Municipal Engineering Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Network Services Technician | curso_corto | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Network and Systems Administrator | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Nurse Re-Entry | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Nursing | bachelor | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Nursing - Licensed Practical Nurse to BN Pathway | pregrado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Occupational Health & Safety | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Paramedicine - Advanced Care | posgrado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Paramedicine - Primary Care Paramedicine | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Pathway Business Creative Communications Digital Technology | curso_corto | Preparación Universitaria | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Pathway to Engineering Technology Programs | curso_corto | Preparación Universitaria | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Pathway to Health Programs | curso_corto | Preparación Universitaria | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Pathway to Information Technology Programs | curso_corto | Preparación Universitaria | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Pharmaceutical and Food Manufacturing | curso_corto | Ciencias | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Pharmacy Technician | diplomado | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Piping Trades | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Plumbing | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Plumbing Cross Connection Control | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Power Engineering Technology (3rd Class) | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Power Engineering Technology (4th Class) | curso_corto | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Power Engineering Technology (5th Class) | curso_corto | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Professional Baking and Pastry | curso_corto | Gastronomía | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Professional Photography | curso_corto | Artes | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Professional Sales and Strategic Marketing | curso_corto | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Property and Casualty Insurance | curso_corto | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Refrigeration & Air Conditioning Technician | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Refrigeration Mechanical Trades | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Rehabilitation Assistant | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Science Laboratory Technology | diplomado | Ciencias | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Science Laboratory Technology-Cell and Microbiology | diplomado | Ciencias | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Science Laboratory Technology-Chemistry and Quality Analyst | diplomado | Ciencias | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Science Laboratory Technology-Quality Assurance | diplomado | Ciencias | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Skilled Trades - Foundations | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Social Innovation and Community Development | diplomado | Servicios Sociales | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Structural Engineering Technology | diplomado | Ingeniería | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Technical Communication | diplomado | Comunicación | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Technology Management | diplomado | Tecnología | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Therapeutic Recreation Facilitator for Older Adults | curso_corto | Salud | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Transportation, Logistics, and Supply Chain Management | curso_corto | Negocios | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Truck Transport Technology | diplomado | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Veterinary Technology | diplomado | Veterinaria | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Welding | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+Red River College Polytechnic | Welding - Women of Steel | curso_corto | Oficios Técnicos | no indicada | - | https://catalogue.rrc.ca/Programs/WPG/Fulltime
+
+# --- Navitas Pty Limited (navitas.com) --- SIN PROGRAMAS PROPIOS · ver NOTAS
+
+# --- Rome University of Fine Arts - RUFA (unirufa.it) ---
+RUFA - Rome University of Fine Arts | Cinema | bachelor | Cine y Audiovisual | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Design | bachelor | Diseño | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Fashion design sostenibile | bachelor | Moda | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Fotografia e audiovisivo | bachelor | Fotografía | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Graphic Design | bachelor | Diseño | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Graphic Design - Comics and Illustration | bachelor | Diseño | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Multimedia and Game Art | bachelor | Artes Digitales | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Pittura | bachelor | Artes | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Scenografia | bachelor | Artes Escénicas | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Scultura e installazione | bachelor | Artes | 3 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-triennali/
+RUFA - Rome University of Fine Arts | Fine Arts | maestria | Artes | 2 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-di-secondo-livello/
+RUFA - Rome University of Fine Arts | Film Arts | maestria | Cine y Audiovisual | 2 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-di-secondo-livello/
+RUFA - Rome University of Fine Arts | Visual and Innovation Design | maestria | Diseño | 2 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-di-secondo-livello/
+RUFA - Rome University of Fine Arts | Computer Animation and Visual Effects | maestria | Artes Digitales | 2 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-di-secondo-livello/
+RUFA - Rome University of Fine Arts | Multimedia Design & Creative AI | maestria | Artes Digitales | 2 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-di-secondo-livello/
+RUFA - Rome University of Fine Arts | Scenografia (secondo livello) | maestria | Artes Escénicas | 2 años | - | https://www.unirufa.it/offerta-formativa/corsi-accademici-di-secondo-livello/
+RUFA - Rome University of Fine Arts | Art Curating and Management | posgrado | Artes | 1 año | - | https://www.unirufa.it/offerta-formativa/master-accademici/
+RUFA - Rome University of Fine Arts | Cinema and New Formats Production | posgrado | Cine y Audiovisual | 1 año | - | https://www.unirufa.it/offerta-formativa/master-accademici/
+RUFA - Rome University of Fine Arts | Design Management | posgrado | Diseño | 1 año | - | https://www.unirufa.it/offerta-formativa/master-accademici/
+RUFA - Rome University of Fine Arts | Photography and Italian Cultural Heritage | posgrado | Fotografía | 1 año | - | https://www.unirufa.it/offerta-formativa/master-accademici/
+RUFA - Rome University of Fine Arts | Cross Innovation Design for Cultural Industries | doctorado | Diseño | no indicada | - | https://www.unirufa.it/offerta-formativa/dottorati-di-ricerca/
+RUFA - Rome University of Fine Arts | Tecnologia del Cinema e dei Nuovi Media | doctorado | Cine y Audiovisual | no indicada | - | https://www.unirufa.it/offerta-formativa/dottorati-di-ricerca/
+RUFA - Rome University of Fine Arts | Acquerello (Creative Lab Roma) | curso_corto | Artes | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Creative Industries - IA e Creatività (Creative Lab Roma) | curso_corto | Artes | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Disegno Artistico Avanzato (Creative Lab Roma) | curso_corto | Artes | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Disegno Artistico Base (Creative Lab Roma) | curso_corto | Artes | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Fondamenti di Incisione (Creative Lab Roma) | curso_corto | Artes | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Fondamenti di Pittura (Creative Lab Roma) | curso_corto | Artes | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Fondamenti di Sceneggiatura (Creative Lab Roma) | curso_corto | Cine y Audiovisual | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Fondamenti di Scultura (Creative Lab Roma) | curso_corto | Artes | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Fotoreportage (Creative Lab Roma) | curso_corto | Fotografía | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Performance (Creative Lab Roma) | curso_corto | Artes Escénicas | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Creative Industries - IA e Creatività (Creative Lab Milano) | curso_corto | Artes | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Animazione (Digital Lab) | curso_corto | Artes Digitales | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Editorial Lab (Digital Lab) | curso_corto | Diseño | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Illustrazione digitale (Digital Lab) | curso_corto | Diseño | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Visual Design Lab (Digital Lab) | curso_corto | Diseño | no indicada | - | https://www.unirufa.it/offerta-formativa/corsi-brevi/
+RUFA - Rome University of Fine Arts | Art & Culinary Summer Camp | vacacional | Artes | 2 semanas | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Creative Summer Camp | vacacional | Artes | 2 semanas | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Art Curating and Design management (Creative Laboratory) | vacacional | Artes | 1 semana | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Circular Fashion Design (Creative Laboratory) | vacacional | Moda | 1 semana | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Expressive Drawing Techniques (Creative Laboratory) | vacacional | Artes | 1 semana | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Interior Design - Timeless spaces (Creative Laboratory) | vacacional | Diseño | 1 semana | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Mural Art: Rome in Color! (Creative Laboratory) | vacacional | Artes | 1 semana | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Neorealist Filmmaking - Rome, Now (Creative Laboratory) | vacacional | Cine y Audiovisual | 1 semana | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Street Art photography: Rome, portrait of a city (Creative Laboratory) | vacacional | Fotografía | 1 semana | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Visual Arts - Performing Rome (Creative Laboratory) | vacacional | Artes | 1 semana | - | https://www.unirufa.it/offerta-formativa/summer-academy/
+RUFA - Rome University of Fine Arts | Foundation Course - Arte, Design, Photo/Video (Roma) | curso_corto | Preparación Universitaria | 9 meses · 60 créditos · 476 horas | - | https://www.unirufa.it/offerta-formativa/foundation-course/
+RUFA - Rome University of Fine Arts | Foundation Course - Moda, Design, Photo/Video (Milano) | curso_corto | Preparación Universitaria | 9 meses · 60 créditos · 476 horas | - | https://www.unirufa.it/offerta-formativa/foundation-course/
+
+# --- University of New York in Prague (UNYP) (unyp.cz) ---
+University of New York in Prague | Bachelor of Psychology | bachelor | Psicología | no indicada | - | https://www.unyp.cz/academic-programs/
+University of New York in Prague | Bachelor of Business Administration | bachelor | Negocios | no indicada | - | https://www.unyp.cz/academic-programs/
+University of New York in Prague | Bachelor of Information Technology | bachelor | Tecnología | no indicada | - | https://www.unyp.cz/academic-programs/
+University of New York in Prague | Bachelor of Communication and Media | bachelor | Comunicación | no indicada | - | https://www.unyp.cz/academic-programs/
+University of New York in Prague | Bachelor of International Relations | bachelor | Relaciones Internacionales | no indicada | - | https://www.unyp.cz/academic-programs/
+University of New York in Prague | Bachelor of Digital Media Arts | bachelor | Artes Digitales | no indicada | - | https://www.unyp.cz/academic-programs/
+University of New York in Prague | Bachelor of English Literature | bachelor | Letras | no indicada | - | https://www.unyp.cz/academic-programs/
+University of New York in Prague | MSc in Digital Marketing and Analytics | maestria | Marketing | 1 año | - | https://www.unyp.cz/graduate-programs/
+University of New York in Prague | MA in Psychology | maestria | Psicología | no indicada | - | https://www.unyp.cz/graduate-programs/
+University of New York in Prague | Master of Business Administration (MBA) | mba | Negocios | no indicada | - | https://www.unyp.cz/graduate-programs/
+University of New York in Prague | Ph.D. by Research | doctorado | Investigación | 3-4 años (tiempo completo) · 5-7 años (medio tiempo) | - | https://www.unyp.cz/ph-d-by-research/
+University of New York in Prague | English Foundation Program | curso_corto | Idiomas | 1 semestre por nivel | - | https://www.unyp.cz/foundation-program/
+University of New York in Prague | Summer Acceleration Program | vacacional | Preparación Universitaria | no indicada | - | https://www.unyp.cz/academic-programs/
+University of New York in Prague | Academic Writing | curso_corto | Idiomas | no indicada | - | https://www.unyp.cz/academic-programs/
+
+# --- MLC College of Business Technology and Healthcare (mlc-college.com) ---
+MLC College of Business Technology and Healthcare | Diploma in E-Commerce | diplomado | Negocios | no indicada | - | https://www.mlc-college.com/diploma-programs
+MLC College of Business Technology and Healthcare | Diploma in Data-warehousing | diplomado | Tecnología | no indicada | - | https://www.mlc-college.com/diploma-programs
+MLC College of Business Technology and Healthcare | Diploma in Finance Management | diplomado | Negocios | no indicada | - | https://www.mlc-college.com/diploma-programs
+MLC College of Business Technology and Healthcare | Diploma in Supply Chain Management | diplomado | Negocios | no indicada | - | https://www.mlc-college.com/diploma-programs
+MLC College of Business Technology and Healthcare | Diploma in Hospitality and Tourism Management | diplomado | Hospitalidad | no indicada | - | https://www.mlc-college.com/diploma-programs
+MLC College of Business Technology and Healthcare | Diploma in Health Information Management | diplomado | Salud | no indicada | - | https://www.mlc-college.com/diploma-programs
+MLC College of Business Technology and Healthcare | Diploma in Enterprise Risk Management | diplomado | Negocios | no indicada | - | https://www.mlc-college.com/diploma-programs
+MLC College of Business Technology and Healthcare | Diploma in Early Childhood Assistant | diplomado | Educación | no indicada | - | https://www.mlc-college.com/diploma-programs
+MLC College of Business Technology and Healthcare | Post Graduate Diploma Program SAP Systems Implementation | posgrado | Tecnología | no indicada | - | https://www.mlc-college.com/post-graduate-diploma-programs
+MLC College of Business Technology and Healthcare | Post Graduate Diploma in Business Management | posgrado | Negocios | no indicada | - | https://www.mlc-college.com/post-graduate-diploma-programs
+MLC College of Business Technology and Healthcare | PG Diploma in Medical and Dental Office Administrative Skills and Technology | posgrado | Salud | no indicada | - | https://www.mlc-college.com/post-graduate-diploma-programs
+MLC College of Business Technology and Healthcare | Post Graduate Diploma in Information Technology Management | posgrado | Tecnología | no indicada | - | https://www.mlc-college.com/post-graduate-diploma-programs
+MLC College of Business Technology and Healthcare | Personal Support Worker (NACC Personal Support Worker 2022 program) | curso_corto | Salud | 25 semanas | - | https://www.mlc-college.com/programs/personal-support-worker
+MLC College of Business Technology and Healthcare | Certificate in Property Management | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/certificate-courses
+MLC College of Business Technology and Healthcare | Certificate in Digital Marketing | curso_corto | Marketing | no indicada | - | https://www.mlc-college.com/certificate-courses
+MLC College of Business Technology and Healthcare | Certificate in Trademark Registration and Patent Management | curso_corto | Derecho | no indicada | - | https://www.mlc-college.com/certificate-courses
+MLC College of Business Technology and Healthcare | Certificate in Robotics | curso_corto | Tecnología | no indicada | - | https://www.mlc-college.com/certificate-courses
+MLC College of Business Technology and Healthcare | Certificate in Franchise Development | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/certificate-courses
+MLC College of Business Technology and Healthcare | Certificate in Python Programming | curso_corto | Tecnología | no indicada | - | https://www.mlc-college.com/certificate-courses
+MLC College of Business Technology and Healthcare | School Administration and Management | curso_corto | Educación | no indicada | - | https://www.mlc-college.com/professional-certifications
+MLC College of Business Technology and Healthcare | Certificate in International Hospitality Management | curso_corto | Hospitalidad | no indicada | - | https://www.mlc-college.com/professional-certifications
+MLC College of Business Technology and Healthcare | Pre-Health Sciences Pathway to Advanced Diplomas and Degrees | curso_corto | Preparación Universitaria | no indicada | - | https://www.mlc-college.com/professional-certifications
+MLC College of Business Technology and Healthcare | Pre-Information Technology Pathway to Advanced Diplomas and Degrees | curso_corto | Preparación Universitaria | no indicada | - | https://www.mlc-college.com/professional-certifications
+MLC College of Business Technology and Healthcare | SAP Training - User Level | curso_corto | Tecnología | 8 semanas | - | https://www.mlc-college.com/sap-training
+MLC College of Business Technology and Healthcare | SAP Training - Consultant Level | curso_corto | Tecnología | 8 semanas | - | https://www.mlc-college.com/sap-training
+MLC College of Business Technology and Healthcare | Business System Analysis and Design (BSAD) | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Financial Management and Cost Management (FICO) | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Sales and Distribution (SD) | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Production Planning (PP) | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Warehouse Management (MM) | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Plant Maintenance (EAM/PM) | curso_corto | Ingeniería | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Human Resource Management/Human Capital Management (HCM) | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Business Administration and Management (BAM) | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Enterprise Risk Management with SOX (ERM-SOX-BILL, 198-BASEL) | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Project Management and Project Systems (PMP) | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Dot Net Developer (DOTNET) | curso_corto | Tecnología | no indicada | - | https://www.mlc-college.com/business-programs
+MLC College of Business Technology and Healthcare | Recruiting and Talent Acquisition | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/hr-programs
+MLC College of Business Technology and Healthcare | Human Resources Management | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/hr-programs
+MLC College of Business Technology and Healthcare | Strategic Human Resources Planning | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/hr-programs
+MLC College of Business Technology and Healthcare | Phlebotomy | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Intramuscular Injection | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Medical Terminology | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Medical Transcription | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Medical Billing and Coding | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Medical Record Management | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | NCLEX - RN and REX - PN exam preparation | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Medication Administration | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Electrocardiogram (ECG) | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Intravenous Administration | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Autism | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Wound Care | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Dental Receptionist | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Mechanical Ventilation | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Hemodialysis | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | ABELDent | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Pharmacology | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Medical Administration | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Stress, Wellness and Nutrition | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Pain Management | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | WHMIS - Workplace Hazardous Materials Information System | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/healthcare-programs
+MLC College of Business Technology and Healthcare | Nail Art & Extension | curso_corto | Belleza y Estética | no indicada | - | https://www.mlc-college.com/esthetics-courses
+MLC College of Business Technology and Healthcare | Manicure and Pedicure | curso_corto | Belleza y Estética | no indicada | - | https://www.mlc-college.com/esthetics-courses
+MLC College of Business Technology and Healthcare | Professional Makeup Artistry | curso_corto | Belleza y Estética | no indicada | - | https://www.mlc-college.com/esthetics-courses
+MLC College of Business Technology and Healthcare | Salon and Spa Management | curso_corto | Belleza y Estética | no indicada | - | https://www.mlc-college.com/esthetics-courses
+MLC College of Business Technology and Healthcare | Skincare & Facial Treatment | curso_corto | Belleza y Estética | no indicada | - | https://www.mlc-college.com/esthetics-courses
+MLC College of Business Technology and Healthcare | Lash Extension | curso_corto | Belleza y Estética | no indicada | - | https://www.mlc-college.com/esthetics-courses
+MLC College of Business Technology and Healthcare | Eyebrow Tinting | curso_corto | Belleza y Estética | no indicada | - | https://www.mlc-college.com/esthetics-courses
+MLC College of Business Technology and Healthcare | Nursing Review Program | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/review-programs
+MLC College of Business Technology and Healthcare | Healthcare Informatics Review Program | curso_corto | Salud | no indicada | - | https://www.mlc-college.com/review-programs
+MLC College of Business Technology and Healthcare | Project Management Review Program | curso_corto | Negocios | no indicada | - | https://www.mlc-college.com/review-programs
+MLC College of Business Technology and Healthcare | Agriculture Review Program | curso_corto | Agronomía | no indicada | - | https://www.mlc-college.com/review-programs
+MLC College of Business Technology and Healthcare | Engineering & Trade Review Program | curso_corto | Ingeniería | no indicada | - | https://www.mlc-college.com/review-programs
+
+# --- Bow Valley College (bowvalleycollege.ca) ---
+Bow Valley College | Addiction Studies | diplomado | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Administrative Professional | curso_corto | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Advanced 3D Animation & 3D Modelling | diplomado | Artes Digitales | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Advanced Film Production | diplomado | Cine y Audiovisual | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Advanced Game Development | diplomado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Advanced Visual Effects (VFX) and Virtual Production | diplomado | Artes Digitales | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Advancing Internationally Educated Nurses Care Pathways | curso_corto | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Business Administration | curso_corto | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Business Administration - Accounting Major | diplomado | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Business Administration - Digital Marketing | diplomado | Marketing | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Business Administration - Financial Services Major | diplomado | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Business Administration - General Business Major | diplomado | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Business Administration - Human Resources Major | diplomado | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Business Administration - Insurance and Risk Management Major | diplomado | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Business Administration - Integrated Marketing Communications Major | diplomado | Marketing | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Business Administration - Supply Chain Management Major | diplomado | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Child and Youth Care | diplomado | Servicios Sociales | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Cybersecurity | posgrado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Cybersecurity Solutions | diplomado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Data Management and Analytics | posgrado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Digital Design | diplomado | Diseño | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Digital Design - Apprenticeship Style | diplomado | Diseño | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Digital Marketing | posgrado | Marketing | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Disability Studies (Diploma) | diplomado | Servicios Sociales | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Disability Studies (Certificate) | curso_corto | Servicios Sociales | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Early Childhood Education and Development (Certificate) | curso_corto | Educación | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Early Childhood Education and Development (Diploma) | diplomado | Educación | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Education Assistant | curso_corto | Educación | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | English for Academic Purposes | curso_corto | Idiomas | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Esports Business Management | diplomado | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Financial Planning | curso_corto | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Foundation in Entertainment Arts | curso_corto | Artes | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | General Arts and Sciences Certificate | curso_corto | Ciencias | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | General Arts and Sciences Diploma | diplomado | Ciencias | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | General Arts and Sciences - Health Sciences | curso_corto | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Health and Human Services Management | posgrado | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Health Care Aide | curso_corto | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Health Data Analytics | diplomado | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Human Resources | curso_corto | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Indigenous Foundational Learning | curso_corto | Educación General | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Information Technology Solutions | diplomado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Information Technology Systems | diplomado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Interdisciplinary Therapy Assistant | diplomado | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Interior Decorating | diplomado | Diseño | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Justice Studies | diplomado | Derecho | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Legal Assistant | diplomado | Derecho | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Machine Learning Analyst | diplomado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Medical Office Assistant and Unit Clerk | curso_corto | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Open Studies | curso_corto | Educación General | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Path2Practice for IENs | curso_corto | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Perioperative Nursing for Licensed Practical Nurses and Registered Nurses | posgrado | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Pharmacy Technician | diplomado | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Practical Nurse | diplomado | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Psychiatric Nurse | diplomado | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Recreation Therapy Aide | curso_corto | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Registered Nurse Pathway to Canadian Practice | curso_corto | Salud | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Risk Management | curso_corto | Negocios | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Social Work | diplomado | Servicios Sociales | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Software Development (Post-Diploma Certificate) | posgrado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Software Development (Diploma) | diplomado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Software Development - Apprenticeship Style | diplomado | Tecnología | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | University Transfer | curso_corto | Preparación Universitaria | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Upgrading | curso_corto | Educación General | no indicada | - | https://www.bowvalleycollege.ca/program-list
+Bow Valley College | Veterinary Assistant | curso_corto | Veterinaria | no indicada | - | https://www.bowvalleycollege.ca/program-list
+
+# --- Inforum Education Australia (inforum.com.au) ---
+Inforum Education Australia | General English | curso_corto | Idiomas | 1-50 semanas (mín 6 sem por nivel) · 20 h/sem | CRICOS 076336C | https://inforum.com.au/english-courses/general-english/
+Inforum Education Australia | IELTS Exam Preparation | curso_corto | Idiomas | 12-24 semanas · 20 h/sem | CRICOS 062400D | https://inforum.com.au/english-courses/ielts-exam-preparation/
+Inforum Education Australia | Cambridge FCE Exam Preparation | curso_corto | Idiomas | 12 semanas (10 en enero) · 22 h/sem | CRICOS 062399C | https://inforum.com.au/english-courses/cambridge-fce-exam-preparation/
+Inforum Education Australia | Cambridge CAE Exam Preparation | curso_corto | Idiomas | 12 semanas (10 en enero) · 22 h/sem | CRICOS 076509J | https://inforum.com.au/english-courses/cambridge-cae-exam-preparation/
+Inforum Education Australia | High School Preparation | curso_corto | Idiomas | 1-50 semanas · 25 h/sem (o 20 h/sem ESL Focus) | CRICOS 115632A | https://inforum.com.au/english-courses/high-school-preparation/
+Inforum Education Australia | Young Learners Program | vacacional | Idiomas | 1-4 semanas · 25 h/sem | - | https://inforum.com.au/english-courses/young-learners-program/
+Inforum Education Australia | English + Demi Pair | curso_corto | Idiomas | 12 semanas (extensible) | - | https://inforum.com.au/english-courses/english-demi-pair/
+Inforum Education Australia | Inforum Study Tours | vacacional | Idiomas | no indicada | - | https://inforum.com.au/english-courses/inforum-study-tours/
+Inforum Education Australia | Barista Training | curso_corto | Hospitalidad | 3 horas | - | https://inforum.com.au/english-courses/short-courses/
+Inforum Education Australia | RSA Course (Responsible Service of Alcohol) | curso_corto | Hospitalidad | 3.5 horas | - | https://inforum.com.au/english-courses/short-courses/
+Inforum Education Australia | Surfing | vacacional | Deportes | 2 horas | - | https://inforum.com.au/english-courses/short-courses/
+Inforum Education Australia | Super Work Ready | curso_corto | Empleabilidad | no indicada | - | https://inforum.com.au/english-courses/workshops/
+
+# --- Site Institute (si.edu.au) ---
+Site Institute | Certificate III in Carpentry | curso_corto | Construcción | 104 semanas (8 términos) | CPC30220 · CRICOS 104870M | https://si.edu.au/trades/certificate_iii_in_carpentry/
+Site Institute | Certificate III in Cabinet Making and Timber Technology (Kitchen & Bathroom) | curso_corto | Construcción | 94 semanas (7 términos) | MSF30322 · CRICOS 112623D | https://si.edu.au/trades/certificate-iii-in-cabinet-making-and-timber-technology/
+Site Institute | Diploma of Engineering - Technical (Drafting) | diplomado | Ingeniería | 52 semanas (4 términos) | MEM50222 · CRICOS 112013H | https://si.edu.au/engineering-and-civil/diploma-of-engineering-technical/
+Site Institute | Dual Diploma of Engineering - Technical (Drafting) & Civil Construction Design | diplomado | Ingeniería | 104 semanas (8 términos) | MEM50222 + RII50520 · CRICOS 112013H / 105246E | https://si.edu.au/engineering-and-civil/diploma-of-civil-construction-design/
+Site Institute | English for Engineering | curso_corto | Idiomas | términos de 10 semanas (4 términos/año) | CRICOS 102569K | https://si.edu.au/english-for-engineering/
+
+# --- LCI Language Centers (englishlci.edu) ---
+LCI Language Centers | Intensive English Program | curso_corto | Idiomas | flexible · 18 h/sem · 7 niveles | - | https://www.englishlci.edu/programs/intensive.php
+LCI Language Centers | Executive English Program | curso_corto | Idiomas | flexible · 37.5 h/sem (Full Immersion) o 33 h/sem (Group-Private Combo) | - | https://www.englishlci.edu/programs/executive-english.php
+LCI Language Centers | Private Classes (Personalized Language Lessons) | curso_corto | Idiomas | flexible · mín 1.5 h por sesión · paquete mín 12 horas | - | https://www.englishlci.edu/programs/specialized-private-classe.php
+
+# --- National Institute of Education and Technology (NIET) (niet.edu.au) ---
+National Institute of Education and Technology (NIET) | Graduate Diploma of Management (Learning) | posgrado | Negocios | 104 semanas | BSB80120 | https://www.niet.edu.au/course
+
+# RESUMEN: instituciones=10 con_programas=9 total_programas=391 sin_catalogo=1
+
+# NOTAS:
+# NAVITAS · UNICA INSTITUCION SIN PROGRAMAS EXTRAIDOS, Y ES DELIBERADO. La auditoria acerto: navitas.com NO es una institucion, es el holding. Se reventó el buscador (WP AJAX action=course_search_result en /wp-admin/admin-ajax.php) y devuelve 3.671 cursos de pregrado en 11 paises + 595 de posgrado en 8 paises (32 colleges) + 64 de ingles en 3 paises (8 colleges) = 4.330 filas. PERO cada fila apunta al dominio de OTRA institucion (acap.edu.au, curtincollege.edu.au, etc.) y el nombre del college va en columna aparte. Cargar 4.330 programas bajo institucion="Navitas" destruiria el catalogo: el estudiante veria "Navitas" como destino cuando en realidad estudia en ACAP Melbourne o Curtin College. RECOMENDACION: borrar Navitas como institucion y usar ese buscador como FUENTE para dar de alta los ~100 colleges miembro uno por uno (Eynesbury, ya extraido en el lote 03, es uno de ellos). El endpoint AJAX es reutilizable y devuelve HTML parseable sin JS.
+# RRC POLYTECH · 171 extraidos vs "150+" — cuadra, e incluso sobra. Fuente real: catalogue.rrc.ca/Programs/WPG/Fulltime (la URL de la ficha, rrc.ca/explore/, es una landing de marketing que solo muestra 4 programas destacados; el catalogo enumerable vive en el subdominio catalogue). Nombre corregido a "Red River College Polytechnic" y ciudad a Winnipeg, Manitoba, como pedia la alerta. TRES COSAS QUE EL REVISOR DEBE VALIDAR: (1) el listado repite entradas identicas — Carpentry, Culinary Arts, Medical Laboratory Sciences, Medical Radiologic Technology y Paramedicine-Primary Care aparecen dos veces cada una (campus/intake distinto, no lo dice); se deduplicaron. (2) ~20 entradas del catalogo NO declaran credencial y el nivel se infirio por naturaleza del programa (los "Pathway to..." y "Communication for..." a curso_corto, "Grade 11"/"Grade 12" a secundaria, los "After Degree/Integrated" de educacion a pregrado) — marcar para revision manual. (3) OFICIOS CON RIESGO DE APPRENTICESHIP: Carpentry, Electrical, Electrical Trades, Piping Trades, Plumbing, Refrigeration Mechanical Trades, Industrial Mechanic/Millwright, Heavy Duty Equipment Mechanic, Welding y Hairstyling pueden ser technical training de aprendiz, que en Manitoba exige patrocinio de empleador local y NO es vendible a un estudiante internacional. El catalogo no distingue el pre-employment del apprenticeship level; validar programa por programa antes de cotizar. Se dejo FUERA el listado part-time/online (~80 entradas) porque son agrupaciones de cursos sin credencial ("Business Seminars & Workshops", "Computer Training Courses") y duplican los nombres del full-time.
+# BOW VALLEY COLLEGE · 64 extraidos. CONFIRMADA la correccion de la auditoria: el subdominio international.bowvalleycollege.ca de la ficha ya no es sitio propio; se indexo www.bowvalleycollege.ca/program-list. Ciudad real Calgary, Alberta (la ficha solo decia "Alberta"). El listado NO publica duracion de ningun programa — los 64 van con "no indicada"; para completar duracion hay que abrir 64 fichas. Las dos entradas "Apprenticeship Style" (Digital Design y Software Development) NO son apprenticeships de gobierno sino diplomas con trabajo integrado del propio college — si son vendibles. En cambio "Upgrading", "Indigenous Foundational Learning" y "Open Studies" son nivelacion academica para residentes de Alberta: se incluyeron por completitud pero NO deberian ofrecerse a un estudiante internacional.
+# RUFA · 49 extraidos vs "~25" de la auditoria — la auditoria conto solo los titulados (10 triennali + 6 biennali + 4 master + 2 dottorati = 22, que cuadra); los otros 27 son corsi brevi (15), Summer Academy (10) y Foundation (2), que la ficha vio pero no conto. CONFIRMADO que el catalogo no es enumerable desde una sola URL: /offerta-formativa/ y /en/academic-offer/ dan 404 y hubo que recorrer las 7 subsecciones. OJO CON EL FOUNDATION COURSE: la pagina lista cinco tracks pero el texto dice literalmente que son "corsi integrativi" disenados por el Gruppo PLENA Education "di cui RUFA fa parte" — los de Musica los entrega Saint Louis College of Music y el de Ospitalita/Gastronomia lo entrega CAST en Brescia. Solo se extrajeron los 2 tracks que entrega RUFA (Arte/Design/Photo-Video en Roma y Moda/Design/Photo-Video en Milano); los otros 3 pertenecen a otras instituciones del grupo. Los "master accademici" se mapearon a posgrado (son anuales, no bienales); si el producto necesita distinguir I/II livello hay que abrir ficha por ficha. Las paginas de master y dottorati tienen boton "Carica Altri" — puede haber mas de los 4 y 2 visibles.
+# MLC COLLEGE · 72 extraidos, sin cantidad_aprox de control (la ficha decia "?"). CONFIRMADA la correccion de ciudad: el sitio da Mississauga, Ontario (Unit 4, 5865 McLaughlin Road), NO Montreal. OJO: `puede_vender` viene VACIO en la ficha — la agencia no esta autorizada a vender aqui; estos 72 quedan cargados pero deberian entrar apagados hasta que la clienta confirme. Y hay un tema de calidad de producto: solo 12 de los 72 son credenciales reales (8 diplomas + 4 PG diplomas); los otros 60 son cursos cortos que el propio sitio declara textualmente que "does not require approval under the Ontario Career Colleges Act, 2005" — es decir, no son programas vocacionales aprobados y NO habilitan permiso de estudio ni PGWP. Ninguna pagina publica duracion salvo PSW (25 semanas) y SAP (8 semanas). El sitio publica precios de SAP — no se transcribieron.
+# INFORUM · 12 extraidos vs "~10" — cuadra. CONFIRMADA la alerta: el tipo_adivinado "vacacional" subestima el sitio; es un ELICOS acreditado con 5 cursos con CRICOS propio (076336C, 062400D, 062399C, 076509J, 115632A) y el High School Preparation apunta a entrada real a colegio australiano. Se EXCLUYERON los 5 workshops gratuitos incluidos en la matricula (Language Lifesavers, Grammar Doctor, Pronunciation, Work Ready, Exam Practice) porque no son cursos vendibles por separado; si se dejo "Super Work Ready", que el sitio presenta como programa premium aparte. La URL /courses/ de la ficha da 404: el indice real es /english-courses/.
+# SITE INSTITUTE · 5 extraidos vs "~6" — la diferencia es el Industry Safety Induction (ISI), que se EXCLUYO a proposito: es una induccion de seguridad de un dia para "New Starts" de la industria de oil & gas australiana con miembros de Safer Together, sin codigo nacional y sin ruta de estudiante internacional. Los 5 restantes salieron completos, con codigo nacional Y CRICOS Y duracion — el mejor dato del lote. CONFIRMADO catalogo no enumerable: /courses/ da 404 y hubo que recorrer /trades/, /engineering-and-civil/ y dos paginas sueltas. RTO 32479 · CRICOS 03475G · campus South Brisbane QLD, coincide con la ficha.
+# LCI LANGUAGE CENTERS · 3 extraidos vs "~5" de la auditoria. El sitio HOY solo publica tres programas (Intensive English, Executive English, Private Classes); los "Academic English" y "General English" que vio la auditoria ya no tienen pagina propia — el General English quedo absorbido en el Intensive (7 niveles) y no hay rastro de Academic English. CONFIRMADA la correccion de ciudad: HOUSTON, TEXAS (todas las paginas dicen "LCI Houston"), la ficha decia Colorado y esta mal. El indice /programs/ sigue devolviendo 403 incluso con User-Agent de navegador; las paginas hijas .php responden 200 y desde la portada se llega a las tres. Ningun programa publica codigo oficial ni duracion fija (todos son "flexible").
+# NIET · 1 extraido vs "1 (UNO)" — cuadra exacto. CONFIRMADO: el buscador dice "Displaying 1 Available Courses" y el unico curso es el Graduate Diploma of Management (Learning), BSB80120, 104 semanas, campus Brisbane. Nombre legal completo: Australia Academy International trading as NIET · RTO 41422 · CRICOS 03590D. `puede_vender` viene VACIO en la ficha. El sitio publica el precio internacional — no se transcribio. Una institucion con un solo programa de posgrado en management no aporta casi nada al catalogo vocacional; evaluar si vale la pena mantenerla.

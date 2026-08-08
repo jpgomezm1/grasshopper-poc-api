@@ -1,0 +1,521 @@
+# Lote 08 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- University of Roehampton (www.roehampton.ac.uk) ---
+University of Roehampton | BSc Accounting | bachelor | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/accounting/
+University of Roehampton | BSc Accounting Studies (Top-up) | bachelor | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/accounting-studies/
+University of Roehampton | BSc Finance and Accounting | bachelor | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/finance-and-accounting/
+University of Roehampton | BSc Business Management | bachelor | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/business-management/
+University of Roehampton | BSc Business Management (Top-up) | bachelor | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/business-management-top-up/
+University of Roehampton | BSc Business Management and Finance | bachelor | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/business-management-and-finance/
+University of Roehampton | BSc Business Management and Finance (Top-up) | bachelor | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/business-management-and-finance-top-up/
+University of Roehampton | BSc Business Management and Marketing | bachelor | Mercadeo | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/business-management-and-marketing/
+University of Roehampton | BSc Business Management and Marketing (Top-up) | bachelor | Mercadeo | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/business-management-and-marketing-top-up/
+University of Roehampton | BSc Business Management and Economics (Top-up) | bachelor | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/business-management-and-economics-top-up/
+University of Roehampton | BSc Business Management and Entrepreneurship (Top-up) | bachelor | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/business-management-and-entrepreneurship-top-up/
+University of Roehampton | LLB Law | bachelor | Derecho | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/business-and-law/law-courses/
+University of Roehampton | LLB Law and Criminal Justice | bachelor | Derecho | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/business-and-law/law-courses/
+University of Roehampton | LLB Law with Politics | bachelor | Derecho | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/business-and-law/law-courses/
+University of Roehampton | BSc Psychology | bachelor | Psicología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/psychology/
+University of Roehampton | BSc Psychology (Clinical and Mental Health) | bachelor | Psicología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/psychology-clinical-and-mental-health/
+University of Roehampton | BSc Therapeutic Psychology and Counselling | bachelor | Psicología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/therapeutic-psychology-and-counselling/
+University of Roehampton | Psychology and Sociology | bachelor | Psicología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/psychology-and-sociology/
+University of Roehampton | Psychology and Education | bachelor | Psicología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/psychology-and-education/
+University of Roehampton | BSc Psychology and Coaching | bachelor | Psicología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/psychology-and-coaching/
+University of Roehampton | BSc Adult Nursing | bachelor | Salud | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/adult-nursing/
+University of Roehampton | BSc Mental Health Nursing | bachelor | Salud | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/mental-health-nursing/
+University of Roehampton | BSc Children's Nursing | bachelor | Salud | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/childrens-nursing/
+University of Roehampton | MSci Adult and Mental Health Nursing | bachelor | Salud | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/adult-and-mental-health-nursing/
+University of Roehampton | FdSc Nursing Associate | curso_corto | Salud | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/nursing-associate/
+University of Roehampton | BSc Nutrition and Health | bachelor | Salud | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/nutrition-and-health/
+University of Roehampton | BSc Health Sciences | bachelor | Salud | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/health-sciences/
+University of Roehampton | BSc Biological Sciences | bachelor | Ciencias | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/biological-sciences/
+University of Roehampton | BSc Biomedical Science | bachelor | Ciencias | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/biomedical-science/
+University of Roehampton | Zoology | bachelor | Ciencias | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/life-and-health-sciences/zoology-and-ecology/
+University of Roehampton | BSc Sport and Exercise Sciences | bachelor | Deportes | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/sport-and-exercise-sciences/
+University of Roehampton | BSc Computer Science | bachelor | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/computer-science/
+University of Roehampton | BSc Computer Science (Top-up) | bachelor | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/computer-science-top-up/
+University of Roehampton | BSc Cyber Security | bachelor | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/cybersecurity/
+University of Roehampton | Cyber Security (Top-up) | bachelor | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/cyber-security-top-up/
+University of Roehampton | BSc Cyber and Infrastructure Security | bachelor | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/cyber-and-infrastructure-security/
+University of Roehampton | BSc Artificial Intelligence & Machine Learning | bachelor | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/ai-and-machine-learning/
+University of Roehampton | BSc Computing and Digital Technologies | bachelor | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/computing-and-digital-technologies/
+University of Roehampton | BSc Web Design and Development (Top-up) | bachelor | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/web-design-and-development-top-up/
+University of Roehampton | BSc Architecture | bachelor | Arquitectura | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/architecture/
+University of Roehampton | BSc Architectural Technology | bachelor | Arquitectura | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/architectural-technology/
+University of Roehampton | BEng Architectural Engineering | bachelor | Ingeniería | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/architectural-engineering/
+University of Roehampton | BA Digital Design | bachelor | Diseño | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/digital-design/
+University of Roehampton | BA Graphic Design | bachelor | Diseño | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/graphic-design/
+University of Roehampton | BSc Games Art | bachelor | Artes Digitales | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/games-art/
+University of Roehampton | BA Film Production | bachelor | Artes | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/film-production/
+University of Roehampton | BA Dance | bachelor | Artes | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/dance/
+University of Roehampton | Dance (Top-up) | bachelor | Artes | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/dance-top-up/
+University of Roehampton | BA Journalism | bachelor | Comunicación | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/journalism/
+University of Roehampton | BA English and Journalism | bachelor | Comunicación | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/english-and-journalism/
+University of Roehampton | BA Media and Communications | bachelor | Comunicación | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/media-communications/
+University of Roehampton | BA English Literature | bachelor | Humanidades | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/english-literature/
+University of Roehampton | BA Creative & Professional Writing | bachelor | Humanidades | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/arts-humanities-and-social-sciences/english-and-creative-writing/
+University of Roehampton | Theology & Religious Studies | bachelor | Humanidades | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/arts-humanities-and-social-sciences/theology-and-religion-courses/
+University of Roehampton | BA Politics, International Relations, and History | bachelor | Ciencias Sociales | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/politics-international-relations-and-history/
+University of Roehampton | BSc Criminology | bachelor | Ciencias Sociales | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/criminology/
+University of Roehampton | BSc Criminology and Policing | bachelor | Ciencias Sociales | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/criminology-and-policing/
+University of Roehampton | BSc Criminology and Sociology | bachelor | Ciencias Sociales | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/criminology-and-sociology/
+University of Roehampton | BSc Criminology with Digital Forensics | bachelor | Ciencias Sociales | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/arts-humanities-and-social-sciences/criminology-and-policing/
+University of Roehampton | BA Education | bachelor | Educación | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/education/
+University of Roehampton | BA Primary Education (QTS) | bachelor | Educación | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/primary-education-qts/
+University of Roehampton | BA Early Childhood Studies | bachelor | Educación | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/early-childhood-studies/
+University of Roehampton | BA Early Childhood Studies (Top-up) | bachelor | Educación | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/early-childhood-studies-top-up/
+University of Roehampton | Early Childhood Studies (FdA) | curso_corto | Educación | no indicada | - | https://www.roehampton.ac.uk/study/undergraduate-courses/fda-early-childhood-studies/
+University of Roehampton | Foundation Year | curso_corto | Preparación Universitaria | 1 año | - | https://www.roehampton.ac.uk/study/academic-areas/continuing-education/foundation-programmes/foundation-years/
+University of Roehampton | Foundation Studies: Certificate of Higher Education | curso_corto | Preparación Universitaria | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/continuing-education/foundation-programmes/foundation-studies-certificate-of-higher-education/
+University of Roehampton | Biomedical Science Foundation Studies: Certificate of Higher Education | curso_corto | Preparación Universitaria | no indicada | - | https://www.roehampton.ac.uk/study/foundation-studies/biomedical-science-foundation-studies-certificate-of-higher-education/
+University of Roehampton | International Foundation Pathway: Certificate of Higher Education (IFP: CertHE) | curso_corto | Preparación Universitaria | 1 año | - | https://www.roehampton.ac.uk/study/academic-areas/continuing-education/international-pathways/international-foundation-pathways/
+University of Roehampton | International Year One in Business | curso_corto | Negocios | 1 año | - | https://www.roehampton.ac.uk/study/academic-areas/continuing-education/international-pathways/international-year-one-in-business/
+University of Roehampton | Extended Masters | curso_corto | Preparación Universitaria | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/continuing-education/extended-masters/
+University of Roehampton | Pre-sessional: International Masters Preparation | curso_corto | Idiomas | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/continuing-education/international-pathways/
+University of Roehampton | Pre-sessional English | curso_corto | Idiomas | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/continuing-education/international-pathways/
+University of Roehampton | Higher National Certificate (HNC) | curso_corto | Negocios | 1 año | - | https://www.roehampton.ac.uk/study/higher-technicals/
+University of Roehampton | Higher National Diploma (HND) | diplomado | Negocios | 2 años | - | https://www.roehampton.ac.uk/study/higher-technicals/
+University of Roehampton | MBA | mba | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/mba/
+University of Roehampton | MBA with Finance | mba | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/mba-with-finance/
+University of Roehampton | MBA with Marketing | mba | Mercadeo | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/mba-with-marketing/
+University of Roehampton | MSc Global Business Management | maestria | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/global-business-management/
+University of Roehampton | MSc Global Financial Management | maestria | Negocios | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/global-financial-management/
+University of Roehampton | LLM Employment Law and Human Resource Management | maestria | Derecho | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/llm-employment-law-and-human-resource-management/
+University of Roehampton | LLM Human Rights and Legal Practice | maestria | Derecho | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/
+University of Roehampton | LLM International Commercial Law and Legal Practice | maestria | Derecho | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/
+University of Roehampton | MSc Computing | maestria | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/computing/
+University of Roehampton | MSc Data Science | maestria | Tecnología | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/data-science/
+University of Roehampton | MSc Psychology (Conversion) | maestria | Psicología | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/psychology-conversion/
+University of Roehampton | MSc Psychology (Conversion) Distance Learning | maestria | Psicología | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/psychology-conversion-distance-learning/
+University of Roehampton | MA Integrative Counselling and Psychotherapy | maestria | Psicología | 2 años tiempo completo · 3 años medio tiempo | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/integrative-counselling-and-psychotherapy/
+University of Roehampton | PsychD Counselling Psychology (HCPC approved) | doctorado | Psicología | 3 años | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/counselling-psychology/
+University of Roehampton | MA Education | maestria | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/education/
+University of Roehampton | MA Early Childhood Studies | maestria | Educación | 1 año tiempo completo · 2 años medio tiempo | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/early-childhood-studies/
+University of Roehampton | MA Creative Writing | maestria | Humanidades | 1 año tiempo completo · 2 años medio tiempo | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/creative-writing/
+University of Roehampton | MA Children's Literature (Distance Learning) | maestria | Humanidades | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/childrens-literature-distance-learning/
+University of Roehampton | MA Human Rights | maestria | Ciencias Sociales | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/human-rights/
+University of Roehampton | MA International Relations | maestria | Ciencias Sociales | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/international-relations/
+University of Roehampton | MA Human Rights and International Relations | maestria | Ciencias Sociales | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/human-rights-and-international-relations/
+University of Roehampton | MA Media and Communications | maestria | Comunicación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/media-and-communications/
+University of Roehampton | MA Filmmaking | maestria | Artes | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/filmmaking/
+University of Roehampton | MA Dance Practice and Performance | maestria | Artes | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/dance-practice-and-performance/
+University of Roehampton | MA Dance Education | maestria | Artes | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/dance-education/
+University of Roehampton | MFA/MA Dance and Embodied Practice | maestria | Artes | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/dance-and-embodied-practice/
+University of Roehampton | MA Dance Movement Psychotherapy | maestria | Psicología | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/dance-movement-psychotherapy/
+University of Roehampton | MSc Clinical Nutrition | maestria | Salud | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/clinical-nutrition/
+University of Roehampton | MSc Ecology, Evolution and Behaviour | maestria | Ciencias | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/ecology-evolution-and-behaviour/
+University of Roehampton | Applied Sciences (postgraduate taught) | maestria | Ciencias | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/applied-sciences/
+University of Roehampton | PGCE Secondary Art and Design Specialism | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-art-and-design-specialism/
+University of Roehampton | PGCE Secondary Computing Specialism | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-computing-specialism/
+University of Roehampton | PGCE Secondary Dance | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-dance/
+University of Roehampton | PGCE Secondary Design and Technology Specialism | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-design-and-technology-specialism/
+University of Roehampton | PGCE Secondary English Specialism | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-english-specialism/
+University of Roehampton | PGCE Secondary Geography Specialism | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-geography-specialism/
+University of Roehampton | PGCE Secondary Mathematics Specialism | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-mathematics-specialism/
+University of Roehampton | PGCE Secondary Modern Foreign Languages Specialism | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-modern-foreign-languages-specialism/
+University of Roehampton | PGCE Secondary Music Specialism | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-music-specialism/
+University of Roehampton | PGCE Secondary Psychology | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-psychology/
+University of Roehampton | PGCE Secondary Science Specialism | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-science-specialism/
+University of Roehampton | PGCE Secondary Social Sciences | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-social-sciences/
+University of Roehampton | PGCE Secondary Food and Nutrition | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/postgraduate-taught-courses/pgce-secondary/pgce-secondary-food-and-nutrition/
+University of Roehampton | PGCE Primary | posgrado | Educación | no indicada | - | https://www.roehampton.ac.uk/study/academic-areas/education/pgce-offer-holder-page/pgce-primary/
+
+# --- Conestoga College (conestogac.on.ca) ---
+Conestoga College | 3D Computer Animation | posgrado | Artes Digitales | 1 año (2 términos académicos) | 1391 | https://www.conestogac.on.ca/fulltime/3d-computer-animation
+Conestoga College | Accommodation and Human Rights Management | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Advanced CNC Manufacturing | posgrado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Advanced Police Studies | posgrado | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Advanced Video Content Creation | diplomado | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Advertising and Marketing Communications | diplomado | Mercadeo | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Agri-Business Management | posgrado | Agroindustria | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Animation | diplomado | Artes Digitales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Animation and Game Fundamentals | curso_corto | Artes Digitales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Applied Artificial Intelligence & Machine Learning (Optional Co-op) | posgrado | Tecnología | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Architecture - Construction Engineering Technology (Optional Co-op) | diplomado | Arquitectura y Construcción | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Autism and Behavioural Science | posgrado | Salud | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Bachelor of Animation | bachelor | Artes Digitales | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Applied Biotechnology (Honours) | bachelor | Ciencias | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Applied Health Information Science (Honours) | bachelor | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Bachelor of Applied Technology (Honours) - Architecture - Project and Facility Management | bachelor | Arquitectura y Construcción | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Business Administration (Honours) - Accounting, Audit and Information Technology | bachelor | Negocios | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Business Administration (Honours) - International Business Management | bachelor | Negocios | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Commerce (Honours) - Financial Services | bachelor | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Bachelor of Community and Criminal Justice (Honours) | bachelor | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Computer Science | bachelor | Tecnología | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Computer Science (Honours) | bachelor | Tecnología | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Data Analytics | bachelor | Tecnología | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Data Science and Artificial Intelligence (Honours) | bachelor | Tecnología | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Design (Honours) | bachelor | Diseño | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Digital Technology Solutions (Honours) | bachelor | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Bachelor of Early Learning Program Development (Honours) | bachelor | Educación | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Emergency Management (Honours) | bachelor | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Bachelor of Engineering - Building Systems Engineering | bachelor | Ingeniería | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Engineering - Electronic Systems Engineering | bachelor | Ingeniería | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Engineering - Mechanical Systems Engineering | bachelor | Ingeniería | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Engineering - Power Systems Engineering | bachelor | Ingeniería | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Engineering - Sustainable Design Engineering | bachelor | Ingeniería | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Environmental Public Health (Honours) | bachelor | Salud | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Human Resource Management | bachelor | Negocios | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Interior Design (Honours) | bachelor | Diseño | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Policing | bachelor | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Risk, Threat, and Crime Analysis (Honours) | bachelor | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Bachelor of Science - Nursing (Honours) | bachelor | Salud | no indicada | - | https://www.conestogac.on.ca/degrees
+Conestoga College | Baking and Pastry Arts | diplomado | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Baking and Pastry Arts Management (Optional Co-op) | diplomado | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Bartending | curso_corto | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Big Data Solution Architecture (Optional Co-op) | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Biotechnology Technician | diplomado | Ciencias | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Biotechnology Technician Fast Track | diplomado | Ciencias | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Blockchain Application Development | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Bookkeeping | curso_corto | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Broadcast - Radio | diplomado | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Broadcasting - Television and Independent Production | diplomado | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Broadcasting Performance and Digital Media | diplomado | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Building Superintendence and Repair | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business - Finance | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business - Insurance (Optional Co-op) | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business - Marketing | diplomado | Mercadeo | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business - Supply Chain and Operations for Commercial Trucking | diplomado | Logística | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business Administration - Accounting | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business Administration - Accounting Accelerated | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business Administration - Financial Planning | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business Administration - Management | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business Administration - Marketing | diplomado | Mercadeo | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business Administration - Marketing (Co-op) | diplomado | Mercadeo | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business Analytics | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business Fundamentals | curso_corto | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Business Fundamentals - Banking and Financial Services | curso_corto | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Carpentry and Renovation Technician (Optional Co-op) | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Charcuterie and Artisanal Foods | curso_corto | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Children's Mental Health Services | posgrado | Servicios Sociales | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Civil Engineering Technician (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Civil Engineering Technology (Optional Co-op) | diplomado | Ingeniería | 3 años | - | https://www.conestogac.on.ca/fulltime/civil-engineering-technology
+Conestoga College | Climate Change Mitigation | diplomado | Medio Ambiente | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Clinical Research | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Cloud Data Management | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Cloud Development and Operations | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Commercial Flight Operations | diplomado | Aviación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Commercial Helicopter Foundations | curso_corto | Aviación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Communicative Disorders Assistant | posgrado | Salud | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Community and Justice Services | diplomado | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Community Pharmacy Assistant | curso_corto | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Community Settlement Services | diplomado | Servicios Sociales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Computer Animation - Motion Graphics | diplomado | Artes Digitales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Computer Applications Development (Optional Co-op) | posgrado | Tecnología | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Computer Engineering Technology (Optional Co-op) | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Computer Programming | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Computer Programming - Data Management | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Computer Programming and Analysis (Optional Co-op) | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Computer Systems Technician - Information Technology Infrastructure and Services (Optional Co-op) | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Construction Management (Optional Co-op) | posgrado | Arquitectura y Construcción | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Construction Project Management | diplomado | Arquitectura y Construcción | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Construction Techniques - Brick and Stone | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Construction Techniques (Carpentry) | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Construction Techniques (Carpentry, Electrical, HVAC and Welding) | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Construction Techniques (Masonry, Plumbing, Electrical, and Carpentry) | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Construction Techniques (Welding, HVAC, Plumbing, and Masonry) | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Culinary Management (Co-op) | diplomado | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Culinary Skills (Co-op) | curso_corto | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Cybersecurity Response Planning (Optional Co-op) | posgrado | Tecnología | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Data Processing and Reporting | curso_corto | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Deafblind and Intervenor Studies | diplomado | Servicios Sociales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Design Foundations | curso_corto | Diseño | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Diagnostic Medical Sonography | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Digital Forensics in Cybersecurity | posgrado | Tecnología | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Digital Solutions Management (Optional Co-op) | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Drafting and Design for Additive Manufacturing | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Early Childhood Education | diplomado | Educación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Early Childhood Education Fast Track (ECE) | diplomado | Educación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Early Childhood Education Resource Consulting | diplomado | Educación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | eCommerce Management | posgrado | Negocios | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Educational Support | diplomado | Educación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Educational Support Fast Track | diplomado | Educación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Electrical Engineering Technician | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Electrical Engineering Technician - Industrial (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Electrical Engineering Technology (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Electrical Techniques | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Electro Mechanical and Automation Maintenance (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Electronics Engineering Technician | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Electronics Engineering Technology (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Embedded Systems Development (Optional Co-op) | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Energy Systems Engineering Technology - Electrical (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Enhanced Practice for Internationally Educated Nurses | posgrado | Salud | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Environmental Control - Applied Engineering and Geoscience (Optional Co-op) | posgrado | Medio Ambiente | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Esports and Event Media Production | diplomado | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Esports Marketing and Event Management | diplomado | Mercadeo | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Esthetician | curso_corto | Belleza y Estética | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Event Management | diplomado | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Financial Planning Services | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Financial Technology | posgrado | Negocios | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Fire Services | diplomado | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Fitness and Health Promotion | diplomado | Deportes | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Food and Beverage Management - Hotel and Restaurant Operations (Optional Co-op) | diplomado | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Food Processing Technician (Optional Co-op) | diplomado | Agroindustria | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Food Safety and Quality Assurance - Food Processing | diplomado | Agroindustria | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Fraud Investigation and Risk Management | diplomado | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Game - Art | diplomado | Artes Digitales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Game - Design | diplomado | Artes Digitales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | General Arts and Science - Diploma Option | diplomado | Estudios Generales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | General Arts and Science - One Year | curso_corto | Estudios Generales | 1 año | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | General Arts and Science: English Language Studies | curso_corto | Idiomas | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Global Hospitality Management (Optional Co-op) | diplomado | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Graphic Design | diplomado | Diseño | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Health and Social Systems Navigation | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Health Care Administration and Service Management | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Health Office Administration | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Healthcare Project Leadership and Management | posgrado | Salud | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Hearing Instrument Specialist | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Heating, Refrigeration and Air Conditioning Technician | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Heavy Construction Equipment Operation | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Hospitality Operations - Food and Beverage | curso_corto | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Human Factors and Ergonomics | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Human Resources Management (Optional Co-op) | posgrado | Negocios | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Human Services Foundation | curso_corto | Servicios Sociales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Immigration and Refugee Case Management | posgrado | Servicios Sociales | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Infection Prevention and Control | posgrado | Salud | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Information Technology Business Analysis | posgrado | Tecnología | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Information Technology Infrastructure | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Information Technology Network Security | posgrado | Tecnología | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Information Technology Project Management | posgrado | Tecnología | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Interactive Media Management - Interaction Design | diplomado | Diseño | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Intercultural Leadership | diplomado | Servicios Sociales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Interior Decorating | diplomado | Diseño | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | IT Innovation and Design (Optional Co-op) | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Italian Culinary Arts | curso_corto | Hospitalidad | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Journalism | diplomado | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Long Term Care and Retirement Community Management | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Machining for Manufacturing | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Management and Leadership Development | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Management in Community Services | posgrado | Servicios Sociales | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Manufacturing Engineering Technology - Welding and Robotics (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Massage Therapy | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Engineering Technician - Automated Manufacturing (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Engineering Technology - Automated Manufacturing (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Engineering Technology - Design and Analysis (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Engineering Technology - Robotics and Automation (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Technician - CNC | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Technician - General Machinist (Optional Co-op) | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Technician - Tool and Die/Tool Maker (Optional Co-op) | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Techniques - Gas and Sheet Metal | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Techniques - Industrial Millwright | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Techniques - Plumbing | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mechanical Techniques - Precision Machining and Tooling | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Media Foundations | curso_corto | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Medical Laboratory Assistant/Technician | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Medical Laboratory Science | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Medical Office Practices | curso_corto | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mental Health, Addiction and Substance Use | posgrado | Salud | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Mobile and Web Development | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Mobile Solutions Development (Optional Co-op) | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Motive Power Fundamentals - Automotive Repair | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Motive Power Technician - Automotive Service | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Motive Power Technician - Heavy Duty Equipment (Optional Co-op) | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Motive Power Technician - Truck and Coach | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Motive Power Techniques - Heavy Duty Equipment Repair | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Motive Power Techniques - Truck and Coach Repair | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Network Technical Support | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Nursing Leadership and Healthcare Management (formerly Health Care Administration Management) | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Nutrition and Food Service Management | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Occupational Health, Safety and Wellness | posgrado | Salud | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Occupational Therapist Assistant & Physiotherapist Assistant | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Office Administration - Executive | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Office Administration - General | curso_corto | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Office Administration - Legal | diplomado | Derecho | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Operations Leadership in Food Manufacturing | diplomado | Agroindustria | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Paramedic | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Payroll and Bookkeeping (Optional Co-op) | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Personal Support Worker | curso_corto | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Personal Support Worker - FAST Delivery | curso_corto | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Personal Support Worker - International | curso_corto | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Pet Grooming | curso_corto | Servicios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Pharmacy Technician | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Plumbing Technician | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Police Foundations | diplomado | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Power Engineering Techniques - 3rd Class | curso_corto | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Power Engineering Techniques - 4th Class | curso_corto | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Power Engineering Technology | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Powerline Technician (Optional Co-op) | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Practical Nursing | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Predictive Analytics | posgrado | Tecnología | 1 año (2 términos académicos) | - | https://www.conestogac.on.ca/fulltime/predictive-analytics
+Conestoga College | Pre-Health Sciences Pathway to Advanced Diplomas and Degrees | curso_corto | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Pre-Health Sciences Pathway to Certificates and Diplomas | curso_corto | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Pre-Service Firefighter Education and Training | curso_corto | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Process Quality Engineering | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Production GMAW Welder | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Professional Accounting Practice | posgrado | Negocios | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Professional Cheese Making | curso_corto | Agroindustria | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Project Management | posgrado | Negocios | 1 año | - | https://www.conestogac.on.ca/fulltime/project-management
+Conestoga College | Protection, Security and Investigation | diplomado | Seguridad y Justicia | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Public Administration (Optional Co-op) | diplomado | Administración Pública | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Public Relations | diplomado | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Public Relations - Integrated Communications (Optional Co-op) | diplomado | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Public Service | posgrado | Administración Pública | 1 año | - | https://www.conestogac.on.ca/fulltime/public-service
+Conestoga College | Real Estate Development and Management | posgrado | Negocios | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Recreation and Sport Administration | diplomado | Deportes | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Regulatory Affairs | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Renewable Energy Techniques | curso_corto | Medio Ambiente | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Reporting Systems and Database Development | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Respiratory Therapy | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Robotics and Industrial Automation (Optional Co-op) | posgrado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Social Media Marketing | posgrado | Mercadeo | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Social Service Worker | diplomado | Servicios Sociales | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Software Engineering Technician | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Software Engineering Technology (Optional Co-op) | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Software Quality Assurance and Test Engineering (Optional Co-op) | posgrado | Tecnología | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Strategic Administrative Management (formerly: Administrative Business Management) | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Strategic Change Management, Leadership and Transformation | diplomado | Negocios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Strategic Marketing and Research Analysis | diplomado | Mercadeo | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Strategic Marketing Communications | diplomado | Mercadeo | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Supply Chain Management - Global | posgrado | Logística | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Sustainable Urban Design | posgrado | Arquitectura y Construcción | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Sustainable Waste Management (Optional Co-op) | posgrado | Medio Ambiente | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Teaching English as a Second Language | posgrado | Educación | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Technical Communication (Optional Co-op) | diplomado | Comunicación | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Technology Foundations | curso_corto | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Therapeutic Recreation | diplomado | Salud | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Tourism - Destinations and Travel Management (Optional Co-op) | diplomado | Turismo | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Urban Planning and GIS | diplomado | Arquitectura y Construcción | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Veterinary Assistant | curso_corto | Veterinaria | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Veterinary Technician | diplomado | Veterinaria | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Virtual Reality Production | posgrado | Artes Digitales | no indicada | - | https://www.conestogac.on.ca/graduate-certificates
+Conestoga College | Virtualization and Cloud Computing | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Visual Merchandising Arts | diplomado | Diseño | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Web Development | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Web Development and Internet Applications Fundamentals | curso_corto | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Welding and Fabrication Technician | diplomado | Oficios | 2 años | - | https://www.conestogac.on.ca/fulltime/welding-and-fabrication-technician
+Conestoga College | Welding Engineering Technician - Robotics (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Welding Engineering Technology - Inspection (Optional Co-op) | diplomado | Ingeniería | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Welding Techniques | curso_corto | Oficios | 1 año (2 términos académicos) | 1193 | https://www.conestogac.on.ca/fulltime/welding-techniques
+Conestoga College | Wireless Network Infrastructure | diplomado | Tecnología | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Woodworking Technician (Optional Co-op) | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Woodworking Techniques - CNC | curso_corto | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+Conestoga College | Woodworking Technology (Optional Co-op) | diplomado | Oficios | no indicada | - | https://www.conestogac.on.ca/fulltime
+
+# --- La Trobe College Australia (latrobecollegeaustralia.edu.au) ---
+La Trobe College Australia | General English | curso_corto | Idiomas | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | English for Further Studies | curso_corto | Idiomas | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Advanced IELTS Preparation Program | curso_corto | Idiomas | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Foundation Studies - Business, IT & Humanities | curso_corto | Preparación Universitaria | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Foundation Studies - Health, Life Sciences and Engineering | curso_corto | Preparación Universitaria | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Diploma of Bioscience | diplomado | Ciencias | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Diploma of Business | diplomado | Negocios | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Diploma of Business Analytics | diplomado | Negocios | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Diploma of Cybersecurity | diplomado | Tecnología | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Diploma of Engineering | diplomado | Ingeniería | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Diploma of Health Sciences | diplomado | Salud | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Diploma of Information Technology | diplomado | Tecnología | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Diploma of Media and Communication | diplomado | Comunicación | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Diploma of Psychology | diplomado | Psicología | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Undergraduate Certificate in Cybersecurity | curso_corto | Tecnología | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Undergraduate Certificate in Data Analytics | curso_corto | Tecnología | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Undergraduate Certificate in Health Services | curso_corto | Salud | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Undergraduate Certificate in Information Technology in Marketing | curso_corto | Tecnología | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Undergraduate Certificate in Life Science | curso_corto | Ciencias | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+La Trobe College Australia | Undergraduate Certificate in Psychological Studies | curso_corto | Psicología | no indicada | - | https://www.latrobecollegeaustralia.edu.au/study-options/
+
+# --- University Canada West (ucanwest.ca) ---
+University Canada West | Associate of Arts (AA) | pregrado | Estudios Generales | 2 años | - | https://www.ucanwest.ca/programs
+University Canada West | Bachelor of Commerce | bachelor | Negocios | 4 años | - | https://www.ucanwest.ca/programs
+University Canada West | Online Bachelor of Commerce | bachelor | Negocios | 4 años | - | https://www.ucanwest.ca/programs
+University Canada West | Bachelor of Arts in Business Communication | bachelor | Comunicación | 4 años | - | https://www.ucanwest.ca/programs
+University Canada West | Online Bachelor of Arts in Business Communication | bachelor | Comunicación | 4 años | - | https://www.ucanwest.ca/programs
+University Canada West | Master of Business Administration (MBA) | mba | Negocios | 2 años | - | https://www.ucanwest.ca/programs
+University Canada West | Online Master of Business Administration (MBA) | mba | Negocios | 2 años | - | https://www.ucanwest.ca/programs
+University Canada West | University Access Program (UAP) | curso_corto | Preparación Universitaria | no indicada | - | https://www.ucanwest.ca/programs
+University Canada West | Project Management Professional (PMP) Certification Course | curso_corto | Negocios | 35 horas en vivo + 17 horas autodirigidas | - | https://www.ucanwest.ca/programs
+University Canada West | Certified Associate in Project Management (CAPM) Certification Course | curso_corto | Negocios | no indicada | - | https://www.ucanwest.ca/programs
+University Canada West | Certified Digital Marketing Professional | curso_corto | Mercadeo | no indicada | - | https://www.ucanwest.ca/programs
+University Canada West | Data and Web Analytics | curso_corto | Mercadeo | no indicada | - | https://www.ucanwest.ca/programs
+University Canada West | Digital and Social Selling | curso_corto | Mercadeo | no indicada | - | https://www.ucanwest.ca/programs
+University Canada West | Online E-Commerce Marketing | curso_corto | Mercadeo | no indicada | - | https://www.ucanwest.ca/programs
+University Canada West | Digital Strategy | curso_corto | Mercadeo | no indicada | - | https://www.ucanwest.ca/programs
+University Canada West | Social Media Marketing | curso_corto | Mercadeo | no indicada | - | https://www.ucanwest.ca/programs
+University Canada West | Search Engine Optimization (SEO) | curso_corto | Mercadeo | no indicada | - | https://www.ucanwest.ca/programs
+University Canada West | Global Visiting Student Short-Term Program | intercambio | Estudios Generales | 3-6 meses | - | https://www.ucanwest.ca/programs
+
+# --- St. George International College · SGIC (www.sgiccanada.com) ---
+St. George International College | General English (ESL) | curso_corto | Idiomas | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | SSP-I (Intermediate) | curso_corto | Idiomas | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | SSP-A (Advance) | curso_corto | Idiomas | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | English for Medicine | curso_corto | Idiomas | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | IELTS Preparation | curso_corto | Idiomas | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | Business English (BE) | curso_corto | Idiomas | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | English for Professionals | curso_corto | Idiomas | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | TYCP English | curso_corto | Idiomas | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | Pathway Program (UCPP) | curso_corto | Preparación Universitaria | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | i-TESOL | curso_corto | Educación | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | Summer & Winter Camps | vacacional | Idiomas | no indicada | - | https://www.sgiccanada.com/programs
+St. George International College | High School (St. George Academy) | secundaria | Educación General | no indicada | - | https://www.sgiccanada.com/programs/high-school
+
+# --- ESEI International Business School Barcelona (www.eseibusinessschool.com) ---
+ESEI International Business School Barcelona | Bachelor in Business Administration | bachelor | Negocios | 3 años académicos | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Bachelor in Communication | bachelor | Comunicación | 3 años académicos (180 ECTS) | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Master in Leadership and Strategic Emotional Intelligence | maestria | Negocios | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Master in Digital Marketing | maestria | Mercadeo | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Master in Marketing & Communication | maestria | Mercadeo | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Master in International Relations & International Business | maestria | Ciencias Sociales | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Master in Digital Transformation in Business | maestria | Negocios | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Master in Innovation and Entrepreneurship | maestria | Negocios | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Master in Business Management | maestria | Negocios | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Master in Tourism & Hospitality Management | maestria | Hospitalidad | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Master in Sports Management | maestria | Deportes | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | International MBA | mba | Negocios | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Online Master in International Relations & International Business | maestria | Ciencias Sociales | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Online MBA | mba | Negocios | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Online Master in Business Management | maestria | Negocios | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Online Master in Digital Marketing | maestria | Mercadeo | no indicada | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Online Short Courses | curso_corto | Negocios | flexible | - | https://www.eseibusinessschool.com/programmes/
+ESEI International Business School Barcelona | Educational Tours: Learn & Explore | vacacional | Negocios | todo el año | - | https://www.eseibusinessschool.com/programmes/
+
+# --- Quality College of Australia (qca.edu.au) ---
+Quality College of Australia | Certificate III in Commercial Cookery | curso_corto | Hospitalidad | no indicada | SIT30821 | https://www.qca.edu.au/international-student-courses/
+Quality College of Australia | Certificate IV in Kitchen Management | curso_corto | Hospitalidad | no indicada | SIT40521 | https://www.qca.edu.au/international-student-courses/
+Quality College of Australia | Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT50422 | https://www.qca.edu.au/international-student-courses/
+Quality College of Australia | Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.qca.edu.au/international-student-courses/
+
+# --- Ermitage International School Paris (ermitage.fr) ---
+Ermitage International School Paris | IB Primary Years Programme (IB PYP) | secundaria | Educación General | 6 años (Years 1-6 · 5 a 11 años) | - | https://www.ermitage.fr/ib-programs
+Ermitage International School Paris | IB Middle Years Programme (IB MYP) | secundaria | Educación General | 5 años (Years 1-5 · 11 a 16 años) | - | https://www.ermitage.fr/ib-programs
+Ermitage International School Paris | IB Diploma Programme (IB DP) | secundaria | Educación General | 2 años (16 a 18 años) | - | https://www.ermitage.fr/ib-programs
+Ermitage International School Paris | French Bilingual School - Pre-K & Primary (Maternelle to Primary) | secundaria | Educación General | desde los 3 años | - | https://www.ermitage.fr/french-bilingual-programs
+Ermitage International School Paris | French Bilingual School - College (6eme-4eme) | secundaria | Educación General | 3 años | - | https://www.ermitage.fr/french-bilingual-programs
+Ermitage International School Paris | French Bilingual School - Lycee (3eme-Terminale) | secundaria | Educación General | 4 años | - | https://www.ermitage.fr/french-bilingual-programs
+
+# --- UBIS · University of Business, Innovation and Sustainability (ubisglobal.com) ---
+UBIS | Bachelor of Business Administration (BBA) | bachelor | Negocios | 3 años (acelerado en 2 años máximo) | - | https://ubisglobal.com/programs/bachelor-of-business-administration/
+UBIS | Bachelor of Arts in International Relations (BA-IR) | bachelor | Ciencias Sociales | no indicada | - | https://ubisglobal.com/programs/bachelor-of-arts-in-international-relations/
+UBIS | Master of Business Administration (MBA) | mba | Negocios | no indicada | - | https://ubisglobal.com/programs/master-of-business-administration/
+UBIS | Master of Arts in International Relations (MA-IR) | maestria | Ciencias Sociales | no indicada | - | https://ubisglobal.com/masters-degree-programs/
+UBIS | Master of Science in Information Technology (MS-IT) | maestria | Tecnología | no indicada | - | https://ubisglobal.com/masters-degree-programs/
+UBIS | Doctorate of Business Administration (DBA) | doctorado | Negocios | 3 años (6 cursos nivel 800 · 18 créditos US / 36 ECTS) | - | https://ubisglobal.com/programs/doctorate-of-business-administration/
+UBIS | Core Enterprise Functions Micro-Credential | curso_corto | Negocios | 4-6 meses (4 cursos · 12 créditos US / 24 ECTS) | - | https://ubisglobal.com/programs/core-enterprise-functions-micro-credential/
+UBIS | Leadership & Sustainability Micro-Credential | curso_corto | Negocios | 4-6 meses (4 cursos · 12 créditos US / 24 ECTS) | - | https://ubisglobal.com/programs/leadership-sustainability-micro-credential/
+UBIS | Cybersecurity Certificate | curso_corto | Tecnología | 4-6 meses (4 cursos · 12 créditos US / 24 ECTS) | - | https://ubisglobal.com/programs/cybersecurity-micro-credential/
+UBIS | Certification in Finance & Banking | curso_corto | Negocios | 4-6 meses (4 cursos · 12 créditos US / 24 ECTS) | - | https://ubisglobal.com/programs/finance-and-banking-micro-credential/
+UBIS | Web & Mobile Design & Development Micro-Credential | curso_corto | Tecnología | 4-6 meses (4 cursos · 12 créditos US / 24 ECTS) | - | https://ubisglobal.com/programs/web-mobile-design-and-development-micro-credential/
+UBIS | Information Technology Management Control and Audit Micro-Credential | curso_corto | Tecnología | 4-6 meses (4 cursos · 12 créditos US / 24 ECTS) | - | https://ubisglobal.com/programs/information-technology-management-control-and-audit-micro-credential/
+UBIS | Data Science Micro-Credential | curso_corto | Tecnología | 4-6 meses (4 cursos · 12 créditos US / 24 ECTS) | - | https://ubisglobal.com/programs/data-science-micro-credential/
+UBIS | International Business Micro-Credential | curso_corto | Negocios | 4-6 meses (4 cursos · 12 créditos US / 24 ECTS) | - | https://ubisglobal.com/programs/international-business-micro-credential/
+
+# --- University of Hartford · International Pathway Program (pathways.hartford.edu) ---
+University of Hartford International Pathway Program | International Year (Undergraduate Pathway) | curso_corto | Preparación Universitaria | 2, 3 o 4 semestres | - | https://pathways.hartford.edu/programs
+University of Hartford International Pathway Program | Master's International Year (Graduate Pathway) | curso_corto | Preparación Universitaria | 2 o 3 semestres | - | https://pathways.hartford.edu/programs
+University of Hartford International Pathway Program | MS in Computer Science (Direct Admission) | maestria | Tecnología | no indicada | - | https://pathways.hartford.edu/programs
+University of Hartford International Pathway Program | Pre-Sessional English Program (English Language Institute) | curso_corto | Idiomas | no indicada | - | https://pathways.hartford.edu/programs
+
+# RESUMEN: instituciones=10 con_programas=10 total_programas=484 sin_catalogo=0
+
+# NOTAS:
+# Roehampton · SUBCONTEO DECLARADO: 118 extraidos de los ~182 que conto la auditoria. La alerta de la ficha es correcta y peor de lo que parece: NINGUNA pagina de listado renderiza cursos sin JS — ni /study/undergraduate-courses/, ni /study/postgraduate-taught-courses/, ni las 8 paginas de School, ni las 23 de subject area (todas dicen "Scroll down to find your course" y no traen nada). El sitemap.xml es PARCIAL (~600 URLs, sin las fichas de curso salvo los PGCE Secondary). Lo extraido se armo enumerando fichas de curso una por una via buscador restringido al dominio: son todas URLs reales verificadas. Faltan sobre todo combinaciones de honores conjuntos (Combined Honours), variantes "with Foundation Year" (el sitio las lista como cursos aparte y son decenas), y parte del catalogo de posgrado. 7 filas (LLB Law, LLB Law and Criminal Justice, LLB Law with Politics, Zoology, Theology & Religious Studies, BA Creative & Professional Writing, BSc Criminology with Digital Forensics) se nombran en el texto del propio sitio pero no se pudo abrir su ficha individual: van con la URL del area academica y el nombre puede no ser el titulo comercial exacto — VERIFICAR antes de publicar. Se EXCLUYERON los apprenticeships (solo residentes UK) y los "Online Postgraduate Degrees" (viven en onlinestudy.roehampton.ac.uk, otro dominio operado como microsite). HNC/HND van como 2 filas genericas porque /study/higher-technicals/ no publica el listado de cursos HTQ, solo explica los dos niveles.
+# Conestoga · 270 filas (269 de las 276 que declara /fulltime, mas "Public Service" que el sitio publica en /fulltime/public-service pero que NO aparece en el listado de 276 — senal de que el listado tampoco esta completo) · CUADRA, pero con una advertencia grande sobre el campo `nivel`. El listado /fulltime entrega SOLO nombres: no trae credencial, ni duracion, ni codigo de programa junto a cada item (el filtro por credencial existe pero es JS). El `nivel` se asigno asi: (a) 23 filas `bachelor` verificadas contra /degrees; (b) 36 filas `posgrado` verificadas contra /graduate-certificates, mas 3 verificadas ficha por ficha (3D Computer Animation, Predictive Analytics, Project Management, Public Service); (c) el resto por la convencion de nomenclatura de Ontario que se COMPROBO abriendo 4 fichas: "... Techniques" = Ontario College Certificate 1 anio -> curso_corto (Welding Techniques, verificado), "... Technician" = Ontario College Diploma 2 anios -> diplomado (Welding and Fabrication Technician, verificado), "... Technology" = Ontario College Advanced Diploma 3 anios -> diplomado (Civil Engineering Technology, verificado); (d) todo lo demas cayo en `diplomado` por defecto. Consecuencia: hay `diplomado` que en realidad son Graduate Certificate — el propio sitio dice tener "90+" graduate certificates y la pagina solo lista 36, asi que faltan ~50 reclasificaciones. Si el nivel importa para el matching, hay que abrir las 269 fichas (cada una si trae credencial + codigo + duracion, ej. /fulltime/3d-computer-animation = "Ontario College Graduate Certificate", codigo 1391, "1 year (2 academic terms)"). SE EXCLUYERON 7 programas por no ser cursables por un estudiante colombiano: Academic Upgrading, Language Instruction for Newcomers to Canada (LINC · solo residentes permanentes y refugiados), Community Integration Through Co-operative Education, los 3 Pre-Apprenticeship (General Machinist/Tool & Die, Introduction to Construction Trades, Women in Skilled Trades WIST) y Career Development Professional (el sitio lo marca "not currently accepting applications").
+# Quality College of Australia · SOLO 4 FILAS Y ES CORRECTO, no es subconteo. El catalogo esta PARTIDO en dos listas y son ofertas distintas: /international-student-courses/ ofrece exactamente 4 cualificaciones (SIT30821, SIT40521, SIT50422, SIT60322, vendidas sueltas o en 3 paquetes escalonados), mientras /domestic-student-courses/ lista 10 (SIT20421 Cert II Cookery, SIT30921 Cert III Catering Operations, SIT20322 Cert II Hospitality, SIT30622 y SIT30722 Cert III Hospitality, SIT40422 Cert IV Hospitality, BSB40520 Cert IV Leadership and Management, BSB50420 Diploma of Leadership and Management, mas SITSS00069 NSW Food Safety Supervisor y un Certificate III in Individual Support sin codigo publicado). Las 10 domesticas NO estan en la oferta CRICOS y se excluyeron por la regla de "solo residentes locales" — si un asesor las cotiza, el estudiante no obtiene visa de estudio con ellas. Confirmado el nombre comercial: opera como "Quality College of Australia" (la ficha traia la razon social) · RTO 1036 · CRICOS 02880B · campus Sydney y Adelaide.
+# UBIS · CONFIRMADA la alerta de la auditoria: ya NO es suiza. El sitio se autodefine con sede en Washington D.C. y entrega 100% online; la ficha debe corregir pais Suiza -> USA y ciudad Geneve -> Washington D.C. 14 filas vs "5 + microcredenciales" de la auditoria: los 5 grados (BBA, BA-IR, MBA, MA-IR, DBA) mas 8 micro-credenciales apiladas de 4 cursos c/u, mas un MS-IT. OJO CON EL MS-IT: aparece en el titulo de /masters-degree-programs/ ("MBA, MS-IT, MA-IR") pero no se pudo abrir su ficha propia — verificar antes de vender. ubisglobal.com devuelve 403 a fetch directo en todo el sitio (tambien con reintento), asi que los datos salen de las paginas indexadas del propio dominio, no de una lectura directa; las duraciones de las micro-credenciales (4-6 meses) y del DBA (3 anios) vienen del texto del sitio.
+# University Canada West · 18 filas vs "~17" — cuadra. CONFIRMADA la alerta: `puede_vender` promete "Idiomas" y "Foundation & Pre master" y el sitio NO tiene ESL/EAP propio ni foundation; lo unico preparatorio es el University Access Program (UAP). Corregir esa ficha o el asesor va a prometer cursos de ingles que no existen. Las 9 micro-credenciales (PMP, CAPM y 7 de marketing digital) son certificaciones profesionales, no credito academico. El "Global Visiting Student Short-Term Program" (3-6 meses) se clasifico `intercambio`.
+# St. George International College · 12 filas — cuadra exacto. CONFIRMADA la sobredimension de `puede_vender`: la ficha dice "Todos los programas" y SGIC es escuela de idiomas (Toronto y Vancouver); no hay diplomas ni carreras. Corregir a "Idiomas + camps + colocacion en colegio". El item "High School" NO es un programa de SGIC: es St. George Academy, un colegio aparte con direccion (5 Park Home Ave, North York) y contacto propios — se marco `secundaria` porque es bachillerato, pero comercialmente es otra entidad del mismo grupo. Ningun programa publica duracion en el sitio.
+# ESEI Barcelona · 18 filas vs "~12" de la auditoria: la diferencia son los 4 masters online, los short courses y los Educational Tours, que la auditoria no conto. CONFIRMADO que tipo_adivinado="curso_corto" esta mal (da Bachelor, Master y MBA). Sigue en pie la alerta de titulacion: no es titulo oficial espanol — el Bachelor in Business Administration se emite como "UK degree" y el Bachelor in Communication como "Official French Degree" (180 ECTS). Eso hay que decirselo a la familia colombiana antes de firmar, porque afecta la convalidacion ante el Ministerio de Educacion.
+# La Trobe College Australia · 20 filas vs "~25" de la auditoria (3 ingles + 2 foundation + 9 diplomas + 6 undergraduate certificates). La diferencia probable son variantes de los diplomas por intake/duracion (Standard / Accelerated / Extended) que el sitio no despliega en /study-options/. NINGUN programa publica duracion ni CRICOS individual; lo unico publicado es el codigo de proveedor institucional (TEQSA PRV12186, CRICOS 03312D). La ficha debe corregirse: ciudad = Melbourne (campus Bundoora) y partner_group = Navitas (el nombre legal es Navitas Bundoora Pty Ltd, ABN 92 143 736 789), y `puede_vender` no puede quedar vacio para un college con 20 programas vendibles.
+# Ermitage International School Paris · 6 filas — cuadra con "~5-6 rutas". CONFIRMADO que es un COLEGIO (3 a 18 anios), no una institucion con catalogo de programas: las 6 filas son rutas curriculares, no cursos cotizables sueltos. PROBLEMA DE VOCABULARIO: el nivel cerrado no tiene un valor para primaria, asi que IB PYP (5-11 anios) y Pre-K & Primary quedaron marcados `secundaria`, que es incorrecto pero es lo mas cercano disponible — si el producto va a vender colegio, hace falta agregar `primaria` al vocabulario. El Lycee ofrece dos secciones (francesa y la American section del BFI, option internationale) que no se separaron en filas porque el sitio las presenta como un mismo programa. La ficha traia tipo_adivinado "intercambio": es incorrecto, esto es escolaridad completa, no un semestre de intercambio.
+# University of Hartford · 4 filas · CONFIRMADA LA ALERTA CRITICA de la auditoria. El dominio pathways.hartford.edu NO es la universidad: es el International Study Center operado por Study Group (el pie dice "Maintained by Study Group"). Por lo tanto `puede_vender: "Todos los programas"` es FALSO — desde este sitio solo se venden los 2 pathways, la admision directa al MS in Computer Science y el pre-sessional de ingles. El catalogo real de grados de University of Hartford vive en hartford.edu, que NO estaba en el lote y no se toco. Se EXCLUYO "Direct Entry to University of Hartford" porque no es un programa sino una via de admision (el estudiante entra a un major del catalogo de hartford.edu).
+# General · NINGUNA fila lleva precio, fecha de inicio ni beca, por politica. Publican precios a la vista: Conestoga (matricula 2026-2027 desglosada por programa, domestica e internacional) y ESEI. Roehampton publica becas por nacionalidad. Nada de eso se transcribio.

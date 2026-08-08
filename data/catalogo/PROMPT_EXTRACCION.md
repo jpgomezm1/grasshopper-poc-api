@@ -42,6 +42,13 @@ institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
   perdió su producto principal. Úsalo para programas de bachillerato completos
   (Year 7-12, boarding school, high school diploma, año Post-Graduate). Un
   semestre o año de intercambio en un colegio sigue siendo `intercambio`.
+
+  **Primaria NO tiene nivel, y es a propósito: EXCLÚYELA.** Si ves Primary Years,
+  Junior School, Elementary, JK-5 o similar, **no lo incluyas** y anótalo en
+  NOTAS. Sólo 2 de las 630 fichas mencionan primaria, así que no justifica un
+  nivel nuevo — pero registrarla como `secundaria` (que ya pasó en un lote) mete
+  dato falso: un JK-5 no es bachillerato, y el estudiante que lo vea recomendado
+  no es el que la agencia atiende.
   Mapeos frecuentes: *Certificate I-IV* australiano → `curso_corto`;
   *Diploma / Advanced Diploma* → `diplomado`; *Graduate Diploma* → `posgrado`;
   *Foundation / Pre-master / Pathway* → `curso_corto`; *ELICOS / General

@@ -1319,8 +1319,8 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 04,French in Normandy,Private French Lessons,curso_corto,Idiomas,no indicada,-,https://www.frenchinnormandy.com/private-french-lessons/
 04,French in Normandy,French for Business,curso_corto,Idiomas,no indicada,-,https://www.frenchinnormandy.com/business-french/
 04,French in Normandy,A-Level Preparation,curso_corto,Idiomas,no indicada,-,https://www.frenchinnormandy.com/a-level-french-revision/
-04,Adelaide University ELC (ex-CELUSA),Pre-enrolment English Program (PEP),curso_corto,Idiomas,no indicada,-,https://adelaide.edu.au/study/english-language-centre/pre-enrolment-english/
-04,Adelaide University ELC (ex-CELUSA),General English for Academic Purposes (GEAP),curso_corto,Idiomas,no indicada,-,https://adelaide.edu.au/study/english-language-centre/general-english-for-academic-purposes/
+04,Adelaide University,Pre-enrolment English Program (PEP),curso_corto,Idiomas,no indicada,-,https://adelaide.edu.au/study/english-language-centre/pre-enrolment-english/
+04,Adelaide University,General English for Academic Purposes (GEAP),curso_corto,Idiomas,no indicada,-,https://adelaide.edu.au/study/english-language-centre/general-english-for-academic-purposes/
 04,SAE University College,Bachelor of Audio,bachelor,Artes,"6, 8 o 9 trimestres full-time",-,https://sae.edu.au/courses/audio/bachelor-of-audio/
 04,SAE University College,Associate Degree of Audio,pregrado,Artes,4 o 6 trimestres full-time,-,https://sae.edu.au/courses/audio/associate-degree-of-audio/
 04,SAE University College,Diploma of Audio Production,diplomado,Artes,2 o 3 trimestres full-time,-,https://sae.edu.au/courses/audio/diploma-of-audio-production/
@@ -3318,7 +3318,6 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 07,Vancouver Community College,University Transfer - Statistics (SFU),curso_corto,Matemáticas,no indicada,-,https://www.vcc.ca/programs/university-transfer--statistics-sfu/
 07,Vancouver Community College,Virtual Environment and Simulation Design,diplomado,Diseño,no indicada,-,https://www.vcc.ca/programs/virtual-environment-and-simulation-design/
 07,Vancouver Community College,Wind Turbine Technician,curso_corto,Oficios,no indicada,-,https://www.vcc.ca/programs/wind-turbine-technician/
-07,ELTHAM College,Primary Years P-6,secundaria,Educación Escolar (Primaria),no indicada,CRICOS 016363G,https://www.elthamcollege.vic.edu.au/admissions/international-student-admission
 07,ELTHAM College,Secondary Years 7-12,secundaria,Educación Escolar,no indicada,CRICOS 016364G,https://www.elthamcollege.vic.edu.au/admissions/international-student-admission
 07,APAC,Bachelor of Screen and Stage (Acting),bachelor,Artes Escénicas,Two years full-time,CRICOS proveedor 03897G,https://www.apac.edu.au/courses/
 07,APAC,Bachelor of Screen and Stage (Screen Production),bachelor,Cine,Two years full-time,CRICOS proveedor 03897G,https://www.apac.edu.au/courses/
@@ -3329,8 +3328,6 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 07,APAC,Master of Creative Business Management (Digital Marketing),maestria,Marketing,no indicada,CRICOS proveedor 03897G,https://www.apac.edu.au/courses/
 07,APAC,Graduate Diploma in Creative Business Management,posgrado,Negocios,no indicada,CRICOS proveedor 03897G,https://www.apac.edu.au/courses/
 07,APAC,Graduate Certificate in Creative Business Management,posgrado,Negocios,no indicada,CRICOS proveedor 03897G,https://www.apac.edu.au/courses/
-07,Pickering College,Junior School (JK-Grade 5),secundaria,Educación Escolar (Primaria),no indicada,-,https://www.pickeringcollege.on.ca/academics/junior-school-jk-grade-5
-07,Pickering College,The Sphere Program (Grades 4 & 5),secundaria,Educación Escolar (Primaria),no indicada,-,https://www.pickeringcollege.on.ca/academics/sphere
 07,Pickering College,Middle School (Grades 6-8),secundaria,Educación Escolar,no indicada,-,https://www.pickeringcollege.on.ca/academics/middle-school-grades-6-8
 07,Pickering College,Senior School (Grades 9-12),secundaria,Educación Escolar,no indicada,-,https://www.pickeringcollege.on.ca/academics/senior-school-grades-9-12
 07,Pickering College,ESL Boarding Academy (Grades 9 & 10),secundaria,Idiomas,Full academic year,-,https://www.pickeringcollege.on.ca/academics/esl-boarding-academy
@@ -3829,10 +3826,8 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 08,Quality College of Australia,Certificate IV in Kitchen Management,curso_corto,Hospitalidad,no indicada,SIT40521,https://www.qca.edu.au/international-student-courses/
 08,Quality College of Australia,Diploma of Hospitality Management,diplomado,Hospitalidad,no indicada,SIT50422,https://www.qca.edu.au/international-student-courses/
 08,Quality College of Australia,Advanced Diploma of Hospitality Management,diplomado,Hospitalidad,no indicada,SIT60322,https://www.qca.edu.au/international-student-courses/
-08,Ermitage International School Paris,IB Primary Years Programme (IB PYP),secundaria,Educación General,6 años (Years 1-6 · 5 a 11 años),-,https://www.ermitage.fr/ib-programs
 08,Ermitage International School Paris,IB Middle Years Programme (IB MYP),secundaria,Educación General,5 años (Years 1-5 · 11 a 16 años),-,https://www.ermitage.fr/ib-programs
 08,Ermitage International School Paris,IB Diploma Programme (IB DP),secundaria,Educación General,2 años (16 a 18 años),-,https://www.ermitage.fr/ib-programs
-08,Ermitage International School Paris,French Bilingual School - Pre-K & Primary (Maternelle to Primary),secundaria,Educación General,desde los 3 años,-,https://www.ermitage.fr/french-bilingual-programs
 08,Ermitage International School Paris,French Bilingual School - College (6eme-4eme),secundaria,Educación General,3 años,-,https://www.ermitage.fr/french-bilingual-programs
 08,Ermitage International School Paris,French Bilingual School - Lycee (3eme-Terminale),secundaria,Educación General,4 años,-,https://www.ermitage.fr/french-bilingual-programs
 08,UBIS,Bachelor of Business Administration (BBA),bachelor,Negocios,3 años (acelerado en 2 años máximo),-,https://ubisglobal.com/programs/bachelor-of-business-administration/
@@ -3860,8 +3855,6 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,Adelaide University,Bachelor of Psychological Science and Sociology (100% online),bachelor,Psicología y Trabajo Social,no indicada,-,https://adelaide.edu.au/study/study-areas/arts-humanities-social-sciences/
 09,Adelaide University,Bachelor of Psychology (100% online),bachelor,Psicología y Trabajo Social,no indicada,-,https://adelaide.edu.au/study/study-areas/arts-humanities-social-sciences/
 09,Adelaide University,Bachelor of Criminology and Criminal Justice (100% online),bachelor,Derecho,no indicada,-,https://adelaide.edu.au/study/study-areas/law-and-justice/
-09,"University of the West of England, Bristol",Academic and Professional Journeys (Professional/Short course),curso_corto,Desarrollo Profesional,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Accelerating Learning for Professionals (Professional/Short course),curso_corto,Desarrollo Profesional,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Accounting and Business Management (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Accounting and Business Management (with Foundation year) (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Accounting and Finance (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -3869,49 +3862,21 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Accounting and Finance (Condensed Learning) (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Accounting and Finance (Top Up) (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Accounting and Finance (with Foundation Year) (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Acute Medical Assessment: Theory and Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Administering Intravenous Injections (Study Day - College of Radiographers Certificate of Competence),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Advanced AI, Computer Vision and Cyber Security (Professional/Short course)",curso_corto,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Advanced Leaders Programme (ILM level 5) (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Advanced Practice (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Advanced Practice with Adults at Risk (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Advanced Wind Energy (Professional/Short course),curso_corto,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Advancing Practice in Clinical Examination and Diagnostic Reasoning for Urgent, Emergency and Primary Care Practitioners (Professional/Short course)",curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Advancing Practice in Long Term Conditions (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Aerospace Engineering (MEng),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Aerospace Engineering (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Aerospace Engineering (with Foundation Year) (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Aerospace Engineering with Pilot Studies (MEng),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Aerospace Engineering with Pilot Studies (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Aerospace Engineering with Pilot Studies (with Foundation Year) (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Affect, Emotion and Society (Professional/Short course)",curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","AI and Computer Vision, Application in Healthcare (Professional/Short course)",curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Action Planning (Professional course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Action Planning (Distance Learning) (Professional course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Assessment (Professional course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Assessment (Distance Learning) (Professional course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Management (Professional course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Management (Distance Learning) (Professional course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Modelling (Professional course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Modelling (Distance Learning) (Professional course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Monitoring (Professional course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Air Quality Monitoring (Distance Learning) (Professional course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Anatomy and Pathology in Cross-Sectional Imaging (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Animation (BA(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Animation (MA),maestria,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Animation (with Foundation Year) (BA(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",APM Project Fundamentals - online delivery (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Appendicular Skeleton (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Applied Criminal Justice (Top-Up) (BSc(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Applied Research Skills (Professional/Short course),curso_corto,Investigación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Applied Science Communication: Online and Media Writing (Professional/Short course),curso_corto,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Applied Sciences (Masters in Research (MRes)),maestria,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Applied Strength and Conditioning (MSc),maestria,Turismo y Deportes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Applied Transfusion and Transplantation Science (MSc),maestria,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Applied Transfusion Science (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Applied Transplantation Science (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Applied Wildlife Conservation (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Agricultura y Veterinaria,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",ARC: Breaking Bad News (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Architectural Technology and Design (BSc(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Architectural Technology and Design (with Foundation Year) (BSc(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Architecture (MArch),maestria,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -3923,32 +3888,19 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Architecture and Planning (with Foundation Year) (BA(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Artificial Intelligence (MSc),maestria,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Artificial Intelligence (online) (MSc),maestria,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Artificial Intelligence and Digital Technologies for Manufacturing and Engineering Skills Bootcamp (Skills Bootcamp),bootcamp,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Assessment and Management of Respiratory Disorders (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Assessment and Management of Sleep Breathing Disorders (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Assistive Robotics (Professional/Short course),curso_corto,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Asthma Care and Management (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Audio and Music Technology (BSc(Hons)),bachelor,Música,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Automotive Engineering (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Automotive Engineering (with Foundation Year) (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Axial Skeleton (South West Emergency X-Ray Interpretation (SEXI) - Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Banking and Finance (BSc(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Banking and Finance (Top Up) (BSc(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Banking and Finance (with Foundation Year) (BSc(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Bar Training Course (LLM/PGDip),posgrado,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Becoming a Non-Executive Director (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Best Interest Assessment (Professional/Short course),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",BIM in Construction Operation (Professional course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",BIM in Design Co-ordination (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",BIM in Operation and Maintenance (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Biological Sciences (BSc(Hons)),bachelor,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Biological Sciences (with Foundation Year) (BSc(Hons)),bachelor,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Biomedical Science (BSc(Hons)),bachelor,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Biomedical Science (MSc/Postgraduate Diploma),posgrado,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Biomedical Science (with Foundation Year) (BSc(Hons)),bachelor,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Biomedical Sciences (Doctor of),doctorado,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Brachytherapy Principles and Clinical Applications (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Broadcast to Branded Skills Bootcamp (Skills Bootcamp),bootcamp,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Building Information Modelling (BIM) in Design Construction and Operations (MSc),maestria,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Building Services Engineering (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Building Surveying (MSc),maestria,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -3978,54 +3930,22 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Business Management with Accounting and Finance (Top Up) (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Business Management with Marketing (Top Up) (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Cancer Care (PGCert),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Cardiac Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Care of the Acutely Ill Adult (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Care of the Adult with Diabetes (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Care of the Child/Young Person with Cancer (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Career Development (Postgraduate Diploma/Postgraduate Certificate),posgrado,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Cellular Pathology and Oncology (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Certificate for Coaching Supervisors (ILM Level 7) (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Certificate for Executive and Senior Level Coaches and Mentors (ILM level 7) (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Certificate in Effective Coaching and Mentoring (ILM level 5) (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Changing Travel Behaviour (Professional course),curso_corto,Transporte y Planificación Urbana,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Chest X-ray Image Interpretation (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Children and Young People's Emergency Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Chronic and Acute Care Management of Chronic Obstructive Pulmonary Disease (COPD) (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Civil Engineering (MSc),maestria,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Civil Engineering (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Civil Engineering (MEng),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Civil Engineering (with Foundation Year) (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Clinical Applications of Medical Physics (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Clinical Biochemistry (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Clinical Echocardiography (PGCert),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Clinical Leadership and Professional Development in Cancer Care (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Clinical Practice (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Collage Book College (Study day/Workshop),curso_corto,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Communication Skills and Delivering Unexpected News (Study day),curso_corto,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Communication Skills in Supportive, Palliative and End of Life Care (Professional/Short course)",curso_corto,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Compassionate Mindful Resilience (CMR) (Study day),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Complexities of Caring for Older People (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Complexities of Supportive, Palliative and End of Life Care (Professional/Short course)",curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Computed Tomography Technology (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Computer Science (BSc(Hons)),bachelor,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Computer Science (with Foundation Year) (BSc(Hons)),bachelor,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Conservation Business and Finance (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Conservation Communication and Marketing (Professional/Short course),curso_corto,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Conservation Impact (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Conservation Leadership (MSc),maestria,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Conservation Project Management (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Construction Project Management (MSc),maestria,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Construction Project Management (BSc(Hons)),bachelor,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Construction Project Management Practice (Professional course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Contemporary Advances in Ultrasound Technology (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Contemporary Leadership in Rehabilitation (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Counselling and Psychotherapy (MA),maestria,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Counselling Psychology (Doctor of),doctorado,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Counselling Skills (Certificate),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Creating Sustainable Behaviour Change (Professional course),curso_corto,Nutrición y Alimentos,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Creative and Professional Writing (BA(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Creative Music Technology (BSc(Hons)),bachelor,Música,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Creative Science Communication and Public Engagement (Professional/Short course),curso_corto,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Criminology (BA(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Criminology (with Foundation Year) (BA(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Criminology and Sociology (BA(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4033,16 +3953,10 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Criminology with Psychology (BSc(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Criminology with Psychology (with Foundation Year) (BSc(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Critical Care (PGCert),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Critical Care in Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Cross-sectional Anatomy for the Nuclear Medicine Practitioner (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",CT Lab: Critical Thinking from Theory to Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Culture for All: Visitor Experience Skills Bootcamp (Skills Bootcamp),bootcamp,Turismo y Deportes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol","Culture, Media and Creative Industries (BA(Hons))",bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Current Applications in Hybrid Imaging Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Cyber Security (MSc),maestria,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Cyber Security and Digital Forensics (BSc(Hons)),bachelor,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Cyber Security and Digital Forensics (with Foundation Year) (BSc(Hons)),bachelor,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Data and Information Governance (Professional course),curso_corto,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Data Science (MSc),maestria,Matemáticas y Datos,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Data Science (BSc(Hons)),bachelor,Matemáticas y Datos,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Data Science (online) (MSc),maestria,Matemáticas y Datos,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4052,20 +3966,14 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Design Communication: Illustration (MA),maestria,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Designer/Maker (MA),maestria,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Diagnostic Radiography (BSc(Hons)),bachelor,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Digital Built Environment: Fabrication and Manufacturing Skills Bootcamp (Skills Bootcamp),bootcamp,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Digital Coaching Masterclass (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Digital Marketing (MSc),maestria,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Digital Media (BSc(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Digital Media (with Foundation Year) (BSc(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Disease, Diagnosis and Monitoring (Professional/Short course)",curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Dissertation (Professional/Short course),curso_corto,Investigación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Dissertation in Psychology (Professional/Short course),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Doctor of Business Administration (DBA),doctorado,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol","Drama, Acting and Performance (BA(Hons))",bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Early Childhood (BA(Hons)),bachelor,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Early Childhood (with Foundation Year) (BA(Hons)),bachelor,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Early Years Education (Top up) (BA(Hons)),bachelor,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",ECG Reporting and Stress Leaders (Study day),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Echocardiography in Congenital Heart Disease (PGCert),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Economics (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Economics (with Foundation Year) (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4076,32 +3984,17 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Education (with Foundation Year) (BA(Hons)),bachelor,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Education in Professional Practice (Top Up) (BA(Hons)),bachelor,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Education Leadership (online) (MA),maestria,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Education Leadership, Management and Change (Professional/Short course)",curso_corto,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Electrical and Electronic Engineering (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Electrical and Electronic Engineering (MSc),maestria,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Electrical and Electronic Engineering (with Foundation Year) (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Engineering Management (MSc),maestria,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",English Language and Linguistics (BA(Hons)),bachelor,Humanidades y Ciencias Sociales,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",English Literature (BA(Hons)),bachelor,Humanidades y Ciencias Sociales,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Enhancing Nuclear Medicine Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Enhancing Practice in Burn Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Enhancing Practice in Palliative Care for Children, Young People and Families (Professional/Short course)",curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Enterprise and Innovation (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Environment and Sustainability (BSc(Hons)),bachelor,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Environmental and Ecological Consultancy (Professional/Short course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Environmental Health (MSc/Postgraduate Diploma),posgrado,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Environmental Health Risk and Law (Professional/Short course),curso_corto,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Environmental Management and Consultancy (MSc),maestria,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Environmental Protection (PPP) (Professional/Short course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Environmental Protection and Sustainability (Professional/Short course),curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Environmental Science (BSc(Hons)),bachelor,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Environmental Science (with Foundation Year) (BSc(Hons)),bachelor,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Epidemiology of Non-Communicable Disease (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Essentials of Renal Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Evidence and Research in Practice (Professional/Short course),curso_corto,Investigación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Evidencing Work Based Learning (EWBL) (Professional/Short course),curso_corto,Desarrollo Profesional,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Evidencing Work-Based Learning (Professional/Short course),curso_corto,Desarrollo Profesional,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Examination of the Newborn (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Facade Engineering (MSc),maestria,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Fashion Communication (BA(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Fashion Communication (with Foundation Year) (BA(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4111,7 +4004,6 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Filmmaking (MA),maestria,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Filmmaking (BA(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Finance and Investment (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Finance for Non-Financial Managers - online delivery (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Financial Technology (FinTech) (MSc),maestria,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Fine Art (MA),maestria,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Fine Art (BA(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4119,56 +4011,28 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Fine Art: Curating (MA),maestria,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Fine Art: Photography (MA),maestria,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Fine Art: Printmaking (MA),maestria,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Food Control (Professional/Short course),curso_corto,Nutrición y Alimentos,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Forensic Science (BSc(Hons)),bachelor,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Forensic Science (MSc),maestria,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Forensic Science (with Foundation Year) (BSc(Hons)),bachelor,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Foundation Programme for Professions in Health and Social Care (Foundation Programme),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Foundations of Engineering Science (Professional/Short course),curso_corto,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Fundamental Applications of Computed Tomography (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Fundamental Applications of Magnetic Resonance Imaging (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Fundamental Clinical Skills in Nuclear Medicine Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Fundamentals of Cancer Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Fundamentals of Ophthalmic Nursing (Professional/Short course),curso_corto,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Fundamentals of Ultrasound Technology (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Games Technology (BSc(Hons)),bachelor,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Games Technology (with Foundation Year) (BSc(Hons)),bachelor,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",General Medical Ultrasound in Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Geography (BA(Hons)),bachelor,Humanidades y Ciencias Sociales,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Geography (BSc(Hons)),bachelor,Humanidades y Ciencias Sociales,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Global Business and Finance Law (LLM),maestria,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Graphic Design (BA(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Graphic Design (with Foundation Year) (BA(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Gynaecological Ultrasound (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Haematology and Transfusion Science (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Health and Care Research (MRes),maestria,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Health and Safety Management (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Health and Social Care (BSc(Hons)),bachelor,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Health and Social Care Research: Methods and Methodology (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Health Impact Assessments (Professional/Short Course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Health Promotion (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Health Protection (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Health Psychology (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Health Psychology (Doctor of),doctorado,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Health Technology (MSc),maestria,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Healthcare Management and Leadership (online) (MSc),maestria,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Healthy Cities (Professional/Short Course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",History (BA(Hons)),bachelor,Humanidades y Ciencias Sociales,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Housing and Healthy Neighbourhoods (Professional/Short course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Human Anatomy and Physiology (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Human Resource Management (online) (MSc),maestria,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Hydrogen Fuel Cell Systems (Professional/Short Course),curso_corto,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Illustration (BA(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Illustration (with Foundation Year) (BA(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Immunology (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Independent and/or Supplementary Prescribing (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Infection and Disease (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Information and Digital Literacy (Professional course),curso_corto,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Information Technology (BSc(Hons)),bachelor,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Information Technology (MSc),maestria,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Injection Therapy (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Innovative Technology in Healthcare (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Integrated Practice for Sexual and Reproductive Health (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Integrated Wildlife Conservation (FdSc),diplomado,Agricultura y Veterinaria,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Integrated Wildlife Conservation (Top Up) (BSc(Hons)),bachelor,Agricultura y Veterinaria,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Interior Design (BA(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4181,17 +4045,6 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",International Commercial Law (online) (LLM),maestria,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",International Early Years (iPGCE),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",International Law and Security (LLM),maestria,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Intra Orbital Foreign Body (IOFB) Reporting for Radiographers (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Introduction to Clinical Echocardiography (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Introduction to Coaching and Mentoring: A Collaborative Workshop (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Introduction to Environmental and Public Health (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Introduction to Global Public Health (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Introduction to Neurodiversity Awareness in the Workplace (Continuing Professional Development),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Introduction to Race, Social Justice and Sustainability (Professional/Short course)",curso_corto,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Introduction to Radiation Physics and Safety (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Introduction to Sleep Medicine (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Introduction to Urban Greening (Professional/Short Course),curso_corto,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",iQTS - International Qualified Teacher Status (Professional course),curso_corto,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",iQTS Primary (5-11) (PGCE),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",iQTS Secondary Art and Design (11-16) (PGCE),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",iQTS Secondary Biology (11-16) (PGCE),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4207,38 +4060,16 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",iQTS Secondary Physics (11-16) (PGCE),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Journalism (MA),maestria,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Journalism: Audio and Podcasting (MA),maestria,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Knowledge Management (Professional course),curso_corto,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Knowledge Mobilisation (Professional/Short course),curso_corto,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Knowledge Organisation (Professional/Short Course),curso_corto,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Law (LLB(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Law (with Foundation Year) (LLB(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Law and Criminology (BA(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Law and Criminology (with Foundation Year) (BA(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Leadership and Innovation (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Leadership and Resilience for Creative and Cultural Work Skills Bootcamp (Skills Bootcamp),bootcamp,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Leadership for Public Health (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Leading Change - face-to-face delivery (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Life Science for Clinical Engineering (Professional/Short course),curso_corto,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",LivDem Post Diagnostic Facilitator Training (Study day),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Long Term Conditions (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Low/Zero-Impact Buildings (Professional course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Magnetic Resonance Imaging Technology (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Management of Clinical Services (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Managerial Finance for the Built Environment (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Managerial Finance for the Built Environment (Distance Learning) (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Managing Fatigue in Long Term Health Conditions (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Managing Maternal Critical Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Managing Practice Learning for Social Work Students (Study day),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Managing Projects Successfully (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Managing Projects Successfully Skills Bootcamp (Skills Bootcamp),bootcamp,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Marketing (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Marketing (with Foundation Year) (BA(Hons)),bachelor,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Marketing and Marketing Communications (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Marketing Management (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Master of Business Administration (Executive) MBA (MBA),mba,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Master of Business Administration (MBA) (Full-time) (MBA),mba,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Mastering Emergency Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Masters Dissertation (Distance Learning) (Professional/Short course),curso_corto,Investigación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Mathematics (BSc(Hons)),bachelor,Matemáticas y Datos,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Mechanical Engineering (MEng),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Mechanical Engineering (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4247,51 +4078,20 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Mechatronics Engineering (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Mechatronics Engineering (with Foundation Year) (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Media Production (BA(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Medical Genetics (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Medical Microbiology (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Medical Ultrasound (MSc),maestria,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Medication Management in Mental Health Practice (Professional/Short course),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Mental Health and Well-Being of Children and Young People (Professional/Short course),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Midwifery (BSc(Hons)),bachelor,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Mindful Eating (Study day),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Mindfulness-Based Stress Reduction (Study day),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Minor Illness and Minor Injury in Children (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Motivational Interviewing (Study day),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",MRI for Radiographic Assistants (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Musculo-skeletal Rehabilitation (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Music Therapy (MA),maestria,Música,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Negotiated Specialist Ultrasound Practice (1) (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Negotiated Specialist Ultrasound Practice (2) (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Negotiated Specialist Ultrasound Practice (3) (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Negotiated Specialist Ultrasound Practice (4) (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Negotiated Specialist Ultrasound Practice (5) (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Negotiated Specialist Ultrasound Practice (6) (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Neonatal Critical Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Neurorehabilitation (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",New Leaders Programme (ILM level 3) (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Non-Accidental Injury (Study Day - Suspected Physical Abuse),curso_corto,Medicina,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Nuclear Medicine (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Nuclear Medicine - the Requisites for Assistant Practitioners (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Nursing (Adult) (BSc(Hons)),bachelor,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Nursing (Children and Young People) (BSc(Hons)),bachelor,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Nursing (Learning Disabilities) (BSc(Hons)),bachelor,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Nursing (Mental Health) (BSc(Hons)),bachelor,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Obstetric Ultrasound in Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Occupational Therapy (BSc(Hons)),bachelor,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",On treatment review: radiotherapy (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Optometry (MSci),maestria,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Organisational Cultures in Education Leadership (Professional/Short course),curso_corto,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Organoleptic Judge Course (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Orthopaedics: Trauma and Surgery (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Paediatric Skeleton (Study Day - Southwest Emergency X-ray Interpretation),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Paramedic Science (BSc(Hons)),bachelor,Medicina,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Pathophysiology and Diagnostic Reasoning in Clinical Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Personal Leadership (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",PET-CT (PGCert),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Philosophy (BA(Hons)),bachelor,Humanidades y Ciencias Sociales,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Photography (BA(Hons)),bachelor,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Physical Assessment and Clinical Reasoning for Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Physical Assessment and Clinical Reasoning of the Presenting Child (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Physician Associate Studies (MSc),maestria,Medicina,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Physiotherapy (BSc(Hons)),bachelor,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Planning and Urban Leadership (Distance Learning) (MSc),maestria,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4306,89 +4106,37 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Postgraduate Research: School of Engineering (PhD),doctorado,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Postgraduate Research: School of Health and Social Wellbeing (PhD),doctorado,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Postgraduate Research: School of Social Sciences (PhD),doctorado,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Practice Assessor (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Practice Learning and Student Support (Professional/Short course),curso_corto,Desarrollo Profesional,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Pre-Hospital Trauma Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Pre-Sessional English Programme (Professional course),curso_corto,Idiomas,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Preoperative Assessment in Clinical Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Preparation for Health and Care Research (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Preparation of Professional Nurse and Midwifery Advocates (Professional/Short course),curso_corto,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",PREPUWE: Academic English (Professional/Short course),curso_corto,Idiomas,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Primary (5-11) (PGCE with QTS),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Primary Early Years (3-7) (PGCE with QTS),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Primary Education (QTS) (BA(Hons)),bachelor,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Prince2 Agile Foundation for Project Management - online delivery (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Prince2 Agile Practitioner for Project Management - online delivery (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Prince2 Foundation for Project Management - online delivery (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Prince2 Practitioner for Project Management - online delivery (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Principles of Critical Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Principles of Dementia Care (Professional/Short course),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Principles of Neurosciences (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Product Design (BA(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Product Design Technology (BSc(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Professional Development (MA/MSc/PGDip/PGCert),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Professional Development (BA(Hons)/BSc(Hons)/FdA/FdSc/GradDip/Dip/CertHE/GradCert/Cert),posgrado,Desarrollo Profesional,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Professional Development (Social Work) (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Professional Experience Development Record Supervision (Professional/Short course),curso_corto,Desarrollo Profesional,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Professional Issues in Ultrasound (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Professional Policing (BSc(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Professional Practice and Management in Architecture (Postgraduate Certificate),posgrado,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Professional Practice for Respiratory Science (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Professional Practice in Self Leadership (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Professional Skills Course (Professional course),curso_corto,Desarrollo Profesional,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Project Management (MSc),maestria,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Project Management (online) (MSc),maestria,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Promoting Sexual Health in Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Promoting the Health of School-Aged Children in the Community (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Psychology (BSc(Hons)),bachelor,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Psychology (Conversion) (MSc),maestria,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Psychology with Criminology (BSc(Hons)),bachelor,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Public Health (MSc/Postgraduate Diploma/Postgraduate Certificate),posgrado,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Public Health Policy, Politics and Economics (Professional/Short course)",curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Qualitative Health and Care Research (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Quantitative Health and Care Research (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Quantitative Health Research (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Quantity Surveying and Commercial Management (BSc(Hons)),bachelor,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Radiotherapy and Oncology (BSc(Hons)),bachelor,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Real Estate and Development (BSc(Hons)),bachelor,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Real Estate Economics and Valuations (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Real Estate Economics and Valuations (Distance Learning) (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Real Estate Finance and Investment (MSc),maestria,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Real Estate Finance and Investment (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Real Estate Finance and Investment (Distance Learning) (MSc),maestria,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Real Estate Investment and Development (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Real Estate Investment and Development (Distance Learning) (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Real Estate Law (Professional/Short Course),curso_corto,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Real Estate Law (Distance Learning) (Professional/Short Course),curso_corto,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Real Estate Management (MSc),maestria,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Real Estate Management (Distance Learning) (MSc),maestria,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Realising Your Talent Potential: A Guide to Navigating the World of Talent Management (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Rehabilitation (MSc),maestria,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Rehabilitation (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Remote Clinical Decision Making (Hear and Treat) (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Renal Failure and Haemodialysis Access (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Reporting Skills in Nuclear Medicine (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Research Design and Methodologies (Professional/Short Course),curso_corto,Investigación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Research Dissertation Project (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Research in Context (Professional/Short Course),curso_corto,Investigación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Research Methodology and Statistics (Professional/Short course),curso_corto,Matemáticas y Datos,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Research Methods (Professional/Short course),curso_corto,Investigación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Research Project (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Researching Beneath the Surface (Professional/Short course),curso_corto,Investigación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Researching Education (Professional/Short course),curso_corto,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Respiratory Science (GradDip),posgrado,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Return to Midwifery Practice (Professional/Short course),curso_corto,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Return to Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Risk Management (online) (MSc),maestria,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Risk Management and Insurance (MSc),maestria,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Robotics (MSc),maestria,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Robotics (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Robotics (with Foundation Year) (BEng(Hons)),bachelor,Ingeniería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Scaling Green Business: SME Growth Skills Bootcamp (Skills Bootcamp),bootcamp,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Science and Instrumentation in Current Nuclear Medicine Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Science Communication (MSc/Postgraduate Diploma),posgrado,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Science Communication Building Blocks (Professional/Short course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Science Communication: Masterclass (Professional/Short course),curso_corto,Comunicación y Artes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Secondary Art and Design (PGCE with QTS),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Secondary Biology with Science (PGCE with QTS),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Secondary Business (PGCE with QTS),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4401,10 +4149,7 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Secondary Modern Languages (PGCE with QTS),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Secondary Physical Education (PGCE with QTS),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Secondary Physics with Science (PGCE with QTS),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Skills Bootcamp in Embedding Organisational Sustainability (Skills Bootcamp),bootcamp,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Sleep Disorders (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Sleep Medicine (PGCert),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Smart Sensing (Professional/Short course),curso_corto,Tecnología,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Social Research (Masters in Research (MRes)),maestria,Humanidades y Ciencias Sociales,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Social Work (BSc(Hons)),bachelor,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Sociology (BA(Hons)),bachelor,Humanidades y Ciencias Sociales,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
@@ -4416,62 +4161,20 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 09,"University of the West of England, Bristol",Solicitors Training Course (SQE Prep) (PGDip),posgrado,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Solicitors Training Course (SQE Prep) (LLM),maestria,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Specialist Community Public Health Nursing (MSc),maestria,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Specialist Health Protection Training Course (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Specialist Practice (District Nursing) (MSc),maestria,Enfermería,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Sport and Exercise Psychology (MSc),maestria,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Sport Rehabilitation (BSc(Hons)),bachelor,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Sports Business and Entrepreneurship (BA(Hons)),bachelor,Turismo y Deportes,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Strategic Digital Marketing Skills Bootcamp (Skills Bootcamp),bootcamp,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Strategic Estate Management (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Strategic Estate Management (Distance Learning) (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Strategic Leaders Programme (ILM level 7) (Continuing Professional Development),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Street Network Planning and Design (Professional course),curso_corto,Transporte y Planificación Urbana,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Stroke Care (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Studies in the Biology of Disease (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Subfertility (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Supervision Training for Music Therapists (Professional/Short course),curso_corto,Música,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Supporting and Managing Those at Risk of Suicide (Professional/Short course),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Supporting Students in Practice (Professional/Short course),curso_corto,Desarrollo Profesional,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Sustainability and Environmental Management (online) (MSc),maestria,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Sustainability in the Built Environment (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Sustainability in the Built Environment (Distance Learning) (Professional/Short Course),curso_corto,Construcción e Inmobiliario,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Sustainable Development in Practice (MSc),maestria,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Sustainable Food Systems (MSc),maestria,Nutrición y Alimentos,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Sustainable Technology (MSc),maestria,Ciencias y Medio Ambiente,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Sustainable Transport Management and Operations (Professional course),curso_corto,Transporte y Planificación Urbana,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Synoptic Module (without V100) (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Systematic Review (Professional/Short course),curso_corto,Investigación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Teaching and Training Fundamentals (Professional/Short course),curso_corto,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Techniques to Prevent or Reduce Work Related Musculoskeletal Disorders (WRMSD) (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",The Diabetic Foot (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",The Management of Head and Neck Cancer (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",The Manager as Coach and Mentor (Professional/Short course),curso_corto,Negocios,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Therapeutic Songwriting (Professional/Short course),curso_corto,Música,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Transport Economics and Appraisal (Professional course),curso_corto,Transporte y Planificación Urbana,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Transport Infrastructure Design (Professional course),curso_corto,Transporte y Planificación Urbana,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Transport Modelling and Scenario Planning (Professional course),curso_corto,Transporte y Planificación Urbana,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Transport Planning and Placemaking (Professional course),curso_corto,Transporte y Planificación Urbana,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Transport Policy and Finance (Professional course),curso_corto,Transporte y Planificación Urbana,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Tutoring (PGCE),posgrado,Educación,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Ultrasound Assessment of Lower Limb Deep Vein Thrombosis (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Ultrasound Assessment of the Carotid Arteries (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Ultrasound Examination of Lumps and Bumps and the Groin (MSK) (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Ultrasound Examination of the Lower Limb (MSK) (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Ultrasound Examination of the Upper Limb (MSK) (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Ultrasound Guided Intrauterine Brachytherapy (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Ultrasound Imaging in Cardiac Disease (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Ultrasound-guided Paracentesis (Study day),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Understanding and Preventing Childhood Obesity (Study day),curso_corto,Nutrición y Alimentos,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Urban Greening for a Biodiverse West of England Skills Bootcamp (Skills Bootcamp),bootcamp,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol","Urban Greening: Planning, Design and Delivery (Professional/ShortCourse)",curso_corto,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Urban Planning (MSc),maestria,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Urban Planning (BSc(Hons)),bachelor,Arquitectura y Diseño,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",V100 Prescribing Practice (Professional/Short course),curso_corto,Salud,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Wildlife Ecology and Conservation Science (BSc(Hons)),bachelor,Agricultura y Veterinaria,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Wildlife Ecology and Conservation Science (with Foundation Year) (BSc(Hons)),bachelor,Agricultura y Veterinaria,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,"University of the West of England, Bristol",Wildlife Filmmaking (MA),maestria,Agricultura y Veterinaria,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Work Based Health and Wellbeing (Professional/Short course),curso_corto,Derecho,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
-09,"University of the West of England, Bristol",Working with a Person Experiencing Mental Health Crisis (Professional/Short course),curso_corto,Psicología y Trabajo Social,no indicada,-,https://courses.uwe.ac.uk/Search?words&view=list
 09,National Institute of Technology,ACS Professional Year Program (ICT),curso_corto,Tecnología,52 semanas,ACSPY,https://www.nitaustralia.edu.au/acs-professional-year-program-ict-perth-darwin-melbourne/
 09,National Institute of Technology,EA Professional Year Program (Engineering),curso_corto,Ingeniería,52 semanas,EAPY,https://www.nitaustralia.edu.au/engineering-professional-year-perth-darwin-melbourne/
 09,National Institute of Technology,Certificate III in Telecommunications Technology,curso_corto,Tecnología,52 semanas,ICT30524 · CRICOS 113299C,https://www.nitaustralia.edu.au/ict30524-certificate-iii-in-telecommunications-technology/

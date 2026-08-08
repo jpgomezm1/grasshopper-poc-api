@@ -1,0 +1,503 @@
+# Lote 27 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- The University of Alabama at Birmingham (www.uab.edu) ---
+The University of Alabama at Birmingham | Accounting, BS | bachelor | Negocios | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | African American Studies, BA | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Anthropology, BA | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Art, BA | bachelor | Artes | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Art, BFA | bachelor | Artes | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Bioinformatics, BS | bachelor | Tecnología | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Biology, BS | bachelor | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Biomedical Engineering, BSBME | bachelor | Ingeniería | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Biomedical Sciences, BS | bachelor | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Cancer Biology, BS | bachelor | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Chemistry, BS | bachelor | Ciencias | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Civil Engineering, BSCE | bachelor | Ingeniería | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Communication Studies, BA | bachelor | Comunicación | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Community Health and Human Services, BS | bachelor | Salud Pública | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Computer Science, BA | bachelor | Tecnología | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Computer Science, BS | bachelor | Tecnología | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Criminal Justice, BS | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Digital Forensics, BS | bachelor | Tecnología | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Disability Studies and Rehabilitation Science, BS | bachelor | Salud | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Distribution, BS | bachelor | Negocios | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Early Childhood Education, BS | bachelor | Educación | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Economics, BS | bachelor | Negocios | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Electrical and Computer Engineering, BSECE | bachelor | Ingeniería | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Elementary Education, BS | bachelor | Educación | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Engineering Design, BSE | bachelor | Ingeniería | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | English, BA | bachelor | Humanidades | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Entrepreneurship, BS | bachelor | Negocios | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Finance, BS | bachelor | Negocios | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | General Studies, BGS | bachelor | Humanidades | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Genetics and Genomic Sciences, BS | bachelor | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Health Care Management, BS | bachelor | Salud | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | History, BA | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Human Resource Management, BS | bachelor | Negocios | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Human Rights, BA | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Immunology, BS | bachelor | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Information Systems, BS | bachelor | Tecnología | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | International Studies, BA | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Kinesiology, BS | bachelor | Salud | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Management, BS | bachelor | Negocios | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Marketing, BS | bachelor | Negocios | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Materials Engineering, BSMtE | bachelor | Ingeniería | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Mathematics, BS | bachelor | Matemáticas | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Mechanical Engineering, BSME | bachelor | Ingeniería | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Medical Laboratory Science, BS | bachelor | Medicina | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Medical Sociology, BS | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Music, BA | bachelor | Artes | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Musical Theatre, BFA | bachelor | Artes | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Neuroscience, BS | bachelor | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Nursing, BSN | bachelor | Enfermería | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Nutrition Sciences, BS | bachelor | Nutrición | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Philosophy, BA | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Physics, BS | bachelor | Ciencias | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Political Science, BA | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Psychology, BS | bachelor | Psicología | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Public Health, BS | bachelor | Salud Pública | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Secondary Education, BS | bachelor | Educación | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Social Work, BSSW | bachelor | Trabajo Social | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Sociology, BA | bachelor | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Theatre, BA | bachelor | Artes | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | World Languages and Literatures, BA | bachelor | Idiomas | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Writing and Media, BA | bachelor | Humanidades | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | eSports Performance Management and Coaching, BS | bachelor | Deportes | no indicada | - | https://www.uab.edu/degrees/undergraduate
+The University of Alabama at Birmingham | Accounting, Undergraduate Certificate | curso_corto | Negocios | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Data-Driven Modeling, Undergraduate Certificate | curso_corto | Tecnología | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Dental Assisting, Undergraduate Certificate | curso_corto | Odontología | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Health Coaching, Undergraduate Certificate | curso_corto | Salud | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Information Systems, Undergraduate Certificate | curso_corto | Tecnología | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Interprofessional Non-Profit Leadership, Undergraduate Certificate | curso_corto | Administración Pública | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | LGBTQ Health and Wellbeing, Undergraduate Certificate | curso_corto | Salud Pública | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Mental Health, Undergraduate Certificate | curso_corto | Psicología | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Nutrition and Dietetics, Undergraduate Certificate | curso_corto | Nutrición | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Organizational Communication, Undergraduate Certificate | curso_corto | Comunicación | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Organizational Leadership, Undergraduate Certificate | curso_corto | Negocios | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Professional Sales, Undergraduate Certificate | curso_corto | Negocios | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Public History, Undergraduate Certificate | curso_corto | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Real Estate, Undergraduate Certificate | curso_corto | Negocios | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Social Media, Undergraduate Certificate | curso_corto | Comunicación | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Social Science Research Methods, Undergraduate Certificate | curso_corto | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Academic Advising, Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Accounting, MAc | maestria | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Addictions Nursing, Post-Graduate Certificate | posgrado | Enfermería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Administration/Health Services, PhD | doctorado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Anatomical Science, MS | maestria | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Anthropology of Peace and Human Rights, MA | maestria | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Applications of Mixed Methods Research, Graduate Certificate | posgrado | Investigación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Applied Biostatistics and Epidemiology, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Applied Data Analytics and AI Engineering, Graduate Certificate | posgrado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Applied Developmental Psychology, PhD | doctorado | Psicología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Applied Mathematics, PhD | doctorado | Matemáticas | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Art History, MA | maestria | Artes | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Artificial Intelligence in Health Services, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Artificial Intelligence in Medicine, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Artificial Intelligence in Medicine, MS | maestria | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Artificial Intelligence in Nursing, Graduate Certificate | posgrado | Enfermería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Artificial Intelligence, MS | maestria | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Arts Education, MAEd | maestria | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Behavioral Neuroscience, PhD | doctorado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Behavioral Neuroscience, MS | maestria | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biochemistry & Structural Biology, PhD | doctorado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biology, MS | maestria | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biology, PhD | doctorado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biomedical Engineering, MSBME | maestria | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biomedical Engineering, PhD | doctorado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biomedical and Health Informatics, PhD | doctorado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biomedical and Health Sciences, MS | maestria | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biostatistics, MS | maestria | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biostatistics, PhD | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biotechnology Regulatory Affairs, Graduate Certificate | posgrado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biotechnology, MS | maestria | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Biotechnology, PhD | doctorado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Business Administration / Dentistry (Dual Degree), MBA / DMD | doctorado | Odontología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Business Administration / Engineering (Dual Degree), MBA / MEng | mba | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Business Administration / Health Administration (Dual Degree), MBA / MSHA | mba | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Business Administration / Medicine (Dual Degree), MBA / MD | doctorado | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Business Administration / Optometry (Dual Degree), MBA / OD | doctorado | Optometría | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Business Administration, MBA | mba | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Business Analytics with Information Technology, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Business Leadership and Professional Growth, Graduate Certificate | posgrado | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Business in the Health Sector, Graduate Certificate | posgrado | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Cancer Biology, PhD | doctorado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Cell, Molecular, and Developmental Biology, PhD | doctorado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Chemistry, MS | maestria | Ciencias | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Chemistry, PhD | doctorado | Ciencias | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Civil Engineering, MSCE | maestria | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Civil Engineering, PhD | doctorado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Climate and Health, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Clinical Exercise Physiology, Graduate Certificate | posgrado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Clinical Informatics, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Clinical Mental Health Counseling, Graduate Certificate | posgrado | Psicología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Clinical Research Management, Graduate Certificate | posgrado | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Clinical/Medical Social Work, MSW | maestria | Trabajo Social | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Coaching the Intercollegiate Scholar Athlete, Graduate Certificate | posgrado | Deportes | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Communication Management, MA | maestria | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Community Health Promotion, PhD | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Community Health, MAEd | maestria | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Computed Tomography, Graduate Certificate | posgrado | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Computer Engineering, PhD | doctorado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Computer Forensics, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Computer Science, MS | maestria | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Computer Science, PhD | doctorado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Construction Engineering Management, Graduate Certificate | posgrado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Construction Engineering Management, MEngCEM | maestria | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Counseling, MA | maestria | Psicología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Criminal Justice, MSCJ | maestria | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Cultural Heritage Studies, MA | maestria | Artes | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Cultural Resource Management for Archaeology, Graduate Certificate | posgrado | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Cyber Security Analytics, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Cyber Security, MS | maestria | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Cybersecurity Management, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Dentistry, DMD | doctorado | Odontología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Dentistry, DMD / PhD | doctorado | Odontología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Dentistry, MS | maestria | Odontología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Disability Health Studies, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Dissemination and Implementation Science in Health Care, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Early Childhood Education, MAEd | maestria | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Early Childhood Education, PhD | doctorado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Education, EdS | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Educational Leadership, EdS | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Educational Leadership, MAEd | maestria | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Educational Leadership, Post-Master's Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Educational Studies in Diverse Populations, PhD | doctorado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Electrical and Computer Engineering, MSECE | maestria | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Elementary Education, MAEd | maestria | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Engineering Management, MSEM | maestria | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Engineering, MEng | maestria | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | English as a Second Language, MAEd | maestria | Idiomas | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | English, MA | maestria | Humanidades | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Environmental Engineering, Graduate Certificate | posgrado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Environmental Health Sciences, PhD | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Epidemiology, PhD | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Ethical Dimensions of Artificial Intelligence, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Exercise Physiology, MS | maestria | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Financial Analytics for Decision Making, Graduate Certificate | posgrado | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Forensic Science, MSFS | maestria | Ciencias | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Foundations of Business Administration, Graduate Certificate | posgrado | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Genetic Counseling, MS | maestria | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Genetics, Genomics, and Bioinformatics, PhD | doctorado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Global Health Studies, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Global Health, MS | maestria | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Health Administration / Health Informatics (Dual Degree), MSHA / MSHI | maestria | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Health Administration, MSHA | maestria | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Health Behavior, PhD | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Health Coaching, Graduate Certificate | posgrado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Health Education, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Health Informatics, MSHI | maestria | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Health Physics, MS | maestria | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Health Promotion Across the Lifespan, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Healthcare Innovation, Graduate Certificate | posgrado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Healthcare Innovation, MS | maestria | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Healthcare Leadership, DSc | doctorado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Healthcare Leadership, Graduate Certificate | posgrado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Healthcare Quality and Safety, Graduate Certificate | posgrado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Healthcare Quality and Safety, MS | maestria | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Healthcare Simulation, Graduate Certificate | posgrado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Healthcare Simulation, MS | maestria | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Higher Education Administration, Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Higher Education Administration, MS | maestria | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Higher Education Intercollegiate Athletics Administration, MS | maestria | Deportes | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | History, MA | maestria | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Immunology, PhD | doctorado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Industry Genetics and Genomics, Graduate Certificate | posgrado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Information Technology Operations and Strategy, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Interdisciplinary Engineering, PhD | doctorado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Interdisciplinary Graduate Studies, MS and MA | maestria | Investigación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Interdisciplinary Teaching and Learning in Higher Education, Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Kinesiology, MS | maestria | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | LGBTQ Health and Wellbeing, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Leadership and Professional Development, Graduate Certificate | posgrado | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Learning Design and Learning Science, MS | maestria | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Learning Design and Learning Sciences, Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Low Vision Rehabilitation, Graduate Certificate | posgrado | Optometría | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Magnetic Resonance Imaging, Graduate Certificate | posgrado | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Management Information Systems, MS | maestria | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Marketing in the Digital Era, Graduate Certificate | posgrado | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Marriage, Couples, and Family Counseling, Graduate Certificate | posgrado | Psicología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Materials Engineering, MSMtE | maestria | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Materials Engineering, PhD | doctorado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Materials Science, PhD | doctorado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Maternal and Child Health Policy and Leadership, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Mathematics, MS | maestria | Matemáticas | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Mechanical Engineering, MSME | maestria | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Mechanical Engineering, PhD | doctorado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Medical Laboratory Science, MS | maestria | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Medical Signal Image Analysis, Graduate Certificate | posgrado | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Medical Sociology, PhD | doctorado | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Medical/Clinical Psychology, PhD | doctorado | Psicología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Medicine, MD | doctorado | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Mentoring and Reflective Professional Practice, Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Microbiology, PhD | doctorado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Multi-Tiered Approach to Trauma, Graduate Certificate | posgrado | Psicología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Multidisciplinary Biomedical Science, MS | maestria | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Neuroengineering, PhD | doctorado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Neuroscience, PhD | doctorado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nonprofit Management for Social Work Professionals, Graduate Certificate | posgrado | Trabajo Social | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nonprofit Management, Graduate Certificate | posgrado | Administración Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nuclear Medicine and Molecular Imaging Sciences, MS | maestria | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nurse Executive, Graduate Certificate | posgrado | Enfermería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nurse Leadership in Population Health, Graduate Certificate | posgrado | Enfermería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nursing / Business Administration (Dual Degree), MSN / MBA | mba | Enfermería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nursing, DNP | doctorado | Enfermería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nursing, MSN | maestria | Enfermería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nursing, PhD | doctorado | Enfermería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nutrition Sciences, MS | maestria | Nutrición | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nutrition Sciences, PhD | doctorado | Nutrición | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Nutrition for Community Health, Graduate Certificate | posgrado | Nutrición | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Occupational Health Nursing, Graduate Certificate | posgrado | Enfermería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Occupational Therapy, OTD | doctorado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Optometry / Vision Science (Dual Degree), OD / MS | doctorado | Optometría | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Optometry, OD | doctorado | Optometría | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Pathobiology, Pharmacology & Physiology, PhD | doctorado | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Physical Therapy, DPT | doctorado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Physician Associate Studies, MSPAS | maestria | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Physics, MS | maestria | Ciencias | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Physics, PhD | doctorado | Ciencias | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Primary Care Physical Therapy for Underserved Populations, Graduate Certificate | posgrado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Psychology, MA | maestria | Psicología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Administration / Criminal Justice (Coordinated Degree), MPA / MSCJ | maestria | Administración Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Administration / Juris Doctorate (Coordinated Degree), MPA / JD | doctorado | Administración Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Administration, MPA | maestria | Administración Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Business Administration (Coordinated Degree), MPH / MBA | mba | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Health Administration (Coordinated Degree), MPH / MSHA | maestria | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Juris Doctorate (Coordinated Degree), MPH / JD | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Medicine (Coordinated Degree), MPH / MD | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Medicine (Coordinated Degree), MSPH / MD | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Nutrition Sciences - Dietetic Internship, Clinical Track (Coordinated Degree), MPH / MS | maestria | Nutrición | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Optometry (Coordinated Degree), MPH / OD | doctorado | Optometría | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Pharmacy (Coordinated Degree), MPH / PharmD | doctorado | Farmacia | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Physical Therapy (Coordinated Degree), MPH / DPT | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Physician Associate Studies (Coordinated Degree), MPH / MSPAS | maestria | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Public Administration (Coordinated Degree), MPH / MPA | maestria | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Social Work (Coordinated Degree), MPH / MSW | maestria | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health / Veterinary Medicine (Coordinated Degree), MPH / DVM | doctorado | Veterinaria | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health, DrPH | doctorado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health, Graduate Certificate | posgrado | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health, MPH | maestria | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Health, MSPH | maestria | Salud Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Public Management, Graduate Certificate | posgrado | Administración Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Rehabilitation Science, PhD | doctorado | Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Research Communication, Graduate Certificate | posgrado | Comunicación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Research Laboratory Management, Graduate Certificate | posgrado | Investigación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | School Psychology, EdS | posgrado | Psicología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | School Psychometry, Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | School Psychometry, MAEd | maestria | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Science Policy, Graduate Certificate | posgrado | Administración Pública | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Secondary Education, MAEd | maestria | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Social and Behavioral Statistics, Graduate Certificate | posgrado | Tecnología | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Sociology, MA | maestria | Ciencias Sociales | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Special Education, MAEd | maestria | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Structural Engineering, Graduate Certificate | posgrado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Supporting Individuals with Exceptionalities, Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Sustainable Engineering, Graduate Certificate | posgrado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Teaching English as an Additional Language (TEAL), Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Teaching English to Speakers of Other Languages, EdS | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Teaching Multilingual Learners, Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Technology Commercialization and Entrepreneurship, Graduate Certificate | posgrado | Negocios | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Translational and Molecular Sciences, Graduate Certificate | posgrado | Ciencias de la Salud | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Translations of Biomedical Innovations to Clinical Practice, Graduate Certificate | posgrado | Medicina | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Transportation Engineering, Graduate Certificate | posgrado | Ingeniería | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Vision Science, MS | maestria | Optometría | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Vision Science, PhD | doctorado | Optometría | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | eSports Organization and Management, Graduate Certificate | posgrado | Deportes | no indicada | - | https://www.uab.edu/degrees/graduate
+The University of Alabama at Birmingham | Speech-Language Pathology, MSSLP | maestria | Salud | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Sport Management, MS | maestria | Deportes | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Statistics, MS | maestria | Matemáticas | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Sustainability, Graduate Certificate | posgrado | Sostenibilidad | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Translational Research, PhD | doctorado | Investigación | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Urban Planning, MC | maestria | Arquitectura | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Veterinary Medicine, DVM | doctorado | Veterinaria | no indicada | - | https://www.uab.edu/degrees/
+The University of Alabama at Birmingham | Workforce Development, Graduate Certificate | posgrado | Educación | no indicada | - | https://www.uab.edu/degrees/
+
+# --- NEOMA Business School (neoma-bs.com) ---
+NEOMA Business School | Global BBA | bachelor | Negocios | 4 años | - | https://neoma-bs.com/undergraduate-programmes/
+NEOMA Business School | TEMA | pregrado | Negocios | 5 años | - | https://neoma-bs.com/undergraduate-programmes/
+NEOMA Business School | Bachelor in Services Management | bachelor | Negocios | 3 años | - | https://neoma-bs.com/undergraduate-programmes/
+NEOMA Business School | Master in Management | maestria | Negocios | 2 a 3 años | - | https://neoma-bs.com/programmes/master-in-management/
+NEOMA Business School | International Pre-Master | curso_corto | Negocios | 12 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc International Finance | maestria | Finanzas | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc Marketing | maestria | Marketing | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc Business Analytics | maestria | Tecnología | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc Artificial Intelligence for Business | maestria | Tecnología | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc Global Management | maestria | Negocios | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc International Business Development | maestria | Negocios | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc International Project Development | maestria | Negocios | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc Strategy, Organisation & Consulting | maestria | Negocios | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc Supply Chain Management | maestria | Logística | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc Cultural & Creative Industries | maestria | Artes | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | International Master in Luxury Management | maestria | Negocios | 15-18 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc Wine & Gastronomy | maestria | Hospitalidad | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | MSc Sustainability Transformations | maestria | Sostenibilidad | 15 meses | - | https://neoma-bs.com/masters-of-science/
+NEOMA Business School | Année préparatoire pour un MSc en alternance | curso_corto | Negocios | 12 meses | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | Mastère Spécialisé (MS) & MSc Analyse Financière Internationale | maestria | Finanzas | 12 meses (454 horas) | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | MSc Finance & Big Data | maestria | Finanzas | 12 meses (455 horas) | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | Mastère Spécialisé (MS) Études & Décision Marketing | maestria | Marketing | 12 meses (424 horas) | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | Mastère Spécialisé (MS) Marketing & Data Analytics | maestria | Marketing | 12 meses (424 horas) | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | MSc Communication d'Entreprise | maestria | Comunicación | 12 meses (424 horas) | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | MSc Business Development & Clients Grands Comptes | maestria | Negocios | 12 meses (424 horas) | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | MSc Management de Projet | maestria | Negocios | 12 meses (424 horas) | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | MSc Supply Chain & Transformation Digitale | maestria | Logística | 12 meses (424 horas) | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | Mastère Spécialisé (MS) Masternova | maestria | Negocios | 12 meses (424 horas) | - | https://neoma-bs.com/part-time-specialised-masters/
+NEOMA Business School | Executive MSc Business Development | maestria | Negocios | 12 meses (425 horas) | - | https://neoma-bs.com/executive-education/
+NEOMA Business School | Executive MSc International Business - China & Asia | maestria | Negocios | 400 horas | - | https://neoma-bs.com/executive-education/
+NEOMA Business School | General Management Programme | curso_corto | Negocios | 10 meses | - | https://neoma-bs.com/executive-education/
+NEOMA Business School | Global Executive MBA | mba | Negocios | 15 a 20 meses | - | https://neoma-bs.com/executive-mbas-dba/
+NEOMA Business School | Global EMBA Flex | mba | Negocios | 16 meses | - | https://neoma-bs.com/executive-mbas-dba/
+NEOMA Business School | Doctorate in Business Administration (DBA) | doctorado | Negocios | 3 años | - | https://neoma-bs.com/executive-mbas-dba/
+
+# --- Cairns College of English and Business (cceb.qld.edu.au) ---
+Cairns College of English and Business | General English | curso_corto | Idiomas | no indicada | CRICOS 07289G | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | English for Academic Purposes | curso_corto | Idiomas | no indicada | CRICOS 093030B | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | IELTS Exam Preparation | curso_corto | Idiomas | no indicada | CRICOS 073937B | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Cambridge Exam Preparation FCE | curso_corto | Idiomas | no indicada | CRICOS 073934E | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Cambridge Exam Preparation CAE | curso_corto | Idiomas | no indicada | CRICOS 073935D | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Certificate IV in Business | curso_corto | Negocios | no indicada | BSB40120 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB60420 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Certificate III in Early Childhood Education and Care | curso_corto | Educación | no indicada | CHC30125 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Diploma of Early Childhood Education and Care | diplomado | Educación | no indicada | CHC50125 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | 2 Year Early Childhood Education and Care Package | diplomado | Educación | 2 años | CHC30125 + CHC50125 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Certificate III in Individual Support (Ageing, Disability) | curso_corto | Salud | no indicada | CHC33021 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Certificate IV in Ageing Support | curso_corto | Salud | no indicada | CHC43015 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Diploma of Community Services | diplomado | Trabajo Social | no indicada | CHC52025 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Advanced Diploma of Community Sector Management | diplomado | Trabajo Social | no indicada | CHC62015 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | 2 Year Individual Support (Ageing, Disability) Package | diplomado | Salud | 2 años | CHC33021 + CHC43015 + CHC52025 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Certificate III in Hospitality | curso_corto | Hospitalidad | no indicada | SIT30622 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Certificate IV in Hospitality | curso_corto | Hospitalidad | no indicada | SIT40422 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Diploma of Hospitality Management (Operations Strand) | diplomado | Hospitalidad | no indicada | SIT50422 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | 2 Year Hospitality Package | diplomado | Hospitalidad | 2 años | SIT30622 + SIT40422 + SIT50422 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Certificate III in Commercial Cookery | curso_corto | Hospitalidad | no indicada | SIT30821 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Certificate IV in Kitchen Management | curso_corto | Hospitalidad | no indicada | SIT40521 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Diploma of Hospitality Management (Commercial Cookery Strand) | diplomado | Hospitalidad | no indicada | SIT50422 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | 2 Year Commercial Cookery Package | diplomado | Hospitalidad | 2 años | SIT30821 + SIT40521 + SIT50422 | https://cceb.qld.edu.au/courses/
+Cairns College of English and Business | Job Ready Program | curso_corto | Hospitalidad | 4 semanas | - | https://cceb.qld.edu.au/courses/
+
+# --- Edu-inter (learningfrenchinquebec.com) ---
+Edu-inter | Aprender Francés Standard | curso_corto | Idiomas | 1 a 52 semanas | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Aprender Francés Intensivo | curso_corto | Idiomas | 1 a 52 semanas | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Aprender Francés Súper-Intensivo | curso_corto | Idiomas | 1 a 52 semanas | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Aprender Francés y Voluntariado | curso_corto | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Aprender Francés y Experiencia Laboral | curso_corto | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Aprender francés y música | curso_corto | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Francés y preparación a exámenes | curso_corto | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Inmersión en francés para 50+ | curso_corto | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Francés y Cocina | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Francés y Artes Dramáticas | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Francés para Profesores | curso_corto | Educación | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | TEF/TEFAQ | curso_corto | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Cursos en línea Individual | curso_corto | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adultos/
+Edu-inter | Campamento de Francés y Multiactividades | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Campamento de Francés y Música | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Campamento de Francés y Tenis | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Campamento de Francés y Cocina | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Campamento de Francés y Circo | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Campamento de Francés y Equitación | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Campamento de Francés y Artes Dramáticos | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Campamento de Francés y Hockey | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Campamento de Francés y Soccer | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Campamento de Invierno Francés y Multiactividades | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Año Escolar | intercambio | Educación | 1 año escolar | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Experiencia en Secundaria o Preparatoria | intercambio | Educación | 1 semestre | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+Edu-inter | Para Grupos Escolares | vacacional | Idiomas | no indicada | - | https://learningfrenchinquebec.com/es/programas-adolecentes/
+
+# --- Holmes Institute (www.holmes.edu.au) ---
+Holmes Institute | Bachelor of Aviation (Flight) - Major in Drone Operations | bachelor | Aviación | 3 años | - | https://www.holmes.edu.au/graduate-level/undergraduate
+Holmes Institute | Bachelor of Aviation (Flight) - Major in Piloting | bachelor | Aviación | 3 años | - | https://www.holmes.edu.au/graduate-level/undergraduate
+Holmes Institute | Bachelor of Aviation (Management) | bachelor | Aviación | 3 años | - | https://www.holmes.edu.au/graduate-level/undergraduate
+Holmes Institute | Bachelor of Business | bachelor | Negocios | 3 años | - | https://www.holmes.edu.au/graduate-level/undergraduate
+Holmes Institute | Bachelor of Fashion Business | bachelor | Moda | 3 años | - | https://www.holmes.edu.au/graduate-level/undergraduate
+Holmes Institute | Bachelor of Information Systems | bachelor | Tecnología | 3 años | - | https://www.holmes.edu.au/graduate-level/undergraduate
+Holmes Institute | Bachelor of Professional Accounting | bachelor | Negocios | 3 años | - | https://www.holmes.edu.au/graduate-level/undergraduate
+Holmes Institute | Undergraduate Certificate in Fashion Business | curso_corto | Moda | 3 meses | - | https://www.holmes.edu.au/graduate-level/undergraduate
+Holmes Institute | Undergraduate Certificate in Fashion Management | curso_corto | Moda | 3 meses | - | https://www.holmes.edu.au/graduate-level/undergraduate
+Holmes Institute | Graduate Diploma in Business | posgrado | Negocios | 1 año | - | https://www.holmes.edu.au/graduate-level/postgraduate
+Holmes Institute | Graduate Diploma of Early Childhood | posgrado | Educación | 1 año | - | https://www.holmes.edu.au/graduate-level/postgraduate
+Holmes Institute | Holmes Global Programs | intercambio | Negocios | 1 o 2 semestres | - | https://www.holmes.edu.au/graduate-level/postgraduate
+Holmes Institute | Master of Business Administration | mba | Negocios | 1.5 años | - | https://www.holmes.edu.au/graduate-level/postgraduate
+Holmes Institute | Master of Business Administration (Professional) | mba | Negocios | 2 años | - | https://www.holmes.edu.au/graduate-level/postgraduate
+Holmes Institute | Master of Cybersecurity | maestria | Tecnología | 2 años | - | https://www.holmes.edu.au/graduate-level/postgraduate
+Holmes Institute | Master of Information Systems | maestria | Tecnología | 2 años | - | https://www.holmes.edu.au/graduate-level/postgraduate
+Holmes Institute | Master of Professional Accounting | maestria | Negocios | 1.5 años | - | https://www.holmes.edu.au/graduate-level/postgraduate
+Holmes Institute | Master of Teaching (Early Childhood) | maestria | Educación | 2 años | - | https://www.holmes.edu.au/graduate-level/postgraduate
+
+# --- Britannia English Academy (britannia-school.com) ---
+Britannia English Academy | General English | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/general-english/
+Britannia English Academy | Conversation Lessons | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/conversation-lessons/
+Britannia English Academy | Cambridge FCE and CAE | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/fce-cae/
+Britannia English Academy | Cambridge Proficiency Certificate (CPE) | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/cpe/
+Britannia English Academy | IELTS Exam Preparation | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/ielts-exam-preparation/
+Britannia English Academy | Trinity Exams (SELT Preparation) | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/trinity/
+Britannia English Academy | English for Specific Purposes | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/english-for-specific-purposes/
+Britannia English Academy | One-to-One | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/one-to-one/
+Britannia English Academy | Ladies-Only Classes | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/ladies-only-classes/
+Britannia English Academy | Football Packages | vacacional | Idiomas | no indicada | - | https://britannia-school.com/football-packages/
+Britannia English Academy | Online Lessons | curso_corto | Idiomas | no indicada | - | https://britannia-school.com/online-english-lessons/
+Britannia English Academy | Juniors Programme | vacacional | Idiomas | no indicada | - | https://britannia-school.com/juniors-manchester/
+
+# --- ACE English Malta (aceenglishmalta.com) ---
+ACE English Malta | ACE Group 20 | curso_corto | Idiomas | 20 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Group 30 | curso_corto | Idiomas | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Conversation 10 | curso_corto | Idiomas | 10 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Combination 30 | curso_corto | Idiomas | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Combination 40 | curso_corto | Idiomas | 40 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Business 20 | curso_corto | Idiomas | 20 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Business 30 | curso_corto | Idiomas | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Business 40 | curso_corto | Idiomas | 40 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Business Combination 30 | curso_corto | Idiomas | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Business Combination 40 | curso_corto | Idiomas | 40 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Personalised 10 | curso_corto | Idiomas | 10 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Personalised 20 | curso_corto | Idiomas | 20 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Personalised 30 | curso_corto | Idiomas | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | ACE Personalised 40 | curso_corto | Idiomas | 40 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/
+ACE English Malta | Examen IELTS | curso_corto | Idiomas | 30 lecciones/semana · mínimo 6 semanas | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/preparacion-examenes/
+ACE English Malta | Examen de Cambridge | curso_corto | Idiomas | 30 lecciones/semana · mínimo 6 semanas | - | https://www.aceenglishmalta.com/es/cursos/cursos-adultos/preparacion-examenes/
+ACE English Malta | Entrenamiento de Profesores - Primaria | curso_corto | Educación | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/entrenamiento-de-profesores/
+ACE English Malta | Entrenamiento de Profesores - Secundaria | curso_corto | Educación | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/entrenamiento-de-profesores/
+ACE English Malta | Entrenamiento de Profesores - Dislexia | curso_corto | Educación | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/entrenamiento-de-profesores/
+ACE English Malta | Entrenamiento de Profesores - CLIL | curso_corto | Educación | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/entrenamiento-de-profesores/
+ACE English Malta | Entrenamiento de Profesores - Pantalla Interactiva | curso_corto | Educación | 30 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/entrenamiento-de-profesores/
+ACE English Malta | ACE Kids Group 20 | vacacional | Idiomas | 20 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/familia-ninos/
+ACE English Malta | ACE Kids Personalized | vacacional | Idiomas | 10 o 20 lecciones/semana | - | https://www.aceenglishmalta.com/es/cursos/familia-ninos/
+ACE English Malta | Programa de verano para jóvenes | vacacional | Idiomas | no indicada | - | https://www.aceenglishmalta.com/es/cursos/jovenes/
+ACE English Malta | Cursos para jóvenes | curso_corto | Idiomas | no indicada | - | https://www.aceenglishmalta.com/es/cursos/jovenes/
+ACE English Malta | Miniestancias y grupos escolares | vacacional | Idiomas | no indicada | - | https://www.aceenglishmalta.com/es/cursos/jovenes/
+
+# --- Kent Institute Australia (kent.edu.au) ---
+Kent Institute Australia | Master of Information and Communication Technology | maestria | Tecnología | no indicada | - | https://kent.edu.au/courses/
+Kent Institute Australia | Bachelor of Business | bachelor | Negocios | no indicada | - | https://kent.edu.au/courses/
+Kent Institute Australia | Bachelor of Accounting | bachelor | Negocios | no indicada | - | https://kent.edu.au/courses/
+Kent Institute Australia | Bachelor of Information Technology | bachelor | Tecnología | no indicada | - | https://kent.edu.au/courses/
+Kent Institute Australia | Certificate IV in Ageing Support | curso_corto | Salud | no indicada | CHC43015 | https://kent.edu.au/courses/
+Kent Institute Australia | Certificate IV in Information Technology | curso_corto | Tecnología | no indicada | ICT40120 | https://kent.edu.au/courses/
+Kent Institute Australia | Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 | https://kent.edu.au/courses/
+Kent Institute Australia | Diploma of Project Management | diplomado | Negocios | no indicada | BSB50820 | https://kent.edu.au/courses/
+Kent Institute Australia | Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB60420 | https://kent.edu.au/courses/
+Kent Institute Australia | Advanced Diploma of Program Management | diplomado | Negocios | no indicada | BSB60720 | https://kent.edu.au/courses/
+Kent Institute Australia | Diploma of Information Technology | diplomado | Tecnología | no indicada | ICT50220 | https://kent.edu.au/courses/
+Kent Institute Australia | Advanced Diploma of Information Technology | diplomado | Tecnología | no indicada | ICT60220 | https://kent.edu.au/courses/
+
+# --- Heartland International English School (heartlandenglish.com) ---
+Heartland International English School | Intensive (Full-Time) | curso_corto | Idiomas | 1 semana a 1 año o más | - | https://www.heartlandenglish.com/programs/
+Heartland International English School | Semi-Intensive (Part-Time) | curso_corto | Idiomas | no indicada | - | https://www.heartlandenglish.com/programs/
+Heartland International English School | Heartland Pathway Program | curso_corto | Idiomas | 10 semanas por nivel | - | https://www.heartlandenglish.com/college-and-university-pathway-programs/heartland-pathway-program/
+Heartland International English School | Accent Modification and Pronunciation course | curso_corto | Idiomas | no indicada | - | https://www.heartlandenglish.com/amp/
+Heartland International English School | IELTS preparation class | curso_corto | Idiomas | no indicada | - | https://www.heartlandenglish.com/preparation-ielts/
+Heartland International English School | CELPIP preparation class | curso_corto | Idiomas | no indicada | - | https://www.heartlandenglish.com/celpip-preparation-class/
+Heartland International English School | Workplace English - Evening classes | curso_corto | Idiomas | no indicada | - | https://www.heartlandenglish.com/workplace-english-evening-classes-in-winnipeg/
+Heartland International English School | English + Volunteer Program | curso_corto | Idiomas | no indicada | - | https://www.heartlandenglish.com/programs/
+
+# RESUMEN: instituciones=9 con_programas=9 total_programas=470 sin_catalogo=0
+
+# NOTAS:
+# UAB · 309 extraidos vs "280+ (cifra del propio sitio)" — cuadra, va por encima. El indice /degrees/ se TRUNCA al renderizar (corta despues de "Sociology"), asi que la extraccion se hizo por los dos sub-indices completos: /degrees/undergraduate (67 items) y /degrees/graduate (223 items), mas los 16 Undergraduate Certificates y 8 titulaciones S-Z que solo aparecen en el indice general. Se EXCLUYERON 5 filas que no son programas cursables: "Undeclared" (no es una carrera, es el estado de un admitido sin declarar major) y los 4 tracks Pre-Professional (Pre-Dentistry, Pre-Law, Pre-Medicine, Pre-Optometry), que en EEUU son rutas de asesoria academica sobre un major existente, no credenciales. CONFIRMADA la alerta de la auditoria: uab.edu es el dominio de la universidad real y NO contiene los pathways de INTO — si la agencia vende pathway/foundation para UAB, ese catalogo vive en el micrositio de INTO y hay que extraerlo aparte, aqui no hay ni una fila de pathway. INFERENCIA DE NIVEL, AFECTA 309 FILAS: UAB publica la credencial (BS, MAc, PhD, DNP, Graduate Certificate...) pero no un "nivel" — el mapeo es mio: B* -> bachelor; Graduate/Post-Graduate/Post-Master's Certificate y EdS -> posgrado; M* -> maestria; MBA -> mba; PhD/MD/DMD/OD/DPT/OTD/DVM/DNP/DrPH/DSc/JD -> doctorado. Los 30+ dual/coordinated degrees se clasificaron por la credencial mas alta del par. UAB no publica duracion ni codigo oficial por programa en estos indices: TODAS las filas van con "no indicada" y "-".
+# NEOMA Business School · 34 extraidos vs "~30-45" — cuadra. CONFIRMADA la alerta: NO hay indice unico; /programmes, /our-programmes y /en/programmes dan 404. Hubo que recorrer 6 indices por nivel (undergraduate-programmes, masters-of-science, programmes/master-in-management, part-time-specialised-masters, executive-education, executive-mbas-dba) y el url_fuente de cada fila apunta al indice del que salio. Se EXCLUYERON: los 40+ Majors/Minors y los 100+ dobles titulos del Master in Management (son combinaciones internas del propio programa, no productos vendibles por separado), los 11 executive certificates de 5-6 dias, la VAE (Validation of Acquired Experience — no es un programa, es una convalidacion) y los programas a medida para empresas. RIESGO COMERCIAL: los 10 "part-time specialised masters" de Paris son en ALTERNANCE (contrato de aprendizaje frances); en la practica exigen un contrato con empresa en Francia y NO son vendibles a un colombiano recien llegado — verificar antes de cotizarlos. "TEMA" es un programa integrado de 5 anos que entra por pregrado y sale con nivel master: se marco `pregrado` (no `bachelor`) porque el punto de entrada es el que le importa al estudiante.
+# Cairns College of English and Business · 25 extraidos vs "~25-30" — cuadra. CONFIRMADA la alerta de la ficha: mas de la mitad del catalogo es ELICOS y `puede_vender` solo dice "Vocacionales" — hay que agregarle "Idiomas". RTO 40520 / CRICOS Provider 03251A. Los 5 cursos de ingles SI traen CRICOS por curso (07289G, 093030B, 073937B, 073934E, 073935D); los VET traen codigo nacional pero NO CRICOS por curso. Los 4 "2 Year Package" son empaquetados de 2-3 cualificaciones apiladas (p.ej. SIT30622+SIT40422+SIT50422): se clasificaron por el titulo terminal (`diplomado`) y en codigo_oficial va la cadena completa. OJO con "Job Ready Program": 4 semanas, sin CRICOS ni codigo nacional — entrega Statements of Attainment, NO es una cualificacion con visa por si sola; venderlo solo como add-on a un curso principal.
+# Edu-inter · 26 extraidos vs "~20+" — cuadra. La escuela publica el catalogo en espanol nativo, asi que los nombres van tal cual del sitio. Se EXCLUYERON 3 items del listado: "Cursos en linea Empresas" (capacitacion corporativa in-company, no es un programa de estudiante), "Programas Academicos" (es un servicio de colocacion en colegios/universidades de terceros, no un programa propio) y "Para Grupos" del lado adultos por duplicar "Para Grupos Escolares". DECISION DE NIVEL: "Ano Escolar" y "Experiencia en Secundaria o Preparatoria" son estadias en un colegio de Quebec y se marcaron `intercambio` (no `secundaria`), siguiendo la regla de que un semestre o ano en un colegio es intercambio; Edu-inter NO ofrece un bachillerato completo. "Cursos en linea Individual" es 100% ONLINE — no da visa de estudiante. El sitio publica precios por semana: no se transcribieron.
+# Holmes Institute · 18 extraidos vs "~15" — cuadra. CONFIRMADA LA CONTRADICCION de `puede_vender`: la ficha promete "Vocacionales (Cert, Dip, Adv Dip)" y "Cursos Vocacionales" y el sitio actual NO lista NI UNA cualificacion VET — el catalogo es 100% higher education (7 bachelors + 2 undergraduate certificates + 2 graduate diplomas + 6 masters + 1 movilidad). Corregir la ficha a "Pregrado & Postgrado" unicamente. ES UN GRUPO, NO SE CARGARON LOS MIEMBROS: Holmes Institute es parte de Holmes Education Group y su menu enlaza a Holmes Grammar (High School Year 11 & 12, dominio holmesgrammar.vic.edu.au) y a OHC English (ohcenglish.com) — son entidades distintas con dominio propio y NO se cargaron bajo Holmes Institute; si la agencia quiere vender el High School o el ingles, van como fichas separadas. Los 3 productos de Fashion (Bachelor + 2 Undergraduate Certificates) son 100% ONLINE segun el propio sitio — no dan visa. "Holmes Global Programs" (1 o 2 semestres) se marco `intercambio`. El sitio NO publica CRICOS por curso pese a tener tres (02639M VIC / 02767C NSW / 02727M QLD): todas las filas van con "-".
+# Britannia English Academy · 12 extraidos vs "~12+" — cuadra. Unica ficha del lote sin observaciones y se confirma: sitio sano, www redirige al apex, sin contenido inyectado. Se EXCLUYO 1 item del menu: "Erasmus Plus Programme – Teachers' Mobility", porque Erasmus+ se financia y se adjudica a traves de una institucion de la UE — un estudiante colombiano no puede comprarlo. "Online Lessons" es 100% ONLINE (no da visa). El sitio NO publica ni codigo de acreditacion (British Council/Accreditation UK) por curso ni lecciones por semana en el listado — solo dice "1 leccion = 50 minutos"; todas las filas van con duracion "no indicada" y codigo "-". INFERENCIA DE NIVEL, AFECTA LAS 12 FILAS: es una escuela de idiomas sin credencial publicada, todo se mapeo a `curso_corto` salvo "Football Packages" y "Juniors Programme", que son estadias de temporada -> `vacacional`.
+# ACE English Malta · 26 extraidos vs "~10" de la auditoria — ESTOY MUY POR ENCIMA y es correcto: la url_programas de la ficha (/es/cursos/) es solo un hub de 6 tarjetas por audiencia; el catalogo real esta dentro de cada tarjeta. EL SITIO PUBLICA EL MISMO CATALOGO DOS VECES POR AUDIENCIA: /cursos/cursos-adultos/ (16-29 anos) y /cursos/cursos-para-adultos-30-anos/ (30+) listan los MISMOS 14 cursos ACE Group/Conversation/Combination/Business/Personalised palabra por palabra — se cargo UNA sola vez, con la URL de /cursos-adultos/. OJO CON EL FALSO POSITIVO DE PRIMARIA: bajo "Entrenamiento de Profesores" el sitio lista items llamados literalmente "Primaria" y "Secundaria" — NO son educacion escolar, son cursos de metodologia PARA profesores de primaria y de secundaria; se renombraron a "Entrenamiento de Profesores - Primaria/Secundaria" con area Educacion y nivel `curso_corto` para que nadie los cargue como colegio. Los 2 cursos ACE Kids (ninos 3-12) se marcaron `vacacional` — son estadias de idioma en familia, NO primaria: si el producto no quiere ninos en el catalogo, filtrar estas 2 filas. El sitio NO publica CRICOS/ELT Council code por curso.
+# Kent Institute Australia · 12 extraidos vs "~7-8" — por encima, la auditoria subconto. CONFIRMADA la correccion: `tipo_adivinado`="curso_corto" es FALSO y `puede_vender` VACIO hay que llenarlo — Kent otorga 3 Bachelors + 1 Master ademas de 8 VET, es Higher Education Institute + RTO; poner "Pregrado & Postgrado" + "Vocacionales (Cert, Dip, Adv Dip)". Los 8 VET SI traen codigo nacional (CHC43015, BSB50420, BSB50820, BSB60420, BSB60720, ICT40120, ICT50220, ICT60220); los 4 de higher education NO publican codigo y van con "-". El listado NO publica duracion para ningun curso — las 12 filas van con "no indicada"; para catalogo vendible hay que abrir ficha por ficha o pedirles el course guide.
+# Heartland International English School · 8 extraidos vs "6" de la auditoria — por encima: la pagina /programs/ muestra 6, pero el menu tiene 2 productos mas con ficha propia (Workplace English - Evening classes y English + Volunteer Program). CONFIRMADO el diagnostico de la auditoria: sitio sano, sin spam ni avisos de cierre, acreditada por Languages Canada. "Heartland Pathway Program" se cargo como UNA fila aunque internamente tiene 5 escalones (Pre-Pathway Entry / Intermediate 1 / Intermediate 2 y Pathway 1 / 2, 10 semanas cada uno): son niveles de un mismo producto, no cursos que se compren por separado. El sitio NO publica ningun codigo de designacion (DLI number) por curso — las 8 filas van con "-"; para un estudiante que necesite study permit hay que pedirles el DLI. INFERENCIA DE NIVEL, AFECTA LAS 8 FILAS: escuela de idiomas sin credencial publicada, todo `curso_corto`.

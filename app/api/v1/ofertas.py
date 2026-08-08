@@ -12,19 +12,23 @@ de cleanup.
 """
 from __future__ import annotations
 
+import logging
+
 from typing import Any, Optional, List
 from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
-from sqlalchemy import or_
+from sqlalchemy import or_, nullslast
 from sqlalchemy.orm import Session as DBSession, load_only
 
 from app.api.v1.auth import get_current_user
 from app.db.database import get_db
 from app.db.models import Program, SavedOferta, User
-from app.services import admission_fit_service
+from app.services import admission_fit_service, busqueda_programas
 from app.services.catalog_service import display_name_for_program
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/ofertas", tags=["Ofertas"])
 
@@ -35,7 +39,28 @@ router = APIRouter(prefix="/ofertas", tags=["Ofertas"])
 
 # Program.type uses values from Excel import (pregrado · maestria · mba · etc.)
 # Oferta.category uses the legacy POC enum the frontend already understands.
+def orden_del_catalogo():
+    """A8 · El orden en que el estudiante ve el catálogo.
+
+    Verónica, 21-07: *"¿tengo cómo ponerle estrellas para que determine qué
+    sale primero?"*. Primero lo que la agencia priorizó (10 → 1), después el
+    resto por nombre como siempre.
+
+    `nullslast()` no es decorativo: **en Postgres, `ORDER BY x DESC` pone los
+    NULL PRIMERO**. Hoy las 2.511 filas están sin priorizar, así que sin esto
+    el catálogo entero se ordenaría por un campo vacío y la prioridad no
+    ordenaría nada. SQLite (los tests) los pone al revés y dejaría pasar el
+    bug, por eso hay un test que compila esto contra el dialecto de Postgres.
+
+    Vive en una función y no inline para que el test pueda afirmar sobre EL
+    MISMO objeto que usa el endpoint · misma regla que `nextStep.ts` en el
+    front: una decisión, una función.
+    """
+    return (nullslast(Program.priority.desc()), Program.name.asc())
+
+
 _TYPE_TO_CATEGORY = {
+    "secundaria": "semestre_academico",
     "pregrado": "carrera_completa",
     "maestria": "carrera_completa",
     "mba": "carrera_completa",
@@ -60,7 +85,7 @@ _CATEGORY_TO_TYPES = {
     ],
     "certificacion_corta": ["diplomado", "curso_corto", "bootcamp"],
     "curso_idiomas": ["vacacional"],
-    "semestre_academico": ["intercambio"],
+    "semestre_academico": ["intercambio", "secundaria"],
     "work_travel": [],  # No hay equivalente en programs
     "practicas": [],
     "voluntariado": [],
@@ -248,6 +273,9 @@ def list_ofertas(
     # solo necesita un puñado de "relacionadas" de su categoría).
     slim: bool = False,
     limit: Optional[int] = None,
+    # El orden personal se puede apagar · el panel de la agencia necesita ver el
+    # catálogo tal como lo ordenó la clienta, no como se lo ordenamos a un alumno.
+    personalizar: bool = True,
     current_user: User = Depends(get_current_user),
     db: DBSession = Depends(get_db),
 ):
@@ -321,7 +349,40 @@ def list_ofertas(
             )
         )
 
-    programs = q.order_by(Program.name.asc()).all()
+    programs = q.order_by(*orden_del_catalogo()).all()
+
+    # El catálogo se reordena por afinidad con el perfil del estudiante · lo que
+    # ve primero es lo que más se parece a lo que ha ido contando en la app.
+    #
+    # Va ANTES de mapear y de `limit`, no después: `limit` corta la cola, así que
+    # ordenar después dejaría fuera justo lo más pertinente.
+    #
+    # Las fichas sin vector quedan **al final**, conservando entre ellas el orden
+    # original (prioridad comercial y luego nombre). Hoy no hay ninguna —las
+    # 2.511 activas están embebidas—, pero una ficha nueva cargada por la agencia
+    # aparece sin vector hasta que se corra el script, y es preferible que caiga
+    # al final a que se cuele arriba con un puntaje inventado.
+    #
+    # Sin perfil (recién registrado, o el proveedor caído) no se reordena nada y
+    # el catálogo conserva el orden que pidió la clienta.
+    if personalizar:
+        try:
+            perfil = busqueda_programas.perfil_del_usuario(db, current_user)
+            vector = busqueda_programas.vector_del_perfil_sync(db, perfil, current_user)
+            puntajes = busqueda_programas.orden_personal_del_catalogo(db, vector)
+            if puntajes:
+                orden_base = {p.id: i for i, p in enumerate(programs)}
+                programs.sort(
+                    key=lambda p: (
+                        -puntajes.get(str(p.id), float("-inf")),
+                        orden_base[p.id],
+                    )
+                )
+        except Exception:
+            # Que el orden personal falle no puede dejar al estudiante sin
+            # catálogo · se sigue con el de siempre.
+            logger.warning("catálogo sin orden personal", exc_info=True)
+
     ofertas = [_program_to_oferta(p) for p in programs]
 
     # languageRequirement filter post-mapping (porque la columna es texto libre)

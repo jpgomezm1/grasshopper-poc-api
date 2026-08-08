@@ -1,0 +1,299 @@
+# Lote 33 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- University of Southern Queensland (UniSQ) · unisq.edu.au · Australia ---
+# Dominio corregido: usq.edu.au -> unisq.edu.au (rebrand). Catalogo recorrido por las 10 areas de estudio
+# (/study/degrees-and-courses/<area>) porque el sitio NO expone un indice A-Z. Lista deduplicada:
+# los dobles grados y el PhD/Master of Research aparecen repetidos en varias areas y van UNA sola vez.
+UniSQ | Associate Degree of Business | pregrado | Negocios | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/associate-degree-of-business
+UniSQ | Bachelor of Accounting | bachelor | Negocios | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-accounting
+UniSQ | Bachelor of Accounting and Bachelor of Laws | bachelor | Negocios | 5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-accounting-and-bachelor-of-laws
+UniSQ | Bachelor of Arts and Bachelor of Business | bachelor | Negocios | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-arts-and-bachelor-of-business
+UniSQ | Bachelor of Business | bachelor | Negocios | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-business
+UniSQ | Bachelor of Business and Bachelor of Information Technology | bachelor | Negocios | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-business-and-bachelor-of-information-technology
+UniSQ | Bachelor of Business and Bachelor of Laws | bachelor | Negocios | 5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-business-and-bachelor-of-laws
+UniSQ | Bachelor of Business and Bachelor of Science | bachelor | Negocios | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-business-and-bachelor-of-science
+UniSQ | Bachelor of Business and Bachelor of Science (Psychology) | bachelor | Negocios | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-business-and-bachelor-of-science-psychology
+UniSQ | Diploma of Business and Management Studies | diplomado | Negocios | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-business-and-management-studies
+UniSQ | Graduate Certificate of Business | posgrado | Negocios | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-business
+UniSQ | Graduate Certificate of Business Administration | posgrado | Negocios | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-business-administration
+UniSQ | Graduate Certificate of Project Management (Delivering Business Strategy) | posgrado | Negocios | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-project-management-delivering-business-strategy
+UniSQ | Graduate Certificate of Project Management (Enhancing Business Performance) | posgrado | Negocios | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-project-management-enhancing-business-performance
+UniSQ | Graduate Certificate of Project Management (Leading Business Innovation) | posgrado | Negocios | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-project-management-leading-business-innovation
+UniSQ | Graduate Diploma of Business | posgrado | Negocios | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-business
+UniSQ | Graduate Diploma of Business Administration | posgrado | Negocios | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-business-administration
+UniSQ | Master of Business | maestria | Negocios | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-business
+UniSQ | Master of Business Administration (MBA) | mba | Negocios | 1.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-business-administration
+UniSQ | Master of Organisational Project Management | maestria | Negocios | 1.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-organisational-project-management
+UniSQ | Doctor of Philosophy (PhD) | doctorado | Investigación | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/doctor-of-philosophy
+UniSQ | Master of Research | maestria | Investigación | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-research
+UniSQ | Bachelor of Cyber Security | bachelor | Tecnología | 1.5 - 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-cyber-security
+UniSQ | Bachelor of Digital Design | bachelor | Diseño | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-digital-design
+UniSQ | Bachelor of Information Technology | bachelor | Tecnología | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-information-technology
+UniSQ | Bachelor of Science | bachelor | Ciencias | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-science
+UniSQ | Graduate Certificate of Information Systems | posgrado | Tecnología | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-information-systems
+UniSQ | Graduate Diploma of Information Systems | posgrado | Tecnología | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-information-systems
+UniSQ | Graduate Diploma of Information Technology | posgrado | Tecnología | 1.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-information-technology
+UniSQ | Master of Cyber Security | maestria | Tecnología | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-cyber-security
+UniSQ | Master of Data Science | maestria | Tecnología | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-data-science
+UniSQ | Master of Information Systems | maestria | Tecnología | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-information-systems
+UniSQ | Master of Information Technology | maestria | Tecnología | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-information-technology
+UniSQ | Associate Degree of Allied Health | pregrado | Salud | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/associate-degree-of-allied-health
+UniSQ | Associate Degree of Biomedical Sciences | pregrado | Salud | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/associate-degree-of-biomedical-sciences
+UniSQ | Associate Degree of Medical Laboratory Science | pregrado | Salud | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/associate-degree-of-medical-laboratory-science
+UniSQ | Bachelor of Biomedical Sciences | bachelor | Salud | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-biomedical-sciences
+UniSQ | Bachelor of Clinical Exercise Physiology (Honours) | bachelor | Salud | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-clinical-exercise-physiology-honours
+UniSQ | Bachelor of Medical Laboratory Science | bachelor | Salud | 3.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-medical-laboratory-science
+UniSQ | Bachelor of Medical Science (Medicine Pathway) | bachelor | Salud | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-medical-science-medicine-pathway
+UniSQ | Bachelor of Nursing | bachelor | Salud | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-nursing
+UniSQ | Bachelor of Occupational Therapy (Honours) | bachelor | Salud | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-occupational-therapy-honours
+UniSQ | Bachelor of Paramedicine | bachelor | Salud | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-paramedicine
+UniSQ | Bachelor of Pharmacy (Honours) | bachelor | Salud | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-pharmacy-honours
+UniSQ | Bachelor of Physiotherapy (Honours) | bachelor | Salud | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-physiotherapy-honours
+UniSQ | Bachelor of Psychology (Honours) | bachelor | Psicología | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-psychology-honours
+UniSQ | Bachelor of Science (Honours) | bachelor | Ciencias | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-science-honours
+UniSQ | Bachelor of Science (Psychology) | bachelor | Psicología | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-science-psychology
+UniSQ | Bachelor of Social Work | bachelor | Trabajo Social | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-social-work
+UniSQ | Bachelor of Social Work (Honours) | bachelor | Trabajo Social | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-social-work-honours
+UniSQ | Bachelor of Speech Pathology (Honours) | bachelor | Salud | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-speech-pathology-honours
+UniSQ | Bachelor of Sport and Exercise Science | bachelor | Deporte | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-sport-and-exercise-science
+UniSQ | Undergraduate Certificate of Child and Family Studies | curso_corto | Educación | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/undergraduate-certificate-of-child-and-family-studies
+UniSQ | Graduate Certificate of Counselling | posgrado | Psicología | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-counselling
+UniSQ | Graduate Certificate of First Nations Culturally Safe Health Leadership | posgrado | Salud | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-first-nations-culturally-safe-health-leadership
+UniSQ | Graduate Certificate of Nursing | posgrado | Salud | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-nursing
+UniSQ | Graduate Certificate of Public Health | posgrado | Salud | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-public-health
+UniSQ | Graduate Diploma of Counselling | posgrado | Psicología | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-counselling
+UniSQ | Graduate Diploma of Midwifery | posgrado | Salud | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-midwifery
+UniSQ | Graduate Diploma of Nursing | posgrado | Salud | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-nursing
+UniSQ | Graduate Diploma of Public Health | posgrado | Salud | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-public-health
+UniSQ | Master of Clinical Psychology | maestria | Psicología | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-clinical-psychology
+UniSQ | Master of Clinical Psychology - Advanced Entry | maestria | Psicología | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-clinical-psychology-advanced-entry
+UniSQ | Master of Counselling | maestria | Psicología | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-counselling
+UniSQ | Master of Nursing | maestria | Salud | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-nursing
+UniSQ | Master of Professional Psychology | maestria | Psicología | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-professional-psychology
+UniSQ | Master of Public Health | maestria | Salud | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-public-health
+UniSQ | Master of Social Work (Qualifying) | maestria | Trabajo Social | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-social-work-qualifying
+UniSQ | Associate Degree of Criminology and Criminal Justice | pregrado | Ciencias Sociales | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/associate-degree-of-criminology-and-criminal-justice
+UniSQ | Bachelor of Arts | bachelor | Humanidades | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-arts
+UniSQ | Bachelor of Arts (Honours) | bachelor | Humanidades | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-arts-honours
+UniSQ | Bachelor of Arts and Bachelor of Laws | bachelor | Derecho | 5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-arts-and-bachelor-of-laws
+UniSQ | Bachelor of Arts and Bachelor of Science | bachelor | Humanidades | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-arts-and-bachelor-of-science
+UniSQ | Bachelor of Communication and Creative Industries | bachelor | Comunicación | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-communication-and-creative-industries
+UniSQ | Bachelor of Creative Arts (Honours) | bachelor | Artes | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-creative-arts-honours
+UniSQ | Bachelor of Creative Arts and Community Wellbeing | bachelor | Artes | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-creative-arts-and-community-wellbeing
+UniSQ | Bachelor of Film and Screen Production | bachelor | Artes | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-film-and-screen-production
+UniSQ | Bachelor of Music | bachelor | Artes | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-music
+UniSQ | Bachelor of Theatre | bachelor | Artes | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-theatre
+UniSQ | Bachelor of Visual Art | bachelor | Artes | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-visual-art
+UniSQ | Diploma of Arts | diplomado | Humanidades | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-arts
+UniSQ | Diploma of Law and Justice Studies | diplomado | Derecho | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-law-and-justice-studies
+UniSQ | Diploma of Professional Communication | diplomado | Comunicación | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-professional-communication
+UniSQ | Diploma of Professional Photography | diplomado | Artes | 1.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-professional-photography
+UniSQ | Associate Degree of Construction | pregrado | Construcción | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/associate-degree-of-construction
+UniSQ | Associate Degree of Engineering | pregrado | Ingeniería | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/associate-degree-of-engineering
+UniSQ | Associate Degree of Surveying | pregrado | Ingeniería | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/associate-degree-of-surveying
+UniSQ | Bachelor of Construction (Honours) | bachelor | Construcción | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-construction-honours
+UniSQ | Bachelor of Engineering (Honours) | bachelor | Ingeniería | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-engineering-honours
+UniSQ | Bachelor of Engineering Technology | bachelor | Ingeniería | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-engineering-technology
+UniSQ | Bachelor of Surveying (Honours) | bachelor | Ingeniería | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-surveying-honours
+UniSQ | Bachelor of Surveying Technology | bachelor | Ingeniería | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-surveying-technology
+UniSQ | Diploma of Construction Studies | diplomado | Construcción | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-construction-studies
+UniSQ | Diploma of Engineering and Technologies | diplomado | Ingeniería | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-engineering-and-technologies
+UniSQ | Undergraduate Certificate of Engineering Fundamentals | curso_corto | Ingeniería | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/undergraduate-certificate-of-engineering-fundamentals
+UniSQ | Undergraduate Certificate of Surveying | curso_corto | Ingeniería | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/undergraduate-certificate-of-surveying
+UniSQ | Graduate Certificate of Engineering Practice | posgrado | Ingeniería | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-engineering-practice
+UniSQ | Graduate Certificate of Professional Engineering | posgrado | Ingeniería | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-professional-engineering
+UniSQ | Graduate Diploma of Professional Engineering | posgrado | Ingeniería | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-professional-engineering
+UniSQ | Master of Engineering Practice | maestria | Ingeniería | 3 años part-time | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-engineering-practice
+UniSQ | Master of Professional Engineering | maestria | Ingeniería | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-professional-engineering
+UniSQ | Bachelor of Early Childhood | bachelor | Educación | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-early-childhood
+UniSQ | Bachelor of Education (Early Childhood) | bachelor | Educación | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-education-early-childhood
+UniSQ | Bachelor of Education (Primary) | bachelor | Educación | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-education-primary
+UniSQ | Bachelor of Education (Secondary) | bachelor | Educación | 4 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-education-secondary
+UniSQ | Diploma of Education and Teaching Studies | diplomado | Educación | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-education-and-teaching-studies
+UniSQ | Undergraduate Certificate of Teaching (Early Childhood Education) | curso_corto | Educación | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/undergraduate-certificate-of-teaching-early-childhood-education
+UniSQ | Undergraduate Certificate of Teaching (Primary) | curso_corto | Educación | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/undergraduate-certificate-of-teaching-primary
+UniSQ | Undergraduate Certificate of Teaching (Secondary) | curso_corto | Educación | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/undergraduate-certificate-of-teaching-secondary
+UniSQ | Graduate Certificate of Early Childhood Education and Care | posgrado | Educación | 1 año part-time | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-early-childhood-education-and-care
+UniSQ | Graduate Certificate of Education Studies | posgrado | Educación | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-education-studies
+UniSQ | Graduate Certificate of Social Research | posgrado | Ciencias Sociales | 1 año part-time | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-social-research
+UniSQ | Graduate Diploma of Early Childhood Education and Care | posgrado | Educación | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-early-childhood-education-and-care
+UniSQ | Graduate Diploma of Education | posgrado | Educación | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-education
+UniSQ | Master of Education | maestria | Educación | 1.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-education
+UniSQ | Master of Learning and Teaching (Early Years) | maestria | Educación | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-learning-and-teaching-early-years
+UniSQ | Master of Learning and Teaching (Primary) | maestria | Educación | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-learning-and-teaching-primary
+UniSQ | Master of Learning and Teaching (Secondary) | maestria | Educación | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-learning-and-teaching-secondary
+UniSQ | Bachelor of Agricultural Technology | bachelor | Agricultura | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-agricultural-technology
+UniSQ | Bachelor of Environmental Science | bachelor | Medio Ambiente | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-environmental-science
+UniSQ | Diploma of Agriculture and Environmental Science Studies | diplomado | Agricultura | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-agriculture-and-environmental-science-studies
+UniSQ | Diploma of Science | diplomado | Ciencias | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/diploma-of-science
+UniSQ | Graduate Certificate of Science | posgrado | Ciencias | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-science
+UniSQ | Graduate Diploma of Science | posgrado | Ciencias | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-science
+UniSQ | Master of Science | maestria | Ciencias | 2 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-science
+UniSQ | Bachelor of Aviation | bachelor | Aviación | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-aviation
+UniSQ | Graduate Certificate of Aviation | posgrado | Aviación | 0.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-certificate-of-aviation
+UniSQ | Graduate Diploma of Aviation | posgrado | Aviación | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/graduate-diploma-of-aviation
+UniSQ | Master of Business Administration Aviation | mba | Aviación | 1.5 años | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-business-administration-aviation
+UniSQ | Bachelor of Laws | bachelor | Derecho | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-laws
+UniSQ | Bachelor of Laws (Honours) | bachelor | Derecho | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/bachelor-of-laws-honours
+UniSQ | Juris Doctor | posgrado | Derecho | 3 años | - | https://www.unisq.edu.au/study/degrees-and-courses/juris-doctor
+UniSQ | Master of Laws | maestria | Derecho | 1 año | - | https://www.unisq.edu.au/study/degrees-and-courses/master-of-laws
+
+# --- EQUALS International (Aust) Pty Ltd · equals.edu.au · Australia ---
+# CRICOS de proveedor 02804C. Filtradas ~11 entradas del listado que NO son programas matriculables
+# (unidades sueltas y skill sets de 0 semanas) ni vendibles a internacionales (ver NOTAS).
+EQUALS International | Master of Social Work (Qualifying) | maestria | Trabajo Social | 104 weeks | CRS1401661 | https://equals.edu.au/courses/social-work-and-community/master-of-social-work-qualifying/
+EQUALS International | Bachelor of Human Services | bachelor | Trabajo Social | no indicada | - | https://equals.edu.au/courses/social-work-and-community/bachelor-of-human-services/
+EQUALS International | Diploma in Human Services | diplomado | Trabajo Social | 52 weeks | CRS1400642 | https://equals.edu.au/courses/social-work-and-community/diploma-in-human-services/
+EQUALS International | Diploma of Community Services | diplomado | Trabajo Social | 104 weeks | CHC52025 | https://equals.edu.au/courses/social-work-and-community/diploma-of-community-services/
+EQUALS International | Diploma of Early Childhood Education and Care | diplomado | Educación | 38 weeks | CHC50125 | https://equals.edu.au/courses/social-work-and-community/diploma-of-early-childhood-education-and-care/
+EQUALS International | Diploma of Mental Health | diplomado | Salud | 52 weeks | CHC53315 | https://equals.edu.au/courses/social-work-and-community/diploma-of-mental-health/
+EQUALS International | Advanced Diploma of Community Sector Management | diplomado | Trabajo Social | no indicada | - | https://equals.edu.au/courses/social-work-and-community/advanced-diploma-of-community-sector-management/
+EQUALS International | Certificate III in Early Childhood Education and Care | curso_corto | Educación | no indicada | - | https://equals.edu.au/courses/social-work-and-community/certificate-iii-in-early-childhood-education-and-care/
+EQUALS International | Advanced Diploma of Nursing (Mental Health) | diplomado | Salud | no indicada | - | https://equals.edu.au/courses/nursing-health/advanced-diploma-of-nursing/
+EQUALS International | Diploma of Nursing | diplomado | Salud | 78 weeks | HLT54121 | https://equals.edu.au/courses/nursing-health/diploma-of-nursing/
+EQUALS International | Certificate III in Pathology (Pathology Collection) | curso_corto | Salud | 34 weeks | HLT37525 | https://equals.edu.au/courses/nursing-health/certificate-iii-in-pathology/
+EQUALS International | Certificate III in Dental Assisting | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/nursing-health/certificate-iii-in-dental-assisting/
+EQUALS International | Certificate III in Allied Health Assistance | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/nursing-health/certificate-iii-in-allied-health-assistance/
+EQUALS International | Certificate III in Health Administration | curso_corto | Salud | no indicada | - | https://equals.edu.au/courses/nursing-health/certificate-iii-in-health-administration/
+EQUALS International | Certificate III in Health Services Assistance | curso_corto | Salud | 13 weeks | HLT33115 | https://equals.edu.au/courses/nursing-health/certificate-iii-in-health-services-assistance/
+EQUALS International | Advanced Diploma of Ayurveda | diplomado | Salud | no indicada | - | https://equals.edu.au/courses/nursing-health/advanced-diploma-of-ayurveda/
+EQUALS International | Diploma of Ayurvedic Lifestyle Consultation | diplomado | Salud | 52 weeks | HLT52615 | https://equals.edu.au/courses/nursing-health/diploma-of-ayurvedic-lifestyle-consultation/
+EQUALS International | Diploma Remedial Massage | diplomado | Salud | 52 weeks | HLT52021 | https://equals.edu.au/courses/nursing-health/drm/
+EQUALS International | Certificate III in Individual Support (Ageing and Disability) | curso_corto | Salud | 18 weeks | CHC33021 | https://equals.edu.au/courses/nursing-health/certificate-iii-in-individual-support-ageing-and-disability/
+EQUALS International | Certificate III in Information Technology | curso_corto | Tecnología | 40 weeks | ICT30120 | https://equals.edu.au/courses/trades-and-applied-technologies/certificate-iii-in-information-technology/
+EQUALS International | Diploma of Leadership and Management | diplomado | Negocios | 52 weeks | BSB50420 | https://equals.edu.au/courses/business-and-leadership/diploma-of-leadership-and-management/
+
+# --- IEM Digital Business School · iembs.com · España (Valencia) ---
+# NO hay grado/pregrado ni FP: solo masteres propios y cursos cortos. Formacion in-company excluida.
+IEM Digital Business School | Máster en Marketing Digital Valencia | maestria | Marketing | 9 meses + prácticas | - | https://iembs.com/master/marketing-digital-valencia/
+IEM Digital Business School | Máster en Marketing Digital Online (Online) | maestria | Marketing | 100 horas | - | https://iembs.com/master/digital-online-marketing/
+IEM Digital Business School | Master in Digital Marketing | maestria | Marketing | 7 meses | - | https://iembs.com/master/digital-marketing/
+IEM Digital Business School | Máster en E-commerce, Ventas Digitales y Marketplaces | maestria | Marketing | 6 meses | - | https://iembs.com/master/ventas-digitales-e-commerce-y-marketplaces/
+IEM Digital Business School | Máster en Community Management & Social Media Strategy | maestria | Marketing | 6 meses | - | https://iembs.com/master/community-management-y-social-media-strategy/
+IEM Digital Business School | Máster en SEO/SEM y Analítica | maestria | Marketing | 6 meses | - | https://iembs.com/master/seo-sem/
+IEM Digital Business School | Máster en UX/UI & AI Design | maestria | Diseño | 6 meses | - | https://iembs.com/master/ux-ui/
+IEM Digital Business School | Doble Titulación Máster Marketing Digital + E-commerce | maestria | Marketing | 12-15 meses | - | https://iembs.com/master/doble-titulacion-master-marketing-digital-ecommerce/
+IEM Digital Business School | Doble Titulación Máster Marketing Digital + SEO/SEM | maestria | Marketing | 12-15 meses | - | https://iembs.com/master/doble-titulacion-master-marketing-digital-y-seo-sem/
+IEM Digital Business School | Doble Titulación Máster Marketing Digital + Social Media Strategy | maestria | Marketing | 12-15 meses | - | https://iembs.com/master/doble-titulacion-master-marketing-digital-y-social-media-strategy/
+IEM Digital Business School | Doble Titulación Máster Marketing Digital + UX/UI | maestria | Marketing | 12-15 meses | - | https://iembs.com/master/doble-titulacion-master-marketing-digital-ux-ui/
+IEM Digital Business School | Doble Titulación Máster SEO/SEM + Publicidad Digital | maestria | Marketing | 12-15 meses | - | https://iembs.com/master/doble-titulacion-seo-sem-publicidad-digital/
+IEM Digital Business School | Máster en Digital Business | maestria | Negocios | 6 meses | - | https://iembs.com/master/digital-business-valencia/
+IEM Digital Business School | Máster en CRO y Analítica Web | maestria | Marketing | 6 meses | - | https://iembs.com/master/cro-analitica-web-valencia/
+IEM Digital Business School | Máster en Publicidad Digital y Tráfico de Pago | maestria | Marketing | 6 meses | - | https://iembs.com/master/publicidad-digital/
+IEM Digital Business School | Máster en Dirección de Marketing | maestria | Marketing | 8 meses | - | https://iembs.com/master/direccion-de-marketing/
+IEM Digital Business School | Curso de Publicidad en RRSS | curso_corto | Marketing | 20 horas | - | https://iembs.com/curso/publicidad-en-redes-sociales-valencia/
+IEM Digital Business School | Curso de Amazon | curso_corto | Marketing | 16 horas | - | https://iembs.com/curso/amazon/
+IEM Digital Business School | Curso de Copywriting | curso_corto | Marketing | 20 horas | - | https://iembs.com/curso/copywriting-valencia/
+IEM Digital Business School | Curso de Google ADS | curso_corto | Marketing | 28 horas | - | https://iembs.com/curso/google-ads/
+IEM Digital Business School | Curso de Google ADS Avanzado | curso_corto | Marketing | 28 horas | - | https://iembs.com/curso/google-ads-avanzado/
+IEM Digital Business School | Curso de Google Analytics 4 | curso_corto | Marketing | 24 horas | - | https://iembs.com/curso/google-analytics-4/
+IEM Digital Business School | Curso de Redes Sociales | curso_corto | Marketing | 20 horas | - | https://iembs.com/curso/redes-sociales-valencia/
+IEM Digital Business School | Curso de Redes Sociales Avanzado | curso_corto | Marketing | 20 horas | - | https://iembs.com/curso/redes-sociales-avanzado-valencia/
+IEM Digital Business School | Curso de SEO | curso_corto | Marketing | 20 horas | - | https://iembs.com/curso/posicionamiento-seo-valencia/
+IEM Digital Business School | Curso de SEO Avanzado | curso_corto | Marketing | 20 horas | - | https://iembs.com/curso/seo-avanzado-valencia/
+IEM Digital Business School | Curso de Metaverso | curso_corto | Tecnología | 12 horas | - | https://iembs.com/curso/metaverso/
+IEM Digital Business School | Curso de Power BI | curso_corto | Tecnología | 16 horas | - | https://iembs.com/curso/power-bi-valencia/
+IEM Digital Business School | Curso de Excel Avanzado | curso_corto | Tecnología | 24 horas | - | https://iembs.com/curso/excel-avanzado-valencia/
+IEM Digital Business School | Curso de Gestión de Equipos | curso_corto | Negocios | 20 horas | - | https://iembs.com/curso/gestion-de-equipos-valencia/
+IEM Digital Business School | Curso de Oratoria | curso_corto | Negocios | 15 horas | - | https://iembs.com/curso/curso-oratoria-valencia/
+IEM Digital Business School | Curso de Data Analytics | curso_corto | Tecnología | no indicada | - | https://iembs.com/curso/nuevo-data-analytics/
+
+# --- Signet Institute Of Australia · signet.edu.au · Australia (Melbourne, Sydney, Adelaide) ---
+# SPA React: las paginas de curso devuelven HTML vacio. Catalogo reconstruido desde sitemap.xml.
+# Los nombres derivan del slug de la URL — NO estan verificados contra el render (ver NOTAS).
+Signet Institute Of Australia | Certificate III in Light Vehicle Mechanical Technology | curso_corto | Automotriz | no indicada | - | https://www.signet.edu.au/automotive-courses/certificate-iii-light-vehicle-mechanical-technology/
+Signet Institute Of Australia | Certificate III in Automotive Diesel Engine Technology | curso_corto | Automotriz | no indicada | - | https://www.signet.edu.au/automotive-courses/certificate-iii-automotive-diesel-engine-technology/
+Signet Institute Of Australia | Certificate IV in Automotive Mechanical Diagnosis | curso_corto | Automotriz | no indicada | - | https://www.signet.edu.au/automotive-courses/certificate-iv-in-automotive-mechanical-diagnosis/
+Signet Institute Of Australia | Diploma of Leadership and Management | diplomado | Negocios | no indicada | - | https://www.signet.edu.au/business-courses/diploma-of-leadership-and-management/
+Signet Institute Of Australia | Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | - | https://www.signet.edu.au/business-courses/advanced-diploma-of-leadership-and-management/
+Signet Institute Of Australia | Graduate Diploma of Management | posgrado | Negocios | no indicada | - | https://www.signet.edu.au/business-courses/graduate-diploma-of-management/
+Signet Institute Of Australia | Certificate III in Wall and Floor Tiling | curso_corto | Construcción | no indicada | - | https://www.signet.edu.au/construction-courses/certificate-iii-wall-floor-tiling/
+Signet Institute Of Australia | Certificate III in Bricklaying and Blocklaying | curso_corto | Construcción | no indicada | - | https://www.signet.edu.au/construction-courses/certificate-iii-bricklaying-block-laying/
+Signet Institute Of Australia | Diploma of Building and Construction | diplomado | Construcción | no indicada | - | https://www.signet.edu.au/construction-courses/diploma-of-building-construction/
+Signet Institute Of Australia | Advanced Diploma of Civil Construction Design | diplomado | Construcción | no indicada | - | https://www.signet.edu.au/construction-courses/advanced-diploma-of-civil-construction-design/
+Signet Institute Of Australia | Certificate III in Individual Support | curso_corto | Salud | no indicada | - | https://www.signet.edu.au/community-courses/certificate-iii-in-individual-support/
+Signet Institute Of Australia | Certificate IV in Ageing Support | curso_corto | Salud | no indicada | - | https://www.signet.edu.au/community-courses/certificate-iv-in-ageing-support/
+Signet Institute Of Australia | Certificate IV in Disability Support | curso_corto | Salud | no indicada | - | https://www.signet.edu.au/community-courses/certificate-iv-in-disability-support/
+Signet Institute Of Australia | Diploma of Community Services | diplomado | Trabajo Social | no indicada | - | https://www.signet.edu.au/community-courses/diploma-of-community-services/
+Signet Institute Of Australia | Diploma of Mental Health | diplomado | Salud | no indicada | - | https://www.signet.edu.au/community-courses/diploma-of-mental-health/
+Signet Institute Of Australia | Certificate III in Engineering - Fabrication Trade | curso_corto | Ingeniería | no indicada | - | https://www.signet.edu.au/manufacturing-and-engineering/certificate-iii-in-engineering-fabrication-trade/
+Signet Institute Of Australia | ELICOS - General English | curso_corto | Idiomas | no indicada | - | https://www.signet.edu.au/general-english/elicos/
+Signet Institute Of Australia | Certificate III in Pathology Collection | curso_corto | Salud | no indicada | - | https://www.signet.edu.au/healthcare-courses/certificate-iii-in-pathology-collection/
+Signet Institute Of Australia | Diploma of Dental Technology | diplomado | Salud | no indicada | - | https://www.signet.edu.au/healthcare-courses/diploma-of-dental-technology/
+
+# --- KLF TOULOUSE - LANGUE ONZE · langueonze.com · Francia (Toulouse) ---
+# Solo idiomas (frances A1-C2). El sitio opera bajo la marca del grupo KLF; algunos links salen a klf.fr.
+KLF Toulouse - Langue Onze | Cours de français standard | curso_corto | Idiomas | 20 leçons/semaine · 1-12+ semaines | - | https://langueonze.com/cours-de-francais-en-france/cours-francais-toulouse-adultes/cours-de-francais-standard/
+KLF Toulouse - Langue Onze | Cours de français intensif | curso_corto | Idiomas | 26 leçons/semaine · 1-12+ semaines | - | https://langueonze.com/cours-de-francais-en-france/cours-francais-toulouse-adultes/cours-de-francais-intensif/
+KLF Toulouse - Langue Onze | Préparation Universitaire | curso_corto | Idiomas | 26 leçons/semaine · 12/24/36 semaines | - | https://langueonze.com/cours-de-francais-en-france/cours-francais-toulouse-adultes/cours-intensif-long-terme-toulouse/
+KLF Toulouse - Langue Onze | Cours de français intensif premium | curso_corto | Idiomas | 26 + 4 leçons/semaine · 1-8 semaines | - | https://langueonze.com/cours-de-francais-en-france/cours-francais-toulouse-adultes/cours-de-francais-combi/
+KLF Toulouse - Langue Onze | Cours de français super-intensif | curso_corto | Idiomas | 40 leçons/semaine · 1-8 semaines | - | https://langueonze.com/cours-de-francais-en-france/cours-francais-toulouse-adultes/cours-de-francais-super-intensif/
+KLF Toulouse - Langue Onze | Cours de français débutant complet | curso_corto | Idiomas | no indicada | - | https://langueonze.com/cours-de-francais-en-france/cours-francais-toulouse-adultes/cours-de-francais-debutants/
+KLF Toulouse - Langue Onze | Cours particuliers de français | curso_corto | Idiomas | 6 ou 12 leçons/semaine | - | https://langueonze.com/cours-de-francais-en-france/cours-francais-toulouse-adultes/cours-particuliers-de-francais/
+KLF Toulouse - Langue Onze | Préparation aux examens DELF/DALF Premium | curso_corto | Idiomas | 26 + 4 leçons/semaine · 1-4 semaines | - | https://langueonze.com/cours-de-francais-en-france/cours-de-francais-en-ligne/cours-preparation-examens-francais/
+KLF Toulouse - Langue Onze | Préparation DELF B2 ou DALF C1 | curso_corto | Idiomas | 2 semaines | - | https://langueonze.com/cours-de-francais-en-france/cours-de-francais-en-ligne/cours-preparation-examens-delfb2-dalfc1/
+KLF Toulouse - Langue Onze | Cours de français du soir | curso_corto | Idiomas | 4 leçons/semaine · 12 semaines | - | https://langueonze.com/cours-extensif-soir/
+KLF Toulouse - Langue Onze | Cours du soir en ligne (Online) | curso_corto | Idiomas | 4 leçons/semaine · 4/8/12 semaines | - | https://langueonze.com/cours-de-francais-en-france/cours-de-francais-en-ligne/cours-soir-de-francais-intensif/
+KLF Toulouse - Langue Onze | Français des affaires | curso_corto | Idiomas | 6 ou 12 leçons/semaine | - | https://langueonze.com/cours-de-francais-en-france/cours-de-francais-pour-professionnels/cours-de-francais-affaires-individuel-toulouse/
+KLF Toulouse - Langue Onze | Cours intensif Bildungsurlaub | curso_corto | Idiomas | 30-40 leçons/semaine · 1-2 semaines | - | https://langueonze.com/cours-de-francais-en-france/cours-de-francais-pour-professionnels/cours-de-francais-pour-professionnels-cours-de-francais-bildungsurlaub-travailleurs-allemands/
+KLF Toulouse - Langue Onze | Cours de français pour les juniors | vacacional | Idiomas | 20 leçons/semaine · 1-3 semaines | - | https://klf.fr/french-junior-camp-in-toulouse/
+
+# --- English Language Center (ELC) · elc.edu · USA ---
+# SOLO ingles. Opera 3 campus: Los Angeles (UCLA), Santa Barbara (UCSB) y Boston — la ficha dice solo "California".
+English Language Center (ELC) | General English | curso_corto | Idiomas | no indicada (12 niveles) | - | https://elc.edu/english-courses/
+English Language Center (ELC) | Summer Junior English Program at UCLA | vacacional | Idiomas | no indicada | - | https://elc.edu/summer-junior-programs/summer-junior-english-program-at-ucla/
+English Language Center (ELC) | Summer Junior English Program at UCSB | vacacional | Idiomas | no indicada | - | https://elc.edu/summer-junior-programs/summer-junior-english-program-at-ucsb/
+English Language Center (ELC) | Summer Junior English Program in Boston | vacacional | Idiomas | no indicada | - | https://elc.edu/summer-junior-programs/summer-junior-english-program-in-boston/
+English Language Center (ELC) | Adult Summer Campus Program | vacacional | Idiomas | no indicada | - | https://elc.edu/adult-summer-campus-program/
+
+# --- Deakin College · deakincollege.edu.au · Australia (Melbourne Burwood, Geelong, Warrnambool) ---
+# Pathway provider hacia Deakin University. NO ofrece idiomas propios (ver NOTAS).
+Deakin College | Foundation Program | curso_corto | Preparación Universitaria | 8 o 12 meses | 089916J (8m) / 089917G (12m) | https://www.deakincollege.edu.au/courses/foundation-program/
+Deakin College | Diploma of Business | diplomado | Negocios | 8 o 12 meses | 063386M | https://www.deakincollege.edu.au/courses/diploma/business/
+Deakin College | Diploma of Commerce | diplomado | Negocios | 8 o 12 meses | 022637C | https://www.deakincollege.edu.au/courses/diploma/commerce/
+Deakin College | Diploma of Communication | diplomado | Comunicación | 8 o 12 meses | 097893M | https://www.deakincollege.edu.au/courses/diploma/communication/
+Deakin College | Diploma of Design | diplomado | Diseño | 8 o 12 meses | 097895J | https://www.deakincollege.edu.au/courses/diploma/design/
+Deakin College | Diploma of Engineering | diplomado | Ingeniería | 8 o 12 meses | 063385A | https://www.deakincollege.edu.au/courses/diploma/engineering/
+Deakin College | Diploma of Film, Television & Animation | diplomado | Artes | 8 o 12 meses | 097894K | https://www.deakincollege.edu.au/courses/diploma/film-television-animation/
+Deakin College | Diploma of Health Sciences | diplomado | Salud | 8 o 12 meses | 059996G | https://www.deakincollege.edu.au/courses/diploma/health-sciences/
+Deakin College | Diploma of Information Technology | diplomado | Tecnología | 8 o 12 meses | 097891B | https://www.deakincollege.edu.au/courses/diploma/information-technology/
+Deakin College | Diploma of Science | diplomado | Ciencias | 8 o 12 meses | 063387K | https://www.deakincollege.edu.au/courses/diploma/science/
+Deakin College | Masters Qualifying Program | curso_corto | Preparación Universitaria | 4 meses | 120731M | https://www.deakincollege.edu.au/courses/masters-qualifying-program/
+
+# --- Hawthorn Melbourne (Hawthorn Learning Pty Ltd) · hawthornenglish.edu.au · Australia (Melbourne) ---
+# EXCLUSIVAMENTE idiomas. Ni un Certificate ni un Diploma vocacional (la ficha promete vocacionales: es falso).
+Hawthorn Melbourne | General English | curso_corto | Idiomas | 1-70 semanas | 112461F | https://www.hawthornenglish.edu.au/courses/ge/
+Hawthorn Melbourne | English for Academic Purposes | curso_corto | Idiomas | 5-10 semanas por nivel | 112462E | https://www.hawthornenglish.edu.au/courses/eap/
+Hawthorn Melbourne | Intensive Academic Preparation | curso_corto | Idiomas | 5-10 semanas | 112463D | https://www.hawthornenglish.edu.au/courses/iap/
+Hawthorn Melbourne | IELTS Preparation | curso_corto | Idiomas | 2-10 semanas | 063645G | https://www.hawthornenglish.edu.au/courses/ielts-preparation/
+Hawthorn Melbourne | English for Business | curso_corto | Idiomas | 5-10 semanas por nivel | 063640B | https://www.hawthornenglish.edu.au/courses/english-business/
+Hawthorn Melbourne | English for High School 1 | curso_corto | Idiomas | 5-20 semanas | 093348B | https://www.hawthornenglish.edu.au/courses/efhs/
+Hawthorn Melbourne | English for High School 2 | curso_corto | Idiomas | 5-20 semanas | 093349A | https://www.hawthornenglish.edu.au/courses/efhs/
+Hawthorn Melbourne | University of Melbourne English Language Bridging Program (UMELBP) | curso_corto | Idiomas | 10 semanas | 063648E | https://www.hawthornenglish.edu.au/courses/umelbp/
+Hawthorn Melbourne | University of Melbourne English Language Bridging Program Preparation (UMELBP Prep) | curso_corto | Idiomas | 10 semanas | 0101910 | https://www.hawthornenglish.edu.au/courses/umelbp/
+Hawthorn Melbourne | July Holiday Program | vacacional | Idiomas | 1 o 2 semanas | - | https://www.hawthornenglish.edu.au/courses/july-holiday-program/
+Hawthorn Melbourne | Study Tours | vacacional | Idiomas | no indicada | - | https://www.hawthornenglish.edu.au/courses/study-tours/
+
+# --- Texila College Australia Pty Ltd · texila.edu.au · Australia (Melbourne) ---
+# UN solo programa. Las 6 "especializaciones" son tracks internos del mismo Bachelor: NO son programas separados.
+Texila College Australia | Bachelor of Business | bachelor | Negocios | 3 años | - | https://texila.edu.au/our-courses/
+
+# --- Saint Stephen's College · saintstephenscollege.net.au · Australia (Upper Coomera, Gold Coast) ---
+# CRICOS 01938G. Early Learning Centre y Junior College (primaria) EXCLUIDOS por regla.
+Saint Stephen's College | Senior College (Years 7-12) | secundaria | General | 6 años (Years 7-12) | 01938G | https://www.saintstephenscollege.net.au/learning/senior-college/
+Saint Stephen's College | Queensland Certificate of Education (QCE) - Years 11-12 | secundaria | General | 2 años | 01938G | https://www.saintstephenscollege.net.au/learning/queensland-certificate-of-education-qce/
+Saint Stephen's College | Short Stay and Study Tours | intercambio | General | no indicada | 01938G | https://www.saintstephenscollege.net.au/international/
+
+# RESUMEN: instituciones=10 con_programas=10 total_programas=250 sin_catalogo=0
+# NOTAS:
+# - UniSQ (133 filas) · el dominio usq.edu.au de la ficha esta MUERTO: redirige 301 a unisq.edu.au tras el rebrand. Todo se saco de unisq.edu.au. El sitio NO tiene indice A-Z ni buscador enumerable: hubo que recorrer las 10 areas de estudio y DEDUPLICAR (los 6 dobles grados y el PhD/Master of Research salen repetidos en 5-8 areas cada uno; sin dedupe habrian sido ~190 filas falsas). El `cantidad_aprox` decia "? (cientos)": el real es 133 titulaciones unicas, no cientos. EXCLUIDOS: los 13 "short courses" (son microcredenciales de PD, 100% online, con badge digital — no son programas matriculables ni habilitan visa); UniSQ Ready, UniPrep, Head Start e IHEPP (pathways solo para domesticos / solo para indigenas australianos); y los "English Language Programs" + "UniSQ Foundation Program", que NO los imparte UniSQ sino Union Institute of Language (uil.edu.au) — es otro proveedor y va como institucion aparte, no como programa de UniSQ. `nivel` INFERIDO en Associate Degrees (-> pregrado, son AQF 6 de 2 años), Undergraduate Certificates (-> curso_corto, 0.5 años), Graduate Certificates/Diplomas (-> posgrado) y Juris Doctor (-> posgrado, es el JD profesional de entrada a leyes).
+# - EQUALS International (21 filas) · la ficha llegaba con `category: null` y `puede_vender: []` teniendo CRICOS de proveedor 02804C activo y admision internacional abierta: HAY QUE LLENARLA — vende Vocacionales (Cert III a Adv Diploma) + Higher Ed (Bachelor y Master). El `cantidad_aprox` "40+" cuenta el listado crudo; de las 32 entradas visibles filtre 11 que NO son programas matriculables: unidades de competencia sueltas y skill sets de 0 semanas (Provide First Aid HLTAID011, Provide CPR HLTAID009, Mental Health First Aid, Assist Clients with Medication, White Card, Safe Handling Practices Workshop, Safe Environments, Introduction to Working Safely) y 3 Certificate II de foundation skills / pre-aprendizaje (Electrotechnology Career Start, Engineering Pathways, Skills for Work and Vocational Pathways) que son VET domestico financiado, no CRICOS. La pagina /international-students/ confirma las areas vendibles pero NO publica CRICOS por curso: pedirlos a admissions antes de cotizar.
+# - Signet Institute (19 filas) · CATALOGO NO RENDERIZABLE: es una SPA React y hasta las paginas de curso individuales devuelven solo el <h1> "Signet Institute Of Australia". Reconstrui el catalogo desde sitemap.xml (69 URLs, lastmod 2024-07-04). CONSECUENCIA A REVISAR: los nombres de programa estan DERIVADOS DEL SLUG de la URL, no copiados del sitio, y NO hay ni un codigo nacional ni CRICOS ni duracion para ninguno de los 19. El conteo cuadra con el `cantidad_aprox` (~19-20) pero la ficha decia 9 Certificate III y en el sitemap solo hay 7. EXCLUI 2 URLs que no son programas: /healthcare-courses/first-aid/ (skill set) y /healthcare-courses/oba/ (preparacion para examen de licencia dental ADC). El sitemap no diferencia por campus pese a que operan Melbourne, Sydney y Adelaide.
+# - IEM Digital Business School (32 filas) · `puede_vender` FALSO en dos frentes: habilita "Pregrado & Postgrado" y no existe NI UN grado/pregrado, y habilita "Vocacionales (Cert, Dip, Adv Dip)" y no hay FP ni titulo vocacional. Lo real es: 16 masteres propios (5 de ellos dobles titulaciones) + 16 cursos cortos de 12-28 horas. Corregir la ficha a solo posgrado + cursos cortos. El "Máster en Marketing Digital Online" es 100% online (marcado con "(Online)" en el nombre): NO habilita visa de estudio. Formacion in-company excluida por no ser programa matriculable. El sitio publica precios; no se transcribieron.
+# - Deakin College (11 filas) · el dominio es el propio del college, NO apunta a navitas.com (bien). Pero `puede_vender` incluye "Idiomas" y el sitio NO ofrece ningun curso de ingles propio: el componente de ingles se entrega via Deakin University English Language Institute dentro del Masters Qualifying Program. Corregir. Los 11 programas traen CRICOS verificado. La ficha dice campus "Melbourne, Geelong, Warrambool" pero las paginas de curso solo confirman Melbourne Burwood y Geelong Waurn Ponds (+ modalidad online SOLO para domesticos, no vendible). Los sitios publican tarifas 2026; no se transcribieron.
+# - Hawthorn Melbourne (11 filas) · `puede_vender` INCONSISTENTE: promete "Vocacionales (Cert, Dip, Adv Dip)" y el sitio es EXCLUSIVAMENTE idiomas — ni un Certificate ni un Diploma. Corregir a solo Idiomas. Los 9 cursos ELICOS traen CRICOS verificado. Abri en 2 filas "English for High School" (EfHS1 093348B / EfHS2 093349A) y "UMELBP" (063648E / UMELBP Prep 0101910) porque cada nivel es un CRICOS distinto, lo que sube el conteo de ~8 (auditoria) a 11. OJO comercial: el July Holiday Program declara explicitamente que NO esta disponible para titulares de visa de estudiante — solo se vende a quien viaje con visa de turista.
+# - Texila College (1 fila) · `puede_vender` ES FALSO EN SUS DOS ENTRADAS: dice "Vocacionales (Cert, Dip, Adv Dip)" e "Idiomas" y el sitio no tiene NI UN certificado, NI UN diploma, NI UN curso de ingles. Solo un Bachelor of Business (AQF 7, 3 años). Las 6 especializaciones (Accounting, Hospitality Mgmt, Information Systems, Management, Marketing, International Business) NO se cargaron como programas separados por regla — son tracks del mismo grado. Detalle a verificar con la institucion: cada especializacion SI publica su propio CRICOS (Accounting = 104938G), asi que podrian estar registradas como cursos separados en el CRICOS; si el asesor lo confirma, se abren en 6 filas. El 03894K de la ficha es el CRICOS DE PROVEEDOR, no de curso — no usarlo como codigo de programa. Ademas /our-courses/ tiene un link roto a fastwpdemo.com (plantilla sin limpiar) y /bachelor-of-business/ da 404.
+# - Saint Stephen's College (3 filas) · FICHA VACIA (`ciudad: null`, `category: null`, `partner_group: null`, `puede_vender: []`) para una institucion perfectamente vendible: es un colegio K-12 con CRICOS 01938G y RTO 45295, en Upper Coomera (Gold Coast, QLD) — llenar ciudad y poner puede_vender = ["Secundaria/High School", "Study Tours"]. Senior College cubre Years 7-12 (Connections 7-8, Experiences 9-10, Credentials 11-12) y todos los alumnos van por QCE + elegibilidad ATAR, con opcion de VET. EXCLUIDOS por regla: Early Learning Centre (guarderia), Junior College (primaria) y Outside School Hours Care / Vacation Care (cuidado, no programa academico). Tambien excluidos los "Optima Programs" de enriquecimiento: son co-curriculares, no matriculables por si solos. `nivel` INFERIDO: secundaria para Senior College y QCE; intercambio para Short Stay and Study Tours.
+# - English Language Center / ELC (5 filas) · `puede_vender: ["Todos los programas"]` es FALSO: no hay ni un grado ni un vocacional, SOLO ingles. Corregir a ["Idiomas"]. Y la ciudad de la ficha ("California") esta incompleta: ELC opera TRES campus — Los Angeles (UCLA), Santa Barbara (UCSB) y Boston (Massachusetts, fuera de California). Cargue los programas de verano por campus para que el asesor sepa cual vende. El sitio no publica duracion ni lecciones/semana en las paginas de curso (remite a "Dates and Fees", que trae precios y no se transcribio), asi que los 12 niveles de ingles quedan como un unico "General English".
+# - KLF Toulouse - Langue Onze (14 filas) · el sitio ya opera bajo la marca del grupo KLF, coherente con partner_group. Solo idiomas (frances A1-C2), ficha correcta en lo demas. EXCLUIDOS: "Cours pour les professeurs" (formacion continua para docentes, ademas alojado en erasmus.klf.fr, fuera del dominio del lote) y "Cours de français pour les groupes" (reserva grupal a medida, no programa matriculable individual). El junior camp SI se cargo aunque su URL vive en klf.fr — es producto vendible y el link sale de la propia pagina de cursos de langueonze.com. Dos cursos de preparacion DELF/DALF tienen URL bajo la ruta /cours-de-francais-en-ligne/ pero el sitio los agrupa como presenciales: NO los marque como (Online); verificar modalidad antes de vender. El "Cours intensif Bildungsurlaub" esta pensado para trabajadores alemanes con licencia formativa: vendible, pero no es el perfil de la agencia.

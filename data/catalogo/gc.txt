@@ -1,0 +1,1 @@
+C:\Users\JuanPablo\AppData\Local\Programs\Python\Python39\python.exe: can't open file 'C:\Users\JuanPablo\Desktop\irrelevant core\Board irrelevant\CTO\proyectos\grasshopper\backend\data\catalogo\fetch.py': [Errno 2] No such file or directory

@@ -1,0 +1,164 @@
+[
+ {
+  "institucion_ficha": "Murdoch University (Murdoch)",
+  "nombre_real": "Murdoch University",
+  "dominio": "www.murdoch.edu.au",
+  "url_programas": "https://www.murdoch.edu.au/study/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado, Honours, Postgrado coursework, Research/PhD",
+  "cantidad_aprox": "200+ (cifra del propio sitio)",
+  "veredicto_auditoria": "observacion",
+  "alerta": "El \"(Murdoch)\" del nombre de ficha es ruido (Murdoch es el suburbio del campus principal, no un descriptor). tipo_adivinado=\"curso_corto\" es erroneo p",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Avon Maitland Schools",
+  "nombre_real": "Avon Maitland District School Board (AMDSB)",
+  "dominio": "amdsb.ca",
+  "url_programas": "https://www.amdsb.ca/apps/pages/index.jsp?uREC_ID=1088899&type=d&pREC_ID=1366718",
+  "pais": "Canada",
+  "ciudad": "Ontario",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Elemental + Secundaria (grados 9-12)",
+  "cantidad_aprox": "~45 escuelas",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NO ES UNA INSTITUCION sino una JUNTA de ~45 escuelas · el brazo internacional se llama \"Avon Maitland Schools Canada\" y vive en OTRO dominio (yourscho",
+  "_est": 45
+ },
+ {
+  "institucion_ficha": "TAI - Centro universitario de Artes",
+  "nombre_real": "Escuela Universitaria de Artes TAI (Madrid) · centro adscrito a la Universidad Rey Juan Carlos (URJC)",
+  "dominio": "taiarts.com",
+  "url_programas": "https://taiarts.com/estudios/",
+  "pais": "Spain",
+  "ciudad": "Madrid",
+  "puede_vender": [
+   "Vocacionales (cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Grado universitario (via URJC), Master, Diplomatura propia",
+  "cantidad_aprox": "~30 (6 grados + 20+ masteres + diplomaturas)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender dice \"Vocacionales (cert, Dip, Adv Dip)\" — categorias del sistema AUSTRALIANO aplicadas a un centro universitario espanol que otorga GRAD",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "Sydney Institute of Interpreting and Translating",
+  "nombre_real": "Australian Professional Education Institute Pty Ltd trading as Sydney Institute of Interpreting and Translating",
+  "dominio": "siit.nsw.edu.au",
+  "url_programas": "https://siit.nsw.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Certificate IV, Diploma (Interpreting, Translating, Property, Finance & Mortgage Broking), Advanced Diploma, Graduate Diploma of Management, skill sets y prep NAATI/PTE/IELTS/CCL",
+  "cantidad_aprox": "~15-20",
+  "veredicto_auditoria": "observacion",
+  "alerta": "RTO 91490 · CRICOS 03069K. Campus en Sydney, Brisbane y Melbourne — la ficha tiene `ciudad` en null. `category` null y `puede_vender` vacio. Sin aviso",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "CSSS - Castelldefels School of Social Sciences",
+  "nombre_real": "Castelldefels School of Social Sciences (C3S Business School)",
+  "dominio": "www.csss.es",
+  "url_programas": "https://www.csss.es/programs/",
+  "pais": "Spain",
+  "ciudad": "Barcelona",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma (under y postgrado), Bachelor (7), Master/MBA (4), online",
+  "cantidad_aprox": "~13-15",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REBRANDING: opera comercialmente como \"C3S Business School\" y ya NO esta en Castelldefels sino \"in the heart of Barcelona\". \"Social Sciences\" no descr",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "Okanagan College",
+  "nombre_real": "Okanagan College",
+  "dominio": "okanagan.bc.ca",
+  "url_programas": "https://www.okanagancollege.ca/program-search",
+  "pais": "Canada",
+  "ciudad": "Kelowna",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificado, diploma, bachelor, oficios/aprendizajes, continuing ed",
+  "cantidad_aprox": "buscador dinamico, sin conteo",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El `sitio` de la ficha es el dominio viejo: hay 301 permanente a okanagancollege.ca. Actualizar el campo. Catalogo = buscador dinamico, no enumerable ",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Edith Cowan College",
+  "nombre_real": "Edith Cowan College",
+  "dominio": "www.edithcowancollege.edu.au",
+  "url_programas": "https://www.edithcowancollege.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Perth",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "Foundation, Diploma (6), Pre-Master's/postgrado (4), ingles academico",
+  "cantidad_aprox": "~11",
+  "veredicto_auditoria": "observacion",
+  "alerta": "category=\"College Publico\" es FALSO: es un college privado operado por Navitas dentro del campus de ECU. No otorga bachelor por si mismo (puentea a Ed",
+  "_est": 11
+ },
+ {
+  "institucion_ficha": "Universal English College",
+  "nombre_real": "Universal English College (CRICOS 00053J · ABN 19 003 525 764)",
+  "dominio": "uec.edu.au",
+  "url_programas": "https://uec.edu.au/study-english-with-us/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas/ELICOS: General English, Cambridge prep, IELTS prep, Academic English (pathway), High School Preparation, Junior Holiday, Kids Holiday, After School",
+  "cantidad_aprox": "8",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Ficha VACIA: `category`=null y `puede_vender`=[] — hoy no autoriza vender nada, aunque es claramente un \"Instituto Idiomas\" con 8 cursos enumerables. ",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "Delta School District 37",
+  "nombre_real": "Delta School District · School District 37 Delta",
+  "dominio": "deltasd.bc.ca",
+  "url_programas": "https://www.deltasd.bc.ca/programs/international-education/ (sitio dedicado: godelta.ca)",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "High School"
+  ],
+  "niveles_vistos": "Elementary y Secondary (5 a 18 anios), corto plazo, ano completo, graduacion, verano",
+  "cantidad_aprox": "4 formatos",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CIUDAD MAL EN LA FICHA: no es Vancouver, es DELTA, BC (4585 Harvest Drive, Delta) · es area metropolitana de Vancouver pero otro municipio · NO ES UNA",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "Cyprus West University",
+  "nombre_real": "Cyprus West University / Kibris Bati Universitesi (Famagusta)",
+  "dominio": "cwu.edu.tr",
+  "url_programas": "https://www.cwu.edu.tr/undergraduate-degree-programs/ y /institute-of-graduate-studies/",
+  "pais": "Chipre",
+  "ciudad": "Famagusta",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Pregrado & Postgrado",
+   "Pregrado + Posgrado"
+  ],
+  "niveles_vistos": "Bachelor (BSc), MBA, English Preparatory School",
+  "cantidad_aprox": "? (3 facultades)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "GEOGRAFIA/JURISDICCION MAL ETIQUETADA: la ficha dice pais \"Chipre\" pero la universidad esta en la Republica Turca del Norte de Chipre, acreditada por ",
+  "_est": 3
+ }
+]

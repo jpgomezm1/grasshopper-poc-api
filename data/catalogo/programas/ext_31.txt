@@ -1,0 +1,427 @@
+# Lote 31 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Edinburgh Napier University (napier.ac.uk) ---
+Edinburgh Napier University | Certificate of Credit English as a Foreign Language - 8 Month Programme | curso_corto | Idiomas | 8 meses | - | https://www.napier.ac.uk/courses/certificate-of-credit-english-as-a-foreign-language--8-month-programme-undergraduate-fulltime
+Edinburgh Napier University | Certificate of Credit English as a Foreign Language - Year Long Programme | curso_corto | Idiomas | 1 año | - | https://www.napier.ac.uk/courses/certificate-of-credit-english-as-a-foreign-language--year-long-programme-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Accounting | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-accounting-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Accounting and Finance | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-accounting-and-finance-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Accounting with Corporate Finance | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-accounting-with-corporate-finance-undergraduate-fulltime
+Edinburgh Napier University | BA Accounting (West Lothian College) | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-accounting-west-lothian-college-ug-full-time
+Edinburgh Napier University | MAcc Accounting | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-accounting-postgraduate-fulltime
+Edinburgh Napier University | BA (Hons) Business Management | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/baba-hons-business-management-undergraduate-fulltime
+Edinburgh Napier University | BA Business Management (West Lothian College) | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-business-management-west-lothian-college-undergraduate-fulltime
+Edinburgh Napier University | BA Business Management (Top-Up) | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-business-management-ba-topup-undergraduate-online-learning
+Edinburgh Napier University | BA Business Management with Sustainability | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-business-management-with-sustainability-undergraduate-online-learning
+Edinburgh Napier University | BA Business Management with Finance | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-business-management-with-finance-online-undergraduate-online-learning
+Edinburgh Napier University | BA Business Management with Hospitality | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-business-management-with-hospitality-undergraduate-online-learning
+Edinburgh Napier University | BA Business Management with Marketing | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-business-management-with-marketing-online-undergraduate-online-learning
+Edinburgh Napier University | BA (Hons) Business Management with Project Management | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-business-management-with-project-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Business Management with Entrepreneurship | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-business-management-with-entrepreneurship-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Business Management with Human Resource Management | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-business-management-with-human-resource-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Business Management with Marketing | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-business-management-with-marketing-undergraduate-fulltime
+Edinburgh Napier University | BA Business and Enterprise | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-business-and-enterprise-online-undergraduate-online-learning
+Edinburgh Napier University | BA (Hons) International Business Management | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-international-business-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Financial Services | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-financial-services-undergraduate-fulltime
+Edinburgh Napier University | BA Human Resource Management with Organisational Psychology | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-human-resource-management-with-organisational-psychology-undergraduate-parttime
+Edinburgh Napier University | BA Marketing Management | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-marketing-management-undergraduate-online-learning
+Edinburgh Napier University | BA (Hons) Marketing Management | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-marketing-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Marketing with Digital Media | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-marketing-with-digital-media-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Intercultural Business Communication and Marketing Management | bachelor | Negocios | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-intercultural-business-communication-and-marketing-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Intercultural Business Communication and Tourism Management | bachelor | Turismo | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-intercultural-business-communication-and-tourism-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) International Hospitality Management | bachelor | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-international-hospitality-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) International Hospitality Management and Festival & Event | bachelor | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-international-hospitality-management-and-festival--event-undergraduate-fulltime
+Edinburgh Napier University | BA International Hospitality Management (City of Glasgow College) | bachelor | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/ba-international-hospitality-management-city-of-glasgow-college-undergraduate-full-time
+Edinburgh Napier University | BA Hospitality and Tourism Management (Top-Up) | bachelor | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/ba-hospitality--and-tourism-management-top-up
+Edinburgh Napier University | BA (Hons) International Festival & Event Management | bachelor | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-international-festival--event-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) International Festival & Event Management and Marketing | bachelor | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-international-festival--event-management-and-marketing-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) International Tourism Management | bachelor | Turismo | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-international-tourism-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) International Tourism and Airline Management | bachelor | Turismo | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-international-tourism-and-airline-management-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Media and Communication | bachelor | Comunicación | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-media-and-communication-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Mass Communications, Advertising and Public Relations | bachelor | Comunicación | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-mass-communications-advertising-and-public-relations-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Journalism | bachelor | Comunicación | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-journalism-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Television | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-television-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Film | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-film-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) English and Film | bachelor | Humanidades | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-english-and-film-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) English | bachelor | Humanidades | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-english-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Acting and English | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-acting-and-english-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Stage and Screen Acting | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-ba-hons-stage-and-screen-acting-ft-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Music | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-music-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Photography | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-photography-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Criminology | bachelor | Ciencias Sociales | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-criminology-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Social Sciences | bachelor | Ciencias Sociales | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-social-sciences-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) / BSc (Hons) Psychology | bachelor | Psicología | no indicada | - | https://www.napier.ac.uk/courses/ba-hons--bsc-hons-psychology-undergraduate-fulltime
+Edinburgh Napier University | BA (Hons) Psychology with Sociology | bachelor | Psicología | no indicada | - | https://www.napier.ac.uk/courses/ba-hons-psychology-with-sociology-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Policing and Criminology | bachelor | Ciencias Sociales | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-policing-and-criminology-undergraduate-fulltime
+Edinburgh Napier University | LLB (Hons) Law | bachelor | Derecho | no indicada | - | https://www.napier.ac.uk/courses/llb--hons-law-undergraduate-fulltime
+Edinburgh Napier University | LLB Law (Graduate Entry) | bachelor | Derecho | no indicada | - | https://www.napier.ac.uk/courses/llb-law-graduate-entry-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Computer Science | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/bscbsc-(hons)-computer-science-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Computer Science & Artificial Intelligence | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-computer-science-artificial-intelligence---undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Data Science | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-data-science---undergraduate-fulltime
+Edinburgh Napier University | BSc Computing (Global Online Top-Up) | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/bsc-bsc-computing-global-online-topup-ft-undergraduate-online-learning
+Edinburgh Napier University | BEng (Hons) Computing | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/bengbeng-hons-computing-undergraduate-fulltime
+Edinburgh Napier University | BEng (Hons) Software Engineering | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/bengbeng-hons-software-engineering-undergraduate-fulltime
+Edinburgh Napier University | MEng Software Engineering | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/meng-software-engineering-undergraduate-fulltime
+Edinburgh Napier University | BEng (Hons) Cybersecurity and Forensics | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/beng-hons-cybersecurity-and-forensics-undergraduate-fulltime
+Edinburgh Napier University | BEng (Hons) Network Engineering and Cyber Security | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/beng-hons-network-engineering-and-cyber-security-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) User Experience (UX) Design | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-user-experience-ux-design-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Digital Media and Interaction Design | bachelor | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-digital-media-and-interaction-design-undergraduate-fulltime
+Edinburgh Napier University | BDes (Hons) Interactive Media Design | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/bdes-hons-interactive-media-design-undergraduate-fulltime
+Edinburgh Napier University | BDes (Hons) Graphic Design | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/bdes-hons-graphic-design-undergraduate-fulltime
+Edinburgh Napier University | BDes (Hons) Interior & Spatial Design | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/bdes-hons-interior--spatial-design-undergraduate-fulltime
+Edinburgh Napier University | BDes (Hons) Product Design | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/bdes-hons-product-design-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Animation for Games | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-animation-for-games-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Sound Design | bachelor | Artes | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-sound-design-undergraduate-fulltime
+Edinburgh Napier University | BEng (Hons) Civil Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/bengbeng-hons-civil-engineering-undergraduate-fulltime
+Edinburgh Napier University | MEng Civil Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/meng-civil-engineering-undergraduate-fulltime
+Edinburgh Napier University | MEng Civil & Transportation Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/meng-civil--transportation-engineering-undergraduate-fulltime
+Edinburgh Napier University | BEng (Hons) Mechanical Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/bengbeng-hons-mechanical-engineering-undergraduate-fulltime
+Edinburgh Napier University | MEng Mechanical Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/meng-mechanical-engineering-undergraduate-fulltime
+Edinburgh Napier University | BEng (Hons) Electrical Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/beng-hons-electrical-engineering-undergraduate-fulltime
+Edinburgh Napier University | BEng (Hons) Electronic Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/beng-hons-electronic-engineering-undergraduate-fulltime
+Edinburgh Napier University | BEng (Hons) Electrical and Electronic Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/beng-hons-electrical-and-electronic-engineering-undergraduate-fulltime
+Edinburgh Napier University | BEng (Hons) Energy and Environmental Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/bengbeng-hons-energy-and-environmental-engineering-undergraduate-fulltime
+Edinburgh Napier University | MEng Energy and Environmental Engineering | bachelor | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/meng-energy-and-environmental-engineering-undergraduate-full-time
+Edinburgh Napier University | BSc (Hons) Architectural Technology | bachelor | Arquitectura | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-architectural-technology-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Building Surveying | bachelor | Construcción | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-building-surveying-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Quantity Surveying | bachelor | Construcción | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-quantity-surveying-undergraduate-fulltime
+Edinburgh Napier University | BSc Real Estate Surveying | bachelor | Construcción | no indicada | - | https://www.napier.ac.uk/courses/bsc-real-estate-surveying-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Biological Science | bachelor | Ciencias | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-biological-science-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Biomedical Science | bachelor | Ciencias de la Salud | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-biomedical-science-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Applied Microbiology | bachelor | Ciencias | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-applied-microbiology-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Animal and Conservation Biology | bachelor | Ciencias | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-animal-and-conservation-biology-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Marine & Freshwater Biology | bachelor | Ciencias | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-marine--freshwater-biology-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Sport and Exercise Science | bachelor | Deporte | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-sport-and-exercise-science-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Sports Coaching | bachelor | Deporte | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-sports-coaching-undergraduate-fulltime
+Edinburgh Napier University | BSc (Hons) Physical Activity and Health | bachelor | Salud | no indicada | - | https://www.napier.ac.uk/courses/bsc-hons-physical-activity-and-health-undergraduate-fulltime
+Edinburgh Napier University | BM Midwifery | bachelor | Salud | no indicada | - | https://www.napier.ac.uk/courses/bm-midwifery-undergraduate-fulltime
+Edinburgh Napier University | BN Nursing (Adult) | bachelor | Salud | no indicada | - | https://www.napier.ac.uk/courses/bn-nursing-adult-undergraduate-fulltime
+Edinburgh Napier University | BN Nursing (Child) | bachelor | Salud | no indicada | - | https://www.napier.ac.uk/courses/bn-nursing-child-undergraduate-fulltime
+Edinburgh Napier University | BN Nursing (Learning Disabilities) | bachelor | Salud | no indicada | - | https://www.napier.ac.uk/courses/bn-nursing-learning-disabilities-undergraduate-fulltime
+Edinburgh Napier University | BN Nursing (Mental Health) | bachelor | Salud | no indicada | - | https://www.napier.ac.uk/courses/bn-nursing-mental-health-undergraduate-fulltime
+Edinburgh Napier University | BSc Nursing Studies | bachelor | Salud | no indicada | - | https://www.napier.ac.uk/courses/bsc-nursing-studies-undergraduate-full-time
+Edinburgh Napier University | BSc Nursing Studies (Global Online) | bachelor | Salud | no indicada | - | https://www.napier.ac.uk/courses/bsc-nursing-studies-global-online-undergraduate-online-learning
+Edinburgh Napier University | MSc Accounting | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-accounting-postgraduate-fulltime
+Edinburgh Napier University | MSc Business Analytics | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-business-analytics-postgraduate-full-time
+Edinburgh Napier University | MSc Business Management | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-business-management-postgraduate-fulltime
+Edinburgh Napier University | MSc Business Management (Marketing) | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-business-management-marketing-postgraduate-online-learning
+Edinburgh Napier University | MSc Business Management (Finance) | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-business-management-finance-postgraduate-online-learning
+Edinburgh Napier University | MSc Business Management (HRM) | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-business-management-hrm-postgraduate-online-learning
+Edinburgh Napier University | MSc Business Management (Logistics and Supply Chains) | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-business-management-logistics-and-supply-chains-postgraduate-online-learning
+Edinburgh Napier University | MSc Business Management (Project Management) | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-business-management-project-management-postgraduate-online-learning
+Edinburgh Napier University | MSc Business Management (Tourism and Hospitality) | maestria | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/msc-business-management-tourism-and-hospitality-postgraduate-online-learning
+Edinburgh Napier University | MSc International Business Management | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-international-business-management-postgraduate-fulltime
+Edinburgh Napier University | MSc International Finance | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-international-finance-postgraduate-fulltime
+Edinburgh Napier University | MSc Human Resource Management | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-human-resource-management-postgraduate-fulltime
+Edinburgh Napier University | MSc International Human Resource Management | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-international-human-resource-management-postgraduate-fulltime
+Edinburgh Napier University | MSc Human Resource Management with Artificial Intelligence | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-human-resource-management-with-artificial-intelligence-postgraduate-full-time
+Edinburgh Napier University | MSc Human Resource Management (Top-Up) | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-human-resource-management-topup-blended-postgraduate-parttime
+Edinburgh Napier University | MSc Marketing | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-marketing-postgraduate-fulltime
+Edinburgh Napier University | MSc Marketing with Sustainability | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-marketing-with-sustainability-postgraduate-full-time
+Edinburgh Napier University | MSc Marketing with Digital Strategy | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-marketing-with-digital-strategy-ft-postgraduate-fulltime
+Edinburgh Napier University | MSc Marketing with Festival & Event Management | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-marketing-with-festival-,-a-,-event-management-postgraduate-fulltime
+Edinburgh Napier University | MSc International Marketing | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-international-marketing-postgraduate-fulltime
+Edinburgh Napier University | MSc International Marketing with Tourism | maestria | Turismo | no indicada | - | https://www.napier.ac.uk/courses/msc-international-marketing-with-tourism-postgraduate-fulltime
+Edinburgh Napier University | MSc Creative Advertising | maestria | Comunicación | no indicada | - | https://www.napier.ac.uk/courses/msc-creative-advertising-postgraduate-fulltime
+Edinburgh Napier University | MSc Global Logistics and Supply Chain Analytics | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-global-logistics-and-supply-chain-analytics-postgraduate-fulltime
+Edinburgh Napier University | MSc Real Estate Management and Investment | maestria | Negocios | no indicada | - | https://www.napier.ac.uk/courses/msc-real-estate-management-and-investment-postgraduate-fulltime
+Edinburgh Napier University | MSc International Festival & Event Management | maestria | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/msc-international-festival-,-a-,-event-management-postgraduate-fulltime
+Edinburgh Napier University | MSc Global Hospitality Management (Extended) | maestria | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/msc-global-hospitality-management-extended-postgraduate-fulltime
+Edinburgh Napier University | MSc International Tourism Destination Management | maestria | Turismo | no indicada | - | https://www.napier.ac.uk/courses/msc-international-tourism-destination-management-postgraduate-fulltime
+Edinburgh Napier University | MSc Intercultural Business Communication | maestria | Comunicación | no indicada | - | https://www.napier.ac.uk/courses/msc-intercultural-business-communication-postgraduate-fulltime
+Edinburgh Napier University | MSc Publishing | maestria | Comunicación | no indicada | - | https://www.napier.ac.uk/courses/msc-publishing-postgraduate-fulltime
+Edinburgh Napier University | MSc Information Science | maestria | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/msc-information-science-postgraduate-full-time
+Edinburgh Napier University | MSc Computing | maestria | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/msc-computing-postgraduate-fulltime
+Edinburgh Napier University | MSc Computing with Professional Placement | maestria | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/msc-computing-with-professional-placement-postgraduate-fulltime
+Edinburgh Napier University | MSc Artificial Intelligence and Data Science | maestria | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/msc-artificial-intelligence-and-data-science-postgraduate-full-time
+Edinburgh Napier University | MSc Cyber Security | maestria | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/msc-cyber-security-postgraduate-full-time
+Edinburgh Napier University | MSc Business Information Technology | maestria | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/msc-business-information-technology-postgraduate-fulltime
+Edinburgh Napier University | MSc User Experience Design | maestria | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/msc-user-experience-design-postgraduate-fulltime
+Edinburgh Napier University | MSc Design Research | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/msc-design-research-postgraduate-full-time
+Edinburgh Napier University | MSc Sound Design | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/msc-sound-design-postgraduate-full-time
+Edinburgh Napier University | MSc Advanced Mechanical Engineering | maestria | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/msc-advanced-mechanical-engineering-postgraduate-full-time
+Edinburgh Napier University | MSc Advanced Materials Engineering | maestria | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/msc-advanced-materials-engineering-postgraduate-fulltime
+Edinburgh Napier University | MSc Advanced Structural Engineering | maestria | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/msc-advanced-structural-engineering-postgraduate-fulltime
+Edinburgh Napier University | MSc Automation and Control | maestria | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/msc-automation-and-control-postgraduate-fulltime
+Edinburgh Napier University | MSc Robotics and Autonomous Systems Engineering | maestria | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/msc-robotics-and-autonomous-systems-engineering-postgraduate-full-time
+Edinburgh Napier University | MSc Renewable Energy | maestria | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/msc-renewable-energy-postgraduate-fulltime
+Edinburgh Napier University | MSc Transport Planning and Engineering | maestria | Ingeniería | no indicada | - | https://www.napier.ac.uk/courses/msc-transport-planning-and-engineering-postgraduate-fulltime
+Edinburgh Napier University | MSc Construction Project Management | maestria | Construcción | no indicada | - | https://www.napier.ac.uk/courses/msc-construction-project-management-postgraduate-fulltime
+Edinburgh Napier University | MSc Architectural Technology & Sustainable Building Performance | maestria | Arquitectura | no indicada | - | https://www.napier.ac.uk/courses/msc-architectural-technology--sustainable-building-performance-postgraduate-fulltime
+Edinburgh Napier University | MSc Environmental Sustainability | maestria | Ciencias Ambientales | no indicada | - | https://www.napier.ac.uk/courses/msc-environmental-sustainability-postgraduate-fulltime
+Edinburgh Napier University | MSc Wildlife Biology and Conservation | maestria | Ciencias | no indicada | - | https://www.napier.ac.uk/courses/msc-wildlife-biology-and-conservation-postgraduate-fulltime
+Edinburgh Napier University | MSc Biomedical Science | maestria | Ciencias de la Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-biomedical-science-postgraduate-fulltime
+Edinburgh Napier University | MSc Drug Design and Biomedical Science | maestria | Ciencias de la Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-drug-design-and-biomedical-science-postgraduate-fulltime
+Edinburgh Napier University | MSc Medical Biotechnology | maestria | Ciencias de la Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-medical-biotechnology-postgraduate-fulltime
+Edinburgh Napier University | MSc Pharmaceutical and Analytical Science | maestria | Ciencias de la Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-pharmaceutical-and-analytical-science-postgraduate-fulltime
+Edinburgh Napier University | MSc Healthcare Management | maestria | Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-healthcare-management-postgraduate-fulltime
+Edinburgh Napier University | MSc Clinical Healthcare Technology | maestria | Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-clinical-healthcare-technology-postgraduate-online-learning
+Edinburgh Napier University | MSc Clinical Exercise Physiology | maestria | Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-clinical-exercise-physiology-postgraduate-full-time
+Edinburgh Napier University | MSc Occupational Therapy | maestria | Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-occupational-therapy-postgraduate-fulltime
+Edinburgh Napier University | MSc Physiotherapy | maestria | Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-physiotherapy-postgraduate-fulltime
+Edinburgh Napier University | MSc Nursing (Adult Health) | maestria | Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-nursing-adult-health-postgraduate-fulltime
+Edinburgh Napier University | MSc Nursing (Mental Health) | maestria | Salud | no indicada | - | https://www.napier.ac.uk/courses/msc-nursing-mental-health-postgraduate-fulltime
+Edinburgh Napier University | MM Masters in Midwifery | maestria | Salud | no indicada | - | https://www.napier.ac.uk/courses/mm-masters-in-midwifery
+Edinburgh Napier University | MPH Public Health | maestria | Salud | no indicada | - | https://www.napier.ac.uk/courses/mph-public-health-postgraduate-full-time
+Edinburgh Napier University | MSc Applied Sport Science | maestria | Deporte | no indicada | - | https://www.napier.ac.uk/courses/msc-applied-sport-science-postgraduate-full-time
+Edinburgh Napier University | MSc Performance Enhancement in Sports Officiating | maestria | Deporte | no indicada | - | https://www.napier.ac.uk/courses/msc-performance-enhancement-in-sports-officiating-postgraduate-parttime
+Edinburgh Napier University | MSc Applied Forensic Psychology | maestria | Psicología | no indicada | - | https://www.napier.ac.uk/courses/msc-msc-applied-forensic-psychology-ft-postgraduate-fulltime
+Edinburgh Napier University | MSc Applied Criminology and Forensic Psychology | maestria | Psicología | no indicada | - | https://www.napier.ac.uk/courses/msc-applied-criminology-and-forensic-psychology-postgraduate-fulltime
+Edinburgh Napier University | MSc Crime and Justice in Practice | maestria | Ciencias Sociales | no indicada | - | https://www.napier.ac.uk/courses/msc-crime-and-justice-in-practice-postgraduate-full-time
+Edinburgh Napier University | MSc Social Research and Policy | maestria | Ciencias Sociales | no indicada | - | https://www.napier.ac.uk/courses/msc-social-research-and-policy-postgraduate-full-time
+Edinburgh Napier University | MSc/PgDip/PgCert Blended and Online Education | maestria | Educación | no indicada | - | https://www.napier.ac.uk/courses/msc-pgdip--pgcert-blended-and-online-education-postgraduate-distance-learning
+Edinburgh Napier University | MA Creative Documentary Filmmaking | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-creative-documentary-filmmaking-postgraduate-distance-learning
+Edinburgh Napier University | MA Creative Studies | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-creative-studies-postgraduate-full-time
+Edinburgh Napier University | MA Design for Interactive Experience | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-design-for-interactive-experience-postgraduate-full-time
+Edinburgh Napier University | MA Heritage and Exhibition Design | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-heritage-and-exhibition-design-postgraduate-fulltime
+Edinburgh Napier University | MA Lighting Design | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-lighting-design-postgraduate-fulltime
+Edinburgh Napier University | MA Motion Graphics | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-motion-graphics-postgraduate-fulltime
+Edinburgh Napier University | MA Music | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-music-postgraduate-fulltime
+Edinburgh Napier University | MA Service Design | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-service-design-postgraduate-full-time
+Edinburgh Napier University | MA Film | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-film-postgraduate-fulltime
+Edinburgh Napier University | MA Screenwriting | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-screenwriting-postgraduate-fulltime
+Edinburgh Napier University | MA Screenwriting (Global Online) | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/ma-screenwriting-global-online-postgraduate-online-learning
+Edinburgh Napier University | MA Journalism | maestria | Comunicación | no indicada | - | https://www.napier.ac.uk/courses/ma-journalism-postgraduate-fulltime
+Edinburgh Napier University | MA Sports Journalism | maestria | Comunicación | no indicada | - | https://www.napier.ac.uk/courses/ma-sports-journalism-postgraduate-full-time
+Edinburgh Napier University | MA Creative Writing | maestria | Humanidades | no indicada | - | https://www.napier.ac.uk/courses/ma-creative-writing-postgraduate-fulltime
+Edinburgh Napier University | MA Writing Genre Fiction | maestria | Humanidades | no indicada | - | https://www.napier.ac.uk/courses/ma-writing-genre-fiction-postgraduate-online-learning
+Edinburgh Napier University | MA Writing Popular Fiction | maestria | Humanidades | no indicada | - | https://www.napier.ac.uk/courses/ma-writing-popular-fiction-postgraduate-fulltime
+Edinburgh Napier University | MFA Acting for Stage and Screen | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/mfa-acting-for-stage-and-screen-postgraduate-fulltime
+Edinburgh Napier University | MFA Directing | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/mfa-directing-postgraduate-fulltime
+Edinburgh Napier University | MFA Design for Interactive Art & Experiences | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/mfa-design-for-interactive-art--experiences-postgraduate-fulltime
+Edinburgh Napier University | MFA Heritage and Exhibition Design | maestria | Artes | no indicada | - | https://www.napier.ac.uk/courses/mfa-heritage-and-exhibition-design-postgraduate-fulltime
+Edinburgh Napier University | MBA | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-postgraduate-online-learning
+Edinburgh Napier University | MBA Business Analytics | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-business-analytics-postgraduate-online-learning
+Edinburgh Napier University | MBA Business Leadership and Practice | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-business-leadership-and-practice-postgraduate-fulltime
+Edinburgh Napier University | MBA Banking | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba--banking-postgraduate-online-learning
+Edinburgh Napier University | MBA Finance | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-finance-postgraduate-online-learning
+Edinburgh Napier University | MBA Marketing | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-marketing-postgraduate-online-learning
+Edinburgh Napier University | MBA Human Resource Management | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-human-resource-management-postgraduate-online-learning
+Edinburgh Napier University | MBA Health Management | mba | Salud | no indicada | - | https://www.napier.ac.uk/courses/mba-health-management-postgraduate-online-learning
+Edinburgh Napier University | MBA Leadership and Innovation | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-leadership-and-innovation-postgraduate-online-learning
+Edinburgh Napier University | MBA Events Management | mba | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/mba-events-management-postgraduate-online-learning
+Edinburgh Napier University | MBA Hospitality and Tourism Management | mba | Hospitalidad | no indicada | - | https://www.napier.ac.uk/courses/mba-hospitality-and-tourism-management-postgraduate-online-learning
+Edinburgh Napier University | MBA Information Systems Strategy and Governance | mba | Tecnología | no indicada | - | https://www.napier.ac.uk/courses/mba-information-systems-strategy-and-governance-postgraduate-online-learning
+Edinburgh Napier University | MBA Logistics and Supply Chain Management | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-logistics-and-supply-chain-management-postgraduate-online-learning
+Edinburgh Napier University | MBA Project Management | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-project-management-postgraduate-online-learning
+Edinburgh Napier University | MBA Strategic Project Management | mba | Negocios | no indicada | - | https://www.napier.ac.uk/courses/mba-strategic-project-management---postgraduate-fulltime
+Edinburgh Napier University | PGDE Professional Graduate Diploma in Education (English) | posgrado | Educación | no indicada | - | https://www.napier.ac.uk/courses/pgde-professional-graduate-diploma-in-education-(english)-ft-postgraduate-fulltime
+Edinburgh Napier University | PGDE Professional Graduate Diploma in Education (Biology) | posgrado | Educación | no indicada | - | https://www.napier.ac.uk/courses/pgde-professional-graduate-diploma-in-education-biology-postgraduate-fulltime
+Edinburgh Napier University | PGDE Professional Graduate Diploma in Education (Chemistry) | posgrado | Educación | no indicada | - | https://www.napier.ac.uk/courses/pgde-professional-graduate-diploma-in-education-chemistry-postgraduate-fulltime
+Edinburgh Napier University | PGDE Professional Graduate Diploma in Education (Mathematics) | posgrado | Educación | no indicada | - | https://www.napier.ac.uk/courses/pgde-professional-graduate-diploma-in-education-mathematics-postgraduate-fulltime
+Edinburgh Napier University | PGDE Professional Graduate Diploma in Education (Physics) | posgrado | Educación | no indicada | - | https://www.napier.ac.uk/courses/pgde-professional-graduate-diploma-in-education-physics-postgraduate-fulltime
+
+# --- Le Cordon Bleu Australia (cordonbleu.edu/australia) ---
+Le Cordon Bleu Australia | Diplôme de Cuisine (Melbourne) | curso_corto | Gastronomía | no indicada | SIT30821 | https://www.cordonbleu.edu/melbourne/diplome-de-cuisine/en
+Le Cordon Bleu Australia | Certificat de Chef de Partie Cuisine (Melbourne) | curso_corto | Gastronomía | no indicada | SIT40521 | https://www.cordonbleu.edu/melbourne/certificat-de-chef-de-partie-cuisine/en
+Le Cordon Bleu Australia | Diplôme Avancé de Gestion Culinaire - Cuisine (Melbourne) | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.cordonbleu.edu/melbourne/advanced-diploma-hospitality-management-commercial-cookery/en
+Le Cordon Bleu Australia | Diplôme de Pâtisserie (Melbourne) | curso_corto | Gastronomía | no indicada | SIT31021 | https://www.cordonbleu.edu/melbourne/diplome-de-patisserie/en
+Le Cordon Bleu Australia | Certificat de Chef de Partie Pâtisserie (Melbourne) | curso_corto | Gastronomía | no indicada | SIT40721 | https://www.cordonbleu.edu/melbourne/certificat-de-chef-de-partie-patisserie/en
+Le Cordon Bleu Australia | Diplôme Avancé de Gestion Culinaire - Pâtisserie (Melbourne) | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.cordonbleu.edu/melbourne/advanced-diploma-hospitality-management-patisserie/en
+Le Cordon Bleu Australia | Grand Diplôme (Melbourne) | curso_corto | Gastronomía | no indicada | SIT30821 + SIT31021 | https://www.cordonbleu.edu/melbourne/grand-diplome/en
+Le Cordon Bleu Australia | Bachelor of Business (Melbourne) | bachelor | Negocios | no indicada | - | https://www.cordonbleu.edu/melbourne/bachelor-of-business/en
+Le Cordon Bleu Australia | Bachelor of Business Administration (Melbourne) | bachelor | Negocios | no indicada | - | https://www.cordonbleu.edu/melbourne/bachelor-of-business-administration/en
+Le Cordon Bleu Australia | Master of Business Administration (Melbourne) | mba | Negocios | no indicada | - | https://www.cordonbleu.edu/melbourne/master-of-business-administration/en
+Le Cordon Bleu Australia | Master of Applied Hospitality Management (Melbourne) | maestria | Hospitalidad | no indicada | - | https://www.cordonbleu.edu/melbourne/master-of-applied-hospitality-management/en
+Le Cordon Bleu Australia | Master of Professional Accounting (Melbourne) | maestria | Negocios | no indicada | - | https://www.cordonbleu.edu/melbourne/master-of-professional-accounting/en
+Le Cordon Bleu Australia | Master of Applied Supply Chain Management (Melbourne) | maestria | Negocios | no indicada | - | https://www.cordonbleu.edu/melbourne/master-of-applied-supply-chain-management/en
+Le Cordon Bleu Australia | Gourmet Short Courses (Melbourne) | curso_corto | Gastronomía | no indicada | - | https://www.cordonbleu.edu/melbourne/gourmet-short-courses/en
+Le Cordon Bleu Australia | Diplôme de Cuisine (Sydney) | curso_corto | Gastronomía | no indicada | SIT30821 | https://www.cordonbleu.edu/sydney/diplome-de-cuisine/en
+Le Cordon Bleu Australia | Certificat de Chef de Partie Cuisine (Sydney) | curso_corto | Gastronomía | no indicada | SIT40521 | https://www.cordonbleu.edu/sydney/certificat-de-chef-de-partie-cuisine/en
+Le Cordon Bleu Australia | Diplôme Avancé de Gestion Culinaire - Cuisine (Sydney) | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.cordonbleu.edu/sydney/advanced-diploma-hospitality-management-commercial-cookery/en
+Le Cordon Bleu Australia | Diplôme de Pâtisserie (Sydney) | curso_corto | Gastronomía | no indicada | SIT31021 | https://www.cordonbleu.edu/sydney/diplome-de-patisserie/en
+Le Cordon Bleu Australia | Certificat de Chef de Partie Pâtisserie (Sydney) | curso_corto | Gastronomía | no indicada | SIT40721 | https://www.cordonbleu.edu/sydney/certificat-de-chef-de-partie-patisserie/en
+Le Cordon Bleu Australia | Diplôme Avancé de Gestion Culinaire - Pâtisserie (Sydney) | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.cordonbleu.edu/sydney/advanced-diploma-hospitality-management-patisserie/en
+Le Cordon Bleu Australia | Grand Diplôme (Sydney) | curso_corto | Gastronomía | no indicada | SIT30821 + SIT31021 | https://www.cordonbleu.edu/sydney/grand-diplome/en
+Le Cordon Bleu Australia | Bachelor of Business (Sydney) | bachelor | Negocios | no indicada | - | https://www.cordonbleu.edu/sydney/bachelor-of-business/en
+Le Cordon Bleu Australia | Bachelor of Business Administration (Sydney) | bachelor | Negocios | no indicada | - | https://www.cordonbleu.edu/sydney/bachelor-of-business-administration/en
+Le Cordon Bleu Australia | Bachelor of Business in International Hotel Management (Sydney) | bachelor | Hospitalidad | no indicada | - | https://www.cordonbleu.edu/sydney/bachelor-business-international-hotel-management/en
+Le Cordon Bleu Australia | Bachelor of Business in International Restaurant Management (Sydney) | bachelor | Hospitalidad | no indicada | - | https://www.cordonbleu.edu/sydney/bachelor-business-international-restaurant-management/en
+Le Cordon Bleu Australia | Gourmet Short Courses (Sydney) | curso_corto | Gastronomía | no indicada | - | https://www.cordonbleu.edu/sydney/gourmet-short-courses/en
+Le Cordon Bleu Australia | Diplôme de Commis Cuisinier (Adelaide) | curso_corto | Gastronomía | no indicada | SIT30821 | https://www.cordonbleu.edu/adelaide/certificate-iii-in-commercial-cookery-sit30816-diplome-de-commis-cuisinier/en
+Le Cordon Bleu Australia | Certificat de Chef de Partie Cuisine (Adelaide) | curso_corto | Gastronomía | no indicada | SIT40521 | https://www.cordonbleu.edu/adelaide/certificat-de-chef-de-partie-cuisine/en
+Le Cordon Bleu Australia | Diplôme Avancé de Gestion Culinaire - Cuisine (Adelaide) | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.cordonbleu.edu/adelaide/advanced-diploma-hospitality-management-commercial-cookery/en
+Le Cordon Bleu Australia | Diplôme de Commis Pâtissier (Adelaide) | curso_corto | Gastronomía | no indicada | SIT31021 | https://www.cordonbleu.edu/adelaide/diplome-de-commis-patissier/en
+Le Cordon Bleu Australia | Certificat de Chef de Partie Pâtisserie (Adelaide) | curso_corto | Gastronomía | no indicada | SIT40721 | https://www.cordonbleu.edu/adelaide/certificat-de-chef-de-partie-patisserie/en
+Le Cordon Bleu Australia | Diplôme Avancé de Gestion Culinaire - Pâtisserie (Adelaide) | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.cordonbleu.edu/adelaide/advanced-diploma-hospitality-management-patisserie/en
+Le Cordon Bleu Australia | Master of International Hospitality Management (Adelaide) | maestria | Hospitalidad | no indicada | - | https://www.cordonbleu.edu/adelaide/master-international-hospitality-management/en
+Le Cordon Bleu Australia | Gourmet Short Courses (Adelaide) | curso_corto | Gastronomía | no indicada | - | https://www.cordonbleu.edu/adelaide/gourmet-short-courses/en
+Le Cordon Bleu Australia | Diplôme de Cuisine (Brisbane) | curso_corto | Gastronomía | no indicada | SIT30821 | https://www.cordonbleu.edu/brisbane/diplome-de-cuisine/en
+Le Cordon Bleu Australia | Certificat de Chef de Partie Cuisine (Brisbane) | curso_corto | Gastronomía | no indicada | SIT40521 | https://www.cordonbleu.edu/brisbane/certificat-de-chef-de-partie-cuisine/en
+Le Cordon Bleu Australia | Diplôme Avancé de Gestion Culinaire - Cuisine (Brisbane) | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.cordonbleu.edu/brisbane/advanced-diploma-hospitality-management-commercial-cookery/en
+Le Cordon Bleu Australia | Diplôme de Pâtisserie (Brisbane) | curso_corto | Gastronomía | no indicada | SIT31021 | https://www.cordonbleu.edu/brisbane/diplome-de-patisserie/en
+Le Cordon Bleu Australia | Certificat de Chef de Partie Pâtisserie (Brisbane) | curso_corto | Gastronomía | no indicada | SIT40721 | https://www.cordonbleu.edu/brisbane/certificat-de-chef-de-partie-patisserie/en
+Le Cordon Bleu Australia | Diplôme Avancé de Gestion Culinaire - Pâtisserie (Brisbane) | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.cordonbleu.edu/brisbane/advanced-diploma-hospitality-management-patisserie/en
+Le Cordon Bleu Australia | Grand Diplôme (Brisbane) | curso_corto | Gastronomía | no indicada | SIT30821 + SIT31021 | https://www.cordonbleu.edu/brisbane/grand-diplome/en
+Le Cordon Bleu Australia | Diplôme CordonTec® | diplomado | Gastronomía | no indicada | - | https://www.cordonbleu.edu/australia/diplome-cordontec/en
+
+# --- Australian National Institute of Business & Technology · ANIBT (anibt.edu.au) ---
+ANIBT | Certificate IV in Entrepreneurship and New Business | curso_corto | Negocios | no indicada | BSB40320 | https://www.anibt.edu.au/business-courses/certificate-iv-in-entrepreneurship-and-new-business/
+ANIBT | Diploma of Business | diplomado | Negocios | no indicada | BSB50120 | https://www.anibt.edu.au/business-courses/diploma-of-business/
+ANIBT | Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 | https://www.anibt.edu.au/leadership-management-courses/diploma-of-leadership-and-management/
+ANIBT | Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB60420 | https://www.anibt.edu.au/leadership-management-courses/advanced-diploma-of-leadership-and-management/
+ANIBT | Diploma of Project Management | diplomado | Negocios | no indicada | BSB50820 | https://www.anibt.edu.au/project-management-courses/diploma-of-project-management-bsb50820/
+ANIBT | Graduate Diploma of Management (Learning) | posgrado | Negocios | no indicada | BSB80120 | https://www.anibt.edu.au/graduate-diploma-of-management-learning/
+ANIBT | Certificate III in Hospitality | curso_corto | Hospitalidad | no indicada | - | https://www.anibt.edu.au/hospitality-courses/certificate-iii-in-hospitality/
+ANIBT | Certificate III in Commercial Cookery | curso_corto | Gastronomía | no indicada | - | https://www.anibt.edu.au/hospitality-courses/certificate-iii-in-commercial-cookery/
+ANIBT | Certificate III in Patisserie | curso_corto | Gastronomía | no indicada | - | https://www.anibt.edu.au/hospitality-courses/certificate-iii-in-patisserie/
+ANIBT | Certificate IV in Kitchen Management | curso_corto | Gastronomía | no indicada | - | https://www.anibt.edu.au/hospitality-courses/certificate-iv-in-commercial-cookery/
+ANIBT | Certificate IV in Patisserie | curso_corto | Gastronomía | no indicada | - | https://www.anibt.edu.au/hospitality-courses/certificate-iv-in-patisserie/
+ANIBT | Diploma of Hospitality Management (Culinary) | diplomado | Hospitalidad | no indicada | - | https://www.anibt.edu.au/hospitality-courses/diploma-of-hospitality-management-culinary/
+ANIBT | Diploma of Hospitality Management (Hotel Operations) | diplomado | Hospitalidad | no indicada | - | https://www.anibt.edu.au/hospitality-courses/diploma-of-hospitality-management-hotel-operations/
+ANIBT | Advanced Diploma of Hospitality Management (Culinary) | diplomado | Hospitalidad | no indicada | - | https://www.anibt.edu.au/hospitality-courses/advanced-diploma-of-hospitality-management-culinary/
+ANIBT | Advanced Diploma of Hospitality Management (Hotel Operations) | diplomado | Hospitalidad | no indicada | - | https://www.anibt.edu.au/hospitality-courses/advanced-diploma-of-hospitality-management-hotel-operations/
+ANIBT | Certificate III in Individual Support | curso_corto | Salud | no indicada | CHC33021 | https://www.anibt.edu.au/certificate-iii-in-individual-support/
+ANIBT | Certificate IV in Ageing Support | curso_corto | Salud | no indicada | CHC43015 | https://www.anibt.edu.au/certificate-iv-in-ageing-support/
+ANIBT | Diploma of Community Services | diplomado | Salud | no indicada | CHC52021 | https://www.anibt.edu.au/diploma-of-community-services/
+
+# --- Hertfordshire International College · HIC (hic.herts.ac.uk) ---
+Hertfordshire International College (HIC) | Pre-Sessional English | curso_corto | Idiomas | no indicada | - | https://hic.herts.ac.uk/study/english/
+Hertfordshire International College (HIC) | Foundation Programme - Accounting and Finance | curso_corto | Negocios | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/accounting-finance/
+Hertfordshire International College (HIC) | First Year Programme - Accounting and Finance | curso_corto | Negocios | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/accounting-finance/
+Hertfordshire International College (HIC) | Foundation Programme - Animation, Film and Creative Media | curso_corto | Artes | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/animation-film-games-creative-media/
+Hertfordshire International College (HIC) | First Year Programme - Animation, Film and Creative Media | curso_corto | Artes | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/animation-film-games-creative-media/
+Hertfordshire International College (HIC) | Foundation Programme - Architecture | curso_corto | Arquitectura | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/architecture/
+Hertfordshire International College (HIC) | First Year Programme - Architecture | curso_corto | Arquitectura | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/architecture/
+Hertfordshire International College (HIC) | Foundation Programme - Art, Design and Fashion | curso_corto | Artes | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/art-design-fashion/
+Hertfordshire International College (HIC) | First Year Programme - Art, Design and Fashion | curso_corto | Artes | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/art-design-fashion/
+Hertfordshire International College (HIC) | Foundation Programme - Biomedical Sciences, Psychology and Sport | curso_corto | Ciencias de la Salud | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/biological-sciences-psychology-sport/
+Hertfordshire International College (HIC) | First Year Programme - Biomedical Sciences, Psychology and Sport | curso_corto | Ciencias de la Salud | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/biological-sciences-psychology-sport/
+Hertfordshire International College (HIC) | Foundation Programme - Business and Economics | curso_corto | Negocios | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/business-economics/
+Hertfordshire International College (HIC) | First Year Programme - Business and Economics | curso_corto | Negocios | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/business-economics/
+Hertfordshire International College (HIC) | Foundation Programme - Computer Science, Cyber Security and Data Science | curso_corto | Tecnología | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/computer-science-cyber-security-data-science/
+Hertfordshire International College (HIC) | First Year Programme - Computer Science, Cyber Security and Data Science | curso_corto | Tecnología | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/computer-science-cyber-security-data-science/
+Hertfordshire International College (HIC) | Foundation Programme - Engineering, AI and Robotics | curso_corto | Ingeniería | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/engineering-ai-robotics/
+Hertfordshire International College (HIC) | First Year Programme - Engineering, AI and Robotics | curso_corto | Ingeniería | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/engineering-ai-robotics/
+Hertfordshire International College (HIC) | Foundation Programme - Geography and Environment | curso_corto | Ciencias Ambientales | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/geography-environment/
+Hertfordshire International College (HIC) | First Year Programme - Geography and Environment | curso_corto | Ciencias Ambientales | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/geography-environment/
+Hertfordshire International College (HIC) | Foundation Programme - Health, Nursing and Midwifery | curso_corto | Salud | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/health-nursing-midwifery/
+Hertfordshire International College (HIC) | First Year Programme - Health, Nursing and Midwifery | curso_corto | Salud | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/health-nursing-midwifery/
+Hertfordshire International College (HIC) | Foundation Programme - Law and Criminology | curso_corto | Derecho | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/law-criminology/
+Hertfordshire International College (HIC) | First Year Programme - Law and Criminology | curso_corto | Derecho | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/law-criminology/
+Hertfordshire International College (HIC) | Foundation Programme - Mass Communications, Politics and International Relations | curso_corto | Comunicación | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/mass-communications-politics-and-international-relations/
+Hertfordshire International College (HIC) | First Year Programme - Mass Communications, Politics and International Relations | curso_corto | Comunicación | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/mass-communications-politics-and-international-relations/
+Hertfordshire International College (HIC) | Foundation Programme - Music Composition, Technology and Production | curso_corto | Artes | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/music-composition-technology-production/
+Hertfordshire International College (HIC) | First Year Programme - Music Composition, Technology and Production | curso_corto | Artes | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/music-composition-technology-production/
+Hertfordshire International College (HIC) | Foundation Programme - Physics, Astrophysics and Mathematics | curso_corto | Ciencias | 1 o 2 semestres | - | https://hic.herts.ac.uk/study/undergraduate/physics-astrophysics-mathematics/
+Hertfordshire International College (HIC) | First Year Programme - Physics, Astrophysics and Mathematics | curso_corto | Ciencias | 1 año | - | https://hic.herts.ac.uk/study/undergraduate/physics-astrophysics-mathematics/
+Hertfordshire International College (HIC) | Pre-Master's - Animation, Film and Creative Media | curso_corto | Artes | 2 o 3 semestres | - | https://hic.herts.ac.uk/study/postgraduate/animation-film-creative-media/
+Hertfordshire International College (HIC) | Pre-Master's - Art and Design | curso_corto | Artes | 2 o 3 semestres | - | https://hic.herts.ac.uk/study/postgraduate/art-design/
+Hertfordshire International College (HIC) | Pre-Master's - Music Composition, Technology and Production | curso_corto | Artes | 2 o 3 semestres | - | https://hic.herts.ac.uk/study/postgraduate/music-composition-technology-production/
+
+# --- Lancaster University Leipzig (lancasterleipzig.de) ---
+Lancaster University Leipzig | Foundation in Business | curso_corto | Negocios | 1 año | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | Foundation in Computer Science | curso_corto | Tecnología | 1 año | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | BSc (Hons) Accounting and Finance | bachelor | Negocios | 3 años | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | BSc (Hons) Business Management | bachelor | Negocios | 3 años | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | BSc (Hons) Business Management and Media | bachelor | Negocios | 3 años | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | BSc (Hons) Business Management with Entrepreneurship | bachelor | Negocios | 3 años | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | BSc (Hons) Business Management with Accounting and Finance | bachelor | Negocios | 3 años | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | BSc (Hons) Business Management with Business Analytics | bachelor | Negocios | 3 años | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | BSc (Hons) Computer Science | bachelor | Tecnología | 3 años | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | BSc (Hons) Cyber Security | bachelor | Tecnología | 3 años | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | BSc (Hons) Software Engineering | bachelor | Tecnología | 3 años | - | https://www.lancasterleipzig.de/study/undergraduate/courses/
+Lancaster University Leipzig | Pre-Master's in Business | curso_corto | Negocios | no indicada | - | https://www.lancasterleipzig.de/study/postgraduate/courses/
+Lancaster University Leipzig | Pre-Master's in Computer Science | curso_corto | Tecnología | no indicada | - | https://www.lancasterleipzig.de/study/postgraduate/courses/
+Lancaster University Leipzig | MSc Business Analytics | maestria | Negocios | no indicada | - | https://www.lancasterleipzig.de/study/postgraduate/courses/
+Lancaster University Leipzig | MSc Business Management | maestria | Negocios | no indicada | - | https://www.lancasterleipzig.de/study/postgraduate/courses/
+Lancaster University Leipzig | MSc Cyber Security | maestria | Tecnología | no indicada | - | https://www.lancasterleipzig.de/study/postgraduate/courses/
+Lancaster University Leipzig | MSc Data Science | maestria | Tecnología | no indicada | - | https://www.lancasterleipzig.de/study/postgraduate/courses/
+Lancaster University Leipzig | MSc Logistics and Supply Chain Management | maestria | Negocios | no indicada | - | https://www.lancasterleipzig.de/study/postgraduate/courses/
+
+# --- New Zealand Management Academies Ltd · NZMA (nzma.ac.nz) ---
+NZMA | Certificate in Cookery (Level 4) | curso_corto | Gastronomía | 35 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/cookery-overview/certificate-in-cookery-level-4
+NZMA | Certificate in Baking (Generalist) (Level 4) | curso_corto | Gastronomía | 35 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/cookery-overview/baking-courses-level-4-certificate
+NZMA | Diploma in Cookery (Advanced) – Cookery Strand (Level 5) | diplomado | Gastronomía | 35 semanas | NZQF Nivel 5 | https://www.nzma.ac.nz/courses/cookery-overview/diploma-in-cookery-advanced-level-5
+NZMA | Certificate in Hospitality (Cafe and Function Services) (Level 3) | curso_corto | Hospitalidad | 18 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/hospitality-overview/cafe-and-function-services
+NZMA | Certificate in Hospitality (Restaurant Service) (Level 4) | curso_corto | Hospitalidad | 17 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/hospitality-overview/restaurant-service-level-4-certificate
+NZMA | Diploma in Hospitality Management (Level 5) | diplomado | Hospitalidad | 35 semanas | NZQF Nivel 5 | https://www.nzma.ac.nz/courses/hospitality-overview/hospitality-management-level-5-diploma
+NZMA | Diploma in Hospitality Management (Level 6) | diplomado | Hospitalidad | 40 semanas | NZQF Nivel 6 | https://www.nzma.ac.nz/courses/hospitality-overview/hospitality-management-level-6-diploma
+NZMA | Leading Workplace Teams (Level 4) | curso_corto | Negocios | 36 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/business-overview/certificate-in-leading-workplace-teams-level-4
+NZMA | Small Business Essentials (Level 4) | curso_corto | Negocios | 36 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/business-overview/small-business-essentials-level-4
+NZMA | Business Administration & Technology (Level 3) | curso_corto | Negocios | 19 o 38 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/business-overview/business-admin-technology-level-3
+NZMA | Health and Wellbeing - Introduction (Level 3) | curso_corto | Salud | 20 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/health-overview/health-and-wellbeing-introduction-level-3
+NZMA | Nursing Career Preparation (Level 4) | curso_corto | Salud | 19 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/health-overview/nursing-career-preparation-level-4
+NZMA | Social and Community Health (Level 4) | curso_corto | Salud | 33 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/health-overview/social-and-community-health-level-4
+NZMA | Mental Health and Addiction (Level 4) | curso_corto | Salud | 33 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/health-overview/mental-health-and-addiction-level-4
+NZMA | Disability Support (Level 4) | curso_corto | Salud | 33 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/health-overview/disability-support-level-4
+NZMA | Certificate in Sport Recreation and Exercise (Level 3) | curso_corto | Deporte | 18 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/sport-overview/sport-recreation-exercise-level-3-certificate
+NZMA | Diploma in Sport, Recreation & Exercise (Level 5) | diplomado | Deporte | 40 semanas | NZQF Nivel 5 | https://www.nzma.ac.nz/courses/sport-overview/sport-recreation-exercise-level-5-diploma
+NZMA | Diploma in Sport, Recreation & Exercise (Level 6) | diplomado | Deporte | 40 semanas | NZQF Nivel 6 | https://www.nzma.ac.nz/courses/sport-overview/diploma-sport-recreation-exercise-level-6
+NZMA | Health & Fitness Personal Trainer (Level 4) | curso_corto | Deporte | 18 semanas (FT) o 36 semanas (PT) | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/personal-training-overview/health-and-fitness-level-4
+NZMA | Advanced Health and Fitness Coach (Level 5) | curso_corto | Deporte | 18 semanas | NZQF Nivel 5 | https://www.nzma.ac.nz/courses/personal-training-overview/advanced-health-and-fitness-coach-level-5
+NZMA | Introduction to Infrastructure Works (Level 2) | curso_corto | Construcción | 25 semanas | NZQF Nivel 2 | https://www.nzma.ac.nz/courses/trades-overview/intro-infrastructure-works
+NZMA | Pathway to a Building Career (Level 2) | curso_corto | Construcción | 25 semanas | NZQF Nivel 2 | https://www.nzma.ac.nz/courses/trades-overview/pathway-to-building
+NZMA | Certificate in Carpentry Trade Skills (Level 3) | curso_corto | Construcción | 32 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/trades-overview/trade-skills-carpentry-level-3-certificate
+NZMA | Certificate in Electrical Engineering (Level 3) | curso_corto | Ingeniería | 35 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/trades-overview/electrical-pre-trade-certificate
+NZMA | Certificate in Plumbing, Gasfitting and Drainlaying (Pre-Apprenticeship) (Level 3) | curso_corto | Construcción | 18 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/trades-overview/plumbing-and-gasfitting-level-3-certificate
+NZMA | Certificate in Trade Skills (Paint and Plaster strand) (Level 3) | curso_corto | Construcción | 19 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/trades-overview/construction-paint-and-plaster-level-3-certificate
+NZMA | Residential Construction Supervisor (Level 5) | curso_corto | Construcción | 45 semanas | NZQF Nivel 5 | https://www.nzma.ac.nz/courses/trades-overview/certificate-in-residential-construction-supervisor-level-5
+NZMA | Commercial Construction Supervisor (Level 5) | curso_corto | Construcción | 45 semanas | NZQF Nivel 5 | https://www.nzma.ac.nz/courses/trades-overview/commercial-construction-supervisor-level-5
+NZMA | Construction Management (Level 6) | diplomado | Construcción | 66 semanas | NZQF Nivel 6 | https://www.nzma.ac.nz/courses/trades-overview/construction-management-level-6
+NZMA | Certificate in Early Childhood Education and Care (Level 4) | curso_corto | Educación | 19 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/education-overview/level-4-certificate
+NZMA | Certificate in Supporting Diverse Learners (Level 4) | curso_corto | Educación | 40 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/education-overview/supporting-diverse-learners-level-4
+NZMA | Diploma in Early Childhood Education (Level 5) | diplomado | Educación | 40 semanas | NZQF Nivel 5 | https://www.nzma.ac.nz/courses/education-overview/level-5-diploma
+NZMA | Introduction to Pharmacy Practice (Level 3) | curso_corto | Salud | 13 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/pharmacy-overview/introduction-to-pharmacy-level-3
+NZMA | Certificate in Pharmacy Technician (Level 5) | curso_corto | Salud | 44 semanas | NZQF Nivel 5 | https://www.nzma.ac.nz/courses/pharmacy-overview/pharmacy-technician-level-5-certificate
+NZMA | Pharmacy Level 5 (International) | curso_corto | Salud | 57 semanas | NZQF Nivel 5 | https://www.nzma.ac.nz/courses/pharmacy-overview/combined-international
+NZMA | Introduction to Primary Industry Skills (Agriculture/Horticulture) (Level 2) | curso_corto | Agropecuario | 20 semanas | NZQF Nivel 2 | https://www.nzma.ac.nz/courses/agriculture-overview/intro-primary-industry-skills
+NZMA | Rural Pest Control (Level 3) | curso_corto | Agropecuario | 18 semanas (campus) o 36 semanas (online) | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/agriculture-overview/certificate-in-pest-ops-on-campus
+NZMA | Certificate in Horticulture – On Campus (Level 3) | curso_corto | Agropecuario | 20 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/agriculture-overview/certificate-in-horticulture-on-campus
+NZMA | Certificate in Horticulture (Level 3) | curso_corto | Agropecuario | 32 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/agriculture-overview/certificate-in-horticulture-level-3
+NZMA | Certificate in Horticulture (Landscape Design & Build) (Level 3) | curso_corto | Agropecuario | 40 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/agriculture-overview/landscape-design-and-build-level-3
+NZMA | Certificate in Beekeeping (Apiculture) (Level 3) | curso_corto | Agropecuario | 40 semanas | NZQF Nivel 3 | https://www.nzma.ac.nz/courses/agriculture-overview/apiculture-level-3
+NZMA | Farming Business Essentials (Level 4) | curso_corto | Agropecuario | 36 semanas | NZQF Nivel 4 | https://www.nzma.ac.nz/courses/agriculture-overview/farming-business-essentials-level-4
+
+# --- IELS - Institute of English Language Studies (iels.school) ---
+IELS Malta | General English | curso_corto | Idiomas | 1-21+ semanas · 20 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | Intensive English | curso_corto | Idiomas | 1-21+ semanas · 30 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | General English 30+ | curso_corto | Idiomas | 1-21+ semanas · 20 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | Business English | curso_corto | Idiomas | 1-21+ semanas · 20 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | IELTS Preparation | curso_corto | Idiomas | 1-7 semanas · 30 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | Cambridge FCE Preparation | curso_corto | Idiomas | 6 semanas · 30 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | Cambridge CAE Preparation | curso_corto | Idiomas | 6 semanas · 30 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | Cambridge CPE Preparation | curso_corto | Idiomas | 6 semanas · 30 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | TOEIC Preparation | curso_corto | Idiomas | no indicada | - | https://www.iels.school/english-courses
+IELS Malta | Conversation English | curso_corto | Idiomas | 10 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | Business English Plus | curso_corto | Idiomas | 10 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | English for Academic Purposes (EAP) | curso_corto | Idiomas | 10 lecciones/semana | - | https://www.iels.school/english-courses
+IELS Malta | Private Lessons | curso_corto | Idiomas | flexible | - | https://www.iels.school/english-courses
+
+# --- Murdoch College (murdochcollege.edu.au) ---
+Murdoch College | Foundation Studies | curso_corto | Preparación Universitaria | no indicada | - | https://www.murdochcollege.edu.au/foundation-studies
+Murdoch College | Murdoch University Preparation Course (MUPC) | curso_corto | Preparación Universitaria | no indicada | - | https://www.murdochcollege.edu.au/preparation-course
+Murdoch College | Murdoch University Preparation Course (MUPC) - Accelerated Entry | curso_corto | Preparación Universitaria | no indicada | - | https://www.murdochcollege.edu.au/preparation-course-accelerated
+Murdoch College | Diploma of Business | diplomado | Negocios | no indicada | - | https://www.murdochcollege.edu.au/diploma-of-business
+Murdoch College | Diploma of Information Technology | diplomado | Tecnología | no indicada | - | https://www.murdochcollege.edu.au/diploma-of-information-technology
+Murdoch College | Postgraduate Qualifying Program | curso_corto | Preparación Universitaria | no indicada | - | https://www.murdochcollege.edu.au/postgraduate-qualifying-program
+Murdoch College | General English | curso_corto | Idiomas | no indicada | - | https://www.murdochcollege.edu.au/general-english
+Murdoch College | English for Academic Purposes | curso_corto | Idiomas | no indicada | - | https://www.murdochcollege.edu.au/english-for-academic-purposes
+Murdoch College | Study Tours | vacacional | Idiomas | no indicada | - | https://www.murdochcollege.edu.au/study-tours
+
+# --- ELSIS - English Language Schools Sydney, Brisbane & Melbourne (elsis.edu.au) ---
+ELSIS | General Intensive English | curso_corto | Idiomas | 20 horas/semana · 5 niveles (Elementary a Advanced) | - | https://www.elsis.edu.au/general-english/
+ELSIS | EAP (English for Academic Purposes) | curso_corto | Idiomas | no indicada | - | https://www.elsis.edu.au/eap/
+ELSIS | Study Pathways | curso_corto | Idiomas | no indicada | - | https://www.elsis.edu.au/study-pathways/
+ELSIS | English Workshops | curso_corto | Idiomas | no indicada | - | https://www.elsis.edu.au/english-workshops/
+ELSIS | Study Tour | vacacional | Idiomas | no indicada | - | https://www.elsis.edu.au/study-tour/
+ELSIS | Study Tour with Universities | vacacional | Idiomas | no indicada | - | https://www.elsis.edu.au/study-tour-with-universities/
+
+# --- Sydney PTE Academy (sydneypte.com.au) ---
+Sydney PTE Academy | PTE Advanced Course | curso_corto | Idiomas | no indicada | - | https://www.sydneypte.com.au/courses/
+Sydney PTE Academy | Express Course | curso_corto | Idiomas | no indicada | - | https://www.sydneypte.com.au/courses/
+Sydney PTE Academy | Supreme 1-on-1 Online Tutoring | curso_corto | Idiomas | no indicada | - | https://www.sydneypte.com.au/courses/
+
+# RESUMEN: instituciones=10 con_programas=10 total_programas=386 sin_catalogo=0
+
+# NOTAS:
+# Edinburgh Napier University (200 filas) — /courses es JS con paginacion de 30 paginas x 10 resultados. Se resolvio por sitemap.xml -> napier-courses-study.xml, que lista las URLs de curso una por una. Los NOMBRES se normalizaron desde el slug de cada URL; se valido el mapeo slug->nombre contra las paginas 1 y 3 del listado renderizado (10/10 coincidencias exactas: "bsc-hons-quantity-surveying" -> "BSc (Hons) Quantity Surveying", "mph-public-health" -> "MPH Public Health", etc.). Aun asi, algunos slugs vienen corruptos en origen ("bscbsc-", "baba-", ",-a-," por "&") y se corrigieron a la forma canonica. Se DEDUPLICARON las variantes de modalidad (full-time / part-time / distance / online) a una sola fila por programa. EXCLUIDOS: 9 "Graduate Apprenticeship" (solo residentes escoceses, financiados por SFC), PgCert Neonatal Care, PgCert Epilepsy Studies, MSc Advanced Clinical Practice y Graduate Certificate Practice Learning (Social Services) — todos CPD post-registro para profesionales ya colegiados en UK. NIVEL INFERIDO en 5 filas MEng + 1 MAcc: son integrated masters de entrada undergraduate, se cargaron como `bachelor`, no `maestria`. 100% ONLINE: 30 filas (todas las MBA salvo "Business Leadership and Practice" y "Strategic Project Management", los MSc Business Management con especialidad, BA Business Management with Sustainability/Finance/Hospitality/Marketing, BA Marketing Management, BA Business and Enterprise, BSc Computing Global Online, BSc Nursing Studies Global Online, MA Screenwriting Global Online, MSc Clinical Healthcare Technology, MSc/PgDip/PgCert Blended and Online Education). OJO `puede_vender`: la ficha dice "Foundation & Pre master / Solo pathway" — si eso se respeta al pie de la letra, de este bloque solo son vendibles los 2 Certificate of Credit EFL; el resto del catalogo queda como referencia. Contraste vs cantidad_aprox "250+": 200 filas post-dedupe, consistente.
+# Le Cordon Bleu Australia (42 filas) — DOMINIO COMPARTIDO confirmado: cordonbleu.edu aloja la red global. Solo se uso /australia/programmes/en y las paginas hijas de los 4 campus australianos (melbourne, sydney, adelaide, brisbane); no se toco Paris, Japon ni el resto de la red. NO se deduplicaron los campus: el mismo diplome se dicta en 2-4 ciudades y para una agencia de estudios en el exterior la ciudad es dato de decision, asi que el campus va entre parentesis en `nombre` y la url_fuente los distingue. Los nombres franceses son los oficiales del sitio; el codigo_oficial es el codigo nacional australiano de la qualification equivalente que el propio sitio publica al lado. Brisbane esta marcado en el sitio como "expressions of interest for 2026" — intake no confirmado. `puede_vender` viene VACIO en la ficha: verificar autorizacion antes de publicar estas 42 filas.
+# NZMA (42 filas) — la ficha dice 3 ciudades y el sitio lista ~9 campus + online; se extrajo por las 12 areas de estudio (el indice /courses solo da categorias, hubo que bajar a cada *-overview). EXCLUIDAS las 3 variantes de "Foundation Skills (Level 2)" y las categorias "Free Study Options", "STAR & Gateway" y "Police & Uniformed Services": son programas financiados por el gobierno neozelandes o dirigidos a colegios locales, no vendibles a un estudiante internacional. 100% ONLINE: Leading Workplace Teams, Small Business Essentials, Business Administration & Technology, Certificate in Supporting Diverse Learners y la variante online de Rural Pest Control (deduplicada contra la presencial). "Pharmacy Level 5 (International)" es la unica etiquetada explicitamente "For International Students". `codigo_oficial` no existe como codigo de programa en el sitio; se registro el nivel NZQF, que es lo unico verificable contra el registro nacional.
+# Hertfordshire International College (32 filas) — es un pathway college de NAVITAS en un SUBDOMINIO de University of Hertfordshire; lo extraido es solo la oferta pathway, no el catalogo de la universidad. El sitio NO nombra los programas: organiza por area de estudio y dentro de cada una ofrece "entry points" (Foundation Programme / First Year Programme / Pre-Master's). Los `nombre` de estas 32 filas son CONSTRUIDOS como "<entry point> - <area>"; se verifico el patron abriendo /undergraduate/business-economics/ y /postgraduate/art-design/. Se asumio que las 14 areas de undergraduate ofrecen los 2 entry points (asi lo declara la pagina indice); si alguna area solo tiene Foundation, sobran filas ahi. Contraste vs cantidad_aprox "~20+": 32 filas, por encima.
+# Lancaster University Leipzig (18 filas) — CORRECCION CONFIRMADA: la ficha decia "Lancaster University" a secas y esto NO es lancaster.ac.uk sino el branch campus de Leipzig operado por Navitas, con catalogo propio de 18 programas frente a los cientos de la matriz. Titulacion otorgada por Lancaster University (UK) pero cursada en Alemania y en ingles — dato comercial relevante que hay que explicitar al estudiante. `puede_vender` dice "Todos los programas": aplica a estos 18, no al catalogo de Lancaster UK.
+# ANIBT (18 filas) — EXCLUIDOS los 6 "short courses" de /upgrading-information/ (RSA VCGLR, Food Handlers L1, Food Safety Supervisor L2, SITHFAB005 espresso, Latte Art Master Class, HLTAID011 First Aid): son licencias de oficio y microcredenciales de un dia, varias de ellas requisito regulatorio solo valido en Victoria. Contraste vs cantidad_aprox "~30": quedan 18 qualifications acreditadas; la diferencia se explica por esos 6 excluidos y porque la auditoria probablemente conto variantes por campus. Los 6 cursos de Hospitality NO publican el codigo nacional en la pagina de listado, asi que van con `-` en vez de un codigo inferido.
+# IELS Malta (13 filas) — el dominio de la ficha solo servia un redirect; el dominio verificado iels.school funciona y la lista es estatica y enumerable. `puede_vender` duplica "Idiomas" (ruido de la ficha, no dos productos). El sitio publica precios: NO se transcribieron. CELTA (teacher training) aparece en niveles_vistos de la auditoria pero NO en /english-courses; ademas es formacion de docentes, no curso de idioma para estudiante — no se cargo.
+# Murdoch College (9 filas) — confirmado que NO hay pagina indice de programas: cada curso es una URL suelta en la raiz. Se extrajo por slugs desde la navegacion de la home y coincide 9/9 con cantidad_aprox. Es un PATHWAY COLLEGE de Kaplan dentro del campus de Murdoch University (CRICOS del proveedor 03127E, no de cada curso). Ninguna pagina de curso publica CRICOS ni duracion en el HTML servido — todas van `-` / `no indicada`; si el revisor necesita CRICOS por programa, hay que pedirlo al college.
+# ELSIS (6 filas) — FUSION CONFIRMADA: el sitio anuncia "ELSIS is now part of the ECA College" y empuja a ecacollege.edu.au. Las 6 paginas de curso siguen vivas y describiendo producto, por eso se cargaron, pero hay riesgo real de que la marca ELSIS desaparezca y las URLs migren a ECA College — RE-AUDITAR antes de publicar. /courses/ da 404: el indice real son los links de la home. El nombre exacto de "General English" en su propia pagina es "General Intensive English". `puede_vender` viene VACIO en la ficha.
+# Sydney PTE Academy (3 filas) — NO publica RTO ni CRICOS, no otorga titulacion y no sirve para visa de estudio: es prep de examen PTE Academic. `puede_vender` vacio y category null en la ficha. Ademas "Supreme 1-on-1 Online Tutoring" es tutoria privada, mas servicio que programa. Las 3 filas se cargan por completitud del lote pero NO deberian recomendarse a un estudiante que busca ruta academica en el exterior — es a lo sumo un complemento. Recomiendo marcarlas como no-vendibles hasta que la clienta confirme.

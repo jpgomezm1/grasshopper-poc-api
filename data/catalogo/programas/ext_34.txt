@@ -1,0 +1,441 @@
+# Lote 34 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- University of Surrey · surrey.ac.uk · UK (Guildford) ---
+# Catalogo reconstruido recorriendo las 32 paginas /subjects/<area> (el buscador /undergraduate y /postgraduate
+# es JS y no enumera). Lista DEDUPLICADA: muchos cursos aparecen en 3-8 areas tematicas a la vez.
+# Los titulos combinados del sitio ("Physics BSc (Hons) / MPhys") se abrieron en 1 fila por award, con la misma URL.
+University of Surrey | BSc (Hons) Accounting and Finance | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/accounting-and-finance
+University of Surrey | BSc (Hons) Business Management with Business Analytics | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/business-management-business-analytics
+University of Surrey | BSc (Hons) Economics and Finance | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/economics-and-finance
+University of Surrey | BSc (Hons) International Accounting with Finance (FHEQ Level 5 Direct Entry) | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-accounting-finance-fheq-level-5-direct-entry
+University of Surrey | BSc (Hons) International Accounting with Finance (FHEQ Level 6 Direct Entry) | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-accounting-finance-fheq-level-6-direct-entry
+University of Surrey | MSc Accounting and Finance | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/accounting-and-finance-msc
+University of Surrey | MSc Banking and Finance | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/banking-and-finance-msc
+University of Surrey | MSc Economics and Finance | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/economics-and-finance-msc
+University of Surrey | MSc FinTech and Policy | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/fintech-and-policy-msc
+University of Surrey | MSc International Financial Management | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/international-financial-management-msc
+University of Surrey | MSc Investment Management | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/investment-management-msc
+University of Surrey | PhD Management and Business | doctorado | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/management-and-business-phd
+University of Surrey | PhD by Prior Publication | doctorado | Ciencias | no indicada | - | https://www.surrey.ac.uk/doctoral-college/prospective-postgraduate-researchers/phd-prior-publication
+University of Surrey | BSc (Hons) Biochemistry | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/biochemistry
+University of Surrey | MSci (Hons) Biochemistry | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/biochemistry
+University of Surrey | BSc (Hons) Biological Sciences | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/biological-sciences
+University of Surrey | BSc (Hons) Biomedical Science | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/biomedical-science
+University of Surrey | MSci (Hons) Biomedical Science | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/biomedical-science
+University of Surrey | BSc (Hons) Food Science and Nutrition | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/food-science-and-nutrition
+University of Surrey | BSc (Hons) Nutrition | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/nutrition
+University of Surrey | BSc (Hons) Nutrition and Dietetics | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/nutrition-and-dietetics
+University of Surrey | BSc (Hons) Sport and Exercise Science | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/sport-and-exercise-science
+University of Surrey | BSc (Hons) Veterinary Biosciences | bachelor | Veterinaria | no indicada | - | https://www.surrey.ac.uk/undergraduate/veterinary-biosciences
+University of Surrey | MSc Biotechnology | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/biotechnology-msc
+University of Surrey | MSc Food Science | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/food-science-msc
+University of Surrey | MSc Human Nutrition | maestria | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/human-nutrition-msc
+University of Surrey | MSc Nutritional Medicine | maestria | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/nutritional-medicine-msc
+University of Surrey | PhD Biosciences and Medicine | doctorado | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/biosciences-and-medicine-phd
+University of Surrey | MD Biosciences and Medicine | doctorado | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/biosciences-and-medicine-md
+University of Surrey | PhD Quantum Biology | doctorado | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/quantum-biology-phd
+University of Surrey | BSc (Hons) Business Economics and Data Analytics | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/business-economics-and-data-analytics
+University of Surrey | BSc (Hons) Business Management | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/business-management
+University of Surrey | BSc (Hons) Business Management and Modern Languages | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/business-management-and-modern-languages
+University of Surrey | BSc (Hons) Business Management with Entrepreneurship and Innovation | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/business-management-entrepreneurship-and-innovation
+University of Surrey | BSc (Hons) Business Management with Human Resource Management | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/business-management-human-resource-management
+University of Surrey | BSc (Hons) Business Management with Marketing | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/business-management-marketing
+University of Surrey | BSc (Hons) International Business (FHEQ Level 5 Direct Entry) | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-business-fheq-level-5-direct-entry
+University of Surrey | BSc (Hons) International Business (FHEQ Level 6 Direct Entry) | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-business-fheq-level-6-direct-entry
+University of Surrey | BSc (Hons) International Business Management | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-business-management
+University of Surrey | MSc Business Analytics | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/business-analytics-msc
+University of Surrey | MSc Digital Marketing | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/digital-marketing-msc
+University of Surrey | MSc Entrepreneurship and Innovation Management | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/entrepreneurship-innovation-management-msc
+University of Surrey | MSc Human Resources Management | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/human-resources-management-msc
+University of Surrey | MA Intercultural Business Communication and Marketing | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/intercultural-business-communication-and-marketing-ma
+University of Surrey | MSc International Business Management | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/international-business-management-msc
+University of Surrey | Master of Business Administration (MBA) | mba | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/master-business-administration-mba
+University of Surrey | MSc Occupational and Organizational Psychology | maestria | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/occupational-and-organizational-psychology-msc
+University of Surrey | MSc Strategic Marketing | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/strategic-marketing-msc
+University of Surrey | BEng (Hons) Chemical Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/chemical-engineering
+University of Surrey | MEng Chemical Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/chemical-engineering
+University of Surrey | MSc Pharmaceutical Sciences | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/pharmaceutical-sciences-msc
+University of Surrey | MSc Process Systems Engineering | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/process-systems-engineering-msc
+University of Surrey | MSc Sustainable Energy | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/sustainable-energy-msc
+University of Surrey | PhD Chemical and Process Engineering Research | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/chemical-and-process-engineering-research-phd
+University of Surrey | BSc (Hons) Chemistry | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/chemistry
+University of Surrey | MChem Chemistry | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/chemistry
+University of Surrey | BSc (Hons) Chemistry with Forensic Investigation | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/chemistry-forensic-investigation
+University of Surrey | MChem Chemistry with Forensic Investigation | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/chemistry-forensic-investigation
+University of Surrey | BSc (Hons) Medicinal Chemistry | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/medicinal-chemistry
+University of Surrey | MChem Medicinal Chemistry | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/medicinal-chemistry
+University of Surrey | BSc (Hons) Pharmaceutical Sciences | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/pharmaceutical-sciences
+University of Surrey | MSci (Hons) Pharmaceutical Sciences | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/pharmaceutical-sciences
+University of Surrey | MSc Applied Analytical Chemistry | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/applied-analytical-chemistry-msc
+University of Surrey | PhD Chemistry | doctorado | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/chemistry-phd
+University of Surrey | BEng (Hons) Civil Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/civil-engineering
+University of Surrey | MEng Civil Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/civil-engineering
+University of Surrey | MSc Advanced Geotechnical Engineering | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/advanced-geotechnical-engineering-msc
+University of Surrey | MSc Bridge Engineering | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/bridge-engineering-msc
+University of Surrey | MSc Civil Engineering | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/civil-engineering-msc
+University of Surrey | MSc Infrastructure Engineering and Management | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/infrastructure-engineering-and-management-msc
+University of Surrey | MSc Structural Engineering | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/structural-engineering-msc
+University of Surrey | PhD Civil and Environmental Engineering | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/civil-and-environmental-engineering-phd
+University of Surrey | BSc (Hons) Computer Science | bachelor | Tecnología | no indicada | - | https://www.surrey.ac.uk/undergraduate/computer-science
+University of Surrey | MEng Computer Science | bachelor | Tecnología | no indicada | - | https://www.surrey.ac.uk/undergraduate/computer-science
+University of Surrey | BSc (Hons) Computer Science and Artificial Intelligence | bachelor | Tecnología | no indicada | - | https://www.surrey.ac.uk/undergraduate/computer-science-and-artificial-intelligence
+University of Surrey | MEng Computer Science and Artificial Intelligence | bachelor | Tecnología | no indicada | - | https://www.surrey.ac.uk/undergraduate/computer-science-and-artificial-intelligence
+University of Surrey | BSc (Hons) Computer Science and Cyber Security | bachelor | Tecnología | no indicada | - | https://www.surrey.ac.uk/undergraduate/computer-science-and-cyber-security
+University of Surrey | MSc Computer Vision, Robotics and Machine Learning | maestria | Tecnología | no indicada | - | https://www.surrey.ac.uk/postgraduate/computer-vision-robotics-and-machine-learning-msc
+University of Surrey | MSc Cyber Security | maestria | Tecnología | no indicada | - | https://www.surrey.ac.uk/postgraduate/cyber-security-msc
+University of Surrey | MSc Data Science | maestria | Tecnología | no indicada | - | https://www.surrey.ac.uk/postgraduate/data-science-msc
+University of Surrey | MSc Data Science (Conversion) | maestria | Tecnología | no indicada | - | https://www.surrey.ac.uk/postgraduate/data-science-conversion-msc
+University of Surrey | PhD AI-Enabled Digital Accessibility (ADA) | doctorado | Tecnología | no indicada | - | https://www.surrey.ac.uk/postgraduate/ai-enabled-digital-accessibility-ada-phd
+University of Surrey | PhD Computer Science | doctorado | Tecnología | no indicada | - | https://www.surrey.ac.uk/postgraduate/computer-science-phd
+University of Surrey | BSc (Hons) Criminology | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/criminology
+University of Surrey | BSc (Hons) Criminology and Psychology | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/criminology-and-psychology
+University of Surrey | BSc (Hons) Criminology and Sociology | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/criminology-and-sociology
+University of Surrey | BSc (Hons) Criminology with Forensic Investigation | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/criminology-forensic-investigation
+University of Surrey | LLB (Hons) Law with Criminology | bachelor | Derecho | no indicada | - | https://www.surrey.ac.uk/undergraduate/law-criminology
+University of Surrey | BSc (Hons) Sociology | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/sociology
+University of Surrey | MSc Criminology (Cybercrime and Cybersecurity) | maestria | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/criminology-cybercrime-and-cybersecurity-msc
+University of Surrey | BSc (Hons) Economics | bachelor | Negocios | no indicada | - | https://www.surrey.ac.uk/undergraduate/economics
+University of Surrey | BSc (Hons) Economics and Mathematics | bachelor | Matemáticas | no indicada | - | https://www.surrey.ac.uk/undergraduate/economics-and-mathematics
+University of Surrey | BSc (Hons) Politics and Economics | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/politics-and-economics
+University of Surrey | MRes Economics | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/economics-mres
+University of Surrey | MSc Economics | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/economics-msc
+University of Surrey | MSc Economics (Econometrics and Big Data) | maestria | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/economics-econometrics-and-big-data-msc
+University of Surrey | PhD Economics | doctorado | Negocios | no indicada | - | https://www.surrey.ac.uk/postgraduate/economics-phd
+University of Surrey | BEng (Hons) Astronautics and Space Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/astronautics-and-space-engineering
+University of Surrey | MEng Astronautics and Space Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/astronautics-and-space-engineering
+University of Surrey | BEng (Hons) Computer and Internet Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/computer-and-internet-engineering
+University of Surrey | MEng Computer and Internet Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/computer-and-internet-engineering
+University of Surrey | BEng (Hons) Electrical and Electronic Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/electrical-and-electronic-engineering
+University of Surrey | MEng Electrical and Electronic Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/electrical-and-electronic-engineering
+University of Surrey | BEng (Hons) Electronic Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/electronic-engineering
+University of Surrey | MEng Electronic Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/electronic-engineering
+University of Surrey | BEng (Hons) Electronic Engineering with Artificial Intelligence | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/electronic-engineering-artificial-intelligence
+University of Surrey | MEng Electronic Engineering with Artificial Intelligence | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/electronic-engineering-artificial-intelligence
+University of Surrey | MSc Artificial Intelligence | maestria | Tecnología | no indicada | - | https://www.surrey.ac.uk/postgraduate/artificial-intelligence-msc
+University of Surrey | MSc Artificial Intelligence (Conversion) | maestria | Tecnología | no indicada | - | https://www.surrey.ac.uk/postgraduate/artificial-intelligence-conversion-msc
+University of Surrey | MSc Astronautics and Space Engineering | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/astronautics-and-space-engineering-msc
+University of Surrey | MSc Electronic Engineering | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/electronic-engineering-msc
+University of Surrey | MSc Electronic Engineering (by short course) | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/electronic-engineering-short-course-msc
+University of Surrey | MSc Intelligent Communication Systems and Networks | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/intelligent-communication-systems-and-networks-msc
+University of Surrey | MSc Satellite Communications Engineering | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/satellite-communications-engineering-msc
+University of Surrey | MSc Sustainable Semiconductor Technologies | maestria | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/sustainable-semiconductor-technologies-msc
+University of Surrey | PhD Advanced Technology Institute | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/advanced-technology-institute-phd
+University of Surrey | PhD Information and Communication Systems | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/information-and-communication-systems-phd
+University of Surrey | PhD Open Secure Communication Networks | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/open-secure-communication-networks-phd
+University of Surrey | PhD Space Engineering | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/space-engineering-phd
+University of Surrey | PhD Vision, Speech and Signal Processing | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/vision-speech-and-signal-processing-phd
+University of Surrey | BEng (Hons) Aerospace Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/aerospace-engineering
+University of Surrey | MEng Aerospace Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/aerospace-engineering
+University of Surrey | BEng (Hons) Biomedical Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/biomedical-engineering
+University of Surrey | MEng Biomedical Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/biomedical-engineering
+University of Surrey | BEng (Hons) Film Production and Broadcast Engineering | bachelor | Medios | no indicada | - | https://www.surrey.ac.uk/undergraduate/film-production-and-broadcast-engineering
+University of Surrey | BEng (Hons) Mechanical Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/mechanical-engineering
+University of Surrey | MEng Mechanical Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/mechanical-engineering
+University of Surrey | BEng (Hons) Spacecraft Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/spacecraft-engineering
+University of Surrey | MEng Spacecraft Engineering | bachelor | Ingeniería | no indicada | - | https://www.surrey.ac.uk/undergraduate/spacecraft-engineering
+University of Surrey | PhD Aerodynamic and Environmental Flow | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/aerodynamic-and-environmental-flow-phd
+University of Surrey | PhD Automotive Engineering | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/automotive-engineering-phd
+University of Surrey | PhD Biomedical Engineering | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/biomedical-engineering-phd
+University of Surrey | PhD Engineering Materials | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/engineering-materials-phd
+University of Surrey | EngD Micro- and NanoMaterials and Technologies | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/micro-and-nanomaterials-and-technologies-engd
+University of Surrey | PhD Robotics and Autonomous Systems | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/robotics-and-autonomous-systems-phd
+University of Surrey | BA (Hons) English Literature | bachelor | Artes | 3 años | - | https://www.surrey.ac.uk/undergraduate/english-literature
+University of Surrey | BA (Hons) English Literature and Creative Writing | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/english-literature-and-creative-writing
+University of Surrey | BA (Hons) English Literature and French | bachelor | Idiomas | no indicada | - | https://www.surrey.ac.uk/undergraduate/english-literature-and-french
+University of Surrey | BA (Hons) English Literature and Spanish | bachelor | Idiomas | no indicada | - | https://www.surrey.ac.uk/undergraduate/english-literature-and-spanish
+University of Surrey | MA Creative Writing | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/creative-writing-ma
+University of Surrey | MA English Literature | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/english-literature-ma
+University of Surrey | PhD Creative Writing | doctorado | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/creative-writing-phd
+University of Surrey | PhD English Literature | doctorado | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/english-literature-phd
+University of Surrey | MSc Corporate Environmental Management | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/corporate-environmental-management-msc
+University of Surrey | MSc Sustainable Development | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/sustainable-development-msc
+University of Surrey | PhD Environment and Sustainability | doctorado | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/environment-and-sustainability-phd
+University of Surrey | Practitioner Doctorate in Sustainability PhD/EngD | doctorado | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/practitioner-doctorate-sustainability-phd-engd
+University of Surrey | MA Film, Animation and Digital Arts | maestria | Medios | no indicada | - | https://www.surrey.ac.uk/postgraduate/film-animation-and-digital-arts-ma
+University of Surrey | PhD Digital Media Arts | doctorado | Medios | no indicada | - | https://www.surrey.ac.uk/postgraduate/digital-media-arts-phd
+University of Surrey | BA (Hons) Games Art | bachelor | Artes | 3 años | - | https://www.surrey.ac.uk/undergraduate/games-art
+University of Surrey | BSc (Hons) Games Design | bachelor | Tecnología | no indicada | - | https://www.surrey.ac.uk/undergraduate/games-design
+University of Surrey | MSc Psychology in Game Design and Digital Innovation | maestria | Tecnología | no indicada | - | https://www.surrey.ac.uk/postgraduate/psychology-game-design-and-digital-innovation-msc
+University of Surrey | BSc (Hons) Healthcare Practice | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/healthcare-practice
+University of Surrey | BSc (Hons) Midwifery (Registered Midwife) | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/midwifery-registered-midwife
+University of Surrey | BSc (Hons) Nursing Studies (Registered Nurse Adult Nursing) | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/nursing-studies-registered-nurse-adult-nursing
+University of Surrey | BSc (Hons) Nursing Studies (Registered Nurse Children and Young People Nursing) | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/nursing-studies-registered-nurse-children-and-young-people-nursing
+University of Surrey | BSc (Hons) Nursing Studies (Registered Nurse Mental Health Nursing) | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/nursing-studies-registered-nurse-mental-health-nursing
+University of Surrey | BSc (Hons) Paramedic Science | bachelor | Salud | no indicada | - | https://www.surrey.ac.uk/undergraduate/paramedic-science
+University of Surrey | MSc Advanced Clinical Practice | maestria | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/advanced-clinical-practice-msc
+University of Surrey | MA Education for Health Professionals | maestria | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/education-health-professionals-ma
+University of Surrey | PGCert Education for Health Professionals | posgrado | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/education-health-professionals-pgcert
+University of Surrey | MSc Healthcare Practice | maestria | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/healthcare-practice-msc
+University of Surrey | MSc Leadership in Healthcare | maestria | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/leadership-healthcare-msc
+University of Surrey | PhD Health Sciences | doctorado | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/health-sciences-phd
+University of Surrey | MA Higher and Professional Education | maestria | Educación | no indicada | - | https://www.surrey.ac.uk/postgraduate/higher-and-professional-education-ma
+University of Surrey | PhD Higher Education | doctorado | Educación | no indicada | - | https://www.surrey.ac.uk/postgraduate/higher-education-phd
+University of Surrey | BSc (Hons) International Airline and Airport Management | bachelor | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-airline-and-airport-management
+University of Surrey | BSc (Hons) International Event Management | bachelor | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-event-management
+University of Surrey | BSc (Hons) International Hospitality and Tourism Management | bachelor | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-hospitality-and-tourism-management
+University of Surrey | BSc (Hons) International Hospitality Management | bachelor | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-hospitality-management
+University of Surrey | BSc (Hons) International Tourism Management | bachelor | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-tourism-management
+University of Surrey | MSc Air Transport Management | maestria | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/postgraduate/air-transport-management-msc
+University of Surrey | MSc International Events Management | maestria | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/postgraduate/international-events-management-msc
+University of Surrey | MSc International Hotel Management | maestria | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/postgraduate/international-hotel-management-msc
+University of Surrey | MSc International Tourism Management | maestria | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/postgraduate/international-tourism-management-msc
+University of Surrey | MSc Strategic Hotel Management | maestria | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/postgraduate/strategic-hotel-management-msc
+University of Surrey | PhD Hospitality, Tourism, Transport and Events | doctorado | Hospitalidad | no indicada | - | https://www.surrey.ac.uk/postgraduate/hospitality-tourism-transport-and-events-phd
+University of Surrey | BSc (Hons) Business Management and French | bachelor | Idiomas | no indicada | - | https://www.surrey.ac.uk/undergraduate/business-management-and-french
+University of Surrey | BSc (Hons) Business Management and Spanish | bachelor | Idiomas | no indicada | - | https://www.surrey.ac.uk/undergraduate/business-management-and-spanish
+University of Surrey | BA (Hons) Modern Languages (French and Spanish) | bachelor | Idiomas | no indicada | - | https://www.surrey.ac.uk/undergraduate/modern-languages-french-and-spanish
+University of Surrey | BSc (Hons) Media and Communication | bachelor | Medios | no indicada | - | https://www.surrey.ac.uk/undergraduate/media-and-communication
+University of Surrey | MSc AI for Translation and Interpreting Studies | maestria | Idiomas | no indicada | - | https://www.surrey.ac.uk/postgraduate/ai-translation-and-interpreting-studies-msc
+University of Surrey | MA Interpreting, Technology and AI | maestria | Idiomas | no indicada | - | https://www.surrey.ac.uk/postgraduate/interpreting-technology-and-ai-ma
+University of Surrey | MA Interpreting, Technology and AI (Chinese Pathway) | maestria | Idiomas | no indicada | - | https://www.surrey.ac.uk/postgraduate/interpreting-technology-and-ai-chinese-pathway-ma
+University of Surrey | MA Translation and AI | maestria | Idiomas | no indicada | - | https://www.surrey.ac.uk/postgraduate/translation-and-ai-ma
+University of Surrey | MA Translation and AI (Chinese Pathway) | maestria | Idiomas | no indicada | - | https://www.surrey.ac.uk/postgraduate/translation-and-ai-chinese-pathway-ma
+University of Surrey | MA Translation, Interpreting and AI | maestria | Idiomas | no indicada | - | https://www.surrey.ac.uk/postgraduate/translation-interpreting-and-ai-ma
+University of Surrey | PhD Film Studies | doctorado | Medios | no indicada | - | https://www.surrey.ac.uk/postgraduate/film-studies-phd
+University of Surrey | PhD Linguistics | doctorado | Idiomas | no indicada | - | https://www.surrey.ac.uk/postgraduate/linguistics-phd
+University of Surrey | PhD Literary and Cultural Studies | doctorado | Idiomas | no indicada | - | https://www.surrey.ac.uk/postgraduate/literary-and-cultural-studies-phd
+University of Surrey | PhD Translation and Interpreting Studies | doctorado | Idiomas | no indicada | - | https://www.surrey.ac.uk/postgraduate/translation-and-interpreting-studies-phd
+University of Surrey | LLB (Hons) Law | bachelor | Derecho | no indicada | - | https://www.surrey.ac.uk/undergraduate/law
+University of Surrey | LLB (Hons) Law (Law and Technology Pathway) | bachelor | Derecho | no indicada | - | https://www.surrey.ac.uk/undergraduate/law-law-and-technology-pathway
+University of Surrey | LLB (Hons) Law (Law, Environment and Sustainability Pathway) | bachelor | Derecho | no indicada | - | https://www.surrey.ac.uk/undergraduate/law-law-environment-and-sustainability-pathway
+University of Surrey | LLB (Hons) Law (Philosophy, Politics and Law Pathway) | bachelor | Derecho | no indicada | - | https://www.surrey.ac.uk/undergraduate/law-philosophy-politics-and-law-pathway
+University of Surrey | LLB (Hons) Law with International Relations | bachelor | Derecho | no indicada | - | https://www.surrey.ac.uk/undergraduate/law-international-relations
+University of Surrey | LLM Professional Legal Practice (SQE Pathway) | maestria | Derecho | no indicada | - | https://www.surrey.ac.uk/postgraduate/professional-legal-practice-sqe-pathway-llm
+University of Surrey | PhD Law | doctorado | Derecho | no indicada | - | https://www.surrey.ac.uk/postgraduate/law-phd
+University of Surrey | BSc (Hons) Financial Mathematics | bachelor | Matemáticas | no indicada | - | https://www.surrey.ac.uk/undergraduate/financial-mathematics
+University of Surrey | BSc (Hons) Mathematics | bachelor | Matemáticas | no indicada | - | https://www.surrey.ac.uk/undergraduate/mathematics
+University of Surrey | MMath Mathematics | bachelor | Matemáticas | no indicada | - | https://www.surrey.ac.uk/undergraduate/mathematics
+University of Surrey | BSc (Hons) Mathematics and Physics | bachelor | Matemáticas | no indicada | - | https://www.surrey.ac.uk/undergraduate/mathematics-and-physics
+University of Surrey | MMath Mathematics and Physics | bachelor | Matemáticas | no indicada | - | https://www.surrey.ac.uk/undergraduate/mathematics-and-physics
+University of Surrey | MPhys Mathematics and Physics | bachelor | Matemáticas | no indicada | - | https://www.surrey.ac.uk/undergraduate/mathematics-and-physics
+University of Surrey | BSc (Hons) Mathematics with Data Science | bachelor | Matemáticas | no indicada | - | https://www.surrey.ac.uk/undergraduate/mathematics-data-science
+University of Surrey | MMath Mathematics with Data Science | bachelor | Matemáticas | no indicada | - | https://www.surrey.ac.uk/undergraduate/mathematics-data-science
+University of Surrey | MSc Financial Data Science | maestria | Matemáticas | no indicada | - | https://www.surrey.ac.uk/postgraduate/financial-data-science-msc
+University of Surrey | MSc Mathematics | maestria | Matemáticas | no indicada | - | https://www.surrey.ac.uk/postgraduate/mathematics-msc
+University of Surrey | PhD Mathematics | doctorado | Matemáticas | no indicada | - | https://www.surrey.ac.uk/postgraduate/mathematics-phd
+University of Surrey | PhD Sustainable Energy | doctorado | Ingeniería | no indicada | - | https://www.surrey.ac.uk/postgraduate/sustainable-energy-phd
+University of Surrey | BMBS Medicine (Graduate Entry) | bachelor | Salud | 4 años | - | https://www.surrey.ac.uk/undergraduate/medicine-graduate-entry
+University of Surrey | BMus (Hons) Creative Music Technology | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/creative-music-technology
+University of Surrey | BMus (Hons) Music | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/music
+University of Surrey | BMus (Hons) Music and Sound Recording (Tonmeister) | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/music-and-sound-recording-tonmeister
+University of Surrey | BSc (Hons) Music and Sound Recording (Tonmeister) | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/music-and-sound-recording-tonmeister
+University of Surrey | MMus Music | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/music-mmus
+University of Surrey | PhD Audio Engineering | doctorado | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/audio-engineering-phd
+University of Surrey | PhD Innovative Media Technology | doctorado | Medios | no indicada | - | https://www.surrey.ac.uk/postgraduate/innovative-media-technology-phd
+University of Surrey | PhD Music | doctorado | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/music-phd
+University of Surrey | BSc (Hons) Physics | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/physics
+University of Surrey | MPhys Physics | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/physics
+University of Surrey | BSc (Hons) Physics with Astronomy | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/physics-astronomy
+University of Surrey | MPhys Physics with Astronomy | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/physics-astronomy
+University of Surrey | BSc (Hons) Physics with Nuclear Astrophysics | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/physics-nuclear-astrophysics
+University of Surrey | MPhys Physics with Nuclear Astrophysics | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/physics-nuclear-astrophysics
+University of Surrey | BSc (Hons) Physics with Quantum Computing | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/physics-quantum-computing
+University of Surrey | MPhys Physics with Quantum Computing | bachelor | Ciencias | no indicada | - | https://www.surrey.ac.uk/undergraduate/physics-quantum-computing
+University of Surrey | MSc Applied Quantum Computing | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/applied-quantum-computing-msc
+University of Surrey | MSc Medical Physics | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/medical-physics-msc
+University of Surrey | MSc Nuclear Science and Radiation Protection | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/nuclear-science-and-radiation-protection-msc
+University of Surrey | MSc Physics | maestria | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/physics-msc
+University of Surrey | PhD Physics | doctorado | Ciencias | no indicada | - | https://www.surrey.ac.uk/postgraduate/physics-phd
+University of Surrey | BSc (Hons) International Relations | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/international-relations
+University of Surrey | BSc (Hons) Politics | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/politics
+University of Surrey | BSc (Hons) Politics and International Relations | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/politics-and-international-relations
+University of Surrey | BSc (Hons) Politics and Sociology | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/politics-and-sociology
+University of Surrey | MSc International Relations | maestria | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/international-relations-msc
+University of Surrey | MSc International Relations (International Intervention) | maestria | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/international-relations-international-intervention-msc
+University of Surrey | MSc Public Affairs | maestria | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/public-affairs-msc
+University of Surrey | PhD Politics | doctorado | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/politics-phd
+University of Surrey | BSc (Hons) Psychology | bachelor | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/undergraduate/psychology
+University of Surrey | MSc Behaviour Change | maestria | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/behaviour-change-msc
+University of Surrey | MSc Clinical Psychology and Mental Health | maestria | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/clinical-psychology-and-mental-health-msc
+University of Surrey | MSc Environmental Psychology | maestria | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/environmental-psychology-msc
+University of Surrey | MSc Health Psychology | maestria | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/health-psychology-msc
+University of Surrey | MSc Psychology (Conversion) | maestria | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/psychology-conversion-msc
+University of Surrey | MSc Social Psychology | maestria | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/social-psychology-msc
+University of Surrey | PhD Psychology | doctorado | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/psychology-phd
+University of Surrey | PsychD Clinical Psychology | doctorado | Salud | no indicada | - | https://www.surrey.ac.uk/postgraduate/clinical-psychology-psychd
+University of Surrey | PhD Sociology | doctorado | Ciencias Sociales | no indicada | - | https://www.surrey.ac.uk/postgraduate/sociology-phd
+University of Surrey | BA (Hons) Acting | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/acting
+University of Surrey | BA (Hons) Actor-Musician | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/actor-musician
+University of Surrey | BA (Hons) Applied and Contemporary Theatre | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/applied-and-contemporary-theatre
+University of Surrey | BA (Hons) Musical Theatre | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/musical-theatre
+University of Surrey | BA (Hons) Theatre | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/theatre
+University of Surrey | BA (Hons) Theatre Production | bachelor | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/theatre-production
+University of Surrey | CertHE Foundation Acting | curso_corto | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/foundation-acting
+University of Surrey | CertHE Foundation Musical Theatre | curso_corto | Artes | no indicada | - | https://www.surrey.ac.uk/undergraduate/foundation-musical-theatre
+University of Surrey | MA Acting | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/acting-ma
+University of Surrey | MFA Acting | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/acting-mfa
+University of Surrey | MA Musical Theatre | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/musical-theatre-ma
+University of Surrey | MFA Musical Theatre | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/musical-theatre-mfa
+University of Surrey | MA Stage and Production Management | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/stage-and-production-management-ma
+University of Surrey | MA Theatre | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/theatre-ma
+University of Surrey | MFA Theatre | maestria | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/theatre-mfa
+University of Surrey | PhD Theatre | doctorado | Artes | no indicada | - | https://www.surrey.ac.uk/postgraduate/theatre-phd
+University of Surrey | BVMSci (Hons) Veterinary Medicine and Science | bachelor | Veterinaria | no indicada | - | https://www.surrey.ac.uk/undergraduate/veterinary-medicine-and-science
+University of Surrey | PGCert Veterinary General Practice | posgrado | Veterinaria | no indicada | - | https://www.surrey.ac.uk/postgraduate/veterinary-general-practice-pgcert
+University of Surrey | PhD Veterinary Medicine and Science | doctorado | Veterinaria | no indicada | - | https://www.surrey.ac.uk/postgraduate/veterinary-medicine-and-science-phd
+
+# --- Australian National Institute of Management and Commerce (IMC) · imc.edu.au · Australia (Eveleigh NSW, Hobart TAS, Highgate WA) ---
+# Top Education Group Ltd. Catalogo completo: 11 pregrado + 27 posgrado, CRICOS verificado ficha por ficha.
+IMC | Bachelor of Accounting and Data Assurance | bachelor | Negocios | 3 años | 114562G | https://www.imc.edu.au/course/bachelor-of-accounting-and-data-assurance/
+IMC | Bachelor of Applied Finance and Accounting | bachelor | Negocios | 3 años | 089808B | https://www.imc.edu.au/course/bachelor-of-applied-finance-and-accounting/
+IMC | Diploma in Applied Finance and Accounting | diplomado | Negocios | 1 trimestre | 089806D | https://www.imc.edu.au/course/diploma-in-applied-finance-and-accounting/
+IMC | Undergraduate Certificate in Accounting | curso_corto | Negocios | 1 trimestre | - | https://www.imc.edu.au/course/undergraduate-certificate-in-accounting/
+IMC | Bachelor of International Business | bachelor | Negocios | 3 años | 068628B | https://www.imc.edu.au/course/bachelor-of-international-business/
+IMC | Diploma of Business | diplomado | Negocios | 1 año | 068626D | https://www.imc.edu.au/course/diploma-of-business/
+IMC | Undergraduate Certificate in Business | curso_corto | Negocios | 1 trimestre | - | https://www.imc.edu.au/course/undergraduate-certificate-in-business/
+IMC | Bachelor of Applied Digital Intelligence | bachelor | Tecnología | 3 años | 120105D | https://www.imc.edu.au/course/bachelor-of-applied-digital-intelligence/
+IMC | Bachelor of Decision Analytics | bachelor | Tecnología | 3 años | 120187H | https://www.imc.edu.au/course/bachelor-of-decision-analytics/
+IMC | Bachelor of Sustainable Finance and FinTech | bachelor | Tecnología | 3 años | 120188G | https://www.imc.edu.au/course/bachelor-of-sustainable-finance-and-fintech/
+IMC | Bachelor of Laws | bachelor | Derecho | 4 años | 087704D | https://www.imc.edu.au/course/bachelor-of-laws/
+IMC | Graduate Certificate in Accounting | posgrado | Negocios | 1 trimestre | 074225D | https://www.imc.edu.au/course/graduate-certificate-in-accounting/
+IMC | Graduate Diploma of Accounting | posgrado | Negocios | 1 año | 074226C | https://www.imc.edu.au/course/graduate-diploma-of-accounting/
+IMC | Master of Professional Accounting | maestria | Negocios | 1,5 años | 074227B | https://www.imc.edu.au/course/master-of-professional-accounting/
+IMC | Master of Professional Accounting Services | maestria | Negocios | 2 años | 074228A | https://www.imc.edu.au/course/master-of-professional-accounting-services/
+IMC | Master of Accounting Intelligence | maestria | Negocios | 2 años | 0102137 | https://www.imc.edu.au/course/master-of-accounting-intelligence/
+IMC | Master of Big Data Auditing | maestria | Tecnología | 2 años | 0102138 | https://www.imc.edu.au/course/master-of-big-data-auditing/
+IMC | Master of Business Administration (Professional Accounting) | mba | Negocios | 2 años | 103495D | https://www.imc.edu.au/course/master-of-business-administration-professional-accounting/
+IMC | Graduate Certificate in Business | posgrado | Negocios | 1 trimestre | 0100485 | https://www.imc.edu.au/course/graduate-certificate-in-business/
+IMC | Graduate Diploma of Business Administration | posgrado | Negocios | 1 año | 096895F | https://www.imc.edu.au/course/graduate-diploma-of-business-administration/
+IMC | Master of Business Administration (12 units) | mba | Negocios | 2 años | 112837A | https://www.imc.edu.au/course/master-of-business-administration-mba/
+IMC | Graduate Certificate in Business Analytics | posgrado | Tecnología | 1 trimestre | 0100485 | https://www.imc.edu.au/course/graduate-certificate-in-business-analytics/
+IMC | Master of Business Administration (Business Analytics) | mba | Negocios | 2 años | 103496C | https://www.imc.edu.au/course/master-of-business-administration-business-analytics/
+IMC | Graduate Certificate in Digital Business Technologies | posgrado | Tecnología | 1 trimestre | - | https://www.imc.edu.au/course/graduate-certificate-in-digital-business-technologies/
+IMC | Master of Business Administration (Digital Business Applications) | mba | Negocios | 2 años | 103497B | https://www.imc.edu.au/course/master-of-business-administration-digital-business-applications/
+IMC | Graduate Certificate in Financial Technology Management | posgrado | Tecnología | 1 trimestre | 0100488 | https://www.imc.edu.au/course/graduate-certificate-in-financial-technology-management/
+IMC | Graduate Diploma of Financial Technology Management | posgrado | Tecnología | 1 año | 0100489 | https://www.imc.edu.au/course/graduate-diploma-of-financial-technology-management/
+IMC | Master of Applied Financial Technology and Blockchain | maestria | Tecnología | 2 años | 0102140 | https://www.imc.edu.au/course/master-of-applied-financial-technology-and-blockchain/
+IMC | Master of Business Administration (FinTech Management) | mba | Negocios | 2 años | 103494E | https://www.imc.edu.au/course/master-of-business-administration-fintech-management/
+IMC | Master of Taxation (with Data Analytics and Artificial Intelligence) | maestria | Negocios | 2 años | 0102139 | https://www.imc.edu.au/course/master-of-taxation-with-data-analytics-and-artificial-intelligence/
+IMC | Graduate Diploma of International Business | posgrado | Negocios | 1 año | 080016G | https://www.imc.edu.au/course/graduate-diploma-of-international-business/
+IMC | Master of International Business | maestria | Negocios | 1,5 años | 080013K | https://www.imc.edu.au/course/master-of-international-business/
+IMC | Graduate Diploma of Marketing | posgrado | Negocios | 1 año | 0100486 | https://www.imc.edu.au/course/graduate-diploma-of-marketing/
+IMC | Master of Marketing | maestria | Negocios | 2 años | 0100487 | https://www.imc.edu.au/course/master-of-marketing/
+IMC | Graduate Certificate in Data Analytics | posgrado | Tecnología | 0,7 años | 111337G | https://www.imc.edu.au/course/graduate-certificate-in-data-analytics/
+IMC | Graduate Diploma of Data Analytics | posgrado | Tecnología | 1 año | 111336H | https://www.imc.edu.au/course/graduate-diploma-in-data-analytics/
+IMC | Master of Data Analytics | maestria | Tecnología | 2 años | 111335J | https://www.imc.edu.au/course/master-of-data-analytics/
+IMC | Master of Business Research | maestria | Negocios | 2 años | 117775C | https://www.imc.edu.au/course/master-of-business-research/
+
+# --- Le Cordon Bleu Madrid · cordonbleu.edu (campus Madrid) · Espana ---
+# Le Cordon Bleu International B.V. es la RED (30+ campus). Por regla de holding solo se carga lo del campus que nombra la ficha: Madrid.
+# El Bachelor/Master en hospitality de `niveles_vistos` NO existe en Madrid: es de otros campus de la red (Londres, Paris, Australia).
+Le Cordon Bleu Madrid | Grand Diplome | diplomado | Gastronomía | 30 semanas | - | https://www.cordonbleu.edu/madrid/grand-diplome/es
+Le Cordon Bleu Madrid | Diploma de Cocina | diplomado | Gastronomía | 9 meses (3 certificados de 3 meses) | - | https://www.cordonbleu.edu/madrid/diploma-cocina/es
+Le Cordon Bleu Madrid | Diploma de Pasteleria | diplomado | Gastronomía | 9 meses (3 certificados de 3 meses) | - | https://www.cordonbleu.edu/madrid/diploma-pasteleria/es
+Le Cordon Bleu Madrid | Diploma de Cocina Espanola | diplomado | Gastronomía | 9 meses (3 certificados de 3 meses) | - | https://www.cordonbleu.edu/madrid/diploma-cocina-espanola/es
+Le Cordon Bleu Madrid | Diploma de Cocina Plant-Based | diplomado | Gastronomía | 3 meses (260 horas) | - | https://www.cordonbleu.edu/madrid/plant-based-diploma/es
+Le Cordon Bleu Madrid | Diploma de Pasteleria Plant-Based | diplomado | Gastronomía | 3 meses (260 horas) | - | https://www.cordonbleu.edu/madrid/plant-based-diploma/es
+Le Cordon Bleu Madrid | Grado en Gastronomia | bachelor | Gastronomía | no indicada | - | https://www.cordonbleu.edu/madrid/grado-gastronomia/es
+
+# --- Ikon Institute of Australia · ikon.edu.au · Australia (Sydney, Melbourne, Adelaide, Brisbane) ---
+# SOLO los 6 cursos que la propia pagina /international-students/ declara registrados para estudiantes internacionales.
+# El catalogo domestico completo es de 17 cursos; los otros 11 NO son vendibles a un colombiano (ver NOTAS).
+Ikon Institute of Australia | Diploma of Community Services | diplomado | Servicios Sociales | 1 año | 117330K | https://ikon.edu.au/course/diploma-of-community-services/
+Ikon Institute of Australia | Bachelor of Community Services | bachelor | Servicios Sociales | 3 años | 117329C | https://ikon.edu.au/course/bachelor-of-community-services/
+Ikon Institute of Australia | Bachelor of Social Work | bachelor | Trabajo Social | 4 años | 118342J | https://ikon.edu.au/course/bachelor-of-social-work/
+Ikon Institute of Australia | Master of Social Work (Qualifying) | maestria | Trabajo Social | 2 años | 118344G | https://ikon.edu.au/course/master-of-social-work/
+Ikon Institute of Australia | Graduate Certificate in Education (Early Childhood) | posgrado | Educación | 8 meses | 116570B | https://ikon.edu.au/course/grad-cert-education-early-childhood/
+Ikon Institute of Australia | Graduate Diploma of Education (Early Childhood) | posgrado | Educación | 1 año | 116569F | https://ikon.edu.au/course/grad-dip-education-early-childhood/
+
+# --- IFALPES KLF Annecy · ifalpes.com · Francia (Annecy) ---
+# Escuela de frances del grupo Keep Learning French. Solo Idiomas.
+IFALPES KLF Annecy | Standard French Course | curso_corto | Idiomas | 1-4 / 5-11 / 12+ semanas · 20 lecciones/sem | - | https://ifalpes.com/french-courses/courses-for-adults/standard-french-course/
+IFALPES KLF Annecy | Intensive French Course | curso_corto | Idiomas | 1-4 / 5-11 / 12-24-36 semanas · 26 lecciones/sem | - | https://ifalpes.com/french-courses/courses-for-adults/intensive-french-course/
+IFALPES KLF Annecy | Intensive Long-Term French Course and University Pathway | curso_corto | Idiomas | 12, 24 o 36 semanas · 26 lecciones/sem | - | https://ifalpes.com/french-courses/courses-for-adults/intensive-long-term-french-course-annecy/
+IFALPES KLF Annecy | Premium Intensive French Course | curso_corto | Idiomas | 1-4 semanas y mas · 26 lecciones grupo + 4 privadas/sem | - | https://ifalpes.com/french-courses/courses-for-adults/premium-intensive-french-course/
+IFALPES KLF Annecy | Super Intensive French Course | curso_corto | Idiomas | 1-4 semanas · 40 lecciones/sem | - | https://ifalpes.com/french-courses/courses-for-adults/super-intensive-french-course/
+IFALPES KLF Annecy | French Exam Premium Intensive Preparation | curso_corto | Idiomas | no indicada | - | https://ifalpes.com/french-courses/courses-for-adults/french-exam-premium-intensive-preparation/
+IFALPES KLF Annecy | French Courses for Complete Beginners | curso_corto | Idiomas | no indicada | - | https://ifalpes.com/french-courses/courses-for-adults/french-courses-for-complete-beginners/
+IFALPES KLF Annecy | Business French Courses | curso_corto | Idiomas | no indicada | - | https://ifalpes.com/french-courses/courses-for-adults/business-french-courses/
+IFALPES KLF Annecy | Bildungsurlaub French | curso_corto | Idiomas | no indicada | - | https://ifalpes.com/french-courses/courses-for-adults/bildungsurlaub-french/
+IFALPES KLF Annecy | French Individual Private Lessons | curso_corto | Idiomas | no indicada | - | https://ifalpes.com/french-courses/courses-for-adults/french-individual-private-lessons/
+IFALPES KLF Annecy | Evening French Lessons (Online) | curso_corto | Idiomas | 4, 8 o 12 semanas · 4 lecciones/sem | - | https://ifalpes.com/french-courses/online-courses/evening-french-lessons/
+IFALPES KLF Annecy | Senior Programme | curso_corto | Idiomas | 2 semanas | - | https://klf.fr/annecy/french-courses-for-adults/seniors/
+IFALPES KLF Annecy | French Courses for Juniors (junior camp Annecy) | vacacional | Idiomas | 3 semanas (julio) | - | https://klf.fr/french-junior-camp-in-annecy/
+
+# --- Global College Australasia · globalcollege.edu.au · Australia (East Perth, WA) ---
+# RTO 45088 · CRICOS proveedor 03564F. El sitio NO publica CRICOS ni duracion por curso: solo el codigo nacional.
+# No hay pagina unica de catalogo: se recorrieron las 13 entradas del menu "Programs" y se deduplico.
+Global College Australasia | SIT31121 Certificate III in Asian Cookery | curso_corto | Gastronomía | no indicada | SIT31121 | https://globalcollege.edu.au/asian-cookery/
+Global College Australasia | SIT40821 Certificate IV in Asian Cookery | curso_corto | Gastronomía | no indicada | SIT40821 | https://globalcollege.edu.au/asian-cookery/
+Global College Australasia | SIT30821 Certificate III in Commercial Cookery | curso_corto | Gastronomía | no indicada | SIT30821 | https://globalcollege.edu.au/commercial-cookery/
+Global College Australasia | SIT40521 Certificate IV in Kitchen Management | curso_corto | Gastronomía | no indicada | SIT40521 | https://globalcollege.edu.au/commercial-cookery/
+Global College Australasia | SIT31021 Certificate III in Patisserie | curso_corto | Gastronomía | no indicada | SIT31021 | https://globalcollege.edu.au/patisserie/
+Global College Australasia | SIT40721 Certificate IV in Patisserie | curso_corto | Gastronomía | no indicada | SIT40721 | https://globalcollege.edu.au/patisserie/
+Global College Australasia | SIT50422 Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT50422 | https://globalcollege.edu.au/commercial-cookery/
+Global College Australasia | SIT60322 Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT60322 | https://globalcollege.edu.au/commercial-cookery/
+Global College Australasia | BSB50420 Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 | https://globalcollege.edu.au/business-and-leadership/
+Global College Australasia | BSB60420 Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB60420 | https://globalcollege.edu.au/business-and-leadership/
+Global College Australasia | BSB80120 Graduate Diploma of Management (Learning) | posgrado | Negocios | no indicada | BSB80120 | https://globalcollege.edu.au/post-graduate-course/
+Global College Australasia | CPC40120 Certificate IV in Building and Construction (Building) | curso_corto | Construcción | no indicada | CPC40120 | https://globalcollege.edu.au/building-and-construction/
+Global College Australasia | CPC50220 Diploma of Building and Construction (Building) | diplomado | Construcción | no indicada | CPC50220 | https://globalcollege.edu.au/building-and-construction/
+Global College Australasia | RII60520 Advanced Diploma of Civil Construction Design | diplomado | Construcción | no indicada | RII60520 | https://globalcollege.edu.au/civil/
+Global College Australasia | CPC33020 Certificate III in Bricklaying and Blocklaying | curso_corto | Construcción | no indicada | CPC33020 | https://globalcollege.edu.au/bricklaying-and-blocklaying/
+Global College Australasia | CPC30220 Certificate III in Carpentry | curso_corto | Construcción | no indicada | CPC30220 | https://globalcollege.edu.au/civil-2/
+Global College Australasia | CHC42021 Certificate IV in Community Services | curso_corto | Servicios Sociales | no indicada | CHC42021 | https://globalcollege.edu.au/community-services/
+Global College Australasia | CHC52025 Diploma of Community Services | diplomado | Servicios Sociales | no indicada | CHC52025 | https://globalcollege.edu.au/community-services/
+Global College Australasia | CHC62015 Advanced Diploma of Community Sector Management | diplomado | Servicios Sociales | no indicada | CHC62015 | https://globalcollege.edu.au/community-services/
+Global College Australasia | BSB41419 Certificate IV in Work Health and Safety | curso_corto | Salud | no indicada | BSB41419 | https://globalcollege.edu.au/work-health-and-safety/
+Global College Australasia | BSB51319 Diploma of Work Health and Safety | diplomado | Salud | no indicada | BSB51319 | https://globalcollege.edu.au/work-health-and-safety/
+Global College Australasia | ELICOS General English (Beginner a Intermediate) | curso_corto | Idiomas | no indicada | - | https://globalcollege.edu.au/elicos/
+
+# --- Exsportise · exsportise.co.uk · Reino Unido (4 internados) ---
+# NO es una institucion: es un operador de campamentos de verano que renta 4 internados (Haileybury/Londres 9-15, Oundle/Cambridge 10-17, Seaford College/Brighton 10-17, Worth School/Londres 9-16).
+# Formato unico: residencial, minimo 1 semana, 15h de ingles + 15h de la actividad por semana. Cada academia se puede tomar en varios centros.
+Exsportise | English + Arsenal Football | vacacional | Idiomas y Deporte | desde 1 semana · 15h ingles + 15h futbol/sem | - | https://www.exsportise.co.uk/arsenal-football-camp
+Exsportise | English + Basketball | vacacional | Idiomas y Deporte | desde 1 semana · 15h ingles + 15h actividad/sem | - | https://www.exsportise.co.uk/basketball
+Exsportise | English + Dance | vacacional | Idiomas y Danza | desde 1 semana · 15h ingles + 15h actividad/sem | - | https://www.exsportise.co.uk/dance
+Exsportise | English + Golf | vacacional | Idiomas y Deporte | desde 1 semana · 15h ingles + 15h actividad/sem | - | https://www.exsportise.co.uk/golf-academy
+Exsportise | English + Hockey | vacacional | Idiomas y Deporte | desde 1 semana · 15h ingles + 15h actividad/sem | - | https://www.exsportise.co.uk/hockey-academy
+Exsportise | English + Horse Riding | vacacional | Idiomas y Deporte | desde 1 semana · 15h ingles + 15h actividad/sem | - | https://www.exsportise.co.uk/horse-riding
+Exsportise | English + Rugby | vacacional | Idiomas y Deporte | desde 1 semana · 15h ingles + 15h actividad/sem | - | https://www.exsportise.co.uk/rugby
+Exsportise | English + Tennis | vacacional | Idiomas y Deporte | desde 1 semana · 15h ingles + 15h actividad/sem | - | https://www.exsportise.co.uk/tennis-academy
+Exsportise | English + Volleyball | vacacional | Idiomas y Deporte | desde 1 semana · 15h ingles + 15h actividad/sem | - | https://www.exsportise.co.uk/volleyball
+Exsportise | English + Multi-Sports | vacacional | Idiomas y Deporte | desde 1 semana · 15h ingles + 15h multideporte/sem | - | https://www.exsportise.co.uk/multi-activity-sports
+Exsportise | English + Music | vacacional | Idiomas y Música | desde 1 semana · 15h ingles + 15h actividad/sem | - | https://www.exsportise.co.uk/music-academy
+
+# --- Oceania Polytechnic Institute of Education (OPIE) · opie.vic.edu.au · Australia (West Melbourne, Maidstone, Werribee) ---
+# Catalogo completo (8 cursos, coincide con cantidad_aprox). Todos con codigo nacional + CRICOS + duracion publicados.
+OPIE | Certificate III in Painting and Decorating | curso_corto | Construcción | 60 semanas | CPC30620 (CRICOS 103817B) | https://opie.vic.edu.au/course-cpc30620/
+OPIE | Certificate III in Solid Plastering | curso_corto | Construcción | 60 semanas | CPC31020 (CRICOS 103812G) | https://opie.vic.edu.au/course-cpc31020/
+OPIE | Certificate III in Wall and Floor Tiling | curso_corto | Construcción | 52 semanas | CPC31320 (CRICOS 103798M) | https://opie.vic.edu.au/course-cpc31320/
+OPIE | Certificate IV in Building and Construction | curso_corto | Construcción | 52 semanas | CPC40120 (CRICOS 103780K) | https://opie.vic.edu.au/course-cpc40120/
+OPIE | Diploma of Building and Construction (Building) | diplomado | Construcción | 72 semanas | CPC50220 (CRICOS 103768F) | https://opie.vic.edu.au/course-cpc50220/
+OPIE | Diploma of Project Management | diplomado | Negocios | 52 semanas | BSB50820 (CRICOS 104106C) | https://opie.vic.edu.au/course-bsb50820/
+OPIE | Advanced Diploma of Civil Construction Design | diplomado | Construcción | 104 semanas | RII60520 (CRICOS 111860K) | https://opie.vic.edu.au/course-rii60520/
+OPIE | Advanced Diploma of Building Design (Architectural) | diplomado | Arquitectura | 156 semanas | 22627VIC (CRICOS 115441H) | https://opie.vic.edu.au/course-22477vic/
+
+# --- International College of Hotel Management (ICHM) · ichm.edu.au · Australia (Adelaide) ---
+# ABN 64 080 984 738 · CRICOS proveedor 02914G · TEQSA PRV12099. Catalogo completo con CRICOS por curso.
+ICHM | Undergraduate Certificate of Hotel, Tourism and Hospitality Operations | curso_corto | Hospitalidad | 6 meses | CRS14001045 (TEQSA · sin CRICOS) | https://www.ichm.edu.au/courses/certificate-of-hotel-tourism-and-hospitality-operations
+ICHM | Bachelor of Business (Hospitality Management) | bachelor | Hospitalidad | 3 años (6 semestres con practica) | 075806G | https://www.ichm.edu.au/courses/bachelor-of-business-hospitality-management
+ICHM | Graduate Certificate in International Hotel Management | posgrado | Hospitalidad | 6 meses | 097745A | https://www.ichm.edu.au/courses/graduate-certificate-in-international-hotel-management
+ICHM | Graduate Diploma in International Hotel Management | posgrado | Hospitalidad | 12 meses | 097744B | https://www.ichm.edu.au/courses/graduate-diploma-in-international-hotel-management
+ICHM | Master of International Hotel Management | maestria | Hospitalidad | 2 años (4 semestres) | 097743C | https://www.ichm.edu.au/courses/master-of-international-hotel-management
+ICHM | Study Abroad 1 | intercambio | Hospitalidad | 6 meses (1 semestre) | 078998D | https://www.ichm.edu.au/courses/study-abroad
+ICHM | Study Abroad 2 | intercambio | Hospitalidad | 1 año (2 semestres) | 078999C | https://www.ichm.edu.au/courses/study-abroad
+ICHM | Study Abroad 3 | intercambio | Hospitalidad | 1 año (1 semestre + 1 semestre de practica) | 079000C | https://www.ichm.edu.au/courses/study-abroad
+
+# --- Academy of English · academies.edu.au · Australia (Sydney) ---
+# Sin sitio propio: vive en el dominio del grupo Academies Australasia. CRICOS proveedor 02399M. Solo ELICOS.
+Academy of English | General English (Beginner, Elementary to Pre-Intermediate, Intermediate to Upper-Intermediate, Advanced) | curso_corto | Idiomas | 10-20 semanas | 0101722 | https://academies.edu.au/courses-syd-english/
+Academy of English | English for Academic Purposes and IELTS Preparation (Intermediate, Upper-Intermediate, Advanced) | curso_corto | Idiomas | 10-20 semanas | 0101723 | https://academies.edu.au/courses-syd-english/
+
+# --- Montgomery International School · mischool.be · BELGICA (Bruselas) · la ficha dice Germany y esta MAL ---
+# Colegio IB. Early Years (Montessori) y PYP (5,5-11 anos, primaria) EXCLUIDOS por regla. Solo MYP y DP entran.
+Montgomery International School | IB Middle Years Programme (MYP 1-5) | secundaria | Estudios Generales | 5 años (11-16 anos) | - | https://www.mischool.be/academics/middle-years-programme-myp
+Montgomery International School | IB Diploma Programme (DP 1-2) | secundaria | Estudios Generales | 2 años (16-19 anos) | - | https://www.mischool.be/fs/pages/433
+
+# RESUMEN: instituciones=11 con_programas=11 total_programas=386 sin_catalogo=0
+# NOTAS:
+# - University of Surrey (269 filas) · el `puede_vender` promete "Foundation & Pre master" y ESO NO SE PUEDE VENDER DESDE surrey.ac.uk: los 3 International Foundation Year (Life Sciences; Computing, Engineering and Physical Sciences; Business, Economics, Law and Social Sciences) y el "Management, Finance, Hospitality and Tourism Pre-Masters MSc" viven en isc.surrey.ac.uk, el dominio del Surrey International Study Centre operado por Study Group — otro proveedor, ficha aparte. La alerta de la auditoria estaba en lo cierto. El catalogo se reconstruyo recorriendo las 32 paginas /subjects/<area> porque /undergraduate y /postgraduate son buscadores JS que devuelven "Sorry, we couldn't load results just now": salieron 310 filas brutas que al deduplicar (muchos cursos se repiten en 3-8 areas) quedan en 269 unicas — consistente con el "300+" de `cantidad_aprox`. LIMITACION IMPORTANTE: las paginas de area NO publican duracion, asi que 267 de las 269 filas van con "no indicada"; el patron real de Surrey es 3 años bachelor / 4 años el integrado (MEng, MSci, MChem, MPhys, MMath) / 1 año el master taught, pero no se escribio por no estar en la fuente consultada — poblarlo exige abrir las ~269 fichas individuales. EXCLUIDOS por regla de "lo que un colombiano no puede cursar": ~34 modulos CPD post-registro del NHS en health-sciences (Independent/Supplementary Prescribing V300, Advanced Assessment and Clinical Reasoning, Health Assessment Adult/Child, Safeguarding in Healthcare...), 7 titulaciones que exigen registro NMC britanico + patrocinio de empleador NHS (los 6 PGDip SPQ/SCPHN y el MSc Specialist Practice Nursing Top Up), 2 modulos CPD de nutricion clinica, y el short course CPD "Video Compression Techniques for Next Generation Communication Infrastructures". A REVISAR: "PhD by Prior Publication" se cargo una sola vez aunque aparece en las 32 areas — es mas una ruta de titulacion que un curso; si el revisor lo considera no-programa, borrar esa fila. Los enlaces que hoy salen bajo /clearing/<slug> se normalizaron a /undergraduate/<slug>.
+# - IMC (38 filas) · la ficha estaba ROTA y hay que corregirla entera: `sitio` sin esquema (www.imc.edu.au sin https://), `tipo_adivinado: curso_corto` cuando no hay NI UN curso corto, `category: null` y `puede_vender: []` cuando es una institucion TEQSA con CRICOS por curso y admision internacional abierta. Lo real: 11 pregrado (incl. Bachelor of Laws, CRICOS 087704D, activo y con matricula abierta — confirmado, no es un placeholder) + 27 posgrado (5 MBA + 9 maestrias + 13 Grad Cert/Grad Dip). `puede_vender` deberia ser ["Pregrado & Postgrado"]. EXCLUIDO 1 de los 39 publicados: "Master of Business Administration (16 units)" (CRICOS 096894G) porque su propia pagina dice "This course is currently being taught out. There will be no new enrolment from Term 2, 2025". 3 cursos no publican CRICOS en su ficha (los 2 Undergraduate Certificates y el Graduate Certificate in Digital Business Technologies) y van con "-". OJO DATO SOSPECHOSO: Graduate Certificate in Business y Graduate Certificate in Business Analytics publican el MISMO CRICOS 0100485 — verificar con la institucion antes de usarlo en una carta de aceptacion.
+# - Le Cordon Bleu Madrid (7 filas) · REGLA DE HOLDING APLICADA: cordonbleu.edu es el dominio de la RED MUNDIAL (30+ campus en 20 paises) y la ficha dice Spain/Madrid, asi que solo se cargo el campus de Madrid. El `niveles_vistos` menciona "Bachelor/Master en hospitality": esos NO existen en Madrid, son de Londres/Paris/Australia y NO deben venderse bajo esta ficha. EXCLUIDOS: los ~30 "Cursos Cortos y Monograficos" y las masterclass "Fuera de Carta" — son talleres recreativos de 2 a 4 horas o de 2 dias (pizza para ninos, macarons, coq au vin, chuleton), no son credenciales ni habilitan visa de estudio; el asesor puede ofrecerlos como actividad suelta, pero meterlos al catalogo vocacional ensuciaria el cruce con el test. El Grado en Gastronomia lo titula la Universidad Francisco de Vitoria (no LCB) y su pagina no publica duracion — en España un grado son 4 años, pero no se escribio por no estar en la fuente. El sitio publica precios; no se transcribieron.
+# - Ikon Institute of Australia (6 de 17 filas) · APLICADO EL APRENDIZAJE (g): el catalogo domestico tiene 17 cursos pero la pagina /international-students/ declara textualmente que Ikon "is registered to deliver the following courses to international students in Australia" y lista SOLO 6. Esos 6 son la seccion vendible y son los unicos cargados. Los 11 restantes (Bachelor y Diploma de Arts Therapy, Counselling and Psychotherapy y Early Childhood Education, los Grad Cert/Grad Dip/Master de Counselling, el Master of Education y el Master of Teaching Early Childhood) NO son vendibles a un colombiano: el Bachelor of Arts Therapy dice explicitamente "Domestic students only for 2026 commencements". Por eso la lista es de 6 y no de ~20 como decia `cantidad_aprox`. Corregir tambien `partner_group`: la ficha dice "ALG - Australian Learning Group" pero el sitio declara propiedad de EDU Holdings Limited. A VERIFICAR: el Graduate Diploma of Education (Early Childhood) aparece con campus "Online" siendo CRICOS 116569F — un curso 100% online no habilita visa de estudio; hay contradiccion en el propio sitio (el Grad Cert hermano si aclara que el internacional solo puede hacer un tercio online). Preguntar a admisiones antes de cotizarlo.
+# - IFALPES KLF Annecy (13 filas) · la marca actual es "IFALPES KLF Annecy": ya opera dentro del grupo Keep Learning French (Montpellier, Lyon, Burdeos, Toulouse). Solo Idiomas — la ficha traia `puede_vender: []` y hay que llenarla con ["Idiomas"]. EXCLUIDOS: "French Courses for Teachers" (formacion continua para docentes, ademas alojada en erasmus.klf.fr, fuera del dominio del lote), "French Courses for Groups" (reserva grupal a medida, no matriculable individualmente) y "Online Private Lessons" (misma URL y mismo producto que "French Individual Private Lessons" — duplicado por audiencia). Las "Evening French Lessons" son 100% online y van marcadas "(Online)": no habilitan visa. El Senior Programme y el junior camp viven en klf.fr pero se cargaron porque son productos vendibles enlazados desde la propia pagina de cursos de ifalpes.com. El "Bildungsurlaub French" esta pensado para trabajadores alemanes con licencia formativa: vendible, pero no es el perfil de la agencia. El sitio publica precios; no se transcribieron.
+# - Global College Australasia (22 filas) · el campo `sitio` viene SIN protocolo y rompe cualquier fetcher que no lo normalice. NO tiene pagina unica de catalogo: hubo que recorrer las 13 entradas del menu "Programs" y deduplicar (el Diploma y el Advanced Diploma of Hospitality Management aparecen en Commercial Cookery y en Patisserie; el RII60520 en Building and Construction y en Civil; el BSB80120 en Business and Leadership y en Post-Graduate Course). Salen 22 unicos, casi el doble del ~12 de `cantidad_aprox`, porque la auditoria conto entradas de menu y no cursos. La ficha traia `puede_vender: []`: lo real es Vocacionales (Cert III a Adv Diploma) + Graduate Diploma + ELICOS. LIMITACION: el sitio publica el codigo nacional de cada curso pero NUNCA el CRICOS ni la duracion — se cargo el codigo nacional en `codigo_oficial` y "no indicada" en duracion; los CRICOS por curso hay que pedirlos a admissions (el 03564F de la ficha es el CRICOS DE PROVEEDOR, no sirve por curso). Los 4 niveles de ELICOS General English se cargaron como UNA fila (es el mismo curso por nivel de entrada). EXCLUIDO: "52863WA Course in Management of Licensed Premises" — un "Course in" no es una cualificacion completa del AQF, es un skill set. Esta en Perth WA (2 campus en East Perth), no donde dice la ficha. A VERIFICAR: los Certificate III de Bricklaying y Carpentry en Australia suelen entregarse via aprendizaje laboral (domestico); confirmar que se ofrecen en modo full-time para internacional antes de cotizarlos.
+# - Exsportise (11 filas) · DOS CORRECCIONES DE FICHA: el nombre esta mal escrito ("Exportise" debe ser "Exsportise") y NO ES UNA INSTITUCION — es un operador de campamentos de verano que renta 4 internados britanicos (Haileybury/Londres 9-15 anos, Oundle/Cambridge 10-17, Seaford College/Brighton 10-17, Worth School/Londres 9-16). Las 11 "academias" son la misma formula con distinta actividad: residencial, minimo 1 semana, 15h de ingles + 15h de la actividad por semana, edades 9-17. Todas van como `vacacional` y NINGUNA es una credencial. Cada academia se ofrece en varios centros y el sitio no publica que academia corre en que internado: al cotizar hay que fijar centro + semana con el operador. El sitio publica fechas de temporada; no se transcribieron.
+# - OPIE (8 filas) · la unica ficha del lote sin sorpresas: `cantidad_aprox` ~8 y salieron exactamente 8, todos con codigo nacional + CRICOS + duracion en semanas publicados, ninguno marcado "not accepting enrolments". Sedes coherentes con la ficha (West Melbourne + talleres en Maidstone y Werribee). UNICO DETALLE: la URL del Advanced Diploma of Building Design es /course-22477vic/ pero el codigo nacional que publica la propia pagina es 22627VIC — el slug quedo con el codigo viejo del curso superseded; se cargo el codigo correcto (22627VIC) con la URL que realmente resuelve.
+# - ICHM (8 filas) · la ficha guarda SOLO LA SIGLA, imposible de validar por nombre: el real es "ICHM Pty Ltd (ABN 64 080 984 738 · CRICOS 02914G · TEQSA PRV12099) — International College of Hotel Management", en Adelaide (la ficha trae `ciudad: null`). `puede_vender: []` es falso: vende todo el catalogo, ["Pregrado & Postgrado", "Intercambio"]. La url_programas de la ficha (/courses) da 404 — el indice real esta en la home. Salieron 8 y no ~6 porque el Study Abroad son TRES programas con CRICOS propio (078998D 6 meses / 078999C 1 año / 079000C 1 año con semestre de practica remunerada), no uno. El Undergraduate Certificate no tiene CRICOS: solo codigo TEQSA CRS14001045 — verificar con la institucion si es vendible a internacional o si es solo pathway domestico.
+# - Academy of English (2 filas) · SIN SITIO PROPIO: vive dentro de academies.edu.au, el dominio del grupo Academies Australasia. `puede_vender: []` es falso, debe ser ["Idiomas"]. Salieron 2 y no ~3 porque el sitio agrupa los niveles dentro de cada curso: General English cubre 4 bandas (Beginner / Elementary a Pre-Intermediate / Intermediate a Upper-Intermediate / Advanced) bajo un solo CRICOS 0101722, y EAP+IELTS cubre 3 bandas bajo el 0101723. Ambos 10-20 semanas. El sitio publica tarifa semanal; no se transcribio.
+# - Montgomery International School (2 filas) · ERROR CRITICO DE FICHA: `pais: "Germany"` esta MAL — la escuela esta en BRUSELAS, BELGICA (133 rue du Duc, 1200 Brussels), consistente con el TLD .be. Corregir pais y llenar ciudad. Se cargaron solo MYP (11-16 anos) y DP (16-19), ambos como `secundaria`. EXCLUIDOS POR REGLA DE PRIMARIA: el PYP (5,5-11 anos, PYP 1-5) y el Early Years / Montessori House — son primaria y preescolar, no bachillerato; registrarlos como `secundaria` meteria dato falso en el recomendador. Por eso salen 2 filas y no las "3 programas IB + Early Years Montessori" de `cantidad_aprox`. Cada programa se ofrece en version inglesa o bilingue frances-ingles (mismo programa, no dos): se cargo una sola fila por programa.

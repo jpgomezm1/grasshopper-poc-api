@@ -9,3 +9,15 @@ __pycache__/
 .pytest_cache/
 sql_app.db
 *.db
+
+# Volcados de credenciales de despliegue · NUNCA al repo.
+# `.deploy-keys-2026-05-15.local` trae FIELD_ENCRYPTION_KEY (la llave con la que
+# se cifran datos de produccion). Estuvo sin ignorar hasta 2026-08-07: sin
+# trackear, pero a un `git add -A` de distancia de quedar en la historia.
+.deploy-keys-*.local
+*.local
+
+# Los lotes de trabajo de la auditoria del catalogo se regeneran con
+# `instituciones_con_sitio.json` + el rebarajado determinista · no aportan
+# historia y son 296K de JSON duplicado.
+data/catalogo/lotes/

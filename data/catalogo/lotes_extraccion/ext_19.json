@@ -1,0 +1,142 @@
+[
+ {
+  "institucion_ficha": "Victoria University",
+  "nombre_real": "Victoria University (TEQSA PRV12152, CRICOS 00124K, RTO 3113)",
+  "dominio": "vu.edu.au",
+  "url_programas": "https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "TAFE/vocacional, pregrado, postgrado, Master by Research, PhD",
+  "cantidad_aprox": "~400",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Camosun College",
+  "nombre_real": "Camosun College",
+  "dominio": "camosun.ca",
+  "url_programas": "https://camosun.ca/programs-courses",
+  "pais": "Canada",
+  "ciudad": "Victoria",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificado, Diploma, Degree, Aprendizaje y oficios, transferencia universitaria",
+  "cantidad_aprox": "~160",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Hansa Language Centre",
+  "nombre_real": "Hansa Language Centre (Escuela de ingles Hansa Canada)",
+  "dominio": "hansacanada.com",
+  "url_programas": "https://hansacanada.com/es/english-courses/",
+  "pais": "Canada",
+  "ciudad": "Toronto",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: ingles general, IELTS/TOEFL/CELPIP, nocturnos, juniors, privados + 10 idiomas extra",
+  "cantidad_aprox": "~15-20",
+  "veredicto_auditoria": "observacion",
+  "alerta": "SITIO COMPROMETIDO: la pagina en espanol tiene SEO spam inyectado (CBD, \"Delta 8 THC\", enlaces salientes a tiendas) verificado en el HTML crudo · adem",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Sydney Institute of Interpreting & Translating (SIIT)",
+  "nombre_real": "Sydney Institute of Interpreting and Translating",
+  "dominio": "siit.nsw.edu.au",
+  "url_programas": "https://siit.nsw.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Vocacional: Diplomas y Advanced Diplomas de Interpreting y Translating, Certificate IV in Real Estate Practice, Diploma of Property, Graduate Diploma of Management, Diploma of Finance and Mortgage Broking, skill sets, preparacion NAATI/PTE/IELTS/CCL",
+  "cantidad_aprox": "~20",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Ficha con category null y puede_vender vacio pese a ser un RTO vocacional claro y enumerable: deberia marcarse \"Vocacionales (Cert, Dip, Adv Dip)\". La",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Australian Language Schools",
+  "nombre_real": "ALS College · CRICOS 02885G · RTO 32044",
+  "dominio": "alscollege.com.au",
+  "url_programas": "https://alscollege.com.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "ELICOS + VET",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "LOS DOS dominios de la ficha obsoletos; hoy se llama ALS College",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Etoile  Institut",
+  "nombre_real": "Etoile Institut – Etablissement d'Enseignement Superieur Prive (bajo el holding \"Etoile Groupe\")",
+  "dominio": "etoilegroupe.com",
+  "url_programas": "https://etoilegroupe.com/nos-programmes/",
+  "pais": "France",
+  "ciudad": "Paris",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas FLE (estandar, intensivo, super-intensivo, privado), combinados, au pair, pathway universitario, prep Grandes Ecoles, prep DELF/DALF/TCF/TEF",
+  "cantidad_aprox": "~12 categorias de curso",
+  "veredicto_auditoria": "corregir",
+  "alerta": "La URL exacta de la ficha (/es/instituto-de-idiomas-etoile) da 404 y cae a /es que tambien es 404; solo responde la raiz. El dominio es del holding Et",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Language ON",
+  "nombre_real": "LANGUAGE ON Schools",
+  "dominio": "languageonschools.com",
+  "url_programas": "https://languageonschools.com/es/nuestros-cursos/",
+  "pais": "USA",
+  "ciudad": "Kendall, Miami, Aventura, Orlando, Salt Lake City, Washington",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Solo idiomas: ingles general/intensivo/semi-intensivo, business, reduccion de acento, TOEFL/IELTS, online, privadas",
+  "cantidad_aprox": "~8-10",
+  "veredicto_auditoria": "corregir",
+  "alerta": "`puede_vender` INCONSISTENTE: incluye \"Todos los programas\" pero la escuela SOLO da ingles — el sitio declara explicitamente que el programa \"no esta ",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "ACLA",
+  "nombre_real": "Atlantic Canada Language Academy",
+  "dominio": "studyatlantic.com",
+  "url_programas": "https://studyatlantic.com/programs/",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas + frances y espanol",
+  "cantidad_aprox": "~6-7",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 7
+ },
+ {
+  "institucion_ficha": "WorldWide School of English",
+  "nombre_real": "Worldwide School of English",
+  "dominio": "worldwideschool.ac.nz",
+  "url_programas": "https://worldwideschool.ac.nz/courses/",
+  "pais": "New Zealand",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas (General English, Academic Exam Prep, Groups, Further Studies, Afternoon Options)",
+  "cantidad_aprox": "~5",
+  "veredicto_auditoria": "corregir",
+  "alerta": "DOMINIO DE LA FICHA PARQUEADO: worldwideschool.info sirve un certificado de dnspackage.com con altname \"suspended.dnspackage.com\" (parking de Dreamsca",
+  "_est": 5
+ }
+]

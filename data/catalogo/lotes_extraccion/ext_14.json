@@ -1,0 +1,146 @@
+[
+ {
+  "institucion_ficha": "KPU",
+  "nombre_real": "Kwantlen Polytechnic University (usa \"KPU\" como marca)",
+  "dominio": "www.kpu.ca",
+  "url_programas": "https://www.kpu.ca/find-your-program",
+  "pais": "Canada",
+  "ciudad": "Surrey",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Citation, Certificate, Diploma, Associate Degree, Bachelor, Post-Baccalaureate Diploma, Graduate Diploma, Graduate Certificate, Certificate of Completion",
+  "cantidad_aprox": "140+",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "CQU",
+  "nombre_real": "CQUniversity Australia (nombre comercial de Central Queensland University)",
+  "dominio": "www.cqu.edu.au",
+  "url_programas": "https://www.cqu.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": "Rockhampton, Adelaide, Melbourne, Sydney, Brisbane, Perth",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Postgrado",
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "TAFE (certificados y diplomas), pregrado (associate y bachelor), posgrado (grad cert, grad dip, master), investigacion, cursos cortos y micro-credenciales, pathway",
+  "cantidad_aprox": "200+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "La ficha guarda solo la sigla \"CQU\"; el nombre real es CQUniversity Australia / Central Queensland University. RTO 40939, CRICOS 00219C, TEQSA PRV1207",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Sprachcaffe",
+  "nombre_real": "SPRACHCAFFE Languages PLUS",
+  "dominio": "www.sprachcaffe.com",
+  "url_programas": "rutas por destino (hub en https://www.sprachcaffe.com/es/uc/)",
+  "pais": "International",
+  "ciudad": null,
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas (juniors, adultos, grupos, gap year; ~12 a 65+ anos)",
+  "cantidad_aprox": "21 sedes; N cursos por destino",
+  "veredicto_auditoria": "observacion",
+  "alerta": "NO es una institucion unica: es una RED de 21 sedes en ~11 paises (Malta, Inglaterra, Canada, Espana, Francia, Alemania, Italia, China, Cuba, Marrueco",
+  "_est": 21
+ },
+ {
+  "institucion_ficha": "University of Newcastle College of International Education (UNCIE)",
+  "nombre_real": "The University of Newcastle College of International Education",
+  "dominio": "internationalcollege.newcastle.edu.au",
+  "url_programas": "https://internationalcollege.newcastle.edu.au/degree-transfer (+ /foundation-studies, /foundation-studies-medicine, /pre-masters-program, /english-language-bridging-program-elbp)",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Foundation (incl. Medicine), Degree Transfer / Year 1 (14 variantes), Pre-Master's, ELBP/ingles, express prep",
+  "cantidad_aprox": "~18",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Sitio Wix JS-rendered SIN indice unico de programas: la oferta esta repartida en 4 secciones distintas, hay que recorrerlas todas (un fetch de la home",
+  "_est": 18
+ },
+ {
+  "institucion_ficha": "Australian Wings Academy",
+  "nombre_real": "Flight One Australia Pty Ltd / Flight One Education Pty Ltd (\"Flight One School of Aviation\" y \"Flight One School of Engineering\")",
+  "dominio": "awa.qld.edu.au",
+  "url_programas": "https://flightone.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Diploma de piloto profesional, licencias CPL/PPL/RPL, habilitaciones (jet, Cirrus), ingeniería aeronáutica (certificados, apprenticeship, RPL)",
+  "cantidad_aprox": "~12-13",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REDIRECT 301 PERMANENTE + REBRAND: \"Australian Wings Academy\" ya no es la marca; sólo sobrevive en un enlace de LinkedIn. Además el sitio opera desde ",
+  "_est": 13
+ },
+ {
+  "institucion_ficha": "Lyon Bleu International",
+  "nombre_real": "KLF LYON BLEU INTERNATIONAL",
+  "dominio": "lyon-bleu.com",
+  "url_programas": "https://lyon-bleu.com/cours-de-francais-en-france/",
+  "pais": "France",
+  "ciudad": "Lyon",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Solo frances: estandar, intensivo, super-intensivo, premium, preparacion universitaria, DELF/DALF, frances profesional, clases privadas, online",
+  "cantidad_aprox": "~12+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CAMBIO DE DOMINIO: la ficha apunta a lyon-bleu.fr/es/ que hace 301 cross-host a lyon-bleu.com · el sitio muestra aviso \"Notre site est actuellement en",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Accademia Italiana",
+  "nombre_real": "Accademia Italiana",
+  "dominio": "accademia-italiana.it",
+  "url_programas": "https://accademia-italiana.it/en/courses/",
+  "pais": "Italy",
+  "ciudad": "Salerno",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Italiano para extranjeros",
+  "cantidad_aprox": "~10+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "opera en Salerno Y Napoles. OJO: existe otra Accademia Italiana de moda en Florencia",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "LSC - London school of Commerce Malta",
+  "nombre_real": "London School of Commerce (LSC) Malta",
+  "dominio": "www.lscmalta.edu.mt",
+  "url_programas": "https://lscmalta.edu.mt/courses/",
+  "pais": "Malta",
+  "ciudad": "Floriana",
+  "puede_vender": [
+   "Ingles, Pregrado, postgrado, master"
+  ],
+  "niveles_vistos": "Ingles (academico, business, general, pre-sessional, profesional), BA (Hons) Business, MBA",
+  "cantidad_aprox": "~8",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Los TITULOS LOS EMITE LA UNIVERSITY OF SUFFOLK (UK), no LSC Malta: no es proveedor con potestad de grado propio, y eso hay que decirlo al estudiante ·",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "High Schools International",
+  "nombre_real": "High Schools International (HSI) · Castleriver House, 14-15 Parliament Street, Dublin D02 FW60, IRLANDA",
+  "dominio": "www.hsinet.org",
+  "url_programas": "https://www.hsinet.org/programs",
+  "pais": "UK",
+  "ciudad": "Brighton",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "High school (secundaria) por COLOCACION en colegios de terceros",
+  "cantidad_aprox": "4 programas (Classic Exchange, Public School, Private School, Group Short Stays)",
+  "veredicto_auditoria": "observacion",
+  "alerta": "DOBLE ERROR GRAVE: (1) PAIS Y CIUDAD ERRADOS — la ficha dice UK/Brighton y la organizacion es de DUBLIN, IRLANDA · (2) NO ES UNA INSTITUCION: se autod",
+  "_est": 4
+ }
+]

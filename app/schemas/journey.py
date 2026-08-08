@@ -44,6 +44,10 @@ class RouteResponse(BaseModel):
     next_step: str
     status: str
     is_primary: bool
+    # §1 · `None` en rutas anteriores a la evidencia · el front lo trata como
+    # "no hay trazas que mostrar", no como "esta ruta no tiene fundamento".
+    evidence: Optional[List[str]] = None
+    is_generic: Optional[bool] = None
 
     class Config:
         from_attributes = True

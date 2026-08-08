@@ -15,6 +15,15 @@ VALID_CURRENCIES = {"USD", "EUR", "GBP", "CAD", "AUD", "CHF", "COP"}
 
 # Bloque B · expanded program types (migration 015)
 VALID_PROGRAM_TYPES = {
+    # Educación secundaria · agregado 2026-08-08.
+    #
+    # Faltaba, y "High School" es la categoría MAS GRANDE del catalogo del
+    # cliente (647 de 2.511 fichas). Lo destapo la primera pasada de extraccion
+    # de programas: un colegio de Pre-Prep a Year 12 aporto 2 filas, y una ficha
+    # cuyo `puede_vender` dice literalmente "High School" perdio su producto
+    # principal. `intercambio` no servia de sustituto: un semestre fuera y un
+    # bachillerato completo son productos distintos.
+    "secundaria",
     "pregrado",
     "posgrado",
     "maestria",
@@ -247,6 +256,10 @@ class ProgramUpdate(ProgramEditorialFields):
     alliance_type: Optional[str] = None
     language_requirement: Optional[str] = Field(default=None, max_length=50)
     active: Optional[bool] = None
+    # A8 · prioridad comercial 1-10 ("¿tengo cómo ponerle estrellas para que
+    # determine qué sale primero?"). El rango se valida aquí y no sólo en la
+    # UI: un 50 metido por API desbalancearía el scoring del recomendador.
+    priority: Optional[int] = Field(default=None, ge=1, le=10)
 
     @field_validator("type")
     @classmethod
@@ -319,6 +332,9 @@ class ProgramResponse(ProgramBase):
     duration_months: Optional[int] = None
     cost_total: Optional[int] = None
     budget_tier: Optional[str] = None
+    # A8 · None = sin priorizar, que NO es prioridad baja. El panel debe
+    # mostrarlo como "sin priorizar" y no como un 0.
+    priority: Optional[int] = None
 
     model_config = ConfigDict(from_attributes=True)
 

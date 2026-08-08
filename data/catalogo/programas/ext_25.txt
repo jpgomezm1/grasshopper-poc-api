@@ -1,0 +1,265 @@
+# Lote 25 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Manhattan University (ex "Manhattan College") · manhattan.edu · USA ---
+# Catalogo completo recorrido en 4 paginas de /academics/programs. Minors sueltos EXCLUIDOS (ver NOTAS).
+Manhattan University | Peace & Justice Studies | bachelor | Ciencias Sociales | no indicada | - | https://manhattan.edu/academics/programs/peace-justice-studies
+Manhattan University | Accounting | bachelor | Negocios | no indicada | - | https://manhattan.edu/academics/programs/accounting
+Manhattan University | Adolescent/Students with Disabilities (Grades 7-12) B.S./M.S. Ed. | bachelor | Educación | no indicada | - | https://manhattan.edu/academics/programs/adolescent-disabilitie-bs-ms-ed
+Manhattan University | Bilingual Pupil Personnel Services - Advanced Certificate | posgrado | Educación | no indicada | - | https://manhattan.edu/academics/programs/bilingual-personnel-services-certificate
+Manhattan University | Biochemistry B.S. | bachelor | Ciencias | no indicada | - | https://manhattan.edu/academics/programs/biochemistry-bs
+Manhattan University | Biology B.A. / B.S. | bachelor | Ciencias | no indicada | - | https://manhattan.edu/academics/programs/biology
+Manhattan University | Business B.S./MBA | bachelor | Negocios | no indicada | - | https://manhattan.edu/academics/programs/business-ba-mba
+Manhattan University | Business Analytics B.S. | bachelor | Negocios | no indicada | - | https://manhattan.edu/academics/programs/business-analytics
+Manhattan University | Business Analytics M.S. | maestria | Negocios | no indicada | - | https://manhattan.edu/academics/programs/business-analytics-ms
+Manhattan University | Chemical Engineering M.S. | maestria | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/chemical-engineering-ms
+Manhattan University | Chemistry B.A. / B.S. | bachelor | Ciencias | no indicada | - | https://manhattan.edu/academics/programs/chemistry
+Manhattan University | Communication B.A. / B.S. | bachelor | Comunicación | no indicada | - | https://manhattan.edu/academics/programs/communication
+Manhattan University | Communications B.A. | bachelor | Comunicación | no indicada | - | https://manhattan.edu/academics/programs/communications
+Manhattan University | Computer Information Systems (CIS) B.S. | bachelor | Tecnología | no indicada | - | https://manhattan.edu/academics/programs/computer-information-systems
+Manhattan University | Computer Science B.S. / B.A. | bachelor | Tecnología | no indicada | - | https://manhattan.edu/academics/programs/computer-science
+Manhattan University | Computer Science M.S. | maestria | Tecnología | no indicada | - | https://manhattan.edu/academics/programs/computer-science-ms
+Manhattan University | Counseling - Mental Health Counseling M.S. | maestria | Psicología | no indicada | - | https://manhattan.edu/academics/programs/mental-health-counseling-ms
+Manhattan University | Counseling - School Counseling M.A. | maestria | Psicología | no indicada | - | https://manhattan.edu/academics/programs/school-counseling-ma
+Manhattan University | Criminology B.A. | bachelor | Ciencias Sociales | no indicada | - | https://manhattan.edu/academics/programs/criminology
+Manhattan University | Data Science B.S. | bachelor | Tecnología | no indicada | - | https://manhattan.edu/academics/programs/data-science
+Manhattan University | Digital Marketing and Analytics M.S. | maestria | Negocios | no indicada | - | https://manhattan.edu/academics/programs/digital-marketing-analytics-ms
+Manhattan University | Digital Media Art B.A. | bachelor | Artes | no indicada | - | https://manhattan.edu/academics/programs/digital-media-art
+Manhattan University | Economics B.A. / B.S. | bachelor | Economía | no indicada | - | https://manhattan.edu/academics/programs/economics
+Manhattan University | Education - Adolescence Education B.A. | bachelor | Educación | no indicada | - | https://manhattan.edu/academics/programs/adolescence-education
+Manhattan University | Education - Bilingual Special Education - Advanced Certificate | posgrado | Educación | no indicada | - | https://manhattan.edu/academics/programs/bilingual-special-ed-certificate
+Manhattan University | Education - Childhood / Special Education (Dual Degree) | bachelor | Educación | no indicada | - | https://manhattan.edu/academics/programs/education-childhood-special-education-dual-degree
+Manhattan University | Education - Childhood Education B.A. | bachelor | Educación | no indicada | - | https://manhattan.edu/academics/programs/childhood-education
+Manhattan University | Education - Childhood/Special Education (Grades 1-6) B.S./M.S. Ed. | bachelor | Educación | no indicada | - | https://manhattan.edu/academics/programs/childhood-special-education-bs-ms-ed
+Manhattan University | Education - Physical Education B.S. | bachelor | Educación | no indicada | - | https://manhattan.edu/academics/programs/physical-education
+Manhattan University | Engineering - Civil Engineering B.S. | bachelor | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/civil-engineering-bs
+Manhattan University | Engineering - Civil Engineering M.S. | maestria | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/civil-engineering-ms
+Manhattan University | Engineering - Computer Engineering B.S. | bachelor | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/computer-engineering-bs
+Manhattan University | Engineering - Computer Engineering M.S. | maestria | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/computer-engineering-ms
+Manhattan University | Engineering - Construction Management M.S. | maestria | Construcción | no indicada | - | https://manhattan.edu/academics/programs/construction-management-ms
+Manhattan University | Engineering - Electrical Engineering B.S. | bachelor | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/electrical-engineering-bs
+Manhattan University | Engineering - Electrical Engineering M.S. | maestria | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/engineering-electrical-engineering-ms
+Manhattan University | Engineering - Environmental Engineering M.S. | maestria | Medio Ambiente | no indicada | - | https://manhattan.edu/academics/programs/engineering-environmental-ms
+Manhattan University | Engineering - Environmental Engineering M.E. | maestria | Medio Ambiente | no indicada | - | https://manhattan.edu/academics/programs/environmental-engineering-me
+Manhattan University | Engineering - Mechanical Engineering M.S. | maestria | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/mechanical-engineering-ms
+Manhattan University | Engineering - Mechanical Engineering B.S. | bachelor | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/mechanical-engineering-bs
+Manhattan University | Engineering: Chemical Engineering B.S. | bachelor | Ingeniería | no indicada | - | https://manhattan.edu/academics/programs/chemical-engineering
+Manhattan University | English B.A. | bachelor | Letras | no indicada | - | https://manhattan.edu/academics/programs/english
+Manhattan University | Environmental Science B.S. / B.A. | bachelor | Medio Ambiente | no indicada | - | https://manhattan.edu/academics/programs/environmental-science
+Manhattan University | Exercise Science B.S. | bachelor | Salud | no indicada | - | https://manhattan.edu/academics/programs/exercise-science
+Manhattan University | Finance B.S. | bachelor | Negocios | no indicada | - | https://manhattan.edu/academics/programs/finance
+Manhattan University | Financial Analytics M.S. | maestria | Negocios | no indicada | - | https://manhattan.edu/academics/programs/financial-analytics-ms
+Manhattan University | Game Design and Production B.S. / B.A. | bachelor | Tecnología | no indicada | - | https://manhattan.edu/academics/programs/game-design-production
+Manhattan University | General Studies Associate Degree | pregrado | Estudios Generales | no indicada | - | https://manhattan.edu/academics/programs/general-studies-associate-degree
+Manhattan University | Global Business Studies Co-Major | bachelor | Negocios | no indicada | - | https://manhattan.edu/academics/programs/global-business
+Manhattan University | Health Science B.S. | bachelor | Salud | no indicada | - | https://manhattan.edu/academics/programs/health-science
+Manhattan University | Healthcare Informatics M.S. | maestria | Salud | no indicada | - | https://manhattan.edu/academics/programs/healthcare-informatics-ms
+Manhattan University | History B.A. | bachelor | Humanidades | no indicada | - | https://manhattan.edu/academics/programs/history
+Manhattan University | Interdisciplinary Studies B.S. | bachelor | Estudios Generales | no indicada | - | https://manhattan.edu/academics/programs/interdisciplinary-studies
+Manhattan University | International Studies B.A. | bachelor | Ciencias Sociales | no indicada | - | https://manhattan.edu/academics/programs/international-studies
+Manhattan University | Liberal Arts - B.A./MBA | bachelor | Humanidades | no indicada | - | https://manhattan.edu/academics/programs/liberal-arts-ba-mba
+Manhattan University | Management B.S. | bachelor | Negocios | no indicada | - | https://manhattan.edu/academics/programs/management
+Manhattan University | Marketing B.S. | bachelor | Negocios | no indicada | - | https://manhattan.edu/academics/programs/marketing
+Manhattan University | Marriage & Family Therapy M.S. | maestria | Psicología | no indicada | - | https://manhattan.edu/academics/programs/marriage-family-therapy-ms
+Manhattan University | Masters in Business Administration (MBA) | mba | Negocios | no indicada | - | https://manhattan.edu/academics/programs/mba
+Manhattan University | Mathematics B.S. / B.A. | bachelor | Matemáticas | no indicada | - | https://manhattan.edu/academics/programs/mathematics
+Manhattan University | Mental Health Counseling - Advanced Certificate | posgrado | Psicología | no indicada | - | https://manhattan.edu/academics/programs/mental-health-counseling-certificate
+Manhattan University | Organizational Leadership B.S. | bachelor | Negocios | no indicada | - | https://manhattan.edu/academics/programs/organizational-leadership-bs
+Manhattan University | Organizational Leadership M.S. | maestria | Negocios | no indicada | - | https://manhattan.edu/academics/programs/organizational-leadership-ms
+Manhattan University | Philosophy B.S. / B.A. | bachelor | Humanidades | no indicada | - | https://manhattan.edu/academics/programs/philosophy
+Manhattan University | Physics B.A. / B.S. | bachelor | Ciencias | no indicada | - | https://manhattan.edu/academics/programs/physics
+Manhattan University | Political Science B.A. | bachelor | Ciencias Sociales | no indicada | - | https://manhattan.edu/academics/programs/political-science
+Manhattan University | Professional Accounting B.S./MBA | bachelor | Negocios | no indicada | - | https://manhattan.edu/academics/programs/professional-accounting-bs-mba
+Manhattan University | Psychology and Marriage Family Therapy B.A./M.S. | bachelor | Psicología | no indicada | - | https://manhattan.edu/academics/programs/psychology-marriage-family-therapy-ba-ms
+Manhattan University | Psychology and Mental Health Counseling B.A./M.S. | bachelor | Psicología | no indicada | - | https://manhattan.edu/academics/programs/psychology-mental-health-counseling-ba-ms
+Manhattan University | Psychology and School Counseling B.A./M.A. | bachelor | Psicología | no indicada | - | https://manhattan.edu/academics/programs/psychology-school-counseling
+Manhattan University | Psychology B.S. / B.A. | bachelor | Psicología | no indicada | - | https://manhattan.edu/academics/programs/psychology
+Manhattan University | Public Health B.S. | bachelor | Salud | no indicada | - | https://manhattan.edu/academics/programs/public-health
+Manhattan University | Radiation Therapy B.S. | bachelor | Salud | no indicada | - | https://manhattan.edu/academics/programs/radiation-therapy-technology
+Manhattan University | Radiation Therapy Certificate | posgrado | Salud | no indicada | - | https://manhattan.edu/academics/programs/radiation-therapy-technology-certificate
+Manhattan University | School Counseling - Advanced Certificate | posgrado | Psicología | no indicada | - | https://manhattan.edu/academics/programs/school-counseling-advanced-certificate
+Manhattan University | Sociology B.A. | bachelor | Ciencias Sociales | no indicada | - | https://manhattan.edu/academics/programs/sociology
+Manhattan University | Sound Studies B.A. | bachelor | Artes | no indicada | - | https://manhattan.edu/academics/programs/sound-studies
+Manhattan University | Spanish and Latin American Studies B.A. | bachelor | Idiomas | no indicada | - | https://manhattan.edu/academics/programs/spanish
+
+# --- INSA Barcelona · insabarcelona.com · Spain ---
+INSA Barcelona | Bachelor in International Business | bachelor | Negocios | no indicada | - | https://insabarcelona.com/estudios/
+INSA Barcelona | Bachelor in Business and Marketing | bachelor | Negocios | no indicada | - | https://insabarcelona.com/estudios/
+INSA Barcelona | Carrera Superior de Publicidad Relaciones Públicas y Marketing | diplomado | Publicidad | no indicada | - | https://insabarcelona.com/estudios/
+INSA Barcelona | Carrera Superior en Marketing Digital y Social Media | diplomado | Marketing | no indicada | - | https://insabarcelona.com/estudios/
+INSA Barcelona | Carrera Superior en Dirección y Gestión de Empresas | diplomado | Negocios | no indicada | - | https://insabarcelona.com/estudios/
+INSA Barcelona | Carrera Superior en Dirección Comercial y Marketing | diplomado | Negocios | no indicada | - | https://insabarcelona.com/estudios/
+INSA Barcelona | Carrera Superior en Negocios Internacionales | diplomado | Negocios | no indicada | - | https://insabarcelona.com/estudios/
+INSA Barcelona | Master in Business Administration | mba | Negocios | One Academic Year | - | https://insabarcelona.com/estudios/masters-degree-in-business-administration/
+INSA Barcelona | International MBA | mba | Negocios | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | MBA en Dirección de la Pequeña y Mediana Empresa | mba | Negocios | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Artificial Intelligence, Data and Cloud | maestria | Tecnología | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in International Business Communication | maestria | Comunicación | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Lifelong Learning Master in Business Events Management | maestria | Eventos | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master Formación Permanente en Business Events Management | maestria | Eventos | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master Online in Business Events Management (IL3 Universitat de Barcelona) | maestria | Eventos | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Digital Marketing and Customer Experience | maestria | Marketing | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master en Publicidad, Relaciones públicas + Marketing (Comunicación Empresarial) | maestria | Comunicación | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Business Management | maestria | Negocios | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Project Management | maestria | Negocios | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Integral Logistics: Operations and Supply Chain Management | maestria | Logística | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Business Communication | maestria | Comunicación | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master en Marketing Digital y Social Media | maestria | Marketing | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Marketing Management | maestria | Marketing | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master en Dirección de Marketing y Gestión Comercial | maestria | Marketing | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Entrepreneurship and Innovation | maestria | Negocios | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Big Data and Data Intelligence | maestria | Tecnología | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master en Protocolo y Organización de Eventos | maestria | Eventos | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master en Secretariado Internacional de Alta Dirección | maestria | Negocios | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Foreign Trade and International Marketing | maestria | Negocios | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master en Publicidad Creativa | maestria | Publicidad | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master en Publicidad y Empresa | maestria | Publicidad | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Big Data y Project Management | maestria | Tecnología | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Purchasing and Supply Chain Management | maestria | Logística | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master en Dirección y Gestión de Proyectos | maestria | Negocios | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in logistics: Purchasing and supply chain | maestria | Logística | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Data Visualization Management | maestria | Tecnología | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Digital Business Transformation | maestria | Tecnología | no indicada | - | https://insabarcelona.com/estudios/masters/
+INSA Barcelona | Master in Business Sustainability Management | maestria | Sostenibilidad | no indicada | - | https://insabarcelona.com/estudios/masters/
+
+# --- Kaplan Business School (KBS) · CRICOS provider 02426B · kbs.edu.au · Australia ---
+Kaplan Business School | Diploma of Business | diplomado | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Diploma of Information Technology | diplomado | Tecnología | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Bachelor of Business | bachelor | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Bachelor of Business (Accounting) | bachelor | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Bachelor of Business (Hospitality & Tourism Management) | bachelor | Hospitalidad | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Bachelor of Business (Management) | bachelor | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Bachelor of Business (Marketing) | bachelor | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Bachelor of Information Technology | bachelor | Tecnología | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Graduate Certificate in Business Administration | posgrado | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Graduate Certificate in Business Analytics | posgrado | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Graduate Certificate in Accounting | posgrado | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Graduate Certificate in Information Technology | posgrado | Tecnología | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Graduate Diploma of Business Administration | posgrado | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Graduate Diploma of Business Analytics | posgrado | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Graduate Diploma of Information Technology | posgrado | Tecnología | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – Master of Business Administration | mba | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – (Project Management) | mba | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – (Health Services Management) | mba | Salud | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – (Tourism and Hospitality Leadership) | mba | Hospitalidad | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – (Digital Management) | mba | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – (Entrepreneurship) | mba | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – (Data-driven Leadership) | mba | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – (Women In Leadership) | mba | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – (International Leadership) | mba | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | MBA – (Two Specialisations) | mba | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Master of Business Analytics | maestria | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Master of Business Analytics (Extension) | maestria | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Master of Business Analytics (Information Technology) | maestria | Tecnología | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Master of Information Technology | maestria | Tecnología | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Master of Information Technology (Extension) | maestria | Tecnología | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Master of Professional Accounting | maestria | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Master of Accounting | maestria | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | English for Academic Purposes | curso_corto | Idiomas | no indicada | - | https://www.kbs.edu.au/courses
+Kaplan Business School | Study Abroad Program | intercambio | Negocios | no indicada | - | https://www.kbs.edu.au/courses
+
+# --- Shafston International College · shafston.edu · Australia ---
+Shafston International College | General English | curso_corto | Idiomas | no indicada | - | https://shafston.edu/course/
+Shafston International College | IELTS Preparation | curso_corto | Idiomas | no indicada | - | https://shafston.edu/course/
+Shafston International College | Cambridge Exam Preparation | curso_corto | Idiomas | no indicada | - | https://shafston.edu/course/
+Shafston International College | Certificate IV in Business | curso_corto | Negocios | no indicada | - | https://shafston.edu/courses/certificate-iv-in-business/
+Shafston International College | Diploma of Leadership and Management | diplomado | Negocios | no indicada | - | https://shafston.edu/courses/diploma-of-leadership-and-management/
+Shafston International College | Diploma of Project Management | diplomado | Negocios | no indicada | - | https://shafston.edu/courses/diploma-of-project-management/
+Shafston International College | Advanced Diploma of Business | diplomado | Negocios | no indicada | - | https://shafston.edu/courses/advanced-diploma-of-business/
+Shafston International College | Certificate III in Early Childhood Education and Care | curso_corto | Educación | no indicada | - | https://shafston.edu/courses/certificate-iii-in-early-childhood-education-and-care/
+Shafston International College | Diploma of Early Childhood Education and Care | diplomado | Educación | no indicada | CHC50121 | https://shafston.edu/courses/diploma-of-early-childhood-education-and-care-chc50121/
+Shafston International College | Certificate III in Individual Support | curso_corto | Salud | no indicada | - | https://shafston.edu/courses/certificate-iii-in-individual-support/
+Shafston International College | Diploma of Community Services | diplomado | Servicios Sociales | no indicada | - | https://shafston.edu/courses/diploma-of-community-services/
+Shafston International College | Certificate IV in Information Technology | curso_corto | Tecnología | no indicada | - | https://shafston.edu/courses/certificate-iv-in-information-technology/
+Shafston International College | Diploma of Information Technology | diplomado | Tecnología | no indicada | - | https://shafston.edu/courses/diploma-of-information-technology/
+Shafston International College | Cookery & Hospitality Package | diplomado | Hospitalidad | no indicada | - | https://shafston.edu/courses/cookery-hospitality-package/
+Shafston International College | University Pathway Programs | curso_corto | Preparación Universitaria | no indicada | - | https://shafston.edu/course/
+Shafston International College | AI & Robotics Training | curso_corto | Tecnología | no indicada | - | https://shafston.edu/course/
+Shafston International College | Cambridge KET Teacher Training Program (Online) | curso_corto | Educación | no indicada | - | https://shafston.edu/course/
+Shafston International College | Cambridge PET Teacher Training Program (Online) | curso_corto | Educación | no indicada | - | https://shafston.edu/course/
+Shafston International College | Demi-Pair + English | curso_corto | Idiomas | no indicada | - | https://shafston.edu/course/
+Shafston International College | High School Preparation (HSP) | curso_corto | Idiomas | no indicada | - | http://shafstonforschools.edu.au/hsp/
+Shafston International College | Primary English Preparation (PEP) | curso_corto | Idiomas | no indicada | - | http://shafstonforschools.edu.au/pep/
+Shafston International College | Summer Holiday Programs | vacacional | Idiomas | no indicada | - | https://shafston.edu/summer-holiday-programs/
+Shafston International College | Study Tour | vacacional | Idiomas | no indicada | - | https://shafston.edu/shafston-study-tour/
+
+# --- CLLC - Canadian Language Learning College · cllc.ca + cllconline.ca · Canada ---
+# ONSITE (cllc.ca) — Toronto, Ottawa, Halifax/Nova Scotia
+CLLC - Canadian Language Learning College | Semi-Intensive General English | curso_corto | Idiomas | no indicada | - | https://www.cllc.ca/onsite-semi-intensive-general-english/
+CLLC - Canadian Language Learning College | Intensive General English | curso_corto | Idiomas | no indicada | - | https://www.cllc.ca/onsite-intensive-general-english/
+CLLC - Canadian Language Learning College | Accelerated General English | curso_corto | Idiomas | no indicada | - | https://www.cllc.ca/onsite-accelerated-general-english/
+CLLC - Canadian Language Learning College | University Pathway Program | curso_corto | Preparación Universitaria | no indicada | - | https://www.cllc.ca/onsite-university-pathway-program/
+CLLC - Canadian Language Learning College | IELTS Preparation Program | curso_corto | Idiomas | no indicada | - | https://www.cllc.ca/onsite-ielts-preparation/
+CLLC - Canadian Language Learning College | Business English | curso_corto | Idiomas | no indicada | - | https://www.cllc.ca/onsite-business-english/
+CLLC - Canadian Language Learning College | One-on-One Tutoring | curso_corto | Idiomas | no indicada | - | https://www.cllc.ca/onsite-one-on-one/
+CLLC - Canadian Language Learning College | Communication Skills | curso_corto | Idiomas | no indicada | - | https://www.cllc.ca/onsite-communication-skills/
+CLLC - Canadian Language Learning College | Public School Parents' Program (PSPP) | curso_corto | Idiomas | no indicada | - | https://www.cllc.ca/onsite-halifax-public-school-parents-program-pspp/
+# ONLINE (cllconline.ca) — 100% online · NO sirven para permiso de estudio (ver NOTAS)
+CLLC - Canadian Language Learning College | English Conversation (Online) | curso_corto | Idiomas | 2 horas/semana | - | https://cllconline.ca/english-conversation-online/
+CLLC - Canadian Language Learning College | Guided English (Online) | curso_corto | Idiomas | 2 horas/semana | - | https://cllconline.ca/guided-english-online/
+CLLC - Canadian Language Learning College | General English Semi-Intensive (Online) | curso_corto | Idiomas | 8.75 horas/semana | - | https://cllconline.ca/semi-intensive-general-english-online/
+CLLC - Canadian Language Learning College | General English Intensive (Online) | curso_corto | Idiomas | no indicada | - | https://cllconline.ca/intensive-general-english-online/
+CLLC - Canadian Language Learning College | Pathway Program 1 (Online) | curso_corto | Preparación Universitaria | 25 horas/semana | - | https://cllconline.ca/pathway-program-1-online/
+CLLC - Canadian Language Learning College | University Pathway Program 2 (Online) | curso_corto | Preparación Universitaria | no indicada | - | https://cllconline.ca/university-pathway-program-2-online/
+CLLC - Canadian Language Learning College | IELTS Preparation (Online) | curso_corto | Idiomas | no indicada | - | https://cllconline.ca/ielts-preparation-online/
+CLLC - Canadian Language Learning College | Business English (Online) | curso_corto | Idiomas | no indicada | - | https://cllconline.ca/business-and-workplace-english-online/
+CLLC - Canadian Language Learning College | Junior Program (Online) | curso_corto | Idiomas | no indicada | - | https://cllconline.ca/junior-program-online/
+CLLC - Canadian Language Learning College | One-on-One Tutoring (Online) | curso_corto | Idiomas | no indicada | - | https://cllconline.ca/one-on-one-tutoring-online/
+
+# --- University Senior College · CRICOS provider 02375G · adelaide.edu.au/study/university-senior-college · Australia ---
+# NO es educacion superior: es un senior college (secundaria) en el campus de Adelaide University · titulo = SACE
+University Senior College | Year 10 (SACE) | secundaria | Educación Secundaria | 1 año | 02375G | https://adelaide.edu.au/study/university-senior-college/study-with-us/
+University Senior College | Year 11 (SACE) | secundaria | Educación Secundaria | 1 año | 02375G | https://adelaide.edu.au/study/university-senior-college/study-with-us/
+University Senior College | Year 12 (SACE) | secundaria | Educación Secundaria | 1 año | 02375G | https://adelaide.edu.au/study/university-senior-college/study-with-us/
+
+# --- ELI Schools · elischools.com · Ireland (Dublin, Drogheda) ---
+ELI Schools | General English 15 Hour | curso_corto | Idiomas | 15 horas/semana | - | https://elischools.com/programmes/
+ELI Schools | Extended English 20 Hours | curso_corto | Idiomas | 20 horas/semana | - | https://elischools.com/programmes/
+ELI Schools | Speaking Fluency | curso_corto | Idiomas | no indicada | - | https://elischools.com/programmes/
+ELI Schools | Professional English | curso_corto | Idiomas | no indicada | - | https://elischools.com/programmes/
+ELI Schools | IELTS Exam Preparation | curso_corto | Idiomas | no indicada | - | https://elischools.com/ielts-exam-preparation-course/
+ELI Schools | Work & Study EU | curso_corto | Idiomas | no indicada | - | https://elischools.com/work-and-study-eu/
+ELI Schools | Work & Study NON EU | curso_corto | Idiomas | no indicada | - | https://elischools.com/work-and-study-non-eu/
+ELI Schools | Experience Ireland | vacacional | Idiomas | no indicada | - | https://elischools.com/experience-ireland/
+ELI Schools | Young Adult Programme | vacacional | Idiomas | no indicada | - | https://elischools.com/young-adult-programme/
+ELI Schools | Junior Summer Camps | vacacional | Idiomas | no indicada | - | https://elischools.com/junior-summer-camps/
+ELI Schools | School Groups | vacacional | Idiomas | no indicada | - | https://elischools.com/programmes/school-groups/
+ELI Schools | English Program for Teachers | curso_corto | Educación | no indicada | - | https://elischools.com/english-course-for-teachers/
+ELI Schools | ERASMUS + Student Mobility | intercambio | Idiomas | no indicada | - | https://elischools.com/erasmus-student-mobility/
+ELI Schools | Job Shadowing | intercambio | Educación | no indicada | - | https://elischools.com/job-shadowing/
+
+# --- Charles Darwin University · campus Sydney (CBD) · cdu.edu.au · Australia ---
+# El campus de Sydney ofrece EXCLUSIVAMENTE posgrado
+Charles Darwin University (Sydney) | Master of Data Science | maestria | Tecnología | no indicada | - | https://www.cdu.edu.au/locations/sydney-campus
+Charles Darwin University (Sydney) | Master of IT (Cyber Security) | maestria | Tecnología | 2 años | - | https://www.cdu.edu.au/locations/sydney-campus
+Charles Darwin University (Sydney) | Master of IT (Information Systems) | maestria | Tecnología | no indicada | - | https://www.cdu.edu.au/locations/sydney-campus
+Charles Darwin University (Sydney) | Master of Project Management | maestria | Negocios | 2 años | 112673E | https://www.cdu.edu.au/study/course/master-project-management-sprjm1
+Charles Darwin University (Sydney) | Master of Professional Accounting | maestria | Negocios | no indicada | - | https://www.cdu.edu.au/locations/sydney-campus
+Charles Darwin University (Sydney) | Master of Professional Accounting (Professional Practice) | maestria | Negocios | no indicada | - | https://www.cdu.edu.au/locations/sydney-campus
+Charles Darwin University (Sydney) | Master of Business Administration Sustainable Leadership | mba | Negocios | no indicada | 107256J | https://www.cdu.edu.au/study/course/master-business-administration-sustainable-leadership-sbasl1
+Charles Darwin University (Sydney) | Master of Business Administration Sustainable Enterprise | mba | Negocios | no indicada | - | https://www.cdu.edu.au/locations/sydney-campus
+Charles Darwin University (Sydney) | Master of Nursing Practice | maestria | Salud | no indicada | - | https://www.cdu.edu.au/locations/sydney-campus
+
+# --- CIRA Career College · ciracareers.ca (ex ciracollege.com) · Canada (Vancouver) ---
+CIRA Career College | Business Management Diploma | diplomado | Negocios | no indicada | - | https://ciracareers.ca/programs/business-management-diploma
+CIRA Career College | AI-Powered Web Design & Development | curso_corto | Tecnología | no indicada | - | https://ciracareers.ca/programs/ai-powered-web-design-
+CIRA Career College | Early Childhood Education Assistant | curso_corto | Educación | no indicada | - | https://ciracareers.ca/programs/early-childhood-education-assistant
+CIRA Career College | French for Professional Communication | curso_corto | Idiomas | no indicada | - | https://ciracareers.ca/programs/french-for-professional-communication
+
+# --- Kiwi English Academy · NZQA Category 1 · kiwienglish.co.nz · New Zealand (Newmarket, Auckland) ---
+Kiwi English Academy | Senior School - General English (18+) | curso_corto | Idiomas | no indicada | - | https://www.kiwienglish.co.nz/senior-courses
+Kiwi English Academy | Junior School (14-17, 12-13 por acuerdo) | curso_corto | Idiomas | no indicada | - | https://www.kiwienglish.co.nz/junior-courses/
+Kiwi English Academy | Online Academy (13+) | curso_corto | Idiomas | no indicada | - | https://www.kiwienglish.co.nz/online-academy/
+
+# RESUMEN: instituciones=10 con_programas=10 total_programas=225 sin_catalogo=0
+# NOTAS:
+# Manhattan University — CONFIRMADO el cambio de nombre: el sitio se llama "Manhattan University" en todo el catalogo; "Manhattan College" solo sobrevive en la direccion postal. Cargar con el nombre nuevo o el asesor no lo encuentra. 82 filas en las 4 paginas de /academics/programs; EXCLUI 4 que son SOLO minor (Artificial Intelligence Minor, Environmental Engineering Minor, Pre-Health Minor, Real Estate Minor) por regla (d) — no son titulaciones vendibles, son concentraciones internas. Quedan 78. GRAN DISCREPANCIA vs `cantidad_aprox` "300+": el 300+ de la auditoria cuenta majors + minors + concentraciones + tracks; el catalogo enumerable de titulaciones es de ~80. El sitio NO publica duracion en el indice (todas van "no indicada") y no hay codigo oficial de programa en USA. OJO duplicado real del sitio: existen dos entradas casi identicas, "Communication B.A./B.S." y "Communications B.A." — es del sitio, no error de extraccion; el revisor decide si deduplicar.
+# INSA Barcelona — 38 programas vs "~45" de la auditoria: la diferencia son los "Business Summits" (eventos, no programas) y posibles duplicados ES/EN de un mismo master. CONFIRMADO EL SITIO COMPROMETIDO de la alerta: la home sigue sirviendo el div oculto con spam farmaceutico; el catalogo en si es legitimo, pero antes de publicar links a insabarcelona.com conviene avisarle a la clienta. El indice /estudios/ NO publica duracion ni links individuales por programa (solo el Master in Business Administration declara "One Academic Year"), por eso casi todas las url_fuente apuntan al indice y no a la ficha. Hay al menos 1 master 100% online (Master Online in Business Events Management, con IL3 Universitat de Barcelona) — NO sirve para visa de estudiante en Espana.
+# Kaplan Business School — 34 programas vs "~30": cuadra. CONFIRMADA la inconsistencia de `puede_vender`: marca "Idiomas" pero lo unico de idiomas es English for Academic Purposes, que es un pathway academico, NO un ELICOS general — un estudiante que quiera solo estudiar ingles en Australia no debe ser enviado a KBS. Tampoco hay Certificados I-IV ni Diplomas vocacionales VET pese a que `puede_vender` dice "Vocacionales": los dos "Diploma" que existen (Business, IT) son diplomas de educacion superior, no VET. Ningun curso publica CRICOS ni duracion en el indice (estan dentro de cada ficha); 02426B es el CRICOS del PROVEEDOR, no de curso, por eso todas van "-". Los links del indice son /node/NNNN internos y no resuelven bien, asi que todas las url_fuente apuntan a /courses. EXCLUI "Non-Award Single Subject Enrolment" (una materia suelta, no un programa).
+# Shafston International College — 23 programas vs "~15-20": ligeramente por encima. La alerta de "Green Education Group" NO se pudo confirmar desde shafston.edu (no aparece en el catalogo publico); queda pendiente para la auditoria. IMPORTANTE: los dos programas de menores (High School Preparation y Primary English Preparation) NO viven en shafston.edu sino en shafstonforschools.edu.au — dominio distinto, marcado en la url_fuente; el revisor debe validar que sea la misma entidad antes de cargar. Solo 1 de los 11 cursos VET publica su codigo nacional (CHC50121); el resto del indice no lo muestra. El sitio NO publica duracion en ningun curso. `puede_vender` esta VACIO en la ficha pese a un catalogo grande y variado — hay que llenarlo.
+# CLLC - Canadian Language Learning College — 19 programas vs "~15": CONFIRMADO el catalogo partido en dos dominios. Recorri los dos: 9 onsite en cllc.ca y 10 en cllconline.ca. LOS 10 ONLINE ESTAN MARCADOS "(Online)" EN EL NOMBRE Y NO SIRVEN PARA PERMISO DE ESTUDIO EN CANADA — si un asesor los vende como "estudiar en Canada" el estudiante no obtiene study permit. El Junior Program solo existe en la version online; onsite no tiene pagina propia. EXCLUI "University Requirements and Fees" (es una pagina informativa, no un curso).
+# University Senior College — CONFIRMADAS LAS DOS ALERTAS. (1) El subdominio propio ya no sirve contenido: todo vive dentro de adelaide.edu.au/study/university-senior-college. (2) NO es educacion superior: es un senior college de SECUNDARIA (Years 10, 11 y 12) en el campus de Adelaide University, con titulo SACE. Aporta 3 filas, todas `secundaria` — exactamente el caso que motivo agregar ese valor al vocabulario. El sitio NO publica catalogo de "programas": publica materias SACE por ano, que son asignaturas internas y no se cargan (regla d). CRICOS de proveedor 02375G. `puede_vender` VACIO: si la agencia coloca estudiantes de bachillerato en Australia, esto es producto vendible y hay que llenarlo.
+# ELI Schools — 14 programas vs "11" de la auditoria: 3 mas (Speaking Fluency, School Groups, Experience Ireland). CONFIRMADO EL SITIO COMPROMETIDO: el home sigue con el parrafo de spam SEO oculto (position:absolute; top:-9999px) enlazando a un dominio de casino. El catalogo es legitimo pero conviene avisarle a la clienta antes de publicar links. Marque Work & Study EU / NON EU como `curso_corto`: son cursos de ingles con derecho a trabajo segun la visa irlandesa, no programas laborales — el asesor debe explicar la diferencia. Job Shadowing y ERASMUS+ son movilidad financiada UE: NO son vendibles a un colombiano que paga de su bolsillo, los deje como `intercambio` para que el revisor decida si los saca.
+# Charles Darwin University (Sydney) — 9 cursos vs "8" de la auditoria (aparecio Master of Nursing Practice). CONFIRMADO: el campus de Sydney (CBD) ofrece SOLO POSGRADO — cero pregrado, cero VET. La URL de la ficha redirige; el catalogo real NO esta en /study/sydney-courses (esa pagina es una landing sin listado, devuelve 200 sin cursos — regla 2 en accion) sino en /locations/sydney-campus, que si los enumera. El buscador /course-search se renderiza por JS y devolvio 500 con filtros. Solo pude verificar 2 CRICOS (Project Management 112673E · MBA Sustainable Leadership 107256J); los otros 7 requieren abrir ficha por ficha. ATENCION: los mismos titulos se ofrecen tambien online y en Casuarina (Darwin) — al vender hay que fijar campus Sydney explicitamente.
+# CIRA Career College — CONFIRMADO EL REBRANDING + CAMBIO DE DOMINIO: "Cira College" ya no existe; hoy es "CIRA Career College, Inc." y el dominio vivo es ciracareers.ca. El .com de la ficha esta muerto para catalogo. 4 programas, cuadra con `cantidad_aprox`. El sitio NO declara el nivel de credencial de 3 de los 4 (solo "Business Management Diploma" lo dice en el nombre), por eso los otros van `curso_corto` de forma conservadora — si son diplomas de 1-2 anos habilitantes para PGWP, la clasificacion cambia el valor comercial y hay que verificarla. Tampoco publica duracion ni numero de designacion PTIB/DLI: sin DLI verificado no se puede vender como estudio con permiso en Canada.
+# Kiwi English Academy — 3 programas, cuadra exactamente con la auditoria. Confirmada la oferta corta: sin IELTS ni Business English, contra lo que suele asumirse de una escuela de idiomas. "Online Academy (13+)" es 100% ONLINE — no sirve para visa de estudiante en Nueva Zelanda. El sitio no publica duracion ni codigos NZQA por curso en el indice (los tiene en un PDF de Training Schemes que no es catalogo navegable). `puede_vender` VACIO pese a tener catalogo NZQA Categoria 1 — la ficha necesita al menos "Idiomas".

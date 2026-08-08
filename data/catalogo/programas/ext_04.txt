@@ -1,0 +1,272 @@
+# Lote 04 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# ---------------------------------------------------------------------------
+# 1 · Academies Australasia Group Limited (academies.edu.au)
+# ---------------------------------------------------------------------------
+Academies Australasia | Master of Information Technology | maestria | Tecnología | no indicada | CRICOS 02439G (proveedor AAPoly) | https://www.academies.edu.au/courses-syd-degrees/
+Academies Australasia | Bachelor of Business (Digital Marketing) | bachelor | Negocios | no indicada | CRICOS 02439G (proveedor AAPoly) | https://www.academies.edu.au/courses-syd-degrees/
+Academies Australasia | Bachelor of Business (Leadership and Management) | bachelor | Negocios | no indicada | CRICOS 02439G (proveedor AAPoly) | https://www.academies.edu.au/courses-syd-degrees/
+Academies Australasia | Bachelor of Information Technology | bachelor | Tecnología | no indicada | CRICOS 02439G (proveedor AAPoly) | https://www.academies.edu.au/courses-syd-degrees/
+Academies Australasia | Bachelor of Tourism and Hospitality Management (BTHM) | bachelor | Hospitalidad | no indicada | CRICOS 02439G (proveedor AAPoly) | https://www.academies.edu.au/courses-syd-degrees/
+Academies Australasia | Bachelor of Business (Cyber Security) | bachelor | Tecnología | no indicada | CRICOS 02439G (proveedor AAPoly) | https://www.academies.edu.au/courses-mel-degrees/
+Academies Australasia | General English (Beginner) | curso_corto | Idiomas | 10-20 semanas | CRICOS 0101722 | https://www.academies.edu.au/courses-syd-english/
+Academies Australasia | General English (Elementary to Pre-Intermediate) | curso_corto | Idiomas | 10-20 semanas | CRICOS 0101722 | https://www.academies.edu.au/courses-syd-english/
+Academies Australasia | General English (Intermediate to Upper-Intermediate) | curso_corto | Idiomas | 10-20 semanas | CRICOS 0101722 | https://www.academies.edu.au/courses-syd-english/
+Academies Australasia | General English (Advanced) | curso_corto | Idiomas | 10-20 semanas | CRICOS 0101722 | https://www.academies.edu.au/courses-syd-english/
+Academies Australasia | English for Academic Purposes and IELTS Preparation (Intermediate) | curso_corto | Idiomas | 10-20 semanas | CRICOS 0101723 | https://www.academies.edu.au/courses-syd-english/
+Academies Australasia | English for Academic Purposes and IELTS Preparation (Upper-Intermediate) | curso_corto | Idiomas | 10-20 semanas | CRICOS 0101723 | https://www.academies.edu.au/courses-syd-english/
+Academies Australasia | English for Academic Purposes and IELTS Preparation (Advanced) | curso_corto | Idiomas | 10-20 semanas | CRICOS 0101723 | https://www.academies.edu.au/courses-syd-english/
+Academies Australasia | Year 11 | intercambio | Secundaria (K-12) | no indicada | CRICOS 049221E | https://www.academies.edu.au/courses-syd-high-school/
+Academies Australasia | Year 12 | intercambio | Secundaria (K-12) | no indicada | CRICOS 049221E | https://www.academies.edu.au/courses-syd-high-school/
+Academies Australasia | Diploma of Community Services | diplomado | Servicios Sociales | 8 terms (72 college weeks) | CHC52025 | https://www.academies.edu.au/courses-syd-community-services/
+Academies Australasia | Certificate III in Early Childhood Education and Care | curso_corto | Educación | 4 terms (36 college weeks) | CHC30125 | https://www.academies.edu.au/courses-sydney-melbourne-ecec/
+Academies Australasia | Diploma of Early Childhood Education and Care | diplomado | Educación | 4 terms (36 college weeks) | CHC50125 · CRICOS 118577A | https://www.academies.edu.au/courses-sydney-melbourne-ecec/
+Academies Australasia | Diploma of Hospitality Management | diplomado | Hospitalidad | 6 terms (54 college weeks) | SIT50422 | https://www.academies.edu.au/courses-sydney-melbourne-hospitality-management/
+Academies Australasia | Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | 2 terms (18 college weeks) tras el Diploma | SIT60322 | https://www.academies.edu.au/courses-sydney-melbourne-hospitality-management/
+Academies Australasia | Certificate IV in Information Technology | curso_corto | Tecnología | 3 terms (27 college weeks) | ICT40120 | https://www.academies.edu.au/courses-sydney-melbourne-it/
+Academies Australasia | Diploma of Information Technology | diplomado | Tecnología | 3 terms (27 college weeks) | ICT50220 | https://www.academies.edu.au/courses-sydney-melbourne-it/
+Academies Australasia | Advanced Diploma of Information Technology | diplomado | Tecnología | 2 terms (18 college weeks) | ICT60220 | https://www.academies.edu.au/courses-sydney-melbourne-it/
+Academies Australasia | Certificate II in Workplace Skills | curso_corto | Negocios | 1 term (9 college weeks) | BSB20120 · CRICOS 106322A | https://www.academies.edu.au/courses-syd-leadership-management/
+Academies Australasia | Certificate IV in Business (Leadership) | curso_corto | Negocios | 2 terms (18 college weeks) | BSB40120 · CRICOS 106323M | https://www.academies.edu.au/courses-syd-leadership-management/
+Academies Australasia | Diploma of Leadership and Management | diplomado | Negocios | 4 terms (36 college weeks) | BSB50420 | https://www.academies.edu.au/courses-syd-leadership-management/
+Academies Australasia | Advanced Diploma of Leadership and Management | diplomado | Negocios | 4 terms (36 college weeks) | BSB60420 | https://www.academies.edu.au/courses-syd-leadership-management/
+Academies Australasia | Certificate IV in Marketing and Communication | curso_corto | Marketing | 2 terms (18 college weeks) | BSB40820 | https://www.academies.edu.au/courses-syd-marketing-communication/
+Academies Australasia | Diploma of Marketing and Communication | diplomado | Marketing | 3 terms (27 college weeks) | BSB50620 | https://www.academies.edu.au/courses-syd-marketing-communication/
+Academies Australasia | Advanced Diploma of Marketing and Communication | diplomado | Marketing | 3 terms (27 college weeks) | BSB60520 | https://www.academies.edu.au/courses-syd-marketing-communication/
+Academies Australasia | Diploma of Project Management | diplomado | Negocios | 4 terms (36 college weeks) | BSB50820 | https://www.academies.edu.au/courses-sydney-melbourne-project-management/
+Academies Australasia | Advanced Diploma of Program Management | diplomado | Negocios | 4 terms (36 college weeks) | BSB60720 | https://www.academies.edu.au/courses-sydney-melbourne-project-management/
+Academies Australasia | Certificate IV in Travel and Tourism | curso_corto | Turismo | 3 terms (27 college weeks) | SIT40125 | https://www.academies.edu.au/courses-syd-travel-tourism/
+Academies Australasia | Diploma of Travel and Tourism Management | diplomado | Turismo | 3 terms (27 college weeks) | SIT50122 | https://www.academies.edu.au/courses-syd-travel-tourism/
+Academies Australasia | Advanced Diploma of Travel and Tourism Management | diplomado | Turismo | 2 terms (18 college weeks) | SIT60122 | https://www.academies.edu.au/courses-syd-travel-tourism/
+Academies Australasia | General English | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | English Excel | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | English for Academic Purposes (EAP) | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | IELTS Preparation | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | Cambridge English B2 (FCE) | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | Cambridge English C1 Advanced (CAE) | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | Cambridge English C2 Proficiency | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | Business English | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | Private Tuition | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | English + Demi-Pair | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | English + Hotel Internship | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | English + Hospitality | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | English + Teaching Assistant | curso_corto | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | Study Tour Program | vacacional | Idiomas | no indicada | CRICOS 03262J (proveedor Discover English) | https://www.academies.edu.au/courses-mel-english/
+Academies Australasia | Certificate III in Individual Support (Ageing and Disability) | curso_corto | Salud | 4 terms (36 college weeks) | CHC33021 · CRICOS 116177M | https://www.academies.edu.au/course-melbourne-individual-support/
+Academies Australasia | General English | curso_corto | Idiomas | no indicada | CRICOS 02139J (proveedor Language Links International) | https://www.academies.edu.au/courses-per-english/
+Academies Australasia | IELTS / English for Academic Purposes (EAP) | curso_corto | Idiomas | no indicada | CRICOS 02139J (proveedor Language Links International) | https://www.academies.edu.au/courses-per-english/
+Academies Australasia | Cambridge English Exam Courses | curso_corto | Idiomas | no indicada | CRICOS 02139J (proveedor Language Links International) | https://www.academies.edu.au/courses-per-english/
+Academies Australasia | Diploma of Hospitality Management | diplomado | Hospitalidad | 4 terms (36 college weeks) | SIT50422 · CRICOS 112080H | https://www.academies.edu.au/courses-per-hospitality-management/
+Academies Australasia | Diploma of Leadership and Management | diplomado | Negocios | 4 terms (36 college weeks) | BSB50420 · CRICOS 104147E | https://www.academies.edu.au/courses-per-leadership-management/
+Academies Australasia | Advanced Diploma of Leadership and Management | diplomado | Negocios | 4 terms (36 college weeks) | BSB60420 · CRICOS 106529H | https://www.academies.edu.au/courses-per-leadership-management/
+Academies Australasia | Diploma of Project Management | diplomado | Negocios | 4 terms (36 college weeks) | BSB50820 · CRICOS 104111F | https://www.academies.edu.au/courses-per-project-management/
+Academies Australasia | Advanced Diploma of Program Management | diplomado | Negocios | 4 terms (36 college weeks) | BSB60720 · CRICOS 104473B | https://www.academies.edu.au/courses-per-project-management/
+Academies Australasia | Diploma of Agriculture | diplomado | Agricultura | 4 terms (36 college weeks) | AHC50122 · CRICOS 115292E | https://www.academies.edu.au/courses-ari-agriculture/
+Academies Australasia | Advanced Diploma of Agribusiness Management | diplomado | Agricultura | 4 terms (36 college weeks) | AHC60319 · CRICOS 105596E | https://www.academies.edu.au/courses-ari-agriculture/
+
+# ---------------------------------------------------------------------------
+# 2 · University of Plymouth International College (UPIC) · upic.navitas.com
+# ---------------------------------------------------------------------------
+UPIC (Navitas) | Foundation · Arts, Design & Architecture | curso_corto | Artes | no indicada | - | https://upic.navitas.com/study/foundation/arts-design-architecture/
+UPIC (Navitas) | Foundation · Biological/Biomedical Sciences & Psychology | curso_corto | Ciencias | no indicada | - | https://upic.navitas.com/study/foundation/biological-biomedical-sciences-psychology/
+UPIC (Navitas) | Foundation · Business, Management & Economics | curso_corto | Negocios | no indicada | - | https://upic.navitas.com/study/foundation/business-management/
+UPIC (Navitas) | Foundation · Computer Science | curso_corto | Tecnología | no indicada | - | https://upic.navitas.com/study/foundation/computer-science/
+UPIC (Navitas) | Foundation · Construction Management & Building Surveying | curso_corto | Ingeniería | no indicada | - | https://upic.navitas.com/study/foundation/construction-management-building-surveying/
+UPIC (Navitas) | Foundation · Engineering & Robotics | curso_corto | Ingeniería | no indicada | - | https://upic.navitas.com/study/foundation/engineering-robotics/
+UPIC (Navitas) | Foundation · Environmental Sciences | curso_corto | Ciencias Ambientales | no indicada | - | https://upic.navitas.com/study/foundation/environmental-sciences/
+UPIC (Navitas) | Foundation · Health & Human Sciences | curso_corto | Salud | no indicada | - | https://upic.navitas.com/study/foundation/health-human-sciences/
+UPIC (Navitas) | Foundation · Law | curso_corto | Derecho | no indicada | - | https://upic.navitas.com/study/foundation/law/
+UPIC (Navitas) | Foundation · Marine, Coast & Ocean Sciences | curso_corto | Ciencias | no indicada | - | https://upic.navitas.com/study/foundation/marine-coast-ocean-sciences/
+UPIC (Navitas) | Foundation · Maritime Business & Logistics | curso_corto | Negocios | no indicada | - | https://upic.navitas.com/study/foundation/maritime-business/
+UPIC (Navitas) | Foundation · Mathematical Sciences | curso_corto | Matemáticas | no indicada | - | https://upic.navitas.com/study/foundation/mathematical-sciences/
+UPIC (Navitas) | Foundation · Politics & International Relations | curso_corto | Ciencias Sociales | no indicada | - | https://upic.navitas.com/study/foundation/politics-international-relations/
+UPIC (Navitas) | Foundation · Tourism & Hospitality | curso_corto | Hospitalidad | no indicada | - | https://upic.navitas.com/study/foundation/tourism-hospitality/
+UPIC (Navitas) | First Year · Business & Management | curso_corto | Negocios | no indicada | - | https://upic.navitas.com/study/first-year/business-management/
+UPIC (Navitas) | First Year · Computer Science | curso_corto | Tecnología | no indicada | - | https://upic.navitas.com/study/first-year/computer-science/
+UPIC (Navitas) | First Year · Education | curso_corto | Educación | no indicada | - | https://upic.navitas.com/study/first-year/education/
+UPIC (Navitas) | First Year · Environmental Sciences | curso_corto | Ciencias Ambientales | no indicada | - | https://upic.navitas.com/study/first-year/environmental-sciences/
+UPIC (Navitas) | First Year · Marine & Ocean | curso_corto | Ciencias | no indicada | - | https://upic.navitas.com/study/first-year/marine-ocean/
+UPIC (Navitas) | First Year · Maritime Business | curso_corto | Negocios | no indicada | - | https://upic.navitas.com/study/first-year/maritime-business/
+UPIC (Navitas) | First Year · Politics & International Relations | curso_corto | Ciencias Sociales | no indicada | - | https://upic.navitas.com/study/first-year/politics-international-relations/
+UPIC (Navitas) | First Year · Tourism & Events Management | curso_corto | Turismo | no indicada | - | https://upic.navitas.com/study/first-year/tourism-events-management/
+UPIC (Navitas) | Pre-Master's · Art & Design | curso_corto | Artes | no indicada | - | https://upic.navitas.com/study/pre-masters/art-design/
+UPIC (Navitas) | Pre-Master's · Business & Management | curso_corto | Negocios | no indicada | - | https://upic.navitas.com/study/pre-masters/business-management/
+UPIC (Navitas) | Pre-Master's · Architecture | curso_corto | Arquitectura | no indicada | - | https://upic.navitas.com/study/pre-masters/architecture/
+UPIC (Navitas) | Pre-Master's · Communication Design | curso_corto | Diseño | no indicada | - | https://upic.navitas.com/study/pre-masters/communications-design/
+UPIC (Navitas) | Pre-Master's · Data & Computer Science | curso_corto | Tecnología | no indicada | - | https://upic.navitas.com/study/pre-masters/data-computer-sciences/
+UPIC (Navitas) | Pre-Master's · Education | curso_corto | Educación | no indicada | - | https://upic.navitas.com/study/pre-masters/education/
+UPIC (Navitas) | Pre-Master's · Engineering | curso_corto | Ingeniería | no indicada | - | https://upic.navitas.com/study/pre-masters/engineering/
+UPIC (Navitas) | Pre-Master's · Psychology | curso_corto | Psicología | no indicada | - | https://upic.navitas.com/study/pre-masters/psychology/
+UPIC (Navitas) | Pre-Master's · Social Sciences and Law | curso_corto | Derecho | no indicada | - | https://upic.navitas.com/study/pre-masters/social-sciences/
+UPIC (Navitas) | Pre-Master's · Tourism & Hospitality Management | curso_corto | Hospitalidad | no indicada | - | https://upic.navitas.com/study/pre-masters/tourism-hospitality/
+
+# ---------------------------------------------------------------------------
+# 3 · Australian College of Business Intelligence · ACBI (acbi.edu.au)
+# ---------------------------------------------------------------------------
+ACBI | Diploma of Artificial Intelligence (AI) | diplomado | Tecnología | 1 year (52 weeks) | 11287NAT · CRICOS 116943M | https://www.acbi.edu.au/courses/artificial-intelligence/11287nat-diploma-of-artificial-intelligence-ai/
+ACBI | Advanced Diploma of Artificial Intelligence (AI) | diplomado | Tecnología | 1 year (52 weeks) | 11423NAT · CRICOS 120013H | https://www.acbi.edu.au/courses/artificial-intelligence/11423nat-advanced-diploma-of-artificial-intelligence/
+ACBI | Al for customer experience | curso_corto | Tecnología | no indicada | - | https://www.acbi.edu.au/courses/artificial-intelligence/ai-for-customer-experience-microcredential/
+ACBI | AI for operations | curso_corto | Tecnología | no indicada | - | https://www.acbi.edu.au/courses/artificial-intelligence/ai-for-operations-microcredential/
+ACBI | Use Al for organisational productivity and innovation | curso_corto | Tecnología | no indicada | - | https://www.acbi.edu.au/courses/artificial-intelligence/ai-for-organisational-productivity-and-innovation-microcredential/
+ACBI | Use Al to enhance your strategic decision-making | curso_corto | Negocios | no indicada | - | https://www.acbi.edu.au/courses/artificial-intelligence/ai-for-strategic-decision-making-microcredential/
+ACBI | Lead AI governance and data strategy | curso_corto | Tecnología | no indicada | - | https://www.acbi.edu.au/courses/artificial-intelligence/ai-governance-and-data-strategy-microcredential/
+ACBI | AI Prompt Engineering | curso_corto | Tecnología | 4 weeks | - | https://www.acbi.edu.au/courses/artificial-intelligence/ai-prompt-engineering-microcredential/
+ACBI | Al for digital presence and content creation | curso_corto | Marketing | no indicada | - | https://www.acbi.edu.au/courses/artificial-intelligence/al-for-digital-presence-and-content-creation-microcredential/
+ACBI | Introduction to Al for project management | curso_corto | Negocios | no indicada | - | https://www.acbi.edu.au/courses/artificial-intelligence/introduction-to-ai-for-project-management-microcredential/
+ACBI | Lead AI transformation | curso_corto | Tecnología | no indicada | - | https://www.acbi.edu.au/courses/artificial-intelligence/lead-ai-transformation-microcredential/
+ACBI | Use responsible and ethical AI | curso_corto | Tecnología | no indicada | - | https://www.acbi.edu.au/courses/artificial-intelligence/use-responsible-and-ethical-ai/
+ACBI | Construction Law Essentials (short course) | curso_corto | Derecho | no indicada | - | https://www.acbi.edu.au/courses/construction/construction-law-essentials-short-course/
+ACBI | Certificate IV in Design | curso_corto | Diseño | 1 year (52 weeks) | CUA40725 · CRICOS 119039H | https://www.acbi.edu.au/courses/design-and-creative-arts/cua40725-certificate-iv-in-design/
+ACBI | Diploma of Graphic Design | diplomado | Diseño | 1 year 6 months (78 weeks) | CUA50725 · CRICOS 118932J | https://www.acbi.edu.au/courses/design-and-creative-arts/cua50725-diploma-of-graphic-design/
+ACBI | Advanced Diploma of Graphic Design | diplomado | Diseño | 1 year (52 weeks) | CUA60325 · CRICOS 118931K | https://www.acbi.edu.au/courses/design-and-creative-arts/cua60325-advanced-diploma-of-graphic-design/
+ACBI | Advanced Diploma of Digital Marketing | diplomado | Marketing | 1 year (52 weeks) | 11266NAT · CRICOS 116942A | https://www.acbi.edu.au/courses/digital-marketing/11266nat-advanced-diploma-of-digital-marketing/
+ACBI | Certificate IV in Social Media and Digital Marketing | curso_corto | Marketing | 1 year (52 weeks) | 11302NAT · CRICOS 117245G | https://www.acbi.edu.au/courses/digital-marketing/11302nat-certificate-iv-in-social-media-and-digital-marketing/
+ACBI | Diploma of Digital Marketing | diplomado | Marketing | 1 year (52 weeks) | 11422NAT · CRICOS 120239A | https://www.acbi.edu.au/courses/digital-marketing/11422nat-diploma-of-digital-marketing/
+ACBI | Certificate IV in Information Technology | curso_corto | Tecnología | 1 year (52 weeks) | ICT40120 · CRICOS 108187J | https://www.acbi.edu.au/courses/information-technology/ict40120-certificate-iv-in-information-technology/
+ACBI | Diploma of Information Technology (Front End Web Development) | diplomado | Tecnología | 1 year 6 months (78 weeks) | ICT50220 · CRICOS 105685D | https://www.acbi.edu.au/courses/information-technology/ict50220-diploma-of-information-technology-web-development/
+ACBI | Advanced Diploma of Information Technology (Cyber Security) | diplomado | Tecnología | 2 years (104 weeks) | ICT60220 · CRICOS 105626D | https://www.acbi.edu.au/courses/information-technology/ict60220-advanced-diploma-of-information-technology-cyber-security/
+ACBI | Advanced Diploma of Information Technology (IT Management Focus) | diplomado | Tecnología | 2 years (104 weeks) | ICT60220 · CRICOS 105626D | https://www.acbi.edu.au/courses/information-technology/ict60220-advanced-diploma-of-information-technology-management-focus/
+ACBI | Advanced Diploma of Information Technology (Telecommunications Network Engineering) | diplomado | Tecnología | 2 years (104 weeks) | ICT60220 · CRICOS 105626D | https://www.acbi.edu.au/courses/information-technology/ict60220-advanced-diploma-of-information-technology-telecommunications-network-engineering/
+ACBI | Diploma of Leadership and Management | diplomado | Negocios | 1 year (52 weeks) | BSB50420 · CRICOS 104261C | https://www.acbi.edu.au/courses/management-strategic-leadership/bsb50420-diploma-of-leadership-and-management/
+ACBI | Advanced Diploma of Leadership and Management | diplomado | Negocios | 1 year (52 weeks) | BSB60420 · CRICOS 104703D | https://www.acbi.edu.au/courses/management-strategic-leadership/bsb60420-advanced-diploma-of-leadership-and-management/
+ACBI | Graduate Diploma of Strategic Leadership | posgrado | Negocios | 2 years (104 weeks) | BSB80320 · CRICOS 110396D | https://www.acbi.edu.au/courses/management-strategic-leadership/bsb80320-graduate-diploma-of-strategic-leadership/
+ACBI | Diploma of Project Management | diplomado | Negocios | 1 year (52 weeks) | BSB50820 · CRICOS 104061M | https://www.acbi.edu.au/courses/project-management/bsb50820-diploma-of-project-management/
+ACBI | Advanced Diploma of Program Management | diplomado | Negocios | 1 year (52 weeks) | BSB60720 · CRICOS 104450J | https://www.acbi.edu.au/courses/project-management/bsb60720-advanced-diploma-of-program-management/
+ACBI | Certificate IV in Environmentally Sustainable Management | curso_corto | Ciencias Ambientales | 1 year (52 weeks) | 11130NAT · CRICOS 112143J | https://www.acbi.edu.au/courses/sustainability/11130nat-certificate-iv-in-environmentally-sustainable-management/
+ACBI | Advanced Diploma of Conservation and Ecosystem Management | diplomado | Ciencias Ambientales | 1 year (52 weeks) | AHC60422 · CRICOS 118158J | https://www.acbi.edu.au/courses/sustainability/ahc60422-advanced-diploma-of-conservation-ecosystem-management/
+ACBI | Diploma of Sustainable Operations | diplomado | Ciencias Ambientales | 1 year 6 months (78 weeks) | MSS50122 · CRICOS 112566H | https://www.acbi.edu.au/courses/sustainability/mss50122-diploma-of-sustainable-operations/
+ACBI | Certificate IV in Training and Assessment | curso_corto | Educación | no indicada | TAE40122 | https://www.acbi.edu.au/courses/training-and-assessment/tae40122-certificate-iv-in-training-and-assessment/
+ACBI | Certificate IV in Work Health and Safety | curso_corto | Seguridad Laboral | no indicada | BSB41419 | https://www.acbi.edu.au/courses/work-health-and-safety-whs/bsb41419-certificate-iv-in-work-health-and-safety/
+ACBI | Diploma of Work Health and Safety (WHS) | diplomado | Seguridad Laboral | no indicada | BSB51319 | https://www.acbi.edu.au/courses/work-health-and-safety-whs/bsb51319-diploma-of-work-health-and-safety-whs/
+ACBI | Certificate IV in Rail Safety Management | curso_corto | Seguridad Laboral | no indicada | TLI42422 | https://www.acbi.edu.au/courses/work-health-and-safety-whs/tli42422-certificate-iv-in-rail-safety-management/
+ACBI | WHS Law Essentials (short course) | curso_corto | Seguridad Laboral | no indicada | - | https://www.acbi.edu.au/courses/work-health-and-safety-whs/whs-law-essentials-short-course/
+
+# ---------------------------------------------------------------------------
+# 4 · French in Normandy IH Rouen (frenchinnormandy.com)
+# ---------------------------------------------------------------------------
+French in Normandy | General French Courses | curso_corto | Idiomas | 10, 15 o 25 horas por semana | - | https://www.frenchinnormandy.com/courses/
+French in Normandy | Demi-Intensive | curso_corto | Idiomas | 10 horas por semana | - | https://www.frenchinnormandy.com/courses/intensive-french-10/
+French in Normandy | Semi-Intensive | curso_corto | Idiomas | 15 horas por semana | - | https://www.frenchinnormandy.com/courses/intensive-french-15/
+French in Normandy | Intensive | curso_corto | Idiomas | 25 horas por semana | - | https://www.frenchinnormandy.com/courses/intensive-french-25/
+French in Normandy | General French Online | curso_corto | Idiomas | no indicada | - | https://www.frenchinnormandy.com/general-french-online/
+French in Normandy | DELF Online Exam Preparation | curso_corto | Idiomas | no indicada | - | https://www.frenchinnormandy.com/delf-exam-preparation-online/
+French in Normandy | DELF Exam Preparation | curso_corto | Idiomas | no indicada | - | https://www.frenchinnormandy.com/delf-exam-preparation-in-france/
+French in Normandy | DALF Exam Preparation | curso_corto | Idiomas | no indicada | - | https://www.frenchinnormandy.com/dalf-exam-preparation-in-france/
+French in Normandy | French for 50+ | curso_corto | Idiomas | no indicada | - | https://www.frenchinnormandy.com/french-for-50/
+French in Normandy | French + Gastronomy | curso_corto | Gastronomía | 3 semanas | - | https://www.frenchinnormandy.com/french-gastronomy/
+French in Normandy | French + Hospitality | curso_corto | Hospitalidad | 3 semanas | - | https://www.frenchinnormandy.com/french-hospitality-course-in-france/
+French in Normandy | Teacher Training (Erasmus+) | curso_corto | Educación | no indicada | - | https://www.frenchinnormandy.com/french-teacher-training-erasmus/
+French in Normandy | Private French Lessons | curso_corto | Idiomas | no indicada | - | https://www.frenchinnormandy.com/private-french-lessons/
+French in Normandy | French for Business | curso_corto | Idiomas | no indicada | - | https://www.frenchinnormandy.com/business-french/
+French in Normandy | A-Level Preparation | curso_corto | Idiomas | no indicada | - | https://www.frenchinnormandy.com/a-level-french-revision/
+
+# ---------------------------------------------------------------------------
+# 5 · CELUSA → Adelaide University English Language Centre (sucesor)
+# ---------------------------------------------------------------------------
+Adelaide University ELC (ex-CELUSA) | Pre-enrolment English Program (PEP) | curso_corto | Idiomas | no indicada | - | https://adelaide.edu.au/study/english-language-centre/pre-enrolment-english/
+Adelaide University ELC (ex-CELUSA) | General English for Academic Purposes (GEAP) | curso_corto | Idiomas | no indicada | - | https://adelaide.edu.au/study/english-language-centre/general-english-for-academic-purposes/
+
+# ---------------------------------------------------------------------------
+# 6 · Peninsula Grammar · SIN CATÁLOGO DE PROGRAMAS (ver NOTAS)
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# 7 · SAE University College (sae.edu.au)
+# ---------------------------------------------------------------------------
+SAE University College | Bachelor of Audio | bachelor | Artes | 6, 8 o 9 trimestres full-time | - | https://sae.edu.au/courses/audio/bachelor-of-audio/
+SAE University College | Associate Degree of Audio | pregrado | Artes | 4 o 6 trimestres full-time | - | https://sae.edu.au/courses/audio/associate-degree-of-audio/
+SAE University College | Diploma of Audio Production | diplomado | Artes | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/audio/diploma-of-audio-production/
+SAE University College | Bachelor of Film (Production) | bachelor | Artes | 6, 8 o 9 trimestres full-time | - | https://sae.edu.au/courses/film/bachelor-of-film/
+SAE University College | Associate Degree of Film | pregrado | Artes | 4 o 6 trimestres full-time | - | https://sae.edu.au/courses/film/associate-degree-of-film/
+SAE University College | Diploma of Film | diplomado | Artes | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/film/diploma-of-film/
+SAE University College | Bachelor of Animation | bachelor | Artes | 6, 8 o 9 trimestres full-time | - | https://sae.edu.au/courses/animation/bachelor-of-animation/
+SAE University College | Associate Degree of Animation | pregrado | Artes | 4 o 6 trimestres full-time | - | https://sae.edu.au/courses/animation/associate-degree-of-animation/
+SAE University College | Diploma of 3D Animation Production | diplomado | Artes | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/animation/diploma-of-3d-animation-production/
+SAE University College | Bachelor of Design & Visual Communication | bachelor | Diseño | 6, 8 o 9 trimestres full-time | - | https://sae.edu.au/courses/design/bachelor-of-design-visual-communication/
+SAE University College | Associate Degree of Design & Visual Communication | pregrado | Diseño | 4 o 6 trimestres full-time | - | https://sae.edu.au/courses/design/associate-degree-of-design-visual-communication/
+SAE University College | Diploma of Graphic Design | diplomado | Diseño | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/design/diploma-of-graphic-design/
+SAE University College | Bachelor of Music | bachelor | Música | 6, 8 o 9 trimestres full-time | - | https://sae.edu.au/courses/music/bachelor-of-music/
+SAE University College | Associate Degree of Music | pregrado | Música | 4 o 6 trimestres full-time | - | https://sae.edu.au/courses/music/associate-degree-of-music/
+SAE University College | Diploma of Music | diplomado | Música | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/music/diploma-of-music/
+SAE University College | Bachelor of Computer Science | bachelor | Tecnología | 6 o 8 trimestres full-time | - | https://sae.edu.au/courses/computer-science/bachelor-of-computer-science/
+SAE University College | Associate Degree of Computer Science | pregrado | Tecnología | 4 o 6 trimestres full-time | - | https://sae.edu.au/courses/computer-science/associate-degree-of-computer-science/
+SAE University College | Diploma of Computer Science | diplomado | Tecnología | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/computer-science/diploma-of-computer-science/
+SAE University College | Diploma of Cyber Security | diplomado | Tecnología | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/computer-science/diploma-of-cyber-security/
+SAE University College | Bachelor of Creative Industries | bachelor | Artes | 6, 8 o 9 trimestres full-time | - | https://sae.edu.au/courses/creative-industries/bachelor-of-creative-industries/
+SAE University College | Associate Degree of Creative Industries | pregrado | Artes | 4 o 6 trimestres full-time | - | https://sae.edu.au/courses/creative-industries/associate-degree-of-creative-industries/
+SAE University College | Diploma of Creative Industries | diplomado | Artes | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/creative-industries/diploma-of-creative-industries/
+SAE University College | Master of Creative Industries | maestria | Artes | 4 trimestres full-time | - | https://sae.edu.au/courses/creative-industries/master-of-creative-industries/
+SAE University College | Graduate Diploma of Creative Industries | posgrado | Artes | 2 trimestres full-time | - | https://sae.edu.au/courses/creative-industries/graduate-diploma-of-creative-industries/
+SAE University College | Graduate Certificate in Creative Industries | posgrado | Artes | 1 trimestre full-time | - | https://sae.edu.au/courses/creative-industries/graduate-certificate-in-creative-industries/
+SAE University College | Bachelor of VFX and Virtual Production | bachelor | Artes | 6, 8 o 9 trimestres full-time | - | https://sae.edu.au/courses/vfx-virtual-production/bachelor-of-vfx-virtual-production/
+SAE University College | Associate Degree of VFX and Virtual Production | pregrado | Artes | 4 o 6 trimestres full-time | - | https://sae.edu.au/courses/vfx-virtual-production/associate-degree-of-vfx-virtual-production/
+SAE University College | Diploma of VFX | diplomado | Artes | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/vfx-virtual-production/diploma-of-vfx/
+SAE University College | Master of Information Technology | maestria | Tecnología | 6 trimestres full-time | - | https://sae.edu.au/courses/information-technology/master-of-information-technology/
+SAE University College | Graduate Certificate of Software Development | posgrado | Tecnología | 2 trimestres full-time | - | https://sae.edu.au/courses/information-technology/graduate-certificate-software-development/
+SAE University College | Bachelor of Games Development (Games Design) | bachelor | Tecnología | 6, 8 o 9 trimestres full-time | - | https://sae.edu.au/courses/games/bachelor-of-games-development/
+SAE University College | Bachelor of Games Development (Games Programming) | bachelor | Tecnología | 6, 8 o 9 trimestres full-time | - | https://sae.edu.au/courses/games/bachelor-of-games-development-programming/
+SAE University College | Associate Degree of Games Development | pregrado | Tecnología | 4 o 6 trimestres full-time | - | https://sae.edu.au/courses/games/associate-degree-of-games-development/
+SAE University College | Diploma of Game Development | diplomado | Tecnología | 2 o 3 trimestres full-time | - | https://sae.edu.au/courses/games/diploma-of-game-development/
+
+# ---------------------------------------------------------------------------
+# 8 · Arbutus College (arbutuscollege.com)
+# ---------------------------------------------------------------------------
+Arbutus College | Certificate in Business Management | curso_corto | Negocios | 6 Months | - | https://arbutuscollege.com/program_pt/diploma-in-business-management/
+Arbutus College | Certificate in Hospitality Management Operations | curso_corto | Hospitalidad | 8 Months | - | https://arbutuscollege.com/program_pt/advanced-diploma-in-hospitality-management-operations/
+Arbutus College | Certificate in Medical Office Assistant | curso_corto | Salud | 8 Months | - | https://arbutuscollege.com/program_pt/diploma-in-medical-office-assistant/
+Arbutus College | Certificate in Operations and Supply Chain Management | curso_corto | Negocios | 6 Months | - | https://arbutuscollege.com/program_pt/diploma-in-international-trade/
+Arbutus College | Co-op Diploma in Business Management | diplomado | Negocios | 6 + 6 Months | - | https://arbutuscollege.com/program_pt/co-op-diploma-in-business-management/
+Arbutus College | Co-op Diploma in Hospitality Management | diplomado | Hospitalidad | 6 + 6 Months | - | https://arbutuscollege.com/program_pt/co-op-diploma-in-hospitality-management/
+Arbutus College | Co-op Diploma in Hospitality Management Operations | diplomado | Hospitalidad | 8 + 8 Months | - | https://arbutuscollege.com/program_pt/co-op-diploma-in-hospitality-management-operations/
+Arbutus College | Co-op Diploma in Medical Office Assistant | diplomado | Salud | 8 + 8 Months | - | https://arbutuscollege.com/program_pt/diploma-in-medical-office-assistant-copy/
+Arbutus College | Co-op Diploma in Operations and Supply Chain Management | diplomado | Negocios | 6 + 6 Months | - | https://arbutuscollege.com/program_pt/co-op-diploma-in-operations-and-supply-chain-management/
+Arbutus College | Diploma in Computer Science & Frontend Web Development with Practicum | diplomado | Tecnología | 12 + 3 Months | - | https://arbutuscollege.com/program_pt/diploma-in-computer-science-frontend-web-development-with-practicum/
+
+# ---------------------------------------------------------------------------
+# 9 · Charlton Brown (charltonbrown.edu.au) · RTO 2508
+# ---------------------------------------------------------------------------
+Charlton Brown | High School Preparation Programme | curso_corto | Idiomas | 10 week blocks | - | https://charltonbrown.edu.au/course/high-school-preparation-programme/
+Charlton Brown | Primary School Preparation Course | curso_corto | Idiomas | 10 week blocks | - | https://charltonbrown.edu.au/course/primary-school-preparation-course/
+Charlton Brown | General English | curso_corto | Idiomas | 12 week blocks | - | https://charltonbrown.edu.au/course/general-english/
+Charlton Brown | Certificate IV in Business | curso_corto | Negocios | 52 weeks | BSB40120 | https://charltonbrown.edu.au/course/certificate-iv-in-business/
+Charlton Brown | Certificate III in Early Childhood Education and Care | curso_corto | Educación | 52 weeks | CHC30121 | https://charltonbrown.edu.au/course/certificate-iii-early-childhood-education/
+Charlton Brown | Diploma of Early Childhood Education and Care | diplomado | Educación | 52 weeks | CHC50121 | https://charltonbrown.edu.au/course/diploma-early-childhood-education/
+Charlton Brown | Certificate III in Individual Support | curso_corto | Salud | 34 weeks | CHC33021 | https://charltonbrown.edu.au/course/certificate-iii-in-individual-support/
+Charlton Brown | Certificate IV in Ageing Support | curso_corto | Salud | 38 weeks | CHC43015 | https://charltonbrown.edu.au/course/certificate-iv-in-ageing-support/
+Charlton Brown | Diploma of Community Services | diplomado | Servicios Sociales | 52 weeks | CHC52021 | https://charltonbrown.edu.au/course/diploma-of-community-services/
+Charlton Brown | Certificate III in Commercial Cookery | curso_corto | Gastronomía | 52 weeks | SIT30821 | https://charltonbrown.edu.au/course/certificate-iii-in-commercial-cookery/
+Charlton Brown | Certificate IV in Commercial Cookery | curso_corto | Gastronomía | 78 weeks | SIT40521 | https://charltonbrown.edu.au/course/certificate-iv-in-commercial-cookery/
+Charlton Brown | Diploma of Hospitality Management | diplomado | Hospitalidad | 52 weeks | SIT50422 | https://charltonbrown.edu.au/course/diploma-of-hospitality-management/
+Charlton Brown | Diploma of Hospitality Management Operations | diplomado | Hospitalidad | 52 weeks | SIT50422 | https://charltonbrown.edu.au/course/diploma-of-hospitality-management-operations/
+Charlton Brown | Diploma of Hospitality Management [UniTrack] | diplomado | Hospitalidad | 52 weeks | SIT50422 | https://charltonbrown.edu.au/course/diploma-of-hospitality-management-unitrack/
+Charlton Brown | Diploma of Information Technology [UniTrack] | diplomado | Tecnología | 52 weeks | ICT50220 | https://charltonbrown.edu.au/course/diploma-of-information-technology-unitrack/
+Charlton Brown | Diploma of Business [UniTrack] | diplomado | Negocios | 52 weeks | BSB50120 | https://charltonbrown.edu.au/course/diploma-of-business-unitrack/
+Charlton Brown | Diploma of Leadership & Management | diplomado | Negocios | 52 weeks | BSB50420 | https://charltonbrown.edu.au/course/diploma-of-leadership-management/
+Charlton Brown | Diploma of Remedial Massage | diplomado | Salud | 52 weeks | HLT52021 | https://charltonbrown.edu.au/course/diploma-of-remedial-massage/
+Charlton Brown | Graduate Diploma of Management (Learning) [UniTrack] | posgrado | Negocios | 52 weeks | BSB80120 | https://charltonbrown.edu.au/course/graduate-diploma-of-management-learning-unitrack/
+Charlton Brown | PACKAGE: EARLY CHILDHOOD EDUCATION AND CARE | diplomado | Educación | 104 weeks | CHC30121 + CHC50121 | https://charltonbrown.edu.au/course/package-cert-iii-diploma-early-childhood-education/
+Charlton Brown | PACKAGE: COMMERCIAL COOKERY AND HOSPITALITY | diplomado | Gastronomía | 104 weeks | SIT30821 + SIT40521 + SIT50422 | https://charltonbrown.edu.au/course/cookeryhospitalitypackage/
+Charlton Brown | PACKAGE: AGED CARE (3 Course) | diplomado | Salud | no indicada | CHC33021 + CHC43015 + CHC52021 | https://charltonbrown.edu.au/course/carepackage/
+
+# ---------------------------------------------------------------------------
+# 10 · Education Centre of Australia (ECA) Professional Year
+# ---------------------------------------------------------------------------
+ECA Professional Year | ACS Professional Year | curso_corto | Tecnología | 1 year | - | https://www.professionalyear.info/py-professional-year/
+ECA Professional Year | IT Professional Year | curso_corto | Tecnología | 1 year | - | https://www.professionalyear.info/it-professional-year-australia/
+ECA Professional Year | Internships | curso_corto | Negocios | no indicada | - | https://www.professionalyear.info/internships/
+
+# RESUMEN: instituciones=10 con_programas=9 total_programas=215 sin_catalogo=1
+
+# NOTAS:
+# Academies Australasia (academies.edu.au) · 60 programas extraidos vs cantidad_aprox "180-250". La diferencia NO es un fallo de extraccion: academies.edu.au es el sitio del HOLDING y solo publica el detalle (nombre + codigo nacional + duracion) de las qualifications de sus colleges VET propios. Cuatro paginas del menu COURSES son meros hubs de enlace a dominios de colleges miembros que estan FUERA del dominio del lote y por tanto no se recorrieron (regla 1): /courses-bri-hairdress-beauty/ -> brishair.com.au (Hairdressing/Beauty/Barbering, "Cert II a Diploma of Beauty Therapy"), /courses-syd-sports-fitness/ -> csf.edu.au (Fitness/Sports Coaching/Yoga), /courses-mel-commercial-cookery/ -> sin qualification nombrada en la pagina, y /courses-singapore/ -> aac.edu.sg (degrees University of Derby, Diploma/Adv Diploma, e-learning, ingles, preparatorios IGCSE, WSQ). Ahi viven los ~120-190 programas que faltan. Si la clienta los quiere, hay que autorizar esos 4 dominios en un lote aparte. Ademas los 6 degrees (Master of IT + 5 Bachelors de AAPoly) se listan una sola vez aunque el sitio los repite en las paginas de Sydney, Melbourne y Perth; Hospitality/Leadership/Project Management si van duplicados Sydney vs Perth porque tienen CRICOS distinto por campus.
+# Academies Australasia · "Year 11" y "Year 12" (CRICOS 049221E, Australian International High School) son secundaria, no educacion superior. El vocabulario cerrado no tiene nivel de colegio, asi que los mapee a `intercambio` para no perderlos. ES UNA DECISION MIA, no algo que diga el sitio: si el producto va a vender high school, conviene agregar un nivel `secundaria` al vocabulario en vez de dejarlos como intercambio.
+# UPIC / Navitas · La ficha original apuntaba a www.navitas.com, que es la matriz y NO imparte: su pagina /study/colleges-campuses/ es un directorio de ~100 colleges sin un solo programa. El college real existe y es upic.navitas.com (subdominio del MISMO dominio registrable del lote, por eso se recorrio). De ahi salen los 32 programas (14 Foundation + 8 First Year + 10 Pre-Master's). El sitio no publica duracion en ninguna de las tres familias, por eso van todas "no indicada". Corregir el `sitio` de la ficha a upic.navitas.com.
+# ACBI · Confirmado el bloqueo de bots: WebFetch da 403 y el navegador headless tampoco entra; se resolvio con PowerShell + User-Agent de Chrome (200 OK). Encontre 40 cursos, no ~26 como conto la auditoria (la diferencia son 10 microcredenciales de IA + 2 short courses de Derecho/WHS que la auditoria no conto). EXCLUI 3 por regla 4: Certificate IV in Health Administration (HLT47321) y Diploma of Business (BSB50120) porque el propio sitio dice "ACBI is currently not taking new enrolments for this qualification", y 10931NAT Diploma of Digital Marketing porque esta marcado (Superseded) y remite al 11422NAT. Quedan 37 vendibles, todos con codigo nacional y la mayoria con CRICOS verificable.
+# French in Normandy · 15 de 16 cursos listados. EXCLUI "French + Sciences" porque el sitio lo marca como no disponible en 2026. Coincide con cantidad_aprox ~15. El sitio publica precios; no se transcribieron.
+# CELUSA / UniSA · Ficha muerta confirmada: international.unisa.edu.au ya no sirve catalogo propio y "CELUSA" no aparece en ningun lado. Los 2 programas listados son del SUCESOR (Adelaide University English Language Centre, dominio adelaide.edu.au, que fue la url_programas que dio la auditoria) — NO del dominio de la ficha. Solo 2 programas (PEP y GEAP), sin duracion ni CRICOS publicados. Reasignar la ficha a Adelaide University o darla de baja.
+# Peninsula Grammar · 0 programas · SIN CATALOGO. El dominio de la ficha (tps.vic.edu.au) sigue con el TLS roto; se uso peninsulagrammar.vic.edu.au. Es un colegio K-12 (CRICOS 00333A): no tiene catalogo de programas sino niveles de curso (Kinder a Year 12). La pagina de internacionales no nombra ELICOS, ni EAL formal, ni study abroad de corta duracion — solo remite a "Enrolment Procedures". No hay nada extraible que encaje en el esquema; si la agencia lo vende es como colegio, no como programa.
+# SAE University College · 34 programas. Confirmado el renombre: el sitio ya se identifica como "SAE University College" (la ficha usa "SAE Creative Media Institute", nombre viejo) y pertenece a Navitas. Patron muy regular: cada disciplina ofrece Diploma + Associate Degree + Bachelor. NINGUN curso publica CRICOS individual — solo el CRICOS de proveedor 00312F — asi que todos van con codigo_oficial "-": son los menos verificables del lote. Los Associate Degree se mapearon a `pregrado` (no existe ese nivel en el vocabulario) y los Graduate Certificate a `posgrado`. Solo se cubrio el dominio .edu.au (Australia); los 49 campus globales del grupo estan en otros dominios.
+# Arbutus College · 10 programas, no ~6 como conto la auditoria (la auditoria no conto las 4 variantes Co-op como programas separados, pero el sitio si las lista aparte con duracion distinta). CONFIRMADO EL HALLAZGO DE LA AUDITORIA: NO hay oferta de idiomas / ESL en el program finder, pese a que la ficha marca "Idiomas" en puede_vender. Corregir la ficha. Ojo con los slugs: varios URLs dicen "diploma-in-..." pero el programa se llama "Certificate in ..." — se respeto el nombre visible, no el slug.
+# Charlton Brown · 22 programas (el sitio declara "Displaying 22 Available Courses" y el conteo cuadra exacto). Confirmado que el dominio correcto es charltonbrown.edu.au. El catalogo esta paginado en 3 paginas: quien lea solo /course/ ve 8 y se pierde 14. Incluye 3 "PACKAGE" (combinaciones de 2-3 qualifications con duracion propia de 104 semanas) que se dejaron como filas propias porque se venden como producto. El sitio publica precios domesticos; no se transcribieron.
+# ECA Professional Year · 2-3 items, coincide con cantidad_aprox=2. La url_programas de la ficha (/courses/) da 404; el listado real esta en el menu de la home. ACS Professional Year e IT Professional Year son practicamente el mismo producto con dos landings. Se incluyo "Internships" como tercer item; se EXCLUYO "Workshops" por ser un servicio, no un programa cursable. Confirmado que professionalyear.info es un dominio de marca, no el institucional de ECA.

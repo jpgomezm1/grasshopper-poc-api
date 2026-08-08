@@ -1,0 +1,157 @@
+[
+ {
+  "institucion_ficha": "Hartwick College",
+  "nombre_real": "Hartwick College (Oneonta, NY)",
+  "dominio": "hartwick.edu",
+  "url_programas": "https://www.hartwick.edu/academics/majors-and-minors/",
+  "pais": "USA",
+  "ciudad": "New York",
+  "puede_vender": [
+   "Pregrado",
+   "Pregrado"
+  ],
+  "niveles_vistos": "Solo Bachelor (BA/BS)",
+  "cantidad_aprox": "~60-70 majors/minors",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha dice ciudad \"New York\" pero esta en Oneonta, ~4h de NYC · enganoso para el estudiante que compra \"Nueva York\" · sin posgrado propio (solo acuerd",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Salford College",
+  "nombre_real": "Salford College (RTO 40298 · CRICOS 03076M · ABN 83 134 424 034)",
+  "dominio": "www.salfordcollege.edu.au",
+  "url_programas": "https://salfordcollege.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Adelaide, Sydney",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert II/III/IV, Diploma, Adv Diploma, Grad Diploma (construccion, hospitalidad, negocios, liderazgo, civil) + ELICOS. NO otorga Bachelor",
+  "cantidad_aprox": "~70",
+  "veredicto_auditoria": "corregir",
+  "alerta": "TRES campus (Adelaide, Sydney-Parramatta y PERTH) y la ficha solo lista dos · \"Todos los programas\" sobrevende: es VET puro, sin grados · el catalogo ",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "ACAH",
+  "nombre_real": "Australian College of Agriculture & Horticulture",
+  "dominio": "acah.edu.au",
+  "url_programas": "menu COURSES",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "Cert II-IV, Dip, Adv Dip",
+  "cantidad_aprox": "~25",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 25
+ },
+ {
+  "institucion_ficha": "University of the Sunshine Coast (USC)",
+  "nombre_real": "UniSC · University of the Sunshine Coast, Queensland",
+  "dominio": "www.usc.edu.au",
+  "url_programas": "https://www.unisc.edu.au/study/courses-and-programs",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado, Postgrado, PhD y Master por investigacion, pathways",
+  "cantidad_aprox": "? (17 areas de estudio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REBRANDING NO RECOGIDO: el dominio de la ficha redirige al nuevo (unisc.edu.au) y la marca viva hoy es \"UniSC\", no \"USC\" · corregir el dominio para qu",
+  "_est": 17
+ },
+ {
+  "institucion_ficha": "Westbourne Grammar School",
+  "nombre_real": "Westbourne Grammar School",
+  "dominio": "www.westbournegrammar.com",
+  "url_programas": "https://www.westbournegrammar.com/learning/our-approach/ (secciones /learning/early-learning, /middle-school, /senior-school)",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "K-12 (Early Learning a Year 12, VCE) + short-stay para internacionales",
+  "cantidad_aprox": "n/a — no hay catalogo de programas",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Es un COLEGIO K-12 australiano (CRICOS 00355F), no un proveedor de cursos: no tiene catalogo enumerable de programas, la extraccion posterior no encon",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Universitat Autonoma De Barcelona",
+  "nombre_real": "Fundacio Universitat Autonoma de Barcelona (FUAB)",
+  "dominio": "www.uab.cat",
+  "url_programas": "ninguna enumerable — la propia pagina de la ficha es un landing institucional",
+  "pais": "Spain",
+  "ciudad": "Barcelona",
+  "puede_vender": [
+   "Solo los programas de la fundación"
+  ],
+  "niveles_vistos": "Graus, masters, postgraus, cicles formatius de grau superior, idiomes (UAB Idiomes), study abroad",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CATALOGO NO ENUMERABLE: el `sitio` es un deep-link legacy a la home de la Fundacio, no a una lista. Los programas cuelgan de escuelas separadas (Escol",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "MEGA",
+  "nombre_real": "MEGA Education (ABN 23 111 742 155 · RTO 91305 · CRICOS 02657J)",
+  "dominio": "mega.edu.au",
+  "url_programas": "https://www.mega.edu.au/vet-courses/ y https://www.mega.edu.au/english-courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "VET (AQF Cert/Dip) + ELICOS",
+  "cantidad_aprox": "9 \"schools\" VET + cursos de ingles; no publica conteo de cursos",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Nombre en ficha es \"MEGA\" a secas; el real es \"MEGA Education\". Ciudad null en la ficha (el sitio no la muestra en home). puede_vender viene vacio per",
+  "_est": 9
+ },
+ {
+  "institucion_ficha": "Galway Business School",
+  "nombre_real": "Galway Business School",
+  "dominio": "galwaybusinessschool.ie",
+  "url_programas": "https://www.galwaybusinessschool.ie/programmes/",
+  "pais": "Ireland",
+  "ciudad": "Galway",
+  "puede_vender": [
+   "Idiomas",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "NFQ 6-8: certificados + bachelor",
+  "cantidad_aprox": "~6",
+  "veredicto_auditoria": "observacion",
+  "alerta": "puede_vender INCONSISTENTE en 2 frentes: NO hay postgrado (nada de NFQ 9) y los \"Idiomas\" son de OTRA entidad, Galway Cultural Institute, con dominio ",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Photography Studies College",
+  "nombre_real": "PSC Creative College (ex Photography Studies College) · TEQSA 12200 · RTO 0111 · CRICOS 00257G",
+  "dominio": "psc.edu.au",
+  "url_programas": "https://www.psc.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Bachelor, Diplomas, cursos cortos",
+  "cantidad_aprox": "? (5 categorias)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CAMBIO DE NOMBRE Y DE ALCANCE: ya no es solo fotografia, suma diseno grafico, moda y screen media · otorga BACHELOR · ficha sin category y con puede_v",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "Taylors College",
+  "nombre_real": "Navitas Australia Pty Limited (CRICOS 01682E) trading as Taylors College",
+  "dominio": "taylorssydney.edu.au",
+  "url_programas": "https://www.taylorssydney.edu.au/programs/",
+  "pais": "Australia",
+  "ciudad": "Sydney",
+  "puede_vender": [
+   "Idiomas, Foundation, Preparation Program"
+  ],
+  "niveles_vistos": "University of Sydney Foundation Program + High Achievers Preparation Program (solo pathway, NO otorga titulos)",
+  "cantidad_aprox": "2",
+  "veredicto_auditoria": "corregir",
+  "alerta": "SOBREVENTA: la ficha promete \"Idiomas, Foundation, Preparation Program\" pero en este dominio NO hay oferta de idiomas/ELICOS, solo 2 programas de foun",
+  "_est": 2
+ }
+]

@@ -1,0 +1,294 @@
+# Lote 24 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Chisholm Institute (Chisholm TAFE) · RTO 0260 · CRICOS 00881F · chisholm.edu.au · Australia ---
+# SOLO seccion International (/students/international/international-courses). El catalogo domestico (~20 areas / cientos de cursos, con aprendizajes/traineeships) NO se carga. Ver NOTAS.
+Chisholm Institute | Bachelor Of Business (Accounting) - International students | bachelor | Negocios | no indicada | CRS1401273 | https://www.chisholm.edu.au/students/international/international-courses
+Chisholm Institute | Bachelor of Community Mental Health, Alcohol and Other Drugs | bachelor | Salud Mental | no indicada | CRS1201285 | https://www.chisholm.edu.au/students/international/international-courses
+Chisholm Institute | Diploma Of Community Services | diplomado | Servicios Sociales | no indicada | CHC52025 | https://www.chisholm.edu.au/students/international/international-courses
+Chisholm Institute | Certificate III In Early Childhood Education And Care | curso_corto | Educación | no indicada | CHC30125 | https://www.chisholm.edu.au/students/international/international-courses
+Chisholm Institute | Diploma Of Early Childhood Education And Care | diplomado | Educación | no indicada | CHC50125 | https://www.chisholm.edu.au/students/international/international-courses
+Chisholm Institute | Bachelor of Engineering Technology - Mechatronics | bachelor | Ingeniería | no indicada | CRS1201286 | https://www.chisholm.edu.au/students/international/international-courses
+Chisholm Institute | Bachelor of Engineering Technology - Mechanical and Manufacturing | bachelor | Ingeniería | no indicada | CRS1201286 | https://www.chisholm.edu.au/students/international/international-courses
+Chisholm Institute | Bachelor Of Information Technology (Cyber Security) | bachelor | Tecnología | no indicada | CRS1401742 | https://www.chisholm.edu.au/students/international/international-courses
+Chisholm Institute | Diploma Of Nursing | diplomado | Enfermería | no indicada | HLT54121 | https://www.chisholm.edu.au/students/international/international-courses
+Chisholm Institute | Bachelor Of Psychology | bachelor | Psicología | no indicada | CRS1401150 | https://www.chisholm.edu.au/students/international/international-courses
+
+# --- Excelsia University College · TEQSA PRV12064 · CRICOS 02664K · excelsia.edu.au · Sidney, Australia ---
+Excelsia University College | Bachelor of Management and Entrepreneurship | bachelor | Negocios | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Bachelor of Information Technology | bachelor | Tecnología | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Bachelor of Business (Accounting) | bachelor | Negocios | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Bachelor of Dramatic Art | bachelor | Artes Escénicas | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Bachelor of Music | bachelor | Música | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Bachelor of Music (Worship) | bachelor | Música | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Bachelor of Screen Production | bachelor | Cine y Audiovisuales | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Bachelor of Early Childhood Education (Birth to 5 years) | bachelor | Educación | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Associate Degree of Dramatic Art | pregrado | Artes Escénicas | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Associate Degree of Music | pregrado | Música | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Certificate in Counselling | posgrado | Psicología | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Certificate in Disability | posgrado | Salud | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Certificate in Christian Leadership | posgrado | Teología | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Certificate in Classroom and Curriculum Innovation | posgrado | Educación | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Certificate in Educational Studies | posgrado | Educación | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Certificate in Organisational Leadership | posgrado | Negocios | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Certificate in Aged Care | posgrado | Salud | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Certificate in Social Science | posgrado | Ciencias Sociales | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Diploma of Counselling | posgrado | Psicología | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Diploma of Disability | posgrado | Salud | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Diploma of Business Administration | posgrado | Negocios | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Diploma of Early Childhood Teaching (Birth to 5 years) | posgrado | Educación | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Diploma of Music | posgrado | Música | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Diploma of Aged Care | posgrado | Salud | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Graduate Diploma of Social Science | posgrado | Ciencias Sociales | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Professional Accounting | maestria | Negocios | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Business Administration | mba | Negocios | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Business (Research) | maestria | Negocios | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Music | maestria | Música | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Counselling | maestria | Psicología | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Teaching (Primary) | maestria | Educación | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Teaching (Secondary) | maestria | Educación | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Educational Leadership (Online) | maestria | Educación | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Education Research (STEM) | maestria | Educación | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Education Research | maestria | Educación | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Master of Social Work (Qualifying) | maestria | Trabajo Social | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | Doctor of Philosophy (Organisational Leadership) | doctorado | Negocios | no indicada | - | https://excelsia.edu.au/study/
+Excelsia University College | English for Academic Purposes (EAP) | curso_corto | Idiomas | no indicada | - | https://excelsia.edu.au/study/elicos/
+Excelsia University College | General English (GE) | curso_corto | Idiomas | no indicada | - | https://excelsia.edu.au/study/elicos/
+
+# --- RCIIS · Study English in Canada · rciis.ca · Canada ---
+# Escuela de idiomas pura (ingles + frances). CERO diplomas vocacionales, al contrario de lo que dice la ficha. Ver NOTAS.
+RCIIS | Advanced Discussion | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | English for Academic Purposes (EAP) | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | ESL Foundation | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | IELTS & Academic Fluency | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | PACE English: Prepare, Apply, Communicate, Explore | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Power Speaking Pre-Intermediate | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Power Speaking Intermediate | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Power Speaking High-Intermediate | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Power Speaking Pre-Advanced | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Pre-Academic 1 | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Pre-Academic 2 | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Pre-Academic 3 | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Pre-Academic 4 | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Afternoon Speaking (Upper) | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Business English | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Cafe English | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Customer Service & Job Preparation English | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | English Through Media | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | English Through Music | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Everyday Expressions | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Exploring Canadian Culture | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Grammar (Intermediate) | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | STAR Accent Reduction | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | STAR Intonation | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | Evening IELTS | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | French 1 | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | French 2 | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | French 3 | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+RCIIS | French 4: TEF Preparation | curso_corto | Idiomas | no indicada | - | https://rciis.ca/list-of-programs
+
+# --- Academique · CRICOS 03322B · RTO 32448 · academique.com.au · Southport, Gold Coast, Australia ---
+# El sitio NO publica los codigos nacionales por curso (solo el CRICOS del ELICOS). No se inventan.
+Academique | Certificate III in Individual Support | curso_corto | Salud | no indicada | - | https://www.academique.com.au/courses/aged-care/certificate-iii-in-individual-support/
+Academique | Certificate IV in Ageing Support | curso_corto | Salud | no indicada | - | https://www.academique.com.au/courses/aged-care/certificate-iv-in-ageing-support/
+Academique | Certificate IV in Business | curso_corto | Negocios | no indicada | - | https://www.academique.com.au/courses/business-and-management/certificate-iv-business/
+Academique | Diploma of Business | diplomado | Negocios | no indicada | - | https://www.academique.com.au/courses/business-and-management/diploma-of-business/
+Academique | Advanced Diploma of Business | diplomado | Negocios | no indicada | - | https://www.academique.com.au/courses/business-and-management/advanced-diploma-of-business/
+Academique | Diploma of Leadership and Management | diplomado | Negocios | no indicada | - | https://www.academique.com.au/courses/leadership-and-management/diploma-leadership-management/
+Academique | Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | - | https://www.academique.com.au/courses/leadership-and-management/advanced-diploma-of-leadership-and-management/
+Academique | Diploma of Human Resources Management | diplomado | Negocios | no indicada | - | https://www.academique.com.au/courses/human-resource-management/diploma-of-human-resources-management/
+Academique | Advanced Diploma of Management (Human Resources) | diplomado | Negocios | no indicada | - | https://www.academique.com.au/courses/human-resource-management/advanced-diploma-of-management-human-resources/
+Academique | Certificate III in Painting and Decorating | curso_corto | Construcción | no indicada | - | https://www.academique.com.au/courses/trades/certificate-iii-painting-decorating-2/
+Academique | Certificate III in Carpentry | curso_corto | Construcción | no indicada | - | https://www.academique.com.au/courses/trades/certificate-iii-in-carpentry/
+Academique | Certificate IV in Building & Construction | curso_corto | Construcción | no indicada | - | https://www.academique.com.au/courses/trades/certificate-iv-in-building-construction/
+Academique | ELICOS General English | curso_corto | Idiomas | 12 semanas por nivel (5 niveles) | 097218B | https://www.academique.com.au/courses/english/elicos-general-english/
+
+# --- Western Sydney University Sydney City Campus · city.westernsydney.edu.au · Australia ---
+# Campus operado con Navitas. Se excluye "Masters Qualifying Program with Business English" por estar marcado Discontinued.
+Western Sydney University Sydney City Campus | Bachelor of Accounting | bachelor | Negocios | no indicada | - | https://city.westernsydney.edu.au/courses/undergraduate
+Western Sydney University Sydney City Campus | Bachelor of Business | bachelor | Negocios | no indicada | - | https://city.westernsydney.edu.au/courses/undergraduate
+Western Sydney University Sydney City Campus | Bachelor of Communication | bachelor | Comunicación | no indicada | - | https://city.westernsydney.edu.au/courses/undergraduate
+Western Sydney University Sydney City Campus | Bachelor of Engineering (Honours) | bachelor | Ingeniería | no indicada | - | https://city.westernsydney.edu.au/courses/undergraduate
+Western Sydney University Sydney City Campus | Bachelor of Engineering Science | bachelor | Ingeniería | no indicada | - | https://city.westernsydney.edu.au/courses/undergraduate
+Western Sydney University Sydney City Campus | Bachelor of Health Science | bachelor | Salud | no indicada | - | https://city.westernsydney.edu.au/courses/undergraduate
+Western Sydney University Sydney City Campus | Bachelor of Information and Communications Technology | bachelor | Tecnología | no indicada | - | https://city.westernsydney.edu.au/courses/undergraduate
+Western Sydney University Sydney City Campus | Bachelor of Information Systems | bachelor | Tecnología | no indicada | - | https://city.westernsydney.edu.au/courses/undergraduate
+Western Sydney University Sydney City Campus | Bachelor of Social Science | bachelor | Ciencias Sociales | no indicada | - | https://city.westernsydney.edu.au/courses/undergraduate
+Western Sydney University Sydney City Campus | Master of Professional Accounting (Advanced) | maestria | Negocios | no indicada | - | https://city.westernsydney.edu.au/courses/postgraduate
+Western Sydney University Sydney City Campus | Master of Business Administration | mba | Negocios | no indicada | - | https://city.westernsydney.edu.au/courses/postgraduate
+Western Sydney University Sydney City Campus | Master of Health Science | maestria | Salud | no indicada | - | https://city.westernsydney.edu.au/courses/postgraduate
+Western Sydney University Sydney City Campus | Master of Information and Communications Technology | maestria | Tecnología | no indicada | - | https://city.westernsydney.edu.au/courses/postgraduate
+
+# --- Frances King School of English · acreditada British Council · francesking.com · Londres, UK ---
+Frances King School of English | General English | curso_corto | Idiomas | no indicada | - | https://francesking.com/courses/general-english-london/
+Frances King School of English | IELTS Examination Preparation | curso_corto | Idiomas | no indicada | - | https://francesking.com/courses/examination-preparation-london/
+Frances King School of English | 30+ English | curso_corto | Idiomas | no indicada | - | https://francesking.com/courses/30-english/
+Frances King School of English | 50+ English and Culture Programme | curso_corto | Idiomas | no indicada | - | https://francesking.com/courses/50-english-and-culture-programme/
+Frances King School of English | Express Barista Course | curso_corto | Hospitalidad | no indicada | - | https://francesking.com/courses/express-barista-course/
+Frances King School of English | Bildungsurlaub (Bildungszeit) | curso_corto | Idiomas | no indicada | - | https://francesking.com/courses/bildungsurlaub-bildungszeit-english-courses-in-london/
+Frances King School of English | Youth Mobility Scheme (YMS) English Course | curso_corto | Idiomas | no indicada | - | https://francesking.com/courses/yms/
+Frances King School of English | Family Programme | vacacional | Idiomas | no indicada | - | https://francesking.com/courses/family-programmes-london/
+Frances King School of English | Private Lessons (1-3 students) | curso_corto | Idiomas | no indicada | - | https://francesking.com/courses/one-to-one-courses-london/
+Frances King School of English | Christmas and New Year in London | vacacional | Idiomas | no indicada | - | https://francesking.com/courses/christmas-and-new-year-in-london/
+
+# --- Discover English · CRICOS 03262J · discoverenglish.vic.edu.au · Melbourne, Australia ---
+# El sitio NO publica CRICOS por curso, solo el del proveedor (03262J). Dominio corregido: el .com.au de la ficha esta en parking. Ver NOTAS.
+Discover English | General English | curso_corto | Idiomas | no indicada | - | https://www.discoverenglish.vic.edu.au/general-english
+Discover English | English for IELTS and Academic Purposes (EIAP) | curso_corto | Idiomas | no indicada | - | https://www.discoverenglish.vic.edu.au/eiap
+Discover English | Cambridge English B2 First | curso_corto | Idiomas | no indicada | - | https://www.discoverenglish.vic.edu.au/cambridge-b2-first
+Discover English | Cambridge English C1 Advanced | curso_corto | Idiomas | no indicada | - | https://www.discoverenglish.vic.edu.au/cambridge-c1-advanced
+Discover English | Cambridge English C2 Proficiency | curso_corto | Idiomas | no indicada | - | https://www.discoverenglish.vic.edu.au/cambridge-c2-pro
+Discover English | English + Demi-Pair | curso_corto | Idiomas | no indicada | - | https://www.discoverenglish.vic.edu.au/english-plus-demi-pair
+Discover English | English + Hotel Internship | curso_corto | Hospitalidad | no indicada | - | https://www.discoverenglish.vic.edu.au/english-plus-hotel-intership
+Discover English | English + Language Teaching Assistant | curso_corto | Educación | no indicada | - | https://www.discoverenglish.vic.edu.au/english-plus-teaching
+Discover English | Study Tours Programs | vacacional | Idiomas | no indicada | - | https://www.discoverenglish.vic.edu.au/study-tours-programs
+Discover English | Junior Holiday Program | vacacional | Idiomas | no indicada | - | https://www.discoverenglish.vic.edu.au/copy-of-study-tours-programs
+Discover English | Further Study (Pathway Program) | curso_corto | Preparación Universitaria | no indicada | - | https://discoverenglish.vic.edu.au/further-study/
+
+# --- Te Herenga Waka - Victoria University of Wellington · wgtn.ac.nz · Wellington, New Zealand ---
+# Pregrado
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Arts | bachelor | Humanidades | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Biomedical Science | bachelor | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Building Science | bachelor | Construcción | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Commerce | bachelor | Negocios | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Communication | bachelor | Comunicación | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Construction | bachelor | Construcción | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Design Innovation | bachelor | Diseño | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Environment and Society | bachelor | Medio Ambiente | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Global Studies | bachelor | Ciencias Políticas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Health | bachelor | Salud | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Music | bachelor | Música | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Politics | bachelor | Ciencias Políticas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Popular Music | bachelor | Música | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Psychology | bachelor | Psicología | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Bachelor of Science | bachelor | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+# Pre-grado / pathways
+Te Herenga Waka - Victoria University of Wellington | Diploma in Maoritanga / Tohu Maoritanga | diplomado | Estudios Culturales | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Diploma in University Studies (Pasifika Pathways) | diplomado | Preparación Universitaria | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Foundation Studies Programme | curso_corto | Preparación Universitaria | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+Te Herenga Waka - Victoria University of Wellington | Certificate in Deaf Studies | curso_corto | Estudios Culturales | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/undergraduate
+# Maestrias · Architecture and Design
+Te Herenga Waka - Victoria University of Wellington | Master of Architecture (by research) | maestria | Arquitectura | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Architecture (Professional) | maestria | Arquitectura | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Building Science | maestria | Construcción | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Building Science and Construction (Research) | maestria | Construcción | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Construction | maestria | Construcción | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Construction Law | maestria | Derecho | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Design (by research) | maestria | Diseño | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Design Innovation | maestria | Diseño | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Design Technology | maestria | Diseño | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Fine Arts (Creative Practice) | maestria | Artes | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Interior Architecture | maestria | Diseño | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Landscape Architecture | maestria | Arquitectura | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Urban and Regional Planning | maestria | Urbanismo | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of User Experience Design | maestria | Diseño | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+# Maestrias · Business
+Te Herenga Waka - Victoria University of Wellington | Executive MBA | mba | Negocios | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Actuarial Science | maestria | Matemáticas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Commerce | maestria | Negocios | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Global Business | maestria | Negocios | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Information Studies | maestria | Tecnología | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of International Trade | maestria | Negocios | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Professional Accounting | maestria | Negocios | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Professional Business Analysis | maestria | Negocios | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Public Management | maestria | Administración Pública | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Public Policy | maestria | Administración Pública | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+# Maestrias · Education, Health and Psychological Sciences
+Te Herenga Waka - Victoria University of Wellington | Master of Arts in Education (by research) | maestria | Educación | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Education | maestria | Educación | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Educational Psychology | maestria | Psicología | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Secondary School Leadership | maestria | Educación | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Teaching and Learning (Primary) | maestria | Educación | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Teaching and Learning (Secondary) | maestria | Educación | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Health | maestria | Salud | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Health Psychology | maestria | Psicología | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Health Research | maestria | Salud | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Nursing Practice | maestria | Enfermería | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Nursing Science | maestria | Enfermería | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Physical Activity and Hauora | maestria | Deporte | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Science by coursework and thesis (MSc) | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Science by thesis (MSc) | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+# Maestrias · Humanities and Social Sciences
+Te Herenga Waka - Victoria University of Wellington | Master of Applied Linguistics | maestria | Idiomas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Arts (120 points) | maestria | Humanidades | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Arts (Coursework) | maestria | Humanidades | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Communication | maestria | Comunicación | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Criminology | maestria | Ciencias Sociales | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Global Studies | maestria | Ciencias Políticas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Indigenous Studies | maestria | Estudios Culturales | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Intercultural Communication and Applied Translation | maestria | Idiomas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of International Relations | maestria | Ciencias Políticas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Linguistics | maestria | Idiomas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Migration Studies | maestria | Ciencias Sociales | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Museum and Heritage Studies | maestria | Artes | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Music | maestria | Música | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Musical Arts | maestria | Música | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Music Therapy | maestria | Música | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Philosophy, Politics and Economics | maestria | Humanidades | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Political Science | maestria | Ciencias Políticas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Strategic Studies | maestria | Ciencias Políticas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of TESOL | maestria | Idiomas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+# Maestrias · Law
+Te Herenga Waka - Victoria University of Wellington | Master of Laws | maestria | Derecho | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+# Maestrias · Science and Engineering
+Te Herenga Waka - Victoria University of Wellington | Master of Artificial Intelligence | maestria | Tecnología | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Computer Science | maestria | Tecnología | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Engineering by thesis | maestria | Ingeniería | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Engineering by thesis and coursework | maestria | Ingeniería | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Engineering Practice | maestria | Ingeniería | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Renewable Energy | maestria | Ingeniería | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Software Development | maestria | Tecnología | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Applied Statistics | maestria | Matemáticas | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Biomedical Science by coursework and thesis | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Biomedical Science by thesis | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Chemistry | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Climate Change Science and Policy | maestria | Medio Ambiente | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Clinical Immunology | maestria | Salud | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Clinical Research (by research) | maestria | Salud | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Conservation Biology | maestria | Medio Ambiente | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Data Science | maestria | Tecnología | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Development Studies | maestria | Ciencias Sociales | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Drug Discovery and Development | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Environmental Science | maestria | Medio Ambiente | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Environmental Studies | maestria | Medio Ambiente | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Marine Conservation | maestria | Medio Ambiente | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Meteorology | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Natural Hazard Science and Policy | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Science in Society | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+Te Herenga Waka - Victoria University of Wellington | Master of Space Science and Practice | maestria | Ciencias | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate/masters
+# Doctorado
+Te Herenga Waka - Victoria University of Wellington | Doctor of Philosophy (PhD) | doctorado | Multidisciplinar | no indicada | - | https://www.wgtn.ac.nz/study/programmes-courses/postgraduate
+
+# --- McKenzie College of Design · mckenzie.edu · Moncton, New Brunswick, Canada ---
+McKenzie College of Design | Visual Arts Foundation | curso_corto | Artes | 8 meses | - | https://www.mckenzie.edu/program/visual-arts-foundation
+McKenzie College of Design | Visual Communication Design | diplomado | Diseño | no indicada | - | https://www.mckenzie.edu/program/visual-communication-design
+McKenzie College of Design | Video Game Art | diplomado | Diseño | no indicada | - | https://www.mckenzie.edu/program/video-game-art
+McKenzie College of Design | TV & Game Animation | diplomado | Cine y Audiovisuales | no indicada | - | https://www.mckenzie.edu/program/tv-game-animation
+# McKenzie Language School (division de idiomas)
+McKenzie College of Design | English Skills Study (General English · 5 niveles) | curso_corto | Idiomas | no indicada | - | https://mckenzie.edu/language
+McKenzie College of Design | English for Academic Purposes | curso_corto | Idiomas | no indicada | - | https://mckenzie.edu/language
+McKenzie College of Design | IELTS, CELPIP and TOEFL Preparation | curso_corto | Idiomas | no indicada | - | https://mckenzie.edu/language
+McKenzie College of Design | One-on-One Private Lessons | curso_corto | Idiomas | no indicada | - | https://mckenzie.edu/language
+McKenzie College of Design | Creative Camps (8-15 anios) | vacacional | Artes | por semana | - | https://www.mckenzie.edu/creative-camps
+
+# --- Torrens University Australia · RTO 41343 · CRICOS 03389E · torrens.edu.au · Australia ---
+# La ficha nombra "William Blue College of Hospitality Management", MARCA RETIRADA absorbida por Torrens en 2017. Se cargan bajo Torrens los programas del area Hospitality. Ver NOTAS.
+Torrens University Australia | Diploma of Business (Hospitality and Tourism Management) | diplomado | Hospitalidad | no indicada | CRICOS 114738K | https://www.torrens.edu.au/courses/hospitality/hospitality-management
+Torrens University Australia | Associate Degree of Business (Hospitality and Tourism Management) | pregrado | Hospitalidad | no indicada | - | https://www.torrens.edu.au/courses/hospitality/associate-degree-of-business-hospitality-and-tourism-management
+Torrens University Australia | Bachelor of Business (Hospitality and Tourism Management) | bachelor | Hospitalidad | no indicada | CRICOS 113665H | https://www.torrens.edu.au/courses/hospitality/bachelor-of-business-hospitality-and-tourism-management
+Torrens University Australia | Diploma of Business (International Hotel Management) | diplomado | Hospitalidad | 1 anio full time / 2 anios part time | CRICOS 119195G | https://www.torrens.edu.au/courses/hospitality/diploma-of-business-international-hotel-management
+Torrens University Australia | Bachelor of Business (International Hotel Management) | bachelor | Hospitalidad | 3 anios full time / 6 anios part time | CRICOS 119193J | https://www.torrens.edu.au/courses/hospitality/bachelor-of-business-international-hotel-and-resort-management
+
+# RESUMEN: instituciones=10 con_programas=10 total_programas=242 sin_catalogo=0
+
+# NOTAS:
+# Chisholm Institute · cantidad_aprox de la auditoria (~20 areas / cientos de cursos) corresponde al catalogo DOMESTICO, que incluye aprendizajes/traineeships solo para residentes. El sitio publica una seccion International separada (/students/international/international-courses) con SOLO 10 cursos vendibles: eso es lo que se cargo. La brecha 10 vs "cientos" es esperada, no un fallo de extraccion. Los codigos CRS* son codigos internos de curso de Chisholm (los de Higher Education), no codigos del Training Package; los CHC/HLT si son nacionales. La ficha original traia puede_vender VACIO y tipo_adivinado "curso_corto": ambos incorrectos, el TAFE llega a bachelor.
+# Torrens University Australia · la ficha nombra "William Blue College of Hospitality Management", una MARCA RETIRADA (absorbida por Torrens en 2017; la URL de la ficha apuntaba a /about/our-heritage/). Se carga bajo el nombre real "Torrens University Australia". Ojo: Torrens NO es un holding, es una universidad real con 7 areas de estudio (Design, Health, Business, Hospitality, Technology, Education, Higher Degrees by Research) · aqui solo se extrajo el area Hospitality (5 programas, incluidos los 2 de Blue Mountains International Hotel Management School/BMIHMS, otra marca de Torrens). El resto del catalogo Torrens queda SIN extraer y merece su propio lote. La pagina /courses/hospitality de la ficha devuelve una plantilla vacia ("No results were found") · el listado real esta en /courses/hospitality/hospitality-management.
+# RCIIS · CONFIRMADO el error de la ficha: category="College Privado" y puede_vender="Vocacionales (Cert, Dip, Adv Dip)" son FALSOS. Es escuela de idiomas pura (ingles + frances), cero diplomas vocacionales, ningun codigo oficial de programa. Se listaron 29 programas unicos (el sitio los repite por franja horaria manana/tarde/noche: EAP y Pre-Academic 1-4 aparecen dos veces; se deduplicaron). ONLINE-ONLY (no sirven para visa): French 2, French 3 y French 4: TEF Preparation se ofrecen SOLO en modalidad "Teacher-led Online". Otros 12 programas tienen doble modalidad (presencial + online) y si sirven presencialmente. El sitio no publica duracion por programa.
+# Excelsia University College · 39 programas extraidos vs ~50 de la auditoria. La diferencia es que la pagina /study/professional-development/ NO lista cursos propios: reexpone los mismos Graduate Certificates ya cargados (verificado en /study/short-courses/), asi que no se duplicaron. Operacion activa, sin avisos de cierre. ONLINE: "Master of Educational Leadership (Online)" es 100% online segun el propio nombre del programa · no sirve para visa de estudiante.
+# Discover English · dominio CORREGIDO y confirmado: el sitio vivo es discoverenglish.vic.edu.au (el .com.au de la ficha esta en parking DNS). 11 programas. El sitio NO publica CRICOS por curso, solo el del proveedor (03262J) · no se inventaron codigos por programa.
+# Te Herenga Waka - Victoria University of Wellington · nombre CORREGIDO con el prefijo maori. Dominio wgtn.ac.nz (no victoria.ac.nz). Se cargaron 103 filas: 15 bachelors + 4 pathways pre-grado + 83 maestrias + PhD. Las maestrias salieron del listado completo por facultad en /study/programmes-courses/postgraduate/masters. Se deduplicaron las que aparecen en dos facultades (Construction Law, International Trade, Fine Arts Creative Practice, MSc). NO se cargaron los ~100 "subjects" (majors/minors internos de cada bachelor) ni los honours/PgDip/PgCert por subject: son especializaciones dentro de un grado, no productos vendibles independientes, y sus listados viven detras de una app JS que no renderiza.
+# Academique · 13 cursos vs ~16-18 de la auditoria. La diferencia probable son variantes de los mismos codigos. El sitio NO publica los codigos nacionales por curso (solo el CRICOS 097218B del ELICOS y el CRICOS de proveedor 03322B) · no se inventaron. Ciudad real: Southport, Gold Coast (la ficha la traia null).
+# Western Sydney University Sydney City Campus · dominio corregido al subdominio city.westernsydney.edu.au. Campus operado con Navitas como socio. Se EXCLUYO "Masters Qualifying Program with Business English" por estar marcado explicitamente como Discontinued. 13 programas (9 UG + 4 PG) vs ~14 de la auditoria: cuadra si se cuenta el discontinuado.
+# Frances King School of English · 10 cursos vs ~12 de la auditoria. Las 2 que faltan son "Business English" y "Academic Year", que en el sitio actual NO son cursos independientes sino opciones dentro de 30+ English y del calendario de General English respectivamente · no se cargaron como filas propias para no inventar productos.
+# McKenzie College of Design · nombre CORREGIDO (la ficha decia solo "Mckenzie College" y puede_vender "Idiomas", cuando el producto principal son 4 programas de diseno). La division de idiomas tiene marca propia (McKenzie Language School, mckenzie.edu/language). El sitio publica duraciones solo del Visual Arts Foundation (8 meses); los 3 diplomas no las publican en la web actual pese a que la auditoria vio "10 meses" · se dejo "no indicada" en vez de arrastrar el dato viejo.

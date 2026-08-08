@@ -1,0 +1,146 @@
+[
+ {
+  "institucion_ficha": "Douglas College",
+  "nombre_real": "Douglas College",
+  "dominio": "douglascollege.ca",
+  "url_programas": "https://www.douglascollege.ca/programs-and-courses",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert, Post-Degree Cert, Dip, Post-Bacc Dip, Associate, Bachelor, Grad Dip",
+  "cantidad_aprox": "100+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Ciudad de la ficha mal: los campus son New Westminster y Coquitlam (Metro Vancouver), no Vancouver ciudad",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Swinburne University",
+  "nombre_real": "Swinburne University of Technology",
+  "dominio": "www.swinburne.edu.au",
+  "url_programas": "https://www.swinburne.edu.au/courses/find-a-course",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "VET/Cert/Dip, Associate, Bachelor, Grad Cert/Dip, Master, PhD, ELICOS, cursos cortos",
+  "cantidad_aprox": "cientos (17 areas de estudio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Nombre en ficha incompleto (\"of Technology\" falta). Catalogo es buscador dinamico con filtros, no una lista plana: la extraccion posterior necesita pa",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "France Langue",
+  "nombre_real": "Les ateliers FL – IH Paris, Nice Massena, Bordeaux, Biarritz, Lyon",
+  "dominio": "sejour.fl-france.fr",
+  "url_programas": "sin catalogo unico · paginas por audiencia: /adultes/, /kids-juniors/, /francais-professionnel/, /groupes/, /au-pair/, /fl-online-school/, /examens/",
+  "pais": "France",
+  "ciudad": "Paris, Nice, Lyon, Martinique, Bordeaux, Biarritz",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas todos los niveles + DELF/DALF/TCF + frances profesional + junior/surf camp + au pair + online",
+  "cantidad_aprox": "~15-20",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REBRAND: la marca actual es \"Les ateliers FL\"; \"France Langue\" aparece 1 sola vez en toda la home. Ficha lista Martinique pero el sitio solo opera 5 s",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "WILLIAM ANGLISS",
+  "nombre_real": "William Angliss Institute (ABN 66266583978 · RTO 3045 · CRICOS 01505M · TEQSA PRV12153)",
+  "dominio": "www.angliss.edu.au",
+  "url_programas": "https://www.angliss.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificate, Diploma, Advanced Diploma y Bachelor (TAFE + grados)",
+  "cantidad_aprox": "~20 secciones de catalogo (Foods, Tourism, Hospitality, Events, Hotel Management)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el nombre de la ficha esta en MAYUSCULAS SOSTENIDAS y le falta \"Institute\" · campus en Melbourne (555 La Trobe St) Y SYDNEY, la ficha solo registra Me",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "AICOL",
+  "nombre_real": "Australian International College Of Language",
+  "dominio": "aicol.com.au",
+  "url_programas": "https://aicol.com.au/english-courses-to-study-aicol/",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "ELICOS A2-C2, Cambridge, IELTS, PTE, kids",
+  "cantidad_aprox": "~12+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "solo idiomas",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Worldwide Internships",
+  "nombre_real": "Worldwide Internships",
+  "dominio": "worldwideinternships.org",
+  "url_programas": "https://worldwideinternships.org/hospitalidad/ y /negocios/",
+  "pais": "International",
+  "ciudad": "Varias",
+  "puede_vender": [
+   "Internships",
+   "Internships"
+  ],
+  "niveles_vistos": "Solo pasantias (Hospitalidad 9 destinos, Negocios 3 destinos)",
+  "cantidad_aprox": "~12",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Trebas",
+  "nombre_real": "Trebas Institute Quebec Inc.",
+  "dominio": "trebas.com",
+  "url_programas": "https://www.trebas.com/programs/",
+  "pais": "Canada",
+  "ciudad": "Montreal",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma / ACS (sin grados)",
+  "cantidad_aprox": "~10",
+  "veredicto_auditoria": "corregir",
+  "alerta": "grupo GUS confirmado (infra guscancolleges.ca) · solo campus Montreal · ficha dice \"Todos los programas\" pero NO hay grados ni idiomas, solo diplomas ",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Strathfield College",
+  "nombre_real": "Strathfield College Pty Ltd T/A Strathfield College — ABN 85 168 435 667, RTO 91223, CRICOS 02736K",
+  "dominio": "www.strathfieldcollege.edu.au",
+  "url_programas": "https://www.strathfieldcollege.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "VET: Certificate -> Diploma -> Advanced Diploma + Graduate Studies. Areas: Automotive, Building & Construction, Cookery & Hospitality Management, Business, Leadership & Management, Marketing & Communication, IT, Graduate Studies",
+  "cantidad_aprox": "8 areas (cursos individuales dentro de cada una)",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`sitio` sin protocolo en la ficha. `ciudad: null` -> 2 campus: Sydney (Surry Hills, no Strathfield pese al nombre) y Melbourne (Lonsdale St). Catalogo",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "Cardiff University",
+  "nombre_real": "Cardiff University International Study Centre",
+  "dominio": "isc.cardiff.ac.uk",
+  "url_programas": "https://isc.cardiff.ac.uk/programmes",
+  "pais": "UK",
+  "ciudad": "Gales",
+  "puede_vender": [
+   "Foundation & Pre master"
+  ],
+  "niveles_vistos": "Foundation, Accelerated Foundation, International Year One, Pre-Master's, ingles",
+  "cantidad_aprox": "~4 pathways + 4 pre-courses",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio NO es Cardiff University (seria cardiff.ac.uk): es el International Study Centre operado por Study Group (\"Maintained by Study Group\" en el",
+  "_est": 4
+ }
+]

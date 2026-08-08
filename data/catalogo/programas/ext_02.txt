@@ -1,0 +1,635 @@
+# Lote 02 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Anglia Ruskin University (ARU) · aru.ac.uk · UK ---
+# Pregrado (excluidos apprenticeships · ver NOTAS)
+Anglia Ruskin University (ARU) | BSc (Hons) Accounting and Finance | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BA (Hons) Acting | bachelor | Artes Escénicas | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Agriculture | bachelor | Agricultura | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Agriculture with Business | bachelor | Agricultura | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Animal Management (Pet Behaviour and Welfare) | bachelor | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Animal Management (Zoo and Wildlife Conservation) | bachelor | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Animal Science | bachelor | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Animal Therapy, Rehabilitation and Performance | bachelor | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BA (Hons) Animation and Illustration | bachelor | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Applied Computer Science | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Applied Computer Science (Top-up) | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Applied Psychology | bachelor | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Applied Sport Science | bachelor | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Applied Sport Science and Coaching (Top Up) | bachelor | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BA (Hons) Architecture | bachelor | Arquitectura | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Artificial Intelligence | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Artificial Intelligence and Data Science | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Audio and Music Technology | bachelor | Música | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Audiology Top-up | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Banking, Finance and Fintech | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Biology | bachelor | Ciencias | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BEng (Hons) Biomedical Engineering | bachelor | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Biomedical Science | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Biomedical Sciences | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Building Surveying | bachelor | Construcción | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Business and Financial Management | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Business and Human Resource Management | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Business and Law | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Business and Management | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate
+Anglia Ruskin University (ARU) | BSc (Hons) Business and Tourism Management | bachelor | Turismo | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Economics | bachelor | Economía | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Management | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Management (West Anglia) | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Management and Business Analytics | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Management and Digital Marketing | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Management and Entrepreneurship and Innovation | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Management and Events | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Management and Finance | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Management and Human Resource Management | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business Management and Tourism | bachelor | Turismo | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Business, Hospitality and Events Management | bachelor | Hospitalidad | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Canine Therapy, Rehabilitation and Performance | bachelor | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | MVetPhys Canine Veterinary Physiotherapy | bachelor | Veterinaria | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BEng (Hons) Civil Engineering | bachelor | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | LLB (Hons) Commercial Law | bachelor | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BA (Hons) Computer Games Art | bachelor | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BA (Hons) Computer Games Design | bachelor | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Computer Games Programming | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Computer Networking | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BEng (Hons) Computer Science | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Computer Science | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Computing | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Conservation and Community Engagement | bachelor | Medio Ambiente | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Construction Management | bachelor | Construcción | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=2
+Anglia Ruskin University (ARU) | BSc (Hons) Construction Site Management | bachelor | Construcción | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | DipHE Counselling (Child and Young Person) | diplomado | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Counselling and Psychotherapy (Top-Up) | bachelor | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Creative Writing | bachelor | Letras | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BSc (Hons) Crime and Investigative Studies | bachelor | Criminología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Criminology | bachelor | Criminología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Criminology and Policing | bachelor | Criminología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BSc (Hons) Criminology and Sociology | bachelor | Criminología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BSc (Hons) Cyber Security | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BSc (Hons) Cyber Security and Digital Forensics | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BSc (Hons) Cyber Security and Forensic Computing | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BSc (Hons) Digital Marketing | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Digital Marketing and Management | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BSc (Hons) Digital Media Production | bachelor | Comunicación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BSc (Hons) Dispensing Optician | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BSc (Hons) Dispensing Optician Registerable Award | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Drama | bachelor | Artes Escénicas | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Drama and English Literature | bachelor | Artes Escénicas | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Drama and Film | bachelor | Artes Escénicas | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Early Childhood Studies (Graduate Practitioner) | bachelor | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | FdA Early Years and Education | diplomado | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | FdA Early Years and Education (Distance Learning) | diplomado | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=3
+Anglia Ruskin University (ARU) | BA (Hons) Education with Inclusive Practice | bachelor | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) Education with Sustainability | bachelor | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BEng (Hons) Electronic and Electrical Engineering | bachelor | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | MEng (Hons) Electronic and Electrical Engineering | bachelor | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) English | bachelor | Letras | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) English Language and Communication | bachelor | Letras | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) English Literature | bachelor | Letras | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BSc (Hons) Equine Business Management | bachelor | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BSc (Hons) Equine Science | bachelor | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BSc (Hons) Equine Therapy, Rehabilitation and Performance | bachelor | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | MVetPhys Equine Veterinary Physiotherapy | bachelor | Veterinaria | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BSc (Hons) Events Management | bachelor | Hospitalidad | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BSc (Hons) Exercise and Health Science | bachelor | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) Fashion Design | bachelor | Moda | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) Film | bachelor | Cine y Audiovisuales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) Film and Media | bachelor | Cine y Audiovisuales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) Film and Television Production | bachelor | Cine y Audiovisuales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BSc (Hons) Finance and Accounting | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BSc (Hons) Finance with Economics | bachelor | Economía | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) Fine Art | bachelor | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BSc (Hons) Forensic Science | bachelor | Ciencias | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BSc (Hons) Game Design and Development | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) Game Design and Digital Art | bachelor | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | Graduate Diploma Nursing (Adult) | posgrado | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | Graduate Diploma Nursing (Children) | posgrado | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | Graduate Diploma Nursing (Mental Health) | posgrado | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=4
+Anglia Ruskin University (ARU) | BA (Hons) Graphic Design | bachelor | Diseño | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) Health and Social Care | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | FdSc Hearing Aid Audiology | diplomado | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | University Certificate Hearing Care Assistant | curso_corto | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) Hearing Sciences (Top-Up) | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BA (Hons) History | bachelor | Humanidades | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BA (Hons) History and English | bachelor | Humanidades | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) Horticulture | bachelor | Agricultura | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) Human Resource Management | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BA (Hons) Illustration | bachelor | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) Integrated Health and Social Care | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BA (Hons) Interior Design | bachelor | Diseño | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) International Business & Artificial Intelligence | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) International Business (Top-Up) | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) International Business Management | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) International Nursing Studies (Top-Up) | bachelor | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | LLB (Hons) Law | bachelor | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | LLB (Hons) Law with Business Management | bachelor | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | LLB (Hons) Law with Business | bachelor | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | LLB (Hons) Law with Criminal Justice | bachelor | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | LLB (Hons) Law with Criminology | bachelor | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | LLB (Hons) Law with Politics and International Relations | bachelor | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | LLB (Hons) Law with Sociology | bachelor | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BA (Hons) Liberal Arts | bachelor | Humanidades | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) Management and Leadership in Health and Social Care (Top-Up) | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | BSc (Hons) Marketing | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=5
+Anglia Ruskin University (ARU) | MEng (Hons) Mechanical Engineering | bachelor | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BEng (Hons) Mechanical Engineering | bachelor | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | MEng (Hons) Mechatronics and Robotics Engineering | bachelor | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BEng (Hons) Mechatronics and Robotics Engineering | bachelor | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BSc (Hons) Medical Science | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | MBChB Medicine | bachelor | Medicina | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BSc (Hons) Midwifery | bachelor | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BA (Hons) Montessori Early Childhood Studies | bachelor | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BA (Hons) Music Performance | bachelor | Música | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BA (Hons) Music Production | bachelor | Música | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BA (Hons) Musical Theatre | bachelor | Artes Escénicas | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | MNurs Nursing (Adult and Children) | bachelor | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | MNurs Nursing (Adult and Mental Health) | bachelor | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BSc (Hons) Nursing (Adult) | bachelor | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | MNurs Nursing (Children and Mental Health) | bachelor | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BSc (Hons) Nursing (Children) | bachelor | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BSc (Hons) Nursing (Mental Health) | bachelor | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BSc (Hons) Operating Department Practice (ODP) | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | MOptom Optometry | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BOst Osteopathy | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | MOst Osteopathy | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BSc (Hons) Paramedic Science | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BSc (Hons) Pharmaceutical Science | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BA (Hons) Philosophy | bachelor | Humanidades | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BA (Hons) Philosophy and English Literature | bachelor | Humanidades | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=6
+Anglia Ruskin University (ARU) | BA (Hons) Photography | bachelor | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Policing and Criminology | bachelor | Criminología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BA (Hons) Politics and International Relations | bachelor | Ciencias Políticas | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BA (Hons) Primary Education Studies | bachelor | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BEd (Hons) Primary Education with Qualified Teacher Status (QTS) | bachelor | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Psychology | bachelor | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Psychology with Clinical Applications | bachelor | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Psychology with Criminology | bachelor | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Psychology with Education | bachelor | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BA (Hons) Psychosocial Studies | bachelor | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Public Health | bachelor | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Quantity Surveying | bachelor | Construcción | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BA (Hons) Social Work | bachelor | Servicios Sociales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BA (Hons) Sociology | bachelor | Ciencias Sociales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Software Development | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Software Engineering | bachelor | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Sport and Exercise Science | bachelor | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Sport Coaching and Physical Education | bachelor | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Sport Science for Health | bachelor | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Sport, Exercise and Health Science | bachelor | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=7
+Anglia Ruskin University (ARU) | BSc (Hons) Sports Therapy | bachelor | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=8
+Anglia Ruskin University (ARU) | BSc (Hons) Strategic Business and Project Management | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=8
+Anglia Ruskin University (ARU) | BSc (Hons) Strength and Conditioning with Rehabilitation | bachelor | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=8
+Anglia Ruskin University (ARU) | BSc (Hons) Supply Chain Management and International Business | bachelor | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=8
+Anglia Ruskin University (ARU) | MVetPhys Veterinary Physiotherapy | bachelor | Veterinaria | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=8
+Anglia Ruskin University (ARU) | BA (Hons) Working with Children, Families and Communities | bachelor | Servicios Sociales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=8
+Anglia Ruskin University (ARU) | BA (Hons) Writing and English Literature | bachelor | Letras | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=8
+Anglia Ruskin University (ARU) | BA (Hons) Writing and Film | bachelor | Letras | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=8
+Anglia Ruskin University (ARU) | BSc (Hons) Zoology | bachelor | Ciencias | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Undergraduate&page=8
+# Posgrado ARU
+Anglia Ruskin University (ARU) | MSc Accounting and Finance | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Accounting and Financial Management | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Advanced Biomedical Science | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Advanced Clinical Practitioner | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Advanced Critical Care Practitioner | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Advanced Policing Practice | maestria | Criminología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Advanced Practice | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | Agribusiness MBA | mba | Agricultura | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Animal Behaviour Applications for Conservation | maestria | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Animal Welfare and Conservation | maestria | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Applied Artificial Intelligence | maestria | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Applied Bioscience | maestria | Ciencias | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Applied Data Science (Conversion) | maestria | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MA Applied Linguistics and TESOL | maestria | Idiomas | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Applied Professional Practice | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Applied Wildlife Conservation | maestria | Medio Ambiente | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MArch Architecture | maestria | Arquitectura | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MA Art, Health and Wellbeing | maestria | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Artificial Intelligence | maestria | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Automation and Robotics | maestria | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | Banking and Finance MBA | mba | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Biomedical Science | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Biotechnology | maestria | Ciencias | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Brand Management | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Business Data Analytics | maestria | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MA Chaplaincy and Pastoral Care | maestria | Teología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Chartered Town Planner | maestria | Arquitectura | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MSc Child and Adolescent Mental Wellbeing | maestria | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MA Children's Book Illustration | maestria | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MA Christian Spirituality East and West | maestria | Teología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate
+Anglia Ruskin University (ARU) | MA Christian Theology and the Contemporary World | maestria | Teología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Clinical Applications of Psychology | maestria | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Clinical Child Psychology | maestria | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Clinical Nursing | maestria | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Cognitive and Clinical Neuroscience | maestria | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | PG Dip Community Specialist Practitioner (District Nursing) | posgrado | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Computer Science | maestria | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Conservation Education and Engagement | maestria | Medio Ambiente | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Construction and Civil Engineering Management | maestria | Construcción | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Construction Project Management | maestria | Construcción | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MA Contemporary Ethics | maestria | Humanidades | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | PG Dip Continuing Healthcare | posgrado | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Core Concepts in Robotic Surgery | maestria | Medicina | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MA Creative Writing | maestria | Letras | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MA Creative Writing and Publishing | maestria | Letras | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MA Criminology | maestria | Criminología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | PG Cert Critical Care | posgrado | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Crop Production | maestria | Agricultura | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Cyber Security | maestria | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | Digital Marketing MBA | mba | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Digital Transformation and Public Value | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MA Dramatherapy | maestria | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | PG Dip Education | posgrado | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MA Education | maestria | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | Educational Leadership and Management MBA | mba | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Electronic and Electrical Engineering | maestria | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | PG Cert Embedded Computing on Arm | posgrado | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MSc Engineering Management | maestria | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MA English Literature | maestria | Letras | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | Entrepreneurship MBA | mba | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=2
+Anglia Ruskin University (ARU) | MA Environmental Justice and Sustainability | maestria | Medio Ambiente | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc Equine Performance Science | maestria | Ciencias Animales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MA Film and Television Production | maestria | Cine y Audiovisuales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc Finance and Financial Technologies | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MA Fine Art | maestria | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | FinTech and Data Analytics MBA | mba | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc Forensic Science | maestria | Ciencias | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MA Games Development (Art) | maestria | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc Games Development (Programming) | maestria | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MPH Global Public Health | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MA Graphic Design | maestria | Diseño | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc Healthcare Leadership and Management | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc Healthcare Management | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | Healthcare Management MBA | mba | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc Higher Midwifery Practice | maestria | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MA History | maestria | Humanidades | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc Human Anatomy | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MA Human Resource Management | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MA Illustration | maestria | Artes | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc Information and Communication Technology (Conversion) | maestria | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MA Intercultural Communication | maestria | Comunicación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc International Business | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | LLM International Business and Commercial Law | maestria | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc International Business Management | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc International Business with Business Analytics | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc International Business with Economics | maestria | Economía | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc International Business with Innovation and Technology Management | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc International Business with Sustainability | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MA International Development | maestria | Ciencias Sociales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | MSc International Hospitality and Tourism Management | maestria | Hospitalidad | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=3
+Anglia Ruskin University (ARU) | LLM International Human Rights and Criminal Justice | maestria | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | LLM International Law | maestria | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc International Logistics and Supply Chain Management | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc International Marketing | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc International Project Management | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MA International Relations | maestria | Ciencias Políticas | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc International Social Welfare and Social Policy | maestria | Ciencias Sociales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | LLM Law | maestria | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | LLM Law with International Business | maestria | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | LLM Law, Technology and Artificial Intelligence | maestria | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | PG Cert Learning and Teaching in Higher Education (non FHEA) | posgrado | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Machine Learning | maestria | Tecnología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Marketing | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | Master of Business Administration MBA | mba | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | Master of Business Administration MBA - Health and Social Care | mba | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | Master of Business Administration MBA - International | mba | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MPH Master of Public Health | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Mechanical Engineering | maestria | Ingeniería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Medical and Healthcare Education | maestria | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Mental Health | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Molecular Microbiology | maestria | Ciencias | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MA Music Therapy | maestria | Música | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Occupational Therapy (Pre-Reg) | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MCh Oncoplastic Breast Surgery | maestria | Medicina | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Pharmaceutical Science | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Physician Associate | maestria | Medicina | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | MSc Physiotherapy (Pre-Reg) | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | PGCE Postgraduate Certificate in Education (PGCE) without QTS | posgrado | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | PG Dip Postgraduate Diploma Nursing (Adult) | posgrado | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | PG Dip Postgraduate Diploma Nursing (Children) | posgrado | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=4
+Anglia Ruskin University (ARU) | PG Dip Postgraduate Diploma Nursing (Mental Health) | posgrado | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | PG Cert Practice Educator (Social Work) | posgrado | Servicios Sociales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MCh Principles of Breast Oncoplasty | maestria | Medicina | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | PG Dip Professional Social Work Practice – Step Up to Social Work | posgrado | Servicios Sociales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Project Management | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | Project Management with Artificial Intelligence MBA | mba | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Psychology (Conversion) | maestria | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Psychology, Digital Marketing and Business | maestria | Psicología | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Public Health and Community Wellbeing | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Public Health Promotion | maestria | Salud | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Robotic Surgery (Simulation) | maestria | Medicina | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | PG Cert Simulation in Medical and Healthcare Education | posgrado | Educación | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MA Social Work | maestria | Servicios Sociales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MA Sociology | maestria | Ciencias Sociales | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | PG Dip Specialist Community Public Health Nursing (Health Visiting or School Nursing) | posgrado | Enfermería | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Sport and Exercise Psychology | maestria | Deporte | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | LLM SQE Professional Legal Practice | maestria | Derecho | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Surgical Care Practice | maestria | Medicina | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Sustainability | maestria | Medio Ambiente | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Sustainable Supply Chain Management | maestria | Negocios | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Town Planning | maestria | Arquitectura | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | Master of Surgery Urology | maestria | Medicina | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+Anglia Ruskin University (ARU) | MSc Veterinary Physiotherapy | maestria | Veterinaria | no indicada | - | https://aru.ac.uk/study/course-search?levelofstudy=Postgraduate&page=5
+# Doctorado ARU
+Anglia Ruskin University (ARU) | PhD | doctorado | Multidisciplinar | no indicada | - | https://aru.ac.uk/research/postgraduate-research
+Anglia Ruskin University (ARU) | MPhil | doctorado | Multidisciplinar | no indicada | - | https://aru.ac.uk/research/postgraduate-research
+Anglia Ruskin University (ARU) | DBA (Doctor of Business Administration) | doctorado | Negocios | no indicada | - | https://aru.ac.uk/research/postgraduate-research
+Anglia Ruskin University (ARU) | EdD (Doctor of Education) | doctorado | Educación | no indicada | - | https://aru.ac.uk/research/postgraduate-research
+Anglia Ruskin University (ARU) | DProf (Professional Doctorate) | doctorado | Multidisciplinar | no indicada | - | https://aru.ac.uk/research/postgraduate-research
+
+# --- UniApply · uniapply.com · sin catalogo propio (ver NOTAS) ---
+
+# --- Australian Health and Management Institute (AHMI) · ahmi.edu.au · Australia ---
+Australian Health and Management Institute (AHMI) | Certificate III in Painting and Decorating | curso_corto | Construcción | 52 semanas | CPC30620 | https://ahmi.edu.au/courses/trade
+Australian Health and Management Institute (AHMI) | Certificate III in Wall and Floor Tiling | curso_corto | Construcción | 52 semanas | CPC31320 | https://ahmi.edu.au/courses/trade
+Australian Health and Management Institute (AHMI) | Certificate III in Engineering - Fabrication Trade | curso_corto | Ingeniería | 52 semanas | MEM31925 | https://ahmi.edu.au/courses/trade
+Australian Health and Management Institute (AHMI) | Certificate III in Bricklaying and Blocklaying | curso_corto | Construcción | 94 semanas | CPC33020 | https://ahmi.edu.au/courses/trade
+Australian Health and Management Institute (AHMI) | Certificate III in Carpentry | curso_corto | Construcción | 104 semanas | CPC30220 | https://ahmi.edu.au/courses/trade
+Australian Health and Management Institute (AHMI) | Certificate III in Plumbing | curso_corto | Construcción | 94 semanas | CPC32420 | https://ahmi.edu.au/courses/trade
+Australian Health and Management Institute (AHMI) | Certificate IV in Plumbing and Services | curso_corto | Construcción | 52 semanas | CPC40920 | https://ahmi.edu.au/courses/trade
+Australian Health and Management Institute (AHMI) | Diploma of Building and Construction (Building) | diplomado | Construcción | 52 semanas | CPC50220 | https://ahmi.edu.au/courses/trade
+Australian Health and Management Institute (AHMI) | Advanced Diploma of Civil Construction Design | diplomado | Ingeniería | 94 semanas | RII60520 | https://ahmi.edu.au/courses/trade
+Australian Health and Management Institute (AHMI) | Certificate IV in Kitchen Management | curso_corto | Hospitalidad | 78 semanas | SIT40521 | https://ahmi.edu.au/courses/hospitality
+Australian Health and Management Institute (AHMI) | Diploma of Hospitality Management | diplomado | Hospitalidad | 52 semanas | SIT50422 | https://ahmi.edu.au/courses/hospitality
+Australian Health and Management Institute (AHMI) | Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | 52 semanas | SIT60322 | https://ahmi.edu.au/courses/hospitality
+Australian Health and Management Institute (AHMI) | Diploma of Leadership and Management | diplomado | Negocios | 52 semanas | BSB50420 | https://ahmi.edu.au/courses/management
+Australian Health and Management Institute (AHMI) | Advanced Diploma of Leadership and Management | diplomado | Negocios | 52 semanas | BSB60420 | https://ahmi.edu.au/courses/management
+Australian Health and Management Institute (AHMI) | Diploma of Business | diplomado | Negocios | 52 semanas | BSB50120 | https://ahmi.edu.au/courses/management
+Australian Health and Management Institute (AHMI) | Advanced Diploma of Business | diplomado | Negocios | 78 semanas | BSB60120 | https://ahmi.edu.au/courses/management
+Australian Health and Management Institute (AHMI) | Graduate Diploma of Management (Learning) | posgrado | Negocios | 104 semanas | BSB80120 | https://ahmi.edu.au/courses/management
+Australian Health and Management Institute (AHMI) | Certificate IV in Ageing Support | curso_corto | Salud | 52 semanas | CHC43015 | https://ahmi.edu.au/courses/health-community
+Australian Health and Management Institute (AHMI) | Certificate IV in Mental Health | curso_corto | Salud | 52 semanas | CHC43315 | https://ahmi.edu.au/courses/health-community
+Australian Health and Management Institute (AHMI) | Diploma of Mental Health | diplomado | Salud | 52 semanas | CHC53315 | https://ahmi.edu.au/courses/health-community
+Australian Health and Management Institute (AHMI) | Diploma of Community Services | diplomado | Servicios Sociales | 104 semanas | CHC52025 | https://ahmi.edu.au/courses/health-community
+Australian Health and Management Institute (AHMI) | Certificate III in Early Childhood Education and Care | curso_corto | Educación | 52 semanas | CHC30125 | https://ahmi.edu.au/courses/early-childhood
+Australian Health and Management Institute (AHMI) | Diploma of Early Childhood Education and Care | diplomado | Educación | 52 semanas | CHC50125 | https://ahmi.edu.au/courses/early-childhood
+Australian Health and Management Institute (AHMI) | Certificate III in Light Vehicle Mechanical Technology | curso_corto | Automotriz | 78 semanas | AUR30620 | https://ahmi.edu.au/courses/automotive
+Australian Health and Management Institute (AHMI) | Certificate IV in Automotive Mechanical Diagnosis | curso_corto | Automotriz | 26 semanas | AUR40226 | https://ahmi.edu.au/courses/automotive
+Australian Health and Management Institute (AHMI) | Diploma of Automotive Technology | diplomado | Automotriz | 52 semanas | AUR50216 | https://ahmi.edu.au/courses/automotive
+Australian Health and Management Institute (AHMI) | Diploma of Information Technology | diplomado | Tecnología | 104 semanas | ICT50220 | https://ahmi.edu.au/courses/information-technology
+Australian Health and Management Institute (AHMI) | Advanced Diploma of Information Technology | diplomado | Tecnología | 52 semanas | ICT60220 | https://ahmi.edu.au/courses/information-technology
+Australian Health and Management Institute (AHMI) | Provide First Aid (Includes CPR) | curso_corto | Salud | ~6 h e-learning + 4 h presencial | HLTAID011 | https://ahmi.edu.au/courses/short-courses
+Australian Health and Management Institute (AHMI) | Prepare to Work Safely in the Construction Industry (White Card) | curso_corto | Construcción | 6 horas | CPCWHS1001 | https://ahmi.edu.au/courses/short-courses
+
+# --- BROWNS English Language School · brownsenglish.edu.au · Australia ---
+BROWNS English Language School | Intensive General English | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/intensive-general-english/
+BROWNS English Language School | Advanced English Academic Practice | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/advanced-english-academic-practice/
+BROWNS English Language School | IELTS Exam Preparation | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/ielts-exam-preparation/
+BROWNS English Language School | Private Lessons | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/private-lessons/
+BROWNS English Language School | Study Tours | vacacional | Idiomas | no indicada | - | https://brownsenglish.edu.au/study-tours/
+BROWNS English Language School | Primary School Preparation | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/primary-school-preparation/
+BROWNS English Language School | High School Preparation | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/high-school-preparation/
+BROWNS English Language School | Holiday Program | vacacional | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/junior-holiday-program/
+BROWNS English Language School | Barista@BROWNS | curso_corto | Hospitalidad | no indicada | - | https://brownsenglish.edu.au/courses/baristabrowns/
+BROWNS English Language School | English + Demi Pair | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/english-demi-pair/
+BROWNS English Language School | English + Hotel/Resort Internship | curso_corto | Hospitalidad | no indicada | - | https://brownsenglish.edu.au/courses/english-hotel-resort-internship/
+BROWNS English Language School | English + Sports | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/english-sports/
+BROWNS English Language School | English + Volunteer | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/english-volunteer/
+BROWNS English Language School | English + Whale Conservation Volunteer | curso_corto | Idiomas | no indicada | - | https://brownsenglish.edu.au/courses/english-whale-conservation-volunteer/
+
+# --- Ravensbourne University London · ravensbourne.ac.uk · UK ---
+Ravensbourne University London | Access to Higher Education Diploma | curso_corto | Artes | 1 año | - | https://www.ravensbourne.ac.uk/study/access-higher-education-diploma
+Ravensbourne University London | BA (Hons) Animation | bachelor | Artes | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) 3D Animation | bachelor | Artes | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Games Art | bachelor | Artes | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Games Design | bachelor | Artes | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Games Development | bachelor | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Games Programming | bachelor | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Architecture | bachelor | Arquitectura | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Interior Architecture and Reuse | bachelor | Arquitectura | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Urban Landscape Architecture | bachelor | Arquitectura | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BEng (Hons) Architectural Design Engineering | bachelor | Ingeniería | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Business Management | bachelor | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Business Management with International Year One | bachelor | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Digital Marketing | bachelor | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Business (Top up) | bachelor | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Business for Creative Industries (Top up) | bachelor | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Entrepreneurship and Business Startup (Top up) | bachelor | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Business Computing | bachelor | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Computer Science | bachelor | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Computer Science with International Year One | bachelor | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Cyber Security | bachelor | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Advertising and Brand Design | bachelor | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Character Design & Concept Art | bachelor | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Digital Content Creation | bachelor | Comunicación | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Graphic Design | bachelor | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Illustration for Communication | bachelor | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Motion Graphics | bachelor | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Product Design | bachelor | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) UX UI User-Experience and User-Interface Design | bachelor | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Fashion | bachelor | Moda | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Fashion Promotion and Communication | bachelor | Moda | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Fashion Buying and Brand Management | bachelor | Moda | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BSc (Hons) Broadcast Engineering | bachelor | Ingeniería | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Digital Film Production | bachelor | Cine y Audiovisuales | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Digital Photography | bachelor | Artes | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Digital Television Production | bachelor | Cine y Audiovisuales | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Editing and Post Production | bachelor | Cine y Audiovisuales | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Music and Sound Production | bachelor | Música | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | BA (Hons) Multimedia and Broadcast Journalism | bachelor | Comunicación | no indicada | - | https://www.ravensbourne.ac.uk/study/undergraduate
+Ravensbourne University London | MArch Architecture: Master of Architecture | maestria | Arquitectura | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate
+Ravensbourne University London | MBA and MBA Specialist Pathways | mba | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/mba
+Ravensbourne University London | MBA with Industry Year | mba | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/mba-with-industry-year
+Ravensbourne University London | MSc Accounting and Finance | maestria | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-accounting-and-finance
+Ravensbourne University London | MSc Accounting and Finance with Industry Year | maestria | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-accounting-and-finance-with-industry-year
+Ravensbourne University London | MSc Engineering Management | maestria | Ingeniería | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-engineering-management
+Ravensbourne University London | MSc Engineering Management with Industry Year | maestria | Ingeniería | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-engineering-management-with-industry-year
+Ravensbourne University London | MSc Events Management | maestria | Hospitalidad | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-events-management
+Ravensbourne University London | MSc Events Management with Industry Year | maestria | Hospitalidad | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-events-management-with-industry-year
+Ravensbourne University London | MSc International Finance | maestria | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-international-finance
+Ravensbourne University London | MSc International Finance with Industry Year | maestria | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-international-finance-with-industry-year
+Ravensbourne University London | MA Luxury Brand Management | maestria | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/ma-luxury-brand-management
+Ravensbourne University London | MSc Project Management | maestria | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-project-management
+Ravensbourne University London | MSc Project Management with Industry Year | maestria | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-project-management-with-industry-year
+Ravensbourne University London | MSc Strategic Marketing and Analytics | maestria | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-strategic-marketing-and-analytics
+Ravensbourne University London | MSc Strategic Marketing and Analytics with Industry Year | maestria | Negocios | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-strategic-marketing-analytics-with-industry-year
+Ravensbourne University London | MSc Business and Data Analytics | maestria | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-business-and-data-analytics
+Ravensbourne University London | MSc Computer Science | maestria | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-computer-science
+Ravensbourne University London | MSc Cyber Security | maestria | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-cyber-security
+Ravensbourne University London | MSc Cyber Security Management | maestria | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-cyber-security-management
+Ravensbourne University London | MSc Information Technology Management | maestria | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-information-technology-management
+Ravensbourne University London | MSc Software Engineering | maestria | Tecnología | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-software-engineering
+Ravensbourne University London | MA Design Communication | maestria | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/ma-design-communication
+Ravensbourne University London | MA Design Management | maestria | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/ma-design-management
+Ravensbourne University London | MA/MFA Digital Photography | maestria | Artes | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/mamfa-digital-photography
+Ravensbourne University London | MA Illustration | maestria | Diseño | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/ma-illustration
+Ravensbourne University London | MA Fashion: Digital Futures | maestria | Moda | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/ma-fashion-digital-futures
+Ravensbourne University London | MBA Fashion: Business and Entrepreneurship | mba | Moda | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/mba-fashion-business-and-entrepreneurship
+Ravensbourne University London | MSc International Fashion Marketing | maestria | Moda | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/msc-international-fashion-marketing
+Ravensbourne University London | MA International Film and TV Business | maestria | Cine y Audiovisuales | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/ma-international-film-and-tv-business
+Ravensbourne University London | MA Screenwriting | maestria | Cine y Audiovisuales | no indicada | - | https://www.ravensbourne.ac.uk/study/postgraduate/ma-screenwriting
+
+# --- Long Island University · liu-international.com · USA ---
+Long Island University | Accounting (BS) | bachelor | Negocios | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Business Administration (BBA, BS) | bachelor | Negocios | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Economics (BA) | bachelor | Economía | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Entrepreneurship (BS) | bachelor | Negocios | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Fashion Merchandising (BS) | bachelor | Moda | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Finance (BS) | bachelor | Negocios | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Management (BS) | bachelor | Negocios | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Marketing (BS) | bachelor | Negocios | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Sports Communication & Marketing (BA) | bachelor | Comunicación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Sports Management (BS) | bachelor | Deporte | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Digital Arts and Design (BFA) | bachelor | Diseño | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Digital Game Design and Development (BFA) | bachelor | Tecnología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Media Arts (Digital Art & Design) (BA) | bachelor | Artes | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Music Technology, Entrepreneurship & Production (BFA) | bachelor | Música | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Adolescent Education: English (BS) | bachelor | Educación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Adolescent Education: Mathematics (BS) | bachelor | Educación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Adolescent Education: Social Studies (BS) | bachelor | Educación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Childhood/Early Childhood Education (BS) | bachelor | Educación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Childhood/Special Education (BS) | bachelor | Educación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Early Childhood Education/Special Education (BS) | bachelor | Educación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Biochemistry (BS) | bachelor | Ciencias | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Biology (BS) | bachelor | Ciencias | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Biomedical Science: Clinical Lab Science (BS) | bachelor | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Communication Science Disorders (BS) | bachelor | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Exercise Science and Wellness (BS) | bachelor | Deporte | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Health Education & Physical Education (BS) | bachelor | Deporte | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Health Sciences (BS) | bachelor | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Nursing (BS) | bachelor | Enfermería | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Pre-Pharmacy (PharmD) | bachelor | Salud | 6 años | - | https://www.liu-international.com/programs
+Long Island University | Psychology (BA) | bachelor | Psicología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Radiologic Technology (BS) | bachelor | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Respiratory Care (BS) | bachelor | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Social Work (BS) | bachelor | Servicios Sociales | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Speech Language Pathology and Audiology (BS) | bachelor | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Veterinary Technology (BS) | bachelor | Veterinaria | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Communications (BS) | bachelor | Comunicación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Criminal Justice (BA) | bachelor | Criminología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | English (BA) | bachelor | Letras | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Forensic Science (BS) | bachelor | Ciencias | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Global Studies (BA) | bachelor | Ciencias Sociales | no indicada | - | https://www.liu-international.com/programs
+Long Island University | International Relations & Diplomacy (BA) | bachelor | Ciencias Políticas | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Journalism (BFA) | bachelor | Comunicación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Political Science (BA) | bachelor | Ciencias Políticas | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Artificial Intelligence (BS) | bachelor | Tecnología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Computer Science (BS) | bachelor | Tecnología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Data Analytics (BS) | bachelor | Tecnología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Mathematics (BS) | bachelor | Ciencias | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Acting for Theatre, Film and Television (BFA) | bachelor | Artes Escénicas | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Applied Music (BA) | bachelor | Música | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Art (BFA) | bachelor | Artes | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Broadcasting (BFA) | bachelor | Comunicación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Film (BFA) | bachelor | Cine y Audiovisuales | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Film and Television (BFA) | bachelor | Cine y Audiovisuales | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Music (BS) | bachelor | Música | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Theatre Arts (BA, BFA) | bachelor | Artes Escénicas | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Vocal Performance (BM) | bachelor | Música | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Accountancy (MS) | maestria | Negocios | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Business Administration (MBA) | mba | Negocios | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Public Administration (MPA) | maestria | Ciencias Políticas | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Sports Management (MS) | maestria | Deporte | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Childhood/Special Education (MS) | maestria | Educación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Clinical Art Therapy & Counseling (MA) | maestria | Psicología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | School Counselor (MS) | maestria | Educación | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Behavior Analysis (MA) | maestria | Psicología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Biomedical Sciences (MS) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Clinical Laboratory Science (MS) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Clinical Mental Health Counseling (MS) | maestria | Psicología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Drug Regulatory Affairs (MS) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Exercise Science (MS) | maestria | Deporte | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Health Administration (MHA, MPA) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Marriage and Family Therapy (MS) | maestria | Psicología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Mental Health Counseling (MS) | maestria | Psicología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Nutrition (MS) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Pharmaceutics: Cosmetic Science (MS) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Pharmaceutics: Industrial Pharmacy (MS) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Pharmacology/Toxicology (MS) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Physician Assistant Studies (MS) | maestria | Medicina | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Psychology (MA) | maestria | Psicología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Public Health (MPH) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | School Psychology (MSED) | maestria | Psicología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Social Work (MSW) | maestria | Servicios Sociales | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Speech-Language Pathology (MS, MA) | maestria | Salud | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Creative Writing (MFA) | maestria | Letras | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Criminal Justice (MS) | maestria | Criminología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Artificial Intelligence (MS) | maestria | Tecnología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Computer Science (MS) | maestria | Tecnología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Data Analytics & Strategic Business Intelligence (MS) | maestria | Tecnología | no indicada | - | https://www.liu-international.com/programs
+Long Island University | Writing and Producing for Television (MFA) | maestria | Cine y Audiovisuales | no indicada | - | https://www.liu-international.com/programs
+
+# --- Tr4inright · tr4inright.edu.au · Australia ---
+Tr4inright | ELICOS – General English | curso_corto | Idiomas | no indicada | CRICOS 097896G | https://tr4inright.edu.au/general-english/
+Tr4inright | English For Academic Purposes (Levels 1 and 2) | curso_corto | Idiomas | no indicada | CRICOS 116805K | https://tr4inright.edu.au/english-for-academic-purposes-levels-1-and-2/
+Tr4inright | BSB40520 Certificate IV in Leadership and Management | curso_corto | Negocios | no indicada | BSB40520 · CRICOS 103992J | https://tr4inright.edu.au/bsb40520-certificate-iv-in-leadership-and-management/
+Tr4inright | BSB50420 Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 · CRICOS 104332D | https://tr4inright.edu.au/bsb50420-diploma-of-leadership-and-management/
+Tr4inright | BSB60420 Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB60420 · CRICOS 108423B | https://tr4inright.edu.au/bsb60420-advanced-diploma-of-leadership-and-management/
+Tr4inright | CPC30220 Certificate III in Carpentry | curso_corto | Construcción | no indicada | CPC30220 · CRICOS 104873H | https://tr4inright.edu.au/cpc30220-certificate-iii-in-carpentry/
+Tr4inright | CPC40120 Certificate IV in Building and Construction | curso_corto | Construcción | no indicada | CPC40120 · CRICOS 109004B | https://tr4inright.edu.au/cpc40120-certificate-iv-in-building-and-construction/
+Tr4inright | CPC50220 Diploma of Building and Construction (Building) | diplomado | Construcción | no indicada | CPC50220 · CRICOS 103754A | https://tr4inright.edu.au/cpc50220-diploma-of-building-and-construction/
+Tr4inright | RII60520 Advanced Diploma of Civil Construction Design | diplomado | Ingeniería | no indicada | RII60520 · CRICOS 114197A | https://tr4inright.edu.au/rii60520-advanced-diploma-of-civil-construction-design/
+Tr4inright | BSB80120 – Graduate Diploma of Management (Learning) | posgrado | Negocios | no indicada | BSB80120 · CRICOS 108697J | https://tr4inright.edu.au/bsb80120-graduate-diploma-of-management-learning/
+
+# --- ELSIS - English Language Schools · elsis.edu.au · Australia ---
+ELSIS - English Language Schools | General Intensive English (GIE) | curso_corto | Idiomas | 20 h/semana · 5 niveles (Elementary a Advanced) | - | https://elsis.edu.au/general-english/
+ELSIS - English Language Schools | English for Academic Purposes (EAP) | curso_corto | Idiomas | 20 h/semana · 2 niveles (Upper-intermediate y Advanced) | - | https://elsis.edu.au/eap/
+ELSIS - English Language Schools | English Study Tours in Australia | vacacional | Idiomas | 2 a 4 semanas | - | https://elsis.edu.au/study-tour/
+ELSIS - English Language Schools | Study Tour with Universities | intercambio | Idiomas | 9 semanas (5 EAP + 4 universidad) | - | https://elsis.edu.au/study-tour-with-universities/
+
+# --- Canadian ESL Centre · canadianeslcentre.com · Canada (London, Ontario) ---
+Canadian ESL Centre | ESL | curso_corto | Idiomas | 6 niveles | - | https://canadianeslcentre.com/programs/
+Canadian ESL Centre | TOEFL iBT | curso_corto | Idiomas | 3 niveles | - | https://canadianeslcentre.com/programs/
+Canadian ESL Centre | IELTS (General y Academic) | curso_corto | Idiomas | no indicada | - | https://canadianeslcentre.com/programs/ielts/
+Canadian ESL Centre | TOEIC | curso_corto | Idiomas | 6 niveles | - | https://canadianeslcentre.com/programs/
+
+# --- Acsenda School of Management · acsenda.com · Canada (Vancouver) ---
+Acsenda School of Management | Bachelor of Business Administration (BBA) | bachelor | Negocios | no indicada | - | https://acsenda.com/academic-programs/bachelor-of-business-administration/
+Acsenda School of Management | Bachelor of Hospitality Management (BHM) | bachelor | Hospitalidad | no indicada | - | https://acsenda.com/academic-programs/bachelor-of-hospitality-management/
+
+# RESUMEN: instituciones=10 con_programas=9 total_programas=552 sin_catalogo=1
+
+# NOTAS:
+# UniApply (uniapply.com) · 0 programas · NO ES UNA INSTITUCION. Confirmado en el propio sitio: es un
+#   marketplace/directorio de COLEGIOS EN INDIA (busqueda, comparacion, seguimiento de admisiones) mas un
+#   producto B2B para colegios ("Grow with UniApply"). No imparte ni un solo programa propio. El
+#   `cantidad_aprox` de "miles" de la auditoria contaba COLEGIOS LISTADOS DE TERCEROS, no programas
+#   vendibles. Recomendacion al revisor: sacarla del catalogo de instituciones; si acaso, tratarla como
+#   fuente de datos, nunca como proveedor.
+# Anglia Ruskin University (ARU) · 330 programas (182 pregrado + 143 posgrado + 5 doctorado). Coincide con
+#   "cientos" de la auditoria. Conteos verificados contra el propio buscador: el filtro Postgraduate
+#   declara 143 resultados y devolvi exactamente 143. En pregrado el buscador pagina 8 x 30 = 220 filas,
+#   de las que EXCLUI 34 apprenticeships (Degree/Higher Apprenticeship y estandares ocupacionales UK tipo
+#   "Data Analyst", "Emergency Contact Handler", "Police Constable", "Construction Site Supervisor"): son
+#   plazas con empleador britanico, un colombiano no puede matricularse. Ademas deduplique 4 filas que el
+#   buscador repite por campus (LLB Law, International Business Management, Mechanical Engineering, Social
+#   Work). Ojo tambien: quedan en posgrado 4 PG Dip/PG Cert de practica NHS/UK (Community Specialist
+#   Practitioner, Practice Educator, Step Up to Social Work, SQE) que en la practica tampoco son vendibles
+#   a internacionales — los deje en la lista pero marcarlos antes de publicar.
+# ELSIS · 4 programas vs 6 de la auditoria. La diferencia NO es un fallo de extraccion: de las 6 URLs que
+#   la auditoria conto, "study-pathways" es un acuerdo de admision con 18+ instituciones socias (direct
+#   entry / packaged), no un curso matriculable, y "english-workshops" son 8 talleres gratuitos de apoyo
+#   incluidos en la matricula, no un producto aparte. Los 4 que quedan si son vendibles. Confirmado
+#   ademas en el sitio lo que decia la alerta: 4 campus (Sydney, Melbourne, Brisbane, Adelaide) y ELSIS
+#   se declara "part of the ECA College" — la ficha esta desactualizada en ambas cosas.
+# AHMI · 30 programas vs ~28 de la auditoria (OK). Se confirma la alerta: pese al nombre "Health and
+#   Management", 9 de 30 son construccion/oficios y 3 automotriz; salud son solo 4. El indice /courses no
+#   lista cursos, hay que entrar a las 8 areas. Los codigos nacionales si vienen por curso (verificables);
+#   el CRICOS 03595K y el RTO 70252 son institucionales, no por programa.
+# BROWNS · 14 programas vs "15+" de la auditoria (OK). El sitio NO publica CRICOS por curso ni duraciones
+#   en el indice, por eso van todos con codigo "-". Confirmado que el www redirige al apex.
+# Ravensbourne University London · 70 programas (1 pre-degree + 38 pregrado + 31 posgrado). La auditoria
+#   puso "?" en cantidad. El /study y el "course search" solo muestran 7 areas tematicas; los cursos reales
+#   estan en /study/undergraduate y /study/postgraduate. En pre-degree el sitio solo publica el Access to
+#   HE Diploma — no hay Foundation ni International Foundation listados pese a que la ficha decia
+#   "Pre-degree". Confirmado que el nombre real lleva "London".
+# Long Island University · 88 programas (56 pregrado + 32 posgrado) via liu-international.com, que es el
+#   sitio al que redirige el agregador de la ficha. Es el catalogo para internacionales, no el catalogo
+#   completo de LIU (liu.edu tiene mas). Pre-Pharmacy (PharmD) lo marque `bachelor` porque se entra desde
+#   bachillerato aunque el titulo final sea doctoral — revisar si el producto prefiere otra cosa.
+# Tr4inright · 10 programas vs ~9 (OK). Es el mejor dato del lote en trazabilidad: es el unico que publica
+#   CRICOS POR CURSO ademas del codigo nacional. Confirmada la alerta: es un RTO vocacional CON ELICOS
+#   (2 de 10 son ingles), no un "curso_corto" suelto, y acepta internacionales.
+# Canadian ESL Centre · 4 programas (OK). Confirmada la alerta de ciudad: la direccion en el sitio es
+#   521 Village Green Ave, London, ONTARIO — corregir la ficha, no es Londres UK.
+# Acsenda School of Management · 2 programas (OK vs "2 grados"). Confirmado que se escribe AcSenda con C
+#   y que la ficha esta mal en dos cosas: no vende "Idiomas" (no tiene oferta de idiomas propia) y la
+#   oferta es 100% de grado. La BBA se cursa con 8 concentraciones (Real Estate Management, Accounting,
+#   Financial Management, International Business Management, Human Resources Management, Management
+#   Information Systems, Marketing Management, General Business Management) — no las abri como filas
+#   porque son menciones de un mismo titulo, pero sirven para afinar el matching por area.
+# Precios: AHMI, BROWNS, Tr4inright, Canadian ESL Centre y Acsenda publican tarifas en el sitio. No se
+#   transcribio ninguna, segun la regla. Tampoco fechas de inicio ni becas.
+# Mapeos de nivel que conviene que el revisor valide: FdA/FdSc (Foundation Degree britanico, 2 años de
+#   educacion superior) -> `diplomado`, NO `curso_corto`, porque no es un año pasarela sino un titulo
+#   sub-bachelor. Masters integrados de entrada directa desde bachillerato (MEng, MNurs, MVetPhys, MOptom,
+#   MOst, MBChB) -> `bachelor`, porque es la decision que toma un estudiante al salir del colegio.

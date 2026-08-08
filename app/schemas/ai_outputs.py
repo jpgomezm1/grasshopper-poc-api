@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional, List
 
 
@@ -35,6 +35,15 @@ class GeneratedRoute(BaseModel):
     why: str
     what_it_looks_like: str
     next_step: str
+    # De dónde salió la ruta · mismo patrón que JR-7 usó con las fortalezas.
+    # La clienta no sabía de dónde venía lo que el sistema le mostraba.
+    # Default vacío para no romper las rutas ya cacheadas ni el fallback.
+    evidence: List[str] = Field(default_factory=list)
+    # True = son las sugerencias estáticas, no una lectura de este perfil.
+    # Hasta ahora se presentaban idénticas a las personalizadas y el estudiante
+    # no podía distinguirlas · mismo criterio con el que se quitaron los
+    # percentiles inventados y el "encaja en tu presupuesto".
+    is_generic: bool = False
 
 
 class RouteSuggestionOutput(BaseModel):

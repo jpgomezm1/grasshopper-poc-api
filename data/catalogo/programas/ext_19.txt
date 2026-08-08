@@ -1,0 +1,498 @@
+# Lote 19 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Victoria University (vu.edu.au) ---
+Victoria University | Certificate III in Allied Health Assistance | curso_corto | Salud | no indicada | HLT33021 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Accounting | bachelor | Negocios | no indicada | BBAQ | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Accounting | diplomado | Negocios | no indicada | FNS50222 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Accounting and Bookkeeping | curso_corto | Negocios | no indicada | FNS40222 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Ageing Support | curso_corto | Salud | no indicada | CHC43015 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Alcohol and Other Drugs | curso_corto | Salud | no indicada | CHC43215 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Allied Health Assistance | curso_corto | Salud | no indicada | HLT43021 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Applied Information Technology | maestria | Tecnología | no indicada | NMIT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Applied Movement Sciences/Master of Physiotherapy | bachelor | Salud | no indicada | HCPT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Applied Music | bachelor | Artes | no indicada | ABAM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Applied Psychology (Clinical Psychology) | maestria | Psicología | no indicada | AMAL | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Applied Research | maestria | Investigación | no indicada | URAP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Applied Research | maestria | Investigación | no indicada | URAR | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Applied Teaching (Secondary Education) | maestria | Educación | no indicada | EMAT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Architectural Design | bachelor | Arquitectura | no indicada | NBAD | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Artificial Intelligence | maestria | Tecnología | no indicada | NMAI | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Artificial Intelligence | posgrado | Tecnología | no indicada | NTAI | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Arts | bachelor | Humanidades | no indicada | ABAB | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Barbering | curso_corto | Belleza y Estética | no indicada | SHB30516 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Beauty Services | curso_corto | Belleza y Estética | no indicada | SHB30121 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Beauty Therapy | diplomado | Belleza y Estética | no indicada | SHB50121 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Biomedical and Exercise Science | bachelor | Ciencias de la Salud | no indicada | HBES | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Biomedical Science | bachelor | Ciencias de la Salud | no indicada | HBBS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Biomedicine | bachelor | Ciencias de la Salud | no indicada | HBBM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Block Teaching | posgrado | Educación | no indicada | ETBL | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Block Teaching | posgrado | Educación | no indicada | EGBL | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Bricklaying and Blocklaying | curso_corto | Construcción | no indicada | CPC33020 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Building and Construction (Building) | diplomado | Construcción | no indicada | CPC50220 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Building and Construction Pre-apprenticeship | curso_corto | Construcción | no indicada | 22614VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Advanced Diploma of Building Design (Architectural) | diplomado | Arquitectura | no indicada | 22627VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Advanced Diploma of Building Surveying | diplomado | Construcción | no indicada | CPC60121 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Building Surveying | bachelor | Construcción | no indicada | NBBS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Building Surveying | posgrado | Construcción | no indicada | NTBS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Building Surveying | posgrado | Construcción | no indicada | NGBS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Business | bachelor | Negocios | no indicada | BBNS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Business | posgrado | Negocios | no indicada | BTBU | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Business | posgrado | Negocios | no indicada | BGAB | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Business (Enterprise) | diplomado | Negocios | no indicada | VDBE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Business Administration | posgrado | Negocios | no indicada | BTPF | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Business Administration | posgrado | Negocios | no indicada | BGPB | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Business Administration | mba | Negocios | no indicada | BMPF | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Business Administration (Global) | mba | Negocios | no indicada | BMAG | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Business Analytics | posgrado | Negocios | no indicada | BTBI | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Business Analytics | maestria | Negocios | no indicada | BMBU | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Cabinet Making and Timber Technology | curso_corto | Oficios | no indicada | MSF20322 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Cabinet Making and Timber Technology | curso_corto | Oficios | no indicada | MSF30322 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Carpentry | curso_corto | Construcción | no indicada | CPC30220 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Change Management | posgrado | Negocios | no indicada | BTCM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Child and Adolescent Mental Health | posgrado | Salud | no indicada | HTCH | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Child and Adolescent Mental Health | maestria | Salud | no indicada | HMCH | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Chiropractic Science | bachelor | Salud | no indicada | HBCS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Civil Construction | curso_corto | Construcción | no indicada | RII20720 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Civil Construction | curso_corto | Construcción | no indicada | RII40720 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Civil Construction Plant Operations | curso_corto | Construcción | no indicada | RII30820 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Clinical Coding | diplomado | Salud | no indicada | HLT50321 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Clinical Exercise Science and Rehabilitation | maestria | Salud | no indicada | AMEP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Commercial Cookery | curso_corto | Hospitalidad | no indicada | SIT30821 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Community Development | bachelor | Servicios Sociales | no indicada | ABCD | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Community Services | diplomado | Servicios Sociales | no indicada | CHC52025 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Construction Management | posgrado | Construcción | no indicada | NTCM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Construction Management | posgrado | Construcción | no indicada | NGCM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Construction Management | maestria | Construcción | no indicada | NMCM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Construction Management (Honours) | bachelor | Construcción | no indicada | NHCM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Construction Project Management | posgrado | Construcción | no indicada | NTCP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Cookery | curso_corto | Hospitalidad | no indicada | SIT20421 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Counselling | posgrado | Psicología | no indicada | AGPD | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Counselling | maestria | Psicología | no indicada | AMPE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Counselling Theory and Practice | posgrado | Psicología | no indicada | HTCP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Counselling Theory and Practice | posgrado | Psicología | no indicada | HGCP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Countering Violent Extremism | posgrado | Derecho | no indicada | LTCV | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Crime Prevention | posgrado | Derecho | no indicada | LTCP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Criminal Justice | bachelor | Derecho | no indicada | ABCJ | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Criminal Justice and Psychological Studies | bachelor | Derecho | no indicada | ABCY | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Criminology | bachelor | Derecho | no indicada | LBCR | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Criminology/Bachelor of Psychological Studies | bachelor | Derecho | no indicada | LBCP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Cyber Security | bachelor | Tecnología | no indicada | NBCS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Cyber Security | curso_corto | Tecnología | no indicada | 22603VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Cyber Security | diplomado | Tecnología | no indicada | VDCS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Cyber Security | posgrado | Tecnología | no indicada | NTCS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Cyber Security | posgrado | Tecnología | no indicada | NGCS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Data Analytics for Sport Performance | posgrado | Deporte | no indicada | STSP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Data Science | bachelor | Tecnología | no indicada | NBDS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Dermal Sciences | bachelor | Salud | no indicada | HBDS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Dietetics | maestria | Salud | no indicada | HMDT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Digital Construction Management | posgrado | Construcción | no indicada | NTDC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Digital Content Creation | posgrado | Comunicación | no indicada | ATDC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Digital Learning and Teaching | posgrado | Educación | no indicada | ATDI | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Disability Support | curso_corto | Salud | no indicada | CHC43121 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Drainage | curso_corto | Construcción | no indicada | CPC20720 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Course in EAL | curso_corto | Idiomas | no indicada | 22637VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate I in EAL (Access) | curso_corto | Idiomas | no indicada | 22638VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in EAL (Access) | curso_corto | Idiomas | no indicada | 22639VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in EAL (Access) | curso_corto | Idiomas | no indicada | 22640VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in EAL (Access) | curso_corto | Idiomas | no indicada | 22641VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in EAL (Employment) | curso_corto | Idiomas | no indicada | 22642VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in EAL (Employment) | curso_corto | Idiomas | no indicada | 22643VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in EAL (Further Study) | curso_corto | Idiomas | no indicada | 22645VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in EAL (Further Study) | curso_corto | Idiomas | no indicada | 22646VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Course in Initial EAL | curso_corto | Idiomas | no indicada | 22636VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Early Childhood Education | bachelor | Educación | no indicada | EBEC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Early Childhood Education | posgrado | Educación | no indicada | ETEC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Early Childhood Education | posgrado | Educación | no indicada | EGEC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Early Childhood Education and Care | curso_corto | Educación | no indicada | CHC30125 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Early Childhood Education and Care | diplomado | Educación | no indicada | CHC50125 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Early Childhood Education and Leadership | bachelor | Educación | no indicada | EBCL | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Education | posgrado | Educación | no indicada | ETED | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Education | posgrado | Educación | no indicada | EGED | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Education | maestria | Educación | no indicada | EMED | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Education (P-12) | bachelor | Educación | no indicada | EBED | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Education (Primary) | bachelor | Educación | no indicada | EBPE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Education Studies | bachelor | Educación | no indicada | EBST | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Education Studies | diplomado | Educación | no indicada | EDES | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Electrotechnology (Pre-vocational) | curso_corto | Ingeniería | no indicada | 22682VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Electrotechnology Electrician | curso_corto | Ingeniería | no indicada | UEE30820 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Emergency Health Care | diplomado | Salud | no indicada | HLT51020 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Emerging Technologies | curso_corto | Tecnología | no indicada | 22589VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Enabling Technologies | curso_corto | Tecnología | no indicada | 22588VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Engineering | curso_corto | Ingeniería | no indicada | MEM40119 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Engineering (Honours) (Civil Engineering) | bachelor | Ingeniería | no indicada | NHEC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Engineering (Honours) (Electrical and Electronic Engineering) | bachelor | Ingeniería | no indicada | NHEE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Engineering (Honours) (Mechanical Engineering) | bachelor | Ingeniería | no indicada | NHEM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Engineering - Fabrication Trade | curso_corto | Ingeniería | no indicada | MEM31925 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Engineering - Mechanical Trade | curso_corto | Ingeniería | no indicada | MEM30219 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Engineering Studies | curso_corto | Ingeniería | no indicada | 22632VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | English for Academic Purposes (EAP) | curso_corto | Idiomas | no indicada | VNELI | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | General English | curso_corto | Idiomas | no indicada | VNGEN | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Enterprise and Resource Planning Systems | posgrado | Tecnología | no indicada | BTEN | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Enterprise Resource Planning | maestria | Tecnología | no indicada | BMEN | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Event Management | diplomado | Hospitalidad | no indicada | SIT50322 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Exercise and Sport Science | bachelor | Deporte | no indicada | SBEC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Finance | posgrado | Negocios | no indicada | BTFF | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Financial Planning | posgrado | Negocios | no indicada | BTFP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Financial Planning | posgrado | Negocios | no indicada | BGFP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Financial Planning | maestria | Negocios | no indicada | BMFP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Foundations at VU | curso_corto | Preparación Universitaria | no indicada | JYAC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | International Foundations at VU | curso_corto | Preparación Universitaria | no indicada | JQAG | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate I in General Education for Adults (Introductory) | curso_corto | Educación | no indicada | 22689VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate I in General Education for Adults | curso_corto | Educación | no indicada | 22690VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in General Education for Adults | curso_corto | Educación | no indicada | 22691VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in General Education for Adults | curso_corto | Educación | no indicada | 22692VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Global Health Leadership | posgrado | Salud | no indicada | HTGL | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Global Public Health | posgrado | Salud | no indicada | HTGP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Global Public Health | maestria | Salud | no indicada | HMGP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Hairdressing | curso_corto | Belleza y Estética | no indicada | SHB30416 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Health Administration | curso_corto | Salud | no indicada | HLT37315 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Health Administration | curso_corto | Salud | no indicada | HLT47321 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Health Promotion | posgrado | Salud | no indicada | HTHP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Health Science | bachelor | Salud | no indicada | HBHL | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Health Services Assistance | curso_corto | Salud | no indicada | HLT33115 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Hospitality | curso_corto | Hospitalidad | no indicada | SIT20322 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Hospitality | curso_corto | Hospitalidad | no indicada | SIT30622 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Associate Degree in Hospitality and Hotel Management | pregrado | Hospitalidad | no indicada | VAHH | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT60322 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT50422 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Kitchen Management | curso_corto | Hospitalidad | no indicada | SIT40521 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Patisserie | curso_corto | Hospitalidad | no indicada | SIT31021 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Human Nutrition | bachelor | Salud | no indicada | HBNT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Individual Support | curso_corto | Salud | no indicada | CHC33021 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Information Technology | bachelor | Tecnología | no indicada | NBIT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Information Technology | curso_corto | Tecnología | no indicada | ICT30120 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Information Technology | curso_corto | Tecnología | no indicada | ICT40120 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Information Technology | diplomado | Tecnología | no indicada | VDIT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Information Technology (Professional) | bachelor | Tecnología | no indicada | NBIP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Information Technology Project Management | posgrado | Tecnología | no indicada | NTIP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in International Community Development | posgrado | Servicios Sociales | no indicada | ATID | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in International Community Development | posgrado | Servicios Sociales | no indicada | AGID | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of International Community Development | maestria | Servicios Sociales | no indicada | AMCD | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws | bachelor | Derecho | no indicada | BLAW | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws (Graduate Entry) | bachelor | Derecho | no indicada | BLGE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws (Honours) | bachelor | Derecho | no indicada | LHLW | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws (Honours) (Graduate Entry) | bachelor | Derecho | no indicada | LHGE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws (Honours)/Bachelor of Arts | bachelor | Derecho | no indicada | LHWA | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws (Honours)/Bachelor of Business | bachelor | Derecho | no indicada | LHWB | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws (Honours)/Bachelor of Criminology | bachelor | Derecho | no indicada | LHCR | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws (Honours)/Bachelor of Psychology (Honours) | bachelor | Derecho | no indicada | LHWP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws/ Bachelor of Criminology | bachelor | Derecho | no indicada | LBLC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws/Bachelor of Arts | bachelor | Derecho | no indicada | LBLA | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws/Bachelor of Business | bachelor | Derecho | no indicada | LBWB | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Laws/Bachelor of Psychological Studies | bachelor | Derecho | no indicada | LBWP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Legal Services | bachelor | Derecho | no indicada | LBLS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Legal Services | curso_corto | Derecho | no indicada | BSB40620 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Paralegal Services | diplomado | Derecho | no indicada | BSB50720 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Migration Law | posgrado | Derecho | no indicada | LGML | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Leadership and Management | curso_corto | Negocios | no indicada | BSB40520 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Marketing | posgrado | Negocios | no indicada | BTKM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Marketing | maestria | Negocios | no indicada | BMKT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Mental Health | curso_corto | Salud | no indicada | CHC43315 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Mental Health | posgrado | Salud | no indicada | HTMH | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Mental Health | maestria | Salud | no indicada | HMMH | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Mental Health Nursing | posgrado | Salud | no indicada | HTMN | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Mental Health Nursing | posgrado | Salud | no indicada | HGMN | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Mental Health Nursing | maestria | Salud | no indicada | HMMN | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Midwifery/Bachelor of Nursing | bachelor | Salud | no indicada | HBMA | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Non-Emergency Patient Transport | curso_corto | Salud | no indicada | HLT31120 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Nursing | bachelor | Salud | no indicada | HBNB | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Nursing | diplomado | Salud | no indicada | HLT54121 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Nursing | posgrado | Salud | no indicada | HTNG | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Nursing | maestria | Salud | no indicada | HMNG | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Nursing Informatics Leadership | posgrado | Salud | no indicada | HTNI | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Nutritional Science/Master of Dietetics | bachelor | Salud | no indicada | HCND | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | OSCE Preparation Program for Nurses | curso_corto | Salud | no indicada | JQPN | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Outdoor Education and Environmental Science | bachelor | Ciencias Ambientales | no indicada | SBOE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Outdoor Leadership | bachelor | Deporte y Recreación | no indicada | SBOL | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Paramedicine | bachelor | Salud | no indicada | HBPD | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Performance-Based Building & Fire Codes | posgrado | Construcción | no indicada | ETQB | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Doctor of Philosophy | doctorado | Investigación | no indicada | UPAD | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Doctor of Philosophy | doctorado | Investigación | no indicada | UPAF | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Doctor of Philosophy (Integrated) | doctorado | Investigación | no indicada | UPAE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Doctor of Philosophy (Integrated) | doctorado | Investigación | no indicada | UPAG | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Research | maestria | Investigación | no indicada | URRE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Research | maestria | Investigación | no indicada | URRS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Physical Education and Sport Science | bachelor | Deporte | no indicada | SBPH | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Physiotherapy | maestria | Salud | no indicada | HMPS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Plumbing | curso_corto | Construcción | no indicada | CPC32420 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Plumbing (Pre-apprenticeship) | curso_corto | Construcción | no indicada | 22701VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Plumbing and Services | curso_corto | Construcción | no indicada | CPC40920 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Professional Accounting | maestria | Negocios | no indicada | BMAQ | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Professional Psychology | maestria | Psicología | no indicada | HMPP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Project Management | diplomado | Negocios | no indicada | BSB50820 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Project Management | posgrado | Negocios | no indicada | NTPM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Diploma in Project Management | posgrado | Negocios | no indicada | NGPM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Project Management | maestria | Negocios | no indicada | NMPM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Psychological Studies | bachelor | Psicología | no indicada | ABPA | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Psychological Studies (Honours) | bachelor | Psicología | no indicada | AHPA | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Psychological Studies/Bachelor of Business | bachelor | Psicología | no indicada | ABPB | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Psychology (Honours) | bachelor | Psicología | no indicada | ABPC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Public Health | posgrado | Salud | no indicada | HTPT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Public Health | maestria | Salud | no indicada | HMPT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Remedial Massage | diplomado | Salud | no indicada | HLT52021 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in School Based Education Support | curso_corto | Educación | no indicada | CHC40225 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Science | bachelor | Ciencias | no indicada | NBSC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Science (Honours) | bachelor | Ciencias | no indicada | HHSC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Science (Osteopathy)/Master of Health Science (Osteopathy) | bachelor | Salud | no indicada | HCOP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Science/Master of Teaching (Secondary Education) | bachelor | Educación | no indicada | ECST | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Screen Media | bachelor | Comunicación | no indicada | ABSN | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate III in Signs and Graphics | curso_corto | Artes | no indicada | CPC30216 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Social Work | bachelor | Servicios Sociales | no indicada | ABSW | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Speech and Language Sciences/Master of Speech Pathology | bachelor | Salud | no indicada | HCSP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Speech Pathology | maestria | Salud | no indicada | HMST | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Sport | diplomado | Deporte | no indicada | SIS50321 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Sport and Exercise Science | maestria | Deporte | no indicada | SMES | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Sport Management | bachelor | Deporte | no indicada | SBSM | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Sport Management/Bachelor of Business | bachelor | Deporte | no indicada | SBSB | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Sport Science | bachelor | Deporte | no indicada | SBSA | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Sport Science (Human Movement)/Bachelor of Psychological Studies | bachelor | Deporte | no indicada | SBHP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Sport Science (Human Movement)/Bachelor of Sport Management | bachelor | Deporte | no indicada | SBHS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Strength and Conditioning | posgrado | Deporte | no indicada | STSA | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Supply Chain Management | posgrado | Negocios | no indicada | BTSP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Supply Chain Management | maestria | Negocios | no indicada | BMSU | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Sustainable Construction Management | posgrado | Construcción | no indicada | NTSC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Teacher Education Preparation | diplomado | Educación | no indicada | 22602VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Teaching (Primary Education) | maestria | Educación | no indicada | EMPE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Master of Teaching (Secondary Education) | maestria | Educación | no indicada | EMES | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Tertiary Preparation | curso_corto | Preparación Universitaria | no indicada | 22710VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Training and Assessment | curso_corto | Educación | no indicada | TAE40122 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate I in Transition Education | curso_corto | Educación | no indicada | 22705VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Graduate Certificate in Transport Systems | posgrado | Ingeniería | no indicada | BTTS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Travel and Tourism Management | diplomado | Turismo | no indicada | SIT50122 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Architectural Design | curso_corto | Arquitectura | no indicada | NUAD | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Building Construction Management | curso_corto | Construcción | no indicada | NUBC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Diet and Health | curso_corto | Salud | no indicada | HUDH | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Digital Business Skills | curso_corto | Negocios | no indicada | VUDS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Early Childhood Education | curso_corto | Educación | no indicada | EUEC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Education (P12) STEM | curso_corto | Educación | no indicada | EUED | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Education Studies | curso_corto | Educación | no indicada | EUES | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Engineering Fundamentals | curso_corto | Ingeniería | no indicada | NUEF | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Health Science | curso_corto | Salud | no indicada | HUHS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Information Technology | curso_corto | Tecnología | no indicada | NUIT | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Interpersonal and Organisational Skills | curso_corto | Negocios | no indicada | HUIO | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Laser Safety | curso_corto | Salud | no indicada | HULS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Primary Physical Education | curso_corto | Educación | no indicada | SUPP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Psychological Studies | curso_corto | Psicología | no indicada | HUPS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Science and the Environment | curso_corto | Ciencias Ambientales | no indicada | NUSE | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Secondary Physical Education | curso_corto | Educación | no indicada | SUSP | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Undergraduate Certificate in Web Development and Programming | curso_corto | Tecnología | no indicada | VUWD | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate I in Work Education | curso_corto | Educación | no indicada | 22706VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate II in Work Education | curso_corto | Educación | no indicada | 22631VIC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Youth Work | bachelor | Servicios Sociales | no indicada | ABYW | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Certificate IV in Youth Work | curso_corto | Servicios Sociales | no indicada | CHC40421 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Diploma of Youth Work | diplomado | Servicios Sociales | no indicada | CHC50425 | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Youth Work and Criminal Justice | bachelor | Servicios Sociales | no indicada | ABYC | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+Victoria University | Bachelor of Youth Work/Bachelor of Sport Management | bachelor | Servicios Sociales | no indicada | EBYS | https://www.vu.edu.au/study-at-vu/courses/browse-study-areas/all-courses-a-to-z
+
+# --- Camosun College (camosun.ca) ---
+Camosun College | Business Administration Certificate | curso_corto | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration Diploma, Accounting Option | diplomado | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration Diploma, Finance Option | diplomado | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration Diploma, General Management Option | diplomado | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration Diploma, Marketing Option | diplomado | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Accounting & Finance Advanced Certificate | especializacion | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration, Bachelor's Degree - Accounting Major | bachelor | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration, Bachelor's Degree - Human Resource Management & Leadership Major | bachelor | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration, Bachelor's Degree - Marketing Major | bachelor | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration, Bachelor's Degree - Socially Responsible Management Major | bachelor | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration, Post Degree Diploma - Accounting Option | posgrado | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration, Post Degree Diploma - General Management Option | posgrado | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration, Post Degree Diploma - Human Resource Management & Leadership Option | posgrado | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration, Post Degree Diploma - Marketing Option | posgrado | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Business Administration, Post Degree Diploma - Socially Responsible Management Option | posgrado | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Bookkeeping Fundamentals Certificate | curso_corto | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Legal Administrative Professional Certificate | curso_corto | Derecho | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Medical Office Administration Certificate | curso_corto | Salud | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Office Administrative Professional Certificate | curso_corto | Negocios | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Associate of Arts Degree, Economics | pregrado | Economía | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Hospitality Management Certificate | curso_corto | Hospitalidad | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Hospitality Management Diploma | diplomado | Hospitalidad | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Applied Tourism & Hospitality, Post Degree Diploma | posgrado | Turismo | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Public Administration Certificate | curso_corto | Administración Pública | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Public Administration Diploma | diplomado | Administración Pública | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Sport Management, Diploma | diplomado | Deporte | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Sport Management, Bachelor's Degree | bachelor | Deporte | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Sport Management, Post Degree Diploma | posgrado | Deporte | no indicada | - | https://camosun.ca/business/business-programs
+Camosun College | Certified Medical Laboratory Assistant Certificate | curso_corto | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Diagnostic Medical Sonography Diploma | diplomado | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Diagnostic Medical Sonography Advanced Certificate | especializacion | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Medical Radiography Diploma | diplomado | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Bachelor's Degree in Athletic and Exercise Therapy | bachelor | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Health Care Assistant Certificate | curso_corto | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Health Care Assistant - ESL Certificate | curso_corto | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Practical Nursing Diploma | diplomado | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Community, Family & Child Studies Diploma | diplomado | Servicios Sociales | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Early Learning & Care Diploma | diplomado | Educación | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Education Assistant and Community Support Certificate | curso_corto | Educación | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Interprofessional Mental Health & Addictions Post-Degree Diploma | posgrado | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Mental Health & Addictions Certificate | curso_corto | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Certified Dental Assistant Certificate | curso_corto | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Dental Hygiene Diploma | diplomado | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Bachelor of Science in Dental Hygiene | bachelor | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Kinesiology Diploma | diplomado | Deporte | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Bachelor's Degree in Kinesiology | bachelor | Deporte | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Adventure Education Post-degree Diploma | posgrado | Deporte y Recreación | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Massage Therapy Diploma | diplomado | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Baccalaureate of Science in Nursing | bachelor | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Practical Nurse to Baccalaureate of Science in Nursing Bridge | bachelor | Salud | no indicada | - | http://camosun.ca/hshs/programs
+Camosun College | Engineering Transfer (First Year Engineering), Certificate | curso_corto | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Civil Engineering Technology Access, Certificate | curso_corto | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Civil Engineering Technology, Diploma | diplomado | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Civil Engineering Bridge to UBC, Advanced Diploma | especializacion | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Civil Engineering Bridge to UVic, Advanced Diploma | especializacion | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Mechanical Engineering Technology Access, Certificate | curso_corto | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | AutoCAD Graphics, Certificate | curso_corto | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Engineering Graphics Technician, Certificate | curso_corto | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Mechanical Engineering Technology, Diploma | diplomado | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Mechanical Engineering Bridge to UBC, Advanced Diploma | especializacion | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Mechanical Engineering Bridge to UVic, Advanced Diploma | especializacion | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Mining Engineering Bridge to UBC, Advanced Diploma | especializacion | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Electronics & Computer Engineering Access, Certificate | curso_corto | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Electronics & Computer Engineering Technology - Renewable Energy, Diploma | diplomado | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Electrical Engineering Technology—Marine & Industrial, Diploma | diplomado | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Electrical or Computer Engineering Bridge to UVic, Advanced Diploma | especializacion | Ingeniería | no indicada | - | https://camosun.ca/stem/engineering-programs
+Camosun College | Computer & Engineering Technician Access - Certificate | curso_corto | Tecnología | no indicada | - | http://camosun.ca/stem/computer-and-electronics-programs
+Camosun College | Information and Computer Systems Technician - Certificate | curso_corto | Tecnología | no indicada | - | http://camosun.ca/stem/computer-and-electronics-programs
+Camosun College | Information and Computer Systems Technologist - Diploma | diplomado | Tecnología | no indicada | - | http://camosun.ca/stem/computer-and-electronics-programs
+Camosun College | Interactive Media Developer Technician - Certificate | curso_corto | Tecnología | no indicada | - | http://camosun.ca/stem/computer-and-electronics-programs
+Camosun College | Interactive Media Developer Technologist - Diploma | diplomado | Tecnología | no indicada | - | http://camosun.ca/stem/computer-and-electronics-programs
+Camosun College | Cybersecurity and Network Support Technician, Certificate | curso_corto | Tecnología | no indicada | - | http://camosun.ca/stem/computer-and-electronics-programs
+Camosun College | Cybersecurity & Network Technology, Diploma | diplomado | Tecnología | no indicada | - | http://camosun.ca/stem/computer-and-electronics-programs
+Camosun College | Women in Technology Pathways, Certificate of Completion | curso_corto | Tecnología | no indicada | - | http://camosun.ca/stem/computer-and-electronics-programs
+Camosun College | Applied Chemistry and Biotechnology, Diploma | diplomado | Ciencias | no indicada | - | https://camosun.ca/stem/science-programs-and-courses
+Camosun College | Environmental Technology, Diploma | diplomado | Ciencias Ambientales | no indicada | - | https://camosun.ca/stem/science-programs-and-courses
+Camosun College | Biology, Associate of Science Degree | pregrado | Ciencias | no indicada | - | https://camosun.ca/stem/science-programs-and-courses
+Camosun College | General Science, Associate of Science Degree | pregrado | Ciencias | no indicada | - | https://camosun.ca/stem/science-programs-and-courses
+Camosun College | Archaeological Field Assistant, Certificate | curso_corto | Humanidades | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Arts and Science Studies, Diploma | diplomado | Humanidades | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Comics & Graphic Novels, Certificate | curso_corto | Artes | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Creative Writing, Certificate | curso_corto | Artes | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Criminal Justice, Diploma | diplomado | Derecho | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Digital Communication, Certificate | curso_corto | Comunicación | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Digital Content Creation, Certificate | curso_corto | Comunicación | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | English, Associate Degree | pregrado | Humanidades | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | General Arts, Associate Degree | pregrado | Humanidades | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Mental Health, Addictions, and Criminal Justice, Advanced Certificate | especializacion | Servicios Sociales | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Music Creativity & Performance Foundations, Certificate | curso_corto | Artes | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Music Performance, Diploma | diplomado | Artes | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Music Technologies, Certificate | curso_corto | Artes | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Pre-Social Work, Associate Degree | pregrado | Servicios Sociales | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Psychology, Associate Degree | pregrado | Psicología | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | Visual Arts, Diploma | diplomado | Artes | no indicada | - | http://camosun.ca/arts-access/arts-and-humanities
+Camosun College | University Transfer | curso_corto | Preparación Universitaria | no indicada | - | https://camosun.ca/programs-courses/university-transfer
+Camosun College | Indigenous Studies, Diploma | diplomado | Humanidades | no indicada | - | https://camosun.ca/international/programs-and-courses-international-students/pgwp-aligned-programs-international
+Camosun College | Horticulture Technician, Certificate | curso_corto | Agricultura | no indicada | - | https://camosun.ca/international/programs-and-courses-international-students/pgwp-aligned-programs-international
+Camosun College | Basic English as a Second Language, Certificate | curso_corto | Idiomas | no indicada | - | http://camosun.ca/arts-access/english-language-development-esl
+Camosun College | English for Academic Purposes, Certificate | curso_corto | Idiomas | no indicada | - | http://camosun.ca/arts-access/english-language-development-esl
+Camosun College | Academic Upgrading, Certificate | curso_corto | Preparación Universitaria | no indicada | - | http://camosun.ca/programs-courses/search
+Camosun College | Adult Graduation Diploma and College Prep | secundaria | Educación General | no indicada | - | http://camosun.ca/programs-courses/search
+Camosun College | Automotive Service Technician Foundation, Certificate | curso_corto | Oficios | no indicada | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+Camosun College | Heavy Mechanical Trades Foundation, Certificate | curso_corto | Oficios | 39 semanas | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+Camosun College | Carpentry Foundation, Certificate | curso_corto | Construcción | 25 semanas | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+Camosun College | Fine Furniture/Joinery Trades Foundation, Certificate | curso_corto | Oficios | no indicada | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+Camosun College | Professional Cook (Level 1 & 2), Certificate | curso_corto | Hospitalidad | no indicada | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+Camosun College | Electrical Foundation, Certificate | curso_corto | Construcción | no indicada | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+Camosun College | Plumbing and Pipe Trades Foundation, Certificate | curso_corto | Construcción | no indicada | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+Camosun College | Refrigeration and Air Conditioning Mechanic Foundation, Certificate | curso_corto | Oficios | no indicada | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+Camosun College | Sheet Metal and Metal Fabrication Foundation, Certificate | curso_corto | Oficios | no indicada | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+Camosun College | Welder Foundation, Certificate | curso_corto | Oficios | 28 semanas | - | https://camosun.ca/tips/trade-and-apprenticeship-programs
+
+# --- Hansa Language Centre (hansacanada.com) ---
+Hansa Language Centre | General English Program | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/es/english-courses/
+Hansa Language Centre | Exam Preparation (IELTS, TOEFL, CELPIP) | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/es/english-courses/
+Hansa Language Centre | Evening English Classes | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/es/english-courses/
+Hansa Language Centre | Private Classes | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/es/english-courses/
+Hansa Language Centre | Junior Program | vacacional | Idiomas | no indicada | - | https://hansacanada.com/es/english-courses/
+Hansa Language Centre | Online English Classes | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/es/english-courses/
+Hansa Language Centre | Arabic | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/language-programs/arabic/
+Hansa Language Centre | French | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/language-programs/french/
+Hansa Language Centre | German | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/language-programs/german/
+Hansa Language Centre | Italian | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/language-programs/italian/
+Hansa Language Centre | Japanese | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/language-programs/japanese/
+Hansa Language Centre | Korean | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/language-programs/korean/
+Hansa Language Centre | Mandarin | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/mandarin/
+Hansa Language Centre | Portuguese | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/language-programs/portuguese/
+Hansa Language Centre | Russian | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/russian/
+Hansa Language Centre | Spanish | curso_corto | Idiomas | no indicada | - | https://hansacanada.com/language-programs/spanish/
+
+# --- Sydney Institute of Interpreting and Translating (siit.nsw.edu.au) ---
+Sydney Institute of Interpreting and Translating | PSP50922 Diploma of Interpreting (NAATI Endorsed) | diplomado | Idiomas | 25 semanas (20 de clase + 5 de receso) | PSP50922 | https://siit.nsw.edu.au/diploma-of-interpreting/
+Sydney Institute of Interpreting and Translating | PSP50822 Diploma of Translating | diplomado | Idiomas | 52 semanas (40 de clase + 12 de receso) | PSP50822 | https://siit.nsw.edu.au/diploma-of-translating/
+Sydney Institute of Interpreting and Translating | PSP60922 Advanced Diploma of Interpreting (NAATI Endorsed) | diplomado | Idiomas | 52 semanas (40 de clase + 12 de receso) | PSP60922 | https://www.siit.nsw.edu.au/advanced-diploma-of-interpreting/
+Sydney Institute of Interpreting and Translating | PSP60822 Advanced Diploma of Translating (NAATI Endorsed) | diplomado | Idiomas | 52 semanas (40 de clase + 12 de receso) | PSP60822 | https://siit.nsw.edu.au/advance-diploma-of-translating/
+Sydney Institute of Interpreting and Translating | PSP60822 Advanced Diploma of Translating (CN) | diplomado | Idiomas | 52 semanas (40 de clase + 12 de receso) | PSP60822 | https://www.siit.nsw.edu.au/advance-diploma-of-translating-online/
+Sydney Institute of Interpreting and Translating | Graduate Diploma of Management | posgrado | Negocios | no indicada | - | https://siit.nsw.edu.au/
+Sydney Institute of Interpreting and Translating | Diploma of Finance and Mortgage Broking Management | diplomado | Negocios | no indicada | - | https://siit.nsw.edu.au/
+Sydney Institute of Interpreting and Translating | NAATI Pre-test Training Preparation Course | curso_corto | Idiomas | 2-4 semanas | - | https://siit.nsw.edu.au/naati-pre-test-training/
+Sydney Institute of Interpreting and Translating | PTE Intensive Training Camp / IELTS Training Camp | curso_corto | Idiomas | 2-3 semanas (8-15 horas) | - | https://siit.nsw.edu.au/pte-preparation/
+Sydney Institute of Interpreting and Translating | CCL Preparation - 4 Weeks Standard Course (Mandarin/Cantonese-English) | curso_corto | Idiomas | 4 semanas | - | https://siit.nsw.edu.au/ccl-test-training-preparation-course/
+Sydney Institute of Interpreting and Translating | CCL Preparation - 5 Weeks Standard Course (Korean/Vietnamese/Nepali/Arabic-English) | curso_corto | Idiomas | 5 semanas | - | https://siit.nsw.edu.au/ccl-test-training-preparation-course/
+Sydney Institute of Interpreting and Translating | CCL Preparation - 8 Weeks Premium Course | curso_corto | Idiomas | 8 semanas | - | https://siit.nsw.edu.au/ccl-test-training-preparation-course/
+
+# --- ALS College (alscollege.com.au) ---
+ALS College | General English | curso_corto | Idiomas | no indicada | - | https://alscollege.com.au/elicos-courses/
+ALS College | IELTS Preparation Course | curso_corto | Idiomas | no indicada | - | https://alscollege.com.au/elicos-courses/
+ALS College | Cambridge Exam Preparation | curso_corto | Idiomas | no indicada | - | https://alscollege.com.au/elicos-courses/
+ALS College | BSB30120 Certificate III in Business (Customer Engagement) | curso_corto | Negocios | no indicada | BSB30120 | https://alscollege.com.au/vocationalcourses/
+ALS College | BSB40120 Certificate IV in Business (Leadership) | curso_corto | Negocios | no indicada | BSB40120 | https://alscollege.com.au/vocationalcourses/
+ALS College | BSB50120 Diploma of Business | diplomado | Negocios | no indicada | BSB50120 | https://alscollege.com.au/vocationalcourses/
+ALS College | BSB50420 Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB50420 | https://alscollege.com.au/vocationalcourses/
+ALS College | BSB60120 Advanced Diploma of Business | diplomado | Negocios | no indicada | BSB60120 | https://alscollege.com.au/vocationalcourses/
+ALS College | BSB60420 Advanced Diploma of Leadership and Management | diplomado | Negocios | no indicada | BSB60420 | https://alscollege.com.au/vocationalcourses/
+ALS College | RII60520 Advanced Diploma of Civil Construction Design | diplomado | Construcción | no indicada | RII60520 | https://alscollege.com.au/vocationalcourses/
+
+# --- Etoile Institut / Etoile Groupe (etoilegroupe.com) ---
+Etoile Institut | Cours standards & Intensifs | curso_corto | Idiomas | no indicada | - | https://etoilegroupe.com/nos-programmes/
+Etoile Institut | Cours super-intensifs | curso_corto | Idiomas | no indicada | - | https://etoilegroupe.com/nos-programmes/cours-super-intensif/
+Etoile Institut | Cours privés | curso_corto | Idiomas | no indicada | - | https://etoilegroupe.com/nos-programmes/
+Etoile Institut | Cours combinés | curso_corto | Idiomas | no indicada | - | https://etoilegroupe.com/nos-programmes/cours-combines/
+Etoile Institut | Préparation DELF, DALF | curso_corto | Idiomas | no indicada | - | https://etoilegroupe.com/nos-programmes/
+Etoile Institut | Au pair | intercambio | Idiomas | no indicada | - | https://etoilegroupe.com/nos-programmes/
+Etoile Institut | Pathway – Préparation aux études supérieures | curso_corto | Preparación Universitaria | 24 semanas | - | https://etoilegroupe.com/nos-programmes/le-pathway/
+Etoile Institut | Cours préparatoire aux Grandes Écoles | curso_corto | Preparación Universitaria | no indicada | - | https://etoilegroupe.com/nos-programmes/la-prepa/
+Etoile Institut | Français et photographie | curso_corto | Idiomas | no indicada | - | https://etoilegroupe.com/nos-programmes/francais/
+
+# --- LANGUAGE ON Schools (languageonschools.com) ---
+LANGUAGE ON Schools | Curso Intensivo de Inglés | curso_corto | Idiomas | no indicada | - | https://languageonschools.com/es/nuestros-cursos/
+LANGUAGE ON Schools | Curso de Inglés Semi-Intensivo | curso_corto | Idiomas | no indicada | - | https://languageonschools.com/es/nuestros-cursos/
+LANGUAGE ON Schools | Curso de Inglés Online | curso_corto | Idiomas | no indicada | - | https://languageonschools.com/es/nuestros-cursos/
+LANGUAGE ON Schools | Clases Particulares y Corporativas | curso_corto | Idiomas | no indicada | - | https://languageonschools.com/es/nuestros-cursos/
+LANGUAGE ON Schools | Clases de Reducción de Acento de Inglés | curso_corto | Idiomas | no indicada | - | https://languageonschools.com/es/nuestros-cursos/
+LANGUAGE ON Schools | Curso de Inglés de Negocios | curso_corto | Idiomas | no indicada | - | https://languageonschools.com/es/nuestros-cursos/
+LANGUAGE ON Schools | Curso de Inglés para Familias | vacacional | Idiomas | no indicada | - | https://languageonschools.com/es/nuestros-cursos/
+LANGUAGE ON Schools | Preparación para TOEFL / IELTS | curso_corto | Idiomas | no indicada | - | https://languageonschools.com/es/nuestros-cursos/
+LANGUAGE ON Schools | English for Life Online | curso_corto | Idiomas | no indicada | - | https://languageonschools.com/es/nuestros-cursos/
+
+# --- Atlantic Canada Language Academy (studyatlantic.com) ---
+Atlantic Canada Language Academy | Pathway Program (In-Person) | curso_corto | Idiomas | 12 semanas mínimo · 20 lecciones/semana | - | https://studyatlantic.com/programs/
+Atlantic Canada Language Academy | Pathway Program (Online) | curso_corto | Idiomas | 12 semanas mínimo · 20 lecciones/semana | - | https://studyatlantic.com/programs/
+Atlantic Canada Language Academy | Online Pathway Program (Evening) | curso_corto | Idiomas | 12 semanas mínimo | - | https://studyatlantic.com/programs/
+Atlantic Canada Language Academy | Pre-Pathway (Online) | curso_corto | Idiomas | 12-24 semanas | - | https://studyatlantic.com/programs/
+Atlantic Canada Language Academy | General English | curso_corto | Idiomas | no indicada | - | https://studyatlantic.com/programs/
+Atlantic Canada Language Academy | English for the Workforce | curso_corto | Idiomas | no indicada | - | https://studyatlantic.com/programs/
+Atlantic Canada Language Academy | Family Program | vacacional | Idiomas | no indicada | - | https://studyatlantic.com/programs/
+Atlantic Canada Language Academy | Summer Camp & Young Learners | vacacional | Idiomas | no indicada | - | https://studyatlantic.com/programs/
+Atlantic Canada Language Academy | French and Spanish Programs | curso_corto | Idiomas | no indicada | - | https://studyatlantic.com/programs/
+
+# --- Worldwide School of English (worldwideschool.ac.nz) ---
+Worldwide School of English | General English | curso_corto | Idiomas | 20 horas/semana · inicio cualquier lunes | - | https://worldwideschool.ac.nz/courses/
+Worldwide School of English | Academic Exam Preparation | curso_corto | Idiomas | no indicada | - | https://worldwideschool.ac.nz/courses/
+Worldwide School of English | Groups | curso_corto | Idiomas | no indicada | - | https://worldwideschool.ac.nz/courses/
+Worldwide School of English | Further Studies | curso_corto | Idiomas | no indicada | - | https://worldwideschool.ac.nz/courses/
+Worldwide School of English | Evening Classes | curso_corto | Idiomas | no indicada | - | https://worldwideschool.ac.nz/courses/
+Worldwide School of English | Afternoon Options/Electives | curso_corto | Idiomas | no indicada | - | https://worldwideschool.ac.nz/courses/
+
+# RESUMEN: instituciones=9 con_programas=9 total_programas=465 sin_catalogo=0
+
+# NOTAS:
+# Victoria University · 283 extraidos vs "~400" de la auditoria. La brecha NO es subconteo de programas reales: la pagina A-Z lista cada titulacion DOS veces (version domestica y version "- International" con el MISMO codigo), lo que infla el conteo a ~400. Se dedupico y se conservo el nombre base — para un estudiante colombiano la variante relevante siempre es la "- International". Ademas se EXCLUYERON ~60 filas que no son programas vendibles a un internacional: skill sets acreditados (codigos *SS*: FNSSS00014, CHCSS00093, SITSS00068, PLUMLICSS1-7, UEESS00133/174), licencias y tutoriales de oficio australianos (Registered Electrical Contractor, Restricted Electrical Workers Licence Clase 1/2, Domestic Builders Limited, Basic Scaffolding, Solar Grid Connect, Working at Heights, White Card CONISS012), cursos de PD corporativa de 1-2 dias (codigos THA*/TN*: Microsoft Excel/Word/PowerPoint, Leading a Team, Effective Time Management, Revit Level 1, CPR Refresher, Welding for Beginners, Furniture Making for Hobbyists), las 7 microcredenciales SAP (JVA*) y el LANTITE Preparation Course (test docente solo para Australia). La pagina A-Z NO publica duracion ni CRICOS por curso — los codigos que van en `codigo_oficial` son el codigo nacional VET (HLT33021, CPC50220, 22614VIC...) cuando existe, o el codigo interno VU de 4 letras (BBAQ, NMIT, ABAB...) para los grados universitarios; los internos NO son verificables contra un registro nacional. Si el catalogo necesita CRICOS por programa hay que abrir ~283 fichas una por una.
+# Camosun College · 111 extraidos vs "~160" de la auditoria. SUBCONTEO PARCIAL Y EXPLICADO: camosun.ca/programs-courses/search pagina por JS y devuelve SIEMPRE los mismos 10 primeros programas (A-Au) sin importar el parametro ?page=N; el A-Z legacy (legacy.camosun.ca/learn/az/programs.html) hace 301 a esa misma pagina rota. La extraccion se hizo escuela por escuela (business, hshs, stem/engineering, stem/computer, stem/science, arts-access/arts-and-humanities, ESL, tips/trades) mas la lista PGWP de internacionales. Lo que probablemente falta: las opciones de University Transfer por materia y programas de Continuing Education/Business Division. Se EXCLUYERON a proposito: las 6 familias de Apprenticeship Technical Training (Motor Vehicle, Carpentry, Professional Cook, Construction Electrician, Pipe Trades, Metal/Welding) porque en BC exigen estar contratado como aprendiz indentured con un empleador local — no vendibles a un estudiante internacional; MITEE (programa de empleabilidad local); y los dos programas restringidos a pueblos indigenas de Canada (Health Care Assistant - Indigenous, Indigenous Peoples in Technology Pathways, Indigenous Trades Sampler). NINGUN programa de Camosun publica codigo oficial en la web — todos van con "-". El "Adult Graduation Diploma and College Prep" es el unico caso de `secundaria` del lote (BC Adult Graduation Diploma = bachillerato completo para adultos).
+# SIIT · 12 extraidos vs "~20" de la auditoria. La brecha es casi toda filtro deliberado: se EXCLUYERON 5 productos marcados literalmente "(Australian Students Only)" en el propio titulo del sitio — CPP41419 Certificate IV in Property Services (Real Estate), CPP51122 Diploma of Property (Agency Management), Certificate of Registration (Real Estate) y los skill sets de Commercial Sales and Leasing y Auctioneer Accreditation (acreditacion NSW). CONFIRMADA la correccion de la auditoria: la ficha traia `category` null y `puede_vender` VACIO siendo un RTO vocacional claro — debe marcarse "Vocacionales (Cert, Dip, Adv Dip)" + "Idiomas". OJO: la url_programas de la ficha (siit.nsw.edu.au/courses/) da 404; el catalogo real vive en el menu de la portada y en fichas sueltas por slug. Dos programas (Graduate Diploma of Management y Diploma of Finance and Mortgage Broking Management) van con url_fuente = portada porque sus fichas dan 404 — el nombre esta verificado en el menu del sitio pero el codigo nacional NO se pudo confirmar, VALIDAR ANTES DE VENDER. RTO 91490 · CRICOS Provider 03069K. El sitio publica precios de los cursos CCL — no se transcribieron.
+# Hansa Language Centre · 16 extraidos vs "~15-20" — cuadra. CONFIRMADA LA ALERTA DE SEGURIDAD: la version /es/ del sitio sigue sirviendo SEO spam inyectado. Los datos se tomaron de las paginas de curso legitimas (/es/english-courses/ y /language-programs/<idioma>/) que si describen la oferta real. Los 10 idiomas adicionales (arabe, frances, aleman, italiano, japones, coreano, mandarin, portugues, ruso, espanol) se ofrecen solo como clases privadas/grupales/corporativas — NO son programas con visa de estudiante, no venderlos como tal. Recomendacion: no enlazar al cliente la version /es/ hasta que limpien el sitio.
+# ALS College · 10 extraidos, la auditoria no tenia conteo ("?"). CONFIRMADA la correccion de dominio: los dos dominios de la ficha estan obsoletos, hoy es alscollege.com.au (CRICOS 02885G · RTO 32044 · Brisbane). La url_programas de la ficha (/courses/) es solo un hub de 2 tarjetas; el catalogo real esta en /elicos-courses/ y /vocationalcourses/ (ojo: SIN guion, /vocational-courses/ da 404). Los 7 VET si traen codigo nacional; el sitio NO publica CRICOS por curso ni duracion en semanas para ninguno — habria que pedir el Course Guide.
+# Etoile Institut · 9 extraidos vs "~12 categorias" de la auditoria. La portada /nos-programmes/ solo despliega 5 "Programmes Tout-en-Un" con enlace propio; los otros 4 (standards & intensifs, prives, prep DELF/DALF, au pair) aparecen nombrados pero sin ficha navegable. CONFIRMADA la alerta: la URL de la ficha original (/es/instituto-de-idiomas-etoile) sigue en 404 y no hay version en espanol del sitio. OJO CON LA NATURALEZA DE LA ENTIDAD: etoilegroupe.com es el dominio del HOLDING (Etoile Groupe), no de la escuela de idiomas — para cotizar hay que confirmar con ellos que estos 9 programas los entrega Etoile Institut y no otra filial del grupo.
+# LANGUAGE ON Schools · 9 extraidos vs "~8-10" — cuadra. CONFIRMADA la inconsistencia de la ficha: `puede_vender` incluye "Todos los programas" pero la escuela SOLO ofrece ingles — corregir a "Idiomas" unicamente. 6 sedes (Kendall, Miami, Aventura, Orlando, Salt Lake City, Washington) pero el sitio no diferencia catalogo por sede; asumir que los 9 cursos aplican a todas es un supuesto NO verificado.
+# Atlantic Canada Language Academy · 9 extraidos vs "~6-7" — ligeramente por encima porque se desglosaron las 3 modalidades del Pathway (presencial / online / online-nocturno) que la agencia cotiza por separado. Se OMITIO un item del listado llamado solo "CARP": el sitio no explica el acronimo ni describe el programa, y por regla 2 no se incluye lo que no se puede describir. La ficha original tiene `pais` y `ciudad` VACIOS — es Canada, Halifax/Nueva Escocia segun el propio dominio (studyatlantic.com), corregir.
+# Worldwide School of English · 6 extraidos vs "~5" — cuadra. CONFIRMADA la correccion de dominio: worldwideschool.info (el de la ficha) esta PARQUEADO (cert de dnspackage.com, altname "suspended.dnspackage.com"); el dominio vivo es worldwideschool.ac.nz. El sitio NO publica codigos NZQA por curso ni duraciones salvo General English (20 h/sem) — para catalogo vendible hace falta pedirles el listado NZQA. "Afternoon Options/Electives" agrupa Business English, TOEIC y PTE en una sola fila porque el sitio no los vende por separado.

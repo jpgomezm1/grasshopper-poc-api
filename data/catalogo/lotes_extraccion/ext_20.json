@@ -1,0 +1,158 @@
+[
+ {
+  "institucion_ficha": "San Francisco State University",
+  "nombre_real": "San Francisco State University (SF State)",
+  "dominio": "sfsu.edu",
+  "url_programas": "https://bulletin.sfsu.edu/programs",
+  "pais": "USA",
+  "ciudad": "San Francisco",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Solo pathway"
+  ],
+  "niveles_vistos": "Pregrado, postgrado, doctorado",
+  "cantidad_aprox": "76 bachelor + 63 master + 57 cert + 16 credential",
+  "veredicto_auditoria": "observacion",
+  "alerta": "El pathway con Oxford International SI existe (cpage.sfsu.edu/pathway) pero es SOLO \"International Year One\" (pregrado). No hay Foundation ni Pre-mast",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "St. Lawrence College - SLC",
+  "nombre_real": "St. Lawrence College",
+  "dominio": "www.stlawrencecollege.ca",
+  "url_programas": "https://www.stlawrencecollege.ca/programs",
+  "pais": "Canada",
+  "ciudad": "Ontario",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)"
+  ],
+  "niveles_vistos": "Certificado, Graduate Certificate, Diploma, Advanced Diploma, Bachelor (BScN), aprendizajes",
+  "cantidad_aprox": "55+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`puede_vender` INCONSISTENTE: la ficha solo habilita \"Vocacionales (Cert, Dip, Adv Dip)\" pero el college otorga tambien bachelor y graduate certificat",
+  "_est": 55
+ },
+ {
+  "institucion_ficha": "Melbourne Institute of Technology (MIT)",
+  "nombre_real": "Melbourne Institute of Technology (Melbourne Institute of Technology Pty Ltd)",
+  "dominio": "mit.edu.au",
+  "url_programas": "https://www.mit.edu.au/study-with-us/programs/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "~12 Bachelor · ~18 Master · Graduate Diploma (Accounting, Networking) · ingles preparatorio",
+  "cantidad_aprox": "~30",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Uno de los 17 Institutes of Higher Education con auto-acreditacion TEQSA; campus Melbourne y Sydney (ficha ciudad=null). CONTRADICCION DE FICHA: tipo_",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "Langports",
+  "nombre_real": "Langports (entidad legal Langports Gold Coast Pty Ltd)",
+  "dominio": "langports.com",
+  "url_programas": "https://www.langports.com/english-courses/",
+  "pais": "Australia",
+  "ciudad": "Brisbane, Sydney, Gold coast",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: UFO General English, IELTS, TOEIC+, Cambridge FCE/CAE/CPE, EAP, junior holiday, high school prep, English+Internship/Volunteering/Demipair",
+  "cantidad_aprox": "~16",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CAMPUS DESACTUALIZADO: la ficha dice \"Brisbane, Sydney, Gold coast\" y el sitio solo opera BRISBANE y GOLD COAST · el campus de Sydney ya no existe com",
+  "_est": 16
+ },
+ {
+  "institucion_ficha": "QUB - The Queen's University Of Belfast",
+  "nombre_real": "Queen's University Belfast",
+  "dominio": "qub.ac.uk",
+  "url_programas": "https://www.qub.ac.uk/courses/",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado, Postgrado taught, Investigacion",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "403 sin UA de navegador · catalogo es BUSCADOR dinamico, no lista enumerable · ficha \"Todos los programas\" sin acotar",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Westminster University",
+  "nombre_real": "University of Westminster",
+  "dominio": "westminster.ac.uk",
+  "url_programas": "https://www.westminster.ac.uk/course-search",
+  "pais": "UK",
+  "ciudad": "Londres",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado · posgrado · research degrees · apprenticeships · cursos cortos",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El nombre real es \"University of Westminster\", no \"Westminster University\" (hay otra Westminster International University in Tashkent y una Westminste",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Business & Hotel Management School",
+  "nombre_real": "BHMS Business and Hotel Management School",
+  "dominio": "es.bhms.ch",
+  "url_programas": "? (no hay pagina unica consolidada; el catalogo esta partido en Business & Hospitality y Culinary Arts)",
+  "pais": "Suiza",
+  "ciudad": "Lucerna",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificado de postgrado, Diploma de postgrado, Bachelor (3 anios), Master, MBA, diplomas culinarios",
+  "cantidad_aprox": "~9",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Es escuela miembro del Benedict Education Group (grupo paraguas), aunque el dominio si es propio de BHMS. puede_vender INCONSISTENTE: ficha marcada \"V",
+  "_est": 9
+ },
+ {
+  "institucion_ficha": "ALG",
+  "nombre_real": "Australian Learning Group · RTO 91165",
+  "dominio": "alg.edu.au",
+  "url_programas": "https://alg.edu.au/courses/",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "Cert III/IV, Diploma",
+  "cantidad_aprox": "~7 areas",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha dice Perth; el sitio lista Adelaide y NO Perth",
+  "_est": 7
+ },
+ {
+  "institucion_ficha": "ACE Sports Academy",
+  "nombre_real": "ACE Sports Academy · RTO 31414 · CRICOS 03005D",
+  "dominio": "acesports.edu.au",
+  "url_programas": "https://www.acesports.edu.au/courses.html",
+  "pais": "Australia",
+  "ciudad": "Broadbeach Waters",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert II-IV + Diploma, todos de deporte",
+  "cantidad_aprox": "4",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha dice \"Todos los programas\" y solo tiene 4 cursos de coaching · enganoso",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "Tara Anglican School for Girls",
+  "nombre_real": "Tara Anglican School for Girls",
+  "dominio": "tara.nsw.edu.au",
+  "url_programas": "https://www.tara.nsw.edu.au/learning/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "K-12 (ELC a Year 12) · IB PYP/MYP · IB DP desde 2027 · HSC",
+  "cantidad_aprox": "~3 divisiones + rutas IB/HSC",
+  "veredicto_auditoria": "observacion",
+  "alerta": "NO VENDIBLE COMO CATALOGO: es un colegio de ninas K-12, no tiene \"programas\" comercializables por una agencia de estudios en el exterior · tipo_adivin",
+  "_est": 3
+ }
+]

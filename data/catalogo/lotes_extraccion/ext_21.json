@@ -1,0 +1,164 @@
+[
+ {
+  "institucion_ficha": "University of East Anglia",
+  "nombre_real": "University of East Anglia (UEA)",
+  "dominio": "uea.ac.uk",
+  "url_programas": "https://www.uea.ac.uk/search/courses",
+  "pais": "UK",
+  "ciudad": "Norwich",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "Pregrado, postgrado, PhD, CPD y cursos cortos",
+  "cantidad_aprox": "~500",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Convenio INTO vigente: /study/international enlaza a INTO UEA. Pero el catalogo de pathway (Foundation/Year 1/Pre-master) NO vive en uea.ac.uk sino en",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "McKendree University",
+  "nombre_real": "McKendree University",
+  "dominio": "mckendree.edu",
+  "url_programas": "https://www.mckendree.edu/academics/programs/",
+  "pais": "USA",
+  "ciudad": "Lebanon",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Pregrado + Posgrado"
+  ],
+  "niveles_vistos": "Pregrado + Postgrado (presencial y online)",
+  "cantidad_aprox": "50+ majors",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 50
+ },
+ {
+  "institucion_ficha": "Orange International College",
+  "nombre_real": "\"Orange International College Pty. Ltd. T/A Orange College\" — se presenta como Orange College",
+  "dominio": "www.orange.edu.au",
+  "url_programas": "https://www.orange.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Idiomas",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Idiomas"
+  ],
+  "niveles_vistos": "ELICOS/General English + Certificate III y IV, Diplomas y Advanced Diplomas, cursos cortos",
+  "cantidad_aprox": "~30+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El nombre comercial vigente es \"Orange College\"; \"Orange International College Pty Ltd\" es solo la razon social. `category: Instituto Idiomas` se qued",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "Imagine Education Australia",
+  "nombre_real": "Imagine Education Australia Pty Ltd",
+  "dominio": "imagineeducation.com.au",
+  "url_programas": "no hay indice unico — 6 paginas de facultad: /faculty-of-hospitality, /faculty-childcare, /faculty-of-business, /faculty-of-automotive, /faculty-of-comm-serv, /college-of-english (+ /junior-english-program)",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "ELICOS/College of English + Certificado III/IV y Diplomas (Commercial Cookery, Children's Services, Business, Automotive, Community Services) + study tours",
+  "cantidad_aprox": "~20+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CATALOGO NO ENUMERABLE: /courses/ y /faculties/ devuelven 404; hay que recorrer las 6 URLs de facultad una por una. Campus Gold Coast, Brisbane y Town",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "William Angliss Institute of TAFE",
+  "nombre_real": "William Angliss Institute (TAFE Victoria · RTO 3045 · CRICOS 01505M)",
+  "dominio": "www.angliss.edu.au",
+  "url_programas": "https://www.angliss.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Certificado, Diploma, Grado (degree), cursos cortos, aprendizajes",
+  "cantidad_aprox": "? (categorias: Foods, Tourism, Hospitality, Events, Hotel Management)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El nombre en el sitio es \"William Angliss Institute\" sin \"of TAFE\" (es TAFE, pero no lo usa en la marca). Sin observaciones criticas.",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Rafa Nadal Academy",
+  "nombre_real": "Rafa Nadal Academy · Academia de Tenis y Padel",
+  "dominio": "rafanadalacademy.com",
+  "url_programas": "no hay pagina unica: menu Adult Camps / Junior Camps / Annual Program / Competicion / International Camps",
+  "pais": "Spain",
+  "ciudad": "Mallorca",
+  "puede_vender": [
+   "Camps",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Camps de tenis y padel (adultos y juniors), programas anuales de tenis y padel, fitness & health, torneos",
+  "cantidad_aprox": "~10-12",
+  "veredicto_auditoria": "observacion",
+  "alerta": "NO HAY OFERTA ACADEMICA en el sitio: cero menciones de high school, bachillerato, colegio o \"American International School\" · la ficha marca puede_ven",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "International House Belfast",
+  "nombre_real": "International House Belfast",
+  "dominio": "ihbelfast.com",
+  "url_programas": "https://ihbelfast.com/courses/",
+  "pais": "UK",
+  "ciudad": "Belfast",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Ingles general e intensivo, prep Cambridge B2/C1/C2 y OET, CELTA (formacion docente), junior 12-17",
+  "cantidad_aprox": "~8-10",
+  "veredicto_auditoria": "observacion",
+  "alerta": "unica de las 3 fichas IH del lote que SI apunta a su dominio propio · category NULL y puede_vender \"Todos los programas\" cuando solo vende idiomas + f",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Sydney institute of business and techonology (sibt)",
+  "nombre_real": "Sydney Institute of Business and Technology (SIBT)",
+  "dominio": "sibt.nsw.edu.au",
+  "url_programas": "https://sibt.nsw.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Sydney",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma pathway + Foundation",
+  "cantidad_aprox": "~7",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender INCONSISTENTE: dice \"Vocacionales (Cert, Dip, Adv Dip)\" y \"Todos los programas\" pero NO hay Cert III/IV, ni Adv Dip, ni grados propios · ",
+  "_est": 7
+ },
+ {
+  "institucion_ficha": "Casa Toronto & Casa Vancouver",
+  "nombre_real": "Casa Student Housing",
+  "dominio": "www.casa-toronto.com",
+  "url_programas": "https://casacanada.com/toronto-residences/ · /vancouver-residences/ · /homestay/",
+  "pais": "Canada",
+  "ciudad": "Toronto",
+  "puede_vender": [
+   "Alojamiento"
+  ],
+  "niveles_vistos": "No hay niveles academicos: residencias estudiantiles Toronto, residencias Vancouver (incl. GEC King Edward), homestay y familias anfitrionas",
+  "cantidad_aprox": "~4",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NO es una institucion educativa ni tiene programas: es un proveedor de alojamiento estudiantil (coherente con category \"Proveedor\" y puede_vender [\"Al",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "Leeds Beckett University",
+  "nombre_real": "Leeds Beckett University International Study Centre (\"Maintained by Study Group\")",
+  "dominio": "isc.leedsbeckett.ac.uk",
+  "url_programas": "https://isc.leedsbeckett.ac.uk/programmes",
+  "pais": "UK",
+  "ciudad": null,
+  "puede_vender": [
+   "Foundation & Pre master"
+  ],
+  "niveles_vistos": "International Foundation Year, International Year One, cursos de ingles",
+  "cantidad_aprox": "3 rutas",
+  "veredicto_auditoria": "corregir",
+  "alerta": "LA FICHA PROMETE \"Pre master\" Y EL SITIO NO LO OFRECE (solo Foundation, Year One e ingles) · el dominio NO es la universidad; la ficha lo clasifica co",
+  "_est": 3
+ }
+]

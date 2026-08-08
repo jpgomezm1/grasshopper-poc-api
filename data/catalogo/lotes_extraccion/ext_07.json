@@ -1,0 +1,155 @@
+[
+ {
+  "institucion_ficha": "SRH Berlin University of Applied Sciences",
+  "nombre_real": "SRH University",
+  "dominio": "srh-berlin.de/en",
+  "url_programas": "https://www.srh-university.de/en/",
+  "pais": "Germany",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Bachelor, Master, MBA, short courses/certificados, dual study (Study & Work)",
+  "cantidad_aprox": "200+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REBRAND/CONSOLIDACION: \"SRH Berlin University of Applied Sciences\" ya no existe como marca propia · ahora es \"SRH University\" con 18 campus (Berlin, D",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Flinders University",
+  "nombre_real": "Flinders University (Adelaide, South Australia)",
+  "dominio": "www.flinders.edu.au",
+  "url_programas": "https://www.flinders.edu.au/study/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Bachelor, Master, PhD/HDR, cursos cortos, online, pathways",
+  "cantidad_aprox": "? (cientos)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "la ficha apunta a http:// y el sitio canoniza https · tipo_adivinado dice \"curso_corto\" y es una universidad completa · ficha sin category y con puede",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Asia Pacific International College (APIC)",
+  "nombre_real": "Asia Pacific International College (APIC)",
+  "dominio": "apicollege.edu.au",
+  "url_programas": "https://apicollege.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma, Bachelor, Grad Cert, Grad Dip, Master",
+  "cantidad_aprox": "~25+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha 1 ciudad, sitio lista 3. Catalogada VET pero es higher education TEQSA",
+  "_est": 25
+ },
+ {
+  "institucion_ficha": "Vancouver Community College - VCC",
+  "nombre_real": "Vancouver Community College",
+  "dominio": "www.vcc.ca",
+  "url_programas": "https://www.vcc.ca/programscourses/ (indice \"Programs A-Z\")",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Cursos Vocacionales"
+  ],
+  "niveles_vistos": "Certificados, Diplomas, Apprenticeship/oficios, University Transfer, Continuing Studies",
+  "cantidad_aprox": "17+ areas",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 17
+ },
+ {
+  "institucion_ficha": "Eltham College",
+  "nombre_real": "ELTHAM College",
+  "dominio": "www.elthamcollege.vic.edu.au",
+  "url_programas": "https://www.elthamcollege.vic.edu.au/learning/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "K-12 (Early Learning Centre, Junior School Prep-Y6, Senior School Y7-12) + 90+ co-curriculares",
+  "cantidad_aprox": "n/a — no hay catalogo de programas",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Es un COLEGIO K-12 privado en Research, Victoria (CRICOS 00138D), no un proveedor de cursos: no tiene catalogo enumerable. `tipo_adivinado`=\"curso_cor",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "TasTAFE",
+  "nombre_real": "? — no verificable en el dominio de la ficha",
+  "dominio": "www.study.tas.gov.au/study/tastafe",
+  "url_programas": "https://www.tastafe.tas.edu.au/courses (403)",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Vocacional: certificados, diplomas, diplomas avanzados, aprendizajes/traineeships",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CRITICO · DOBLE FALLA: (a) el `sitio` apunta a study.tas.gov.au, que es el portal del GOBIERNO de Tasmania (\"Tasmanian Government Education Internatio",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Australian Performing Arts Conservatory (APAC)",
+  "nombre_real": "Australian Performing Arts Conservatory (APAC) · TEQSA PRV14046 · CRICOS 03897G · ABN 11 009 772 481",
+  "dominio": "www.apac.edu.au",
+  "url_programas": "https://www.apac.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Bachelor (3), Master (4), Graduate Diploma (1), Graduate Certificate (1)",
+  "cantidad_aprox": "9",
+  "veredicto_auditoria": "corregir",
+  "alerta": "tipo_adivinado \"curso_corto\" es FALSO: es educacion superior con maestrias · ficha sin category, sin partner_group y con puede_vender VACIO pese a oto",
+  "_est": 9
+ },
+ {
+  "institucion_ficha": "Pickering College",
+  "nombre_real": "Pickering College",
+  "dominio": "pickeringcollege.on.ca",
+  "url_programas": "https://www.pickeringcollege.on.ca/academics",
+  "pais": "Canada",
+  "ciudad": "Ontario",
+  "puede_vender": [
+   "High school",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "JK-Grado 12 (Junior School JK-5, Sphere 4-5, Middle 6-8, Senior 9-12), ESL Boarding Academy grados 9-10, ESL Summer Camp, post-graduate year, Global Leadership Program",
+  "cantidad_aprox": "~6 divisiones + programas auxiliares",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Category MAL: la ficha dice \"Instituto Idiomas\" pero es un colegio independiente K-12 con internado (day and boarding school) · el ESL es un programa ",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Institut de Touraine",
+  "nombre_real": "Institut de Touraine",
+  "dominio": "institutdetouraine.com",
+  "url_programas": "https://institutdetouraine.com/es/cursos-de-frances/",
+  "pais": "France",
+  "ciudad": "Touraine",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Idiomas: frances general, inmersion cultural, preparacion DELF/DALF, frances profesional, clases particulares",
+  "cantidad_aprox": "~5 tipos",
+  "veredicto_auditoria": "observacion",
+  "alerta": "LA URL DE LA FICHA ESTA ROTA: /es/node/900 devuelve 404 -- es un ID interno de Drupal que ya no existe · la raiz y /es/ si responden 200 · REVISADO EL",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "GLS",
+  "nombre_real": "GLS Campus Berlin GmbH & Co. KG (marca \"GLS\", German Language School)",
+  "dominio": "gls-german-courses.de",
+  "url_programas": "https://www.gls-german-courses.de/german-courses-for-adults-berlin.html",
+  "pais": "Germany",
+  "ciudad": "Berlin",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas (alemán general, alemán de negocios, online, campamentos junior) + colocación en high school",
+  "cantidad_aprox": "? (organizado por nivel A1-C2 y por tipo, sin conteo publicado)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Nombre de la ficha reducido a la sigla (\"GLS\"): el sitio se identifica como \"GLS Campus Berlin\". Este dominio cubre SÓLO la oferta de alemán del campu",
+  "_est": 2
+ }
+]

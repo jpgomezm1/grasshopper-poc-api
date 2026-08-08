@@ -279,6 +279,84 @@ def _student_context(user: Optional[User]) -> str:
     return format_onboarding_context(user.onboarding_answers)
 
 
+SIN_TESTS = "(esta persona todavía no ha hecho ningún test)"
+
+
+def format_tests_for_prompt(db: DBSession, user_id: Optional[Any]) -> str:
+    """Todos los tests de una persona, legibles para un prompt.
+
+    **Por qué existe.** `generate_routes` construía la "hoja de ruta" —el
+    entregable que la clienta llama así— **sin mirar un solo test**. Su tesis en
+    la reunión del 21-07 era la contraria:
+
+        "el test verdaderamente va a ser el que más nos va a generar información"
+
+    Reusa :func:`format_scores_block`, que es donde ya vive el saber de cómo se
+    le lee un test a un modelo: dimensiones ordenadas **con nombre legible** más
+    el bloque `_extras` con el resultado ya interpretado. Es el arreglo A1 ("la
+    IA VE el resultado, no sólo los números") — pasarle `json.dumps(scores)`
+    sería reintroducir el defecto que ese arreglo quitó.
+
+    Suma dos cosas que ningún otro bloque trae juntas:
+
+    - **El autoanálisis (A6)**: el top-3 de carreras que la persona declaró
+      DESPUÉS de ver cada resultado. Deja que la ruta contraste lo que *cree*
+      con lo que el test *mide*, que es exactamente lo que ella pidió.
+    - **El nivel de inglés medido**, no el declarado en el journey.
+
+    Sin tests devuelve un texto explícito y nunca vacío: un hueco mudo en un
+    prompt es una invitación a que el modelo se invente el perfil.
+    """
+    if user_id is None:
+        return SIN_TESTS
+
+    from app.data.vocational_tests import get_test_by_id
+
+    resultados: List[VocationalTestResult] = (
+        db.query(VocationalTestResult)
+        .filter(VocationalTestResult.user_id == user_id)
+        .order_by(VocationalTestResult.test_id.asc())
+        .all()
+    )
+
+    bloques: List[str] = []
+    for r in resultados:
+        test = get_test_by_id(r.test_id) or {}
+        nombre = test.get("name") or r.test_id
+        partes = [f"### {nombre}", format_scores_block(r.test_id, r.scores or {})]
+
+        declaradas = None
+        if isinstance(r.self_assessment, dict):
+            declaradas = r.self_assessment.get("careers") or None
+        if declaradas:
+            enumeradas = "; ".join(
+                f"{i}. {c}" for i, c in enumerate(declaradas, start=1)
+            )
+            partes.append(
+                "Carreras que ELLA MISMA cree que le encajan tras este test "
+                f"(1 = la que más): {enumeradas}"
+            )
+        bloques.append("\n".join(partes))
+
+    # El inglés no es un test de orientación pero condiciona toda ruta al
+    # exterior · va aquí para que el modelo no tenga que adivinarlo.
+    #
+    # ⚠️ Si NO hay tests de orientación, el bloque arranca igual con `SIN_TESTS`.
+    # Devolver sólo el nivel de inglés haría que el prompt creyera que ya hay
+    # perfil psicométrico y dejara de pedir tests — que es exactamente la
+    # información que falta. Lo encontró un test propio.
+    user = db.query(User).filter(User.id == user_id).first()
+    ingles = None
+    if user is not None and user.english_cefr_level:
+        ingles = f"### Inglés\nNivel medido con el examen: {user.english_cefr_level}"
+
+    if not bloques:
+        return f"{SIN_TESTS}\n\n{ingles}" if ingles else SIN_TESTS
+    if ingles:
+        bloques.append(ingles)
+    return "\n\n".join(bloques)
+
+
 def scores_hash(scores: Dict[str, Any]) -> str:
     canonical = json.dumps(scores or {}, sort_keys=True, ensure_ascii=False, default=str)
     return hashlib.sha256(f"{PROMPT_VERSION}|{canonical}".encode("utf-8")).hexdigest()

@@ -116,7 +116,27 @@ class Settings(BaseSettings):
     rate_limit_reports_send: str = "5/hour"
     rate_limit_parental_consent: str = "10/hour"  # M-006 · envío de email + firma
     rate_limit_lead_submit: str = "10/minute"  # quiz público de leads · inserta en DB
+    # Bot perfilador · público Y con llamada de IA en cada turno. Más estricto
+    # que el quiz a propósito: aquí cada request cuesta tokens, no solo un INSERT.
+    rate_limit_bot_turn: str = "20/minute"
     rate_limit_default: str = "120/minute"
+
+    # ---- RM-1 · acompañamiento periódico ----
+    # APAGADO POR DEFECTO Y A PROPÓSITO. Permite desplegar el motor a producción
+    # y correrlo de verdad —con datos reales, con el scheduler puesto— sin que
+    # le llegue nada a nadie. Se prende cuando la clienta apruebe la cadencia y
+    # quién firma los mensajes, que son decisiones suyas.
+    outreach_enabled: bool = False
+    # Secreto compartido con Heroku Scheduler. Sin valor, el endpoint responde
+    # 503: es preferible que el cron falle a que quede una URL pública capaz de
+    # disparar correos a toda la base.
+    outreach_cron_secret: str = ""
+    # Tope por corrida · red de seguridad contra un error de detección que
+    # intente escribirle a la base entera de golpe.
+    outreach_max_por_corrida: int = 50
+    # Tope por IP de /outreach/run y /outreach/preview. En `run` complementa al
+    # secreto: sin tope, probar secretos por fuerza bruta es viable.
+    rate_limit_outreach: str = "10/minute"
 
     # Security headers (GH-S11-INFRA-05 · HSTS · CSP · X-Frame-Options · etc.)
     security_headers_enabled: bool = True

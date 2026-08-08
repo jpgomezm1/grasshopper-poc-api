@@ -1,0 +1,159 @@
+[
+ {
+  "institucion_ficha": "Manhattan College",
+  "nombre_real": "Manhattan University",
+  "dominio": "manhattan.edu",
+  "url_programas": "https://manhattan.edu/academics/programs",
+  "pais": "USA",
+  "ciudad": "Nueva York",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Pregrado + Posgrado"
+  ],
+  "niveles_vistos": "Pregrado, postgrado, certificados, programas de 5 años",
+  "cantidad_aprox": "300+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CAMBIO DE NOMBRE: hoy el sitio se llama \"Manhattan University\"; \"Manhattan College\" solo sobrevive en la direccion (\"Manhattan College Parkway\") · fic",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "INSA",
+  "nombre_real": "INSA Barcelona – Business, Marketing & Communication School / INSA International Business School",
+  "dominio": "insabarcelona.com",
+  "url_programas": "https://insabarcelona.com/estudios/",
+  "pais": "Spain",
+  "ciudad": "Barcelona",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "2 Bachelor Degrees, 5 Carreras Superiores (FP grado superior), ~35 Masters (incl. online), Business Summits",
+  "cantidad_aprox": "~45",
+  "veredicto_auditoria": "corregir",
+  "alerta": "SITIO COMPROMETIDO: la home tiene un div oculto (style=\"height: 0px; width: 0px; overflow: hidden\") con texto de spam farmaceutico y enlace saliente a",
+  "_est": 45
+ },
+ {
+  "institucion_ficha": "Kaplan Business School - KBS",
+  "nombre_real": "Kaplan Business School Pty Ltd (ABN 86 098 181 947)",
+  "dominio": "kbs.edu.au",
+  "url_programas": "https://www.kbs.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": "Adelaide, Brisbane, Melbourne, Perth, Sydney",
+  "puede_vender": [
+   "Idiomas",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Diploma, Bachelor, Grad Cert, Grad Dip, Master (MBA)",
+  "cantidad_aprox": "~30",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`puede_vender` marca \"Idiomas\" pero solo hay English for Academic Purposes como apoyo/pathway, no ELICOS general -> inconsistente. `tipo_adivinado` \"v",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "Shafston International College",
+  "nombre_real": "Shafston International College",
+  "dominio": "shafston.edu",
+  "url_programas": "https://shafston.edu/course/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "ELICOS (General English, Cambridge, IELTS), Cert III/IV, Diploma, Adv Diploma, junior / high school prep",
+  "cantidad_aprox": "~15-20",
+  "veredicto_auditoria": "observacion",
+  "alerta": "aparecen referencias a \"Green Education Group\" en los portales de curso — posible grupo propietario que la ficha NO registra (partner_group null) · ca",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Canadian Language Learning College - CLLC",
+  "nombre_real": "CLLC - Canadian Language Learning College",
+  "dominio": "cllc.ca",
+  "url_programas": "no hay indice unico: onsite en https://www.cllc.ca/ (paginas /onsite-*), online en cllconline.ca",
+  "pais": "Canada",
+  "ciudad": "Toronto, Ottawa, Nova Scotia",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: General (semi-intensivo/intensivo/acelerado), University Pathway 1 y 2, IELTS, Business English, 1-a-1, Communication Skills, Junior, Public School Parents",
+  "cantidad_aprox": "~15",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CATALOGO PARTIDO EN DOS DOMINIOS (cllc.ca onsite / cllconline.ca online): la extraccion tiene que recorrer ambos o se pierde la mitad · campus reales ",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "University Senior College at Adelaide University",
+  "nombre_real": "University Senior College",
+  "dominio": "adelaide.edu.au/study/university-senior-college",
+  "url_programas": "https://adelaide.edu.au/study/university-senior-college/study-with-us/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "SECUNDARIA: anos 10, 11 y 12 — NO es educacion superior",
+  "cantidad_aprox": "? (no publica catalogo de programas)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "DOS ALERTAS. (1) El subdominio de la ficha ya no sirve contenido propio: hace 302 a una seccion dentro del dominio de Adelaide University (efecto de l",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "ELI Schools",
+  "nombre_real": "ELI Schools (LT Education Abroad Limited, Company No. 605302)",
+  "dominio": "elischools.com",
+  "url_programas": "https://elischools.com/programmes/",
+  "pais": "Ireland",
+  "ciudad": "Dublin, Drogheda",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas (inglés general A1-C1, IELTS, Work&Study EU/no-EU, junior camps, young adult, teachers, Erasmus+, job shadowing)",
+  "cantidad_aprox": "11",
+  "veredicto_auditoria": "observacion",
+  "alerta": "SITIO COMPROMETIDO: el home tiene un párrafo de spam SEO oculto con `style=\"position: absolute; top: -9999px\"` que enlaza a https://cazeuscasinobet.co",
+  "_est": 11
+ },
+ {
+  "institucion_ficha": "Charles Darwin University (Sydney)",
+  "nombre_real": "Charles Darwin University",
+  "dominio": "www.cdu.edu.au/locations/sydney-campus",
+  "url_programas": "https://www.cdu.edu.au/study/sydney-courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "SOLO maestrias — Data Science, IT (Cyber Security), IT (Information Systems), Project Management, Professional Accounting x2, MBA x2",
+  "cantidad_aprox": "8",
+  "veredicto_auditoria": "corregir",
+  "alerta": "La URL de la ficha redirige a otro path — actualizar. El campus de Sydney (Level 7, 815 George St, Haymarket) ofrece EXCLUSIVAMENTE postgrado: `tipo_a",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "Cira College",
+  "nombre_real": "CIRA Career College, Inc.",
+  "dominio": "www.ciracollege.com",
+  "url_programas": "https://ciracareers.ca/programs",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)"
+  ],
+  "niveles_vistos": "Diplomas y certificados: Business Management Diploma, AI-Powered Web Design & Development, Early Childhood Education Assistant, French for Professional Communication",
+  "cantidad_aprox": "4",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REBRANDING + CAMBIO DE DOMINIO: la marca \"Cira College\" ya no existe; hoy es \"CIRA Career College\" y el dominio vivo es ciracareers.ca (el .com solo r",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "Kiwi English Academy",
+  "nombre_real": "Kiwi English Academy (Newmarket, Auckland · fundada 1991 · NZQA Category 1)",
+  "dominio": "kiwienglish.co.nz",
+  "url_programas": "https://www.kiwienglish.co.nz/courses/",
+  "pais": "New Zealand",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas: General English 18+, Junior 14-17, Online Academy 13+",
+  "cantidad_aprox": "3",
+  "veredicto_auditoria": "observacion",
+  "alerta": "oferta muy corta (3 programas, sin IELTS ni business pese a lo que suele asumirse de una escuela de idiomas) · ficha con puede_vender VACIO pese a cat",
+  "_est": 3
+ }
+]

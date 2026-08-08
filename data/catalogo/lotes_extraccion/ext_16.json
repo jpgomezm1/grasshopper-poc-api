@@ -1,0 +1,149 @@
+[
+ {
+  "institucion_ficha": "Western Washington University",
+  "nombre_real": "Western Washington University (pagina comercial de Study Group)",
+  "dominio": "international.wwu.edu",
+  "url_programas": "https://students.studygroup.com/study-options/direct-admit/western-washington-university",
+  "pais": "USA",
+  "ciudad": "Washington",
+  "puede_vender": [
+   "Pregrado & Postgrado"
+  ],
+  "niveles_vistos": "Undergraduate y Graduate (direct admit)",
+  "cantidad_aprox": "~15 destacados de \"200+\" declarados",
+  "veredicto_auditoria": "corregir",
+  "alerta": "EL DOMINIO DE LA FICHA YA NO ES UN SITIO PROPIO: la pagina destino dice literal \"This page was previously on international.wwu.edu\" · NO hay catalogo ",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Western Australia Government School",
+  "nombre_real": "TAFE International Western Australia (TIWA) · CRICOS 00020G",
+  "dominio": "tafeinternational.wa.edu.au",
+  "url_programas": "https://www.tafeinternational.wa.edu.au/tafe-courses/catalogue",
+  "pais": "Australia",
+  "ciudad": "East Perth",
+  "puede_vender": [
+   "High School",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificado III · IV · Diploma · Advanced Diploma (VET) + seccion aparte de escuelas publicas de secundaria",
+  "cantidad_aprox": "~100 (\"Choose from 100 courses\")",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio NO es de una escuela: es el brazo del gobierno de Australia Occidental que representa a TODOS los TAFE del estado Y al programa de escuelas",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Australian Ideal College",
+  "nombre_real": "Australian Ideal College · CRICOS 03053G · RTO 91679",
+  "dominio": "aic.edu.au",
+  "url_programas": "(sin indice; 7 categorias)",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Cert III/IV, Dip, Adv Dip, Grad Dip",
+  "cantidad_aprox": "~20+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "hay que recorrer 7 categorias",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Kings College",
+  "nombre_real": "Kings Education (entidades Prime Education Colleges Ltd, Prime Education Pathways Ltd, Kings Colleges (USA) LLC, Kings Colleges Wisconsin LLC)",
+  "dominio": "kingseducation.com",
+  "url_programas": "no hay pagina unica: /uk-uni/, /learn-english/, /young-learners/, /us/, /partner-schools/",
+  "pais": "UK",
+  "ciudad": "varias",
+  "puede_vender": [
+   "Idiomas",
+   "Pregrado & Postgrado",
+   "High School",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Idiomas (adultos y ninos), A-level, GCSE, Oxbridge prep, Foundation/Degree Pathway, High School, pregrado y postgrado via universidades socias",
+  "cantidad_aprox": "~15-20",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NOMBRE ENGANOSO: la marca es \"Kings Education\" / \"Kings Colleges\" en plural; \"Kings College\" en singular NO es como se presenta y se confunde con King",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "IBU",
+  "nombre_real": "International Business University (IBU)",
+  "dominio": "ibu.ca",
+  "url_programas": "https://ibu.ca/programs/",
+  "pais": "Canada",
+  "ciudad": "Toronto",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado: 3 especializaciones de Bachelor of Commerce (Honours). Postgrado: 7 especializaciones de MBA + 2 de MSc in Applied AI",
+  "cantidad_aprox": "~13",
+  "veredicto_auditoria": "observacion",
+  "alerta": "La ficha guarda solo \"IBU\", sigla AMBIGUA que colisiona con otras instituciones (International Burch University, International Business School): poner",
+  "_est": 13
+ },
+ {
+  "institucion_ficha": "Drew University",
+  "nombre_real": "Drew University",
+  "dominio": "drew.edu",
+  "url_programas": "https://drew.edu/academic/programs-of-study/",
+  "pais": "USA",
+  "ciudad": "New Jersey",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor (College of Liberal Arts) · Master y Doctorado (Caspersen School) · Theological School · verano/no-degree",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El campo `sitio` esta malformado: \"http://www.drew.edu/1/\" arrastra un path basura; resuelve 200 a https://drew.edu/ con UA de navegador pero conviene",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Atpal",
+  "nombre_real": "Atpal Languages",
+  "dominio": "atpalcanada.com",
+  "url_programas": "https://atpalcanada.com/programs/",
+  "pais": "Canada",
+  "ciudad": "Montreal",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Ingles y frances, prep examenes, pathway",
+  "cantidad_aprox": "~9",
+  "veredicto_auditoria": "corregir",
+  "alerta": "nombre real Atpal Languages; tambien ensena frances",
+  "_est": 9
+ },
+ {
+  "institucion_ficha": "Es Dubai",
+  "nombre_real": "ES Dubai (English Studies Dubai)",
+  "dominio": "esdubai.com",
+  "url_programas": "https://esdubai.com/es/courses/",
+  "pais": "UAE",
+  "ciudad": "Dubai",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "General English (1-52 sem), ES Flex nocturno, IELTS Preparation, English for IELTS, Speaking Class, Academic English, Business English, CELTA (formacion de profesores)",
+  "cantidad_aprox": "~8",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "King's Christian College",
+  "nombre_real": "King's Christian College",
+  "dominio": "www.kingscollege.qld.edu.au",
+  "url_programas": "https://www.kingscollege.qld.edu.au/learning",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Colegio K-12: Early Learning (2.5-5), Primary (Prep-Y6), High School (Y7-12) + King's Trade College (Y10-12, vocacional)",
+  "cantidad_aprox": "~4 etapas",
+  "veredicto_auditoria": "observacion",
+  "alerta": "NO ES EDUCACION SUPERIOR: es un colegio cristiano independiente K-12 (fundado 1980, +6.000 alumnos, 4 campus en SE Queensland: Logan Village, Pimpama,",
+  "_est": 4
+ }
+]

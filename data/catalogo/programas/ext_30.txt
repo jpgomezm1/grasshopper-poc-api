@@ -1,0 +1,313 @@
+# Lote 30 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# --- Niagara College · niagaracollege.ca ---
+Niagara College | Acting for Film and Digital Media | diplomado | Diseño y Medios | 2 años | 0198 | https://www.niagaracollege.ca/0198
+Niagara College | Addictions and Mental Health | posgrado | Servicios Comunitarios | 1 año | 0292 | https://www.niagaracollege.ca/amh
+Niagara College | Art and Design Foundation | curso_corto | Diseño y Medios | 1 año | 0188 | https://www.niagaracollege.ca/0188
+Niagara College | Artisan Distilling | posgrado | Enología y Bebidas | 1 año | 0783 | https://www.niagaracollege.ca/0783
+Niagara College | Autism and Behavioural Science | posgrado | Servicios Comunitarios | 1 año | 0192 | https://www.niagaracollege.ca/0192
+Niagara College | Bachelor of Arts (Honours) Game Design | bachelor | Diseño y Medios | 4 años | 6800 | https://www.niagaracollege.ca/6800
+Niagara College | Bachelor of Science (Honours) Game Programming | bachelor | Tecnología | 4 años | 6801 | https://www.niagaracollege.ca/6801
+Niagara College | Baking and Pastry Arts Management | diplomado | Gastronomía | no indicada | 0467 | https://www.niagaracollege.ca/bpam
+Niagara College | Baking and Pastry Arts | curso_corto | Gastronomía | 1 año | 0458 | https://www.niagaracollege.ca/0458
+Niagara College | Beverage Business Management - Barcelona, Spain | posgrado | Enología y Bebidas | 1 año | 5785 | https://www.niagaracollege.ca/5785
+Niagara College | Beverage Business Management (Online Program Delivery) (Online) | posgrado | Enología y Bebidas | 1 año | 1785 | https://www.niagaracollege.ca/1785
+Niagara College | Brewmaster and Brewery Operations Management | diplomado | Enología y Bebidas | 2 años | 0780 | https://www.niagaracollege.ca/0780
+Niagara College | Broadcasting - Radio, Television and Film (Film Production) | diplomado | Artes | 3 años | 0122 | https://www.niagaracollege.ca/0165
+Niagara College | Broadcasting - Radio, Television and Film (Radio & TV Presentation) | diplomado | Artes | 3 años | 0122 | https://www.niagaracollege.ca/0163
+Niagara College | Broadcasting - Radio, Television and Film (Television Production) | diplomado | Artes | 3 años | 0122 | https://www.niagaracollege.ca/0164
+Niagara College | Business - Accounting | diplomado | Negocios | 2 años | 0473 | https://www.niagaracollege.ca/0473
+Niagara College | Business - International Business | diplomado | Negocios | 2 años | 0448 | https://www.niagaracollege.ca/0448
+Niagara College | Business - Sales and Marketing | diplomado | Negocios | 2 años | 0451 | https://www.niagaracollege.ca/0451
+Niagara College | Business Administration - Human Resources (Co-op) | diplomado | Negocios | 3 años | 0492 | https://www.niagaracollege.ca/0492
+Niagara College | Business Administration - Accounting (Co-op) | diplomado | Negocios | 3 años | 0498 | https://www.niagaracollege.ca/0498
+Niagara College | Business Administration - Accounting | diplomado | Negocios | 3 años | 0497 | https://www.niagaracollege.ca/0497
+Niagara College | Business Administration - International Business | diplomado | Negocios | 3 años | 0493 | https://www.niagaracollege.ca/0493
+Niagara College | Business Administration - Marketing (Co-op) | diplomado | Negocios | no indicada | 0491 | https://www.niagaracollege.ca/0491
+Niagara College | Business Administration - Supply Chain and Operations Management (Co-op) | diplomado | Negocios | 3 años | 0490 | https://www.niagaracollege.ca/0490
+Niagara College | Business | diplomado | Negocios | 2 años | 0470 | https://www.niagaracollege.ca/0470
+Niagara College | Carpentry and Renovation Technician (Co-op) | diplomado | Construcción | 2 años | 0757 | https://www.niagaracollege.ca/0757
+Niagara College | Carpentry and Renovation Techniques | curso_corto | Construcción | 1 año | 0753 | https://www.niagaracollege.ca/0753
+Niagara College | Child and Youth Care | diplomado | Servicios Comunitarios | 6 trimestres consecutivos (24 meses) | 0169 | https://www.niagaracollege.ca/0169
+Niagara College | Civil Engineering Technician | diplomado | Construcción | 2 años | 0760 | https://www.niagaracollege.ca/0760
+Niagara College | Commercial Cannabis Production | posgrado | Agroindustria | 1 año | 0797 | https://www.niagaracollege.ca/0797
+Niagara College | Community Mental Health - Multidiscipline | posgrado | Servicios Comunitarios | 1 año | 0964 | https://www.niagaracollege.ca/0964
+Niagara College | Community Pharmacy Assistant | curso_corto | Salud | 1 año | 0811 | https://www.niagaracollege.ca/0811
+Niagara College | Computer Engineering Technician | diplomado | Tecnología | 2 años | 0717 | https://www.niagaracollege.ca/0717
+Niagara College | Computer Programming and Analysis (Co-op) | diplomado | Tecnología | 3 años | 0414 | https://www.niagaracollege.ca/0414
+Niagara College | Computer Programming | diplomado | Tecnología | 2 años | 0411 | https://www.niagaracollege.ca/0411
+Niagara College | Computer Systems Technician - Network and Cloud Technologies | diplomado | Tecnología | 2 años | 0474 | https://www.niagaracollege.ca/0474
+Niagara College | Construction Engineering Technology | diplomado | Construcción | 3 años | 0708 | https://www.niagaracollege.ca/0708
+Niagara College | Culinary Innovation and Food Technology (Co-op) | diplomado | Gastronomía | no indicada | 0464 | https://www.niagaracollege.ca/0464
+Niagara College | Culinary Management (Co-op) | diplomado | Gastronomía | no indicada | 0435 | https://www.niagaracollege.ca/0435
+Niagara College | Culinary Skills | curso_corto | Gastronomía | 1 año | 0454 | https://www.niagaracollege.ca/0454
+Niagara College | Cybersecurity | posgrado | Tecnología | 1 año | 0456 | https://www.niagaracollege.ca/0456
+Niagara College | Data Analytics | posgrado | Tecnología | 1 año | 0902 | https://www.niagaracollege.ca/0902
+Niagara College | Defence Systems Engineering Technician | diplomado | Ingeniería | 2 años | 0748 | https://www.niagaracollege.ca/0748
+Niagara College | Defence Systems Engineering Technology | diplomado | Ingeniería | 3 años | 0749 | https://www.niagaracollege.ca/0749
+Niagara College | Dental Assisting (Levels I and II) | curso_corto | Salud | 1 año | 0101 | https://www.niagaracollege.ca/0101
+Niagara College | Dental Office Administration | curso_corto | Negocios | 1 año | 0151 | https://www.niagaracollege.ca/0151
+Niagara College | Early Childhood Education - Resource Consulting (Online Program Delivery) (Online) | posgrado | Servicios Comunitarios | 1 año | 1220 | https://www.niagaracollege.ca/1220
+Niagara College | Early Childhood Education | diplomado | Servicios Comunitarios | 2 años | 0102 | https://www.niagaracollege.ca/0102
+Niagara College | Ecosystem Restoration | posgrado | Medio Ambiente | 1 año | 2000 | https://www.niagaracollege.ca/2000
+Niagara College | Educational Assistance and Adult Supports | diplomado | Servicios Comunitarios | 2 años | 0103 | https://www.niagaracollege.ca/0103
+Niagara College | Electrical Engineering Technician | diplomado | Ingeniería | 2 años | 0709 | https://www.niagaracollege.ca/0709
+Niagara College | Electrical Engineering Technology (Co-op) | diplomado | Ingeniería | 3 años | 0707 | https://www.niagaracollege.ca/0707
+Niagara College | Electrical Techniques | curso_corto | Ingeniería | 1 año | 0758 | https://www.niagaracollege.ca/0758
+Niagara College | Electronics Engineering Technician | diplomado | Ingeniería | 2 años | 0710 | https://www.niagaracollege.ca/0710
+Niagara College | Electronics Engineering Technology (Co-op) | diplomado | Ingeniería | 3 años | 0703 | https://www.niagaracollege.ca/0703
+Niagara College | English Language and Culture | curso_corto | Idiomas | no indicada | - | https://www.niagaracollege.ca/elcp
+Niagara College | English for Academic Preparation (EAP) | curso_corto | Idiomas | no indicada | - | https://www.niagaracollege.ca/eap
+Niagara College | Environmental Management and Assessment | posgrado | Medio Ambiente | 1 año | 0294 | https://www.niagaracollege.ca/0234
+Niagara College | Environmental Technician (Co-op) | diplomado | Medio Ambiente | 2 años | 0736 | https://www.niagaracollege.ca/0736
+Niagara College | Esthetician | diplomado | Belleza y Estética | 2 años | 0395 | https://www.niagaracollege.ca/0395
+Niagara College | Event Management | posgrado | Hospitalidad y Turismo | 1 año | 0185 | https://www.niagaracollege.ca/0185
+Niagara College | Exercise Science for Health and Performance | posgrado | Salud | 1 año | 0260 | https://www.niagaracollege.ca/0260
+Niagara College | Fitness and Health Promotion | diplomado | Salud | 2 años | 0232 | https://www.niagaracollege.ca/0232
+Niagara College | Game Development | diplomado | Diseño y Medios | 3 años | 0441 | https://www.niagaracollege.ca/0441
+Niagara College | General Arts and Science (Niagara-on-the-Lake) | diplomado | Estudios Generales | no indicada | 0805 | https://www.niagaracollege.ca/0805
+Niagara College | General Arts and Science (Online Program Delivery) (Online) | diplomado | Estudios Generales | no indicada | 1800 | https://www.niagaracollege.ca/1800
+Niagara College | General Arts and Science (Welland) | diplomado | Estudios Generales | no indicada | 0801 | https://www.niagaracollege.ca/0801
+Niagara College | General Arts and Science - College Exploration (Niagara-on-the-Lake) | curso_corto | Estudios Generales | no indicada | 0825 | https://www.niagaracollege.ca/0825
+Niagara College | General Arts and Science - College Exploration (Online Program Delivery) (Online) | curso_corto | Estudios Generales | no indicada | 1810 | https://www.niagaracollege.ca/1810
+Niagara College | General Arts and Science - College Exploration (Welland) | curso_corto | Estudios Generales | no indicada | 0820 | https://www.niagaracollege.ca/0820
+Niagara College | Gerontology | posgrado | Salud | 1 año | 0966 | https://www.niagaracollege.ca/0966
+Niagara College | Graphic Design | diplomado | Diseño y Medios | 3 años | 0177 | https://www.niagaracollege.ca/0177
+Niagara College | Greenhouse Technician (Co-op) | diplomado | Agroindustria | 2 años | 0737 | https://www.niagaracollege.ca/0737
+Niagara College | Greenhouse Technician | diplomado | Agroindustria | 2 años | 0777 | https://www.niagaracollege.ca/0777
+Niagara College | Hairstyling | diplomado | Belleza y Estética | 12 meses (3 trimestres consecutivos) | 0397 | https://www.niagaracollege.ca/0397
+Niagara College | Honours Bachelor of Business Administration (Hospitality) | bachelor | Hospitalidad y Turismo | 4 años | 6000 | https://www.niagaracollege.ca/6000
+Niagara College | Honours Bachelor of Business Administration (Human Resources) | bachelor | Negocios | 4 años | 6003 | https://www.niagaracollege.ca/6003
+Niagara College | Horticulture Technician - Landscape (Co-op) | diplomado | Agroindustria | 2 años | 0735 | https://www.niagaracollege.ca/0735
+Niagara College | Horticulture Technician - Landscape | diplomado | Agroindustria | 2 años | 0775 | https://www.niagaracollege.ca/0775
+Niagara College | Horticulture Technician (Co-op) | diplomado | Agroindustria | 2 años | 0111 | https://www.niagaracollege.ca/0111
+Niagara College | Horticulture Technician | diplomado | Agroindustria | 2 años | 0771 | https://www.niagaracollege.ca/0771
+Niagara College | Hospitality - Hotel and Restaurant Operations (Co-op) | diplomado | Hospitalidad y Turismo | 2 años | 0415 | https://www.niagaracollege.ca/0415
+Niagara College | Hospitality and Tourism Management - Barcelona, Spain | posgrado | Hospitalidad y Turismo | 1 año | 5460 | https://www.niagaracollege.ca/5460
+Niagara College | Hospitality and Tourism Management | posgrado | Hospitalidad y Turismo | 1 año | 0461 | https://www.niagaracollege.ca/0461
+Niagara College | Human Resources Management (Online Program Delivery) (Online) | posgrado | Negocios | 1 año | 1452 | https://www.niagaracollege.ca/1452
+Niagara College | Human Resources Management | posgrado | Negocios | 1 año | 0452 | https://www.niagaracollege.ca/hrm
+Niagara College | Landscape Horticulture Techniques | curso_corto | Agroindustria | 1 año | 0730 | https://www.niagaracollege.ca/0730
+Niagara College | Law Clerk (Co-op) | diplomado | Negocios | 2 años | 0425 | https://www.niagaracollege.ca/0425
+Niagara College | Mechanical Engineering Technician | diplomado | Ingeniería | 2 años | 0755 | https://www.niagaracollege.ca/0755
+Niagara College | Mechanical Engineering Technology (Co-op) | diplomado | Ingeniería | 3 años 4 meses (inicio enero) / 3 años 8 meses (inicio septiembre) | 0705 | https://www.niagaracollege.ca/0705
+Niagara College | Mechanical Techniques (General Machinist) | curso_corto | Ingeniería | 1 año | 0754 | https://www.niagaracollege.ca/0754
+Niagara College | Motive Power Technician - Automotive (Co-op) | diplomado | Oficios Técnicos | 2 años | 0740 | https://www.niagaracollege.ca/0740
+Niagara College | Motive Power Techniques - Automotive | curso_corto | Oficios Técnicos | 1 año | 0747 | https://www.niagaracollege.ca/0747
+Niagara College | Occupational Therapist Assistant and Physiotherapist Assistant | diplomado | Salud | 2 años | 0195 | https://www.niagaracollege.ca/0195
+Niagara College | Office Administration - Executive (Co-op) | diplomado | Negocios | 2 años | 0481 | https://www.niagaracollege.ca/0481
+Niagara College | Office Administration - General | curso_corto | Negocios | 1 año | 0431 | https://www.niagaracollege.ca/0431
+Niagara College | Office Administration - Health Services | diplomado | Negocios | 2 años | 0463 | https://www.niagaracollege.ca/0463
+Niagara College | Palliative Care - Multidiscipline | posgrado | Salud | 1 año | 0962 | https://www.niagaracollege.ca/0962
+Niagara College | Personal Support Worker (PSW) | curso_corto | Servicios Comunitarios | 1 año | 0942 | https://www.niagaracollege.ca/0942
+Niagara College | Pharmacy Technician | diplomado | Salud | 2 años | 0813 | https://www.niagaracollege.ca/0813
+Niagara College | Photography | diplomado | Diseño y Medios | 2 años | 0795 | https://www.niagaracollege.ca/0795
+Niagara College | Photonics Engineering Technician | diplomado | Ingeniería | 2 años | 0750 | https://www.niagaracollege.ca/0750
+Niagara College | Photonics Engineering Technology | diplomado | Ingeniería | 3 años | 0751 | https://www.niagaracollege.ca/0751
+Niagara College | Police Foundations | diplomado | Seguridad y Justicia | 2 años | 0200 | https://www.niagaracollege.ca/0200
+Niagara College | Pre-Community Services (Online Program Delivery) (Online) | curso_corto | Servicios Comunitarios | 1 año | 1819 | https://www.niagaracollege.ca/1819
+Niagara College | Pre-Community Services | curso_corto | Servicios Comunitarios | 1 año | 0819 | https://www.niagaracollege.ca/0819
+Niagara College | Pre-Health Sciences - Pathway to Advanced Diplomas and Degrees | curso_corto | Salud | 1 año | 0851 | https://www.niagaracollege.ca/0851
+Niagara College | Pre-Health Sciences - Pathway to Certificates and Diplomas (Online Program Delivery) (Online) | curso_corto | Salud | 1 año | 1850 | https://www.niagaracollege.ca/1850
+Niagara College | Pre-Health Sciences - Pathway to Certificates and Diplomas | curso_corto | Salud | 1 año | 0850 | https://www.niagaracollege.ca/0850
+Niagara College | Professional Butchery Techniques | curso_corto | Gastronomía | 1 año | 0419 | https://www.niagaracollege.ca/0419
+Niagara College | Protection, Security and Investigation (Customs Border Services) | diplomado | Seguridad y Justicia | 2 años | 0212 | https://www.niagaracollege.ca/0212
+Niagara College | Protection, Security and Investigation (Private Security) | diplomado | Seguridad y Justicia | 2 años | 0211 | https://www.niagaracollege.ca/0211
+Niagara College | Public Relations | posgrado | Comunicación | 1 año | 0171 | https://www.niagaracollege.ca/0171
+Niagara College | Recreation Therapy | diplomado | Servicios Comunitarios | 2 años | 0178 | https://www.niagaracollege.ca/0178
+Niagara College | Renewable Energies Technician | diplomado | Medio Ambiente | 2 años | 0765 | https://www.niagaracollege.ca/0765
+Niagara College | Social Media Management | posgrado | Comunicación | 1 año | 0478 | https://www.niagaracollege.ca/0478
+Niagara College | Social Service Worker | diplomado | Servicios Comunitarios | 2 años | 0123 | https://www.niagaracollege.ca/0123
+Niagara College | Sport Administration | diplomado | Negocios | 2 años | 0193 | https://www.niagaracollege.ca/0193
+Niagara College | Sport Management | diplomado | Negocios | 3 años | 0196 | https://www.niagaracollege.ca/0196
+Niagara College | Supply Chain Management | posgrado | Negocios | 1 año | 0476 | https://www.niagaracollege.ca/0476
+Niagara College | Tourism Management - Business Development (Co-op) | diplomado | Hospitalidad y Turismo | 2 años | 0428 | https://www.niagaracollege.ca/0428
+Niagara College | Welding Technician | diplomado | Oficios Técnicos | 2 años | 0761 | https://www.niagaracollege.ca/0761
+Niagara College | Welding Techniques | curso_corto | Oficios Técnicos | 1 año | 0756 | https://www.niagaracollege.ca/0756
+Niagara College | Winery and Viticulture Technician | diplomado | Enología y Bebidas | 2 años | 0738 | https://www.niagaracollege.ca/0738
+
+# --- Institut Linguistique Adenet (ILA) · ila-france.es ---
+Institut Linguistique Adenet (ILA) | Curso Estándar de Francés | curso_corto | Idiomas | 20 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-estandar-frances-adultos
+Institut Linguistique Adenet (ILA) | Curso Intensivo de Francés | curso_corto | Idiomas | 20+8 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-intensivo-frances-adultos
+Institut Linguistique Adenet (ILA) | Curso Estándar «PLUS» de Francés | curso_corto | Idiomas | 20+4 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-estandar-plus-frances-adultos
+Institut Linguistique Adenet (ILA) | Curso Intensivo «PLUS» de Francés | curso_corto | Idiomas | 28+4 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-intensivo-plus-frances-adultos
+Institut Linguistique Adenet (ILA) | Curso Particular de Francés | curso_corto | Idiomas | 20, 30 o 40 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-particular-frances-adultos
+Institut Linguistique Adenet (ILA) | Curso Estándar de Francés de Larga Duración | curso_corto | Idiomas | 20 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-estandar-frances-larga-duracion-adultos
+Institut Linguistique Adenet (ILA) | Curso Intensivo de Francés de Larga Duración | curso_corto | Idiomas | 20+8 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-intensivo-frances-larga-duracion-adultos
+Institut Linguistique Adenet (ILA) | Curso de Preparación para el DELF y el DALF | curso_corto | Idiomas | 20+8 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-preparacion-delf-dalf-adultos
+Institut Linguistique Adenet (ILA) | Curso de Preparación para la Universidad | curso_corto | Idiomas | 20+8 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-preparacion-universidad-adultos
+Institut Linguistique Adenet (ILA) | Curso de Verano de Francés Estándar | vacacional | Idiomas | 20 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-verano-frances-estandar-adultos
+Institut Linguistique Adenet (ILA) | Curso de Verano de Francés Intensivo | vacacional | Idiomas | 20+8 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-verano-frances-intensivo-adultos
+Institut Linguistique Adenet (ILA) | Curso de Verano de Francés Estándar «PLUS» | vacacional | Idiomas | 20+4 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-verano-frances-estandar-plus-adultos
+Institut Linguistique Adenet (ILA) | Curso de Verano de Francés Intensivo «PLUS» | vacacional | Idiomas | 28+4 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-verano-frances-intensivo-plus-adultos
+Institut Linguistique Adenet (ILA) | Cursos Estándar de Francés + Francés Profesional | curso_corto | Idiomas | 20+8 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-frances-negocios-adultos
+Institut Linguistique Adenet (ILA) | Curso de Francés + Curso de Cocina | curso_corto | Idiomas | 20+8 lecciones/semana | - | https://www.ila-france.es/french-courses/curso-frances-cocina-adultos
+Institut Linguistique Adenet (ILA) | Curso de Francés para Mayores de 50 años | curso_corto | Idiomas | 20 lecciones/semana + actividades | - | https://www.ila-france.es/french-courses/curso-frances-mayores-50-anos
+
+# --- Australian Pacific College (APC) & English Unlimited · apc.edu.au ---
+Australian Pacific College (APC) & English Unlimited | Advanced Diploma in Cyber Security | diplomado | Tecnología | 4 trimestres tiempo completo (aprox. 1 año) | 22610VIC | https://www.apc.edu.au/course/advanced-diploma-in-cyber-security
+Australian Pacific College (APC) & English Unlimited | Advanced Diploma of Accounting | diplomado | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | FNS60222 · CRICOS 110480H | https://www.apc.edu.au/course/advanced-diploma-of-accounting
+Australian Pacific College (APC) & English Unlimited | Advanced Diploma of Graphic Design | diplomado | Diseño | 4 trimestres tiempo completo (aprox. 1 año) | CUA60320 · CRICOS 106737M | https://www.apc.edu.au/course/advanced-diploma-of-graphic-design
+Australian Pacific College (APC) & English Unlimited | Advanced Diploma of Human Resource Management | diplomado | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB60320 · CRICOS 105321K | https://www.apc.edu.au/course/advanced-diploma-of-human-resource-management
+Australian Pacific College (APC) & English Unlimited | Advanced Diploma of Interior Design | diplomado | Diseño | 4 trimestres tiempo completo (aprox. 1 año) | MSF60122 · CRICOS 0100109 | https://www.apc.edu.au/course/advanced-diploma-of-interior-design
+Australian Pacific College (APC) & English Unlimited | Advanced Diploma of Leadership and Management | diplomado | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB60420 · CRICOS 105318E | https://www.apc.edu.au/course/advanced-diploma-of-leadership-and-management
+Australian Pacific College (APC) & English Unlimited | Advanced Diploma of Marketing and Communication | diplomado | Marketing | 4 trimestres tiempo completo (aprox. 1 año) | BSB60520 · CRICOS 105324G | https://www.apc.edu.au/course/advanced-diploma-of-marketing-and-communication
+Australian Pacific College (APC) & English Unlimited | Advanced Diploma of Program Management | diplomado | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB60720 · CRICOS 104470E | https://www.apc.edu.au/course/advanced-diploma-of-program-management
+Australian Pacific College (APC) & English Unlimited | CAMBRIDGE ENGLISH: B2 First Preparation | curso_corto | Idiomas | 3 a 12 semanas | CRICOS 0100894 | https://www.apc.edu.au/course/b2-first-preparation
+Australian Pacific College (APC) & English Unlimited | CAMBRIDGE ENGLISH: C1 Advanced Preparation | curso_corto | Idiomas | 2 a 12 semanas | CRICOS 0100893 | https://www.apc.edu.au/course/c1-advanced-preparation
+Australian Pacific College (APC) & English Unlimited | Certificate II in Workplace Skills | curso_corto | Negocios | 2 trimestres tiempo completo (aprox. 6 meses) | BSB20120 · CRICOS 105315H | https://www.apc.edu.au/course/certificate-ii-in-workplace-skills
+Australian Pacific College (APC) & English Unlimited | Certificate III in Business | curso_corto | Negocios | 2 trimestres tiempo completo (aprox. 6 meses) | BSB30120 · CRICOS 105317F | https://www.apc.edu.au/course/certificate-iii-in-business
+Australian Pacific College (APC) & English Unlimited | Certificate III in Design Fundamentals | curso_corto | Diseño | 2 trimestres tiempo completo (aprox. 6 meses) | CUA30720 · CRICOS 105774C | https://www.apc.edu.au/course/certificate-iii-in-design-fundamentals
+Australian Pacific College (APC) & English Unlimited | Certificate III in Entrepreneurship and New Business | curso_corto | Negocios | 2 trimestres tiempo completo (aprox. 6 meses) | BSB30220 | https://www.apc.edu.au/course/certificate-iii-in-entrepreneurship-new-business
+Australian Pacific College (APC) & English Unlimited | Certificate III in Hospitality | curso_corto | Hospitalidad | 3 trimestres tiempo completo (aprox. 9 meses) | SIT30622 · CRICOS 110483E | https://www.apc.edu.au/course/certificate-iii-in-hospitality
+Australian Pacific College (APC) & English Unlimited | Certificate III in Travel | curso_corto | Turismo | 3 trimestres tiempo completo (aprox. 9 meses) | SIT30222 · CRICOS 110836G | https://www.apc.edu.au/course/certificate-iii-in-travel
+Australian Pacific College (APC) & English Unlimited | Certificate IV in Accounting and Bookkeeping | curso_corto | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | FNS40222 · CRICOS 109957H | https://www.apc.edu.au/course/certificate-iv-in-accounting-and-bookkeeping
+Australian Pacific College (APC) & English Unlimited | Certificate IV in Communicative TESOL | curso_corto | Educación | 2 trimestres tiempo completo (aprox. 6 meses) | 10989NAT · CRICOS 107595A | https://www.apc.edu.au/course/certificate-iv-in-communicative-tesol
+Australian Pacific College (APC) & English Unlimited | Certificate IV in Cyber Security | curso_corto | Tecnología | 4 trimestres tiempo completo (aprox. 1 año) | 22603VIC | https://www.apc.edu.au/course/certificate-iv-in-cyber-security
+Australian Pacific College (APC) & English Unlimited | Certificate IV in Entrepreneurship and New Business | curso_corto | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB40320 | https://www.apc.edu.au/course/certificate-iv-in-entrepreneuship-new-business
+Australian Pacific College (APC) & English Unlimited | Certificate IV in Human Resource Management | curso_corto | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB40420 · CRICOS 105319D | https://www.apc.edu.au/course/certificate-iv-in-human-resource-management
+Australian Pacific College (APC) & English Unlimited | Certificate IV in Leadership and Management | curso_corto | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB40520 · CRICOS 103942H | https://www.apc.edu.au/course/certificate-iv-in-leadership-and-management
+Australian Pacific College (APC) & English Unlimited | Certificate IV in Marketing and Communication | curso_corto | Marketing | 4 trimestres tiempo completo (aprox. 1 año) | BSB40820 · CRICOS 105322J | https://www.apc.edu.au/course/certificate-iv-in-marketing-and-communication
+Australian Pacific College (APC) & English Unlimited | Certificate IV in Project Management Practice | curso_corto | Negocios | 3 trimestres tiempo completo (aprox. 9 meses) | BSB40920 · CRICOS 103915M | https://www.apc.edu.au/course/certificate-iv-in-project-management-practice
+Australian Pacific College (APC) & English Unlimited | Certificate IV in Training and Assessment | curso_corto | Educación | 4 trimestres tiempo completo (aprox. 1 año) | TAE40122 · CRICOS 118528K | https://www.apc.edu.au/course/certificate-iv-in-training-and-assessment
+Australian Pacific College (APC) & English Unlimited | Diploma of Accounting | diplomado | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | FNS50222 · CRICOS 110479A | https://www.apc.edu.au/course/diploma-of-accounting
+Australian Pacific College (APC) & English Unlimited | Diploma of Graphic Design | diplomado | Diseño | 4 trimestres tiempo completo (aprox. 1 año) | CUA50720 · CRICOS 105821A | https://www.apc.edu.au/course/diploma-of-graphic-design
+Australian Pacific College (APC) & English Unlimited | Diploma of Hospitality Management | diplomado | Hospitalidad | 6 trimestres tiempo completo (aprox. 1,5 años) | SIT50422 · CRICOS 110485C | https://www.apc.edu.au/course/diploma-of-hospitality-management
+Australian Pacific College (APC) & English Unlimited | Diploma of Human Resource Management | diplomado | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB50320 · CRICOS 105320M | https://www.apc.edu.au/course/diploma-of-human-resource-management
+Australian Pacific College (APC) & English Unlimited | Diploma of Interior Design | diplomado | Diseño | 4 trimestres tiempo completo (aprox. 1 año) | MSF50222 · CRICOS 0100107 | https://www.apc.edu.au/course/diploma-of-interior-design
+Australian Pacific College (APC) & English Unlimited | Diploma of Leadership and Management | diplomado | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB50420 · CRICOS 104130C | https://www.apc.edu.au/course/diploma-of-leadership-and-management
+Australian Pacific College (APC) & English Unlimited | Diploma of Marketing and Communication | diplomado | Marketing | 4 trimestres tiempo completo (aprox. 1 año) | BSB50620 · CRICOS 105323H | https://www.apc.edu.au/course/diploma-of-marketing-and-communication
+Australian Pacific College (APC) & English Unlimited | Diploma of Project Management | diplomado | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB50820 · CRICOS 104103F | https://www.apc.edu.au/course/diploma-of-project-management
+Australian Pacific College (APC) & English Unlimited | Diploma of Social Media Marketing with Artificial Intelligence | diplomado | Marketing | 4 trimestres tiempo completo (aprox. 1 año) | 11426NAT · CRICOS 120219E | https://www.apc.edu.au/course/diploma-of-social-media-marketing-with-artifical-intelligence
+Australian Pacific College (APC) & English Unlimited | Diploma of Travel and Tourism Management | diplomado | Turismo | 6 trimestres tiempo completo (aprox. 1,5 años) | SIT50122 · CRICOS 110482F | https://www.apc.edu.au/course/diploma-of-travel-and-tourism-management
+Australian Pacific College (APC) & English Unlimited | Diploma of User Experience Design | diplomado | Diseño | 4 trimestres tiempo completo (aprox. 1 año) | 10992NAT · CRICOS 109333G | https://www.apc.edu.au/course/diploma-of-user-experience-design
+Australian Pacific College (APC) & English Unlimited | English for Academic Purposes (EAP) | curso_corto | Idiomas | 5 a 26 semanas | CRICOS 075995J | https://www.apc.edu.au/course/english-for-academic-purposes-eap
+Australian Pacific College (APC) & English Unlimited | General English - Everyday Teaching Method | curso_corto | Idiomas | 1 a 77 semanas | CRICOS 017830M | https://www.apc.edu.au/course/general-english-everyday-teaching-method
+Australian Pacific College (APC) & English Unlimited | Graduate Diploma of Management (Learning) | posgrado | Negocios | 4 trimestres tiempo completo (aprox. 1 año) | BSB80120 · CRICOS 105018F | https://www.apc.edu.au/course/graduate-diploma-of-management-learning
+Australian Pacific College (APC) & English Unlimited | IELTS Preparation | curso_corto | Idiomas | 2 a 12 semanas | CRICOS 0100895 | https://www.apc.edu.au/course/ielts-preparation
+Australian Pacific College (APC) & English Unlimited | Junior English Program | vacacional | Idiomas | 1 a 4 semanas | - | https://www.apc.edu.au/course/junior-english-program
+Australian Pacific College (APC) & English Unlimited | Private English Lessons | curso_corto | Idiomas | 1 a 26 semanas | - | https://www.apc.edu.au/course/private-english-lessons
+
+# --- The Institute of Contemporary Music Performance (ICMP) · icmp.ac.uk ---
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Audio Engineering and Production | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-audio-engineering-and-production
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Creative Music Production | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-creative-music-production
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Creative Musicianship | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-creative-musicianship
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) DJ and Electronic Music Production | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-dj-and-electronic-music-production
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Electronic Music Production | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-electronic-music-production
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Live Event and Festival Management | bachelor | Negocios | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-live-event-festival-management
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Music Business and Entrepreneurship | bachelor | Negocios | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-music-business-entrepreneurship
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Music for Film, TV & Games | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-music-film-tv-games
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Music Marketing | bachelor | Marketing | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-music-marketing
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Music Psychology in Practice | bachelor | Psicología | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-music-psychology-in-practice
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Songwriting | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-songwriting
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Songwriting and Artist Development | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-songwriting-and-artist-development
+The Institute of Contemporary Music Performance (ICMP) | BA (Hons) Songwriting and Production | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/ba-hons-songwriting-and-production
+The Institute of Contemporary Music Performance (ICMP) | BMus (Hons) Popular Music Performance | bachelor | Música | 3 años | - | https://www.icmp.ac.uk/course/bmus-hons-popular-music-performance
+The Institute of Contemporary Music Performance (ICMP) | Cert HE in Creative Music Production | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/cert-he-creative-music-production
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Creative Musicianship | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/cert-he-creative-musicianship
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Electronic Music Production | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/cert-he-electronic-music-production
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Live Event and Festival Management | curso_corto | Negocios | 1 año | - | https://www.icmp.ac.uk/course/cert-he-live-event-and-festival-management
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Music Business and Entrepreneurship | curso_corto | Negocios | 1 año | - | https://www.icmp.ac.uk/course/cert-he-music-business-entrepreneurship
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Music for Media | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/cert-he-music-for-media
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Music Marketing | curso_corto | Marketing | 1 año | - | https://www.icmp.ac.uk/course/cert-he-music-marketing
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Songwriting | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/cert-he-songwriting
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Songwriting and Artist Development | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/cert-he-songwriting-and-artist-development
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Songwriting and Production | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/cert-he-songwriting-and-production
+The Institute of Contemporary Music Performance (ICMP) | Cert HE Audio Engineering and Production | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/certhe-audio-engineering-and-production
+The Institute of Contemporary Music Performance (ICMP) | CertHE DJ and Electronic Music Production | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/certhe-dj-and-electronic-music-production
+The Institute of Contemporary Music Performance (ICMP) | CertHE Popular Music Performance (Bass) | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/certhe-popular-music-performance-bass
+The Institute of Contemporary Music Performance (ICMP) | CertHE Popular Music Performance (Drums) | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/certhe-popular-music-performance-drums
+The Institute of Contemporary Music Performance (ICMP) | CertHE Popular Music Performance (Guitar) | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/cert-he-popular-music-performance-guitar
+The Institute of Contemporary Music Performance (ICMP) | CertHE Popular Music Performance (Keyboards) | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/certhe-popular-music-performance-keyboards
+The Institute of Contemporary Music Performance (ICMP) | CertHE Popular Music Performance (Vocals) | curso_corto | Música | 1 año | - | https://www.icmp.ac.uk/course/certhe-popular-music-performance-vocals
+The Institute of Contemporary Music Performance (ICMP) | MA Commercial Songwriting and Production | maestria | Música | 1 año | - | https://www.icmp.ac.uk/course/ma-commercial-songwriting-and-production
+The Institute of Contemporary Music Performance (ICMP) | MA Creative Music Production | maestria | Música | 1 año | - | https://www.icmp.ac.uk/course/ma-creative-music-production
+The Institute of Contemporary Music Performance (ICMP) | MA Music Business | maestria | Negocios | 1 año | - | https://www.icmp.ac.uk/course/ma-music-business
+The Institute of Contemporary Music Performance (ICMP) | MA Vocal Studies | maestria | Música | 1 año | - | https://www.icmp.ac.uk/course/ma-vocal-studies
+The Institute of Contemporary Music Performance (ICMP) | MMus Masters in Popular Music Performance | maestria | Música | 1 año | - | https://www.icmp.ac.uk/course/masters-in-music-performance
+The Institute of Contemporary Music Performance (ICMP) | MA Songwriting | maestria | Música | 1 año | - | https://www.icmp.ac.uk/course/masters-in-songwriting
+The Institute of Contemporary Music Performance (ICMP) | MSc Audio Engineering & Music Technology | maestria | Música | 1 año | - | https://www.icmp.ac.uk/course/msc-audio-engineering-music-technology
+
+# --- SPD - Scuola Politecnica di Design · scuoladesign.com ---
+SPD - Scuola Politecnica di Design | Foundation Course | curso_corto | Diseño | 9 meses | - | https://www.scuoladesign.com/courses/foundation-course
+SPD - Scuola Politecnica di Design | Preparatory Course in 3D Design Tools (Online) | curso_corto | Diseño | 16 semanas (96 horas) | - | https://www.scuoladesign.com/courses/3d-design-tools-preparatory-course
+SPD - Scuola Politecnica di Design | Car Design Tools Preparatory Course | curso_corto | Diseño | 14 semanas | - | https://www.scuoladesign.com/courses/car-design-tools-preparatory-course
+SPD - Scuola Politecnica di Design | Bachelor of Arts (Hons) in Design | bachelor | Diseño | 3 años académicos | - | https://www.scuoladesign.com/courses/design
+SPD - Scuola Politecnica di Design | Bachelor of Arts (Hons) in Automotive and Transport Design | bachelor | Diseño | 3 años académicos | - | https://www.scuoladesign.com/courses/automotive-and-transport-design
+SPD - Scuola Politecnica di Design | Bachelor of Arts (Hons) in Communication Design & Creative Strategy | bachelor | Diseño | 3 años académicos | - | https://www.scuoladesign.com/courses/communication-design-creative-strategy
+SPD - Scuola Politecnica di Design | Bachelor of Arts in Car Design | bachelor | Diseño | 3 años académicos | - | https://www.scuoladesign.com/courses/car-design
+SPD - Scuola Politecnica di Design | Master of Arts in Interior Design with Advanced Practice | maestria | Diseño | 12 o 16 meses | - | https://www.scuoladesign.com/courses/interior-design
+SPD - Scuola Politecnica di Design | Master of Arts in Product Design with Advanced Practice | maestria | Diseño | 12 o 16 meses | - | https://www.scuoladesign.com/courses/product-design
+SPD - Scuola Politecnica di Design | Master of Arts in Interaction Design & Creative Technology with Advanced Practice | maestria | Diseño | 12 o 16 meses | - | https://www.scuoladesign.com/courses/interaction-design-creative-technology
+SPD - Scuola Politecnica di Design | Master of Arts in Communication Design with Advanced Practice | maestria | Diseño | 12 o 16 meses | - | https://www.scuoladesign.com/courses/communication-design
+SPD - Scuola Politecnica di Design | Master of Arts in Food Design with Advanced Practice | maestria | Diseño | 12 o 16 meses | - | https://www.scuoladesign.com/courses/food-design
+SPD - Scuola Politecnica di Design | Master of Arts in Transportation and Car Design with Advanced Practice | maestria | Diseño | 16 meses | - | https://www.scuoladesign.com/courses/transportation-car-design
+SPD - Scuola Politecnica di Design | Master of Arts in Event and Exhibition Design (MEED) with Advanced Practice | maestria | Diseño | 12 o 16 meses | - | https://www.scuoladesign.com/courses/meed-event-exhibition-design
+SPD - Scuola Politecnica di Design | Master in MID Interior Design | maestria | Diseño | 12 meses | - | https://www.scuoladesign.com/courses/mid-interior-design
+SPD - Scuola Politecnica di Design | Creative Industries - AI and Creativity | curso_corto | Tecnología | no indicada | - | https://www.scuoladesign.com/courses/artificial-intelligence-and-creativity
+SPD - Scuola Politecnica di Design | LEGO® SERIOUS PLAY® METHOD | curso_corto | Negocios | no indicada | - | https://www.scuoladesign.com/courses/lego-serious-play
+
+# --- Newdeal Institut (KLF Bordeaux) · francais.newdealinstitut.com ---
+Newdeal Institut (KLF Bordeaux) | Curso estándar de francés | curso_corto | Idiomas | 20 lecciones/semana · de 1 a 12+ semanas | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-de-frances-estandar/
+Newdeal Institut (KLF Bordeaux) | Curso intensivo de francés | curso_corto | Idiomas | 26 lecciones/semana · de 1 a 12+ semanas | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/cursos-de-frances-intensivo/
+Newdeal Institut (KLF Bordeaux) | Curso intensivo de francés y preparación universitaria | curso_corto | Idiomas | 26 lecciones/semana · 12/24/36 semanas | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-intensivo-de-larga-duracion-y-via-universitaria-en-burdeos/
+Newdeal Institut (KLF Bordeaux) | Curso de francés INTENSIF PREMIUM | curso_corto | Idiomas | 20 lecciones + 6 clases particulares/semana · de 1 a 12 semanas | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-de-frances-intensivo-premium/
+Newdeal Institut (KLF Bordeaux) | Preparación intensiva para los exámenes DELF/DALF | curso_corto | Idiomas | 2 semanas · 20 clases generales + 6 de preparación | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/preparacion-para-los-examenes-delf-b2-dalf-c1-en-burdeos/
+Newdeal Institut (KLF Bordeaux) | Preparación para los exámenes DELF/DALF PREMIUM | curso_corto | Idiomas | 20 lecciones + 6 clases particulares/semana · de 1 a 4 semanas | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/preparacion-para-los-examenes-delf-dalf-premium/
+Newdeal Institut (KLF Bordeaux) | Clase de francés au pair | curso_corto | Idiomas | 16 lecciones/semana · 10 semanas | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/cursos-de-frances-au-pair/
+Newdeal Institut (KLF Bordeaux) | Cursos de francés para principiantes | curso_corto | Idiomas | no indicada · plataforma e-learning complementaria | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-de-frances-para-principiantes-absolutos/
+Newdeal Institut (KLF Bordeaux) | Curso de francés con certificación | curso_corto | Idiomas | no indicada | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-de-frances-con-certificacion/
+Newdeal Institut (KLF Bordeaux) | Clases particulares de francés | curso_corto | Idiomas | 6 o 12 clases/semana | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/clases-particulares-de-frances/
+Newdeal Institut (KLF Bordeaux) | Curso de francés nocturno ONLINE (Online) | curso_corto | Idiomas | 4 lecciones/semana · 4/8/12 semanas | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/curso-de-frances-en-linea/curso-de-frances-nocturno/
+Newdeal Institut (KLF Bordeaux) | Clases particulares francés ONLINE (Online) | curso_corto | Idiomas | 6 o 12 clases/semana | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/curso-de-frances-en-linea/
+Newdeal Institut (KLF Bordeaux) | Curso de Francés de los Negocios | curso_corto | Idiomas | pack de 6 a 12 lecciones | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-profesionales/curso-de-frances-de-los-negocios-individual/
+Newdeal Institut (KLF Bordeaux) | Clases de francés para jóvenes | vacacional | Idiomas | 20 lecciones/semana · desde 1 semana (verano) | - | https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/
+
+# --- Skills Australia Institute (SAI) · skillsaustralia.edu.au ---
+Skills Australia Institute (SAI) | Diploma of Business (Operations) | diplomado | Negocios | 52 semanas | BSB50120 · CRICOS 106514D | https://www.skillsaustralia.edu.au/diploma-of-business/
+Skills Australia Institute (SAI) | Graduate Diploma of Management (Learning) | posgrado | Negocios | 104 semanas | BSB80120 · CRICOS 105327D | https://www.skillsaustralia.edu.au/graduate-diploma-of-management-learning/
+Skills Australia Institute (SAI) | Certificate III in Early Childhood Education and Care | curso_corto | Educación | 52 semanas | CHC30121 | https://www.skillsaustralia.edu.au/certificate-iii-in-early-childhood-education-and-care/
+Skills Australia Institute (SAI) | Diploma of Early Childhood Education and Care | diplomado | Educación | 52 semanas | CHC50121 | https://www.skillsaustralia.edu.au/diploma-of-early-childhood-education-and-care/
+Skills Australia Institute (SAI) | Certificate III in Light Vehicle Mechanical Technology | curso_corto | Oficios Técnicos | 78 semanas | AUR30620 · CRICOS 103646E | https://www.skillsaustralia.edu.au/certificate-iii-in-light-vehicle-mechanical-technology/
+Skills Australia Institute (SAI) | Certificate IV in Automotive Mechanical Diagnosis | curso_corto | Oficios Técnicos | 26 semanas | AUR40216 · CRICOS 102699M | https://www.skillsaustralia.edu.au/certificate-iv-in-automotive-mechanical-diagnosis/
+Skills Australia Institute (SAI) | Diploma of Automotive Management | diplomado | Oficios Técnicos | 26 semanas | AUR50116 · CRICOS 102700A | https://www.skillsaustralia.edu.au/diploma-of-automotive-management/
+Skills Australia Institute (SAI) | Certificate III in Carpentry | curso_corto | Construcción | 104 semanas | CPC30220 | https://www.skillsaustralia.edu.au/certificate-iii-in-carpentry/
+Skills Australia Institute (SAI) | Certificate III in Bricklaying and Blocklaying | curso_corto | Construcción | 104 semanas | CPC33020 · CRICOS 108138G | https://www.skillsaustralia.edu.au/certificate-iii-in-bricklaying-and-blocklaying/
+Skills Australia Institute (SAI) | Certificate III in Wall and Floor Tiling | curso_corto | Construcción | 104 semanas | CPC31320 · CRICOS 108137H | https://www.skillsaustralia.edu.au/certificate-iii-in-wall-and-floor-tiling/
+
+# --- Curtin College · curtincollege.edu.au ---
+Curtin College | Diploma of Built Environment | diplomado | Arquitectura y Construcción | Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses) | CRICOS 087939G | https://www.curtincollege.edu.au/courses/diplomas/architecture-construction/
+Curtin College | Diploma of Commerce | diplomado | Negocios | Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses) | CRICOS 087940C | https://www.curtincollege.edu.au/courses/diplomas/commerce/
+Curtin College | Diploma of Arts and Creative Industries | diplomado | Artes y Diseño | Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses) | CRICOS 087938G | https://www.curtincollege.edu.au/courses/diplomas/communication-design-arts/
+Curtin College | Diploma of Computing | diplomado | Tecnología | Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses) | CRICOS 087943M | https://www.curtincollege.edu.au/courses/diplomas/computer-science-it/
+Curtin College | Diploma of Engineering | diplomado | Ingeniería | Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses) | CRICOS 087941B | https://www.curtincollege.edu.au/courses/diplomas/engineering/
+Curtin College | Diploma of Health Sciences | diplomado | Salud | Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 12 meses | CRICOS 087942A | https://www.curtincollege.edu.au/courses/diplomas/health-sciences/
+Curtin College | Masters Qualifying Program (MQP) | curso_corto | Estudios Generales | 6 meses (1 semestre · 4 unidades) | CRICOS 066028J | https://www.curtincollege.edu.au/courses/masters-qualifying-program/
+
+# --- New Zealand School of Tourism (NZST) · nzschooloftourism.co.nz ---
+New Zealand School of Tourism (NZST) | Certificate in Tourism (Tourism and Travel) Level 3 | curso_corto | Turismo | 16 semanas | NZQF Nivel 3 | https://nzschooloftourism.co.nz/courses
+New Zealand School of Tourism (NZST) | Certificate in Flight Attending & Aviation Level 4 | curso_corto | Aviación | 16 semanas | NZQF Nivel 4 | https://nzschooloftourism.co.nz/courses/certificate-in-aviation
+New Zealand School of Tourism (NZST) | Certificate in Tourism Level 4 | curso_corto | Turismo | 16 semanas | NZQF Nivel 4 | https://nzschooloftourism.co.nz/courses/certificate-in-tourism
+New Zealand School of Tourism (NZST) | Diploma in Tourism & Travel Management Level 5 | diplomado | Turismo | 32 semanas | NZQF Nivel 5 | https://nzschooloftourism.co.nz/courses/diploma-travel-tourism-level-5
+New Zealand School of Tourism (NZST) | Diploma in Hotel & Hospitality Management Level 5 | diplomado | Hospitalidad | 32 semanas | NZQF Nivel 5 | https://nzschooloftourism.co.nz/courses/diploma-hotel-hospitality-management-level-5
+New Zealand School of Tourism (NZST) | Diploma in Tourism and Travel Management Level 6 | diplomado | Turismo | 32 semanas | NZQF Nivel 6 | https://nzschooloftourism.co.nz/courses/diploma-travel-tourism-level-6
+
+# --- Vocational Training Institute (VTI) · vocationalinstitute.com.au ---
+Vocational Training Institute (VTI) | Diploma Of Leadership And Management | diplomado | Negocios | 52 semanas | BSB50420 | https://www.vocationalinstitute.com.au/bsb50420-diploma-of-leadership-and-management/
+Vocational Training Institute (VTI) | Advanced Diploma Of Leadership And Management | diplomado | Negocios | 52 semanas | BSB60420 | https://www.vocationalinstitute.com.au/bsb60420-advanced-diploma-of-leadership-and-management/
+Vocational Training Institute (VTI) | Graduate Diploma Of Management (Learning) | posgrado | Negocios | 52 semanas | BSB80120 | https://www.vocationalinstitute.com.au/bsb80120-graduate-diploma-of-management-learning/
+
+# RESUMEN: instituciones=10 con_programas=10 total_programas=277 sin_catalogo=0
+
+# NOTAS:
+# Niagara College (124 filas) — el buscador /programs/search/ es JS y renderiza "no programs found", pero la lista COMPLETA viene en el HTML dentro de un <ul class="filtered-programs"> oculto (178 <li> con data-credential, data-campus, data-interest). De ahi salieron los nombres; la duracion, el codigo de programa y el credential se leyeron abriendo las 147 fichas restantes una por una. FILTRO CLAVE: 22 programas dicen textualmente "Sorry, international applications are not accepted for this program" (Practical Nursing, Paramedic, Dental Hygiene, Massage Therapy, Police Foundations Advanced Standing, Hairstyling-Barbering, las 3 Early Childhood Education de Six Nations Polytechnic, Honours BScN, CICE, etc.) — un colombiano NO los puede cursar y se EXCLUYERON. Tambien se excluyeron 10 Certificate of Apprenticeship + 2 Pre-Apprenticeship (exigen contrato laboral en Ontario), 19 programas part-time de Continuing Education (16 de ellos "Statement of Completion", no habilitan visa de estudio) y el programa NEXT (Newcomer Employment and Experience Transition, solo para recien llegados a Canada). 178 -> 124. Contraste vs cantidad_aprox "100+ a tiempo completo": consistente. 100% ONLINE marcados con "(Online)": 11 filas. OJO 3 filas de Broadcasting - Radio, Television and Film comparten el codigo de programa 0122 pero tienen pagina propia (0163/0164/0165): el sitio las lista como programas separados, se cargaron como tales; si el revisor prefiere una sola credencial, fusionar. "Beverage Business Management - Barcelona, Spain" y "Hospitality and Tourism Management - Barcelona, Spain" se dictan en el campus de Niagara en Barcelona, no en Ontario — dato comercial relevante. El sitio publica matriculas: NO se transcribieron.
+# Australian Pacific College (APC) (42 filas) — CONFIRMADA la alerta de la auditoria: el sitio opera 5 campus (Sydney, Melbourne, Brisbane, Gold Coast, Adelaide), no los 2 de la ficha, y comparte dominio con la marca hermana English Unlimited (misma RTO 90396 / CRICOS 01331F). Se DEDUPLICO por campus: una sola fila por curso aunque se dicte en varias ciudades. El codigo nacional y el CRICOS por curso estan en el encabezado de cada ficha y se extrajeron de ahi (verificables contra training.gov.au). EXCLUIDO "Barista Skills": es un skill set / taller corto sin codigo de qualification propio. "Private English Lessons" es tutoria individual mas que programa — se carga por completitud pero no habilita visa por si sola. Contraste vs cantidad_aprox "~33": 42 filas, por encima (la auditoria probablemente no conto los cursos de idioma o los short courses).
+# ICMP (38 filas) — CORRECCION DE FICHA confirmada: el nombre real es "The Institute of Contemporary Music Performance", no "ICMP ( The institute)". La ficha dice Londres; el catalogo de titulaciones (BA/BMus/CertHE/MA/MMus/MSc) se dicta en el campus de Londres (Kilburn) y es el que se cargo. Los "cursos cortos" que menciona niveles_vistos YA NO existen en /study-at-icmp/find-a-course: hoy solo hay 14 BA/BMus + 17 CertHE + 7 posgrados. Los CertHE se cargaron como `curso_corto` porque son un Nivel 4 de 1 anio que da entrada al ano 2 del BA equivalente (pathway), no una credencial terminal — si el producto prefiere `diplomado`, es un cambio de una linea. Las titulaciones las valida una universidad socia; el sitio no publica codigo UCAS en el listado, por eso todos van con `-`.
+# SPD - Scuola Politecnica di Design (17 filas) — CORREGIDO el typo de la ficha ("Scoula" -> "Scuola") y la categoria: es escuela privada de diseno, NO universidad; los BA estan acreditados por Teesside University (UK) y el MID por POLI.design - Politecnico di Milano. IDIOMA es dato de venta critico y varia: los 3 BA (Hons) y todos los MA son en INGLES; el "Bachelor of Arts in Car Design", el "Master in MID Interior Design" y los 2 cursos cortos son en ITALIANO; el Foundation Course es italiano+ingles. EXCLUIDOS 4 "short courses" que el listado de SPD publica pero que pertenecen a Ferrari Fashion School (dominio ferrarifashionschool.it): son de otra institucion. El Foundation Course se dicta en Roma/Milan/Brescia segun el track — verificar sede antes de vender. El sitio publica precios: NO se transcribieron. Contraste vs cantidad_aprox "~15": 17 filas.
+# Curtin College (7 filas) — CONFIRMADA la alerta: NO otorga pregrado propio. Los 6 son diplomas-pathway de 2 etapas que dan entrada al 2do ano de Curtin University, mas el Masters Qualifying Program (6 meses, SOLO estudiantes internacionales). El `puede_vender` de la ficha dice "Todos los programas" y eso SOBREVENDE: lo vendible son estas 7 credenciales, no el catalogo de Curtin University. Las 12 "majors" de Health Sciences (Nursing, Psychology, Pharmacy, Physiotherapy...) y las 4 corrientes de Commerce (General, FABLET, BA, Innovation) NO se cargaron como filas: son especializaciones dentro de un mismo diploma, no credenciales autonomas. Campus unico: Curtin Bentley, Perth. Contraste vs cantidad_aprox "~8": 7 filas.
+# Skills Australia Institute (10 filas) — CORREGIDO el nombre truncado de la ficha ("Skills Australia" -> "Skills Australia Institute"). EXCLUIDAS las secciones "Govt. Funded Courses WA" y "Apprenticeship WA": son cursos financiados por el gobierno de Australia Occidental y aprendizajes con contrato laboral, no vendibles a un estudiante internacional. La pagina de cada curso declara el campus: 7 solo en Perth (Cannington) y 3 tambien en Adelaide (Early Childhood x2 y Carpentry) — la ficha lista ambas ciudades, correcto. 3 cursos (CHC30121, CHC50121, CPC30220) no publican CRICOS por curso en su ficha, solo el CRICOS del proveedor 03548F; se dejo el codigo nacional. Contraste vs cantidad_aprox "~11": 10 filas.
+# Newdeal Institut (14 filas) — CORREGIR la ciudad de la ficha: "Budeos" es typo de Burdeos/Bordeaux. Confirmado el grupo KLF (Keep Learning French) en el propio sitio. EXCLUIDOS 3 productos: (1) "Curso intensivo de frances especial Bildungsurlaub" — es el permiso legal aleman de formacion pagada, solo aplica a trabajadores en Alemania; (2) "Formaciones para profesores de frances" — CPD para docentes europeos financiado por ERASMUS+, un colombiano no accede a esa beca ni es el publico; (3) "Cursos para grupos" — es una agencia de movilidad (Newdeal World Institut), no un programa. OJO: el "curso de frances nocturno ONLINE" lo imparte Lyon Bleu International (otra escuela del grupo KLF), no Newdeal — el propio sitio lo aclara al pie. Los 2 cursos en linea van marcados "(Online)": no habilitan visa de estudio. El sitio publica tarifas por semana: NO se transcribieron. Contraste vs cantidad_aprox "~12": 14 filas.
+# ILA Montpellier (16 filas) — la lista es estatica y enumerable en /cursos-frances, en espanol. Los 4 cursos de verano se cargaron como `vacacional` y el resto como `curso_corto`. NO se cargo el "Curso Estandar de Frances + Formacion de Profesorado": es formacion de docentes, no curso de idioma para el estudiante que atiende la agencia (mismo criterio que se uso con CELTA en otro lote). El sitio presenta los mismos cursos duplicados por audiencia (adultos / juniors) y se DEDUPLICO a una fila por curso. Contraste vs cantidad_aprox "~40": 16 filas — la diferencia se explica porque la auditoria conto cada curso una vez por audiencia (adultos, juniors, 50+) y por duracion; el catalogo real de productos distintos es de 16.
+# New Zealand School of Tourism (6 filas) — CONFIRMADO en el pie de pagina: la matricula y el titulo los emite Yoobee Colleges Ltd, NZST es solo nombre comercial (grupo UP Education). Coincide 6/6 con cantidad_aprox. EXCLUIDAS las secciones "FREE study options" / "Study fees free" (financiadas por el gobierno neozelandes) y "STAR & Gateway" (programas para colegios locales): no vendibles a internacionales. No existe codigo de programa publicado; se registro el nivel NZQF, que es lo verificable contra el registro nacional. El Certificate in Tourism Nivel 3 no tiene URL propia (la pagina /courses/certificate-in-tourism describe solo el Nivel 4), asi que se apunto al indice /courses.
+# Vocational Training Institute (3 filas) — coincide 3/3 con cantidad_aprox. Catalogo minusculo y monotematico: los 3 son BSB de liderazgo/gestion, 52 semanas cada uno. SI esta registrado para internacionales (CRICOS de proveedor 03487C, RTO 41111), pero las fichas de curso NO publican CRICOS por curso ni ciudad, y la ficha de la auditoria viene sin ciudad, sin category y con `puede_vender` VACIO. El sitio arrastra un bloque COVID-19 sin actualizar y el copyright dice 2022: RE-VERIFICAR que siga operando antes de publicar estas 3 filas.

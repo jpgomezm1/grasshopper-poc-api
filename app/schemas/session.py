@@ -26,6 +26,8 @@ class ViewType(str, Enum):
     PARTIAL_SUMMARY = "PARTIAL_SUMMARY"
     ROUTES_PICKER = "ROUTES_PICKER"
     NEXT_STEP = "NEXT_STEP"
+    # JR-2 · invitación a hacer un test a mitad del journey
+    TEST_INVITATION = "TEST_INVITATION"
 
 
 class JourneyAnswers(BaseModel):

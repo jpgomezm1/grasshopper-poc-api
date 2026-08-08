@@ -32,8 +32,11 @@ from app.api.v1 import (
     english_test,
     vocational_tests,
     study_preferences,
+    busqueda,
     ofertas,
     lead_profile,
+    bot,
+    outreach,
     schools,
     external_test_uploads,
     recommendations,
@@ -201,7 +204,10 @@ app.include_router(english_test.router, prefix="/api/v1")
 app.include_router(vocational_tests.router, prefix="/api/v1")
 app.include_router(study_preferences.router, prefix="/api/v1")
 app.include_router(ofertas.router, prefix="/api/v1")
+app.include_router(busqueda.router, prefix="/api/v1")
 app.include_router(lead_profile.router, prefix="/api/v1")
+app.include_router(bot.router, prefix="/api/v1")
+app.include_router(outreach.router, prefix="/api/v1")
 app.include_router(schools.router, prefix="/api/v1")
 app.include_router(external_test_uploads.router, prefix="/api/v1")
 app.include_router(recommendations.router, prefix="/api/v1")

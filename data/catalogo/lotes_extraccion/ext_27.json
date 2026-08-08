@@ -1,0 +1,151 @@
+[
+ {
+  "institucion_ficha": "The University of Alabama at Birmingham",
+  "nombre_real": "The University of Alabama at Birmingham (UAB)",
+  "dominio": "www.uab.edu",
+  "url_programas": "https://www.uab.edu/degrees/",
+  "pais": "USA",
+  "ciudad": "Birmingham",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Pregrado, Postgrado, doctorados, certificados, online",
+  "cantidad_aprox": "280+ (cifra del propio sitio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio es el correcto (universidad real, no micrositio). Pero `partner_group`=INTO y los pathways de INTO NO viven en uab.edu sino en el micrositi",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Neoma BS",
+  "nombre_real": "NEOMA Business School",
+  "dominio": "neoma-bs.com",
+  "url_programas": "sin indice unico: /undergraduate-programmes · /masters-of-science · /programmes/master-in-management · /part-time-specialised-masters · executive y doctoral",
+  "pais": "France",
+  "ciudad": "Paris, Rouen, Reims",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Global BBA y Bachelor, Master in Management, MSc, Masteres especializados part-time, Executive MBA, DBA/doctorado",
+  "cantidad_aprox": "~30-45",
+  "veredicto_auditoria": "observacion",
+  "alerta": "CATALOGO NO ENUMERABLE desde una sola URL: /programmes, /our-programmes y /en/programmes dan 404; hay que recorrer 5-6 indices por nivel, cada uno con",
+  "_est": 45
+ },
+ {
+  "institucion_ficha": "Cairns College of English & Business - CCEB",
+  "nombre_real": "Cairns College of English and Business",
+  "dominio": "cceb.qld.edu.au",
+  "url_programas": "https://cceb.qld.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Queensland",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "ELICOS (General, Academic, IELTS, Cambridge) + VET Cert III a Advanced Diploma",
+  "cantidad_aprox": "~25-30",
+  "veredicto_auditoria": "observacion",
+  "alerta": "RTO 40520 / CRICOS 03251A · puede_vender dice solo \"Vocacionales\" pero mas de la mitad del catalogo es ELICOS: falta \"Idiomas\" en la ficha",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "Edu Inter",
+  "nombre_real": "Edu-inter (Edu-inter French School / Escuela de inmersion francesa en Quebec)",
+  "dominio": "learningfrenchinquebec.com",
+  "url_programas": "https://learningfrenchinquebec.com/es/programas-adultos/ y /es/programas-adolecentes/",
+  "pais": "Canada",
+  "ciudad": "Quebec",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas FLE: programas adultos (8+), cursos de verano, campamentos para adolescentes (9+), campamentos de invierno, secundaria/preparatoria, online individual y corporativo, prep TEF/TEFAQ",
+  "cantidad_aprox": "~20+",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Holmes Institute",
+  "nombre_real": "Holmes Institute Pty Ltd — CRICOS 02639M (VIC) / 02767C (NSW) / 02727M (QLD); parte de Holmes Education Group",
+  "dominio": "www.holmes.edu.au",
+  "url_programas": "https://www.holmes.edu.au/pages/schools-and-faculties",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Cursos Vocacionales"
+  ],
+  "niveles_vistos": "Pregrado (Bachelor of Business, Professional Accounting, Fashion Business, Information Systems, Aviation) y Postgrado (Graduate Diploma, MBA, MBA Professional, Master of Professional Accounting, Master of Information Systems, Master of Teaching) en 7 facultades",
+  "cantidad_aprox": "~15",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CONTRADICCION DE `puede_vender`: la ficha promete \"Vocacionales (Cert, Dip, Adv Dip)\" y \"Cursos Vocacionales\", pero el sitio actual NO lista ninguna e",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "BEA - Britannia English Academy",
+  "nombre_real": "BRITANNIA ENGLISH ACADEMY LTD.",
+  "dominio": "britannia-school.com",
+  "url_programas": "https://britannia-school.com/general-english/",
+  "pais": "UK",
+  "ciudad": "Manchester",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas (A1-C1, General English, IELTS, Cambridge FCE/CAE/CPE, Trinity, Business English, 1-a-1)",
+  "cantidad_aprox": "~12+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "- (unica ficha del lote sin observaciones; www redirige al apex, mismo dominio; sin contenido inyectado)",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "ACE English",
+  "nombre_real": "ACE English Malta",
+  "dominio": "aceenglishmalta.com",
+  "url_programas": "https://www.aceenglishmalta.com/es/cursos/",
+  "pais": "Malta",
+  "ciudad": null,
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Idiomas CEFR, business, exam prep, juniors",
+  "cantidad_aprox": "~10",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Kent Institute Australia",
+  "nombre_real": "Kent Institute Australia Pty Ltd",
+  "dominio": "kent.edu.au",
+  "url_programas": "https://kent.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Certificate y Diploma (VET) + Bachelor (Accounting, Business, IT) + Master (ICT)",
+  "cantidad_aprox": "~7-8",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`tipo_adivinado` = \"curso_corto\" y `puede_vender` VACÍO, pero otorga Bachelor y Master. Acreditada como Higher Education Institute + RTO. No se detect",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "HeartLand",
+  "nombre_real": "Heartland International English School",
+  "dominio": "heartlandenglish.com",
+  "url_programas": "https://www.heartlandenglish.com/programs/",
+  "pais": "Canada",
+  "ciudad": "Winnipeg",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas Entry (A1-A2) a Advanced 3 (C1-C2): intensivo, semi-intensivo, pathway, acento/pronunciacion, IELTS, CELPIP",
+  "cantidad_aprox": "6",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Sitio sano, sin spam inyectado ni avisos de cierre; acreditada por Languages Canada, \"25 Years of Quality English Education\", sesiones IELTS 2026 acti",
+  "_est": 6
+ }
+]

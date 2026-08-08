@@ -1,0 +1,162 @@
+[
+ {
+  "institucion_ficha": "Edinburgh Napier University",
+  "nombre_real": "Edinburgh Napier University",
+  "dominio": "napier.ac.uk",
+  "url_programas": "https://www.napier.ac.uk/courses",
+  "pais": "UK",
+  "ciudad": "Edimburgo",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Solo pathway"
+  ],
+  "niveles_vistos": "Undergraduate, Postgraduate, short courses, graduate apprenticeships, online",
+  "cantidad_aprox": "250+",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Le Cordon Bleu Australia",
+  "nombre_real": "Le Cordon Bleu Australia — parte de Le Cordon Bleu International B.V.",
+  "dominio": "www.cordonbleu.edu/australia/home/en",
+  "url_programas": "https://www.cordonbleu.edu/australia/programmes/en",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Certificate III (Commis), Certificate IV (Chef de Partie), Diplome de Cuisine/Patisserie, Diplome CordonTec, Advanced Diploma, Bachelor (Business / Hotel & Restaurant Mgmt), Master/MBA, cursos cortos",
+  "cantidad_aprox": "~35-40",
+  "veredicto_auditoria": "corregir",
+  "alerta": "DOMINIO COMPARTIDO: cordonbleu.edu aloja toda la red global (Francia, Japon, etc.) y solo el path /australia corresponde a esta ficha — un crawler que",
+  "_est": 40
+ },
+ {
+  "institucion_ficha": "ANIBT",
+  "nombre_real": "Australian National Institute of Business & Technology · RTO 21368 · CRICOS 02506B",
+  "dominio": "anibt.edu.au",
+  "url_programas": "https://www.anibt.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Melbourne",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Cursos Vocacionales"
+  ],
+  "niveles_vistos": "Cert III/IV, Dip, Adv Dip, Grad Dip",
+  "cantidad_aprox": "~30",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha guarda solo la sigla",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "HERTFORDSHIRE INTERNATIONAL COLLEGE (HIC)",
+  "nombre_real": "Hertfordshire International College (HIC)",
+  "dominio": "hic.herts.ac.uk",
+  "url_programas": "https://hic.herts.ac.uk/study/",
+  "pais": "UK",
+  "ciudad": "Hatfield",
+  "puede_vender": [
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "Pre-sessional English, Foundation e International Year One (15 areas), Pre-Master's",
+  "cantidad_aprox": "~20+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Es un pathway college operado por NAVITAS dentro de un SUBDOMINIO de la University of Hertfordshire. Lo que se extraiga de aqui es solo la oferta path",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Lancaster University",
+  "nombre_real": "Lancaster University Leipzig · branch campus de Lancaster University (UK), operado por Navitas",
+  "dominio": "www.lancasterleipzig.de",
+  "url_programas": "https://www.lancasterleipzig.de/study/undergraduate/courses/ y /study/postgraduate/courses/",
+  "pais": "Germany",
+  "ciudad": "Leipzig",
+  "puede_vender": [
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Foundation, Pre-Master's, Bachelor, Master",
+  "cantidad_aprox": "~15",
+  "veredicto_auditoria": "corregir",
+  "alerta": "la ficha dice \"Lancaster University\" a secas: esto NO es lancaster.ac.uk sino el campus de Leipzig, con catalogo propio y mucho mas pequeño · \"Todos l",
+  "_est": 15
+ },
+ {
+  "institucion_ficha": "New Zealand Management Academies Limited",
+  "nombre_real": "New Zealand Management Academies Ltd (NZMA)",
+  "dominio": "nzma.ac.nz",
+  "url_programas": "https://www.nzma.ac.nz/courses",
+  "pais": "New Zealand",
+  "ciudad": "Auckland, Wellington, Christchurch",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Vocational and Higher Education"
+  ],
+  "niveles_vistos": "Vocacional: certificados y diplomas (no se confirma degree)",
+  "cantidad_aprox": "? (12 areas de estudio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "ficha dice 3 ciudades (Auckland, Wellington, Christchurch) y el sitio lista ~9 campus + online (Hamilton, Manukau, Sylvia Park, Porirua, Trades South,",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "IELS Malta",
+  "nombre_real": "IELS - Institute of English Language Studies",
+  "dominio": "www.iels.school",
+  "url_programas": "https://www.iels.school/english-courses",
+  "pais": "Malta",
+  "ciudad": "Malta",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas: General, Intensive, 30+, Business, IELTS, TOEIC, Cambridge FCE/CAE/CPE, EAP, privadas, online, CELTA (teacher training)",
+  "cantidad_aprox": "~11",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio de la ficha ya solo sirve una pagina de redireccion a iels.school — actualizar. Lista estatica y enumerable. `puede_vender` duplica \"Idioma",
+  "_est": 11
+ },
+ {
+  "institucion_ficha": "Murdoch College",
+  "nombre_real": "Murdoch College · cursos registrados bajo Kaplan Higher Education Pty Ltd (CRICOS 03127E)",
+  "dominio": "murdochcollege.edu.au",
+  "url_programas": "no existe índice · páginas sueltas por curso en la raíz (/foundation-studies, /diploma-of-business, /general-english…)",
+  "pais": "Australia",
+  "ciudad": "Perth",
+  "puede_vender": [
+   "VET",
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Foundation Studies · Preparation Course y su versión acelerada · Diploma of Business · Diploma of Information Technology · Postgraduate Qualifying Program · English for Academic Purposes · General English · Study Tours",
+  "cantidad_aprox": "9",
+  "veredicto_auditoria": "observacion",
+  "alerta": "NO tiene página que liste programas · cada curso es una URL suelta → extracción por slugs. Es un PATHWAY COLLEGE dentro del campus de Murdoch Universi",
+  "_est": 9
+ },
+ {
+  "institucion_ficha": "The English Language School in Sydney (ELSIS)",
+  "nombre_real": "ELSIS - English Language Schools Sydney, Brisbane & Melbourne",
+  "dominio": "www.elsis.edu.au",
+  "url_programas": "https://www.elsis.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas (General English, EAP, Study Pathways, English Workshop, Study Tours, Study Tour with Universities)",
+  "cantidad_aprox": "~6",
+  "veredicto_auditoria": "corregir",
+  "alerta": "FUSIONADA: dos banners de anuncio en la home dicen \"ELSIS is now part of the ECA College\" y empujan al usuario a \"Explore ECA College\". Verificar con ",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Sydney PTE Academy",
+  "nombre_real": "Sydney PTE Academy",
+  "dominio": "sydneypte.com.au",
+  "url_programas": "https://www.sydneypte.com.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Solo preparacion examen PTE Academic",
+  "cantidad_aprox": "3",
+  "veredicto_auditoria": "observacion",
+  "alerta": "NO muestra RTO ni CRICOS · no otorga titulacion, es prep de examen · no sirve para visa de estudio · puede_vender vacio y category null",
+  "_est": 3
+ }
+]

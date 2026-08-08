@@ -1,0 +1,162 @@
+[
+ {
+  "institucion_ficha": "North Park University",
+  "nombre_real": "North Park University",
+  "dominio": "www.northpark.edu",
+  "url_programas": "https://www.northpark.edu/academics/all-majors-programs/",
+  "pais": "USA",
+  "ciudad": "Chicago",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Pregrado + Posgrado"
+  ],
+  "niveles_vistos": "Pregrado, Postgrado, Seminario teologico",
+  "cantidad_aprox": "70+ majors/minors",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "University of Bridgeport",
+  "nombre_real": "University of Bridgeport",
+  "dominio": "bridgeport.edu",
+  "url_programas": "https://www.bridgeport.edu/academics/programs/",
+  "pais": "USA",
+  "ciudad": "Bridgeport",
+  "puede_vender": [
+   "Pregrado",
+   "Postgrado",
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificate, Associate, Bachelor, Master, Doctoral (online, hibrido y presencial)",
+  "cantidad_aprox": "80+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "puede_vender promete \"Idiomas\" y en home ni en /academics/programs/ hay NINGUNA mencion de ESL ni de ingles intensivo · tipo_adivinado \"vacacional\" pa",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "ACADEMIA Australia",
+  "nombre_real": "Academia21 (Australian Academy of Vocational Education and Trades) · RTO 21595",
+  "dominio": "academia21.com",
+  "url_programas": "menu Courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Cert III/IV, Dip, Adv Dip + ingles",
+  "cantidad_aprox": "~20-25",
+  "veredicto_auditoria": "corregir",
+  "alerta": "la marca real es Academia21 · ciudad null en la ficha",
+  "_est": 25
+ },
+ {
+  "institucion_ficha": "Brunel University London Pathwat college",
+  "nombre_real": "Brunel University of London Pathway College (antes London Brunel International College, LBIC)",
+  "dominio": "www.lbic.navitas.com",
+  "url_programas": "https://pathway.brunel.ac.uk/study/",
+  "pais": "UK",
+  "ciudad": "Londres",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Foundation & Pre master"
+  ],
+  "niveles_vistos": "Foundation, First Year/Year 1, Pre-Master's",
+  "cantidad_aprox": "~16-17",
+  "veredicto_auditoria": "corregir",
+  "alerta": "DOMINIO OBSOLETO EN LA FICHA: lbic.navitas.com ya solo redirige · CAMBIO DE NOMBRE: LBIC paso a \"Brunel University of London Pathway College\" · ERROR ",
+  "_est": 17
+ },
+ {
+  "institucion_ficha": "University of South Australia (UniSA)",
+  "nombre_real": "Adelaide University",
+  "dominio": "unisa.edu.au",
+  "url_programas": "https://adelaide.edu.au/study/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado y Posgrado",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "REDIRECT 302 A OTRA UNIVERSIDAD: UniSA se fusionó y ya no existe como institución separada; el sitio destino habla de \"UniSA transitioning students\". ",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "NYFA - New York Film Academy",
+  "nombre_real": "New York Film Academy",
+  "dominio": "www.nyfa.edu",
+  "url_programas": "si",
+  "pais": "USA",
+  "ciudad": "New York",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "~70+",
+  "cantidad_aprox": "https://www.nyfa.edu/programs/",
+  "veredicto_auditoria": "observacion",
+  "alerta": "institucion",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Australian Sovereign College",
+  "nombre_real": "Australian Sovereign College",
+  "dominio": "ausc.edu.au",
+  "url_programas": "https://ausc.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": "Hobart",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificate III hasta Advanced Diploma y Graduate Diploma",
+  "cantidad_aprox": "9",
+  "veredicto_auditoria": "observacion",
+  "alerta": "La ficha dice Hobart; el sitio opera Melbourne (Abbotsford, Broadmeadows) ADEMAS de Tasmania (Hobart, Huonville). Logos de partners (UTAS, Max Therapy",
+  "_est": 9
+ },
+ {
+  "institucion_ficha": "ACIT / IFTV",
+  "nombre_real": "Australian College of IT & Institute of Film and Television",
+  "dominio": "acit.edu.au",
+  "url_programas": "(sin indice; links desde la home)",
+  "pais": "",
+  "ciudad": "",
+  "puede_vender": [],
+  "niveles_vistos": "Diploma, Adv Dip, ELICOS",
+  "cantidad_aprox": "~6 areas",
+  "veredicto_auditoria": "observacion",
+  "alerta": "sin pagina indice de cursos",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "Burlington School",
+  "nombre_real": "Burlington School (escuela de ingles en Londres desde 1990, sede Balham)",
+  "dominio": "burlingtonschool.co.uk",
+  "url_programas": "no hay pagina unica: /courses-for-adults/, /courses-for-young-learners/, /courses-for-groups/",
+  "pais": "UK",
+  "ciudad": "Londres",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Idiomas Pre-A1 a C1/C2, IELTS, Cambridge, especialistas, 1-a-1",
+  "cantidad_aprox": "~5 para adultos + young learners + grupos",
+  "veredicto_auditoria": "observacion",
+  "alerta": "la ficha apunta a http:// y el sitio sirve https · catalogo REPARTIDO en 3 secciones sin listado unico, la extraccion tiene que recorrer las tres",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "Think: Colleges",
+  "nombre_real": "Think: Colleges Pty Ltd (ABN 93 050 049 299) · marca \"Think Education\" · TEQSA PRV12058 · RTO 0269 · CRICOS 00246M",
+  "dominio": "think.edu.au",
+  "url_programas": "https://www.think.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "HLT54121 Diploma of Nursing + Bachelor of Health Science (Clinical Myotherapy)",
+  "cantidad_aprox": "2",
+  "veredicto_auditoria": "corregir",
+  "alerta": "CATALOGO COLAPSADO: solo quedan 2 cursos en todo el sitio (verificado en HTML crudo: unicos href=\"/courses/...\") · las marcas historicas del grupo (Bi",
+  "_est": 2
+ }
+]

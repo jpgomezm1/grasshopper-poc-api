@@ -68,6 +68,14 @@ FALLBACK_SYNTHESIS = {
 
 # Auditoría R5 · fallbacks des-sesgados (refocus Sprint 2): la orientación es
 # para todos; lo internacional es una opción dentro de cada ruta, no el marco.
+# Duplicado a propósito de `test_interpretation_service.SIN_TESTS`: importarlo
+# crearía un ciclo (ese módulo ya importa de este). Si cambia uno, un test lo
+# detecta — ver `test_rutas_con_tests.py`.
+SIN_TESTS_EN_RUTAS = "(esta persona todavía no ha hecho ningún test)"
+
+# ⚠️ Estas NO son una lectura del perfil de nadie · salen cuando la IA falla.
+# Hasta §1 se presentaban idénticas a las personalizadas y el estudiante no
+# podía distinguirlas: `is_generic` es lo que ahora deja avisarlo.
 FALLBACK_ROUTES = [
     {
         "key": "DISCOVER_VOCATION",
@@ -463,6 +471,7 @@ def generate_routes(
     db: Optional[DBSession] = None,
     user_id: Optional[UUID] = None,
     onboarding: Optional[Dict[str, Any]] = None,
+    tests_block: Optional[str] = None,
 ) -> RouteSuggestionOutput:
     """
     Generate route suggestions.
@@ -473,6 +482,13 @@ def generate_routes(
         db: DB session para tracking M-001 (opcional)
         user_id: dueño del journey para tracking M-001 (None si anónimo)
         onboarding: respuestas del onboarding (R4 · personalización)
+        tests_block: resultados de sus tests, ya legibles
+            (`test_interpretation_service.format_tests_for_prompt`). Hasta §1
+            esta función construía la "hoja de ruta" **sin mirar un solo test**,
+            que es lo contrario de lo que pidió la clienta: *"el test
+            verdaderamente va a ser el que más nos va a generar información"*.
+            Se recibe ya formateado —y no `db`+`user_id`— para que el servicio
+            de IA no haga consultas y siga siendo probable sin base de datos.
 
     Returns:
         RouteSuggestionOutput with max 3 routes
@@ -498,6 +514,8 @@ def generate_routes(
             constraints=", ".join(constraints) if constraints else "Ninguna especial",
             declared_aspirations=(answers.get("declaredAspirations") or "No especificado")[:600],
             onboarding_context=format_onboarding_context(onboarding),
+            # Nunca vacío: un hueco mudo en el prompt invita a inventar el perfil.
+            tests_block=tests_block or SIN_TESTS_EN_RUTAS,
         )
 
         # R5 · presupuesto propio: el JSON de 3 rutas (4 campos de texto c/u,
@@ -525,9 +543,10 @@ def generate_routes(
     except Exception as e:
         logger.error(f"Failed to generate routes: {e}")
 
-    # Fallback to static routes
+    # Fallback to static routes · marcadas para que el front pueda avisar que
+    # NO son una lectura de este perfil.
     return RouteSuggestionOutput(
-        routes=[GeneratedRoute(**route) for route in FALLBACK_ROUTES]
+        routes=[GeneratedRoute(**route, is_generic=True) for route in FALLBACK_ROUTES]
     )
 
 

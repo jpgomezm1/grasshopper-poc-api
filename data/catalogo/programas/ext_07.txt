@@ -1,0 +1,706 @@
+# Lote 07 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+
+# ---------------------------------------------------------------------------
+# 1 · SRH University (srh-university.de) · ex "SRH Berlin University of Applied Sciences"
+# Fuente unica: el programme finder en ingles. No hay codigo oficial ni duracion
+# publicados a nivel de listado.
+# ---------------------------------------------------------------------------
+SRH University | International Business Administration | bachelor | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Relations and Global Economics | bachelor | Ciencias Políticas | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Advertising & Brand Design | bachelor | Diseño | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | AI in Business | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Applied Artificial Intelligence | bachelor | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Applied Computer Science | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Applied Data Science and Artificial Intelligence | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Applied Mechatronic Systems | bachelor | Ingeniería | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Architecture - Design for the Built Environment | maestria | Arquitectura | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Information Technology - Artificial Intelligence | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Audio Design | bachelor | Música | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Computer Science - Big Data and Artificial Intelligence | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Applied Data Science and Artificial Intelligence - Business Analytics | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Business Administration - Business Psychology | bachelor | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Classical Music | maestria | Música | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Classical Music | bachelor | Música | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Communication Design | bachelor | Diseño | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Computer Science | bachelor | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Computer Science (dual) | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Construction Management | bachelor | Ingeniería | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Creative Industries Management | bachelor | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Management - Creative Leadership | maestria | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Creative Writing | maestria | Artes | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Computer Science - Cyber Security | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | CyberMACS - Applied Cybersecurity | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Digital Health - Data Analytics | maestria | Salud | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Business Administration - Digital Marketing | bachelor | Marketing | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Supply Chain Management - Digital Supply Chain Management | maestria | Logística | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Dysphagia Management | maestria | Salud | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Engineering for Renewable Energy, Water and Waste Management | maestria | Ingeniería | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Management - Entrepreneurship and Intrapreneurship | maestria | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Event Engineering | bachelor | Eventos | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Fashion Design | bachelor | Moda | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Film & Motion Design | bachelor | Cine | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Film, Television and Digital Narratives | maestria | Cine | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Business Administration - Finance | bachelor | Finanzas | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Virtual Reality & Game Development - Game Art | bachelor | Videojuegos | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Virtual Reality & Game Development - Game Design | bachelor | Videojuegos | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | General Management | mba | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Global Hospitality Management | bachelor | Hospitalidad | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Health Informatics | maestria | Salud | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Business Administration - Healthcare Management | bachelor | Salud | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Healthcare Management | mba | Salud | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Business and Leadership - Healthcare Management | maestria | Salud | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Hospitality Management and Leadership | maestria | Hospitalidad | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Human Resource Management | mba | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Illustration | bachelor | Artes | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Industrial Biotechnology and Bioengineering | maestria | Ciencias | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Engineering and Sustainable Technology Management - Industry 4.0: Automation, Robotics & 3D Manufacturing | maestria | Ingeniería | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Information Technology | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Information Technology and Business Transformation | maestria | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Interior Design & Scenography | bachelor | Diseño | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Business and Leadership | maestria | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Management | maestria | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Law & Technology | maestria | Derecho | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Law, Economics and Governance | bachelor | Derecho | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Marketing Intelligence | mba | Marketing | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Engineering and Sustainable Technology Management - Mobility and Automotive Industry | maestria | Ingeniería | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Music Production | bachelor | Música | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Music Therapy | maestria | Salud | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Occupational Therapy | bachelor | Salud | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Photography | maestria | Artes | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Photography | bachelor | Artes | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Popular Music | bachelor | Música | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Product Design | bachelor | Diseño | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Regulatory Affairs - Medical Devices | maestria | Salud | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Engineering and Sustainable Technology Management - Smart Building Technologies | maestria | Ingeniería | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Social Design & Sustainable Innovation | maestria | Diseño | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Soziale Arbeit / Social Work | bachelor | Trabajo Social | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Strategic Design | maestria | Diseño | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Supply Chain Management | maestria | Logística | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Business Administration - Supply Chain Management | bachelor | Logística | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Supply Chain Management - Sustainable Supply Chain Management | maestria | Logística | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Urbanism - Concepts for the Built Environment | maestria | Arquitectura | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | User Experience (UX) and Data-Driven Design | maestria | Diseño | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Virtual Reality & Game Development - Virtual & Mixed Reality/Game Programming | bachelor | Videojuegos | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Web Development | bachelor | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Web Development (dual) | bachelor | Tecnología | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | World Music | maestria | Música | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | World Music | bachelor | Música | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Change Management Executive Programme | curso_corto | Negocios | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | International Wind Industry Training | curso_corto | Ingeniería | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Pre-Master | curso_corto | Preparatorio | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Programmes Foundation | curso_corto | Preparatorio | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Solar Summer Team-up! | vacacional | Ingeniería | no indicada | - | https://www.srh-university.de/en/programme-finder/
+SRH University | Solar Winter School | vacacional | Ingeniería | no indicada | - | https://www.srh-university.de/en/programme-finder/
+
+# ---------------------------------------------------------------------------
+# 2 · Flinders University (flinders.edu.au) · Adelaide, South Australia
+# El catalogo no publica duracion ni CRICOS en el listado; van "no indicada" / "-".
+# ---------------------------------------------------------------------------
+Flinders University | Associate Degree in Disability and Community Practice | pregrado | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Associate Degree in Health Sciences | pregrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Associate Degree in Medical Science (Laboratory Medicine) | pregrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Accounting | bachelor | Contabilidad | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Archaeology | bachelor | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Arts | bachelor | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Arts and Science | bachelor | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business | bachelor | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business (Online) | bachelor | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business Analytics | bachelor | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business majoring in Event Management and Tourism | bachelor | Turismo | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business majoring in Human Resource Management | bachelor | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business majoring in International Business | bachelor | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business majoring in Leading Change | bachelor | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business majoring in Management | bachelor | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business majoring in Marketing | bachelor | Marketing | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business majoring in Small Business Leadership | bachelor | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business majoring in Sports Management | bachelor | Deportes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Clinical Sciences, Doctor of Medicine | bachelor | Medicina | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Commerce | bachelor | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Computer Science | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Computer Science (Artificial Intelligence) | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Computing and Mathematical Sciences (Honours) | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Arts (Costume Design) | bachelor | Artes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Arts (Costume Design) (VET pathway) | bachelor | Artes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Arts (Dance) | bachelor | Danza | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Arts (Fashion) | bachelor | Moda | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Arts (Fashion) (VET pathway) | bachelor | Moda | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Arts (Interior Design) | bachelor | Diseño | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Arts (Visual Arts) | bachelor | Artes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Writing | bachelor | Artes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Criminology | bachelor | Criminología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Criminology (Honours) | bachelor | Criminología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Disability and Community Inclusion | bachelor | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Disability and Developmental Education | bachelor | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Early Childhood Education (Birth - 5) | bachelor | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Early Childhood Education (Birth - 8) | bachelor | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Education (Inclusive Education) | bachelor | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Education (Primary) | bachelor | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Education (Secondary Health and Physical Education) | bachelor | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Education (Secondary) | bachelor | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Biomedical) (Honours) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Biomedical) (Honours) / Master of Engineering (Biomedical) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Civil) (Honours) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Civil) (Honours) / Master of Engineering Management | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Electrical and Electronic) (Honours) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Electrical and Electronic) (Honours) / Master of Engineering (Mechanical) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Electrical and Electronic) (Honours) / Master of Engineering Management | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Environmental) (Honours) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Environmental) (Honours) / Master of Engineering (Civil) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Honours) - Flexible Entry | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Honours) - General Entry | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Maritime) (Honours) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Mechanical) (Honours) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Mechanical) (Honours) / Master of Engineering (Biomedical) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Mechanical) (Honours) / Master of Engineering Management | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Robotics) (Honours) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Robotics) (Honours) / Master of Engineering (Electrical and Electronic) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering (Software) (Honours) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering Science | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering Science majoring in Design and User Experience | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Engineering Technology (Advanced Manufacturing and Digital Design) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Exercise and Sport Science | bachelor | Deportes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Exercise and Sport Science / Master of Clinical Exercise Physiology | bachelor | Deportes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Film and Television (Screen Industries) | bachelor | Cine | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Film and Television (Screen Production) | bachelor | Cine | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Game Design | bachelor | Videojuegos | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Geospatial Information Systems | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Geospatial Information Systems / Bachelor of Surveying | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Health Sciences | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Health Sciences (Vision Science) / Master of Optometry | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Human Nutrition | bachelor | Nutrición | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Information Technology | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Information Technology (Business and Information Systems) | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Information Technology (Data Analytics) | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Information Technology (Digital Forensics) | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Information Technology (Game Development) | bachelor | Videojuegos | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Information Technology (Machine Learning) | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Information Technology (Network and Cybersecurity Systems) | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Information Technology (Online) | bachelor | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of International Relations and Political Science | bachelor | Ciencias Políticas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of International Relations and Political Science (Honours) | bachelor | Ciencias Políticas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Languages | bachelor | Idiomas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Laws (Honours) - Legal Practice Entry | bachelor | Derecho | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Laws - Legal Practice Entry | bachelor | Derecho | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Mathematical Sciences | bachelor | Matemáticas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Media and Communication | bachelor | Comunicación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Medical Science | bachelor | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Medical Science (Honours) | bachelor | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Medical Science (Laboratory Medicine) | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Medical Science (Laboratory Medicine)(Regional External Program) | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Midwifery (Preregistration) | bachelor | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Nursing (Online) | bachelor | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Nursing (Preregistration) | bachelor | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Nursing (Preregistration) Riverland | bachelor | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Nutrition and Dietetics | bachelor | Nutrición | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Nutrition and Exercise (Online) | bachelor | Nutrición | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Occupational Therapy | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Paramedicine | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Paramedicine (Northern Territory) | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Paramedicine (Regional External Program) | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Performance (Acting) | bachelor | Artes Escénicas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Performance (Directing) | bachelor | Artes Escénicas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Performance (Theatre Making) | bachelor | Artes Escénicas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Physiotherapy | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Psychological Science | bachelor | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Psychology (Honours) | bachelor | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Public Health | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science | bachelor | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Advanced Science) | bachelor | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Animal Behaviour) | bachelor | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Biodiversity and Conservation) | bachelor | Medio Ambiente | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Biotechnology) | bachelor | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Chemical Sciences) | bachelor | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Environmental Science) | bachelor | Medio Ambiente | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Forensic and Analytical Science Pathway) | bachelor | Ciencias Forenses | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Forensic and Analytical Science) | bachelor | Ciencias Forenses | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Marine Biology) | bachelor | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Palaeontology) | bachelor | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Social Work | bachelor | Trabajo Social | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Speech Pathology | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Sport and Active Recreation | bachelor | Deportes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Urban and Regional Planning | bachelor | Arquitectura | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Urban and Regional Planning (Online) | bachelor | Arquitectura | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Visual Effects and Entertainment Design | bachelor | Diseño | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Arts | diplomado | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Business | diplomado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Business (Online) | diplomado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Criminology | diplomado | Criminología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Digital Content Creation (Online) | diplomado | Comunicación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Disability and Community Practice | diplomado | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Employment Pathways | diplomado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Health Sciences | diplomado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Health Sciences (Online) | diplomado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Information Technology (Online) | diplomado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Language | diplomado | Idiomas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Laws | diplomado | Derecho | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Sports Management | diplomado | Deportes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diploma in Sports Management (Cricket) | diplomado | Deportes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Medical Science / Engineering (Biomedical) (Honours) | bachelor | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Undergraduate Certificate in Acting | curso_corto | Artes Escénicas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Undergraduate Certificate in Mental Health and Wellbeing (Workplace and Community) | curso_corto | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Archaeology (Honours) 1 year | bachelor | Humanidades | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Arts (Honours) 1 year | bachelor | Humanidades | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Business (Honours) 1 year | bachelor | Negocios | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Commerce (Honours) 1 year | bachelor | Negocios | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Arts (Honours) 1 year | bachelor | Artes | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Creative Industries (Honours) 1 year | bachelor | Artes | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Criminology (Honours) 1 year | bachelor | Criminología | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Design and Technology (Honours) 1 year | bachelor | Diseño | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Education (Honours) 1 year | bachelor | Educación | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Health Sciences (Honours) 1 year | bachelor | Salud | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of International Relations and Political Science (Honours) 1 year | bachelor | Ciencias Políticas | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Medical Science (Honours) 1 year | bachelor | Ciencias | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Paramedicine (Honours) 1 year | bachelor | Salud | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Psychological Science (Honours) 1 year | bachelor | Psicología | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Public Health (Honours) 1 year | bachelor | Salud | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Science (Honours) 1 year | bachelor | Ciencias | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Sport, Health and Physical Activity (Honours) 1 year | bachelor | Deportes | 1 year | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Letters (Archaeology) (Graduate Entry) | bachelor | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Letters (Creative Writing) (Graduate Entry) | bachelor | Artes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Letters (Health) (Graduate Entry) | bachelor | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Letters (History) (Graduate Entry) | bachelor | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Midwifery (Post-Registration) (Registered Nurse) | bachelor | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Nursing (Graduate Entry) | bachelor | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Bachelor of Psychological Studies (Graduate Entry) | bachelor | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Diploma in Psychology (Advanced) | posgrado | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Aquaculture | posgrado | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Archaeology and Heritage Management | posgrado | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Arts, Women's Studies | posgrado | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Audiology | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Autism and Complex Disabilities | posgrado | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Biotechnology | posgrado | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Chemistry | posgrado | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Child and Family Health Nursing | posgrado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Clinical Education | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Clinical Exercise Physiology | posgrado | Deportes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Computer Science | posgrado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Computer Science (Artificial Intelligence) | posgrado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Counselling (Behavioural Health) | posgrado | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Critical Care Nursing | posgrado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Data Science | posgrado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Dementia Care and Leadership | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Diabetes Management and Education | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Digital Innovation and Artificial Intelligence in Education | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Disability Policy and Leadership | posgrado | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Disability Practice | posgrado | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Disability Practice and Leadership | posgrado | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Disability Practice and Leadership (Developmental Education) | posgrado | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Medicine | posgrado | Medicina | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Medicine / Master of Public Health | posgrado | Medicina | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Education Pedagogy and Practice | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Electronic Warfare | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Emergency Nursing | posgrado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Engineering (Biomedical) | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Engineering (Civil) | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Engineering (Electrical and Electronic) | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Engineering (Mechanical) | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Engineering Management | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Engineering Science | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Environmental Health | posgrado | Medio Ambiente | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Environmental Management and Sustainability | posgrado | Medio Ambiente | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Forensic Science | posgrado | Ciencias Forenses | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Gender Mainstreaming Policy and Analysis | posgrado | Ciencias Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Geospatial Information Systems | posgrado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Advanced Manufacturing | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Artificial Intelligence (Online) | posgrado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Business Administration | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Business Administration (Online) | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Business Analytics | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Clinical Rehabilitation | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Cybersecurity (Online) | posgrado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Data Analytics (Online) | posgrado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Digital Health Management | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Digital Innovation and Artificial Intelligence in Education (Online) | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Early Childhood Education (Birth to 5) | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Early Childhood Education (Birth to 5) (Online) | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Health Promotion | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Health Promotion (Online) | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Human Resource Management | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Indigenous Education, Leadership and Pedagogy | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Laws (Online) | posgrado | Derecho | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Leadership in Education (Online) | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Marketing | posgrado | Marketing | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Midwifery Prescribing and Primary Care | posgrado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Nuclear Safety and Compliance (Online) | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Nuclear Workforce and Governance (Online) | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Nursing | posgrado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Palliative and End-of-Life Care (Online) | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Project Management | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Project Management (Online) | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Public Health | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Public Health (Online) | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Public Sector Leadership (Online) | posgrado | Ciencias Políticas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Radiological | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Registered Nurse Prescribing | posgrado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Renewable and Sustainable Energy (Online) | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Research and Evaluation for Practice | posgrado | Ciencias Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Research and Evaluation for Practice (Online) | posgrado | Ciencias Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Student Inclusion (Online) | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Teaching Studies | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Certificate in Trauma Responsive Practice | posgrado | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Diploma in Business Administration | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Diploma in Business Administration (Online) | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Diploma in Early Childhood Education (Birth to 5) (Online) | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Diploma in Laws (Online) | posgrado | Derecho | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Diploma in Palliative and End-of-Life Care (Online) | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Diploma in Project Management | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Diploma in Project Management (Online) | posgrado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Graduate Diploma of Nuclear Science and Technology | posgrado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Groundwater Hydrology | posgrado | Medio Ambiente | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Health Administration | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Information Technology | posgrado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Information Technology (Network and Cybersecurity Systems) | posgrado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Intensive Care Paramedicine | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | International Relations | posgrado | Ciencias Políticas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Juris Doctor (Online) | posgrado | Derecho | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Leadership in Education | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Leading Mental Health and Wellbeing (Workplace and Community) | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Maritime Archaeology | posgrado | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Accounting | maestria | Contabilidad | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Accounting / Graduate Certificate in Social Impact | maestria | Contabilidad | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Accounting and Finance | maestria | Finanzas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Advanced Social Work Practice | maestria | Trabajo Social | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Applied Business Analytics | maestria | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Artificial Intelligence, Data Science and Cybersecurity (Online) | maestria | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration (Artificial Intelligence) (Online) | mba | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration (Business Analytics) | mba | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration (Finance) | mba | Finanzas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration (Healthcare Management) | mba | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration (Human Resource Management) | mba | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration (International Business) | mba | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration (Marketing) | mba | Marketing | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration (Social Impact) | mba | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration Artificial Intelligence (MBA) | mba | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration Future Business | mba | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration Future Business (Online) | mba | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Business Administration Industry Focused | mba | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Clinical Epidemiology | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Clinical Epidemiology (Online) | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Clinical Rehabilitation (1.5 or 2 years) | maestria | Salud | 1.5 o 2 años | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Clinical Rehabilitation (Neurological Occupational Therapy) | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Clinical Rehabilitation (Neurological Physiotherapy) | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Education | maestria | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Inclusive and Specialised Education | maestria | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Nuclear Science and Technology | maestria | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Nursing (1.5 or 2 years) | maestria | Enfermería | 1.5 o 2 años | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Pallative Care | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Professional Psychology | maestria | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Project Management | maestria | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Project Management (Online) | maestria | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Psychology (Clinical) | maestria | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Public Health | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Public Health (Online) | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Public Health / Master of Clinical Epidemiology | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Social Work (Graduate Entry) | maestria | Trabajo Social | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Teaching (Birth to 5) | maestria | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Teaching (Birth to 5) (Online+) | maestria | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Teaching (Early Childhood) | maestria | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Teaching (Primary) | maestria | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Teaching (Secondary) | maestria | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Mathematics | posgrado | Matemáticas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Media and Communication | posgrado | Comunicación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Mental Health Nursing | posgrado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Nurse Practitioner | posgrado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Nutrition and Dietetics | posgrado | Nutrición | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Occupational Therapy | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Older Adult Care and Wellbeing | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Physics | posgrado | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Physiotherapy | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Positive Behaviour Support | posgrado | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Postgraduate Nursing (Grad Cert, Grad Dip, Masters) | posgrado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Public Administration | posgrado | Ciencias Políticas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Public Health | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Public Policy | posgrado | Ciencias Políticas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Remote Health Practice | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Research Methods | posgrado | Ciencias Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | STEM Education | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Science (Biology) | posgrado | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Science (Environmental Science) | posgrado | Medio Ambiente | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Social Scientific Data Analysis and Communication | posgrado | Ciencias Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Society and the individual | posgrado | Ciencias Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Speech Pathology | posgrado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Student Inclusion | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Student Wellbeing | posgrado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Sustainable Development | posgrado | Medio Ambiente | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Teaching English to Speakers of Other Languages (TESOL) | posgrado | Idiomas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Virtual Production | posgrado | Cine | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Water Resources Management | posgrado | Medio Ambiente | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Women's Studies, Gender and Development | posgrado | Ciencias Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Clinical Education | doctorado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy | doctorado | Investigación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (Clinical Psychology) | doctorado | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) and Master of Business Administration (MBA) | doctorado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) by Prior Published Work | doctorado | Investigación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Biological Sciences | doctorado | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Business | doctorado | Negocios | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Chemical or Physical Sciences | doctorado | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Clinical | doctorado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Computing, Information Technology or Mathematical Sciences | doctorado | Tecnología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Creative and Performing Arts | doctorado | Artes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Criminology | doctorado | Criminología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Disability and Community Inclusion | doctorado | Servicios Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Education | doctorado | Educación | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Engineering | doctorado | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Environmental Sciences | doctorado | Medio Ambiente | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Government and International Relations | doctorado | Ciencias Políticas | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Health Emergencies and Health Security | doctorado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Health Sciences and Allied Health | doctorado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Healthy Ageing and Aged Care | doctorado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in History, Archaeology, Geography and Indigenous Studies | doctorado | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Language, Literature and Culture | doctorado | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Law | doctorado | Derecho | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Medical Biosciences | doctorado | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Nursing and Midwifery | doctorado | Enfermería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Palliative Care and End of Life | doctorado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Psychology | doctorado | Psicología | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Public Health and Rural and Remote Health | doctorado | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Social Sciences | doctorado | Ciencias Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Doctor of Philosophy (PhD) in Social Work | doctorado | Trabajo Social | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Arts by Research in Creative and Performing Arts at Flinders | maestria | Artes | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Arts by Research in History and Archaeology at Flinders | maestria | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Arts by Research in Language, Literature and Culture | maestria | Humanidades | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Arts by Research in Social Sciences at Flinders | maestria | Ciencias Sociales | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Clinical Epidemiology | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Engineering | maestria | Ingeniería | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Health and Clinical Research | maestria | Salud | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Laws | maestria | Derecho | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Science | maestria | Ciencias | no indicada | - | https://www.flinders.edu.au/study/courses
+Flinders University | Master of Surgery | maestria | Medicina | no indicada | - | https://www.flinders.edu.au/study/courses
+
+# ---------------------------------------------------------------------------
+# 3 · Asia Pacific International College (APIC) · apicollege.edu.au
+# Campus Sydney · Melbourne · Brisbane (la ficha dice 1 ciudad · el sitio lista 3)
+# ---------------------------------------------------------------------------
+APIC | Diploma of Business Information Systems (DipBIS) | diplomado | Tecnología | 1 Year Full-Time (52 Weeks) | CRICOS 085158G | https://apicollege.edu.au/courses/diploma-of-business-information-systems/
+APIC | Bachelor of Business Information Systems (BBIS) | bachelor | Tecnología | 3 Years Full-Time (156 Weeks) | CRICOS 085159G | https://apicollege.edu.au/courses/bachelor-of-business-information-systems/
+APIC | Bachelor of Information Technology | bachelor | Tecnología | 3 Years Full-Time (156 Weeks) | CRICOS 108728G | https://apicollege.edu.au/courses/bachelor-of-information-technology/
+APIC | Bachelor of Information Technology Specialisation in Computer Networks and Security | bachelor | Tecnología | 3 Years Full-Time (156 Weeks) | CRICOS 108728G | https://apicollege.edu.au/courses/bachelor-of-information-technology/
+APIC | Diploma of Business (DipBus) | diplomado | Negocios | 1 Year Full-Time (52 Weeks) | CRICOS 085156K | https://apicollege.edu.au/courses/diploma-of-business/
+APIC | Bachelor of Business (BBus) | bachelor | Negocios | 3 Years Full-Time (156 Weeks) | CRICOS 085157J | https://apicollege.edu.au/courses/bachelor-of-business/
+APIC | Bachelor of Business Specialisation in Accounting | bachelor | Contabilidad | 3 Years Full-Time (156 Weeks) | CRICOS 085157J | https://apicollege.edu.au/courses/bachelor-of-business/
+APIC | Bachelor of Business Specialisation in Analytics and AI | bachelor | Negocios | 3 Years Full-Time (156 Weeks) | CRICOS 085157J | https://apicollege.edu.au/courses/bachelor-of-business/
+APIC | Bachelor of Business Specialisation in Project Management | bachelor | Negocios | 3 Years Full-Time (156 Weeks) | CRICOS 085157J | https://apicollege.edu.au/courses/bachelor-of-business/
+APIC | Graduate Certificate in Information Technology | posgrado | Tecnología | no indicada | - | https://apicollege.edu.au/courses/
+APIC | Master of Information Technology (MIT) | maestria | Tecnología | 2 Years Full-Time (104 Weeks) | CRICOS 108729F | https://apicollege.edu.au/courses/master-of-information-technology/
+APIC | Master of Information Technology Specialisation in Artificial Intelligence | maestria | Tecnología | 2 Years Full-Time (104 Weeks) | CRICOS 108729F | https://apicollege.edu.au/courses/master-of-information-technology/
+APIC | Master of Information Technology Specialisation in Enterprise Networks | maestria | Tecnología | 2 Years Full-Time (104 Weeks) | CRICOS 108729F | https://apicollege.edu.au/courses/master-of-information-technology/
+APIC | Master of Information Technology Specialisation in Cyber Security | maestria | Tecnología | 2 Years Full-Time (104 Weeks) | CRICOS 108729F | https://apicollege.edu.au/courses/master-of-information-technology/
+APIC | Graduate Certificate in Project Management (GradCertPM) | posgrado | Negocios | 2 Trimesters Full-Time (35 Weeks) | CRICOS 066176G | https://apicollege.edu.au/courses/graduate-certificate-in-project-management/
+APIC | Graduate Diploma of Project Management | posgrado | Negocios | no indicada | - | https://apicollege.edu.au/courses/
+APIC | Master of Project Management and Business (MPMB) | maestria | Negocios | 2 Years Full-Time (104 Weeks) | CRICOS 077591B | https://apicollege.edu.au/courses/master-of-project-management-and-business/
+APIC | Master of Project Management and Business (MPMB) Specialisation in ICT Project Management | maestria | Tecnología | 2 Years Full-Time (104 Weeks) | CRICOS 077591B | https://apicollege.edu.au/courses/master-of-project-management-and-business/
+APIC | Master of Project Management and Business (MPMB) Specialisation in Health Management | maestria | Salud | 2 Years Full-Time (104 Weeks) | CRICOS 077591B | https://apicollege.edu.au/courses/master-of-project-management-and-business/
+APIC | Graduate Certificate in Business Management (GradCertBus) | posgrado | Negocios | 2 Trimesters Full-Time (35 Weeks) | CRICOS 107334M | https://apicollege.edu.au/courses/graduate-certificate-in-business-management/
+APIC | Graduate Diploma of Business Management | posgrado | Negocios | no indicada | - | https://apicollege.edu.au/courses/
+APIC | Master of Business Administration (MBA) | mba | Negocios | 2 Years Full-Time (104 Weeks) | CRICOS 107332B | https://apicollege.edu.au/courses/master-of-business-administration/
+APIC | MBA Specialisation in Health Management | mba | Salud | 2 Years Full-Time (104 Weeks) | CRICOS 107332B | https://apicollege.edu.au/courses/master-of-business-administration/
+APIC | MBA Specialisation in Project Management | mba | Negocios | 2 Years Full-Time (104 Weeks) | CRICOS 107332B | https://apicollege.edu.au/courses/master-of-business-administration/
+APIC | MBA Specialisation in Information Technology | mba | Tecnología | 2 Years Full-Time (104 Weeks) | CRICOS 107332B | https://apicollege.edu.au/courses/master-of-business-administration/
+
+# ---------------------------------------------------------------------------
+# 4 · Vancouver Community College (www.vcc.ca) · indice Programs A-Z
+# El indice no publica duracion; van todas "no indicada".
+# ---------------------------------------------------------------------------
+Vancouver Community College | Academic Upgrading Grades 10-12 | curso_corto | Preparatorio | no indicada | - | https://www.vcc.ca/programs/academic-upgrading-grades-10-12/
+Vancouver Community College | Academic Upgrading Pre-Grade 10 Skills | curso_corto | Preparatorio | no indicada | - | https://www.vcc.ca/programs/academic-upgrading-pre-grade-10-skills/
+Vancouver Community College | Access to Practical Nursing | diplomado | Enfermería | no indicada | - | https://www.vcc.ca/programs/access-to-practical-nursing/
+Vancouver Community College | Accounting | diplomado | Contabilidad | no indicada | - | https://www.vcc.ca/programs/accounting/
+Vancouver Community College | Administrative Professional | curso_corto | Negocios | no indicada | - | https://www.vcc.ca/programs/administrative-professional/
+Vancouver Community College | Architectural Technician | curso_corto | Arquitectura | no indicada | - | https://www.vcc.ca/programs/architectural-technician-certificate/
+Vancouver Community College | Artisan Baking | curso_corto | Gastronomía | no indicada | - | https://www.vcc.ca/programs/artisan-baking/
+Vancouver Community College | Asian Culinary Arts | curso_corto | Gastronomía | no indicada | - | https://www.vcc.ca/programs/asian-culinary-arts/
+Vancouver Community College | ASL and Deaf Studies | curso_corto | Idiomas | no indicada | - | https://www.vcc.ca/programs/asl-and-deaf-studies/
+Vancouver Community College | Associate of Arts | pregrado | Humanidades | no indicada | - | https://www.vcc.ca/programs/associate-of-arts/
+Vancouver Community College | Associate of Arts (Psychology) Degree | pregrado | Psicología | no indicada | - | https://www.vcc.ca/programs/associate-of-arts-psychology-degree/
+Vancouver Community College | Associate of Science | pregrado | Ciencias | no indicada | - | https://www.vcc.ca/programs/associate-of-science/
+Vancouver Community College | Associate of Science (Computer Science) Degree | pregrado | Tecnología | no indicada | - | https://www.vcc.ca/programs/associate-of-science-computer-science-degree/
+Vancouver Community College | Associate of Science (Data Science) Degree | pregrado | Tecnología | no indicada | - | https://www.vcc.ca/programs/associate-of-science-data-science-degree/
+Vancouver Community College | Associate of Science (Environmental Science) Degree | pregrado | Medio Ambiente | no indicada | - | https://www.vcc.ca/programs/associate-of-science-environmental-science-degree/
+Vancouver Community College | Automotive Collision and Refinishing Foundation | curso_corto | Oficios | no indicada | - | https://www.vcc.ca/programs/automotive-collision-and-refinishing-foundation-certificate/
+Vancouver Community College | Automotive Electronics Repair | curso_corto | Oficios | no indicada | - | https://www.vcc.ca/programs/automotive-electronics-repair/
+Vancouver Community College | Automotive Logistics and Service Operations - Zero Emission | diplomado | Logística | no indicada | - | https://www.vcc.ca/programs/automotive-logistics-and-service-operations---zero-emission/
+Vancouver Community College | Automotive Parts, Service Advising and Collision Estimating | curso_corto | Oficios | no indicada | - | https://www.vcc.ca/programs/automotive-parts-service-advising-and-collision-estimating/
+Vancouver Community College | Automotive Service Technician Harmonized Foundation | curso_corto | Oficios | no indicada | - | https://www.vcc.ca/programs/automotive-service-technician-harmonized-foundation/
+Vancouver Community College | Bachelor of Applied Music | bachelor | Música | no indicada | - | https://www.vcc.ca/programs/bachelor-of-applied-music/
+Vancouver Community College | Bachelor of Hospitality Management | bachelor | Hospitalidad | no indicada | - | https://www.vcc.ca/programs/bachelor-of-hospitality-management/
+Vancouver Community College | Bachelor of Hospitality Management (Executive Cohort) | bachelor | Hospitalidad | no indicada | - | https://www.vcc.ca/programs/bachelor-of-hospitality-management-executive-cohort/
+Vancouver Community College | Business Management | posgrado | Negocios | no indicada | - | https://www.vcc.ca/programs/business-management-post-degree-diploma/
+Vancouver Community College | CAD and BIM | diplomado | Arquitectura | no indicada | - | https://www.vcc.ca/programs/cad-and-bim--diploma/
+Vancouver Community College | CAD Technician | curso_corto | Arquitectura | no indicada | - | https://www.vcc.ca/programs/cad-technician-certificate/
+Vancouver Community College | Career Access | curso_corto | Preparatorio | no indicada | - | https://www.vcc.ca/programs/career-access/
+Vancouver Community College | Career Awareness | curso_corto | Preparatorio | no indicada | - | https://www.vcc.ca/programs/career-awareness/
+Vancouver Community College | Civil/Structural Technician | curso_corto | Ingeniería | no indicada | - | https://www.vcc.ca/programs/civilstructural-technician-certificate/
+Vancouver Community College | Computer Systems Technology | diplomado | Tecnología | no indicada | - | https://www.vcc.ca/programs/computer-systems-technology/
+Vancouver Community College | Construction Electrician and Clean Energy | diplomado | Oficios | no indicada | - | https://www.vcc.ca/programs/construction-electrician-and-clean-energy-diploma/
+Vancouver Community College | Construction Electrician Foundation | curso_corto | Oficios | no indicada | - | https://www.vcc.ca/programs/construction-electrician-foundation/
+Vancouver Community College | Dance | diplomado | Danza | no indicada | - | https://www.vcc.ca/programs/dance/
+Vancouver Community College | Deaf and Hard of Hearing - Employment Skills (Advantage) | curso_corto | Servicios Sociales | no indicada | - | https://www.vcc.ca/programs/deaf-and-hard-of-hearing---employment-skills-advantage/
+Vancouver Community College | Deaf and Hard of Hearing - Essential Employment Skills | curso_corto | Servicios Sociales | no indicada | - | https://www.vcc.ca/programs/deaf-and-hard-of-hearing---essential-employment-skills/
+Vancouver Community College | Dental Assisting - Certified | curso_corto | Odontología | no indicada | - | https://www.vcc.ca/programs/dental-assisting--certified/
+Vancouver Community College | Dental Assisting - Certified (Online) | curso_corto | Odontología | no indicada | - | https://www.vcc.ca/programs/dental-assisting--certified-online/
+Vancouver Community College | Dental Hygiene | diplomado | Odontología | no indicada | - | https://www.vcc.ca/programs/dental-hygiene/
+Vancouver Community College | Dental Reception | curso_corto | Odontología | no indicada | - | https://www.vcc.ca/programs/dental-reception/
+Vancouver Community College | Dental Technology Sciences | diplomado | Odontología | no indicada | - | https://www.vcc.ca/programs/dental-technology-sciences/
+Vancouver Community College | Denturist | diplomado | Odontología | no indicada | - | https://www.vcc.ca/programs/denturist/
+Vancouver Community College | Digital Communication, Social Media and Multimedia | posgrado | Comunicación | no indicada | - | https://www.vcc.ca/programs/digital-communication-social-media-and-multimedia-post-degree-diploma/
+Vancouver Community College | Digital Learning for Innovative Teaching | curso_corto | Educación | no indicada | - | https://www.vcc.ca/programs/digital-learning-for-innovative-teaching/
+Vancouver Community College | Digital Marketing Technology | diplomado | Marketing | no indicada | - | https://www.vcc.ca/programs/digital-marketing-technology/
+Vancouver Community College | Early Childhood Care and Education (Certificate) | curso_corto | Educación | no indicada | - | https://www.vcc.ca/programs/early-childhood-care-and-education-certificate/
+Vancouver Community College | Early Childhood Care and Education (Diploma) | diplomado | Educación | no indicada | - | https://www.vcc.ca/programs/early-childhood-care-and-education-diploma/
+Vancouver Community College | Electronics Repair Technology | diplomado | Oficios | no indicada | - | https://www.vcc.ca/programs/electronics-repair-technology/
+Vancouver Community College | ESL Pathways | curso_corto | Idiomas | no indicada | - | https://www.vcc.ca/programs/esl-pathways/
+Vancouver Community College | ESL Pathways - Advanced | curso_corto | Idiomas | no indicada | - | https://www.vcc.ca/programs/esl-pathways--advanced/
+Vancouver Community College | Esthetics and Spa Therapy | curso_corto | Belleza | no indicada | - | https://www.vcc.ca/programs/esthetics-and-spa-therapy/
+Vancouver Community College | Executive Assistant | curso_corto | Negocios | no indicada | - | https://www.vcc.ca/programs/executive-assistant/
+Vancouver Community College | Food Service Careers | curso_corto | Gastronomía | no indicada | - | https://www.vcc.ca/programs/food-service-careers/
+Vancouver Community College | Global Supply Chain Management | posgrado | Logística | no indicada | - | https://www.vcc.ca/programs/global-supply-chain-management-post-degree-diploma/
+Vancouver Community College | Graphic Design | diplomado | Diseño | no indicada | - | https://www.vcc.ca/programs/graphic-design-diploma/
+Vancouver Community College | Hairstylist | curso_corto | Belleza | no indicada | - | https://www.vcc.ca/programs/hairstylist/
+Vancouver Community College | Health Care Assistant | curso_corto | Salud | no indicada | - | https://www.vcc.ca/programs/health-care-assistant/
+Vancouver Community College | Health Unit Coordinator | curso_corto | Salud | no indicada | - | https://www.vcc.ca/programs/health-unit-coordinator/
+Vancouver Community College | Heavy Mechanical Trades Foundation | curso_corto | Oficios | no indicada | - | https://www.vcc.ca/programs/heavy-mechanical-trades-foundation/
+Vancouver Community College | Hospitality and Food Service Systems Management | diplomado | Hospitalidad | no indicada | - | https://www.vcc.ca/programs/hospitality-and-food-service-systems-management-diploma/
+Vancouver Community College | Hospitality Management | posgrado | Hospitalidad | no indicada | - | https://www.vcc.ca/programs/hospitality-management-post-degree-diploma/
+Vancouver Community College | IT Project Management | posgrado | Tecnología | no indicada | - | https://www.vcc.ca/programs/it-project-management-post-degree-diploma/
+Vancouver Community College | Jewellery Art and Design | diplomado | Diseño | no indicada | - | https://www.vcc.ca/programs/jewellery-art-and-design/
+Vancouver Community College | Legal Administrative Assistant | curso_corto | Derecho | no indicada | - | https://www.vcc.ca/programs/legal-administrative-assistant/
+Vancouver Community College | Mechanical Drafting Technician | curso_corto | Ingeniería | no indicada | - | https://www.vcc.ca/programs/mechanical-drafting-technician-certificate/
+Vancouver Community College | Medical Laboratory Assistant | curso_corto | Salud | no indicada | - | https://www.vcc.ca/programs/medical-laboratory-assistant/
+Vancouver Community College | Medical Office Assistant | curso_corto | Salud | no indicada | - | https://www.vcc.ca/programs/medical-office-assistant/
+Vancouver Community College | Medical Transcriptionist | curso_corto | Salud | no indicada | - | https://www.vcc.ca/programs/medical-transcriptionist/
+Vancouver Community College | Music | diplomado | Música | no indicada | - | https://www.vcc.ca/programs/music-diploma/
+Vancouver Community College | Nail Technology | curso_corto | Belleza | no indicada | - | https://www.vcc.ca/programs/nail-technology-certificate/
+Vancouver Community College | Nursing (BScN) | bachelor | Enfermería | no indicada | - | https://www.vcc.ca/programs/nursing-bscn/
+Vancouver Community College | Nursing (BScN) Advanced Entry | bachelor | Enfermería | no indicada | - | https://www.vcc.ca/programs/nursing-bscn-advanced-entry/
+Vancouver Community College | Occupational/Physical Therapist Assistant (Rehab Assistant) | diplomado | Salud | no indicada | - | https://www.vcc.ca/programs/occupationalphysical-therapist-assistant-rehab-assistant/
+Vancouver Community College | Open Studies | curso_corto | Preparatorio | no indicada | - | https://www.vcc.ca/programs/open-studies/
+Vancouver Community College | Pastry Arts | curso_corto | Gastronomía | no indicada | - | https://www.vcc.ca/programs/pastry-arts/
+Vancouver Community College | Pastry Arts - ESL | curso_corto | Gastronomía | no indicada | - | https://www.vcc.ca/programs/pastry-arts---esl/
+Vancouver Community College | Pharmacy Technician (Diploma) | diplomado | Salud | no indicada | - | https://www.vcc.ca/programs/pharmacy-technician-diploma/
+Vancouver Community College | Practical Nursing | diplomado | Enfermería | no indicada | - | https://www.vcc.ca/programs/practical-nursing/
+Vancouver Community College | Preparatory Music | curso_corto | Música | no indicada | - | https://www.vcc.ca/programs/preparatory-music-certificate/
+Vancouver Community College | Professional Cook 1 Plus | curso_corto | Gastronomía | no indicada | - | https://www.vcc.ca/programs/professional-cook-1-plus/
+Vancouver Community College | Professional Cook 1 - ESL | curso_corto | Gastronomía | no indicada | - | https://www.vcc.ca/programs/professional-cook-1--esl/
+Vancouver Community College | Professional Cook 2 | curso_corto | Gastronomía | no indicada | - | https://www.vcc.ca/programs/professional-cook-2/
+Vancouver Community College | Project Management | posgrado | Negocios | no indicada | - | https://www.vcc.ca/programs/project-management-post-degree-diploma/
+Vancouver Community College | Provincial Instructor Diploma Program (PIDP) | diplomado | Educación | no indicada | - | https://www.vcc.ca/programs/provincial-instructor-diploma-program-pidp/
+Vancouver Community College | Refrigeration and Air Conditioning Mechanic Foundation | curso_corto | Oficios | no indicada | - | https://www.vcc.ca/programs/refrigeration-and-air-conditioning-mechanic-foundation/
+Vancouver Community College | Retail and Hospitality Careers | curso_corto | Hospitalidad | no indicada | - | https://www.vcc.ca/programs/retail-and-hospitality-careers/
+Vancouver Community College | Retail and Service Careers | curso_corto | Negocios | no indicada | - | https://www.vcc.ca/programs/retail-and-service-careers/
+Vancouver Community College | Sign Language Interpretation | diplomado | Idiomas | no indicada | - | https://www.vcc.ca/programs/sign-language-interpretation-diploma/
+Vancouver Community College | Steel Construction Modelling Technician | curso_corto | Ingeniería | no indicada | - | https://www.vcc.ca/programs/steel-construction-modelling-technician-certificate/
+Vancouver Community College | Supply Chain and Logistics | curso_corto | Logística | no indicada | - | https://www.vcc.ca/programs/supply-chain-and-logistics-short-certificate/
+Vancouver Community College | Teaching English to Speakers of Other Languages (TESOL) - Short Certificate | curso_corto | Educación | no indicada | - | https://www.vcc.ca/programs/teaching-english-to-speakers-of-other-languages-tesol-certificate/
+Vancouver Community College | Teaching English to Speakers of Other Languages (TESOL) - Diploma | diplomado | Educación | no indicada | - | https://www.vcc.ca/programs/teaching-english-to-speakers-of-other-languages-tesol-diploma/
+Vancouver Community College | Teaching Online | curso_corto | Educación | no indicada | - | https://www.vcc.ca/programs/teaching-online-certificate/
+Vancouver Community College | Trades Instructor | curso_corto | Educación | no indicada | - | https://www.vcc.ca/programs/trades-instructor/
+Vancouver Community College | Train the Trainer | curso_corto | Educación | no indicada | - | https://www.vcc.ca/programs/train-the-trainer/
+Vancouver Community College | Transportation Trades Sampler | curso_corto | Oficios | no indicada | - | https://www.vcc.ca/programs/transportation-trades-sampler/
+Vancouver Community College | University Transfer - Applied Mathematics (SFU) | curso_corto | Matemáticas | no indicada | - | https://www.vcc.ca/programs/university-transfer--applied-mathematics-sfu/
+Vancouver Community College | University Transfer - Applied Physics (SFU) | curso_corto | Ciencias | no indicada | - | https://www.vcc.ca/programs/university-transfer--applied-physics-sfu/
+Vancouver Community College | University Transfer - Arts | curso_corto | Humanidades | no indicada | - | https://www.vcc.ca/programs/university-transfer--arts/
+Vancouver Community College | University Transfer - Biological Physics (SFU) | curso_corto | Ciencias | no indicada | - | https://www.vcc.ca/programs/university-transfer--biological-physics-sfu/
+Vancouver Community College | University Transfer - Biological Sciences (SFU) | curso_corto | Ciencias | no indicada | - | https://www.vcc.ca/programs/university-transfer--biological-sciences-sfu/
+Vancouver Community College | University Transfer - Chemistry (SFU) | curso_corto | Ciencias | no indicada | - | https://www.vcc.ca/programs/university-transfer--chemistry-sfu/
+Vancouver Community College | University Transfer - Computing Science and Software Systems | curso_corto | Tecnología | no indicada | - | https://www.vcc.ca/programs/university-transfer--computing-science-and-software-systems/
+Vancouver Community College | University Transfer - Engineering | curso_corto | Ingeniería | no indicada | - | https://www.vcc.ca/programs/university-transfer--engineering/
+Vancouver Community College | University Transfer - Environmental Studies | curso_corto | Medio Ambiente | no indicada | - | https://www.vcc.ca/programs/university-transfer--environmental-studies/
+Vancouver Community College | University Transfer - Mathematics (SFU) | curso_corto | Matemáticas | no indicada | - | https://www.vcc.ca/programs/university-transfer--mathematics-sfu/
+Vancouver Community College | University Transfer - Molecular Biology and Biochemistry (SFU) | curso_corto | Ciencias | no indicada | - | https://www.vcc.ca/programs/university-transfer--molecular-biology-and-biochemistry-sfu/
+Vancouver Community College | University Transfer - Pathway to Health Sciences | curso_corto | Salud | no indicada | - | https://www.vcc.ca/programs/university-transfer--pathway-to-health-sciences/
+Vancouver Community College | University Transfer - Physics (SFU) | curso_corto | Ciencias | no indicada | - | https://www.vcc.ca/programs/university-transfer--physics-sfu/
+Vancouver Community College | University Transfer - Science | curso_corto | Ciencias | no indicada | - | https://www.vcc.ca/programs/university-transfer--science/
+Vancouver Community College | University Transfer - Software Systems (SFU) | curso_corto | Tecnología | no indicada | - | https://www.vcc.ca/programs/university-transfer--software-systems-sfu/
+Vancouver Community College | University Transfer - Statistics (SFU) | curso_corto | Matemáticas | no indicada | - | https://www.vcc.ca/programs/university-transfer--statistics-sfu/
+Vancouver Community College | Virtual Environment and Simulation Design | diplomado | Diseño | no indicada | - | https://www.vcc.ca/programs/virtual-environment-and-simulation-design/
+Vancouver Community College | Wind Turbine Technician | curso_corto | Oficios | no indicada | - | https://www.vcc.ca/programs/wind-turbine-technician/
+
+# ---------------------------------------------------------------------------
+# 5 · ELTHAM College (www.elthamcollege.vic.edu.au) · colegio K-12, Research, Victoria
+# ---------------------------------------------------------------------------
+ELTHAM College | Primary Years P-6 | secundaria | Educación Escolar (Primaria) | no indicada | CRICOS 016363G | https://www.elthamcollege.vic.edu.au/admissions/international-student-admission
+ELTHAM College | Secondary Years 7-12 | secundaria | Educación Escolar | no indicada | CRICOS 016364G | https://www.elthamcollege.vic.edu.au/admissions/international-student-admission
+
+# ---------------------------------------------------------------------------
+# 6 · TasTAFE · SIN DATOS (403 persistente) · ver NOTAS
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
+# 7 · Australian Performing Arts Conservatory (APAC) · www.apac.edu.au
+# ---------------------------------------------------------------------------
+APAC | Bachelor of Screen and Stage (Acting) | bachelor | Artes Escénicas | Two years full-time | CRICOS proveedor 03897G | https://www.apac.edu.au/courses/
+APAC | Bachelor of Screen and Stage (Screen Production) | bachelor | Cine | Two years full-time | CRICOS proveedor 03897G | https://www.apac.edu.au/courses/
+APAC | Bachelor of Musical Theatre | bachelor | Artes Escénicas | Two years full-time | CRICOS proveedor 03897G | https://www.apac.edu.au/courses/
+APAC | Master of Creative Business Management (Leadership) | maestria | Negocios | no indicada | CRICOS proveedor 03897G | https://www.apac.edu.au/courses/
+APAC | Master of Creative Business Management (Event Management) | maestria | Eventos | no indicada | CRICOS proveedor 03897G | https://www.apac.edu.au/courses/
+APAC | Master of Creative Business Management (Project Management) | maestria | Negocios | no indicada | CRICOS proveedor 03897G | https://www.apac.edu.au/courses/
+APAC | Master of Creative Business Management (Digital Marketing) | maestria | Marketing | no indicada | CRICOS proveedor 03897G | https://www.apac.edu.au/courses/
+APAC | Graduate Diploma in Creative Business Management | posgrado | Negocios | no indicada | CRICOS proveedor 03897G | https://www.apac.edu.au/courses/
+APAC | Graduate Certificate in Creative Business Management | posgrado | Negocios | no indicada | CRICOS proveedor 03897G | https://www.apac.edu.au/courses/
+
+# ---------------------------------------------------------------------------
+# 8 · Pickering College (pickeringcollege.on.ca) · colegio JK-12 con internado, Newmarket, Ontario
+# ---------------------------------------------------------------------------
+Pickering College | Junior School (JK-Grade 5) | secundaria | Educación Escolar (Primaria) | no indicada | - | https://www.pickeringcollege.on.ca/academics/junior-school-jk-grade-5
+Pickering College | The Sphere Program (Grades 4 & 5) | secundaria | Educación Escolar (Primaria) | no indicada | - | https://www.pickeringcollege.on.ca/academics/sphere
+Pickering College | Middle School (Grades 6-8) | secundaria | Educación Escolar | no indicada | - | https://www.pickeringcollege.on.ca/academics/middle-school-grades-6-8
+Pickering College | Senior School (Grades 9-12) | secundaria | Educación Escolar | no indicada | - | https://www.pickeringcollege.on.ca/academics/senior-school-grades-9-12
+Pickering College | ESL Boarding Academy (Grades 9 & 10) | secundaria | Idiomas | Full academic year | - | https://www.pickeringcollege.on.ca/academics/esl-boarding-academy
+Pickering College | ESL Summer Camp | vacacional | Idiomas | 4-week session (110 horas de ESL) | - | https://www.pickeringcollege.on.ca/discovery-programs/esl-summer-camp
+Pickering College | Global Leadership Summer Camp | vacacional | Liderazgo | no indicada | - | https://www.pickeringcollege.on.ca/discovery-programs/global-leadership-summer-camp
+Pickering College | Discovery Summer Day Camps | vacacional | Recreación | no indicada | - | https://www.pickeringcollege.on.ca/discovery-programs/summer-day-camps
+
+# ---------------------------------------------------------------------------
+# 9 · Institut de Touraine (institutdetouraine.com) · Tours, Francia
+# ---------------------------------------------------------------------------
+Institut de Touraine | Curso de francés general | curso_corto | Idiomas | 1 a 48 semanas · 15 h/semana | - | https://institutdetouraine.com/cours-francais-general/
+Institut de Touraine | Cursos de francés e inmersión cultural | curso_corto | Idiomas | 1 a 48 semanas · 20 h/semana (15 general + 5 talleres) | - | https://institutdetouraine.com/cours-langue-francaise-immersion-culturelle/
+Institut de Touraine | Cursos de preparación para el DELF/DALF | curso_corto | Idiomas | 1 a 48 semanas · 20 h/semana (15 general + 5 preparación) | - | https://institutdetouraine.com/cours-preparation-delf-dalf/
+Institut de Touraine | Curso de francés profesional | curso_corto | Idiomas | 1 a 48 semanas · 20 h/semana (15 general + 5 profesional) | - | https://institutdetouraine.com/cours-francais-professionnel/
+Institut de Touraine | Clases particulares de francés | curso_corto | Idiomas | no indicada | - | https://institutdetouraine.com/cours-francais-particuliers/
+
+# ---------------------------------------------------------------------------
+# 10 · GLS Campus Berlin (gls-german-courses.de) · marca "GLS"
+# ---------------------------------------------------------------------------
+GLS Campus Berlin | Intensive German Course | curso_corto | Idiomas | mínimo 1 semana · 20 x 45 min/semana | - | https://www.gls-german-courses.de/3457-intensive-course-berlin.html
+GLS Campus Berlin | Intensive Plus German Course | curso_corto | Idiomas | mínimo 1 semana · 24 x 45 min/semana | - | https://www.gls-german-courses.de/3457-intensive-course-berlin.html
+GLS Campus Berlin | Super Intensive German Course | curso_corto | Idiomas | mínimo 1 semana · 30 x 45 min/semana | - | https://www.gls-german-courses.de/3457-intensive-course-berlin.html
+GLS Campus Berlin | Crash: Intensive Course + Individual Classes | curso_corto | Idiomas | mínimo 1 semana · 30 x 45 min/semana | - | https://www.gls-german-courses.de/3457-intensive-course-berlin.html
+GLS Campus Berlin | Afternoon German Course | curso_corto | Idiomas | mínimo 1 semana · 10 x 45 min/semana | - | https://www.gls-german-courses.de/3457-intensive-course-berlin.html
+GLS Campus Berlin | Evening German Course | curso_corto | Idiomas | 4 semanas · 20 x 45 min | - | https://www.gls-german-courses.de/3457-intensive-course-berlin.html
+GLS Campus Berlin | Private German Courses | curso_corto | Idiomas | mínimo 10 lecciones de 45 min | - | https://www.gls-german-courses.de/3457-intensive-course-berlin.html
+GLS Campus Berlin | Business German - Crash | curso_corto | Idiomas | mínimo 1 semana · 30 lecciones/semana | - | https://www.gls-german-courses.de/2524-business-german-courses-for-professionals-and-companies.html
+GLS Campus Berlin | Business German - Crash plus | curso_corto | Idiomas | mínimo 1 semana · 40 lecciones/semana | - | https://www.gls-german-courses.de/2524-business-german-courses-for-professionals-and-companies.html
+GLS Campus Berlin | Business German - One-to-One | curso_corto | Idiomas | flexible | - | https://www.gls-german-courses.de/2524-business-german-courses-for-professionals-and-companies.html
+GLS Campus Berlin | Business German - Private Mini-Group | curso_corto | Idiomas | flexible (máx. 6 participantes) | - | https://www.gls-german-courses.de/2524-business-german-courses-for-professionals-and-companies.html
+GLS Campus Berlin | Evening Course - German Online (TUE & THU) | curso_corto | Idiomas | 4 semanas · 20 lecciones de 45 min | - | https://www.gls-german-courses.de/3347-learn-german-online-live-teaching-from-berlin.html
+GLS Campus Berlin | Online Private Lessons | curso_corto | Idiomas | flexible | - | https://www.gls-german-courses.de/3347-learn-german-online-live-teaching-from-berlin.html
+GLS Campus Berlin | Online Private Mini-Group | curso_corto | Idiomas | flexible (máx. 6 participantes) | - | https://www.gls-german-courses.de/3347-learn-german-online-live-teaching-from-berlin.html
+GLS Campus Berlin | TestDaF Preparation Course | curso_corto | Idiomas | no indicada | - | https://www.gls-german-courses.de/testdaf-berlin.html
+GLS Campus Berlin | telc German Exam Preparation (telc B1, telc B2, telc C1) | curso_corto | Idiomas | no indicada | - | https://www.gls-german-courses.de/telc-exams-telc-b1-telc-b2-telc-c1-berlin.html
+GLS Campus Berlin | Preparation Courses for Goethe Certificates B2 / C1 | curso_corto | Idiomas | no indicada | - | https://www.gls-german-courses.de/preparation-courses-for-goethe-certificates-b2-c1.html
+GLS Campus Berlin | German Course plus Internship in Berlin | curso_corto | Idiomas | no indicada | - | https://www.gls-german-courses.de/2005-german-course-plus-internship-in-berlin.html
+GLS Campus Berlin | University Pathway Germany | curso_corto | Preparatorio | curso de alemán de 10 semanas a 11 meses | - | https://www.gls-german-courses.de/3300-university-placement-german.html
+GLS Campus Berlin | Berlin College Summer Camp | vacacional | Idiomas | flexible (ej. 2 semanas) · 4 lecciones diarias · 16-18 años | - | https://www.gls-german-courses.de/summer-camps-for-teenagers-berlin.html
+GLS Campus Berlin | Berlin Westend Summer Camp | vacacional | Idiomas | flexible (ej. 2 semanas) · 4 o 5 lecciones diarias · 14-17 años | - | https://www.gls-german-courses.de/summer-camps-for-teenagers-berlin.html
+GLS Campus Berlin | Berlin Splash Summer Camp | vacacional | Idiomas | flexible (ej. 2 semanas) · 4 lecciones diarias · 12-16 años | - | https://www.gls-german-courses.de/summer-camps-for-teenagers-berlin.html
+GLS Campus Berlin | Summer Camps for Teenagers - Munich | vacacional | Idiomas | no indicada | - | https://www.gls-german-courses.de/summer-camps-for-teenagers-munich.html
+GLS Campus Berlin | High School Programs (Day Schools & Host Families) | intercambio | Educación Escolar | no indicada | - | https://www.gls-german-courses.de/3294.html
+GLS Campus Berlin | Boarding Schools Germany | secundaria | Educación Escolar | no indicada | - | https://www.gls-german-courses.de/2054-boarding-schools-germany.html
+GLS Campus Berlin | Online German Courses for Teenagers | curso_corto | Idiomas | no indicada | - | https://www.gls-german-courses.de/online-german-courses-for-teenagers-by-gls.html
+GLS Campus Berlin | School Trips to Germany | vacacional | Idiomas | no indicada | - | https://www.gls-german-courses.de/6230-school-trips-to-germany.html
+
+# RESUMEN: instituciones=10 con_programas=9 total_programas=645 sin_catalogo=1
+
+# NOTAS:
+# TasTAFE · 0 PROGRAMAS · SIN CATALOGO ACCESIBLE. Confirmada la doble falla que marco la auditoria y agregada una tercera. (a) El `dominio` de la ficha, www.study.tas.gov.au/study/tastafe, ni siquiera resuelve: PowerShell devuelve "la conexion ha terminado de forma inesperada" y WebFetch da 404 — no es solo que sea el portal del gobierno de Tasmania en vez del instituto, es que esa ruta ya no existe. (b) El dominio real del instituto, www.tastafe.tas.edu.au, devuelve 403 de forma SISTEMATICA: probe WebFetch, PowerShell con User-Agent de Chrome + Accept/Accept-Language/Upgrade-Insecure-Requests, tanto /courses como /courses/ como la raiz. No es rate limiting ni un bloqueo puntual — es un WAF que rechaza todo lo que no sea un navegador real con JS. (c) El fallback de navegador headless tampoco estuvo disponible en esta corrida (la extension de Chrome no esta conectada). Conclusion: TasTAFE NO se puede extraer con las herramientas de este pipeline; necesita una sesion manual o un navegador real. La ficha debe corregirse a www.tastafe.tas.edu.au y marcarse como "requiere extraccion manual". Ademas, cuando se pueda entrar, ojo con la regla 4: buena parte de su catalogo son apprenticeships y traineeships que exigen contrato laboral en Tasmania y NO son vendibles a un estudiante colombiano.
+# Flinders University · 370 programas, contra un cantidad_aprox de "? (cientos)" — cuadra en orden de magnitud, pero con tres salvedades que el revisor debe conocer. (1) EXCLUI las 28 entradas de la seccion "Majors" (Major in Archaeology, Major in Spanish, Major in Physics...): un major NO es un programa matriculable, es una concentracion dentro del Bachelor of Arts / of Science, y cargarlos inflaria el catalogo con filas que un asesor no puede cotizar. (2) Unas 60 filas del bloque postgrado aparecen en el sitio como nombres de AREA, no de titulo ("Aquaculture", "Chemistry", "Mathematics", "Physiotherapy", "Public Health"...): cada una es una landing que agrupa Graduate Certificate + Graduate Diploma + Master del mismo campo. Las deje con el nombre literal y nivel `posgrado` porque el prompt pide el nombre exacto del sitio, pero necesitan una segunda pasada que las explote en los titulos reales si se quiere precision de asesoria. (3) El catalogo NO publica duracion ni codigo CRICOS a nivel de listado — habria que abrir ~370 fichas individuales para conseguirlos, lo que no es viable en este lote; van todas "no indicada" / "-", asi que Flinders es la institucion menos verificable del lote pese a ser la mas grande.
+# SRH University · 86 programas contra un cantidad_aprox de "200+". La diferencia NO es un fallo de extraccion, es de idioma: el programme finder EN INGLES (srh-university.de/en/programme-finder/) lista 86, y esos 86 son justamente los que un colombiano puede cursar. El "200+" que conto la auditoria incluye el catalogo aleman de los 18 campus, que exige C1 de aleman. Confirmado el rebrand: el sitio ya se identifica solo como "SRH University"; la marca "SRH Berlin University of Applied Sciences" no existe, y el `dominio` de la ficha (srh-berlin.de/en) debe corregirse a srh-university.de. Ojo tambien con que el finder mezcla campus: solo ~40 de los 86 son de Berlin — el resto son Heidelberg, Leipzig, Dresden, Munich, Fuerth, Hamburg. Ninguna fila trae duracion ni codigo porque el finder no los publica.
+# Vancouver Community College · 113 filas de las 127 del indice Programs A-Z. EXCLUI 14 por regla 4: (a) 9 apprenticeships (Heavy Mechanical Trades, Auto Body and Collision Technician, Automotive Glass Technician, Automotive Refinishing Technician, Automotive Service Technician, Baker, Construction Electrician, Cook, Hairstylist) porque en BC exigen estar indentured con un empleador local — mismo caso que los apprenticeships australianos/britanicos; (b) 5 de dual credit para secundaria de BC (Academic Upgrading Grades 10-12 (Youth), Automotive Collision and Refinishing Foundation (Online Youth), Baking Foundation - High School, Hairstylist - High School, Professional Cook 1 - High School). ADVERTENCIA ADICIONAL: deje dentro Academic Upgrading, Career Access, Career Awareness, Open Studies y los dos Deaf and Hard of Hearing, pero son programas de educacion basica de adultos / accesibilidad orientados al residente domestico — la agencia debe verificar elegibilidad internacional antes de ofrecerlos. Ninguna fila trae duracion: el indice A-Z no la publica y son 113 fichas individuales. CONFIRMADO el `puede_vender` de la ficha: la oferta vocacional es real y ademas hay 3 bachelors y 5 associate degrees que la ficha no contemplaba.
+# EL VOCABULARIO DE NIVELES SIGUE SIN CUBRIR PRIMARIA · afecta a 2 instituciones de este lote. `secundaria` (agregado el 08-08) resuelve bien Year 7-12 y boarding school, pero no hay nivel para primaria/JK-Grade 5. Mapee a `secundaria` con el area diciendo "(Primaria)" 3 filas: ELTHAM "Primary Years P-6" (CRICOS 016363G), Pickering "Junior School (JK-Grade 5)" y Pickering "The Sphere Program (Grades 4 & 5)". ES UNA DECISION MIA, no algo que diga el sitio. Si el producto va a vender colegio desde primaria — y en agencias colombianas se vende — conviene agregar `primaria` al vocabulario en el proximo ciclo, igual que se hizo con `secundaria`.
+# ELTHAM College · solo 2 filas, y es correcto: es un colegio K-12 privado (CRICOS 00138D) sin catalogo enumerable, tal como advirtio la auditoria. Los 2 productos reales son los dos cursos registrados en CRICOS para internacionales (Primary Years P-6 y Secondary Years 7-12). EXCLUI por no ser programas matriculables por separado: "English Pathways" y "Humanities Pathways" (son asignaturas de apoyo dentro del curriculo), el Early Learning Centre (preescolar local, sin CRICOS), los 90+ co-curriculares, y el "Elevate Pathways Program" (es un esquema de beca/mentoria con descuento de matricula para entrada a Year 7 y Year 10, no un programa de estudio). Confirmado que el senior school es VCE + VET (no IB).
+# Pickering College · CORRIJO A LA AUDITORIA en dos puntos. (1) La `category` de la ficha dice "Instituto Idiomas" y esta MAL: es un colegio independiente JK-12 con internado; el ESL es un programa dentro del colegio, no el negocio. (2) El "post-graduate year" que la auditoria listo en `niveles_vistos` NO es un ano post-grado 12 para estudiantes: verificado en su pagina, es el "Post-Graduate Certificate in Experiential Education and Global Leadership", formacion para DOCENTES, con creditos hacia el Professional Master of Education de Queen's University y cursos AQ para el registro OCT de Ontario. Lo EXCLUI (regla 4: no es un programa que la agencia venda a una familia, y listarlo como "post-graduate" confundiria a un asesor). Tambien excluí el "Global Leadership Program" por ser curriculo transversal a todos los grados, no un producto matriculable aparte. Ojo: los Discovery Summer Day Camps son campamentos de DIA (sin alojamiento), o sea publico local — el ESL Summer Camp si es residencial y si es vendible.
+# GLS Campus Berlin · 27 programas. El cantidad_aprox venia como "?" porque el sitio organiza por nivel A1-C2 sin conteo publicado; los 27 salen de enumerar las variantes con nombre propio de cada familia. EXCLUI 2 por regla 4: "Bildungsurlaub" (es el permiso de formacion pagado que la ley alemana da a los EMPLEADOS en Alemania — inaccesible para un estudiante colombiano) y "Corporate German Courses for Companies" (capacitacion in-company, es un servicio B2B, no un programa). CONFIRMADO el hallazgo de la auditoria: este dominio cubre solo la oferta de ALEMAN del campus Berlin. PERO el `puede_vender` de la ficha dice solo "Idiomas" y se queda corto: el sitio tambien vende colocacion en high school aleman, colegios con internado, viajes escolares y un University Pathway — 4 productos que no son curso de idioma. Los "Summer Camps for Teenagers - Munich" van con nombre generico porque no abri esa pagina; si se necesita el desglose por campus de Munich, falta una pasada. Ningun curso publica codigo oficial (Alemania no tiene registro tipo CRICOS para escuelas de idiomas). El sitio publica precios; no se transcribieron.
+# APIC · 25 programas, cuadra exacto con cantidad_aprox "~25+". Todos con CRICOS verificable salvo 3 (Graduate Certificate in Information Technology, Graduate Diploma of Project Management y Graduate Diploma of Business Management): sus fichas no publican el codigo o no respondieron, van con "-". CONFIRMADOS los dos hallazgos de la auditoria: (a) la ficha dice 1 ciudad y el sitio lista 3 — todos los programas se imparten en Sydney, Melbourne y Brisbane; (b) esta catalogada como VET y NO lo es: es higher education acreditada por TEQSA (bachelors, masters y MBA), sus "Diplomas" son diplomas de educacion superior, no qualifications VET del registro nacional. Las especializaciones van como filas propias porque el sitio las lista aparte en /courses/, aunque comparten CRICOS con el programa base.
+# APAC · 9 programas, cuadra EXACTO con cantidad_aprox=9 y con los niveles_vistos (3 Bachelor + 4 Master + 1 Grad Dip + 1 Grad Cert). CONFIRMADO que el `tipo_adivinado` "curso_corto" de la ficha es FALSO: es educacion superior TEQSA (PRV14046) con maestrias, y el `puede_vender` vacio debe llenarse. Los 3 bachelors duran solo 2 anos full-time (acelerado, no el 3 estandar australiano) — dato relevante para vender. Ningun curso publica CRICOS individual, solo el de proveedor (03897G), asi que ese es el que va en codigo_oficial; los 4 Master of Creative Business Management no publican duracion.

@@ -454,6 +454,14 @@ class Route(Base):
     what_it_looks_like = Column(Text, nullable=False)
     next_step = Column(Text, nullable=False)
 
+    # §1 · De dónde salió la ruta · mismo patrón que JR-7 usó con las fortalezas.
+    # La clienta no sabía de dónde venía lo que el sistema le mostraba.
+    evidence = Column(JSON, nullable=True)
+    # §1 · True = son las sugerencias estáticas de fallback, no una lectura de
+    # este perfil. Nullable porque las rutas anteriores no lo tienen y `None`
+    # significa "generada antes de que existiera esta marca".
+    is_generic = Column(Boolean, nullable=True)
+
     # Status
     status = Column(Enum(RouteStatus), default=RouteStatus.ACTIVE, nullable=False)
     is_primary = Column(Boolean, default=False, nullable=False)
@@ -810,6 +818,16 @@ class Program(Base):
     active = Column(Boolean, default=True, nullable=False, index=True)
     raw = Column(JSON, nullable=True)
 
+    # A8 · Prioridad comercial 1-10 · migración 056 (2026-08-07).
+    # Verónica, 21-07: "¿tengo cómo ponerle estrellas para que determine qué
+    # sale primero?". La escribe el equipo de la agencia desde el panel de
+    # super_admin (PATCH /v1/programs/{id}).
+    #
+    # NULL a propósito y sin default: "sin priorizar" NO es "prioridad baja".
+    # Poner 0 o 5 por defecto sería inventar un juicio comercial que nadie
+    # emitió, y el orden del catálogo lo reflejaría como si fuera real.
+    priority = Column(Integer, nullable=True, index=True)
+
     # ---- Editorial fields (Bloque B · migration 015) ----
     description_long = Column(Text, nullable=True)
     institution_logo_url = Column(String(500), nullable=True)
@@ -1074,7 +1092,19 @@ class BitrixSyncLog(Base):
     )
 
     action = Column(String(40), nullable=False)
+    # `payload` va ENMASCARADO (`bitrix_client.safe_summary`) · los logs no
+    # llevan PII, y eso no cambia.
     payload = Column(JSON, nullable=True)
+    # Hash del payload REAL, sin enmascarar · migración 058 (2026-08-07).
+    #
+    # Existe porque el dedup comparaba los dos lados enmascarados: `NAME: "Ana"`
+    # y `NAME: "Ana María"` daban el mismo hash, así que **cambiar el nombre de
+    # un estudiante nunca llegaba al CRM del cliente**. El hash permite comparar
+    # datos reales sin escribirlos en ningún log.
+    #
+    # NULL en las filas anteriores a la migración · el dedup lo trata como
+    # "no sé" y sincroniza, que es el lado seguro.
+    payload_hash = Column(String(32), nullable=True, index=True)
     bitrix_response = Column(JSON, nullable=True)
 
     status = Column(String(20), default=BitrixSyncStatus.PENDING.value, nullable=False, index=True)
@@ -1114,6 +1144,63 @@ class LeadProfile(Base):
 
     def __repr__(self) -> str:
         return f"<LeadProfile id={self.id}>"
+
+
+class BotConversation(Base):
+    """Conversación del perfilador comercial · el bot que reemplaza el Typeform.
+
+    Es pública y anónima: vive sin `User`, igual que `LeadProfile`. La diferencia
+    con esa tabla es que aquí SÍ hay quien lea — `lead_profiles` se escribe desde
+    `lead_profile.py:70` y ningún otro sitio del backend la consulta, así que los
+    leads del quiz llevan meses cayendo en un pozo. La bandeja del bot existe
+    para que eso no se repita.
+
+    `hechos` guarda los ~20 datos ya validados contra el catálogo (nunca texto
+    crudo del modelo); `transcript` guarda la conversación entera, que es lo que
+    el asesor quiere leer antes de llamar.
+    """
+    __tablename__ = "bot_conversations"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
+
+    # Contacto · se llena a medida que la persona lo va diciendo, no al final.
+    name = Column(String(255), nullable=True)
+    email = Column(String(255), nullable=True)
+    phone = Column(String(50), nullable=True)
+
+    # Estado de la conversación
+    hechos = Column(JSON, default=dict, nullable=False)
+    transcript = Column(JSON, default=list, nullable=False)
+    is_completed = Column(Boolean, default=False, nullable=False)
+
+    # Veredicto comercial · lo escribe `bot_lead_scoring.evaluar`
+    score = Column(Integer, nullable=True)
+    band = Column(String(20), nullable=True)      # hot · warm · cold
+    route = Column(String(20), nullable=True)     # asesor · telemercadeo · descartar
+    alarms = Column(JSON, nullable=True)
+    score_rationale = Column(JSON, nullable=True)
+
+    # Derivación a GrassHopper · la "miga de pan" de la reunión del 21-07
+    wants_orientation = Column(Boolean, default=False, nullable=False)
+
+    # Si la persona después se registra, se cuelga aquí para no repreguntarle
+    # en el onboarding lo que el bot ya sabe.
+    converted_user_id = Column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"), nullable=True
+    )
+
+    # Trazabilidad de campaña · el Typeform ya traía utm_*
+    utm_source = Column(String(120), nullable=True)
+    utm_medium = Column(String(120), nullable=True)
+    utm_campaign = Column(String(120), nullable=True)
+
+    # Estado del envío al CRM del cliente · hoy Bitrix corre en stub
+    crm_synced_at = Column(DateTime, nullable=True)
+
+    def __repr__(self) -> str:
+        return f"<BotConversation id={self.id} route={self.route}>"
 
 
 class ConsentAuditLog(Base):
@@ -1194,6 +1281,53 @@ class Notification(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     # updated_at · migration 041_auditability_and_indices
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True)
+
+
+class OutreachLog(Base):
+    """RM-1 · Una fila por mensaje de acompañamiento · migración 057.
+
+    Existe por tres razones distintas, y ninguna es opcional:
+
+    1. **No repetirle a la misma persona.** `outreach_service` lo consulta antes
+       de armar la lista. Sin esta tabla, cada corrida del scheduler volvería a
+       escribirle a todo el mundo.
+    2. **Auditoría.** Parte de los usuarios son menores de edad. Tiene que poder
+       responderse "¿qué se le mandó a esta persona y con qué permiso?" sin
+       adivinar. Por eso se guarda también lo que NO se envió y el motivo
+       (`resultado`), no sólo lo entregado.
+    3. Para que el equipo de la agencia vea el historial de una cuenta.
+
+    `resultado` distingue enviado · sin_consentimiento · fallo_envio ·
+    simulacro. `simulacro` es lo que escribe el preview: se ve qué habría
+    salido sin que salga nada.
+    """
+
+    __tablename__ = "outreach_logs"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False, index=True)
+
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    # Clave estable del motivo (`outreach_service.Motivo.clave`).
+    motivo = Column(String(50), nullable=False, index=True)
+    canal = Column(String(20), nullable=False)  # email · in_app
+    resultado = Column(String(30), nullable=False, index=True)
+
+    # Qué se le dijo · guardado para poder mostrarlo tal cual en el panel.
+    asunto = Column(String(255), nullable=True)
+    cuerpo = Column(Text, nullable=True)
+    # True cuando el texto vino de la plantilla determinista y no del modelo.
+    es_plantilla = Column(Boolean, nullable=True)
+    # Motivo del no-envío cuando `resultado` no es "enviado".
+    detalle = Column(String(255), nullable=True)
+
+    def __repr__(self) -> str:
+        return f"<OutreachLog user={self.user_id} motivo={self.motivo} → {self.resultado}>"
 
 
 class PushSubscription(Base):
@@ -2429,3 +2563,72 @@ class CVProfile(Base):
     updated_at = Column(
         DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True
     )
+
+
+class ProgramaInvestigado(Base):
+    """Programa extraído del sitio oficial de la institución · migración 059.
+
+    15.483 filas de 306 instituciones. **No es `Program`**: esto lo investigamos
+    nosotros y la agencia todavía no lo confirma. Cuando llegue el Excel a nivel
+    de programa de la clienta, lo confirmado pasa a `programs` y esta tabla se
+    vacía de un DELETE. Mezclarlo perdería para siempre la distinción entre lo
+    que ella validó y lo que dedujimos.
+
+    **No tiene precio a propósito.** El precio cambia por intake y nacionalidad y
+    la agencia tiene tarifas negociadas: uno sacado de la web es una promesa que
+    el asesor no puede sostener. Que la columna no exista es la garantía.
+    """
+
+    __tablename__ = "programas_investigados"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    institucion = Column(String(255), nullable=False, index=True)
+    nombre = Column(String(500), nullable=False)
+
+    pais = Column(String(80), nullable=True, index=True)
+    ciudad = Column(String(160), nullable=True)
+
+    nivel = Column(String(40), nullable=False, index=True)
+    # Vocabulario cerrado de `app/services/areas.py`. El texto original se
+    # conserva al lado para poder rehacer el mapeo sin volver a extraer.
+    area = Column(String(80), nullable=True, index=True)
+    area_cruda = Column(String(160), nullable=True)
+
+    duracion = Column(String(120), nullable=True)
+    codigo_oficial = Column(String(80), nullable=True)
+    url_fuente = Column(Text, nullable=True)
+    dominio = Column(String(160), nullable=True)
+
+    lote = Column(String(8), nullable=True)
+    activo = Column(Boolean, default=True, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    # `embedding` (vector(1536)) existe en la tabla pero NO se declara aquí: el
+    # tipo `vector` necesitaría el paquete pgvector como dependencia del modelo,
+    # y la búsqueda semántica lo consulta por SQL directo de todos modos. Ver
+    # `app/services/busqueda_programas.py`.
+
+
+class PerfilVector(Base):
+    """Vector del perfil de un estudiante · migración 060.
+
+    El perfil crece cada vez que la persona usa la app (tests, journey, journal),
+    pero entre visita y visita no cambia. `firma` es la huella de las señales que
+    produjeron este vector: mientras coincida con la del perfil actual, el vector
+    sirve y no hay que pedirle nada al proveedor de embeddings.
+
+    Clave primaria = usuario. No tiene sentido que existan dos vectores del mismo
+    perfil, y hacerlo explícito ahorra la lógica de "cuál de los dos es el bueno".
+    """
+
+    __tablename__ = "perfil_vectores"
+
+    user_id = Column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"),
+        primary_key=True,
+    )
+    firma = Column(String(64), nullable=False)
+    actualizado = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # `embedding` (vector(1536)) vive en la tabla pero no se declara aquí · el
+    # tipo necesitaría pgvector como dependencia del modelo. Se lee y escribe
+    # por SQL directo desde `busqueda_programas`.

@@ -41,7 +41,13 @@ CRITERIOS DE RANKING:
    Cuando la clave NO aparece, significa que ese dato no está cargado — NO que la
    institución no ofrezca nada. En ese caso no afirmes nada sobre qué se puede gestionar.
 
-8. Datos pendientes: si `costo` o `duración` dicen "a confirmar" (o `budget_fit_hint=unknown`), trátalo como dato aún no confirmado por la institución — NO asumas que es gratis, barato ni corto; usa `budget_fit: "unknown"` (NUNCA "match": afirmar que entra en el presupuesto de alguien sin conocer el precio es una promesa que no podemos sostener) y, si el costo es relevante para este estudiante, menciona en `why_match` que está por confirmar.
+8. NIVEL ACADÉMICO vs ETAPA (regla dura): cada entrada del catálogo trae `nivel=` (pregrado, maestria, mba, doctorado, intercambio, vacacional, curso_corto…) y el bloque de contexto trae la etapa académica de la persona. El nivel que recomiendes tiene que ser cursable HOY con lo que la persona ya terminó:
+   - Quien está en el colegio (incluido último año) todavía NO tiene bachillerato: no puede entrar a maestría, MBA, doctorado, especialización ni posgrado. Sí a pregrado, foundation, intercambio y programas de idiomas — planear la carrera desde el colegio es exactamente el caso normal de esta agencia.
+   - Quien está cursando la universidad todavía no tiene título: puede planear una maestría, pero no un doctorado.
+   - Cuando el catálogo NO trae `nivel=`, no infieras el nivel del nombre: trátalo como dato desconocido y decide por los demás criterios.
+   Si la etapa no aparece en el contexto, no apliques esta regla — no adivines en qué grado está.
+
+9. Datos pendientes: si `costo` o `duración` dicen "a confirmar" (o `budget_fit_hint=unknown`), trátalo como dato aún no confirmado por la institución — NO asumas que es gratis, barato ni corto; usa `budget_fit: "unknown"` (NUNCA "match": afirmar que entra en el presupuesto de alguien sin conocer el precio es una promesa que no podemos sostener) y, si el costo es relevante para este estudiante, menciona en `why_match` que está por confirmar.
 
 ESQUEMA DE SALIDA EXACTO:
 

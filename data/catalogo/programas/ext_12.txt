@@ -1,0 +1,508 @@
+# Lote 12 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+Ontario Tech University | Artificial Intelligence (Computer Science) | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Computer Science | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Data Science | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Game Development and Interactive Media | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Information Technology - Technology Management | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Integrated Mathematics and Computer Science | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Interactive Computing | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Networking and Information Technology Security | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Software Development | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Video Games, Creative Industries and Society (BIT) | bachelor | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Accounting | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Artificial Intelligence for Business | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Business Analytics and Artificial Intelligence | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Cybersecurity for Business | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Economics (Commerce) | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Entrepreneurship | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Finance | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Marketing | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Organizational Behaviour and Human Resources Management | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Technology Management (Bachelor of Commerce) | bachelor | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Adult Learning with Technology | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Aging & Learning in an Era of Technology | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Concurrent Education | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Developmental Science & Learning | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Digital Technologies | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Early Childhood Studies | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Education, Consecutive, Intermediate/Senior | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Education, Consecutive, Primary/Junior | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Educational Psychology | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Educational Studies | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Equity, Diversity and Inclusion | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Inclusive Educational Studies | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Learning Sciences & Technology | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Mental Health & Special Education | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Special Education | bachelor | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Artificial Intelligence Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Automotive Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Comprehensive Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Electrical Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Energy Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Industrial Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Internet of Things | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Manufacturing Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Mechanical Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Mechatronics Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Nuclear Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Pre-Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Railway Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Aerospace | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Smart Grid | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Software Engineering | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Bruce Power Women in Nuclear Engineering Co-op Program | bachelor | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Biomechanics and Ergonomics | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Exercise Science and Rehabilitation | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Health Administration | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Health Sciences | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Human Health Science | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Kinesiology | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Medical Laboratory Science | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Medical Laboratory Science - Northern Access Initiative | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Medical School Pathway | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Nursing - Collaborative | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Nursing - Second Entry | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Pre-med Programs | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Public Health | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Veterinary School Pathway | bachelor | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Applied Biotechnology | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Astrophysics | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Biomedical Science | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Biological Science | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Chemical Biology | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Chemistry | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Computational Physics | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Environmental Biology | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Forensic Science | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Marine Biology | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Mathematics for Science and Industry | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Nanophysics | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Neuroscience | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Pharmaceutical Chemistry | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Physics | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Sustainability | bachelor | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Affective Science and Mental Health | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Alternative Dispute Resolution | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Applied Sociology | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Arts - General | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Business and Society | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Cognitive and Brain Sciences | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Communication and Digital Media Studies | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Creativity, Digital Arts and Entertainment Industries | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Criminal Justice | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Criminology and Justice | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Developmental Psychological Science | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Forensic Psychology | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Global Crime and Justice | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Global Studies | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Human Rights and Advocacy | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Law, Technology and Society | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Legal Studies | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Legal Studies - Accelerated UK LLB Pathway | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Legal Studies and Political Science | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Policing in Society | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Political Science | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Pre-law | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Psychology (Bachelor of Arts) | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Psychology (Bachelor of Science) | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Science, Technology and Society | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Social Innovation and Entrepreneurship | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Society, Technology and Human Values | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Sociology, Technology and Innovation | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Strategic Communication, Social Media & Society | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Video Games, Creative Industries and Society (BA) | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Victimology and Victim Studies | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Youth, Crime and Justice | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Artificial Intelligence for Professional Communicators | bachelor | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Energy & Sustainability | bachelor | Medio Ambiente | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Accounting (Graduate Diploma) | posgrado | Contabilidad y Finanzas | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Business Analytics and AI (Master’s) | maestria | Negocios | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Cybersecurity (PhD) | doctorado | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Financial Data Analytics (Master’s) | maestria | Contabilidad y Finanzas | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Information Technology Security (Master’s) | maestria | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Education (Master of Arts - Online) | maestria | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Education (Master of Education) | maestria | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Education (EdD) | doctorado | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Education in the Digital Age (Graduate Diploma - Online) | posgrado | Educación | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Automotive Engineering (Master’s) | maestria | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Electrical and Computer Engineering (Master’s) | maestria | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Electrical and Computer Engineering (PhD) | doctorado | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Engineering Management (Graduate Diploma) | posgrado | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Engineering Management (Master’s) | maestria | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Mechanical Engineering (Master’s) | maestria | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Mechanical Engineering (PhD) | doctorado | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Mechatronics Engineering (Master’s) | maestria | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Nuclear Design Engineering (Graduate Diploma) | posgrado | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Nuclear Engineering (Master’s) | maestria | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Nuclear Engineering (PhD) | doctorado | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Nuclear Technology (Graduate Diploma) | posgrado | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Railway Engineering (Graduate Diploma) | posgrado | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Software Engineering (Master’s) | maestria | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | UNENE Graduate Diploma in Nuclear Engineering | posgrado | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | UNENE MEng in Nuclear Engineering (Master’s) | maestria | Ingeniería | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Health Sciences (Master’s) | maestria | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Health Sciences (PhD) | doctorado | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Nursing (MScN) | maestria | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Work Disability Prevention (Graduate Diploma) | posgrado | Salud | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Applied Bioscience (Master’s) | maestria | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Applied Bioscience (PhD) | doctorado | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Computer Science (Master’s) | maestria | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Computer Science (PhD) | doctorado | Tecnología | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Materials Science (Master’s) | maestria | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Materials Science (PhD) | doctorado | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Modelling and Computational Science (Master’s) | maestria | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Modelling and Computational Science (PhD) | doctorado | Ciencias | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Criminology (Master’s) | maestria | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Criminology and Social Justice (PhD) | doctorado | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Forensic Psychology (Master’s) | maestria | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Forensic Psychology (PhD) | doctorado | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Police Leadership (Graduate Diploma) | posgrado | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Ontario Tech University | Social Practice and Innovation (Master’s) | maestria | Ciencias Sociales | no indicada | - | https://ontariotechu.ca/programs/
+Department for Education T/A South Australian Government Schools | High School Graduate Program | secundaria | Educación Secundaria | over 1 year, up to 5 years | 00018A | https://www.internationalstudents.sa.edu.au/en/study-options/high-school-student/
+Department for Education T/A South Australian Government Schools | High School Study Abroad Program | intercambio | Educación Secundaria | 1-4 terms | 00018A | https://www.internationalstudents.sa.edu.au/en/study-options/high-school-student/
+Department for Education T/A South Australian Government Schools | Regional Study Abroad Program | intercambio | Educación Secundaria | 1-4 terms | 00018A | https://www.internationalstudents.sa.edu.au/en/study-options/high-school-student/
+Department for Education T/A South Australian Government Schools | International Baccalaureate Diploma Program (IBDP) | secundaria | Educación Secundaria | Years 11-12 | 00018A | https://www.internationalstudents.sa.edu.au/en/study-options/high-school-student/
+Department for Education T/A South Australian Government Schools | Intensive Secondary English Course | curso_corto | Idiomas | no indicada | 00018A | https://www.internationalstudents.sa.edu.au/en/study-options/high-school-student/
+Department for Education T/A South Australian Government Schools | Study Tours | vacacional | Estudios Generales | usually 10 to 14 days | 00018A | https://www.internationalstudents.sa.edu.au/en/study-options/study-tours/
+MIU City University Miami, Inc. | Bachelor's degree in Business Administration | bachelor | Negocios | no indicada | - | https://miuniversity.edu/en/academics/bachelor-degrees/
+MIU City University Miami, Inc. | Bachelor's degree in Computer Science | bachelor | Tecnología | no indicada | - | https://miuniversity.edu/en/academics/bachelor-degrees/
+MIU City University Miami, Inc. | Master's degree in Educational Leadership | maestria | Educación | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Master's degree in Cybersecurity | maestria | Tecnología | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Master's degree in Digital Marketing | maestria | Marketing | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Master's degree in Business Intelligence | maestria | Negocios | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Master's degree in International Business Administration | mba | Negocios | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Master's degree in Business Administration | mba | Negocios | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Master's in Artificial Intelligence | maestria | Tecnología | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Master of Science in Financial Management | maestria | Contabilidad y Finanzas | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Master's Degree in Human Resource Management | maestria | Negocios | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Master's in Visual Analytics and Big Data | maestria | Tecnología | no indicada | - | https://miuniversity.edu/en/academics/masters/
+MIU City University Miami, Inc. | Continuing Education Course in Data & Business Analytics | curso_corto | Negocios | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Course in Corporate Finance | curso_corto | Contabilidad y Finanzas | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Course in Data Science | curso_corto | Tecnología | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Course in Cybersecurity | curso_corto | Tecnología | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Course in Digital Project Management | curso_corto | Negocios | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Course in Emotional Intelligence and Positive Discipline | curso_corto | Educación | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Course in E-commerce and Digital Business Management | curso_corto | Negocios | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Course in Strategic Management and Organizational Leadership | curso_corto | Negocios | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Course in Artificial Intelligence Applied to the Enterprise | curso_corto | Tecnología | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Course in Artificial Intelligence in Education | curso_corto | Educación | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+MIU City University Miami, Inc. | Continuing Education Certificate in Digital Marketing & AI Applied to Marketing | curso_corto | Marketing | no indicada | - | https://miuniversity.edu/en/academics/continuing-education/
+Box Hill Institute | Certificate II in Animal Care | curso_corto | Cuidado Animal | no indicada | ACM20121 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Animal Care Services (Animal Care) | curso_corto | Cuidado Animal | no indicada | ACM30122 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Animal Care Services (Pet Grooming) | curso_corto | Cuidado Animal | no indicada | ACM30122 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Wildlife and Exhibited Animal Care | curso_corto | Cuidado Animal | no indicada | ACM30321 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Veterinary Nursing | curso_corto | Cuidado Animal | no indicada | ACM40418 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Animal Technology | diplomado | Cuidado Animal | no indicada | ACM50119 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Design | curso_corto | Diseño | no indicada | CUA40725 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Graphic Design | diplomado | Diseño Gráfico | no indicada | CUA50725 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Design (Fashion Design) | bachelor | Moda | no indicada | BOD1F | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Design (Fashion Enterprise) | bachelor | Moda | no indicada | BOD1E | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Floristry | curso_corto | Floristería | no indicada | SFL30115 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Visual Arts | curso_corto | Artes | no indicada | CUA31125 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Visual Arts | curso_corto | Artes | no indicada | CUA41320 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Accounting and Bookkeeping | curso_corto | Contabilidad y Finanzas | no indicada | FNS40222 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Celebrancy | curso_corto | Servicios Sociales | no indicada | CHC41015 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Real Estate Practice | curso_corto | Inmobiliario | no indicada | CPP41419 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Accounting | diplomado | Contabilidad y Finanzas | no indicada | FNS50222 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Library and Information Services | diplomado | Información y Bibliotecología | no indicada | BSB50520 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Social Media Marketing | diplomado | Marketing | no indicada | 10904NAT | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Commerce (Applied) | bachelor | Negocios | no indicada | BCOM2 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Individual Support (Ageing and Disability) | curso_corto | Salud | no indicada | CHC33021 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Community Services | curso_corto | Servicios Sociales | no indicada | CHC42021 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Mental Health | curso_corto | Salud | no indicada | CHC43315 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Mental Health Peer Work | curso_corto | Salud | no indicada | CHC43515 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Community Services | diplomado | Servicios Sociales | no indicada | CHC52025 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Community Services | bachelor | Servicios Sociales | no indicada | BCSV2 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Cyber Security | curso_corto | Tecnología | no indicada | 22603VIC | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Information Technology | curso_corto | Tecnología | no indicada | ICT30120 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Information Technology | bachelor | Tecnología | no indicada | BIT01 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Early Childhood Education and Care | curso_corto | Educación | no indicada | CHC30121 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Early Childhood Education and Care | diplomado | Educación | no indicada | CHC50121 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Early Childhood Education | bachelor | Educación | no indicada | BECE2 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in School Based Education Support | curso_corto | Educación | no indicada | CHC30221 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Beauty Services | curso_corto | Peluquería y Belleza | no indicada | SHB30121 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Beauty Therapy | diplomado | Peluquería y Belleza | no indicada | SHB50121 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Barbering | curso_corto | Peluquería y Belleza | no indicada | SHB30516 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Hairdressing | curso_corto | Peluquería y Belleza | no indicada | SHB30416 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Horticulture | curso_corto | Horticultura | no indicada | AHC30722 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Landscape Construction | curso_corto | Horticultura | no indicada | AHC30921 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Conservation and Ecosystem Management | diplomado | Medio Ambiente | no indicada | AHC51120 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Commercial Cookery | curso_corto | Gastronomía | no indicada | SIT30821 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Hospitality | curso_corto | Hospitalidad | no indicada | SIT30622 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Hospitality Management | bachelor | Hospitalidad | no indicada | BHM02 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Music (Performance) | curso_corto | Música | no indicada | CUA40920 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Music (Sound Production) | curso_corto | Música | no indicada | CUA40920 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Music (Performance) | diplomado | Música | no indicada | CUA50825 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Music (Sound Production) | diplomado | Música | no indicada | CUA50825 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Music Industry (Major in Audio Production) | bachelor | Música | no indicada | BMI1A | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Music Industry (Major in Composition) | bachelor | Música | no indicada | BMI1C | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Music Industry (Major in Music Production) | bachelor | Música | no indicada | BMI1M | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Music Industry (Major in Performance) | bachelor | Música | no indicada | BMI1P | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Bachelor of Music Industry (Major in Songwriting) | bachelor | Música | no indicada | BMI1S | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Dental Assisting | curso_corto | Salud | no indicada | HLT35021 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Health Services Assistance | curso_corto | Salud | no indicada | HLT33115 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Hospital or Health Services Pharmacy Support | curso_corto | Salud | no indicada | HLT37121 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Allied Health Assistance | curso_corto | Salud | no indicada | HLT43021 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Nursing | diplomado | Salud | no indicada | HLT54121 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Fitness | curso_corto | Deporte y Fitness | no indicada | SIS40221 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Sport (Coaching) | diplomado | Deporte y Fitness | no indicada | SIS50321 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Outdoor Leadership | curso_corto | Deporte y Fitness | no indicada | SIS40621 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate II in Automotive Air Conditioning Technology | curso_corto | Automotriz | no indicada | AUR20220 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate II in Automotive Servicing Technology | curso_corto | Automotriz | no indicada | AUR20520 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Light Vehicle Mechanical Technology | curso_corto | Automotriz | no indicada | AUR30620 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Carpentry | curso_corto | Construcción | no indicada | CPC30220 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Building and Construction (Building) | curso_corto | Construcción | no indicada | CPC40120 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Diploma of Building and Construction (Building) | diplomado | Construcción | no indicada | CPC50220 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate II in Electrotechnology (Pre-vocational) | curso_corto | Electricidad | no indicada | 22682VIC | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Air Conditioning and Refrigeration | curso_corto | Electricidad | no indicada | UEE32225 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Electronics and Communications | curso_corto | Electricidad | no indicada | UEE30920 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Electrotechnology Electrician | curso_corto | Electricidad | no indicada | UEE30820 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Security Equipment | curso_corto | Electricidad | no indicada | UEE31420 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate II in Plumbing (Pre-apprenticeship) | curso_corto | Construcción | no indicada | 22701VIC | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate III in Plumbing (General Plumber Roofing and Mechanical) | curso_corto | Construcción | no indicada | CPC32420 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Certificate IV in Training and Assessment | curso_corto | Educación | no indicada | TAE40122 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Box Hill Institute | Graduate Certificate in Adult and Vocational Education | posgrado | Educación | no indicada | GCV01 | https://www.datocms-assets.com/6783/1765925863-m5651-box-hill-institute-course-guide-26-digital-fa.pdf
+Holmesglen Institute | Certificate IV in Apparel and Fashion | curso_corto | Moda | Full time (1 year), part time (2 years) | MST40222 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Bachelor of Fashion Design | bachelor | Moda | Full time (3 years), part time (6 years) | BFD23 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Interior Decoration | curso_corto | Diseño de Interiores | Full time (1 year) | MSF40122 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Building and Construction (Building) | curso_corto | Construcción | Full time (1 year), part time (1-2 years) | CPC40120 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Building and Construction (Building) | diplomado | Construcción | Part time (1.5-4 years) | CPC50220 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Building and Construction (Building) Registration Pathway | diplomado | Construcción | Part time (4 years) | CPC50220 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Bachelor of Digital Construction and Management | bachelor | Construcción | Full time (3 years), part time (6 years) | BDCM26 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Advanced Diploma of Building Design (Architectural) | diplomado | Arquitectura y Diseño | Full time (2 years), part time (4 years) | 22627VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate II in Construction Pathways | curso_corto | Construcción | Full time (3 months) | CPC20220 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Carpentry | curso_corto | Construcción | Full time (1 year) | CPC30220 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Engineering (Fabrication and AutoCAD) | curso_corto | Ingeniería | Part time (2 years) | MEM40119 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Construction Waterproofing | curso_corto | Construcción | Part time (8 months) | CPC31420 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Wall and Floor Tiling | curso_corto | Construcción | Part time (1 year) | CPC31320 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate II in Cabinet Making and Timber Technology | curso_corto | Construcción | Full time (4 months) | MSF20322 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Furniture Design and Manufacturing | curso_corto | Diseño Industrial | Full time (1 year) | MSF40222 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Course in Civil Construction Pathway | curso_corto | Estudios Generales | Full time (3 weeks) | 22617VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Course in Electric Vehicle Charging Infrastructure up to 22kW | curso_corto | Estudios Generales | no indicada | 22609VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Course in Working Safely on Rooftop Renewable Energy Systems | curso_corto | Estudios Generales | Full time (7 weeks) | 22657VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Course in Workplace Spotting for Service Assets | curso_corto | Estudios Generales | Full time (1 day) | 22597VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Course in Safe Use of Machinery for Technology Teaching | curso_corto | Estudios Generales | Full time (4 days) | 22623VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Accounting and Bookkeeping (Online) | curso_corto | Contabilidad y Finanzas | Part time (17 months) | FNS40222 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Accounting and Bookkeeping | curso_corto | Contabilidad y Finanzas | Full time (5 months), part time (1 year) | FNS40222 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Finance and Mortgage Broking (Online) | curso_corto | Contabilidad y Finanzas | Part time (5 months) | FNS40821 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Accounting (Online) | diplomado | Contabilidad y Finanzas | Part time (11 months) | FNS50222 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Accounting | diplomado | Contabilidad y Finanzas | Full time (5 months) | FNS50222 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Bachelor of Business Accounting | bachelor | Contabilidad y Finanzas | Full time (3 years), part time (6 years) | BACC23 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Health Administration | curso_corto | Salud | Full time (5 months), part-time (11-18 months) | HLT47321 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Project Management | diplomado | Negocios | Part time (5 months) | BSB50820 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Work Health and Safety | curso_corto | Negocios | Part time (6 months) | BSB41419 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Work Health and Safety | diplomado | Negocios | Part time (1 year) | BSB51319 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Information Technology (Cloud Engineering) | diplomado | Tecnología | Full time (1 year), part time (2 years) | ICT50220 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Cyber Security | curso_corto | Tecnología | Full time (1 year), part time (2 years) | 22603VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Cyber Security - Online | curso_corto | Tecnología | Full time (1 year) | 22603VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Information Technology | curso_corto | Tecnología | Full time (6 months), part time (1 year) | ICT30120 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Bachelor of Information Systems | bachelor | Tecnología | Full time (3 years), part time (6 years) | BIS24 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Information Technology (Game Development) | curso_corto | Tecnología | Full time (6 months), part time (1 year) | ICT30120 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Information Technology (Gaming Development) | curso_corto | Tecnología | Full time (6 months), part time (1 year) | ICT40120 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Information Technology (Game Programming) | diplomado | Tecnología | Full time (1 year), part time (2 years) | ICT50220 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Information Technology (Programming) | curso_corto | Tecnología | Full time (6 months), part time (1 year) | ICT40120 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Information Technology (Back End Web Development) | diplomado | Tecnología | Full time (1 year), part time (2 years) | ICT50220 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Information Technology (Web Development) | curso_corto | Tecnología | Full time (6, months), part time (1 year) | ICT40120 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Early Childhood Education and Care | curso_corto | Educación | Full time (9 months) | CHC30121 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Early Childhood Education and Care | diplomado | Educación | Full time (1 year) | CHC50125 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in School Based Education Support | curso_corto | Educación | Full time (6 months) | CHC40221 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Course in Initial Adult Literacy and Numeracy | curso_corto | Estudios Generales | Part time (1 year) | 22693VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate I in Work Education | curso_corto | Estudios Generales | Full time (1 year) | 22566VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate I in Transition Education | curso_corto | Estudios Generales | Full time (1 year) | 22567VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate II in Work Education | curso_corto | Estudios Generales | Full time (1 year) | 22631VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Training and Assessment | curso_corto | Educación | Part time (1 year) | TAE40122 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Conservation and Ecosystem Management | curso_corto | Medio Ambiente | Full time (1 year), part time (2 years) | AHC40924 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Conservation and Ecosystem Management | diplomado | Medio Ambiente | Full time (18 months), part time (3 years) | AHC51120 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Floristry | curso_corto | Floristería | Full time (1 year), part time (2 years) | SFL30115 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate II in Landscaping | curso_corto | Horticultura | Full time (4 months) | AHC21624 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Horticulture | curso_corto | Horticultura | Full time (1 year), part time (18 months) | AHC30722 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Landscape Construction (Fast tracked program) | curso_corto | Horticultura | Part time (18 months) | AHC30921 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Parks and Gardens | curso_corto | Horticultura | Part time (3 years) | AHC31024 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Landscape Design | diplomado | Horticultura | Full time (18 months), part time (3 years) | AHC50621 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Sports Turf Management | diplomado | Deporte y Fitness | Part time (2 years) | AHC51024 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Introduction to Patisserie | curso_corto | Gastronomía | Part time (5 weeks) | SIC0195 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Patisserie (Commercial Cookery Stream) | curso_corto | Gastronomía | Part time (1 year) | SIT31021 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Kitchen Management | curso_corto | Gastronomía | Full time (6 months) | SIT40521 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Cooking basics | curso_corto | Estudios Generales | Part time (1 month) | SIC0196 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Hospitality | curso_corto | Hospitalidad | Full time (6 months) | SIT30622 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Hospitality Management | diplomado | Hospitalidad | Full time (18 months) | SIT50422 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Hospitality Management (Golf Management Stream) | diplomado | Hospitalidad | Full time (18 months) | SIT50422 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Bachelor of Hospitality Management | bachelor | Hospitalidad | Full time (3 years), part time (6 years) | BHM23 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Event Management | diplomado | Eventos | Full time (10 months) | SIT50322 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Tourism | curso_corto | Turismo | Full time (10 months) | SIT30125 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Tourism - Tour Guiding | curso_corto | Turismo | Full time (8 months) | SIT30125 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Travel and Tourism - Online | curso_corto | Turismo | Full time (8 months) | SIT40125 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Individual Support (Ageing and Disability) | curso_corto | Salud | Full time (19 weeks) | CHC33021 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Leisure and Health | curso_corto | Salud | Full time (1 year) | CHC43415 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Health Services Assistance | curso_corto | Salud | Full time (5 months) | HLT33115 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Health Services Assistance (Operating Theatre Technician) | curso_corto | Salud | Full time (5 months) | HLT33115 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Allied Health Assistance | curso_corto | Salud | Full time (1 year) | HLT43021 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Course in Identifying and Responding to Family Violence Risk | curso_corto | Estudios Generales | Part time (5 months) | 22660VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Youth Work | curso_corto | Servicios Sociales | Full time (1 year) | CHC40421 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Community Services | curso_corto | Servicios Sociales | Full time (1 year), Part time (18 months) | CHC42021 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Community Services | diplomado | Servicios Sociales | Full time (18 months) | CHC52025 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Community Services - Online | diplomado | Servicios Sociales | Part time (2 years) and practical placement | CHC52025 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Dental Assisting | curso_corto | Salud | Full time (1 year) | HLT35021 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Dental Assisting (Dental Radiography) | curso_corto | Salud | Part time (10 months) | HLT45021 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Dental Technology | diplomado | Salud | Full time (2 years) | HLT55118 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Bachelor of Oral Health (Therapy and Hygiene) - Charles Sturt University | bachelor | Salud | Full time (3 years) | BOH4430 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Disability Support | curso_corto | Servicios Sociales | Full time (6 months) | CHC43121 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Justice - Online | diplomado | Justicia | Part time (1.5 years) | 22594VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Justice | diplomado | Justicia | Full time (1 year) | 22594VIC | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Nursing | diplomado | Salud | Full time (18 months) | HLT54121 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Bachelor of Nursing | bachelor | Salud | Full time (3 years) | BNURS20 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Pathology Collection | curso_corto | Salud | Full time (5 months) | HLT37215 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Laboratory Techniques | curso_corto | Ciencias | Full time (1 year) | MSL40122 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Fitness | curso_corto | Deporte y Fitness | Full time (5 months) | SIS30321 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Fitness | curso_corto | Deporte y Fitness | Full time (5 months) | SIS40221 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Outdoor Leadership | curso_corto | Deporte y Fitness | Full time (1 year) | SIS40621 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Outdoor Leadership | diplomado | Deporte y Fitness | Full time (1 year), part time (2 years) | SIS50421 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate II in Retail Cosmetics | curso_corto | Peluquería y Belleza | Full time (6 months) | SHB20121 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate III in Beauty Services | curso_corto | Peluquería y Belleza | Full time (6 months), part time (1 year) | SHB30121 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Certificate IV in Allied Health Assistance (Nutrition and Dietetic Support) | curso_corto | Salud | Full time (10 months) | HLT43021 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Beauty Therapy (Spa Treatments) | diplomado | Peluquería y Belleza | Full time (11 months) | SHB50121 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Sport with Diploma of Event Management | diplomado | Eventos | Full time (1 year) | SIS50321 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Diploma of Sport with Fitness Foundations | diplomado | Deporte y Fitness | Full time (1 year) | SIS50321 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Bachelor of Sports Media | bachelor | Deporte y Fitness | Full time (3 years), part time (6 years) | BSM20 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Holmesglen Institute | Bachelor of Sport Business | bachelor | Deporte y Fitness | Full time (3 years), part time (6 years) | BSPB23 | https://www.holmesglen.edu.au/content/dam/holmesglen/pdf/about-us/publications-and-reports/Course-guide.pdf
+Domus Academy | 2-Year Master of Arts in Design Innovation | maestria | Diseño | 2 years (120 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Design x AI | maestria | Diseño | 11 months (60 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Design Futures | maestria | Diseño | 11 months (60 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Interior & Living Design | maestria | Diseño de Interiores | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Product Design | maestria | Diseño Industrial | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Urban Vision & Architectural Design | maestria | Arquitectura y Diseño | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Interaction Design | maestria | Diseño | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Service Design & UX | maestria | Diseño | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Visual Brand Design | maestria | Diseño Gráfico | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | 2-Year Master of Arts in Fashion: Design, Art & Technology | maestria | Moda | 2 years (120 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Fashion Design | maestria | Moda | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Fashion Styling & Visual Merchandising | maestria | Moda | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | 2-Year Master of Arts in Design Leadership & Strategy | maestria | Negocios | 2 years (120 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Fashion Management | maestria | Negocios | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Business Design | maestria | Negocios | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Master in Luxury Brand Management | maestria | Negocios | 11 or 14 months (60 or 90 ECTS) | - | https://www.domusacademy.com/programmes/master-courses-postgraduate/
+Domus Academy | Bachelor of Arts in Design | bachelor | Diseño | 3 years (180 ECTS) | - | https://www.domusacademy.com/programmes/bachelor-of-arts-undergraduate/
+Domus Academy | Bachelor of Arts in Fashion Design | bachelor | Moda | 3 years (180 ECTS) | - | https://www.domusacademy.com/programmes/bachelor-of-arts-undergraduate/
+Domus Academy | Semester in Design x AI | intercambio | Diseño | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Design Futures | intercambio | Diseño | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Interior & Living Design | intercambio | Diseño de Interiores | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Product Design | intercambio | Diseño Industrial | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Urban Vision & Architectural Design | intercambio | Arquitectura y Diseño | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Interaction Design | intercambio | Diseño | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Service Design & UX | intercambio | Diseño | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Visual Brand Design | intercambio | Diseño Gráfico | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Fashion Design | intercambio | Moda | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Fashion Styling & Visual Merchandising | intercambio | Moda | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Fashion Management | intercambio | Negocios | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Business Design | intercambio | Negocios | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Semester in Luxury Brand Management | intercambio | Negocios | 16 weeks (24 ECTS) | - | https://www.domusacademy.com/programmes/semester-courses-postgraduate/
+Domus Academy | Milano Fashion Lab | curso_corto | Moda | 2 weeks | - | https://www.domusacademy.com/programmes/short-courses/
+Domus Academy | Milano Design Lab | curso_corto | Diseño | 2 weeks | - | https://www.domusacademy.com/programmes/short-courses/
+Domus Academy | Augmented Reality Boot Camp | curso_corto | Tecnología | 60 hours | - | https://www.domusacademy.com/programmes/short-courses/
+Domus Academy | Digital Communication & Social Media for Fashion | curso_corto | Moda | 60 hours | - | https://www.domusacademy.com/programmes/short-courses/
+Domus Academy | Fashion Buying Techniques | curso_corto | Moda | 60 hours | - | https://www.domusacademy.com/programmes/short-courses/
+Domus Academy | Italian Design Culture & Contexts | curso_corto | Diseño | 60 hours | - | https://www.domusacademy.com/programmes/short-courses/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Máster en Diseño y Arquitectura Interior + IA | maestria | Diseño de Interiores | 1 año | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Máster en BIM REVIT + IA | maestria | Arquitectura y Diseño | 1 año | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Máster en Paisajismo y Jardines sostenibles + IA | maestria | Paisajismo | 1 año | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Máster en HOME & PRODUCT DESIGN | maestria | Diseño Industrial | 1 año | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Máster en Diseño Interior y Representación | maestria | Diseño de Interiores | 1 año | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Doble Máster en Interiorismo y Paisajismo | maestria | Diseño de Interiores | 2 años | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Doble Máster en Interiorismo & BIM REVIT | maestria | Diseño de Interiores | 2 años | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Doble Máster en Paisajismo & BIM REVIT | maestria | Paisajismo | 2 años | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Doble Máster en Representación e Interiorismo | maestria | Diseño de Interiores | 2 años | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Doble Máster en Representación y Paisajismo | maestria | Paisajismo | 2 años | - | https://www.dmad.es/masters-posgrados/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Ciclo Formativo de Grado Superior en Diseño de Interiores | diplomado | Diseño de Interiores | 2 años | 28083038 | https://www.dmad.es/ciclos-formativos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Ciclo Formativo de Grado Superior en Estilismo de Indumentaria | diplomado | Moda | 2 años | 28083038 | https://www.dmad.es/ciclos-formativos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Diploma de Experto en Interior Design | diplomado | Diseño de Interiores | 4 meses | - | https://www.dmad.es/diplomas/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Diploma de Especialista en Paisajismo y Jardines | diplomado | Paisajismo | 6 meses | - | https://www.dmad.es/diplomas/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Diploma de Experto en Softwares 3D | diplomado | Diseño | 4 meses | - | https://www.dmad.es/diplomas/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Diploma en Diseño de Iluminación Arquitectónica | diplomado | Arquitectura y Diseño | 4 meses | - | https://www.dmad.es/diplomas/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Curso de Diseño de Interiores y Decoración 360º | curso_corto | Diseño de Interiores | 1 mes | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Curso de Iniciación al Revit BIM | curso_corto | Arquitectura y Diseño | 3 semanas | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | BIM DESIGN: AI + REVIT | curso_corto | Arquitectura y Diseño | 5 semanas | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Curso de Club del Jardín | curso_corto | Paisajismo | 12 horas | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Curso de Preparación Pruebas de Acceso CFGS | curso_corto | Educación | 4 semanas | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Curso de Introducción al Dibujo a mano alzada | curso_corto | Artes | 1 semana | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Curso de Comunicación Gráfica | curso_corto | Diseño Gráfico | 40 días | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Curso de Food Design 360º | curso_corto | Diseño | 1 mes | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Curso de Estilismo profesional | curso_corto | Moda | 3 meses | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Curso Retail Experience | curso_corto | Diseño | 10 semanas | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | WORK! Workshop Diseño de Curriculum | curso_corto | Educación | 1 día | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Taller de Decoración con Arreglos Florales | curso_corto | Floristería | 1 día | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Workshop de Estilismo de Interiores y Home Staging Express | curso_corto | Diseño de Interiores | 2 días | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Workshop Diseño del Futuro: IA y Metaverso • Versión 1.0 Básico | curso_corto | Tecnología | 3 días | - | https://www.dmad.es/cursos/
+Escuela de Diseno de Interiores y Arquitectura en Madrid - Dmad | Workshop de Estilismo Gastronómico · Food Styling y Fotografía | curso_corto | Fotografía | 2 días | - | https://www.dmad.es/cursos/
+GeSS Education | HLT23221 Certificate II in Health Support Services | curso_corto | Salud | no indicada | HLT23221 | https://www.gesseducation.edu.au/aged-care-disability-community-services-allied-health/
+GeSS Education | CHC22015 Certificate II Community Services | curso_corto | Servicios Sociales | no indicada | CHC22015 | https://www.gesseducation.edu.au/aged-care-disability-community-services-allied-health/
+GeSS Education | CHC33021 Certificate III in Individual Support (Ageing & Disability) | curso_corto | Salud | no indicada | CHC33021 · CRICOS 115360J | https://www.gesseducation.edu.au/aged-care-disability-community-services-allied-health/
+GeSS Education | CHC43121 Certificate IV in Disability Support | curso_corto | Servicios Sociales | no indicada | CHC43121 | https://www.gesseducation.edu.au/aged-care-disability-community-services-allied-health/
+GeSS Education | CHC52025 Diploma of Community Services | diplomado | Servicios Sociales | no indicada | CHC52025 · CRICOS 118877M | https://www.gesseducation.edu.au/aged-care-disability-community-services-allied-health/
+GeSS Education | HLT43021 Certificate IV in Allied Health Assistance | curso_corto | Salud | no indicada | HLT43021 | https://www.gesseducation.edu.au/aged-care-disability-community-services-allied-health/
+GeSS Education | HLT33115 Certificate III in Health Services Assistance | curso_corto | Salud | no indicada | HLT33115 | https://www.gesseducation.edu.au/aged-care-disability-community-services-allied-health/
+GeSS Education | SIT20322 Certificate II in Hospitality + SIT30622 Certificate III in Hospitality (Package) | curso_corto | Hospitalidad | no indicada | SIT20322 + SIT30622 | https://www.gesseducation.edu.au/travel-tourism-events-hospitality/
+GeSS Education | SIT30821 Certificate III in Commercial Cookery | curso_corto | Gastronomía | no indicada | SIT30821 | https://www.gesseducation.edu.au/travel-tourism-events-hospitality/
+GeSS Education | SIT50322 Diploma of Event Management | diplomado | Eventos | no indicada | SIT50322 · CRICOS 110356A | https://www.gesseducation.edu.au/travel-tourism-events-hospitality/
+GeSS Education | SIT50122 Diploma of Travel and Tourism Management | diplomado | Turismo | no indicada | SIT50122 · CRICOS 110393G | https://www.gesseducation.edu.au/travel-tourism-events-hospitality/
+GeSS Education | Hospitality Skill Set – RSA, RSG & Barista Training | curso_corto | Hospitalidad | no indicada | - | https://www.gesseducation.edu.au/travel-tourism-events-hospitality/
+GeSS Education | SIS30321 Certificate III in Fitness | curso_corto | Deporte y Fitness | no indicada | SIS30321 | https://www.gesseducation.edu.au/sports-coaching-dance-fitness/
+GeSS Education | CUA30320 Certificate III in Assistant Dance Teaching | curso_corto | Artes Escénicas | no indicada | CUA30320 | https://www.gesseducation.edu.au/sports-coaching-dance-fitness/
+GeSS Education | SIS40221 Certificate IV in Fitness | curso_corto | Deporte y Fitness | no indicada | SIS40221 | https://www.gesseducation.edu.au/sports-coaching-dance-fitness/
+GeSS Education | SIS50321 Diploma of Sport (Coaching & Sport Development) | diplomado | Deporte y Fitness | no indicada | SIS50321 · CRICOS 120130C | https://www.gesseducation.edu.au/sports-coaching-dance-fitness/
+GeSS Education | SIS50321 Diploma of Sport (Coaching) *Esport Edition | diplomado | Deporte y Fitness | no indicada | SIS50321 | https://www.gesseducation.edu.au/sports-coaching-dance-fitness/
+GeSS Education | SIS50122 Diploma of Sport, Aquatics and Recreation Management | diplomado | Deporte y Fitness | no indicada | SIS50122 · CRICOS 113413F | https://www.gesseducation.edu.au/sports-coaching-dance-fitness/
+GeSS Education | SIS50122 Diploma of Sport, Aquatics and Recreation Management *Esport Edition | diplomado | Deporte y Fitness | no indicada | SIS50122 · CRICOS 113413F | https://www.gesseducation.edu.au/sports-coaching-dance-fitness/
+GeSS Education | SIS20321 Certificate II in Sport Coaching | curso_corto | Deporte y Fitness | no indicada | SIS20321 | https://www.gesseducation.edu.au/sports-coaching-dance-fitness/
+GeSS Education | BSB20120 Certificate II in Workplace Skills | curso_corto | Negocios | no indicada | BSB20120 | https://www.gesseducation.edu.au/business-projects-it/
+GeSS Education | BSB30120 Certificate III in Business | curso_corto | Negocios | no indicada | BSB30120 · CRICOS 108732M | https://www.gesseducation.edu.au/business-projects-it/
+GeSS Education | BSB40120 Certificate IV in Business (Cyber Security) | curso_corto | Tecnología | no indicada | BSB40120 · CRICOS 108733K | https://www.gesseducation.edu.au/business-projects-it/
+GeSS Education | BSB50120 Diploma of Business | diplomado | Negocios | no indicada | BSB50120 · CRICOS 115254M | https://www.gesseducation.edu.au/business-projects-it/
+GeSS Education | BSB50820 Diploma of Project Management | diplomado | Negocios | no indicada | BSB50820 · CRICOS 104105D | https://www.gesseducation.edu.au/business-projects-it/
+GeSS Education | BSB80120 Graduate Diploma of Management (Learning) | posgrado | Negocios | no indicada | BSB80120 · CRICOS 103435E | https://www.gesseducation.edu.au/business-projects-it/
+GeSS Education | ICT50220 Diploma of Information Technology (Cybersecurity) | diplomado | Tecnología | no indicada | ICT50220 · CRICOS 106391K | https://www.gesseducation.edu.au/business-projects-it/
+GeSS Education | ICT60220 Advanced Diploma of Information Technology (Cybersecurity) | diplomado | Tecnología | no indicada | ICT60220 · CRICOS 106392J | https://www.gesseducation.edu.au/business-projects-it/
+GeSS Education | BSB50420 Diploma of Leadership and Management (DSM) | diplomado | Negocios | no indicada | BSB50420 · CRICOS 104137G | https://www.gesseducation.edu.au/management-leadership-courses/
+GeSS Education | BSB50420 Diploma of Leadership and Management (CBC) | diplomado | Negocios | no indicada | BSB50420 · CRICOS 104124A | https://www.gesseducation.edu.au/management-leadership-courses/
+GeSS Education | CHC50221 Diploma of School Age Education and Care | diplomado | Educación | no indicada | CHC50221 · CRICOS 109053D | https://www.gesseducation.edu.au/management-leadership-courses/
+GeSS Education | SITHFAB021 Provide Responsible Service of Alcohol | curso_corto | Hospitalidad | no indicada | SITHFAB021 | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | SITHGAM022 Provide Responsible Gambling Services | curso_corto | Hospitalidad | no indicada | SITHGAM022 | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | BSBWHS417 Assist with Managing WHS Implications of Return to Work | curso_corto | Negocios | no indicada | BSBWHS417 | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | HLTWHS005 Conduct manual tasks safely | curso_corto | Salud | no indicada | HLTWHS005 | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | HLTAID011 Provide First Aid (First Aid & CPR Training) | curso_corto | Salud | no indicada | HLTAID011 | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Introduction to Disability Qualification | curso_corto | Servicios Sociales | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Introduction to Occupational Therapy & Medical Terminology | curso_corto | Salud | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Employability Skills Program | curso_corto | Negocios | 30 hours | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Computer Skills Program - Intermediate | curso_corto | Tecnología | 120 hours | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Office Skills Program | curso_corto | Negocios | 120 hours | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Employment Transition Course | curso_corto | Negocios | 40 hours | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Medical Terminology | curso_corto | Salud | 30 hours | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Small Business – Foundation Skills Course | curso_corto | Negocios | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Project Management - Fundamentals | curso_corto | Negocios | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Marketing - Fundamentals | curso_corto | Marketing | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Sports Management - Fundamentals | curso_corto | Deporte y Fitness | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Events & Recreation Management - Fundamentals | curso_corto | Eventos | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Health Administration - Fundamentals | curso_corto | Salud | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Working in Community Services Sector - Fundamentals | curso_corto | Servicios Sociales | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Customer Service - Fundamentals | curso_corto | Negocios | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Work Health & Safety - Fundamentals | curso_corto | Negocios | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Management & Leadership - Fundamentals | curso_corto | Negocios | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+GeSS Education | Introduction to Esports | curso_corto | Deporte y Fitness | no indicada | - | https://www.gesseducation.edu.au/short-courses-and-professional-development/
+University of Bradford | International Foundation Year (IFY) | curso_corto | Estudios Generales | no indicada | - | https://www.bradford.ac.uk/international/international-college/
+University of Bradford | International Year Zero (IYZ) | curso_corto | Estudios Generales | no indicada | - | https://www.bradford.ac.uk/international/international-college/
+University of Bradford | International Year One (IY1) | curso_corto | Estudios Generales | no indicada | - | https://www.bradford.ac.uk/international/international-college/
+University of Bradford | International Year Two (IY2) | curso_corto | Estudios Generales | no indicada | - | https://www.bradford.ac.uk/international/international-college/
+University of Bradford | International Incorporated Master's (IIM) | curso_corto | Estudios Generales | one or two terms | - | https://www.bradford.ac.uk/international/international-college/
+Academy of Interactive Technology Pty Ltd trading as Coder Academy Australia | Diploma of Data Science | diplomado | Tecnología | 44 weeks (10 months) | CRICOS 02155J (codigo de proveedor) | https://coderacademy.edu.au/courses/diploma-of-data-science
+# RESUMEN: instituciones=10 con_programas=10 total_programas=494 sin_catalogo=0
+# NOTAS:
+# Ontario Tech · 159 programas (116 de pregrado + 43 de posgrado) contra el "?" de la auditoría, consistente con "6 facultades + School of AI + School of Graduate and Postdoctoral Studies". Confirmo la alerta de la ficha: el nombre real lleva espacio ("Ontario Tech University") y `ciudad`="Ontario" es la PROVINCIA — el campus está en **Oshawa** (Downtown y North Oshawa), a ~60 km de Toronto; hay que corregirlo antes de que un asesor le diga a una familia que estudia "en Ontario". NO se cargaron dos bloques: (a) los ~45 programas de "College-to-University Transfer" (Advanced Entry / Bridge / GAS Transfer) porque exigen un diploma de college ontariano previo y en su mayoría duplican el grado que ya está en la lista; (b) "Continuous Learning" y micro-credenciales, que el sitio lista solo por categoría sin nombres de programa. El catálogo no publica duración ni código de programa en el índice, por eso van "no indicada" y "-".
+# South Australian Government Schools · CONFIRMO LA ALERTA, y es la más grave del lote: NO es una institución vendible como ficha única. Es el International Student Program del Departamento de Educación de Australia del Sur, una red de 150+ colegios públicos bajo un solo CRICOS de proveedor (00018A). Los "150+" de `cantidad_aprox` son PLANTELES, no oferta académica: por eso aquí hay 6 filas, que son los 6 productos reales que se venden (2 de bachillerato completo, 2 de intercambio 1-4 terms, el IB, el inglés intensivo y los study tours). La ficha debe reestructurarse: el colegio concreto se elige DESPUÉS, dentro del programa. Además `puede_vender` viene VACÍO, así que formalmente la agencia no está autorizada a vender nada aquí — hay que resolverlo antes de cotizar. El programa de primaria existe y quedó FUERA porque el vocabulario cerrado no tiene nivel para educación primaria (`secundaria` es el más bajo): es el mismo agujero que el lote 01 reportó para K-12, ahora del lado de abajo.
+# Box Hill · 75 programas extraídos, MUY por debajo de los "300+ cursos" que anuncia la propia home, y la diferencia NO es un fallo de extracción sino de fuente: boxhill.edu.au está 100% renderizado en JS y devuelve solo el menú de navegación a cualquier cliente sin navegador — las páginas de curso individuales (ej. /courses/diploma-of-nursing-hc544-d/) devuelven 200 con la portada vacía, que es exactamente el patrón que la regla 2 advierte. No hay sitemap.xml ni API pública. Los 75 salen del **Course Guide 2026/27 oficial en PDF**, que es una selección curada, no el catálogo completo. OJO CON LA URL FUENTE: el PDF está alojado en datocms-assets.com (el CDN del CMS de Box Hill), no en boxhill.edu.au — es su asset host legítimo pero conviene saberlo. Los códigos son nacionales (ACM/CUA/SIT/CHC…) o internos de Box Hill para los grados (BIT01, BMI1P); el CRICOS institucional es 02411J y no se publica por curso. Para tener el catálogo completo hace falta una pasada con navegador real.
+# Holmesglen · 103 programas, contra el "? sin contador · 13 áreas" de la auditoría. Confirmo la alerta: el catálogo vive detrás de un buscador dinámico y el sitemap.xml **no contiene ni una sola página de curso** (solo las 9 áreas y sus subcategorías), así que la web es inextraíble sin navegador — de 12 subcategorías probadas solo "cookery" renderizó cursos. Los 103 salen del **Course Guide oficial en PDF**, que sí trae nombre + código nacional + duración. Se filtraron por no ser cursables por un internacional: todos los (Apprenticeship), (Traineeship), (Pre-Apprenticeship), los "VET Delivered to Secondary Students" (exigen estar matriculado en un colegio secundario de Victoria) y los del Adult Migrant English Program (solo migrantes y refugiados elegibles). SOBRE EL "Idiomas" DE LA FICHA: la auditoría sospechaba que se sostenía solo por el área "English, education and teaching" y tenía razón — el único inglés real del catálogo es el AMEP, que acabo de filtrar por no ser vendible. **Holmesglen no tiene ELICOS vendible a una familia colombiana**: si la ficha comercial promete "Idiomas", está vendiendo algo que no existe. La institución declara "over 60 courses" para internacionales; de los 103 de esta lista solo una parte tiene registro CRICOS, y el PDF no marca cuáles — hay que cruzarlo con la lista CRICOS antes de cotizar.
+# GeSS Education · 54 filas contra las "6 categorías sin conteo" de la auditoría. CONFIRMO LA ALERTA Y ES DECISIVA PARA LA FICHA: GeSS no publica RTO ni CRICOS propios porque no los tiene — es un campus del Gold Coast que entrega cursos de RTOs socios (CBC Institute, DSM, IBMA, TOC Australia, MSQ, TESS, Fit Education, South Sydney College). Se ve en el propio catálogo: el mismo BSB50420 Diploma of Leadership and Management aparece DOS VECES con CRICOS distintos según quién lo entregue (104137G vía DSM, 104124A vía CBC). Consecuencia práctica: el contrato, el CoE y la responsabilidad regulatoria son del RTO socio, no de GeSS — hay que documentar quién firma antes de mandar un estudiante. `puede_vender` viene VACÍO en la ficha, igual que en SA Government Schools. Las 16 "Fundamentals" y los programas del Global Academy son **no acreditados** (dan certificado de participación, no cualificación nacional) y no sirven para visa de estudiante; van cargados como curso_corto pero deben marcarse. El sitio publica precios de esos cursos; no se transcribieron.
+# Domus Academy · 37 programas (16 másteres + 2 BA + 13 semestres + 6 cursos cortos), consistente con el "~12 másteres + BA + cursos cortos" de la auditoría (son 16, no 12). Se excluyó "Tailored & On Demand Courses" por no ser un programa sino un servicio a medida para empresas. Los 13 "Semester in..." se cargaron como `intercambio` porque son un semestre suelto de 16 semanas / 24 ECTS, no una titulación. Confirmo la alerta: comparte razón social con NABA (Nuova Accademia S.r.l.) y el `partner_group` de la ficha está mal escrito ("Nouva Accademia NABA").
+# Dmad · 31 programas contra los "~10 másteres + 2 CFGS + diplomas y cursos" esperados: 10 másteres, 2 CFGS, 4 diplomas, 15 cursos/workshops. CONFIRMO LA ALERTA de la auditoría y hay que actuar sobre la ficha: `puede_vender` dice "Pregrado & Postgrado" y es FALSO. Lo único oficial del sistema educativo español que otorga Dmad son los 2 Ciclos Formativos de Grado Superior (título de Técnico Superior de Artes Plásticas y Diseño, centro 28083038); los 10 "másteres" son TÍTULOS PROPIOS de la escuela, no másteres oficiales del MEC, y por tanto no dan acceso a doctorado ni se homologan automáticamente en Colombia. Se cargaron como `maestria` porque es el bucket del vocabulario que les corresponde, pero el asesor tiene que decírselo a la familia. Los 5 workshops (1-3 días) van como curso_corto por no existir un nivel más corto.
+# University of Bradford · 5 programas = exactamente el `cantidad_aprox`. Limpio, y es el único caso del lote donde la ficha acierta al restringirse: `puede_vender` = "Solo pathway / Foundation & Pre master", y en efecto solo se cargó el pathway del University of Bradford International College (los cientos de grados y másteres propios de la universidad NO entran). Confirmo el patrón (a) de la alerta: el campo `sitio` https://www.bradford.ac.uk/external/ sirve la HOME de la universidad, no el pathway college — hay que corregirlo a la URL de /international/international-college/. Los 5 van como `curso_corto` según el mapeo Foundation/Pathway/Pre-master; el sitio no publica duraciones salvo el IIM ("one or two terms") ni códigos.
+# Coder Academy · 1 solo programa, que coincide con el `cantidad_aprox`=1, y CONFIRMA LA SEÑAL DE WIND-DOWN de la auditoría. El Diploma of Data Science está publicado con duración (44 semanas) pero con **"Intake TBC"**: no hay fecha de admisión abierta. Se cargó igual porque es un programa real y publicado, no uno cerrado explícitamente, pero NO debe cotizarse sin confirmar intake con la institución. Dos cosas más para la ficha: (1) el `partner_group` está desactualizado — el operador ya no es RedHill Education sino AIT (Academy of Interactive Technology, ait.edu.au); (2) los bootcamps que menciona la home NO existen en /courses, así que el "Cursos Vocacionales" del `puede_vender` hoy se reduce a este único diploma. El 02155J es el CRICOS de PROVEEDOR, no un código de curso: el sitio no publica código de curso.
+# TRANSVERSAL · dos instituciones del lote (South Australian Government Schools y GeSS Education) traen `puede_vender` VACÍO en la ficha. Sus programas quedaron cargados porque existen y son reales, pero mientras ese campo siga vacío la agencia no tiene autorización registrada para venderlos — conviene resolverlo antes de que aparezcan en un comparativo frente a una familia.

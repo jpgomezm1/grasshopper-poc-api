@@ -1,0 +1,137 @@
+[
+ {
+  "institucion_ficha": "Santa Monica College",
+  "nombre_real": "Santa Monica College",
+  "dominio": "smc.edu",
+  "url_programas": "https://www.smc.edu/academics/areas-of-interest/all-programs.php",
+  "pais": "USA",
+  "ciudad": "Santa Monica",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Associate, transfer (UC/USC/LMU), algunos Bachelor, certificados, ESL, community education",
+  "cantidad_aprox": "~200+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "category dice \"College Privado\" y SMC es un COMMUNITY COLLEGE PUBLICO de California · catalogo real vive en catalog.smc.edu (sistema aparte)",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "IED",
+  "nombre_real": "Istituto Europeo di Design (IED)",
+  "dominio": "iedmadrid.com",
+  "url_programas": "https://www.ied.es/cursos",
+  "pais": "Spain",
+  "ciudad": "Madrid, Barcelona, bilbao",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Titulo superior / undergraduate, BA (Hons), diplomas, foundation, masteres (oficiales y titulos propios), postgrados, cursos de especializacion y verano",
+  "cantidad_aprox": "? (cientos)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El `sitio` de la ficha ya NO es el dominio vigente: iedmadrid.com redirige 301 a ied.es, que agrupa los 3 campus espanoles (Madrid, Barcelona y Bilbao",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "The Australian Institute of Music (AIM)",
+  "nombre_real": "The Australian Institute of Music",
+  "dominio": "aim.edu.au",
+  "url_programas": "https://aim.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Diploma, Bachelor (varias especializaciones), Graduate Certificate, Graduate Diploma, Master of Music",
+  "cantidad_aprox": "~20+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Ficha con category null, puede_vender vacio y tipo_adivinado \"curso_corto\" pese a que otorga hasta Master; campus Sydney y Melbourne (ficha sin ciudad",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Cornestone",
+  "nombre_real": "Cornerstone International Community College of Canada (CICCC)",
+  "dominio": "ciccc.ca",
+  "url_programas": "https://ciccc.ca/en#programs (fichas en /en/programs/<slug>)",
+  "pais": "Canada",
+  "ciudad": "Vancouver",
+  "puede_vender": [],
+  "niveles_vistos": "Diplomas de 6-12 meses · certificados · ESL/FSL/CELPIP · TESL · 6 certificados de IA",
+  "cantidad_aprox": "~20",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Nombre de la ficha MAL ESCRITO y truncado (\"Cornestone\" → Cornerstone International Community College of Canada). `category`=null y `puede_vender`=[] ",
+  "_est": 20
+ },
+ {
+  "institucion_ficha": "Academies Australasia Institute",
+  "nombre_real": "Academies Australasia Institute · RTO 90806 · CRICOS 02398A",
+  "dominio": "academies.edu.au",
+  "url_programas": "(del grupo, no propia)",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Vocacional",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "SIN SITIO PROPIO: apunta al dominio del grupo",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Swinburne University of Technology (SUT)",
+  "nombre_real": "Swinburne University of Technology",
+  "dominio": "swinburne.edu.au",
+  "url_programas": "https://www.swinburne.edu.au/courses/find-a-course",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "VET (Cert/Diploma), Associate degree, Bachelor, doble titulacion, Graduate Cert/Diploma, Master, PhD, cursos cortos",
+  "cantidad_aprox": "? (buscador dinamico)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "la URL de la ficha esta desactualizada (redirige) · catalogo es BUSCADOR dinamico, no lista enumerable · ficha con ciudad null (es Melbourne, campus H",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Atlas Language School",
+  "nombre_real": "Atlas Language School",
+  "dominio": "atlaslanguageschool.com",
+  "url_programas": "https://atlaslanguageschool.com/courses",
+  "pais": "Ireland",
+  "ciudad": "Dublin",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Ingles, prep examenes, junior, CELTA, pre-foundation",
+  "cantidad_aprox": "~10",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha solo Dublin; tambien Malta, Liverpool y Clare",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "UQ College",
+  "nombre_real": "UQ College · The University of Queensland · CRICOS 04039H · RTO 32454",
+  "dominio": "uqcollege.uq.edu.au",
+  "url_programas": "https://uqcollege.uq.edu.au/study-options",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Foundation Program (internacional) · Tertiary Preparation (domestico) · bridging presencial y online · Integrated English · Bridging English · Teacher Development · short-term study",
+  "cantidad_aprox": "~8",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Sigue operando como UQ College, sin absorcion ni cambio de nombre. Es oferta PUENTE (foundation/bridging/ingles), NO grados de UQ ni vocacional: tipo_",
+  "_est": 8
+ },
+ {
+  "institucion_ficha": "ILSC Language Schools",
+  "nombre_real": "ILSC Education Group — razon social \"ILSC (Brisbane) Pty Ltd trading as ILSC-Adelaide, -Brisbane, -Melbourne, -Sydney, -Perth, Greystone College y ILSC Australia\"",
+  "dominio": "www.ilsc.com.au",
+  "url_programas": "https://www.ilsc.com/language-schools/languages/study-english",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas: General English, IELTS Mastery, English for Academic Purposes, Cambridge Mastery",
+  "cantidad_aprox": "4 codigos CRICOS en AU + core/skills classes",
+  "veredicto_auditoria": "corregir",
+  "alerta": "`sitio` sin protocolo y ademas redirige (302) al sitio GLOBAL del grupo, perdiendo la identidad australiana. No es una escuela unica: 5 campus en Aust",
+  "_est": 4
+ }
+]

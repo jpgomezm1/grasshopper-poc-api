@@ -2,6 +2,11 @@
 
 import hashlib
 import json
+
+# JR-2 · Clave del feature flag que enciende la invitación al test a mitad del
+# journey. `is_feature_enabled` devuelve False cuando el flag no existe, así que
+# sin crear nada el journey se comporta exactamente como antes de JR-2.
+FLAG_TEST_INVITATION = "journey_test_invitation"
 from typing import Dict, Any, List, Optional
 from uuid import UUID
 from sqlalchemy.orm import Session as DBSession
@@ -214,14 +219,23 @@ def seed_session_from_onboarding(session: Session, onboarding: Optional[dict]) -
 MAX_OPEN_TEXT_LEN = 5000  # tope de respuestas libres (protege prompts y DB)
 
 
-def _ai_inputs_hash(answers: Optional[dict], onboarding: Optional[dict]) -> str:
+def _ai_inputs_hash(
+    answers: Optional[dict],
+    onboarding: Optional[dict],
+    tests: Optional[str] = None,
+) -> str:
     """Hash estable de los inputs que alimentan la generación IA de un paso.
 
     Si la usuaria navega atrás y cambia una respuesta, el hash cambia y el
     contenido se regenera (no servimos una síntesis desactualizada).
+
+    `tests` entra en §1 y **es lo que hace que el resto sirva**: sin él, quien
+    viera sus rutas y después hiciera un test seguiría viendo las de antes,
+    generadas sin mirar ningún test. Es el defecto de "campo que nadie lee" en
+    otra forma — el mismo que este repo ya cometió cuatro veces.
     """
     payload = json.dumps(
-        {"a": answers or {}, "o": onboarding or {}},
+        {"a": answers or {}, "o": onboarding or {}, "t": tests or ""},
         sort_keys=True,
         ensure_ascii=False,
         default=str,
@@ -283,12 +297,26 @@ def get_side_panel_data(db: DBSession, session: Session) -> SidePanel:
 
     # Build profile preview · B-022 · emit 6 camelCase fields to match the
     # FE's JourneyAnswers interface. The FE counts these 6 for completion.
+    # JR-2 · Si el paso del idioma se saltó porque la persona ya presentó el
+    # examen, el panel mostraría 5/6 para siempre — perfil incompleto justo por
+    # haber hecho MÁS. Se muestra el nivel MEDIDO, y se marca como tal para que
+    # no se confunda con la escala del journey ("Básico/Intermedio/Avanzado").
+    #
+    # Ojo: esto NO escribe en `answers`. Sembrar ahí una respuesta que la persona
+    # no dio es el dato falso que este sprint viene quitando; aquí sólo se pinta
+    # lo que un examen midió.
+    nivel_idioma = answers.get("languageLevel")
+    if not nivel_idioma and session.user_id is not None:
+        owner = db.query(User).filter(User.id == session.user_id).first()
+        if owner is not None and owner.english_cefr_level:
+            nivel_idioma = f"{owner.english_cefr_level} (medido)"
+
     profile_preview = ProfilePreview(
         lifeStage=answers.get("lifeStage"),
         timeHorizon=answers.get("timeHorizon"),
         interestType=answers.get("interestType"),
         clarityLevel=answers.get("clarityLevel"),
-        languageLevel=answers.get("languageLevel"),
+        languageLevel=nivel_idioma,
         budgetBand=answers.get("budgetBand"),
         motivations=derive_motivations(answers) if answers else [],
         constraints=derive_constraints(answers) if answers else [],
@@ -411,7 +439,11 @@ def build_journey_response(
         response.partial_summary_motivation = summary.motivation
 
     elif step.view_type == ViewType.ROUTES_PICKER:
-        h = _ai_inputs_hash(answers, onboarding)
+        from app.services.test_interpretation_service import format_tests_for_prompt
+
+        tests_block = format_tests_for_prompt(db, session.user_id)
+        # El hash incluye los tests · si hace uno nuevo, las rutas se regeneran.
+        h = _ai_inputs_hash(answers, onboarding, tests_block)
         cached = _ai_cache_get(session, "routes", h)
         if cached is None:
             routes_output = generate_routes(
@@ -420,6 +452,7 @@ def build_journey_response(
                 db=db,
                 user_id=session.user_id,
                 onboarding=onboarding,
+                tests_block=tests_block,
             )
             cached = {
                 "routes": [
@@ -429,6 +462,8 @@ def build_journey_response(
                         "why": r.why,
                         "what_it_looks_like": r.what_it_looks_like,
                         "next_step": r.next_step,
+                        "evidence": list(r.evidence or []),
+                        "is_generic": bool(r.is_generic),
                     }
                     for r in routes_output.routes
                 ]
@@ -441,6 +476,10 @@ def build_journey_response(
                 "why": r["why"],
                 "whatItLooksLike": r["what_it_looks_like"],
                 "nextStep": r["next_step"],
+                # `.get` y no `[...]`: las rutas cacheadas antes de §1 no tienen
+                # estas claves y servirlas no debe reventar con KeyError.
+                "evidence": r.get("evidence") or [],
+                "isGeneric": bool(r.get("is_generic")),
             }
             for r in cached["routes"]
         ]
@@ -529,7 +568,14 @@ def process_event(
             # sembrados desde el onboarding, B-02— y (b) los que NO APLICAN a esta
             # persona según su onboarding (P1-5, `skip_if`). Sin pasar el
             # onboarding aquí, la condición del paso nunca se evaluaría.
-            next_step_id = get_next_step(step_id, answers, _owner_onboarding(db, session))
+            # JR-2 · el contexto trae lo que exige la DB (flag, si ya hizo tests,
+            # si tiene examen de inglés). Sin él, `testInvitation` se salta.
+            next_step_id = get_next_step(
+                step_id,
+                answers,
+                _owner_onboarding(db, session),
+                contexto_de_navegacion(db, session),
+            )
             if next_step_id:
                 session.current_step = next_step_id
                 next_step = get_step(next_step_id)
@@ -598,6 +644,44 @@ def _owner_onboarding(db: DBSession, session: Session) -> Optional[dict]:
         return None
     owner = db.query(User).filter(User.id == session.user_id).first()
     return owner.onboarding_answers if owner else None
+
+
+def contexto_de_navegacion(db: DBSession, session: Session) -> dict:
+    """Lo que decide saltos y NO se puede deducir de las respuestas (JR-2).
+
+    `skip_if` recibe un dict, no la base de datos — a propósito, para que las
+    condiciones de los pasos sigan siendo funciones puras y probables. Lo que
+    exige consultar la DB se resuelve aquí y viaja como dato.
+
+    Una sesión anónima devuelve todo en falso: sin usuario no hay tests que
+    consultar ni flag que evaluar, y el journey se comporta como siempre.
+    """
+    vacio = {
+        "test_invitation_enabled": False,
+        "has_tests": False,
+        "has_english_test": False,
+    }
+    if session.user_id is None:
+        return vacio
+
+    owner = db.query(User).filter(User.id == session.user_id).first()
+    if owner is None:
+        return vacio
+
+    from app.services.feature_flags_service import is_feature_enabled
+    from app.services.recommendation_service import user_has_tests
+
+    habilitado = is_feature_enabled(db, FLAG_TEST_INVITATION, owner)
+    if not habilitado:
+        # Con el flag apagado nada de JR-2 aplica · se evitan además dos
+        # consultas por request en el camino que hoy usa todo el mundo.
+        return vacio
+
+    return {
+        "test_invitation_enabled": True,
+        "has_tests": user_has_tests(db, owner),
+        "has_english_test": bool(owner.english_test_completed),
+    }
 
 
 def _create_journal_entry_for_reflection(

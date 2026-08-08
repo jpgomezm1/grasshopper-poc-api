@@ -1,0 +1,162 @@
+[
+ {
+  "institucion_ficha": "Confederation College of Applied Arts and Tech",
+  "nombre_real": "Confederation College",
+  "dominio": "confederationcollege.ca",
+  "url_programas": "https://www.confederationcollege.ca/programs-courses/search",
+  "pais": "Canada",
+  "ciudad": "Ontario",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert, Dip, Adv Dip, Grad Cert, apprenticeships",
+  "cantidad_aprox": "60+ full time (11 areas)",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Ciudad real Thunder Bay, Ontario (la ficha solo dice \"Ontario\"); ademas campus regionales en Dryden, Geraldton, Red Lake, Sioux Lookout, Kenora, Marat",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Istituto Marangoni",
+  "nombre_real": "Istituto Marangoni",
+  "dominio": "istitutomarangoni.com",
+  "url_programas": "https://www.istitutomarangoni.com/es/elige-tu-curso",
+  "pais": "USA",
+  "ciudad": "Miami",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor 3 anios, Master/MA, cursos cortos, preparatorios",
+  "cantidad_aprox": "~50+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "FICHA DICE USA/MIAMI y el sitio NO lista campus en Miami: Milan(x2), Florencia, Paris, Londres, Dubai, Riyadh, Mumbai, Shanghai, Shenzhen. Pais y ciud",
+  "_est": 50
+ },
+ {
+  "institucion_ficha": "Kaplan Business School Pty Ltd",
+  "nombre_real": "Kaplan Business School Pty Ltd (ABN 86 098 181 947 · TEQSA PRV12094 · CRICOS 02426B)",
+  "dominio": "kbs.edu.au",
+  "url_programas": "https://www.kbs.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Diploma, Bachelor, Grad Cert, Grad Dip, Master (MBA con 8 especializaciones)",
+  "cantidad_aprox": "~30",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha con tipo_adivinado \"curso_corto\", category null y puede_vender VACIO pese a otorgar hasta Master · falta partner_group \"Kaplan\"",
+  "_est": 30
+ },
+ {
+  "institucion_ficha": "ARU College",
+  "nombre_real": "ARU College (pathway de Anglia Ruskin, operado por Navitas)",
+  "dominio": "arucollege.com",
+  "url_programas": "https://www.arucollege.com/undergraduate/",
+  "pais": "UK",
+  "ciudad": "Cambridge",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "Foundation, First Year, Pre-Masters",
+  "cantidad_aprox": "~19 areas",
+  "veredicto_auditoria": "observacion",
+  "alerta": "es PATHWAY COLLEGE, la ficha lo marca category=Universidad. 3 sedes, ficha dice 1",
+  "_est": 19
+ },
+ {
+  "institucion_ficha": "Griffith college",
+  "nombre_real": "Griffith College",
+  "dominio": "www.griffithcollege.edu.au",
+  "url_programas": "https://www.griffithcollege.edu.au/study-options/",
+  "pais": "Australia",
+  "ciudad": "Brisbane, Gold Coast",
+  "puede_vender": [
+   "Foundation & Pre master",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "Diploma (11 areas), Foundation (1), Masters Qualifying Program (1)",
+  "cantidad_aprox": "~13",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`category`=\"College Público\" es INCORRECTO: es un college PRIVADO operado por Navitas (coherente con partner_group=Navitas). No otorga titulos propios",
+  "_est": 13
+ },
+ {
+  "institucion_ficha": "Universal Higher Education International",
+  "nombre_real": "Universal Higher Education (UHE), Melbourne · CRICOS Provider ID PRV14288 / Provider Number 03848E",
+  "dominio": "oxfordinternational.com",
+  "url_programas": "https://www.oxfordinternational.com/partner/universal-higher-education-australia/ (pagina de la agencia)",
+  "pais": "UK",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado y Postgrado (International Technology and Engineering Management)",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "TRIPLE ERROR: (a) el `sitio` apunta a una pagina de PARTNER dentro del sitio de Oxford International, una agencia paraguas que lista decenas de instit",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "TrEd College",
+  "nombre_real": "TrEd College",
+  "dominio": "tredcollege.edu.au",
+  "url_programas": "https://www.tredcollege.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "General English + Diplomas (Nursing, Early Childhood)",
+  "cantidad_aprox": "~10",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Campo `sitio` sin protocolo (www.tredcollege.edu.au) - normalizar. Ficha sin ciudad ni category: campus reales Sydney (NSW), Canberra (ACT), Adelaide ",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "ECA College",
+  "nombre_real": "ECA College · operada por Education Centre of Australia (ECA) · ABN 14 111 918 775 · RTO 45012 · TEQSA PRV14334 · CRICOS 02644C",
+  "dominio": "www.ecacollege.edu.au",
+  "url_programas": "https://www.ecacollege.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Ingles (General English, English for Academic Purposes), Diploma (2), Advanced Diploma (1), Graduate Diploma (2)",
+  "cantidad_aprox": "7",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Devuelve 403 a fetchers sin UA de navegador; con UA de Chrome responde 200 · NO esta caido. Campus en Sydney, Melbourne, Brisbane y Adelaide. Ficha co",
+  "_est": 7
+ },
+ {
+  "institucion_ficha": "University of Strathclyde",
+  "nombre_real": "University of Strathclyde International Study Centre",
+  "dominio": "isc.strath.ac.uk",
+  "url_programas": "https://isc.strath.ac.uk/programmes",
+  "pais": "UK",
+  "ciudad": null,
+  "puede_vender": [
+   "Foundation, Year 1, Pre master"
+  ],
+  "niveles_vistos": "Undergraduate Foundation, International Year Two, Pre-Masters, ingles",
+  "cantidad_aprox": "~4",
+  "veredicto_auditoria": "corregir",
+  "alerta": "el dominio NO es la universidad: es el International Study Centre \"maintained by Study Group\" · la ficha lo vende como \"Universidad\" · para pregrado/p",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "Unity College Australia",
+  "nombre_real": "Unity College Australia",
+  "dominio": "unity.edu.au",
+  "url_programas": "https://unity.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Canberra",
+  "puede_vender": [
+   "Idiomas",
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Cert/Diploma en Business Management, Leadership in Early Childhood Education, Christian Ministry & Theology",
+  "cantidad_aprox": "3 areas",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`puede_vender` incluye \"Idiomas\" y el sitio NO ofrece cursos de ingles -> inconsistente. Oferta muy chica (3 areas) y de perfil cristiano/ministerial;",
+  "_est": 3
+ }
+]

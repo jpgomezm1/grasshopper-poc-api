@@ -1,0 +1,158 @@
+[
+ {
+  "institucion_ficha": "EAE Business School",
+  "nombre_real": "EAE Business School (razones sociales: EAE Institucion Superior de Formacion Universitaria S.L. · Barcelona / EAE Madrid Centro Educacion Superior S.L.U. · Madrid)",
+  "dominio": "www.eae.es",
+  "url_programas": "https://www.eae.es/masters-y-posgrados",
+  "pais": "Spain",
+  "ciudad": "Madrid, Barcelona",
+  "puede_vender": [
+   "Sólo Postgrado"
+  ],
+  "niveles_vistos": "Grado (2), Master, MBA (full-time, executive, international y especializados), Master universitario oficial. Sin doctorado",
+  "cantidad_aprox": "~80+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "`puede_vender`=\"Solo Postgrado\" pero EAE SI ofrece 2 grados (ADE y Marketing & Comunicacion Digital) en ambos campus — confirmar si la exclusion de pr",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "ACAP",
+  "nombre_real": "ACAP University College · TEQSA University College",
+  "dominio": "acap.edu.au",
+  "url_programas": "https://www.acap.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Sydney",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Undergrad Cert a Master",
+  "cantidad_aprox": "~40",
+  "veredicto_auditoria": "corregir",
+  "alerta": "YA NO es Australian College of Applied Psychology · ficha lo tiene como College Privado/Vocacionales y se queda corta",
+  "_est": 40
+ },
+ {
+  "institucion_ficha": "High School Burnaby SD 41",
+  "nombre_real": "Burnaby Schools · School District 41 (Burnaby, BC)",
+  "dominio": "burnabyschools.ca",
+  "url_programas": "https://burnabyschools.ca/blog/programs-of-choice/",
+  "pais": "Canada",
+  "ciudad": "Burnaby",
+  "puede_vender": [
+   "High school",
+   "High School"
+  ],
+  "niveles_vistos": "Early learning/StrongStart, Elemental K-7, Secundaria 8-12, Advanced Placement, academias deportivas, artes visuales y escenicas, French Immersion",
+  "cantidad_aprox": "8 secundarias + ~40 primarias",
+  "veredicto_auditoria": "corregir",
+  "alerta": "NO ES UNA INSTITUCION sino una JUNTA de distrito, y sobre todo: EL DOMINIO ES EL EQUIVOCADO PARA VENDER · el programa internacional (lo unico comercia",
+  "_est": 40
+ },
+ {
+  "institucion_ficha": "Actilingua",
+  "nombre_real": "ActiLingua Academy Vienna",
+  "dominio": "actilingua.com",
+  "url_programas": "https://www.actilingua.com/german-courses/",
+  "pais": "Austria",
+  "ciudad": "Viena",
+  "puede_vender": [
+   "Idiomas"
+  ],
+  "niveles_vistos": "Aleman A1-C2",
+  "cantidad_aprox": "~15-18",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha guarda nombre parcial",
+  "_est": 18
+ },
+ {
+  "institucion_ficha": "SAE",
+  "nombre_real": "SAE University College (SAE Institute Pty Ltd) · TEQSA PRV12042 · CRICOS 00312F",
+  "dominio": "sae.edu.au",
+  "url_programas": "https://sae.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": "Sydney, Melbourne, Brisbane, Byron Bay, Adelaide, Perth",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Bachelor (8), Master (2), Associate Degree, Undergraduate Diploma, Postgraduate Cert/Dip",
+  "cantidad_aprox": "~10-14",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender INCONSISTENTE: la ficha lo marca \"Vocacionales (Cert, Dip, Adv Dip)\" y hoy SAE es UNIVERSITY COLLEGE con autoacreditacion TEQSA y su ofer",
+  "_est": 14
+ },
+ {
+  "institucion_ficha": "The University of Sydney (USyd)",
+  "nombre_real": "The University of Sydney",
+  "dominio": "sydney.edu.au",
+  "url_programas": "https://www.sydney.edu.au/study.html",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Undergraduate, Postgraduate coursework, Research (HDR), Short courses",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Catalogo NO enumerable: es un buscador dinamico por 10 areas x 4 niveles, sin listado estatico ni conteo publicado. La extraccion posterior necesita o",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Sarina Russo Institute",
+  "nombre_real": "Sarina Russo Institute (sri.edu.au) / SRI English (srienglish.edu.au)",
+  "dominio": "www.sri.edu.au",
+  "url_programas": "https://www.sri.edu.au/domestic/courses/ y http://www.srienglish.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Cursos cortos, Certificado IV, Diplomas (sri.edu.au); Intensive General English, Unipath 1 y 2, Bridging English, IELTS Prep, IELTS Advanced, Study Tours (srienglish)",
+  "cantidad_aprox": "~10 VET + 7 ingles",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El campo `sitio` NO es un dominio valido: dice literalmente \"www.sri.edu.au and www.srienglish.edu.au\". Patron (d). Son DOS sitios con DOS ofertas dis",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Universal Higher Education (UHE)",
+  "nombre_real": "Universal Higher Education Pty Ltd (t/a UHE Australia)",
+  "dominio": "www.uhe.edu.au",
+  "url_programas": "https://www.uhe.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Bachelor, Master, Grad Cert, Grad Dip",
+  "cantidad_aprox": "~7",
+  "veredicto_auditoria": "observacion",
+  "alerta": "Ficha incompleta y contradictoria: tipo_adivinado=\"curso_corto\" pero otorga Bachelor y Master (CRICOS 03848E, TEQSA re-registrada a 2032); ciudad/cate",
+  "_est": 7
+ },
+ {
+  "institucion_ficha": "Navitas English",
+  "nombre_real": "Navitas English Services Pty Ltd (ACN 002 069 730), CRICOS Provider 00289M",
+  "dominio": "navitasenglish.edu.au",
+  "url_programas": "https://www.navitasenglish.edu.au/courses/",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Idiomas: General English, Academic English, IELTS, Cambridge (solo ELICOS, ningun VET ni grado)",
+  "cantidad_aprox": "~4",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ficha SIN category, SIN partner_group (deberia decir Navitas) y puede_vender VACIO · ciudad null: opera Sydney (Hyde Park) y Perth · CNAME a wp1122.ho",
+  "_est": 4
+ },
+ {
+  "institucion_ficha": "University of Applied Sciences Europe",
+  "nombre_real": "University of Applied Sciences Europe (UE Amsterdam)",
+  "dominio": "ue-amsterdam.com",
+  "url_programas": "https://www.ue-amsterdam.com/programs",
+  "pais": "Paises Bajos",
+  "ciudad": "Amsterdam",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "MSc in Business Management · Bachelor of Business Administration (BBA) · short courses \"IC Shorts\"",
+  "cantidad_aprox": "3",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio es SÓLO el campus de Amsterdam (Passeerdersgracht 23 · acreditación holandesa NVAO/NRTO) con 3 programas. La University of Applied Sciences",
+  "_est": 3
+ }
+]

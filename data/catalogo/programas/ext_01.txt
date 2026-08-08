@@ -1,0 +1,382 @@
+# Lote 01 · 2026-08-07
+institucion | nombre | nivel | area | duracion | codigo_oficial | url_fuente
+Australia Institute of Business and Technology | General English (Beginner to Upper Intermediate) | curso_corto | Idiomas | no indicada | - | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Individual Support (Ageing) | curso_corto | Salud | no indicada | CHC33021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Individual Support (Disability) | curso_corto | Salud | no indicada | CHC33021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Individual Support (Ageing and Disability) | curso_corto | Salud | no indicada | CHC33021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Remedial Massage | diplomado | Salud | no indicada | HLT52021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Massage Therapy | curso_corto | Salud | no indicada | HLT42021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Community Services | diplomado | Servicios Sociales | no indicada | CHC52025 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Early Childhood Education and Care | diplomado | Educación | no indicada | CHC50125 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Air Conditioning and Refrigeration | curso_corto | Ingeniería | no indicada | UEE32225 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Air Conditioning and Refrigeration Engineering | diplomado | Ingeniería | no indicada | UEE62525 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Light Vehicle Mechanical Technology | curso_corto | Automotriz | no indicada | AUR30620 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Automotive Mechanical Diagnosis | curso_corto | Automotriz | no indicada | AUR40226 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Automotive Management | diplomado | Automotriz | no indicada | AUR50126 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Automotive Electrical Technology | curso_corto | Automotriz | no indicada | AUR40626 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Information Technology (Telecommunications Network Engineering) | diplomado | Tecnología | no indicada | ICT60220 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Painting and Decorating | curso_corto | Construcción | no indicada | CPC30620 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Logistics | diplomado | Logística | no indicada | TLI50224 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Supply Chain Management | diplomado | Logística | no indicada | TLI60222 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT50422 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Advanced Diploma of Hospitality Management | diplomado | Hospitalidad | no indicada | SIT60322 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Patisserie | curso_corto | Hospitalidad | no indicada | SIT31021 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Patisserie | curso_corto | Hospitalidad | no indicada | SIT40721 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate III in Commercial Cookery | curso_corto | Hospitalidad | no indicada | SIT30821 | https://aibtglobal.edu.au/courses/
+Australia Institute of Business and Technology | Certificate IV in Kitchen Management | curso_corto | Hospitalidad | no indicada | SIT40521 | https://aibtglobal.edu.au/courses/
+Florida Atlantic University | Accounting (B.S., B.B.A.) | bachelor | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Accounting (M.AC.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Anthropology (B.A.) | bachelor | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Anthropology (M.A.T., M.A.) | maestria | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Architecture (B.Arch.) | bachelor | Arquitectura | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Art (B.F.A.) | bachelor | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Art (B.A.) | bachelor | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Art Education (B.F.A., B.A.) | bachelor | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Artificial Intelligence (M.S.) | maestria | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Biological and Physical Sciences (B.S., B.A.) | bachelor | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Biological Sciences (B.S., B.A.) | bachelor | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Biological Sciences (M.S.T., M.S.) | maestria | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Biomedical Engineering (M.S.) | maestria | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Biomedical Science (M.S.) | maestria | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Business Administration (M.B.A.) | mba | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Business Administration (Ph.D.) | doctorado | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Business Analytics (M.S.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Business Biotechnology (P.S.M.) | maestria | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Chemistry (B.S.) | bachelor | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Chemistry (B.A.) | bachelor | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Chemistry (M.S.T., M.S.) | maestria | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Chemistry (Ph.D.) | doctorado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Civil Engineering (B.S.C.V.) | bachelor | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Civil Engineering (M.S.) | maestria | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Commercial Music (B.M.) | bachelor | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Communication (M.A.) | maestria | Comunicación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Communication Studies (B.A.) | bachelor | Comunicación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Comparative Studies (Ph.D.) | doctorado | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Computer Engineering (B.S.C.E.) | bachelor | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Computer Engineering (M.S.) | maestria | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Computer Engineering (Ph.D.) | doctorado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Computer Science (B.S.C.S., B.A.C.S.) | bachelor | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Computer Science (M.S.) | maestria | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Computer Science (Ph.D.) | doctorado | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Counselor Education (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Counselor Education (Ed.S.) | posgrado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Counselor Education (Ph.D.) | doctorado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Creative Writing (M.F.A.) | maestria | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Criminal Justice (B.A.) | bachelor | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Curriculum and Instruction (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Curriculum and Instruction (Ed.S.) | posgrado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Curriculum and Instruction (Ph.D.) | doctorado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Data Science and Analytics (M.S. · Arts & Letters) | maestria | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Data Science and Analytics (B.S. · Business) | bachelor | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Data Science and Analytics (M.S. · Business) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Data Science and Analytics (B.S. · Engineering and Computer Science) | bachelor | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Data Science and Analytics (M.S. · Engineering and Computer Science) | maestria | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Data Science and Analytics (B.S. · Science) | bachelor | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Data Science and Analytics (M.S. · Science) | maestria | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Early Care and Education (B.E.C.E.) | bachelor | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Economics (B.S., B.B.A.) | bachelor | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Economics (M.S.T.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Economics (M.S.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Educational Leadership (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Educational Leadership (Ed.S.) | posgrado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Educational Leadership (Ph.D.) | doctorado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Educational Psychology (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Electrical Engineering (B.S.E.E.) | bachelor | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Electrical Engineering (M.S.) | maestria | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Electrical Engineering (Ph.D.) | doctorado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Elementary Education (B.A., B.A.E.) | bachelor | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Elementary Education (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | English (B.A.) | bachelor | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | English (M.A.) | maestria | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | English Education (B.A., B.A.E.) | bachelor | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Environmental Education (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Environmental Engineering (B.S.E.V.) | bachelor | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Environmental Science (M.S.) | maestria | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Exceptional Student Education (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Exceptional Student Education: ESOL Endorsement (B.A., B.A.E.) | bachelor | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Executive Business Administration (M.B.A.) | mba | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Executive Health Administration (M.H.A.) | maestria | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Executive International Business (M.S.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Executive Master of Accounting (M.AC.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Executive Master of Taxation (M.TX.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Exercise Science and Health Promotion (B.S.) | bachelor | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Exercise Science and Health Promotion (M.S.) | maestria | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Experimental Psychology (Ph.D.) | doctorado | Psicología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Finance (B.S., B.B.A.) | bachelor | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Finance (M.S.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | General Studies (B.G.S.) | bachelor | Estudios Generales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Geomatics Engineering (B.S.G.E.) | bachelor | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Geosciences (B.S.) | bachelor | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Geosciences (B.A.) | bachelor | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Geosciences (M.S.) | maestria | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Geosciences (Ph.D.) | doctorado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Health Administration (B.H.S.) | bachelor | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Health Administration (M.H.A.) | maestria | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Health Science (B.A.) | bachelor | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | History (B.A.) | bachelor | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | History (M.A.) | maestria | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Hospitality and Tourism Management (B.S., B.B.A.) | bachelor | Hospitalidad | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Information Technology and Management (M.S.) | maestria | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Information Technology and Management Advanced (M.S.) | maestria | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Instructional Technology (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Integrative Biology (Ph.D.) | doctorado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Interdisciplinary Studies (B.A.) | bachelor | Estudios Generales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | International Business (B.S., B.B.A.) | bachelor | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | International Business (M.S.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Jewish Studies (B.A.) | bachelor | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Languages, Linguistics and Comparative Literature (B.A.) | bachelor | Idiomas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Languages, Linguistics and Comparative Literature (M.A.) | maestria | Idiomas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Liberal Arts and Sciences (B.S.) | bachelor | Estudios Generales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Liberal Arts and Sciences (B.A.) | bachelor | Estudios Generales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Management (B.S.) | bachelor | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Management (B.B.A.) | bachelor | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Management Information Systems (B.S., B.B.A.) | bachelor | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Marine Science and Oceanography (M.S.) | maestria | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Marketing (B.S., B.B.A.) | bachelor | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Mathematics (B.S., B.A.) | bachelor | Matemáticas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Mathematics (M.S.T.) | maestria | Matemáticas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Mathematics (M.S.) | maestria | Matemáticas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Mathematics (Ph.D.) | doctorado | Matemáticas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Mathematics Education (B.A., B.A.E.) | bachelor | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Mechanical Engineering (B.S.M.E.) | bachelor | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Mechanical Engineering (M.S.) | maestria | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Mechanical Engineering (Ph.D.) | doctorado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Media, Technology and Entertainment (M.F.A.) | maestria | Comunicación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Medical Biology (B.S.) | bachelor | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Medical Physics (P.S.M.) | maestria | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Medicine (M.D.) | doctorado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Multimedia Studies (B.A.) | bachelor | Comunicación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Music (B.M.) | bachelor | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Music (B.A.) | bachelor | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Music (M.M.) | maestria | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Music Education (B.M.E.) | bachelor | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Neuroscience (Ph.D. · Education) | doctorado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Neuroscience (Ph.D. · Engineering and Computer Science) | doctorado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Neuroscience (Ph.D. · Science) | doctorado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Neuroscience and Behavior (B.S.) | bachelor | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Nonprofit Management (M.N.M.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Nursing (B.S.N.) | bachelor | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Nursing (M.S.N.) | maestria | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Nursing (Ph.D.) | doctorado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Nursing Practice (D.N.P.) | doctorado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Nursing: Accelerated (B.S.N.) | bachelor | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Ocean Engineering (B.S.O.E.) | bachelor | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Ocean Engineering (M.S.) | maestria | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Ocean Engineering (Ph.D.) | doctorado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Philosophy (B.A.) | bachelor | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Physics (B.S., B.A.) | bachelor | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Physics (M.S.T., M.S.) | maestria | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Physics (Ph.D.) | doctorado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Political Science (B.A.) | bachelor | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Political Science (M.A.T., M.A.) | maestria | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Professional Business Administration (M.B.A.) | mba | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Professional Studies (B.P.S.) | bachelor | Estudios Generales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Psychology (B.A.) | bachelor | Psicología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Psychology (M.A.) | maestria | Psicología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Public Administration (M.P.A.) | maestria | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Public Administration (Ph.D.) | doctorado | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Public Management (B.P.M.) | bachelor | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Public Safety Administration (B.P.S.A.) | bachelor | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Reading Education (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Science Education (B.S., B.S.E., B.A.) | bachelor | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Secondary Education plus Certification (M.Ed.) | maestria | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Social Science Education (B.A., B.A.E.) | bachelor | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Social Work (B.S.W.) | bachelor | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Social Work (M.S.W.) | maestria | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Social Work (D.S.W.) | doctorado | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Sociology (B.A.) | bachelor | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Sociology (M.A.) | maestria | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Special Education (Ph.D.) | doctorado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Speech - Language Pathology/Audiology (M.S.) | maestria | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Studio/Fine Arts (M.F.A.) | maestria | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Supply Chain Management (M.S.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Taxation (M.TX.) | maestria | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Theatre (B.F.A.) | bachelor | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Theatre (B.A.) | bachelor | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Theatre (M.F.A.) | maestria | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Transportation and Environmental Engineering (Ph.D.) | doctorado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Urban and Regional Planning (B.U.R.P.) | bachelor | Arquitectura | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Urban and Regional Planning (M.U.R.P.) | maestria | Arquitectura | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Urban Design (B.U.D.) | bachelor | Arquitectura | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Women, Gender and Sexuality Studies (M.A.) | maestria | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Actuarial Science (Undergraduate Certificate) | curso_corto | Matemáticas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Addictions (Graduate Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Adult/Gerontological Nurse Practitioner (Post-Master's Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Advanced Geographic Information Systems (Undergraduate Certificate) | curso_corto | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Advanced Holistic Nursing (Post-Master's Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Aerospace Engineering (Undergraduate Certificate) | curso_corto | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Aerospace Engineering (Graduate Certificate) | posgrado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Applied Mental Health Services (Undergraduate Certificate) | curso_corto | Psicología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Artificial Intelligence (Graduate Certificate) | posgrado | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Artificial Intelligence (Undergraduate Certificate) | curso_corto | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Asian Studies (Undergraduate Certificate) | curso_corto | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Big Data Analytics: Business (Graduate Certificate) | posgrado | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Big Data Analytics: Computer Science (Graduate Certificate) | posgrado | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Biomedical Engineering (Graduate Certificate) | posgrado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Biomedical Engineering (Undergraduate Certificate) | curso_corto | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Biomedical Science (Graduate Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Biotechnology (Undergraduate Certificate) | curso_corto | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Business Analytics (Undergraduate Certificate) | curso_corto | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Casino and Gaming Industry Management (Undergraduate Certificate) | curso_corto | Hospitalidad | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Child Welfare (Undergraduate Certificate) | curso_corto | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Child Welfare (Graduate Certificate) | posgrado | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Classical Studies (Undergraduate Certificate) | curso_corto | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Clinical Nurse Leader (Post-Master's Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Club Management (Undergraduate Certificate) | curso_corto | Hospitalidad | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Corrosion (Graduate Certificate) | posgrado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Crisis and Disaster Management (Graduate Certificate) | posgrado | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Crisis and Emergency Management (Graduate Certificate) | posgrado | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Cyber Security: Computer Science (Graduate Certificate) | posgrado | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Cyber Security: Mathematics (Graduate Certificate) | posgrado | Matemáticas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Cybersecurity: Computer Science (Undergraduate Certificate) | curso_corto | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Cybersecurity: Information Technology (Undergraduate Certificate) | curso_corto | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Cybersecurity: Mathematical Sciences (Undergraduate Certificate) | curso_corto | Matemáticas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Data Science: Computer Science and Analytics (Undergraduate Certificate) | curso_corto | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Data Science: Mathematical Sciences (Undergraduate Certificate) | curso_corto | Matemáticas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Digital Marketing (Undergraduate Certificate) | curso_corto | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Diversity and Global Studies (Undergraduate Certificate) | curso_corto | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Early Childhood Environmental Education (Undergraduate Certificate) | curso_corto | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Energy Resilience (Graduate Certificate) | posgrado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | English as a Second Language (Graduate Certificate) | posgrado | Idiomas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | English as a Second Language (Undergraduate Certificate) | curso_corto | Idiomas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Environmental Education (Graduate Certificate) | posgrado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Environmental Restoration (Graduate Certificate) | posgrado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Environmental Science (Undergraduate Certificate) | curso_corto | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Ethics, Law and Society (Undergraduate Certificate) | curso_corto | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Ethnic Studies (Undergraduate Certificate) | curso_corto | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Family Nurse Practitioner (Post-Master's Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Film and Culture (Graduate Certificate) | posgrado | Artes | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | FinTech (Graduate Certificate) | posgrado | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | FinTech (Undergraduate Certificate) | curso_corto | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Genomics and Predictive Health (Graduate Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Geographic Information Systems (Undergraduate Certificate) | curso_corto | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Geographic Information Systems (Graduate Certificate) | posgrado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Gerontology (Undergraduate Certificate) | curso_corto | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Health Administration (Graduate Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Healthcare Information Systems (Undergraduate Certificate) | curso_corto | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Healthy Aging (Undergraduate Certificate) | curso_corto | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Healthy Aging (Graduate Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Hospitality and Tourism Management (Graduate Certificate) | posgrado | Hospitalidad | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Hospitality and Tourism Management (Undergraduate Certificate) | curso_corto | Hospitalidad | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Innovation Entrepreneurship (Graduate Certificate) | posgrado | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Instructional Design (Graduate Certificate) | posgrado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Interdisciplinary Applications of Artificial Intelligence: Business (Undergraduate Certificate) | curso_corto | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Interdisciplinary Applications of Artificial Intelligence: Scientific (Undergraduate Certificate) | curso_corto | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Interdisciplinary Applications of Artificial Intelligence: Societal (Undergraduate Certificate) | curso_corto | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Interdisciplinary Applications of Artificial Intelligence: Technology (Undergraduate Certificate) | curso_corto | Tecnología | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | International Business (Undergraduate Certificate) | curso_corto | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Investment Management (Undergraduate Certificate) | curso_corto | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | K-12 Online Teaching (Graduate Certificate) | posgrado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Latin American Studies (Undergraduate Certificate) | curso_corto | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Literary Translation (Graduate Certificate) | posgrado | Idiomas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Marine Materials and Offshore Engineering (Undergraduate Certificate) | curso_corto | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Medical Physics (Graduate Certificate) | posgrado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Meetings and Events Management (Undergraduate Certificate) | curso_corto | Hospitalidad | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Multicultural Education (Graduate Certificate) | posgrado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Naval Architecture (Undergraduate Certificate) | curso_corto | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Neuroscience (Graduate Certificate) | posgrado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Nonprofit Executive Leadership (Graduate Certificate) | posgrado | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Nursing Administration and Financial Leadership (Post-Master's Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Nursing: Education (Post-Master's Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Offshore Engineering (Graduate Certificate) | posgrado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Peace, Justice and Human Rights (Undergraduate Certificate) | curso_corto | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Pharmaceutical Technology (Undergraduate Certificate) | curso_corto | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Post-Baccalaureate Pre-Health Professions (Undergraduate Certificate) | curso_corto | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Post-Baccalaureate Research Education Program in Chemistry (Graduate Certificate) | posgrado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Professional Accounting (Graduate Certificate) | posgrado | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Professional and Technical Writing (Undergraduate Certificate) | curso_corto | Comunicación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Psychiatric Mental Health Nurse Practitioner (Post-Master's Certificate) | posgrado | Salud | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Public Ethics and Leadership (Graduate Certificate) | posgrado | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Public Policy (Graduate Certificate) | posgrado | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Religious Studies (Undergraduate Certificate) | curso_corto | Humanidades | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Remote Sensing (Graduate Certificate) | posgrado | Ciencias | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Risk Management (Graduate Certificate) | posgrado | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Risk Management and Insurance (Undergraduate Certificate) | curso_corto | Negocios | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Robotics Engineering (Undergraduate Certificate) | curso_corto | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Social Justice (Graduate Certificate) | posgrado | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Social Justice (Undergraduate Certificate) | curso_corto | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Statistics (Undergraduate Certificate) | curso_corto | Matemáticas | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Supported Community Access (Undergraduate Certificate) | curso_corto | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Supported Community Living (Undergraduate Certificate) | curso_corto | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Supported Employment (Undergraduate Certificate) | curso_corto | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Surveying and Mapping (Undergraduate Certificate) | curso_corto | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Teacher Leadership (Graduate Certificate) | posgrado | Educación | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Transportation Engineering (Graduate Certificate) | posgrado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Transportation, Logistics and Supply Chain Management (Graduate Certificate) | posgrado | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Undergraduate Research (Undergraduate Certificate) | curso_corto | Estudios Generales | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Underwater Acoustics (Undergraduate Certificate) | curso_corto | Ingeniería | no indicada | - | https://www.fau.edu/programs/
+Florida Atlantic University | Women, Gender and Sexuality Studies (Graduate Certificate) | posgrado | Ciencias Sociales | no indicada | - | https://www.fau.edu/programs/
+Sir Wilfrid Laurier School Board | International Student Program | intercambio | Estudios Generales | no indicada | - | https://www.swlauriersb.qc.ca/en/schools/our-schools/
+Sir Wilfrid Laurier School Board | Summer Programs | vacacional | Estudios Generales | no indicada | - | https://www.swlauriersb.qc.ca/en/schools/our-schools/
+Sir Wilfrid Laurier School Board | Accounting Studies | diplomado | Negocios | no indicada | - | https://cdcpontviau.swlauriersb.qc.ca/
+Sir Wilfrid Laurier School Board | Secretarial Studies | diplomado | Negocios | no indicada | - | https://cdcpontviau.swlauriersb.qc.ca/
+Sir Wilfrid Laurier School Board | Secretarial Studies Legal | especializacion | Negocios | 450 horas · 5 meses | 5873 | https://cdcpontviau.swlauriersb.qc.ca/
+Sir Wilfrid Laurier School Board | Support for Assistive Services in Health and Social Services Institutions | diplomado | Salud | 705 horas · 7 meses | 5905 | https://cdcpontviau.swlauriersb.qc.ca/
+Sir Wilfrid Laurier School Board | Health, Assistance and Nursing | diplomado | Salud | no indicada | - | https://cdcpontviau.swlauriersb.qc.ca/
+Sir Wilfrid Laurier School Board | Sustainable Homes in Québec Training | curso_corto | Construcción | no indicada | - | https://cdcpontviau.swlauriersb.qc.ca/
+Insenia Design School Madrid | Máster Profesional de Arquitectura de Interiores, Interiorismo y Decoración | maestria | Diseño de Interiores | 12 meses | - | https://www.insenia.es/master-de-arquitectura-de-interiores-interiorismo-y-decoracion
+Insenia Design School Madrid | Máster Profesional de Interiorismo y Emprendimiento | maestria | Diseño de Interiores | 12 meses | - | https://www.insenia.es/master-de-interiorismo-emprendimiento-y-gestion-de-negocios-del-habitat
+Insenia Design School Madrid | Máster Profesional de Interiorismo | maestria | Diseño de Interiores | 12 meses | - | https://www.insenia.es/master-profesional-de-interiorismo
+Insenia Design School Madrid | Doble Máster de Arquitectura de Interiores, Interiorismo y Emprendimiento | maestria | Diseño de Interiores | no indicada | - | https://www.insenia.es/doble-master-de-arquitectura-de-interiores-interiorismo-y-emprendimiento
+Insenia Design School Madrid | Curso Profesional de Diseño de Viviendas | curso_corto | Diseño de Interiores | no indicada | - | https://www.insenia.es/curso-profesional-de-diseno-de-viviendas
+Insenia Design School Madrid | Curso Profesional de Diseño de Espacios Comerciales | curso_corto | Diseño de Interiores | no indicada | - | https://www.insenia.es/program/curso-profesional-de-diseno-de-espacios-comerciales
+Insenia Design School Madrid | Emprendimiento para Interioristas | curso_corto | Negocios | no indicada | - | https://www.insenia.es/program/curso-de-emprendimiento-y-gestion-de-negocios-del-habitat
+Insenia Design School Madrid | Summer Camp | vacacional | Diseño de Interiores | no indicada | - | https://www.insenia.es/course/summer-camp-2026
+Insenia Design School Madrid | Taller de IA para Interiorismo | curso_corto | Tecnología | no indicada | - | https://www.insenia.es/program/taller-de-ia-para-interiorismo
+Insenia Design School Madrid | Iniciación a la Decoración | curso_corto | Diseño de Interiores | no indicada | - | https://www.insenia.es/program/curso-de-iniciacion-a-la-decoracion-de-viviendas
+Insenia Design School Madrid | Pack Iniciación + Home Staging | curso_corto | Diseño de Interiores | no indicada | - | https://www.insenia.es/program/pack-curso-de-iniciacion-a-la-decoracion-de-viviendas-y-home-staging
+Insenia Design School Madrid | Diseño de Cocinas | curso_corto | Diseño de Interiores | no indicada | - | https://www.insenia.es/program/curso-online-de-diseno-de-cocinas-residenciales
+Insenia Design School Madrid | Enscape para Interiorismo | curso_corto | Diseño de Interiores | no indicada | - | https://www.insenia.es/program/curso-online-de-enscape-para-interiorismo
+Insenia Design School Madrid | SketchUp 3D para Interiorismo | curso_corto | Diseño de Interiores | no indicada | - | https://www.insenia.es/program/curso-online-de-sketchup-pro-3d-layout-para-interiorismo
+IMG Academy | Girls Basketball Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-basketball-camp
+IMG Academy | Girls Flag Football Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-flag-football-camp
+IMG Academy | Girls Golf Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-golf-camp
+IMG Academy | Girls Lacrosse Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-lacrosse-camp
+IMG Academy | Girls Soccer Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-soccer-camp
+IMG Academy | Girls Softball Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-softball-camp
+IMG Academy | Girls Tennis Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-tennis-camp
+IMG Academy | Girls Track & Field and Cross Country Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-track-field-and-cross-country-camp
+IMG Academy | Girls Volleyball Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-volleyball-camp
+IMG Academy | Girls Wrestling Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/girls-wrestling-camp
+IMG Academy | Baseball Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/baseball-camp
+IMG Academy | Basketball Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/basketball-camp
+IMG Academy | Football Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/football-camp
+IMG Academy | Golf Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/golf-camp
+IMG Academy | Lacrosse Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/lacrosse-camp
+IMG Academy | Soccer Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/soccer-camp
+IMG Academy | Tennis Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/tennis-camp
+IMG Academy | Track & Field and Cross Country Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/track-field-and-cross-country-camp
+IMG Academy | Boys Volleyball Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/boys-volleyball-camp
+IMG Academy | Wrestling Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/wrestling-camp
+IMG Academy | Performance Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/performance-camp
+IMG Academy | Esports Summer Camp | vacacional | Tecnología | no indicada | - | https://www.imgacademy.com/sport-camps/esports
+IMG Academy | IMG Academy Summit | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/sport-camps/img-academy-summit
+IMG Academy | Adult Tennis Camp | vacacional | Deportes | no indicada | - | https://www.imgacademy.com/adult-tennis-camp
+Western Sydney University International College | General Foundation Studies Program | curso_corto | Estudios Generales | no indicada | - | https://internationalcollege.westernsydney.edu.au/courses/foundation/general/
+Western Sydney University International College | Business Foundation Studies Program | curso_corto | Negocios | no indicada | - | https://internationalcollege.westernsydney.edu.au/courses/foundation/business/
+Western Sydney University International College | Arts Diploma | diplomado | Artes | no indicada | - | https://internationalcollege.westernsydney.edu.au/courses/diploma/arts/
+Western Sydney University International College | Business Diploma | diplomado | Negocios | no indicada | - | https://internationalcollege.westernsydney.edu.au/courses/diploma/business/
+Western Sydney University International College | Engineering Diploma | diplomado | Ingeniería | no indicada | - | https://internationalcollege.westernsydney.edu.au/courses/diploma/engineering/
+Western Sydney University International College | Information and Communications Technology Diploma | diplomado | Tecnología | no indicada | - | https://internationalcollege.westernsydney.edu.au/courses/diploma/information-communications/
+Christchurch College of English (CCEL) | General English | curso_corto | Idiomas | no indicada | - | https://www.ccel.co.nz/courses/general/
+Christchurch College of English (CCEL) | Exam Preparation | curso_corto | Idiomas | no indicada | - | https://www.ccel.co.nz/courses/exam-preparation/
+Christchurch College of English (CCEL) | Group Programmes | curso_corto | Idiomas | no indicada | - | https://www.ccel.co.nz/courses/group-programs/
+Christchurch College of English (CCEL) | English for Academic Purposes 1 (EAP 1) | curso_corto | Idiomas | no indicada | - | https://www.ccel.co.nz/courses/academic-eap1/
+Christchurch College of English (CCEL) | English for Academic Purposes 2 (EAP 2) | curso_corto | Idiomas | no indicada | - | https://www.ccel.co.nz/courses/academic-eap2/
+Christchurch College of English (CCEL) | High School Preparation | curso_corto | Idiomas | no indicada | - | https://www.ccel.co.nz/courses/high-school-preparation/
+All Saints Anglican School | High School Preparation (HSP) | curso_corto | Idiomas | no indicada | - | https://www.asas.qld.edu.au/our-school/programs
+All Saints Anglican School | Study Abroad | intercambio | Estudios Generales | no indicada | - | https://www.asas.qld.edu.au/our-school/programs
+Brisbane and Gold Coast School of Hairdressing, Barbering and Beauty | Certificate III in Hairdressing | curso_corto | Peluquería y Belleza | no indicada | SHB30416 | https://www.brishair.com.au/hairdressing-brisbane-gold-coast
+Brisbane and Gold Coast School of Hairdressing, Barbering and Beauty | Certificate III in Barbering | curso_corto | Peluquería y Belleza | no indicada | SHB30516 | https://www.brishair.com.au/barbering-brisbane-gold-coast
+# RESUMEN: instituciones=10 con_programas=9 total_programas=368 sin_catalogo=1
+# NOTAS:
+# AIBT · el catálogo publica 38 cursos entre las 5 escuelas internas, MUY por debajo del "90+" que dice la propia home (esa cifra es marketing: cuenta "courses & promotions" y variantes por estado). De los 38, se descartaron 14 por no ser cursables: los 10 de Branson School of Business (TODA la escuela de negocios está "Not currently accepting enrolments"), UEE42725, ICT40120, ICT50220, y CHC30125 (Early Childhood Cert III, "Pending ASQA Approval" · aún no acreditado). Quedan 24. OJO para el asesor: 4 de los 24 tienen restricción geográfica y no son vendibles en todo el país — HLT52021 y HLT42021 cerrados en NSW y QLD, UEE32225 y AUR30620 cerrados en TAS, e ICT60220 solo abre en NSW. El sitio no publica CRICOS por curso (solo el CRICOS institucional 03430J de la ficha), así que codigo_oficial trae el código nacional; tampoco publica duraciones.
+# FAU · 282 programas (175 títulos + 107 certificados), consistente con el "170+ / 300+" de la auditoría. Confirmo la alerta: NO hay ningún rastro de pathway "Study Group" ni de programa puente para internacionales en el sitio — si la ficha comercial promete ese pathway, está vendiendo algo que la universidad no anuncia y hay que verificarlo con FAU antes de cotizarlo. Los 107 certificados se cargaron como curso_corto (undergraduate) y posgrado (graduate / post-master's); son títulos reales del catálogo pero varios son add-ons para alumnos ya matriculados, no puertas de entrada con visa — conviene marcarlos antes de ofrecerlos sueltos.
+# VOCABULARIO · el nivel cerrado no tiene valor para educación secundaria (K-12), y eso deja 3 instituciones del lote mal servidas: All Saints (Pre-Prep a Year 12) aporta solo 2 filas (HSP y Study Abroad, los únicos mapeables) en vez de sus ~3; IMG Academy pierde el boarding school (grados 6-12) y el año Post-Graduate, que son justamente el producto "Full Time" que la agencia puede vender, y solo quedan los 24 camps como vacacional; y Sir Wilfrid Laurier —cuyo puede_vender es literalmente "High School"— aporta solo el International Student Program (mapeado a intercambio, que es lo más honesto disponible) más los 6 programas vocacionales del CDC Pont-Viau. Recomiendo añadir un nivel `secundaria`/`high_school` al vocabulario: sin él, el catálogo no puede representar el producto principal de estas 3 cuentas.
+# JCUB · SIN CATÁLOGO, confirmado. jcub.edu.au ya no es suyo: devuelve 301 permanente a www.jcu.edu.au/brisbane, que está fuera del dominio asignado a este lote, así que no se crawleó (regla 1). Hay que reasignar la ficha al dominio jcu.edu.au en una pasada nueva o darla de baja.
+# Sir Wilfrid Laurier · confirmo el error CRÍTICO de la ficha: la ciudad "Brantford" es de Ontario y este board es de Quebec. Los centros reales del lote están en Laval (CDC Pont-Viau, CDC Vimont) y las escuelas listadas cubren Laval, Repentigny, Arundel, Grenville y Saint-Lin-Laurentides. Además la lista de escuelas es paginada ("Load More Schools") y las escuelas NO son programas, por eso no se cargaron como filas: los 30+ de cantidad_aprox son planteles, no oferta académica.
+# Insenia · conflicto de dominio no resuelto por la auditoría: el campo `dominio` dice insenia.org pero el `url_programas` verificado apunta a insenia.es, que es donde vive el catálogo real. Se usó insenia.es. Confirmo la alerta de la ficha: NO otorga pregrado — la ficha decía "Pregrado & Postgrado / Todos los programas" y es falso. Son 4 másteres profesionales (títulos propios homologados por UDIMA, no títulos oficiales del sistema español: hay que decírselo a la familia) + 10 cursos. 14 en total vs "~10-15" esperados. Se excluyó "Interioristas del Futuro" por ser una comunidad gratuita, no un programa. El sitio publica precios y planes de cuotas; no se transcribieron.
+# WSU International College · solo 6 programas contra los ~8 de la auditoría. La diferencia es real, no un fallo de extracción: hoy quedan 2 Foundation (General y Business) y la auditoría había visto 4 — desaparecieron los streams de Health Science and Nursing y de Science. Los 4 Diplomas siguen intactos. Es un recorte de oferta reciente, hay que avisar a quien esté cotizando esos dos pathways. Confirmo que es "A Member of Navitas" pese al partner_group NULL de la ficha. No publica CRICOS ni duraciones en las páginas de catálogo.
+# CCEL · 6 cursos = exactamente el cantidad_aprox. Limpio. El sitio no publica duraciones en el índice (cada curso se vende por semanas variables), por eso todo va "no indicada". Nombre real confirmado: "Christchurch College of English", no la sigla. Campus dentro de la University of Canterbury (Ilam), lo cual es argumento de venta.
+# brishair · 2 programas = exactamente el "2 lineas" de la auditoría, y CONFIRMA de nuevo el hallazgo: pese a llamarse "Hair & Beauty" en la ficha y "…and Beauty" en su propio nombre legal, NO hay ni un solo programa de estética/belleza. Solo Cert III en Hairdressing y Cert III en Barbering. La ficha comercial debe corregirse. Códigos nacionales verificados (SHB30416 / SHB30516); no publican CRICOS ni duración.
+# IMG Academy · el dominio de la ficha traía un query string de afiliado (?rep=9681) que se limpió antes de crawlear. 24 camps extraídos (10 femeninos, 10 masculinos, 3 mixtos, 1 de adultos) contra "12+ deportes" de la auditoría — el conteo real es mayor porque los camps están desdoblados por género. Las duraciones no se publican en el índice (varían por sesión) y las fechas de inicio se omitieron por política.

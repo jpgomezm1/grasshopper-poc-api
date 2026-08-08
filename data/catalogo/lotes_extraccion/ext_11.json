@@ -1,0 +1,161 @@
+[
+ {
+  "institucion_ficha": "Torrens University Australia",
+  "nombre_real": "Torrens University Australia Ltd · ABN 99 154 937 005 · RTO 41343 · TEQSA PRV12209",
+  "dominio": "www.torrens.edu.au",
+  "url_programas": "https://www.torrens.edu.au/courses",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Pregrado, Postgrado, dobles titulaciones, Higher Degrees by Research",
+  "cantidad_aprox": "300+ (declarado en el sitio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "El dominio de la ficha (tua.edu.au) REDIRIGE a otro dominio (torrens.edu.au) — actualizar el dato. /courses es un hub de 7 categorias con ejemplos, no",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "Saskatchewan Polytechnic",
+  "nombre_real": "Saskatchewan Polytechnic",
+  "dominio": "saskpolytech.ca",
+  "url_programas": "https://saskpolytech.ca/programs-and-courses/browse-programs/a-z-listing.aspx",
+  "pais": "Canada",
+  "ciudad": "Saskatoon",
+  "puede_vender": [
+   "Pregrado & Postgrado",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificado, Diploma, Grado (bachelor), Aprendizaje/apprenticeship",
+  "cantidad_aprox": "150+",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ciudad en ficha = Saskatoon, pero opera 4 campus (Moose Jaw, Prince Albert, Regina, Saskatoon) + distancia. El sitio confirma certificado/diploma/grad",
+  "_est": 60
+ },
+ {
+  "institucion_ficha": "ILAC",
+  "nombre_real": "ILAC · International Language Academy of Canada",
+  "dominio": "www.ilac.com",
+  "url_programas": "https://ilac.com/ilac-in-canada/",
+  "pais": "Canada",
+  "ciudad": "Vancouver, Toronto",
+  "puede_vender": [
+   "Idiomas",
+   "Pregrado & Postgrado",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Inglés (general, Cambridge, IELTS, business, English for Professionals), pathway universitario, kids 7-14 y young adults 15-18",
+  "cantidad_aprox": "25+",
+  "veredicto_auditoria": "corregir",
+  "alerta": "puede_vender incluye \"Pregrado & Postgrado\" pero ILAC NO otorga títulos propios: el sitio dice que da acceso a \"300+ partner schools\" vía pathway. Si ",
+  "_est": 25
+ },
+ {
+  "institucion_ficha": "High School Central Quebec SD",
+  "nombre_real": "Commission scolaire Central Quebec / Central Quebec School Board (CQSB)",
+  "dominio": "cqsb.qc.ca",
+  "url_programas": "https://www.cqsb.qc.ca/fr/ecoles-et-programmes/",
+  "pais": "Canada",
+  "ciudad": "Quebec",
+  "puede_vender": [
+   "High school",
+   "High School"
+  ],
+  "niveles_vistos": "Primaria y Secundaria; seccion dedicada \"Etudiants Internationaux\" en /fr/isp/ (programas, admisiones, pagos internacionales)",
+  "cantidad_aprox": "~16 escuelas",
+  "veredicto_auditoria": "corregir",
+  "alerta": "No es un \"High School\": es una junta escolar con ~16 escuelas primarias y secundarias. La extraccion debe tratarlo como red y bajar al detalle de cada",
+  "_est": 16
+ },
+ {
+  "institucion_ficha": "University of Southern Queensland (Sydney)",
+  "nombre_real": "University of Southern Queensland (Sydney)",
+  "dominio": "usqsydney.nsw.edu.au",
+  "url_programas": "",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "?",
+  "cantidad_aprox": "?",
+  "veredicto_auditoria": "corregir",
+  "alerta": "Dominio de la ficha OBSOLETO por el rebrand USQ->UniSQ. El destino esta tras Cloudflare JS challenge (403 con UA de Chrome; solo /robots.txt responde ",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "Humber College",
+  "nombre_real": "Humber Polytechnic",
+  "dominio": "humber.ca",
+  "url_programas": "https://humber.ca/explore-programs",
+  "pais": "Canada",
+  "ciudad": "Toronto",
+  "puede_vender": [
+   "Vocacionales (Cert, Dip, Adv Dip)",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Certificado, Diploma, Advanced Diploma, Bachelor, Master, Graduate Certificate",
+  "cantidad_aprox": "? (catálogo amplio)",
+  "veredicto_auditoria": "corregir",
+  "alerta": "DOS cosas: (1) RENOMBRADA a \"Humber Polytechnic\" — la ficha usa el nombre viejo; (2) devuelve 403 a fetchers sin UA de navegador y 200 con UA de Chrom",
+  "_est": 12
+ },
+ {
+  "institucion_ficha": "GV Malta",
+  "nombre_real": "Global Village English Centre (Malta) Ltd · \"GV Malta\"",
+  "dominio": "www.gvmalta.com",
+  "url_programas": "https://www.gvmalta.com/adults-18-yrs/",
+  "pais": "Malta",
+  "ciudad": "St. Paul's Bay",
+  "puede_vender": [
+   "Idiomas",
+   "Todos los programas"
+  ],
+  "niveles_vistos": "Idiomas (General, Business, Exam prep, ESP, Junior/Teens/Camps)",
+  "cantidad_aprox": "~10",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 10
+ },
+ {
+  "institucion_ficha": "Mastery Institute Australia (MIA)",
+  "nombre_real": "QIHE Pty Ltd T/A Mastery Institute Australia · RTO 40813",
+  "dominio": "mastery.edu.au",
+  "url_programas": "https://mastery.edu.au/ (menu \"Our Course\", sin indice unico)",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Certificate III (Early Childhood), Diploma (Remedial Massage), certificaciones de primeros auxilios HLTAID011/012, CPE, VET Student Loans",
+  "cantidad_aprox": "~5-6",
+  "veredicto_auditoria": "observacion",
+  "alerta": "ciudad de la ficha VACIA: esta en Brisbane QLD (Level 5, 119 Charlotte St) · category y puede_vender VACIOS para un RTO vocacional · catalogo fragment",
+  "_est": 6
+ },
+ {
+  "institucion_ficha": "The University of Utah - English Language Institute",
+  "nombre_real": "English Language Institute (University of Utah)",
+  "dominio": "eli.utah.edu",
+  "url_programas": "https://eli.utah.edu/ (programas enlazados individualmente, sin indice unico)",
+  "pais": "USA",
+  "ciudad": "Utah",
+  "puede_vender": [
+   "Idiomas",
+   "Idiomas"
+  ],
+  "niveles_vistos": "Intensive English Program (F-1/J-1), General English nocturno (basico e intermedio), programas online, English for Tourists",
+  "cantidad_aprox": "4-5",
+  "veredicto_auditoria": "ok",
+  "alerta": "-",
+  "_est": 5
+ },
+ {
+  "institucion_ficha": "Russo Business School",
+  "nombre_real": "Russo Business School (RBS) · TEQSA PRV14013 · CRICOS 03441F · ABN 34 601 105 319",
+  "dominio": "www.russo.qld.edu.au",
+  "url_programas": "https://www.rbs.qld.edu.au/course/diploma-of-business",
+  "pais": "Australia",
+  "ciudad": null,
+  "puede_vender": [],
+  "niveles_vistos": "Diploma of Business (8 materias en 4 clusters) + Skills for Industry / cursos cortos ISO con British Standards Institution",
+  "cantidad_aprox": "1 diploma + cursos cortos BSI",
+  "veredicto_auditoria": "corregir",
+  "alerta": "DOMINIO DE LA FICHA OBSOLETO (301 a rbs.qld.edu.au) + OFERTA COLAPSADA: pese a estar registrada en TEQSA como proveedor de educacion superior, en el s",
+  "_est": 1
+ }
+]

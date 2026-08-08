@@ -97,7 +97,8 @@ def _db_que_devuelve(filas):
     return _DB()
 
 
-def _fila(nombre, area, sim, program_id=None, oferta_slug=None):
+def _fila(nombre, area, sim, program_id=None, oferta_slug=None,
+          confianza="publicado"):
     return _FilaFalsa(
         id="11111111-1111-1111-1111-111111111111", nombre=nombre,
         institucion="X", pais="Canadá", ciudad=None, nivel="bachelor",
@@ -106,6 +107,7 @@ def _fila(nombre, area, sim, program_id=None, oferta_slug=None):
         # los dos catálogos. `None` es un caso real: 708 programas son de
         # instituciones sin ficha y siguen siendo visibles.
         program_id=program_id, oferta_slug=oferta_slug, oferta_nombre=None,
+        confianza=confianza,
         sim=sim,
     )
 
@@ -284,3 +286,31 @@ def test_un_programa_enlazado_trae_como_llegar_a_su_institucion():
 
     assert r.program_id == "p-1"
     assert r.oferta_slug == "murdoch-university"
+
+
+def test_la_confianza_NO_entra_en_el_puntaje():
+    """Se muestra, no se pondera · y la diferencia es deliberada.
+
+    Bajar lo `indicativo` enterraría el 31% del catálogo por una corazonada, y
+    hoy no hay forma de medir si eso mejora o empeora la recomendación (para eso
+    está `scripts/evaluar_recomendaciones.py`, que todavía no tiene casos). Este
+    test es el que se da cuenta si alguien la mete al ranking sin medirlo.
+    """
+    filas = [
+        _fila("Flojo pero muy parecido", "Artes", 0.90, confianza="indicativo"),
+        _fila("Verificable y menos parecido", "Artes", 0.80,
+              confianza="verificable"),
+    ]
+    r = bp.buscar(_db_que_devuelve(filas), vector_perfil=[0.1] * 4, limite=5)
+
+    assert r[0].nombre == "Flojo pero muy parecido"
+    assert r[0].confianza == "indicativo"
+
+
+def test_la_confianza_llega_al_resultado():
+    """Si no viaja, el estudiante no puede distinguir una fila confirmable de
+    una reconstruida desde el slug de una URL."""
+    filas = [_fila("X", "Artes", 0.5, confianza="verificable")]
+    r = bp.buscar(_db_que_devuelve(filas), vector_perfil=[0.1] * 4, limite=1)[0]
+
+    assert r.confianza == "verificable"

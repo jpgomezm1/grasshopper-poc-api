@@ -1,0 +1,21 @@
+{
+  "_lee_primero": "Copia este archivo a casos.json y reemplaza los casos. Los `esperados` los escribe alguien de la agencia pensando en el estudiante, NO copiando lo que el buscador devuelve hoy: eso seria medirse contra uno mismo.",
+  "casos": [
+    {
+      "nombre": "EJEMPLO · 11° · quiere trabajar con animales · Australia",
+      "etapa_de_vida": "high_school",
+      "paises": ["Australia"],
+      "riasec": ["R", "I"],
+      "limite": 10,
+      "esperados": []
+    },
+    {
+      "nombre": "EJEMPLO · egresado · quiere una maestria en negocios en UK",
+      "etapa_de_vida": "recent_grad",
+      "paises": ["Reino Unido"],
+      "riasec": ["E", "C"],
+      "limite": 10,
+      "esperados": []
+    }
+  ]
+}

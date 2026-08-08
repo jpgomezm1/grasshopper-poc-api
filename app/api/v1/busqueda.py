@@ -63,6 +63,9 @@ class ProgramaEncontrado(BaseModel):
     # La ficha del catálogo autorizado a la que pertenece · null cuando la
     # institución no tiene ficha (redes que se descompusieron en sus miembros).
     program_id: Optional[str] = None
+    # Qué tan verificable es esta fila · `verificable` publica un código oficial
+    # confirmable en un registro público del país; `indicativo` es lo más flojo.
+    confianza: Optional[str] = None
     # El slug de esa ficha · es lo que permite el enlace de vuelta desde un
     # programa a la pagina de su institucion.
     oferta_slug: Optional[str] = None

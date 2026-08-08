@@ -83,6 +83,14 @@ class Resultado:
     # La ficha del catálogo a la que pertenece · con esto el estudiante puede
     # saltar del programa a la institución sin buscarla a mano.
     program_id: Optional[str] = None
+    # `verificable` | `publicado` | `indicativo` · ver migración 062.
+    #
+    # **No entra en el puntaje**, y es deliberado: bajar lo `indicativo`
+    # enterraría un tercio del catálogo por una corazonada, y hoy no hay forma
+    # de medir si eso mejora o empeora la recomendación. Se muestra para que
+    # quien decide sepa sobre qué está decidiendo. Cuando exista el set de
+    # evaluación se podrá probar si ponderarlo ayuda de verdad.
+    confianza: Optional[str] = None
     oferta_slug: Optional[str] = None
     oferta_nombre: Optional[str] = None
     # Trazabilidad de por qué salió · sin esto nadie puede depurar una mala
@@ -103,6 +111,9 @@ class Filtros:
     # La ficha del catálogo autorizado · es lo que permite que la página de una
     # institución muestre SUS programas en vez de repetir el catálogo entero.
     program_id: Optional[str] = None
+    # Para el panel de la agencia: poder ver sólo lo confirmable en un registro
+    # público. Al estudiante no se le filtra — se le marca.
+    confianzas: Sequence[str] = field(default_factory=tuple)
 
 
 def niveles_excluidos(etapa: Optional[str]) -> List[str]:
@@ -138,6 +149,9 @@ def _where(f: Filtros) -> tuple:
     if f.instituciones:
         cond.append("pi.institucion = ANY(:instituciones)")
         params["instituciones"] = list(f.instituciones)
+    if f.confianzas:
+        cond.append("pi.confianza = ANY(:confianzas)")
+        params["confianzas"] = list(f.confianzas)
     if f.program_id:
         # `CAST` explícito: la columna es UUID y el parámetro llega como texto.
         # Sin el casteo Postgres responde `operator does not exist: uuid = text`
@@ -164,7 +178,7 @@ def _where(f: Filtros) -> tuple:
 # relación que faltaba entre los dos catálogos.
 _COLUMNAS = ("pi.id, pi.nombre, pi.institucion, pi.pais, pi.ciudad, pi.nivel, "
              "pi.area, pi.duracion, pi.codigo_oficial, pi.url_fuente, "
-             "pi.program_id, p.slug AS oferta_slug, p.name AS oferta_nombre")
+             "pi.program_id, pi.confianza, p.slug AS oferta_slug, p.name AS oferta_nombre")
 
 # `LEFT JOIN` y no `JOIN`: 708 programas no cuelgan de ninguna ficha y deben
 # seguir siendo visibles · un JOIN normal los borraría del catálogo en silencio.
@@ -228,6 +242,7 @@ def buscar(
             duracion=r["duracion"], codigo_oficial=r["codigo_oficial"],
             url_fuente=r["url_fuente"],
             program_id=str(r["program_id"]) if r["program_id"] else None,
+            confianza=r["confianza"],
             oferta_slug=r["oferta_slug"], oferta_nombre=r["oferta_nombre"],
             similitud=round(sim, 4), afinidad=round(afin, 3),
             puntaje=round(sim + PESO_AFINIDAD * afin, 4),

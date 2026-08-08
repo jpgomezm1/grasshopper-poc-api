@@ -2607,3 +2607,28 @@ class ProgramaInvestigado(Base):
     # tipo `vector` necesitaría el paquete pgvector como dependencia del modelo,
     # y la búsqueda semántica lo consulta por SQL directo de todos modos. Ver
     # `app/services/busqueda_programas.py`.
+
+
+class PerfilVector(Base):
+    """Vector del perfil de un estudiante · migración 060.
+
+    El perfil crece cada vez que la persona usa la app (tests, journey, journal),
+    pero entre visita y visita no cambia. `firma` es la huella de las señales que
+    produjeron este vector: mientras coincida con la del perfil actual, el vector
+    sirve y no hay que pedirle nada al proveedor de embeddings.
+
+    Clave primaria = usuario. No tiene sentido que existan dos vectores del mismo
+    perfil, y hacerlo explícito ahorra la lógica de "cuál de los dos es el bueno".
+    """
+
+    __tablename__ = "perfil_vectores"
+
+    user_id = Column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"),
+        primary_key=True,
+    )
+    firma = Column(String(64), nullable=False)
+    actualizado = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # `embedding` (vector(1536)) vive en la tabla pero no se declara aquí · el
+    # tipo necesitaría pgvector como dependencia del modelo. Se lee y escribe
+    # por SQL directo desde `busqueda_programas`.

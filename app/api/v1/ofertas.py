@@ -12,6 +12,8 @@ de cleanup.
 """
 from __future__ import annotations
 
+import logging
+
 from typing import Any, Optional, List
 from uuid import UUID
 
@@ -23,8 +25,10 @@ from sqlalchemy.orm import Session as DBSession, load_only
 from app.api.v1.auth import get_current_user
 from app.db.database import get_db
 from app.db.models import Program, SavedOferta, User
-from app.services import admission_fit_service
+from app.services import admission_fit_service, busqueda_programas
 from app.services.catalog_service import display_name_for_program
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/ofertas", tags=["Ofertas"])
 
@@ -269,6 +273,9 @@ def list_ofertas(
     # solo necesita un puñado de "relacionadas" de su categoría).
     slim: bool = False,
     limit: Optional[int] = None,
+    # El orden personal se puede apagar · el panel de la agencia necesita ver el
+    # catálogo tal como lo ordenó la clienta, no como se lo ordenamos a un alumno.
+    personalizar: bool = True,
     current_user: User = Depends(get_current_user),
     db: DBSession = Depends(get_db),
 ):
@@ -343,6 +350,39 @@ def list_ofertas(
         )
 
     programs = q.order_by(*orden_del_catalogo()).all()
+
+    # El catálogo se reordena por afinidad con el perfil del estudiante · lo que
+    # ve primero es lo que más se parece a lo que ha ido contando en la app.
+    #
+    # Va ANTES de mapear y de `limit`, no después: `limit` corta la cola, así que
+    # ordenar después dejaría fuera justo lo más pertinente.
+    #
+    # Las fichas sin vector quedan **al final**, conservando entre ellas el orden
+    # original (prioridad comercial y luego nombre). Hoy no hay ninguna —las
+    # 2.511 activas están embebidas—, pero una ficha nueva cargada por la agencia
+    # aparece sin vector hasta que se corra el script, y es preferible que caiga
+    # al final a que se cuele arriba con un puntaje inventado.
+    #
+    # Sin perfil (recién registrado, o el proveedor caído) no se reordena nada y
+    # el catálogo conserva el orden que pidió la clienta.
+    if personalizar:
+        try:
+            perfil = busqueda_programas.perfil_del_usuario(db, current_user)
+            vector = busqueda_programas.vector_del_perfil_sync(db, perfil, current_user)
+            puntajes = busqueda_programas.orden_personal_del_catalogo(db, vector)
+            if puntajes:
+                orden_base = {p.id: i for i, p in enumerate(programs)}
+                programs.sort(
+                    key=lambda p: (
+                        -puntajes.get(str(p.id), float("-inf")),
+                        orden_base[p.id],
+                    )
+                )
+        except Exception:
+            # Que el orden personal falle no puede dejar al estudiante sin
+            # catálogo · se sigue con el de siempre.
+            logger.warning("catálogo sin orden personal", exc_info=True)
+
     ofertas = [_program_to_oferta(p) for p in programs]
 
     # languageRequirement filter post-mapping (porque la columna es texto libre)

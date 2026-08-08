@@ -30,7 +30,6 @@ from app.api.v1.auth import get_current_user
 from app.db.database import get_db
 from app.db.models import User
 from app.services import busqueda_programas as bp
-from app.services import embeddings as emb
 
 logger = logging.getLogger(__name__)
 
@@ -74,6 +73,10 @@ class Resultados(BaseModel):
     # estaba caído y esto salió por orden de institución".
     orden_semantico: bool
     uso_el_test: bool
+    # De dónde salió el perfil que ordenó esto ("tests", "journal", "journey").
+    # El estudiante puede ver que entre más usa la app, mejor le responde; y un
+    # asesor puede explicar por qué salió lo que salió.
+    senales: List[str] = []
 
 
 def _filtros(user: User, perfil: bp.PerfilBusqueda, pais, area, institucion,
@@ -128,26 +131,12 @@ async def buscar_programas(
     perfil = bp.perfil_del_usuario(db, user)
     f = _filtros(user, perfil, pais, area, institucion, incluir_no_viables)
 
-    # El vector del perfil se pide al proveedor en cada búsqueda. Si falla —red,
-    # cuota, caída— **se sigue sin él**: la búsqueda pierde el orden semántico
-    # pero devuelve el mismo conjunto de programas elegibles. Dejar al estudiante
-    # sin catálogo porque una API externa no responde sería peor que un orden
-    # alfabético.
-    vector = None
-    texto = emb.texto_de_perfil(
-        intereses=perfil.intereses,
-        rutas=perfil.rutas,
-        areas_afines=[area] if area else [],
-        en_sus_palabras=perfil.en_sus_palabras,
-    )
-    if texto.strip():
-        try:
-            vector = await emb.embeber_uno(texto)
-        except Exception:
-            logger.warning(
-                "búsqueda sin orden semántico · falló el embedding del perfil",
-                exc_info=True, extra={"user_id": str(user.id)},
-            )
+    # El vector sale de la caché y sólo se regenera cuando el estudiante aportó
+    # algo nuevo. Si el proveedor falla **se sigue sin él**: la búsqueda pierde
+    # el orden semántico pero devuelve el mismo conjunto de programas elegibles.
+    # Dejar a alguien sin catálogo porque una API externa no responde sería peor
+    # que un orden alfabético.
+    vector = await bp.vector_del_perfil(db, perfil, user)
 
     encontrados = bp.buscar(
         db, vector_perfil=vector, codigos_riasec=perfil.codigos_riasec,
@@ -158,4 +147,5 @@ async def buscar_programas(
         total_mostrado=len(encontrados),
         orden_semantico=vector is not None,
         uso_el_test=perfil.hizo_el_test,
+        senales=perfil.senales,
     )

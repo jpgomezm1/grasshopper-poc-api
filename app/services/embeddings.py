@@ -86,6 +86,32 @@ def texto_de_programa(p) -> str:
     return ". ".join(x for x in partes if x)
 
 
+def texto_de_institucion(p) -> str:
+    """El texto que representa a una ficha del catálogo autorizado (`programs`).
+
+    Es más pobre que el de un programa investigado y no hay nada que hacer: las
+    2.511 fichas del cliente están a nivel institución (`name` es igual a
+    `institution`), el `area` está vacío en el 98% y lo único que suele haber es
+    `subject`, que trae lo que la agencia está autorizada a vender ahí
+    ("Idiomas", "Vocacionales (Cert, Dip, Adv Dip)").
+
+    Por eso se incluye el país: aquí sí aporta señal, porque sin área ni
+    descripción el nombre solo no distingue casi nada. En los programas
+    investigados se excluye a propósito —allá el país es filtro duro y meterlo
+    ensuciaría el parecido—, y esa asimetría es deliberada.
+    """
+    partes = [p.name or ""]
+    if getattr(p, "subject", None):
+        partes.append(f"Ofrece: {p.subject}")
+    if getattr(p, "area", None):
+        partes.append(f"Área de estudio: {p.area}")
+    if getattr(p, "type", None):
+        partes.append(f"Nivel: {p.type}")
+    if getattr(p, "country", None):
+        partes.append(f"País: {p.country}")
+    return ". ".join(x for x in partes if x)
+
+
 def texto_de_perfil(
     intereses: Sequence[str] = (),
     rutas: Sequence[str] = (),

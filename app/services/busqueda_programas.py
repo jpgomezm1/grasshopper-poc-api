@@ -42,10 +42,30 @@ logger = logging.getLogger(__name__)
 # se pidieran justo los que se muestran, reordenar no cambiaría nada.
 CANDIDATOS = 120
 
-# Peso del refuerzo estructurado frente al parecido semántico. 0.25 significa que
-# la afinidad RIASEC puede mover a un programa, pero no rescatar a uno que no
-# tiene nada que ver con lo que la persona pidió.
-PESO_AFINIDAD = 0.25
+# Peso del refuerzo estructurado frente al parecido semántico · **calibrado
+# contra el catálogo real**, no elegido a ojo.
+#
+# Las similitudes de coseno de este catálogo se mueven entre 0.25 y 0.40, un
+# rango de apenas 0.15. La afinidad RIASEC llega a 2.0, así que el peso decide si
+# desempata o si manda:
+#
+#   0.25 → manda. "Plant Maintenance" (mantenimiento de planta industrial)
+#          adelantaba a "Animal Science" para quien preguntaba por animales, y
+#          "Emprendimiento para Interioristas" a "Diploma de Cocina".
+#   0.10 → desempata. Ambos casos salen correctos.
+#   0.00 → sobra la capa, y se nota: sin ella, "me apasiona la cocina" devuelve
+#          primero "Diseño de Cocinas", que es diseño de muebles de cocina.
+#
+# Si cambian los textos que se embeben, hay que recalibrarlo: el número depende
+# del rango de similitudes que produzcan.
+PESO_AFINIDAD = 0.10
+
+# Cuántas listas del índice IVFFlat escanea cada búsqueda. Postgres usa **1** por
+# defecto, que con ~15 listas de mil vectores deja fuera el 93% del catálogo: el
+# programa perfecto puede vivir en una lista que nadie mira. Diez es el
+# compromiso — recorre casi todo sin perder la ventaja del índice sobre el
+# escaneo secuencial.
+PROBES = 10
 
 
 @dataclass
@@ -147,6 +167,14 @@ def buscar(
     if vector_perfil:
         params["v"] = "[" + ",".join(f"{x:.6f}" for x in vector_perfil) + "]"
         params["n"] = max(CANDIDATOS, limite)
+        # `SET LOCAL` sólo dura esta transacción · no cambia la configuración del
+        # servidor ni afecta a las demás consultas. Si el parámetro no existe
+        # (SQLite en los tests, o Postgres sin pgvector) se sigue igual: la
+        # búsqueda funciona, sólo con la recuperación por defecto.
+        try:
+            db.execute(text(f"SET LOCAL ivfflat.probes = {int(PROBES)}"))
+        except Exception:
+            logger.debug("no se pudo fijar ivfflat.probes", exc_info=True)
         # `<=>` es distancia coseno en pgvector: 0 idéntico, 2 opuesto. La
         # similitud es 1 - distancia, para que "más alto es mejor" en todo el
         # resto de la función.
@@ -215,6 +243,60 @@ def areas_sugeridas(
     # Primero lo afín; entre áreas igual de afines, la que tenga más oferta.
     fuera.sort(key=lambda x: (-x["afinidad"], -x["programas"]))
     return fuera
+
+
+@dataclass
+class PerfilBusqueda:
+    """Lo que sabemos del estudiante y sirve para buscarle programas."""
+    codigos_riasec: List[str] = field(default_factory=list)
+    intereses: List[str] = field(default_factory=list)
+    rutas: List[str] = field(default_factory=list)
+    etapa_de_vida: Optional[str] = None
+    en_sus_palabras: str = ""
+
+    @property
+    def hizo_el_test(self) -> bool:
+        return bool(self.codigos_riasec)
+
+
+def perfil_del_usuario(db: Session, user) -> PerfilBusqueda:
+    """Arma el perfil de búsqueda desde lo que el estudiante ya dejó.
+
+    Todo es opcional: quien no ha hecho el test igual puede buscar, sólo pierde
+    el orden por afinidad. **Nada aquí lanza excepción** — que falte un dato del
+    perfil no puede dejar a alguien sin catálogo.
+    """
+    from app.db.models import ConsolidatedProfileCache
+    from app.services import recommendation_service
+
+    p = PerfilBusqueda()
+
+    try:
+        p.etapa_de_vida = recommendation_service.etapa_de_vida(db, user)
+    except Exception:  # pragma: no cover · defensivo
+        logger.warning("no se pudo resolver la etapa de vida", exc_info=True)
+
+    fila = (
+        db.query(ConsolidatedProfileCache)
+        .filter(ConsolidatedProfileCache.user_id == user.id)
+        .first()
+    )
+    datos = (fila.profile_data if fila else None) or {}
+    if isinstance(datos, dict):
+        # Se leen los campos sueltos y no se reconstruye el `ConsolidatedProfile`
+        # completo a propósito: ese schema exige `summary_narrative` de 200+
+        # caracteres y tres fortalezas, y un perfil a medio hacer reventaría la
+        # búsqueda entera por validación. Aquí sólo hacen falta cuatro campos.
+        p.codigos_riasec = [
+            (h or {}).get("code", "") for h in (datos.get("holland_codes") or [])
+            if isinstance(h, dict)
+        ]
+        p.codigos_riasec = [c for c in p.codigos_riasec if c]
+        p.intereses = [str(x) for x in (datos.get("interests") or [])]
+        p.rutas = [str(x) for x in (datos.get("suggested_career_paths") or [])]
+        p.en_sus_palabras = str(datos.get("summary_narrative") or "")
+
+    return p
 
 
 def paises_disponibles(db: Session, filtros: Optional[Filtros] = None) -> List[dict]:

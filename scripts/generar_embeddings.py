@@ -39,7 +39,12 @@ async def main() -> int:
         total = db.query(ProgramaInvestigado).count()
         print(f"programas: {total} · sin embedding: {pendientes}")
         if not pendientes:
-            print("nada que hacer")
+            # Sin pendientes NO se sale sin más: el índice puede faltar (la
+            # migración ya no lo crea) o haberse quedado calculado sobre menos
+            # vectores de los que hay hoy. Salir aquí dejaba la búsqueda
+            # semántica corriendo sin índice y a nadie avisado.
+            print("nada que embeber · se revisa el índice")
+            reconstruir_indice(db)
             return 0
 
         hechos = 0
@@ -74,9 +79,42 @@ async def main() -> int:
             "SELECT count(*) FROM programas_investigados WHERE embedding IS NULL"
         )).scalar()
         print(f"\nlisto · quedan sin embedding: {restantes}")
+
+        if not restantes:
+            reconstruir_indice(db)
     finally:
         db.close()
     return 0
+
+
+def reconstruir_indice(db) -> None:
+    """Crea (o rehace) el índice IVFFlat · **sólo con los vectores ya cargados**.
+
+    Va aquí y no en la migración porque IVFFlat calcula sus centroides con
+    k-means sobre las filas existentes al crear el índice. Creado sobre una tabla
+    vacía queda con clusters degenerados y, como Postgres escanea una sola lista
+    por defecto, las búsquedas devuelven resultados casi aleatorios: pasó, y
+    devolvía Skilled Trades a quien preguntaba por dibujo.
+
+    Por eso también se **rehace** cada vez que se completan embeddings: un índice
+    calculado sobre 1.000 vectores no representa bien a 15.000.
+    """
+    n = db.execute(text(
+        "SELECT count(*) FROM programas_investigados WHERE embedding IS NOT NULL"
+    )).scalar()
+    if not n:
+        return
+    # Recomendación de pgvector: lists ~ filas/1000 hasta 1M de filas, con un
+    # mínimo razonable para que haya de dónde escoger.
+    lists = max(10, min(1000, n // 1000 or 1))
+    print(f"reconstruyendo indice ivfflat sobre {n} vectores (lists={lists})…")
+    db.execute(text("DROP INDEX IF EXISTS ix_prog_inv_embedding"))
+    db.execute(text(
+        f"CREATE INDEX ix_prog_inv_embedding ON programas_investigados "
+        f"USING ivfflat (embedding vector_cosine_ops) WITH (lists = {lists})"
+    ))
+    db.commit()
+    print("indice listo")
 
 
 if __name__ == "__main__":

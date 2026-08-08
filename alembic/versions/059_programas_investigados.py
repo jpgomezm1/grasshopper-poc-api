@@ -101,14 +101,23 @@ def upgrade() -> None:
             f"ALTER COLUMN embedding TYPE vector({DIMENSIONES}) "
             f"USING embedding::vector({DIMENSIONES})"
         )
-        # Índice IVFFlat para el orden por coseno. `lists` ~ raíz de las filas
-        # esperadas (15.483 → ~124). Se crea aunque la tabla esté vacía; Postgres
-        # lo permite y se reconstruye solo al llenarla.
-        op.execute(
-            "CREATE INDEX IF NOT EXISTS ix_prog_inv_embedding "
-            "ON programas_investigados USING ivfflat (embedding vector_cosine_ops) "
-            "WITH (lists = 124)"
-        )
+        # ⚠️ El índice IVFFlat NO se crea aquí, y no es un olvido.
+        #
+        # IVFFlat agrupa los vectores en `lists` clusters calculando los
+        # centroides con k-means **sobre las filas que existen en el momento de
+        # crear el índice**. Sobre una tabla vacía no hay nada que agrupar: el
+        # índice queda con clusters degenerados y, como Postgres sólo escanea
+        # `ivfflat.probes` listas (1 por defecto), las búsquedas devuelven basura.
+        #
+        # Medido: con el índice creado antes de cargar, "me gustan los animales
+        # pero también dibujar y el diseño" devolvía 3 resultados —Community
+        # Development, Science Laboratory Technology, Skilled Trades— con
+        # similitudes de 0.11 a 0.18. Sin índice, los mismos datos devuelven
+        # Dibujo a mano alzada, Character Design y Ilustración Creativa, con
+        # 0.36 a 0.40.
+        #
+        # Lo crea `scripts/generar_embeddings.py` al terminar, cuando ya hay
+        # vectores sobre los que calcular centroides de verdad.
 
     # Una institución no repite nombre de programa · lo mismo que garantiza el
     # consolidado, ahora garantizado por la base.

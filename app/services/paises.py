@@ -61,6 +61,13 @@ CANONICO = {
     # con Chipre a secas.
     "chipre": "Chipre",
     "cyprus": "Chipre",
+    # Cyprus West University está aquí, no en la Chipre de la UE · acreditación
+    # turca YÖK/YÖDAK, sin reconocimiento automático europeo. Se distingue a
+    # propósito: venderlo como "Chipre" es lo que revienta en el consulado.
+    "republica turca del norte de chipre": "República Turca del Norte de Chipre",
+    "northern cyprus": "República Turca del Norte de Chipre",
+    "belgica": "Bélgica",
+    "belgium": "Bélgica",
     "international": VARIOS,
     "varios": VARIOS,
     VARIOS.lower(): VARIOS,

@@ -1,0 +1,1855 @@
+{
+ "correcciones": [
+  {
+   "institucion_ficha": "Montgomery International School",
+   "campo": "country",
+   "valor_actual": "Germany",
+   "valor_nuevo": "Bélgica",
+   "evidencia": "La dirección oficial es 133 rue du Duc, 1200 Brussels y el dominio del colegio es .be.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Montgomery International School",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Bruselas",
+   "evidencia": "La dirección oficial es 133 rue du Duc, 1200 Brussels.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Cyprus West University",
+   "campo": "country",
+   "valor_actual": "Chipre",
+   "valor_nuevo": "República Turca del Norte de Chipre",
+   "evidencia": "Está en Famagusta, en el norte turco de Chipre, con acreditación turca YÖK/YÖDAK y reconocimiento estatal únicamente de Turquía.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Istituto Marangoni",
+   "campo": "country",
+   "valor_actual": "USA",
+   "valor_nuevo": "Italia",
+   "evidencia": "El sitio no lista ningún campus en Estados Unidos; los campus reales son Milano (x2), Firenze, Paris, London, Dubai, Riyadh, Mumbai, Shanghai, Shenzhen y Virtual School.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Istituto Marangoni",
+   "campo": "city",
+   "valor_actual": "Miami",
+   "valor_nuevo": "Milano",
+   "evidencia": "No existe campus en Miami; la sede principal e histórica es Milano.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "High Schools International",
+   "campo": "country",
+   "valor_actual": "UK",
+   "valor_nuevo": "Irlanda",
+   "evidencia": "La organización opera desde Castleriver House, 14-15 Parliament Street, Dublin D02 FW60, y coloca en colegios de Irlanda.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "High Schools International",
+   "campo": "city",
+   "valor_actual": "Brighton",
+   "valor_nuevo": "Dublín",
+   "evidencia": "La dirección oficial es Castleriver House, 14-15 Parliament Street, Dublin D02 FW60.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Western Sydney Univeristy - City campus Only",
+   "campo": "city",
+   "valor_actual": "Perth",
+   "valor_nuevo": "Sydney",
+   "evidencia": "El campus está en Level 4, 255 Elizabeth Street, Sydney NSW 2000, a 3.300 km de Perth.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "The University of Business and International Studies UBIS S.A.",
+   "campo": "country",
+   "valor_actual": "Suiza",
+   "valor_nuevo": "USA",
+   "evidencia": "La página /locations sólo lista 'UBIS Online Global' y 'Washington D.C. Campus Headquarters'; el sitio se autodefine como US-based.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "The University of Business and International Studies UBIS S.A.",
+   "campo": "city",
+   "valor_actual": "Geneve",
+   "valor_nuevo": "Washington D.C.",
+   "evidencia": "La única sede física declarada es 1100 15th St NW, Washington D.C.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Universal Higher Education International",
+   "campo": "country",
+   "valor_actual": "UK",
+   "valor_nuevo": "Australia",
+   "evidencia": "UHE es un proveedor australiano de educación superior con sede en Melbourne (CRICOS 03848E · TEQSA PRV14288).",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Universal Higher Education International",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Melbourne",
+   "evidencia": "UHE opera desde Melbourne (CRICOS 03848E · TEQSA PRV14288).",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Newdeal Institut",
+   "campo": "city",
+   "valor_actual": "Budeos",
+   "valor_nuevo": "Burdeos",
+   "evidencia": "La escuela está en Bordeaux (Burdeos), Francia; 'Budeos' es un error de captura.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "SIR WILFRID LAURIER School Board",
+   "campo": "city",
+   "valor_actual": "Brantford",
+   "valor_nuevo": "Laval, Quebec",
+   "evidencia": "Es una junta escolar de Quebec con centros en Laval, Repentigny, Arundel, Grenville y Saint-Lin-Laurentides; Brantford está en Ontario.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Vancouver Island University VIU",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Nanaimo",
+   "evidencia": "La universidad está en 900 Fifth Street, Nanaimo, isla de Vancouver, no en la ciudad de Vancouver.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "LCI Language Consultants Intenational",
+   "campo": "city",
+   "valor_actual": "Colorado",
+   "valor_nuevo": "Houston, Texas",
+   "evidencia": "Todas las páginas del sitio se identifican como 'LCI Houston'.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "MLC College of Business Technology and Healthcare",
+   "campo": "city",
+   "valor_actual": "Montreal",
+   "valor_nuevo": "Mississauga, Ontario",
+   "evidencia": "La dirección oficial es Unit 4, 5865 McLaughlin Road, Mississauga, Ontario.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Canadian ESL Centre",
+   "campo": "city",
+   "valor_actual": "Londres",
+   "valor_nuevo": "London, Ontario",
+   "evidencia": "La dirección oficial es 521 Village Green Ave, London, Ontario, Canadá (no London, Reino Unido).",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Delta School District 37",
+   "campo": "city",
+   "valor_actual": "Vancouver",
+   "valor_nuevo": "Delta, BC",
+   "evidencia": "La dirección oficial es 4585 Harvest Drive, Delta, British Columbia.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "CodeCore College",
+   "campo": "city",
+   "valor_actual": "New Westminster",
+   "valor_nuevo": "Prince George, BC",
+   "evidencia": "El college se reubicó y relanza operación en Prince George, British Columbia.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Australian Sovereign College",
+   "campo": "city",
+   "valor_actual": "Hobart",
+   "valor_nuevo": "Melbourne",
+   "evidencia": "El sitio lista campus en Bourke St, Abbotsford y Broadmeadows (Melbourne) y ninguno en Hobart.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Hartwick College",
+   "campo": "city",
+   "valor_actual": "New York",
+   "valor_nuevo": "Oneonta, NY",
+   "evidencia": "El campus está en Oneonta, NY, a unas 4 horas de la ciudad de Nueva York.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "OntarioTech University",
+   "campo": "city",
+   "valor_actual": "Ontario",
+   "valor_nuevo": "Oshawa",
+   "evidencia": "Ontario es la provincia; el campus está en Oshawa (North Oshawa y Downtown Oshawa), a unos 60 km de Toronto.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Douglas College",
+   "campo": "city",
+   "valor_actual": "Vancouver",
+   "valor_nuevo": "New Westminster y Coquitlam",
+   "evidencia": "Los campus son New Westminster y Coquitlam, dentro de Metro Vancouver.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Confederation College of Applied Arts and Tech",
+   "campo": "city",
+   "valor_actual": "Ontario",
+   "valor_nuevo": "Thunder Bay",
+   "evidencia": "La sede es Thunder Bay, con campus regionales en Dryden, Geraldton, Red Lake, Sioux Lookout, Kenora y Marathon.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "BowValley College",
+   "campo": "city",
+   "valor_actual": "Alberta",
+   "valor_nuevo": "Calgary",
+   "evidencia": "Alberta es la provincia; el college está en Calgary.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Red River College",
+   "campo": "city",
+   "valor_actual": "Manitoba",
+   "valor_nuevo": "Winnipeg, Manitoba",
+   "evidencia": "Manitoba es la provincia; el politécnico está en Winnipeg.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Saskatchewan Polytechnic",
+   "campo": "city",
+   "valor_actual": "Saskatoon",
+   "valor_nuevo": "Moose Jaw, Prince Albert, Regina, Saskatoon",
+   "evidencia": "Tiene 4 campus (Moose Jaw, Prince Albert, Regina y Saskatoon) y muchos programas se dictan sólo en uno distinto a Saskatoon.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "English Language Centre ELC",
+   "campo": "city",
+   "valor_actual": "California",
+   "valor_nuevo": "Los Angeles, Santa Barbara, Boston",
+   "evidencia": "Los tres campus son Los Angeles (UCLA), Santa Barbara (UCSB) y Boston, Massachusetts, este último fuera de California.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Queensland International Business Academy (QIBA)",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Sydney",
+   "evidencia": "Pese al nombre 'Queensland', la sede opera en Sydney, New South Wales.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Langports",
+   "campo": "city",
+   "valor_actual": "Brisbane, Sydney, Gold coast",
+   "valor_nuevo": "Brisbane, Gold Coast",
+   "evidencia": "El sitio sólo lista campus en Brisbane y Gold Coast; el campus de Sydney ya no existe.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "ALG - Australian Learning Group",
+   "campo": "city",
+   "valor_actual": "Melbourne, Sydney, Perth, Brisbane",
+   "valor_nuevo": "Adelaide, Brisbane, Melbourne, Sydney",
+   "evidencia": "El sitio lista Adelaide, Brisbane, Melbourne y Sydney; no lista Perth.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Australian Federation College",
+   "campo": "city",
+   "valor_actual": "Tasmania",
+   "valor_nuevo": "Launceston (TAS) y Melbourne",
+   "evidencia": "Opera en Launceston (Tasmania) y Melbourne, y el curso ELICOS se dicta en Melbourne, no en Tasmania.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Nortwest College",
+   "campo": "city",
+   "valor_actual": "Adelaide",
+   "valor_nuevo": "Sydney, Melbourne, Adelaide",
+   "evidencia": "Tiene 2 campus en Sydney (George St y York St) además de Melbourne y Adelaide; Adelaide no es la sede principal.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Global College Australasia",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "East Perth, WA",
+   "evidencia": "Opera 2 campus en East Perth, Western Australia.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "France Langue",
+   "campo": "city",
+   "valor_actual": "Paris, Nice, Lyon, Martinique, Bordeaux, Biarritz",
+   "valor_nuevo": "Paris, Nice, Bordeaux, Biarritz, Lyon",
+   "evidencia": "Las sedes reales son Paris, Nice, Bordeaux, Biarritz y Lyon; no hay sede en Martinique.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "LSI",
+   "campo": "city",
+   "valor_actual": "UK, Canada, USA, Australia, NZ",
+   "valor_nuevo": "UK, Canada, USA, Australia, NZ, Francia, Suiza",
+   "evidencia": "Las 14 sedes incluyen París (Francia) y Zúrich (Suiza), ausentes en la ficha.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Universidad Europea de Madrid o Valencia",
+   "campo": "city",
+   "valor_actual": "Madrid, Valencia, Canarias",
+   "valor_nuevo": "Madrid, Valencia, Canarias, Málaga, Alicante",
+   "evidencia": "La universidad tiene 5 sedes: Madrid, Valencia, Canarias, Málaga y Alicante.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Business & Hotel Management School",
+   "campo": "city",
+   "valor_actual": "Lucerna",
+   "valor_nuevo": "Lucerna, Zúrich",
+   "evidencia": "BHMS abrió campus en Zúrich desde agosto 2025 y varios MSc se dictan sólo allí.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "SRH Berlin University of Applied Sciences",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Berlín, Heidelberg, Leipzig, Dresden, Múnich, Fürth, Hamburgo",
+   "evidencia": "De los 86 programas en inglés sólo ~40 son de Berlín; el resto son Heidelberg, Leipzig, Dresden, Múnich, Fürth y Hamburgo.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Atlas Language School",
+   "campo": "city",
+   "valor_actual": "Dublin",
+   "valor_nuevo": "Dublín, Malta, Liverpool, Chichester, Clare",
+   "evidencia": "Las sedes son Dublín, Malta, Liverpool, Chichester y Clare, y varios cursos existen sólo en algunas.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "ELSIS",
+   "campo": "city",
+   "valor_actual": "Melbourne, Sydney",
+   "valor_nuevo": "Sydney, Melbourne, Brisbane, Adelaide",
+   "evidencia": "El sitio lista 4 campus activos: Sydney, Melbourne, Brisbane y Adelaide.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Australian Pacific College (APC)",
+   "campo": "city",
+   "valor_actual": "Melbourne, Sydney",
+   "valor_nuevo": "Sydney, Melbourne, Brisbane, Gold Coast, Adelaide",
+   "evidencia": "El sitio lista 5 campus: Sydney, Melbourne, Brisbane, Gold Coast y Adelaide.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Linguaviva",
+   "campo": "city",
+   "valor_actual": "Milan, Florencia",
+   "valor_nuevo": "Florencia, Milán, Lignano Sabbiadoro",
+   "evidencia": "Son 3 sedes: Florencia, Milán y Lignano Sabbiadoro, donde corre el programa junior de verano.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Murdoch University (Murdoch)",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Murdoch, Perth",
+   "evidencia": "'Murdoch' es el suburbio del campus principal, en Perth, Western Australia.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Swinburne University of Technology (SUT)",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Melbourne",
+   "evidencia": "Los campus australianos son Hawthorn, Croydon y Wantirna, todos en Melbourne.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "The Australian Institute of Music (AIM)",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Sydney y Melbourne",
+   "evidencia": "AIM opera campus en Sydney y Melbourne.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "AIT",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Sydney y Melbourne",
+   "evidencia": "La Academy of Interactive Technology opera en Sydney y Melbourne.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "UQ College",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Brisbane",
+   "evidencia": "UQ College opera en Brisbane, dentro de The University of Queensland (CRICOS 04039H · RTO 32454).",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Melbourne Institute of Technology (MIT)",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Melbourne y Sydney",
+   "evidencia": "MIT opera campus en Melbourne y Sydney.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "ACADEMIA Australia",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Melbourne y Brisbane",
+   "evidencia": "Academia21 opera campus en Melbourne y Brisbane.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Strathfield College",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Sydney (Surry Hills) y Melbourne",
+   "evidencia": "Los 2 campus son Surry Hills (Sydney) y Lonsdale St (Melbourne), pese al nombre 'Strathfield'.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Academique",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Southport, Gold Coast",
+   "evidencia": "La sede está en Southport, Gold Coast.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Sydney Institute of Interpreting & Translating (SIIT)",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Sydney, Brisbane y Melbourne",
+   "evidencia": "SIIT opera campus en Sydney, Brisbane y Melbourne.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Mastery Institute Australia (MIA)",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Brisbane",
+   "evidencia": "La dirección oficial es Level 5, 119 Charlotte St, Brisbane QLD.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Saint Stephen's College",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Upper Coomera, Gold Coast",
+   "evidencia": "El colegio (CRICOS 01938G) está en Upper Coomera, Gold Coast.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "ICHM",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Adelaide",
+   "evidencia": "El International College of Hotel Management opera en Adelaide.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "TrEd College",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Sydney, Adelaide, Canberra",
+   "evidencia": "Los campus reales son Sydney (NSW), Adelaide (SA) y Canberra (ACT).",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "ECA College",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Sydney, Melbourne, Brisbane, Adelaide",
+   "evidencia": "ECA College opera campus en Sydney, Melbourne, Brisbane y Adelaide.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Navitas English",
+   "campo": "city",
+   "valor_actual": null,
+   "valor_nuevo": "Sydney y Perth",
+   "evidencia": "Navitas English opera en Sydney (Hyde Park) y Perth.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "WILLIAM ANGLISS",
+   "campo": "city",
+   "valor_actual": "Melbourne",
+   "valor_nuevo": "Melbourne y Sydney",
+   "evidencia": "El instituto opera en Melbourne (555 La Trobe St) y también en Sydney.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Ahts Training & Education",
+   "campo": "city",
+   "valor_actual": "Adelaide",
+   "valor_nuevo": "Adelaide y Sydney",
+   "evidencia": "Tras el rebrand a Alliance College opera en Adelaide y Sydney.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Asia Pacific International College (APIC)",
+   "campo": "city",
+   "valor_actual": "Melbourne",
+   "valor_nuevo": "Sydney, Melbourne y Brisbane",
+   "evidencia": "El sitio lista 3 campus: Sydney, Melbourne y Brisbane.",
+   "categoria": "pais_ciudad"
+  },
+  {
+   "institucion_ficha": "Victoria University of Wellington",
+   "campo": "name",
+   "valor_actual": "Victoria University of Wellington",
+   "valor_nuevo": "Te Herenga Waka - Victoria University of Wellington",
+   "evidencia": "El nombre oficial completo en el sitio lleva el prefijo maorí 'Te Herenga Waka'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Humber College",
+   "campo": "name",
+   "valor_actual": "Humber College",
+   "valor_nuevo": "Humber Polytechnic",
+   "evidencia": "Todo el dominio usa hoy la marca 'Humber Polytechnic'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Red River College",
+   "campo": "name",
+   "valor_actual": "Red River College",
+   "valor_nuevo": "Red River College Polytechnic",
+   "evidencia": "El nombre institucional completo es 'Red River College Polytechnic'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "OntarioTech University",
+   "campo": "name",
+   "valor_actual": "OntarioTech University",
+   "valor_nuevo": "Ontario Tech University",
+   "evidencia": "El nombre real lleva espacio: 'Ontario Tech University'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Westminster University",
+   "campo": "name",
+   "valor_actual": "Westminster University",
+   "valor_nuevo": "University of Westminster",
+   "evidencia": "El nombre real es 'University of Westminster'; 'Westminster University' colisiona con Westminster International University in Tashkent.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Photography Studies College",
+   "campo": "name",
+   "valor_actual": "Photography Studies College",
+   "valor_nuevo": "PSC Creative College",
+   "evidencia": "Rebrand confirmado: hoy es 'PSC Creative College' (TEQSA 12200 · RTO 0111 · CRICOS 00257G), con alcance ampliado más allá de fotografía.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "SAE Creative Media Institute",
+   "campo": "name",
+   "valor_actual": "SAE Creative Media Institute",
+   "valor_nuevo": "SAE University College",
+   "evidencia": "SAE Institute Pty Ltd (ABN 21 093 057 973) opera hoy como 'SAE University College'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Australian College of Applied Professions (ACAP)",
+   "campo": "name",
+   "valor_actual": "Australian College of Applied Professions (ACAP)",
+   "valor_nuevo": "ACAP University College",
+   "evidencia": "Rebrand confirmado: hoy es 'ACAP University College' (TEQSA PRV12009).",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Australian Wings Academy",
+   "campo": "name",
+   "valor_actual": "Australian Wings Academy",
+   "valor_nuevo": "Flight One",
+   "evidencia": "Redirect 301 permanente y rebrand: la marca operativa es Flight One (Flight One School of Aviation y Flight One School of Engineering).",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "CSSS - Castelldefels School of Social Sciences",
+   "campo": "name",
+   "valor_actual": "CSSS - Castelldefels School of Social Sciences",
+   "valor_nuevo": "C3S Business School",
+   "evidencia": "Opera comercialmente como 'C3S Business School' y ya no está en Castelldefels sino en el centro de Barcelona.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Menzies Institute of Technology",
+   "campo": "name",
+   "valor_actual": "Menzies Institute of Technology",
+   "valor_nuevo": "Menzies College of Nursing & Health",
+   "evidencia": "Rebrand confirmado en logo, footer y títulos: 'Menzies College of Nursing & Health Pty Ltd'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "France Langue",
+   "campo": "name",
+   "valor_actual": "France Langue",
+   "valor_nuevo": "Les ateliers FL",
+   "evidencia": "Rebrand: la marca actual es 'Les ateliers FL'; 'France Langue' aparece una sola vez en toda la home.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Cornestone",
+   "campo": "name",
+   "valor_actual": "Cornestone",
+   "valor_nuevo": "Cornerstone International Community College of Canada (CICCC)",
+   "evidencia": "El nombre de la ficha está mal escrito y truncado; el nombre real es 'Cornerstone International Community College of Canada'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "St Lawrence's College",
+   "campo": "name",
+   "valor_actual": "St Lawrence's College",
+   "valor_nuevo": "St Laurence's College",
+   "evidencia": "El nombre real es 'St Laurence's College' (Brisbane), no 'St Lawrence's'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Exportise",
+   "campo": "name",
+   "valor_actual": "Exportise",
+   "valor_nuevo": "Exsportise",
+   "evidencia": "Error de tipeo en la ficha: la marca es 'Exsportise'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "SPD - Scoula Politecnica di Design",
+   "campo": "name",
+   "valor_actual": "SPD - Scoula Politecnica di Design",
+   "valor_nuevo": "SPD - Scuola Politecnica di Design",
+   "evidencia": "Error de tipeo en la ficha: es 'Scuola', no 'Scoula'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "ICMP ( The institute)",
+   "campo": "name",
+   "valor_actual": "ICMP ( The institute)",
+   "valor_nuevo": "The Institute of Contemporary Music Performance (ICMP)",
+   "evidencia": "El nombre real es 'The Institute of Contemporary Music Performance' (ICMP Management Ltd, reg. 04780788).",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Skills Australia",
+   "campo": "name",
+   "valor_actual": "Skills Australia",
+   "valor_nuevo": "Skills Australia Institute",
+   "evidencia": "El nombre real es 'Skills Australia Institute' (SAI · RTO 52010 · CRICOS 03548F); la ficha lo trunca.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Actilingua",
+   "campo": "name",
+   "valor_actual": "Actilingua",
+   "valor_nuevo": "ActiLingua Academy Vienna",
+   "evidencia": "El nombre completo de la escuela es 'ActiLingua Academy Vienna'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Mckenzie College",
+   "campo": "name",
+   "valor_actual": "Mckenzie College",
+   "valor_nuevo": "McKenzie College of Design",
+   "evidencia": "El nombre real es 'McKenzie College of Design' (escuela de diseño privada en Moncton, NB).",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "ICHM",
+   "campo": "name",
+   "valor_actual": "ICHM",
+   "valor_nuevo": "International College of Hotel Management (ICHM)",
+   "evidencia": "La ficha guarda sólo la sigla; el nombre real es 'International College of Hotel Management' (ICHM Pty Ltd, ABN 64 080 984 738).",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "IBU",
+   "campo": "name",
+   "valor_actual": "IBU",
+   "valor_nuevo": "International Business University (IBU)",
+   "evidencia": "La ficha guarda sólo la sigla, ambigua frente a International Burch University e International Business School.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Kings College",
+   "campo": "name",
+   "valor_actual": "Kings College",
+   "valor_nuevo": "Kings Education",
+   "evidencia": "La marca es 'Kings Education' / 'Kings Colleges' en plural; 'Kings College' en singular colisiona con King's College London.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "CCEL Christchurch",
+   "campo": "name",
+   "valor_actual": "CCEL Christchurch",
+   "valor_nuevo": "Christchurch College of English (CCEL)",
+   "evidencia": "El nombre real es 'Christchurch College of English'; la ficha usa sólo la sigla.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "MEGA",
+   "campo": "name",
+   "valor_actual": "MEGA",
+   "valor_nuevo": "MEGA Education",
+   "evidencia": "El nombre real es 'MEGA Education' (Macquarie Education Group Australia · RTO 91305 · CRICOS 02657J).",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "The Quality Training and Hospitality College",
+   "campo": "name",
+   "valor_actual": "The Quality Training and Hospitality College",
+   "valor_nuevo": "Quality College of Australia",
+   "evidencia": "El nombre de la ficha es la razón social; el nombre comercial con el que opera es 'Quality College of Australia' (RTO 1036 · CRICOS 02880B).",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "NIT - National Institute of Technology Pty. Ltd",
+   "campo": "name",
+   "valor_actual": "NIT - National Institute of Technology Pty. Ltd",
+   "valor_nuevo": "National Institute of Technology",
+   "evidencia": "El sitio se presenta como 'National Institute of Technology' (RTO 41143 · CRICOS 03420M); 'Pty Ltd' es razón social, no marca.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "SRH Berlin University of Applied Sciences",
+   "campo": "name",
+   "valor_actual": "SRH Berlin University of Applied Sciences",
+   "valor_nuevo": "SRH University",
+   "evidencia": "Rebrand confirmado: hoy es 'SRH University' (srh-university.de) y la marca 'SRH Berlin University of Applied Sciences' ya no existe.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "Brunel University London Pathwat college",
+   "campo": "name",
+   "valor_actual": "Brunel University London Pathwat college",
+   "valor_nuevo": "Brunel University of London Pathway College",
+   "evidencia": "El college fue renombrado: hoy es 'Brunel University of London Pathway College' (antes London Brunel International College, LBIC).",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "UNSW Global",
+   "campo": "name",
+   "valor_actual": "UNSW Global",
+   "valor_nuevo": "UNSW College",
+   "evidencia": "UNSW Global Pty Limited (ABN 62 086 418 582) opera hoy como 'UNSW College'.",
+   "categoria": "nombre"
+  },
+  {
+   "institucion_ficha": "HOLMESGLEN",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Idiomas | Todos los programas",
+   "valor_nuevo": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "evidencia": "El único inglés del catálogo es el AMEP, restringido a migrantes y refugiados elegibles: no hay ELICOS vendible a una familia colombiana.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "University Canada West",
+   "campo": "subject",
+   "valor_actual": "Pregrado & Postgrado | Idiomas | Foundation & Pre master | Todos los programas",
+   "valor_nuevo": "Pregrado & Postgrado | Todos los programas",
+   "evidencia": "El sitio no tiene ESL/EAP propio ni foundation; lo único preparatorio es el University Access Program.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "San Francisco State University",
+   "campo": "subject",
+   "valor_actual": "Foundation & Pre master | Solo pathway",
+   "valor_nuevo": "Solo pathway",
+   "evidencia": "No existe Foundation ni Pre-master: el único pathway con Oxford International es un International Year One de pregrado.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Leeds Beckett University",
+   "campo": "subject",
+   "valor_actual": "Foundation & Pre master",
+   "valor_nuevo": "Foundation",
+   "evidencia": "El sitio del International Study Centre sólo ofrece Foundation, International Year One e inglés; no hay Pre-Master.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Texila College",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Idiomas",
+   "valor_nuevo": "",
+   "evidencia": "El sitio no tiene ni un certificado, ni un diploma, ni un curso de inglés: sólo un Bachelor of Business.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "HAWTHORN",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Idiomas",
+   "valor_nuevo": "Idiomas",
+   "evidencia": "Hawthorn Melbourne es exclusivamente una escuela de idiomas: no ofrece ni un Certificate ni un Diploma.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "IEM Digital Business School",
+   "campo": "subject",
+   "valor_actual": "Pregrado & Postgrado | Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Postgrado",
+   "evidencia": "No existe ningún grado ni FP: el catálogo son 16 másteres propios y 16 cursos cortos.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Unity College Australia",
+   "campo": "subject",
+   "valor_actual": "Idiomas | Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "evidencia": "No hay ningún curso de inglés en el catálogo; la oferta real es teología y un diploma de liderazgo.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Deakin College",
+   "campo": "subject",
+   "valor_actual": "Foundation & Pre master | Vocacionales (Cert, Dip, Adv Dip) | Idiomas | Foundation, Year 1, Pre master",
+   "valor_nuevo": "Foundation & Pre master | Vocacionales (Cert, Dip, Adv Dip) | Foundation, Year 1, Pre master",
+   "evidencia": "No ofrece ningún curso de inglés propio: el componente de inglés lo entrega el instituto de la universidad dentro de otro programa.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Arbutus College",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Idiomas | Todos los programas",
+   "valor_nuevo": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "evidencia": "No hay oferta de ESL en el program finder del college.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Ascenda School of Management",
+   "campo": "subject",
+   "valor_actual": "Idiomas | Todos los programas",
+   "valor_nuevo": "Todos los programas",
+   "evidencia": "No tiene oferta de idiomas propia: el catálogo es 100% de grado.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Taylors College",
+   "campo": "subject",
+   "valor_actual": "Idiomas, Foundation, Preparation Program",
+   "valor_nuevo": "Foundation, Preparation Program",
+   "evidencia": "En este dominio no hay oferta de idiomas ni ELICOS: sólo el University of Sydney Foundation Program y el HAPP.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Galway Business School",
+   "campo": "subject",
+   "valor_actual": "Idiomas | Vocacionales (Cert, Dip, Adv Dip) | Pregrado & Postgrado | Todos los programas",
+   "valor_nuevo": "Vocacionales (Cert, Dip, Adv Dip) | Pregrado | Todos los programas",
+   "evidencia": "Los idiomas los dicta otra entidad (Galway Cultural Institute, dominio aparte) y no hay postgrado: el techo del catálogo es NFQ 8.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Kaplan Business School - KBS",
+   "campo": "subject",
+   "valor_actual": "Idiomas | Vocacionales (Cert, Dip, Adv Dip) | Pregrado & Postgrado | Todos los programas",
+   "valor_nuevo": "Pregrado & Postgrado | Todos los programas",
+   "evidencia": "Lo único de idiomas es English for Academic Purposes (pathway académico, no ELICOS general) y los dos 'Diploma' son de educación superior, no VET.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Universal Higher Education UHE",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Todos los programas",
+   "evidencia": "UHE no tiene ni una cualificación VET: es proveedor de educación superior, todo Bachelor/Master/Graduate.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Holmes Institute",
+   "campo": "subject",
+   "valor_actual": "Pregrado & Postgrado | Vocacionales (Cert, Dip, Adv Dip) | Cursos Vocacionales",
+   "valor_nuevo": "Pregrado & Postgrado",
+   "evidencia": "El catálogo es 100% higher education (7 bachelors + 6 masters); no hay ni una cualificación VET.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "NABA",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Todos los programas",
+   "evidencia": "NABA sólo otorga títulos AFAM reconocidos por el MUR italiano; no existe ninguna cualificación vocacional.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "TAI - Centro universitario de Artes",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Todos los programas",
+   "evidencia": "Son categorías del sistema australiano aplicadas por error a un centro universitario español adscrito a la URJC que otorga grado oficial y máster universitario.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "ACAP",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Todos los programas",
+   "evidencia": "ACAP University College es higher education TEQSA: 8 Bachelors, 6 Masters y 1 MBA.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Sydney institute of business and techonology (sibt)",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "",
+   "evidencia": "No existe ningún Certificate III/IV, ningún Advanced Diploma ni grado propio: son 6 diplomas pathway + 1 Foundation hacia el 2º año de Western Sydney University.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Salford College",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Vocacionales (Cert, Dip, Adv Dip)",
+   "evidencia": "Salford College es VET puro: no otorga ningún Bachelor.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Curtin College",
+   "campo": "subject",
+   "valor_actual": "Foundation & Pre master | Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Foundation & Pre master | Vocacionales (Cert, Dip, Adv Dip)",
+   "evidencia": "Lo vendible son 7 credenciales pathway hacia Curtin University; el college no otorga pregrado propio.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "St George International College",
+   "campo": "subject",
+   "valor_actual": "Todos los programas",
+   "valor_nuevo": "Idiomas",
+   "evidencia": "SGIC es una escuela de idiomas (Toronto y Vancouver): no hay diplomas ni carreras.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Language ON",
+   "campo": "subject",
+   "valor_actual": "Idiomas | Todos los programas",
+   "valor_nuevo": "Idiomas",
+   "evidencia": "La escuela sólo da inglés.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "English Language Centre ELC",
+   "campo": "subject",
+   "valor_actual": "Todos los programas",
+   "valor_nuevo": "Idiomas",
+   "evidencia": "El catálogo es sólo inglés: no hay ni un grado ni un vocacional.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Trebas",
+   "campo": "subject",
+   "valor_actual": "Todos los programas",
+   "valor_nuevo": "",
+   "evidencia": "Los 10 programas son ACS (Attestation of College Studies) de Quebec: no hay grados ni idiomas.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "ACE Sports Academy",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Vocacionales (Cert, Dip, Adv Dip)",
+   "evidencia": "La institución entera son 4 certificados de coaching deportivo (RTO 31414 · CRICOS 03005D).",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "International House Belfast",
+   "campo": "subject",
+   "valor_actual": "Todos los programas",
+   "valor_nuevo": "Idiomas",
+   "evidencia": "La oferta es inglés general/intensivo, OET, clases 1-a-1, un CELTA y un campamento junior.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "University of Hartford",
+   "campo": "subject",
+   "valor_actual": "Todos los programas",
+   "valor_nuevo": "",
+   "evidencia": "Desde pathways.hartford.edu sólo se venden 2 pathways + 1 admisión directa + inglés; el catálogo de grados vive en hartford.edu, fuera del catálogo.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "RCIIS",
+   "campo": "subject",
+   "valor_actual": "Vocacionales (Cert, Dip, Adv Dip)",
+   "valor_nuevo": "",
+   "evidencia": "RCIIS es una escuela de idiomas pura (inglés y francés): cero diplomas vocacionales.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "ILAC",
+   "campo": "subject",
+   "valor_actual": "Idiomas | Pregrado & Postgrado",
+   "valor_nuevo": "Idiomas",
+   "evidencia": "ILAC no otorga títulos propios: el sitio declara que los estudiantes transicionan al programa de una escuela partner.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Western Sydney Univeristy - City campus Only",
+   "campo": "subject",
+   "valor_actual": "Foundation & Pre master | Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "valor_nuevo": "Vocacionales (Cert, Dip, Adv Dip) | Todos los programas",
+   "evidencia": "Los pathways del campus no los dicta Western Sydney sino SIBT, otra entidad con dominio propio.",
+   "categoria": "sobreventa"
+  },
+  {
+   "institucion_ficha": "Swinburne University of Technology (Sydney)",
+   "campo": "active",
+   "valor_actual": true,
+   "valor_nuevo": false,
+   "evidencia": "El sitio lista tres campus en Melbourne (Hawthorn, Croydon, Wantirna) y uno en Sarawak, Malasia: el campus de Sydney ya no existe.",
+   "categoria": "no_existe"
+  },
+  {
+   "institucion_ficha": "UniApply",
+   "campo": "active",
+   "valor_actual": true,
+   "valor_nuevo": false,
+   "evidencia": "Es un marketplace/directorio de colegios en India más un producto B2B: no imparte ni un solo programa propio.",
+   "categoria": "no_existe"
+  },
+  {
+   "institucion_ficha": "Casa Toronto & Casa Vancouver",
+   "campo": "active",
+   "valor_actual": true,
+   "valor_nuevo": false,
+   "evidencia": "Es un proveedor de alojamiento estudiantil (residencias en Toronto/Vancouver y homestay), no una institución educativa.",
+   "categoria": "no_existe"
+  }
+ ],
+ "sin_ficha": [
+  {
+   "institucion_informe": "AICOL",
+   "correccion_omitida": "city → Sydney (Australia)",
+   "motivo": "La ficha 'AICOL' no existe en la tabla programs."
+  },
+  {
+   "institucion_informe": "Atlantic Canada Language Academy (ACLA)",
+   "correccion_omitida": "city → Halifax",
+   "motivo": "La ficha 'ACLA' no existe en la tabla programs."
+  },
+  {
+   "institucion_informe": "Speos International Photography School",
+   "correccion_omitida": "name: 'Paris Photographic Institute' → 'Speos International Photography School'",
+   "motivo": "La ficha 'Speos, Paris Photographic Institute' no existe en la tabla programs."
+  },
+  {
+   "institucion_informe": "brishair",
+   "correccion_omitida": "subject: quitar 'Beauty' (sólo Cert III en Hairdressing y Barbering)",
+   "motivo": "No hay ninguna ficha llamada 'brishair' en programs; la única candidata ('Academies Australasia Hair & Beauty') tiene subject vacío, así que no hay sobreventa que quitar."
+  },
+  {
+   "institucion_informe": "Vocational Training Institute",
+   "correccion_omitida": "city → (ciudad no declarada)",
+   "motivo": "La ficha sí existe pero el informe no aporta una ciudad verificada con la cual llenarla."
+  },
+  {
+   "institucion_informe": "Salford College (tercer campus en Perth)",
+   "correccion_omitida": "city: quitar Perth",
+   "motivo": "La ficha en programs ya dice 'Adelaide, Sydney'; el campus de Perth que denuncia el informe no está en la fila actual, no hay nada que corregir."
+  }
+ ],
+ "requiere_autorizacion": [
+  {
+   "institucion_ficha": "Murdoch University (Murdoch)",
+   "podria_habilitarse": "puede_vender vacío · universidad completa con ~200 cursos (bachelor, maestría, doctorado)"
+  },
+  {
+   "institucion_ficha": "WILLIAM ANGLISS",
+   "podria_habilitarse": "puede_vender sólo vocacionales · 83 programas, único con grados y maestrías propias en hotelería y gastronomía"
+  },
+  {
+   "institucion_ficha": "William Angliss Institute of TAFE",
+   "podria_habilitarse": "puede_vender vacío · mismo catálogo de 83 programas"
+  },
+  {
+   "institucion_ficha": "St. Lawrence College - SLC",
+   "podria_habilitarse": "sólo 'Vocacionales' · además otorga 7 degrees (BBA, Honours BScN, puente RPN-to-BScN) y 19 Graduate Certificates"
+  },
+  {
+   "institucion_ficha": "AIT",
+   "podria_habilitarse": "sólo vocacionales · 5 de sus 10 programas son Bachelor"
+  },
+  {
+   "institucion_ficha": "Universidad Camilo Jose Cela",
+   "podria_habilitarse": "sólo 'Portafolio Posgrados' · además 49 grados + 12 FP"
+  },
+  {
+   "institucion_ficha": "Elisava",
+   "podria_habilitarse": "sólo postgrado/study abroad/summer · además 3 grados oficiales (Diseño e Innovación, Ingeniería de Diseño Industrial, Design for Food Systems)"
+  },
+  {
+   "institucion_ficha": "EAE Business School",
+   "podria_habilitarse": "'Sólo Postgrado' · también 2 grados de 240 ECTS (ADE y Marketing y Comunicación Digital) en ambos campus"
+  },
+  {
+   "institucion_ficha": "Edinburgh Napier University",
+   "podria_habilitarse": "'Foundation & Pre master / Solo pathway' · catálogo real de 200 programas"
+  },
+  {
+   "institucion_ficha": "Melbourne Institute of Technology (MIT)",
+   "podria_habilitarse": "vacío · 28 programas acreditados con autoacreditación TEQSA"
+  },
+  {
+   "institucion_ficha": "IMC - Australian National Institute of Management and Commerce",
+   "podria_habilitarse": "vacío · 38 programas (11 pregrado incl. Bachelor of Laws + 27 posgrado)"
+  },
+  {
+   "institucion_ficha": "Kaplan Business School Pty Ltd",
+   "podria_habilitarse": "vacío · otorga hasta Master y MBA (abrir Diploma, Bachelor, Grad Cert, Grad Dip, Master, MBA)"
+  },
+  {
+   "institucion_ficha": "Kent Institute Australia",
+   "podria_habilitarse": "vacío · 3 Bachelors + 1 Master + 8 VET (Higher Education Institute y RTO)"
+  },
+  {
+   "institucion_ficha": "Chisholm Institute",
+   "podria_habilitarse": "vacío · el TAFE llega a bachelor"
+  },
+  {
+   "institucion_ficha": "APAC - Australian Performing Arts Conservatory",
+   "podria_habilitarse": "vacío · educación superior TEQSA con 4 maestrías y 3 bachelors acelerados de 2 años"
+  },
+  {
+   "institucion_ficha": "The Australian Institute of Music (AIM)",
+   "podria_habilitarse": "'curso_corto' · otorga hasta Master"
+  },
+  {
+   "institucion_ficha": "Business & Hotel Management School",
+   "podria_habilitarse": "sólo 'Vocacionales' · otorga bachelor, master y MBA"
+  },
+  {
+   "institucion_ficha": "Queensland Academy of Technology (QAT)",
+   "podria_habilitarse": "vacío · 25 programas"
+  },
+  {
+   "institucion_ficha": "Queensland International Business Academy (QIBA)",
+   "podria_habilitarse": "vacío · 13 programas"
+  },
+  {
+   "institucion_ficha": "Universal English College",
+   "podria_habilitarse": "category null y puede_vender vacío · instituto de idiomas con CRICOS de curso en 5 de sus 9 productos"
+  },
+  {
+   "institucion_ficha": "Shafston International College",
+   "podria_habilitarse": "vacío · 23 programas"
+  },
+  {
+   "institucion_ficha": "La Trobe College Australia",
+   "podria_habilitarse": "vacío · 20 programas vendibles"
+  },
+  {
+   "institucion_ficha": "ICHM",
+   "podria_habilitarse": "vacío · vende todo su catálogo, incluido Study Abroad con 3 CRICOS propios"
+  },
+  {
+   "institucion_ficha": "Global College Australasia",
+   "podria_habilitarse": "vacío · Vocacionales (Cert III a Adv Diploma) + Graduate Diploma + ELICOS · 22 cursos"
+  },
+  {
+   "institucion_ficha": "Sydney Institute of Interpreting & Translating (SIIT)",
+   "podria_habilitarse": "category null y vacío · RTO vocacional claro: 'Vocacionales' + 'Idiomas'"
+  },
+  {
+   "institucion_ficha": "TrEd College",
+   "podria_habilitarse": "vacío · 19 cursos: debería cubrir Idiomas + Vocacionales"
+  },
+  {
+   "institucion_ficha": "EQUALS International",
+   "podria_habilitarse": "category null y vacío · Vocacionales (Cert III a Adv Diploma) + Bachelor y Master"
+  },
+  {
+   "institucion_ficha": "Mastery Institute Australia (MIA)",
+   "podria_habilitarse": "category y puede_vender vacíos · RTO vocacional con CRICOS de curso en el ELICOS"
+  },
+  {
+   "institucion_ficha": "Le Cordon Bleu Australia",
+   "podria_habilitarse": "vacío · 42 programas en 4 campus australianos"
+  },
+  {
+   "institucion_ficha": "Cairns College of English and Business",
+   "podria_habilitarse": "sólo 'Vocacionales' · más de la mitad del catálogo es ELICOS: falta 'Idiomas'"
+  },
+  {
+   "institucion_ficha": "NIT - National Institute of Technology Pty. Ltd",
+   "podria_habilitarse": "sólo 'Vocacionales' · además un Graduate Diploma y dos Professional Year Programs"
+  },
+  {
+   "institucion_ficha": "ACAH - Australian College of Agriculture & Horticulture",
+   "podria_habilitarse": "'Cert II-IV, Dip, Adv Dip' · el techo real incluye Graduate Certificate y Graduate Diploma of Agribusiness"
+  },
+  {
+   "institucion_ficha": "Vancouver Community College - VCC",
+   "podria_habilitarse": "oferta vocacional · además 3 bachelors y 5 associate degrees"
+  },
+  {
+   "institucion_ficha": "Photography Studies College",
+   "podria_habilitarse": "'Bachelor, Diplomas, cursos cortos' · además un Master of Arts Photography y alcance ampliado a Screen Media, Graphic Design, Fashion y Creative Industries"
+  },
+  {
+   "institucion_ficha": "Saint Stephen's College",
+   "podria_habilitarse": "ficha vacía completa · colegio K-12 (CRICOS 01938G · RTO 45295) en Gold Coast"
+  },
+  {
+   "institucion_ficha": "University Senior College at Adelaide University",
+   "podria_habilitarse": "vacío · secundaria Years 10-12 con título SACE"
+  },
+  {
+   "institucion_ficha": "King's Christian College",
+   "podria_habilitarse": "vacío · colegio K-12 con 4 campus (si la agencia efectivamente coloca ahí)"
+  },
+  {
+   "institucion_ficha": "South Australian Government Schools",
+   "podria_habilitarse": "vacío · programas reales y cargados"
+  },
+  {
+   "institucion_ficha": "GeSS Education",
+   "podria_habilitarse": "vacío · programas reales y cargados"
+  },
+  {
+   "institucion_ficha": "Kiwi English Academy",
+   "podria_habilitarse": "vacío · escuela NZQA Categoría 1: necesita al menos 'Idiomas'"
+  },
+  {
+   "institucion_ficha": "Pacific English Study",
+   "podria_habilitarse": "vacío · ELICOS, su único producto"
+  },
+  {
+   "institucion_ficha": "Navitas English",
+   "podria_habilitarse": "category, partner_group y puede_vender vacíos · 100% ELICOS en Sydney y Perth"
+  },
+  {
+   "institucion_ficha": "Academy of English",
+   "podria_habilitarse": "vacío · sólo ELICOS, con CRICOS de curso"
+  },
+  {
+   "institucion_ficha": "IFALPES KLF Annecy",
+   "podria_habilitarse": "vacío · sólo idiomas (francés)"
+  },
+  {
+   "institucion_ficha": "MLC College of Business Technology and Healthcare",
+   "podria_habilitarse": "vacío · catálogo cargado y real"
+  },
+  {
+   "institucion_ficha": "Vocational Training Institute",
+   "podria_habilitarse": "vacío · catálogo cargado y real"
+  },
+  {
+   "institucion_ficha": "ELSIS",
+   "podria_habilitarse": "catálogo cargado y real, pendiente de confirmación de la clienta"
+  },
+  {
+   "institucion_ficha": "Sydney PTE Academy",
+   "podria_habilitarse": "vacío · catálogo cargado y real"
+  },
+  {
+   "institucion_ficha": "RCIIS",
+   "podria_habilitarse": "tras quitar 'Vocacionales' queda sin autorización: podría habilitarse 'Idiomas' (inglés y francés), que es su producto real"
+  },
+  {
+   "institucion_ficha": "SAE",
+   "podria_habilitarse": "'Vocacionales' se queda corto: SAE University College tiene 9 Bachelors, 2 Masters y 7 Associate Degrees además de los diplomas"
+  },
+  {
+   "institucion_ficha": "Australian College of Applied Professions (ACAP)",
+   "podria_habilitarse": "vacío · 8 Bachelors, 6 Masters y 1 MBA"
+  },
+  {
+   "institucion_ficha": "Asia Pacific International College (APIC)",
+   "podria_habilitarse": "catalogada VET · es higher education acreditada por TEQSA (bachelors, masters y MBA)"
+  }
+ ],
+ "pendiente_confirmar": [
+  {
+   "institucion": "TasTAFE",
+   "duda": "Bloqueada por WAF: no se puede extraer con herramientas automáticas; requiere sesión manual."
+  },
+  {
+   "institucion": "UniSQ Sydney",
+   "duda": "403 total en todas las rutas; hay que resolver primero si es campus propio o centro operado por un tercero."
+  },
+  {
+   "institucion": "Impact English College",
+   "duda": "Origen caído al 100% (520/522 de Cloudflare); reintentar antes de dar la ficha por perdida."
+  },
+  {
+   "institucion": "Vocational Training Institute",
+   "duda": "Bloque COVID-19 sin actualizar y copyright 2022: re-verificar que siga operando."
+  },
+  {
+   "institucion": "ELSIS",
+   "duda": "Anuncia fusión con ECA College y empuja a otro dominio: las URLs pueden migrar."
+  },
+  {
+   "institucion": "The Sarina Russo Group",
+   "duda": "La página /find-a-course/our-courses/ no renderizó ningún curso ni código: puede estar vacía."
+  },
+  {
+   "institucion": "Signet Institute",
+   "duda": "Los 19 nombres están derivados del slug de la URL, sin ningún código nacional, CRICOS ni duración."
+  },
+  {
+   "institucion": "Okanagan College",
+   "duda": "63 de 67 títulos reconstruidos desde el slug sin abrir la página."
+  },
+  {
+   "institucion": "Drew University",
+   "duda": "Nombres derivados del slug; no se pudo distinguir major de minor."
+  },
+  {
+   "institucion": "Edinburgh Napier University",
+   "duda": "Nombres normalizados desde el slug, algunos corruptos en origen ('bscbsc-', 'baba-')."
+  },
+  {
+   "institucion": "Hertfordshire International College",
+   "duda": "El sitio no nombra los programas: los 32 nombres están construidos."
+  },
+  {
+   "institucion": "Worldwide Internships",
+   "duda": "El sitio no le pone nombre formal a ningún programa; el destino Australia apareció en una lectura y no en otra."
+  },
+  {
+   "institucion": "CodeCore College",
+   "duda": "Las 11 filas no se leyeron de la página (certificado vencido): salen del índice de búsqueda."
+  },
+  {
+   "institucion": "University of Roehampton",
+   "duda": "7 filas se nombran en el texto del sitio pero no se pudo abrir su ficha."
+  },
+  {
+   "institucion": "Universidad Europea de Madrid o Valencia",
+   "duda": "14 filas del área de salud apuntan a una página índice y algunos nombres llegaron truncados."
+  },
+  {
+   "institucion": "Sydney Institute of Interpreting & Translating (SIIT)",
+   "duda": "Graduate Diploma of Management y Diploma of Finance and Mortgage Broking Management: URLs 404 y fuera del sitemap."
+  },
+  {
+   "institucion": "UTAS International Pathway College",
+   "duda": "Los 2 International First Year Diploma se mencionan en la home pero su página da 404."
+  },
+  {
+   "institucion": "Mastery Institute Australia (MIA)",
+   "duda": "El sitio le pone el mismo código CHC50125 a dos cursos distintos."
+  },
+  {
+   "institucion": "TrEd College",
+   "duda": "Una página tiene H1 y <title> con nombres distintos, y una URL contiene un código inexistente (SIT404516)."
+  },
+  {
+   "institucion": "IMC - Australian National Institute of Management and Commerce",
+   "duda": "Graduate Certificate in Business y Graduate Certificate in Business Analytics publican el mismo CRICOS (0100485)."
+  },
+  {
+   "institucion": "Murdoch University (Murdoch)",
+   "duda": "Dos CRICOS con formato inusual (7 dígitos sin letra) en Bachelor of Agricultural Science y Master of Science in IT."
+  },
+  {
+   "institucion": "NIT - National Institute of Technology Pty. Ltd",
+   "duda": "BSB60720: el sitio lo titula 'Advanced Diploma of Project Management' y el registro nacional dice 'Program Management'."
+  },
+  {
+   "institucion": "ACE Sports Academy",
+   "duda": "El pie del sitio escribe mal un código (SISS50321 por SIS50321)."
+  },
+  {
+   "institucion": "The Australian Institute of Music (AIM)",
+   "duda": "'Bachelor of Music Business' y 'Bachelor of Music (Music Business)' pueden ser el mismo grado: posibles duplicados."
+  },
+  {
+   "institucion": "Manhattan College",
+   "duda": "El sitio publica 'Communication B.A./B.S.' y 'Communications B.A.': duplicado real a decidir."
+  },
+  {
+   "institucion": "Australian Federation College",
+   "duda": "Dos programas comparten el mismo código nacional y CRICOS (ICT60220)."
+  },
+  {
+   "institucion": "Nortwest College",
+   "duda": "Dos programas comparten el mismo código nacional y CRICOS (ICT60220)."
+  },
+  {
+   "institucion": "Texila College",
+   "duda": "Cada especialización publica su propio CRICOS (Accounting = 104938G): pueden ser 6 productos en vez de 1."
+  },
+  {
+   "institucion": "ICHM",
+   "duda": "El Undergraduate Certificate no tiene CRICOS, sólo código TEQSA: verificar si es vendible a internacional."
+  },
+  {
+   "institucion": "Ikon Institute of Australia",
+   "duda": "Graduate Diploma of Education (Early Childhood) aparece con campus 'Online' teniendo CRICOS (116569F)."
+  },
+  {
+   "institucion": "The University of Business and International Studies UBIS S.A.",
+   "duda": "El MS-IT aparece en el título de la página de maestrías pero no se pudo abrir su ficha propia."
+  },
+  {
+   "institucion": "Queensland Academy of Technology (QAT)",
+   "duda": "Dos cursos cortos aparecen en el listado internacional pero su URL cuelga de /domestic/."
+  },
+  {
+   "institucion": "Strathfield College",
+   "duda": "Certificate III de construcción/electricidad: en Australia suelen cursarse como apprenticeship."
+  },
+  {
+   "institucion": "Global College Australasia",
+   "duda": "Certificate III de construcción/electricidad: en Australia suelen cursarse como apprenticeship."
+  },
+  {
+   "institucion": "ACIT",
+   "duda": "Certificate III de construcción/electricidad: en Australia suelen cursarse como apprenticeship."
+  },
+  {
+   "institucion": "Shafston International College",
+   "duda": "High School Preparation y Primary English Preparation viven en otro dominio (shafstonforschools.edu.au)."
+  },
+  {
+   "institucion": "Istituto Marangoni",
+   "duda": "Los 'Master's Courses' en la mayoría de campus no son un MA universitario: verificar la validación por campus."
+  },
+  {
+   "institucion": "CIRA Career College",
+   "duda": "No publica número de designación DLI por curso: sin DLI verificado no se puede vender como estudio con permiso en Canadá."
+  },
+  {
+   "institucion": "Heartland International English School",
+   "duda": "No publica número de designación DLI por curso: sin DLI verificado no se puede vender como estudio con permiso en Canadá."
+  },
+  {
+   "institucion": "HOLMESGLEN",
+   "duda": "El PDF del que salió el catálogo no marca cuáles cursos tienen registro CRICOS."
+  },
+  {
+   "institucion": "UniSC",
+   "duda": "Programas con intakes futuros o no confirmados ('New in 2027')."
+  },
+  {
+   "institucion": "TAI - Centro universitario de Artes",
+   "duda": "Programas con intakes futuros o no confirmados."
+  },
+  {
+   "institucion": "Tara Anglican School for Girls",
+   "duda": "IB desde 2027: intake futuro no confirmado."
+  },
+  {
+   "institucion": "Le Cordon Bleu Australia",
+   "duda": "Campus Brisbane con arranque abril 2027: intake futuro."
+  },
+  {
+   "institucion": "Coder Academy",
+   "duda": "Se reduce a un solo diploma con 'Intake TBC': no debe cotizarse sin confirmar intake."
+  },
+  {
+   "institucion": "NEURO Business School",
+   "duda": "La URL del Máster en Marketing y Publicidad trae caracteres cirílicos en el slug (error del CMS)."
+  },
+  {
+   "institucion": "Academies Australasia",
+   "duda": "El sitio lista por campus, no por RTO: es imposible saber cuál de los 18 colleges entrega cada curso."
+  },
+  {
+   "institucion": "Central Queensland University (CQU)",
+   "duda": "La ficha promete 'Idiomas' y en cqu.edu.au/courses no hay ELICOS, pero el informe pide verificarlo con la universidad antes de cotizar."
+  },
+  {
+   "institucion": "FAU (Florida Atlantic)",
+   "duda": "La ficha promete un pathway Study Group del que no hay rastro en el sitio: verificar con FAU."
+  },
+  {
+   "institucion": "Warsaw University of Business",
+   "duda": "Doble rebrand con contenido vivo en moderna.edu.pl: el informe no aporta el nombre final verificado."
+  },
+  {
+   "institucion": "JCUB (James Cook University Brisbane)",
+   "duda": "301 permanente a jcu.edu.au/brisbane: el informe deja abierto si reasignar la ficha o darla de baja."
+  },
+  {
+   "institucion": "Centre for English Language in the University of South Australia (CELUSA)",
+   "duda": "Ficha muerta con sucesor (Adelaide University English Language Centre): el informe deja abierto si reasignar o dar de baja."
+  },
+  {
+   "institucion": "Catálogos declarados incompletos",
+   "duda": "No tratar como catálogo completo: UNSW (75 de varios cientos), George Mason (87 de 210), Swinburne (65), Murdoch (49 de ~200), Box Hill (75 de 300+), Roehampton (118 de ~182), Camosun (111 de ~160), Western Washington (17 de 200+)."
+  },
+  {
+   "institucion": "Conestoga y RRC Polytech",
+   "duda": "Niveles de credencial mal clasificados (~50 y ~20 entradas): el nivel es lo que cruza con el test vocacional."
+  },
+  {
+   "institucion_ficha": "Baylor University",
+   "campo": "active",
+   "valor_actual": true,
+   "valor_nuevo": false,
+   "evidencia": "El dominio del International Study Center sirve una sola página de aviso: 'Our contract with the university is in its final year'.",
+   "categoria": "no_existe",
+   "nota_revision": "Retenida el 2026-08-08. El informe dice que el contrato del pathway esta 'en su ultimo ano', o sea que TODAVIA opera. Es la unica ficha de Baylor en el catalogo (USA/Texas, Pregrado & Postgrado), asi que desactivarla le quita a la agencia un destino vigente. Cuando cierre el contrato, aplicarla. Decision comercial, no un hecho verificable."
+  }
+ ],
+ "reclasificar": [
+  {
+   "institucion": "University of Strathclyde ISC",
+   "que_es_en_realidad": "International Study Centre operado por Study Group, no la universidad."
+  },
+  {
+   "institucion": "University of Sheffield International College",
+   "que_es_en_realidad": "Pathway college de Study Group, no la universidad."
+  },
+  {
+   "institucion": "Cardiff University ISC",
+   "que_es_en_realidad": "Study Group; la universidad es cardiff.ac.uk."
+  },
+  {
+   "institucion": "Leeds Beckett University",
+   "que_es_en_realidad": "Pathway college de Study Group, no la universidad."
+  },
+  {
+   "institucion": "University of Hartford",
+   "que_es_en_realidad": "International Study Center de Study Group; el catálogo real vive en hartford.edu."
+  },
+  {
+   "institucion": "James Madison University",
+   "que_es_en_realidad": "Study Group con 2 rutas; ninguna es un programa académico de JMU."
+  },
+  {
+   "institucion": "Texas A&M University-Corpus Christi",
+   "que_es_en_realidad": "Micrositio de marketing de Study Group, sin ruta de programas: ficha sin producto."
+  },
+  {
+   "institucion": "Texas State University",
+   "que_es_en_realidad": "Es INTO, y Texas State es partner de admisión directa, no de pathway: no hay producto en este dominio."
+  },
+  {
+   "institucion": "Western Washington University",
+   "que_es_en_realidad": "Hoy es una landing comercial de Study Group con 17 destacados de '200+'."
+  },
+  {
+   "institucion": "University of Surrey",
+   "que_es_en_realidad": "Los Foundation y Pre-master viven en isc.surrey.ac.uk (Study Group), no en surrey.ac.uk."
+  },
+  {
+   "institucion": "University of East Anglia (UEA)",
+   "que_es_en_realidad": "El pathway es INTO UEA, dominio aparte."
+  },
+  {
+   "institucion": "University of Alabama at Birmingham",
+   "que_es_en_realidad": "uab.edu no contiene ni una fila de pathway de INTO."
+  },
+  {
+   "institucion": "ARU College",
+   "que_es_en_realidad": "Pathway college operado por Navitas, con 3 sedes (Cambridge, Chelmsford, Peterborough), no 1."
+  },
+  {
+   "institucion": "Griffith College",
+   "que_es_en_realidad": "College privado operado por Navitas; la ficha lo marca 'College Público' y no otorga títulos propios."
+  },
+  {
+   "institucion": "Edith Cowan College",
+   "que_es_en_realidad": "College privado de Navitas dentro del campus de ECU; la ficha lo marca 'College Público' y no otorga bachelor."
+  },
+  {
+   "institucion": "UTS College",
+   "que_es_en_realidad": "Pathway college de UTS (ex-Insearch, CRICOS 00859D), no la University of Technology Sydney (00099F)."
+  },
+  {
+   "institucion": "UNCIE (Newcastle)",
+   "que_es_en_realidad": "100% pathway: todo desemboca en la University of Newcastle."
+  },
+  {
+   "institucion": "Keele University International College",
+   "que_es_en_realidad": "El Pre-Medicine termina en un MD de St George's University (Granada), no de Keele."
+  },
+  {
+   "institucion": "Hertfordshire International College",
+   "que_es_en_realidad": "Pathway de Navitas en un subdominio de University of Hertfordshire."
+  },
+  {
+   "institucion": "Murdoch College",
+   "que_es_en_realidad": "Pathway college de Kaplan dentro del campus de Murdoch University."
+  },
+  {
+   "institucion": "Deakin College",
+   "que_es_en_realidad": "Pathway hacia Deakin University."
+  },
+  {
+   "institucion": "University of Plymouth International College UPIC",
+   "que_es_en_realidad": "El campo sitio apunta a navitas.com (la matriz); el college real es upic.navitas.com."
+  },
+  {
+   "institucion": "UQ College",
+   "que_es_en_realidad": "Oferta puente (foundation, bridging, inglés): no son grados de UQ ni VET."
+  },
+  {
+   "institucion": "University of Bradford",
+   "que_es_en_realidad": "El campo sitio apunta a la home de la universidad, no al pathway college que la ficha autoriza."
+  },
+  {
+   "institucion": "Niagara College Toronto",
+   "que_es_en_realidad": "Sede PPP donde Toronto School of Management entrega las credenciales de Niagara College."
+  },
+  {
+   "institucion": "Lancaster University Leipzig",
+   "que_es_en_realidad": "Branch campus de Leipzig operado por Navitas, 18 programas frente a los cientos de la matriz."
+  },
+  {
+   "institucion": "UniSQ Sydney",
+   "que_es_en_realidad": "Parece un centro operado por un tercero que entrega programas de UniSQ, no un campus propio."
+  },
+  {
+   "institucion": "Navitas Pty Limited",
+   "que_es_en_realidad": "Holding: su buscador devuelve 4.330 cursos de ~100 colleges distintos."
+  },
+  {
+   "institucion": "UP Education",
+   "que_es_en_realidad": "Holding de 22 colleges, cada uno con dominio propio: hay que partirla."
+  },
+  {
+   "institucion": "HERMES Colleges Network",
+   "que_es_en_realidad": "Red de 6 colleges de Montreal (Veritas, Matrix, Aviron Québec, Ascent, Lawrence/Markham, Cégep Marie-Victorin)."
+  },
+  {
+   "institucion": "INTO University Partnerships",
+   "que_es_en_realidad": "Sitio corporativo B2B de INTO, sin programas enumerables."
+  },
+  {
+   "institucion": "Educatius Group",
+   "que_es_en_realidad": "Red que coloca estudiantes en colegios de terceros: lo vendible son sus 8 programas, no los 350 colegios."
+  },
+  {
+   "institucion": "High Schools International",
+   "que_es_en_realidad": "Además del país errado, es un intermediario que coloca en colegios de terceros, no un campus."
+  },
+  {
+   "institucion": "Exportise",
+   "que_es_en_realidad": "Operador de campamentos de verano que renta 4 internados británicos: ninguna de sus 11 'academias' es una credencial."
+  },
+  {
+   "institucion": "College de Paris",
+   "que_es_en_realidad": "Holding de 20+ escuelas miembro; los 4 programas extraídos los opera Ascencia."
+  },
+  {
+   "institucion": "Academies Australasia",
+   "que_es_en_realidad": "Grupo de 18 colleges con RTO/CRICOS distintos; el sitio lista por campus, no por entidad."
+  },
+  {
+   "institucion": "The Sarina Russo Group",
+   "que_es_en_realidad": "Dominio de grupo: Russo Business School y James Cook University Brisbane tienen catálogo propio y ficha aparte."
+  },
+  {
+   "institucion": "Academy of English",
+   "que_es_en_realidad": "Sin sitio propio: vive dentro del dominio del grupo Academies Australasia."
+  },
+  {
+   "institucion": "Etoile Institut",
+   "que_es_en_realidad": "etoilegroupe.com es el dominio del holding, no de la escuela."
+  },
+  {
+   "institucion": "GeSS Education",
+   "que_es_en_realidad": "No tiene RTO ni CRICOS propios: entrega cursos de RTOs socios; el contrato y el CoE son del socio."
+  },
+  {
+   "institucion": "ILAC",
+   "que_es_en_realidad": "No otorga títulos propios y declara que sus programas no son elegibles para PGWP; el único con credencial (ILAC@RDP) lo otorga Red Deer Polytechnic."
+  },
+  {
+   "institucion": "New Zealand School of Tourism",
+   "que_es_en_realidad": "La matrícula y el título los emite Yoobee Colleges Ltd; NZST es sólo nombre comercial."
+  },
+  {
+   "institucion": "Alpadia",
+   "que_es_en_realidad": "Los English Courses los entrega Kaplan International, y Kaplan ya no es el dueño (pasó a Inspirit Capital)."
+  },
+  {
+   "institucion": "RUFA",
+   "que_es_en_realidad": "3 de los 5 tracks del Foundation los entregan otras instituciones del grupo PLENA."
+  },
+  {
+   "institucion": "Schiller Language School",
+   "que_es_en_realidad": "El Studienkolleg lo entregan dos entidades en dominios propios (Berlin y Bonn)."
+  },
+  {
+   "institucion": "Holmes Institute",
+   "que_es_en_realidad": "Es un grupo: Holmes Grammar (Year 11-12) y OHC English son entidades distintas con dominio propio."
+  },
+  {
+   "institucion": "NEURO Business School",
+   "que_es_en_realidad": "No otorga títulos propios: los valida Utamed y UVic-UCC."
+  },
+  {
+   "institucion": "LSC Malta",
+   "que_es_en_realidad": "El MBA y el Bachelor with Honours los emite la University of Suffolk (UK)."
+  },
+  {
+   "institucion": "CSSS - Castelldefels School of Social Sciences",
+   "que_es_en_realidad": "Los grados y másteres los otorga UVic-UCC y las 14 diplomaturas son cualificaciones británicas OTHM (Ofqual)."
+  },
+  {
+   "institucion": "ESEI Barcelona",
+   "que_es_en_realidad": "El BBA se emite como 'UK degree' y el de Comunicación como 'Official French Degree': no son títulos oficiales españoles."
+  },
+  {
+   "institucion": "Insenia",
+   "que_es_en_realidad": "No otorga pregrado: son 4 másteres de título propio homologados por UDIMA."
+  },
+  {
+   "institucion": "Dmad",
+   "que_es_en_realidad": "Lo único oficial son 2 Ciclos Formativos de Grado Superior; los 10 'másteres' son títulos propios."
+  },
+  {
+   "institucion": "TAI - Centro universitario de Artes",
+   "que_es_en_realidad": "5 grados y 3 másteres son oficiales vía URJC; los otros 13 másteres y 4 diplomas son título propio."
+  },
+  {
+   "institucion": "Universidad Camilo Jose Cela",
+   "que_es_en_realidad": "Los másteres de Formación Permanente son títulos propios, no oficiales del Ministerio."
+  },
+  {
+   "institucion": "Universitat Autònoma - Fundació (FUAB)",
+   "que_es_en_realidad": "Los 4 màsters de formació permanent y los 15 diplomes d'especialització son títulos propios."
+  },
+  {
+   "institucion": "SPD - Scoula Politecnica di Design",
+   "que_es_en_realidad": "Escuela privada de diseño: los BA los acredita Teesside University (UK) y el MID POLI.design; la categoría 'Universidad' es incorrecta."
+  },
+  {
+   "institucion": "ICMP ( The institute)",
+   "que_es_en_realidad": "Las titulaciones las valida una universidad socia."
+  },
+  {
+   "institucion": "Le Cordon Bleu Madrid",
+   "que_es_en_realidad": "Los Bachelor/Master en hospitality no existen en Madrid (son de Londres, París y Australia); el Grado en Gastronomía lo titula la Universidad Francisco de Vitoria."
+  },
+  {
+   "institucion": "South Australian Government Schools",
+   "que_es_en_realidad": "Programa del Departamento de Educación de SA: los '150+' son planteles, no oferta. Son 6 productos, no 150."
+  },
+  {
+   "institucion": "TAFE International Western Australia",
+   "que_es_en_realidad": "Brazo del gobierno de WA: el mismo dominio vende los TAFE del estado y las escuelas públicas de secundaria."
+  },
+  {
+   "institucion": "Central Quebec School Board",
+   "que_es_en_realidad": "Junta escolar; sólo 7 escuelas participan en el programa internacional, que es un intercambio de medio año o un año."
+  },
+  {
+   "institucion": "Avon Maitland Schools",
+   "que_es_en_realidad": "Junta de 43 escuelas; el producto vendible vive en otro dominio (yourschoolsincanada.com)."
+  },
+  {
+   "institucion": "Burnaby Schools · SD41",
+   "que_es_en_realidad": "Junta de distrito; el dominio de la ficha es el de familias residentes, no el del programa internacional."
+  },
+  {
+   "institucion": "SIR WILFRID LAURIER School Board",
+   "que_es_en_realidad": "Los '30+' son planteles, no oferta académica."
+  },
+  {
+   "institucion": "Pickering College",
+   "que_es_en_realidad": "Colegio independiente JK-12 con internado; el 'post-graduate year' es un certificado para docentes."
+  },
+  {
+   "institucion": "St Lawrence's College",
+   "que_es_en_realidad": "No es un college terciario: es un colegio católico de varones Years 5-12 en Brisbane."
+  },
+  {
+   "institucion": "University Senior College at Adelaide University",
+   "que_es_en_realidad": "Senior college de secundaria (Years 10-12) con título SACE, no educación superior."
+  },
+  {
+   "institucion": "King's Christian College",
+   "que_es_en_realidad": "Colegio cristiano K-12 con 4 campus, no educación superior."
+  },
+  {
+   "institucion": "Tara Anglican School for Girls",
+   "que_es_en_realidad": "Colegio de niñas ELC-Year 12: el producto real es 'plaza en el colegio', no un catálogo."
+  },
+  {
+   "institucion": "Ermitage International School Paris",
+   "que_es_en_realidad": "Colegio de 3 a 18 años: es escolaridad completa, no un semestre de intercambio."
+  },
+  {
+   "institucion": "Peninsula Grammar / ELTHAM College / Westbourne Grammar / Admiral Farragut Academy",
+   "que_es_en_realidad": "Colegios K-12: no tienen catálogo de programas sino niveles de curso."
+  },
+  {
+   "institucion": "Bexhill 6th Form College",
+   "que_es_en_realidad": "Centro post-16 del sistema inglés: A Level, T Level y BTEC L3 son cualificaciones escolares, no educación superior."
+  },
+  {
+   "institucion": "Santa Monica College",
+   "que_es_en_realidad": "Community college público de California (la ficha dice 'College Privado'); otorga un solo bachelor."
+  },
+  {
+   "institucion": "Orange College",
+   "que_es_en_realidad": "RTO vocacional, no instituto de idiomas: 12 de sus 21 programas son de construcción y 7 de negocios."
+  },
+  {
+   "institucion": "ANCE",
+   "que_es_en_realidad": "Categorizada VET siendo 100% ELICOS/inglés."
+  },
+  {
+   "institucion": "William Blue College of Hospitality Management at Torrens University Australia",
+   "que_es_en_realidad": "Marca retirada en 2017 y absorbida por Torrens; renombrarla duplicaría la ficha existente 'Torrens University Australia': decidir fusión."
+  },
+  {
+   "institucion": "Taylors College Sydney",
+   "que_es_en_realidad": "El sitio nunca se llama así, pero renombrarla a 'Taylors College' duplicaría la ficha existente: decidir fusión."
+  },
+  {
+   "institucion": "University of South Australia (UniSA)",
+   "que_es_en_realidad": "Fusionada en Adelaide University; hay dos fichas apuntando a la misma institución: decidir fusión."
+  },
+  {
+   "institucion": "Fairleigh Dickinson University (FDU Vancouver)",
+   "que_es_en_realidad": "El campus de Vancouver existe, pero el dominio es la matriz de New Jersey: de 113 programas sólo 11 son de Vancouver. Es un problema de alcance del catálogo, no de ciudad."
+  },
+  {
+   "institucion": "Niagara College",
+   "que_es_en_realidad": "Dos programas ('Beverage Business Management' y 'Hospitality and Tourism Management') se dictan en el campus de Barcelona, España: es un problema de programa, no de la ciudad de la ficha."
+  },
+  {
+   "institucion": "New York Film Academy",
+   "que_es_en_realidad": "Campos cruzados: niveles_vistos contiene la cantidad, cantidad_aprox contiene la URL y url_programas dice 'sí'. Reparar la estructura antes de cargar."
+  },
+  {
+   "institucion": "partner_group incorrecto o vacío",
+   "que_es_en_realidad": "Domus Academy ('Nouva Accademia NABA'), Alpadia (Inspirit Capital, no Kaplan), Coder Academy (AIT, no RedHill), Ikon (EDU Holdings, no ALG), y Eynesbury, WSU International College, La Trobe College, Kaplan Business School, Navitas English y ACAP con grupo vacío siendo Navitas o Kaplan. programs no tiene ese campo."
+  },
+  {
+   "institucion": "Academies Australasia Hair & Beauty (brishair)",
+   "que_es_en_realidad": "No hay ni un programa de estética/belleza: sólo Cert III en Hairdressing y en Barbering. El nombre promete media oferta que no existe."
+  },
+  {
+   "institucion": "Manhattan College",
+   "que_es_en_realidad": "El nombre real es 'Manhattan University', pero ya existe una ficha con ese nombre (program_id manhattan-university, Bronx NY): son la misma institución duplicada. Fusionar, no renombrar."
+  },
+  {
+   "institucion": "The University of Adelaide",
+   "que_es_en_realidad": "El nombre real es 'Adelaide University', pero ya existe una ficha con ese nombre (program_id adelaide-university): duplicado tras la fusión con UniSA. Fusionar, no renombrar."
+  },
+  {
+   "institucion": "Ascenda School of Management",
+   "que_es_en_realidad": "El nombre real es 'Acsenda School of Management', pero ya existe una ficha con ese nombre (program_id acsenda-school-of-management, Vancouver): duplicado. Fusionar, no renombrar."
+  },
+  {
+   "institucion": "Ravensbourne University",
+   "que_es_en_realidad": "El nombre real es 'Ravensbourne University London', pero ya existe una ficha con ese nombre (program_id ravensbourne-university-london): duplicado. Fusionar, no renombrar."
+  },
+  {
+   "institucion": "Murdoch University (Murdoch)",
+   "que_es_en_realidad": "Quitarle el '(Murdoch)' colisionaría con la ficha existente 'Murdoch University' (program_id murdoch-university), que es el campus de EAU, no el de Perth. Decidir la nomenclatura de ambas antes de renombrar."
+  },
+  {
+   "institucion": "USQ (University of Southern Queensland)",
+   "que_es_en_realidad": "El nombre real es 'University of Southern Queensland (UniSQ)', pero ya existe una ficha con ese nombre (program_id university-of-southern-queensland-unisq): duplicado tras el rebrand. Fusionar, no renombrar."
+  }
+ ]
+}

@@ -80,6 +80,11 @@ class Resultado:
     duracion: Optional[str]
     codigo_oficial: Optional[str]
     url_fuente: Optional[str]
+    # La ficha del catálogo a la que pertenece · con esto el estudiante puede
+    # saltar del programa a la institución sin buscarla a mano.
+    program_id: Optional[str] = None
+    oferta_slug: Optional[str] = None
+    oferta_nombre: Optional[str] = None
     # Trazabilidad de por qué salió · sin esto nadie puede depurar una mala
     # recomendación, ni explicarle a un asesor de dónde salió.
     similitud: float = 0.0
@@ -95,6 +100,9 @@ class Filtros:
     niveles: Sequence[str] = field(default_factory=tuple)
     etapa_de_vida: Optional[str] = None
     instituciones: Sequence[str] = field(default_factory=tuple)
+    # La ficha del catálogo autorizado · es lo que permite que la página de una
+    # institución muestre SUS programas en vez de repetir el catálogo entero.
+    program_id: Optional[str] = None
 
 
 def niveles_excluidos(etapa: Optional[str]) -> List[str]:
@@ -114,7 +122,7 @@ def niveles_excluidos(etapa: Optional[str]) -> List[str]:
 
 def _where(f: Filtros) -> tuple:
     """Las condiciones duras · devuelve (sql, params)."""
-    cond = ["activo = true"]
+    cond = ["pi.activo = true"]
     params: dict = {}
 
     if f.paises:
@@ -122,29 +130,46 @@ def _where(f: Filtros) -> tuple:
         # no dice en cuál. Entran siempre que se filtre por país: excluirlas
         # escondería oferta real, y afirmar que están en el país pedido sería
         # inventar. Salen marcadas y el asesor confirma.
-        cond.append("(pais = ANY(:paises) OR pais = 'Varios destinos')")
+        cond.append("(pi.pais = ANY(:paises) OR pi.pais = 'Varios destinos')")
         params["paises"] = list(f.paises)
     if f.areas:
-        cond.append("area = ANY(:areas)")
+        cond.append("pi.area = ANY(:areas)")
         params["areas"] = list(f.areas)
     if f.instituciones:
-        cond.append("institucion = ANY(:instituciones)")
+        cond.append("pi.institucion = ANY(:instituciones)")
         params["instituciones"] = list(f.instituciones)
+    if f.program_id:
+        # `CAST` explícito: la columna es UUID y el parámetro llega como texto.
+        # Sin el casteo Postgres responde `operator does not exist: uuid = text`
+        # — ya pasó una vez con los ids del catálogo, y como la excepción se
+        # capturaba, el filtro fallaba en silencio.
+        cond.append("pi.program_id = CAST(:program_id AS uuid)")
+        params["program_id"] = str(f.program_id)
 
     if f.niveles:
-        cond.append("nivel = ANY(:niveles)")
+        cond.append("pi.nivel = ANY(:niveles)")
         params["niveles"] = list(f.niveles)
     elif f.etapa_de_vida:
         fuera = niveles_excluidos(f.etapa_de_vida)
         if fuera:
-            cond.append("NOT (nivel = ANY(:fuera))")
+            cond.append("NOT (pi.nivel = ANY(:fuera))")
             params["fuera"] = fuera
 
     return " AND ".join(cond), params
 
 
-_COLUMNAS = ("id, nombre, institucion, pais, ciudad, nivel, area, duracion, "
-             "codigo_oficial, url_fuente")
+# Se leen con prefijo `pi.` porque la consulta une con `programs` para traer el
+# slug de la ficha: sin el slug, el estudiante puede ver que un programa
+# pertenece a una institución pero no puede llegar a ella — que es justo la
+# relación que faltaba entre los dos catálogos.
+_COLUMNAS = ("pi.id, pi.nombre, pi.institucion, pi.pais, pi.ciudad, pi.nivel, "
+             "pi.area, pi.duracion, pi.codigo_oficial, pi.url_fuente, "
+             "pi.program_id, p.slug AS oferta_slug, p.name AS oferta_nombre")
+
+# `LEFT JOIN` y no `JOIN`: 708 programas no cuelgan de ninguna ficha y deben
+# seguir siendo visibles · un JOIN normal los borraría del catálogo en silencio.
+_DESDE = ("programas_investigados pi "
+          "LEFT JOIN programs p ON p.id = pi.program_id AND p.active")
 
 
 def buscar(
@@ -179,16 +204,16 @@ def buscar(
         # similitud es 1 - distancia, para que "más alto es mejor" en todo el
         # resto de la función.
         sql = (
-            f"SELECT {_COLUMNAS}, 1 - (embedding <=> CAST(:v AS vector)) AS sim "
-            f"FROM programas_investigados "
-            f"WHERE {where} AND embedding IS NOT NULL "
-            f"ORDER BY embedding <=> CAST(:v AS vector) LIMIT :n"
+            f"SELECT {_COLUMNAS}, 1 - (pi.embedding <=> CAST(:v AS vector)) AS sim "
+            f"FROM {_DESDE} "
+            f"WHERE {where} AND pi.embedding IS NOT NULL "
+            f"ORDER BY pi.embedding <=> CAST(:v AS vector) LIMIT :n"
         )
     else:
         params["n"] = max(CANDIDATOS, limite)
         sql = (
-            f"SELECT {_COLUMNAS}, 0.0 AS sim FROM programas_investigados "
-            f"WHERE {where} ORDER BY institucion, nombre LIMIT :n"
+            f"SELECT {_COLUMNAS}, 0.0 AS sim FROM {_DESDE} "
+            f"WHERE {where} ORDER BY pi.institucion, pi.nombre LIMIT :n"
         )
 
     filas = db.execute(text(sql), params).mappings().all()
@@ -202,6 +227,8 @@ def buscar(
             pais=r["pais"], ciudad=r["ciudad"], nivel=r["nivel"], area=r["area"],
             duracion=r["duracion"], codigo_oficial=r["codigo_oficial"],
             url_fuente=r["url_fuente"],
+            program_id=str(r["program_id"]) if r["program_id"] else None,
+            oferta_slug=r["oferta_slug"], oferta_nombre=r["oferta_nombre"],
             similitud=round(sim, 4), afinidad=round(afin, 3),
             puntaje=round(sim + PESO_AFINIDAD * afin, 4),
         ))
@@ -230,8 +257,8 @@ def areas_sugeridas(
     where, params = _where(f)
 
     filas = db.execute(text(
-        f"SELECT area, count(*) AS n FROM programas_investigados "
-        f"WHERE {where} AND area IS NOT NULL GROUP BY area"
+        f"SELECT pi.area AS area, count(*) AS n FROM programas_investigados pi "
+        f"WHERE {where} AND pi.area IS NOT NULL GROUP BY pi.area"
     ), params).mappings().all()
 
     cuenta = {r["area"]: r["n"] for r in filas if r["n"] >= minimo}
@@ -590,7 +617,7 @@ def paises_disponibles(db: Session, filtros: Optional[Filtros] = None) -> List[d
                 etapa_de_vida=f.etapa_de_vida)
     where, params = _where(f)
     filas = db.execute(text(
-        f"SELECT pais, count(*) AS n FROM programas_investigados "
-        f"WHERE {where} AND pais IS NOT NULL GROUP BY pais ORDER BY n DESC"
+        f"SELECT pi.pais AS pais, count(*) AS n FROM programas_investigados pi "
+        f"WHERE {where} AND pi.pais IS NOT NULL GROUP BY pi.pais ORDER BY n DESC"
     ), params).mappings().all()
     return [{"pais": r["pais"], "programas": r["n"]} for r in filas]

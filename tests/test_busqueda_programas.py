@@ -27,7 +27,7 @@ def test_a_quien_esta_en_el_colegio_no_se_le_ofrece_una_maestria():
     """El filtro por etapa es SQL, no similitud · es un hecho, no un parecido."""
     sql, params = bp._where(bp.Filtros(etapa_de_vida="high_school"))
 
-    assert "NOT (nivel = ANY(:fuera))" in sql
+    assert "NOT (pi.nivel = ANY(:fuera))" in sql
     assert "maestria" in params["fuera"]
     assert "doctorado" in params["fuera"]
 
@@ -49,7 +49,7 @@ def test_sin_etapa_no_se_esconde_nada():
     sql, params = bp._where(bp.Filtros())
 
     assert "fuera" not in params
-    assert sql == "activo = true"
+    assert sql == "pi.activo = true"
 
 
 def test_el_filtro_por_pais_deja_pasar_las_redes_multi_destino():
@@ -97,11 +97,16 @@ def _db_que_devuelve(filas):
     return _DB()
 
 
-def _fila(nombre, area, sim):
+def _fila(nombre, area, sim, program_id=None, oferta_slug=None):
     return _FilaFalsa(
         id="11111111-1111-1111-1111-111111111111", nombre=nombre,
         institucion="X", pais="Canadá", ciudad=None, nivel="bachelor",
-        area=area, duracion=None, codigo_oficial=None, url_fuente=None, sim=sim,
+        area=area, duracion=None, codigo_oficial=None, url_fuente=None,
+        # El programa sabe de qué ficha del catálogo cuelga · es lo que conecta
+        # los dos catálogos. `None` es un caso real: 708 programas son de
+        # instituciones sin ficha y siguen siendo visibles.
+        program_id=program_id, oferta_slug=oferta_slug, oferta_nombre=None,
+        sim=sim,
     )
 
 
@@ -219,3 +224,63 @@ def test_sin_perfil_guardado_se_puede_buscar_igual():
 
     assert p.codigos_riasec == []
     assert p.hizo_el_test is False
+
+
+# ---------------------------------------------------------------------------
+# La relación con el catálogo autorizado · 2026-08-08
+# ---------------------------------------------------------------------------
+# Antes de esto había dos catálogos hablando de lo mismo sin saberse
+# relacionados: el estudiante veía "Murdoch University" en las ofertas y
+# "Bachelor of Veterinary Science · Murdoch University" en la búsqueda, sin nada
+# que le dijera que son la misma institución.
+
+
+def test_se_pueden_pedir_los_programas_de_UNA_ficha():
+    """Es lo que usa la página de una institución para mostrar su oferta real."""
+    sql, params = bp._where(bp.Filtros(program_id="abc-123"))
+
+    assert "pi.program_id = CAST(:program_id AS uuid)" in sql
+    assert params["program_id"] == "abc-123"
+
+
+def test_el_program_id_se_castea_a_uuid():
+    """La columna es UUID y el parámetro llega como texto. Sin el casteo,
+    Postgres responde `operator does not exist: uuid = text`; y como la
+    excepción se captura, el filtro fallaría en silencio devolviendo el catálogo
+    entero en vez de los programas de esa institución. Ya pasó una vez."""
+    sql, _ = bp._where(bp.Filtros(program_id="abc-123"))
+
+    assert "CAST(:program_id AS uuid)" in sql
+
+
+def test_las_condiciones_van_con_alias_de_tabla():
+    """La consulta une `programas_investigados` con `programs`, y **las dos
+    tienen una columna `area`**. Sin prefijo, Postgres responde "column
+    reference is ambiguous" y la búsqueda entera revienta."""
+    sql, _ = bp._where(bp.Filtros(areas=["Artes"], paises=["Canadá"]))
+
+    assert "pi.area = ANY(:areas)" in sql
+    assert "pi.pais = ANY(:paises)" in sql
+
+
+def test_un_programa_sin_ficha_sigue_apareciendo():
+    """708 programas son de instituciones que no tienen ficha en el catálogo del
+    cliente (redes que se descompusieron en sus miembros). Un JOIN normal los
+    habría borrado del catálogo sin que nada lo dijera."""
+    filas = [_fila("Programa huérfano", "Artes", 0.5, program_id=None)]
+    r = bp.buscar(_db_que_devuelve(filas), vector_perfil=[0.1] * 4, limite=5)
+
+    assert len(r) == 1
+    assert r[0].program_id is None
+    assert r[0].oferta_slug is None
+
+
+def test_un_programa_enlazado_trae_como_llegar_a_su_institucion():
+    """Con el id solo, el front sabría que hay una ficha pero no podría llegar a
+    ella: la ruta del detalle es por slug."""
+    filas = [_fila("Bachelor of X", "Ciencias", 0.5,
+                   program_id="p-1", oferta_slug="murdoch-university")]
+    r = bp.buscar(_db_que_devuelve(filas), vector_perfil=[0.1] * 4, limite=5)[0]
+
+    assert r.program_id == "p-1"
+    assert r.oferta_slug == "murdoch-university"

@@ -2603,6 +2603,16 @@ class ProgramaInvestigado(Base):
     activo = Column(Boolean, default=True, nullable=False)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
+    # La ficha del catalogo autorizado a la que pertenece · migracion 061.
+    #
+    # Nullable a proposito: hay instituciones cuyos programas extrajimos y que
+    # no tienen ficha (redes que se descompusieron en sus miembros). Esos
+    # programas siguen siendo validos y visibles; solo no cuelgan de una oferta.
+    program_id = Column(
+        UUID(as_uuid=True), ForeignKey("programs.id", ondelete="SET NULL"),
+        nullable=True, index=True,
+    )
+
     # `embedding` (vector(1536)) existe en la tabla pero NO se declara aquí: el
     # tipo `vector` necesitaría el paquete pgvector como dependencia del modelo,
     # y la búsqueda semántica lo consulta por SQL directo de todos modos. Ver

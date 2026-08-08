@@ -60,6 +60,13 @@ class ProgramaEncontrado(BaseModel):
     duracion: Optional[str] = None
     codigo_oficial: Optional[str] = None
     url_fuente: Optional[str] = None
+    # La ficha del catálogo autorizado a la que pertenece · null cuando la
+    # institución no tiene ficha (redes que se descompusieron en sus miembros).
+    program_id: Optional[str] = None
+    # El slug de esa ficha · es lo que permite el enlace de vuelta desde un
+    # programa a la pagina de su institucion.
+    oferta_slug: Optional[str] = None
+    oferta_nombre: Optional[str] = None
     similitud: float
     afinidad: float
     puntaje: float
@@ -80,11 +87,12 @@ class Resultados(BaseModel):
 
 
 def _filtros(user: User, perfil: bp.PerfilBusqueda, pais, area, institucion,
-             incluir_no_viables: bool) -> bp.Filtros:
+             incluir_no_viables: bool, program_id=None) -> bp.Filtros:
     return bp.Filtros(
         paises=[pais] if pais else (),
         areas=[area] if area else (),
         instituciones=[institucion] if institucion else (),
+        program_id=program_id,
         # `incluir_no_viables` existe para el panel de la agencia: un asesor sí
         # necesita poder ver el catálogo completo. Para el estudiante el valor
         # por defecto esconde lo que no puede cursar todavía.
@@ -122,6 +130,10 @@ async def buscar_programas(
     pais: Optional[str] = None,
     area: Optional[str] = None,
     institucion: Optional[str] = None,
+    # Los programas de UNA ficha del catálogo · es lo que usa la página de una
+    # institución para mostrar su oferta real en vez de mandar al estudiante a
+    # buscarla otra vez en otro sitio.
+    program_id: Optional[str] = None,
     limite: int = Query(20, ge=1, le=100),
     incluir_no_viables: bool = False,
     db: DBSession = Depends(get_db),
@@ -129,7 +141,8 @@ async def buscar_programas(
 ):
     """Paso 3 · los programas, ordenados por qué tanto le hablan a esta persona."""
     perfil = bp.perfil_del_usuario(db, user)
-    f = _filtros(user, perfil, pais, area, institucion, incluir_no_viables)
+    f = _filtros(user, perfil, pais, area, institucion, incluir_no_viables,
+                 program_id=program_id)
 
     # El vector sale de la caché y sólo se regenera cuando el estudiante aportó
     # algo nuevo. Si el proveedor falla **se sigue sin él**: la búsqueda pierde

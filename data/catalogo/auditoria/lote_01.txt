@@ -1,0 +1,16 @@
+# Lote 1 · 15 instituciones · 2026-08-07 · dominios caidos confirmados contra DNS publico 8.8.8.8
+4Life College | NO | 4lifecollege.edu.au NXDOMAIN | ? | ? | ? | ? | ? | ? | DOMINIO MUERTO · hay que re-localizar la institucion
+ABC School of English | NO | abcschool.co.uk resuelve pero rechaza conexion | ? | ? | ? | ? | ? | ? | SERVIDOR CAIDO · puertos 80 y 443 rechazan · dominio abandonado
+ACADEMIA Australia | si | academia21.com | Academia21 (Australian Academy of Vocational Education and Trades) · RTO 21595 | parcial | menu Courses | ~20-25 | Cert III/IV, Dip, Adv Dip + ingles | si | la marca real es Academia21 · ciudad null en la ficha
+ACAH | si | acah.edu.au | Australian College of Agriculture & Horticulture | si | menu COURSES | ~25 | Cert II-IV, Dip, Adv Dip | si | -
+ACAP | si | acap.edu.au | ACAP University College · TEQSA University College | parcial | https://www.acap.edu.au/courses/ | ~40 | Undergrad Cert a Master | si | YA NO es Australian College of Applied Psychology · ficha lo tiene como College Privado/Vocacionales y se queda corta
+ACBI | si | acbi.edu.au | Australian College of Business Intelligence · RTO 40835 · CRICOS 03426E | parcial | https://www.acbi.edu.au/courses/ | ~26 | Cert IV, Dip, Adv Dip, Grad Dip | si | BLOQUEA BOTS: 403 sin User-Agent de navegador (Cloudflare). Con UA de Chrome responde 200
+ACE English | si | aceenglishmalta.com | ACE English Malta | si | https://www.aceenglishmalta.com/es/cursos/ | ~10 | Idiomas CEFR, business, exam prep, juniors | si | -
+ACE Sports Academy | si | acesports.edu.au | ACE Sports Academy · RTO 31414 · CRICOS 03005D | si | https://www.acesports.edu.au/courses.html | 4 | Cert II-IV + Diploma, todos de deporte | si | ficha dice "Todos los programas" y solo tiene 4 cursos de coaching · enganoso
+ACLA | si | studyatlantic.com | Atlantic Canada Language Academy | si | https://studyatlantic.com/programs/ | ~6-7 | Idiomas + frances y espanol | si | -
+ACU | si | acu.edu.au | Australian Catholic University | si | https://www.acu.edu.au/study-at-acu/find-a-course | ? | Pregrado a PhD | si | catalogo detras de BUSCADOR, no lista plana
+AGI anglo-german institute | si | agi-german-courses.de | anglo-german institute (agi German courses) | si | https://www.agi-german-courses.de/en/german-courses-in-stuttgart/ | ? | Aleman A1-C2 | si | la web es un CONFIGURADOR, no un catalogo enumerable · sin sitemap
+AIBT | si | aibtglobal.edu.au | Australia Institute of Business and Technology · RTO 41138 · CRICOS 03430J | si | https://aibtglobal.edu.au/courses/ | 90+ | Cert III/IV, Dip, Adv Dip, Grad Dip | si | sitio PARAGUAS de 5 escuelas internas · muchos cursos "Currently Not Accepting Enrolments" · filtrar por disponibilidad
+AIT | si | ait.edu.au | Academy of Interactive Technology · Institute of Higher Education | si | https://www.ait.edu.au/courses/ | ~10 | Bachelor + Diploma | si | otorga BACHELOR pero la ficha solo permite Vocacionales · deja fuera los pregrados
+ALG | si | alg.edu.au | Australian Learning Group · RTO 91165 | si | https://alg.edu.au/courses/ | ~7 areas | Cert III/IV, Diploma | si | ficha dice Perth; el sitio lista Adelaide y NO Perth
+ALI | NO | studymontreal.com apunta a 127.0.0.1 | ? | ? | ? | ? | ? | ? | DOMINIO MUERTO · DNS publico apunta a loopback

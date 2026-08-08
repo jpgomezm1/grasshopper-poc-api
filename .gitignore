@@ -16,3 +16,8 @@ sql_app.db
 # trackear, pero a un `git add -A` de distancia de quedar en la historia.
 .deploy-keys-*.local
 *.local
+
+# Los lotes de trabajo de la auditoria del catalogo se regeneran con
+# `instituciones_con_sitio.json` + el rebarajado determinista · no aportan
+# historia y son 296K de JSON duplicado.
+data/catalogo/lotes/

@@ -1,0 +1,16 @@
+# Lote 2 · 15 instituciones · 2026-08-07
+ALTEC College | si | altec.edu.au | Pass Global Pty Ltd t/a ALTEC College | si | https://www.altec.edu.au/courses/ | ~16 | Ingles, Cert III-IV, Dip, Adv Dip, Grad Dip | si | -
+AMET Education | si | amet.com.au | AMET Education | si | no tiene | 0 | n/a | AGENCIA | NO ES INSTITUCION: agencia de reclutamiento + servicios migratorios. No dicta programas
+ANIBT | si | anibt.edu.au | Australian National Institute of Business & Technology · RTO 21368 · CRICOS 02506B | si | https://www.anibt.edu.au/courses/ | ~30 | Cert III/IV, Dip, Adv Dip, Grad Dip | si | ficha guarda solo la sigla
+ARU College | si | arucollege.com | ARU College (pathway de Anglia Ruskin, operado por Navitas) | si | https://www.arucollege.com/undergraduate/ | ~19 areas | Foundation, First Year, Pre-Masters | si | es PATHWAY COLLEGE, la ficha lo marca category=Universidad. 3 sedes, ficha dice 1
+AUT Auckland University of Technology | si (bloquea) | aut.ac.nz | ? | ? | ? | ? | ? | ? | NO AUDITABLE: 403 Cloudflare a todo acceso automatizado. Requiere verificacion manual
+Ability - MEGT | NO | - | ? | ? | ? | ? | ? | ? | DOMINIO MUERTO: NXDOMAIN, el dominio ya no existe
+Academies Australasia | si | academies.edu.au | Academies Australasia Group | si | https://academies.edu.au/courses/ | 180-250 | High School a Master | RED | ES UNA RED DE 18 COLLEGES, no una escuela
+Academies Australasia Hair & Beauty | si | brishair.com.au | Brisbane and Gold Coast School of Hairdressing, Barbering and Beauty | parcial | https://www.brishair.com.au/courses | 2 lineas | Peluqueria y Barberia | si | CONFIRMA el caso Brisbane desde otra ficha: sin NI UN programa de estetica
+Academies Australasia Institute | si | academies.edu.au | Academies Australasia Institute · RTO 90806 · CRICOS 02398A | si | (del grupo, no propia) | ? | Vocacional | si | SIN SITIO PROPIO: apunta al dominio del grupo
+Academies Australasia Polytechnic | si | aapoly.edu.au | Academies Australasia Polytechnic (AAPoly) | si | https://aapoly.edu.au/courses/ | ~20+ | Cert IV a Master | si | DUPLICADO exacto con la ficha siguiente
+Academies Australasia Polytechnic (AAPOLY) | si | aapoly.edu.au | Academies Australasia Polytechnic (AAPoly) | si | https://aapoly.edu.au/courses/ | ~20+ | Cert IV a Master | si | DUPLICADO de la anterior · fusionar
+Academique | si | academique.com.au | Academique | si | https://www.academique.com.au/courses/ | ~16-18 | Ingles, Cert III/IV, Dip, Adv Dip | si | ciudad null en la ficha (Southport, Gold Coast)
+Academy of English | si | academies.edu.au | Academy of English · CRICOS 02399M | si | https://academies.edu.au/courses-syd-english/ | ~3 | Solo ELICOS | si | SIN SITIO PROPIO: apunta al dominio del grupo
+Accademia Italiana | si | accademia-italiana.it | Accademia Italiana | si | https://accademia-italiana.it/en/courses/ | ~10+ | Italiano para extranjeros | si | opera en Salerno Y Napoles. OJO: existe otra Accademia Italiana de moda en Florencia
+Actilingua | si | actilingua.com | ActiLingua Academy Vienna | si | https://www.actilingua.com/german-courses/ | ~15-18 | Aleman A1-C2 | si | ficha guarda nombre parcial

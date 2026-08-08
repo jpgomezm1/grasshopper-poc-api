@@ -110,3 +110,31 @@ def test_terminando_el_colegio_sigue_prefiriendo_pregrado():
     from app.services import academic_level as al
 
     assert al.evaluar("pregrado", "high_school") == al.PREFERIDO
+
+
+# ---------------------------------------------------------------------------
+# La normalización de la etapa tiene que ser idempotente · 2026-08-08
+# ---------------------------------------------------------------------------
+
+
+def test_normalizar_una_etapa_ya_normalizada_da_lo_mismo():
+    """`normalizar_etapa` no reconocía los valores que ella misma devuelve.
+
+    Y con etapa None, `academic_level` **no descarta nada**: a un estudiante de
+    11° le volvían a salir maestrías y doctorados. Es el bug de A8 entrando por
+    otra puerta, y no da ningún síntoma — sólo recomendaciones de más.
+    """
+    from app.services import academic_level as al
+
+    for etapa in (al.EN_COLEGIO, al.TERMINANDO_COLEGIO, al.EN_UNIVERSIDAD,
+                  al.EGRESADO, al.TRABAJANDO):
+        assert al.normalizar_etapa(etapa) == etapa
+
+
+def test_a_quien_termina_el_colegio_se_le_descarta_el_posgrado_por_las_dos_vias():
+    """Da igual si la etapa llega en bruto o ya normalizada."""
+    from app.services import academic_level as al
+
+    for entrada in ("high_school", al.TERMINANDO_COLEGIO):
+        fuera = al.niveles_fuera_de_alcance(entrada)
+        assert "maestria" in fuera and "doctorado" in fuera, entrada

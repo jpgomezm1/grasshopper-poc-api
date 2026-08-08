@@ -64,6 +64,18 @@ _NORMALIZACION = {
     # sabemos si tiene título. Ante la duda no se le esconde nada.
 }
 
+# Las etapas canónicas se reconocen a sí mismas · normalizar dos veces tiene que
+# dar lo mismo que normalizar una.
+#
+# Sin esto, `normalizar_etapa("terminando_colegio")` —el propio valor que este
+# módulo devuelve— daba None, y con None este módulo **no descarta nada**: a un
+# estudiante de 11° le volvían a aparecer maestrías y doctorados. Es el bug que
+# A8 vino a arreglar, entrando por otra puerta. Cualquiera que guarde la etapa ya
+# normalizada y la vuelva a pasar cae en él, sin ningún síntoma visible.
+_NORMALIZACION.update({e: e for e in (
+    EN_COLEGIO, TERMINANDO_COLEGIO, EN_UNIVERSIDAD, EGRESADO, TRABAJANDO,
+)})
+
 # Niveles que exigen un título que la persona todavía NO puede tener.
 _POSGRADO = {"maestria", "mba", "doctorado", "especializacion", "posgrado"}
 

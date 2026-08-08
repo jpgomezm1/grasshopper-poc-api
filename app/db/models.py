@@ -2563,3 +2563,47 @@ class CVProfile(Base):
     updated_at = Column(
         DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True
     )
+
+
+class ProgramaInvestigado(Base):
+    """Programa extraído del sitio oficial de la institución · migración 059.
+
+    15.483 filas de 306 instituciones. **No es `Program`**: esto lo investigamos
+    nosotros y la agencia todavía no lo confirma. Cuando llegue el Excel a nivel
+    de programa de la clienta, lo confirmado pasa a `programs` y esta tabla se
+    vacía de un DELETE. Mezclarlo perdería para siempre la distinción entre lo
+    que ella validó y lo que dedujimos.
+
+    **No tiene precio a propósito.** El precio cambia por intake y nacionalidad y
+    la agencia tiene tarifas negociadas: uno sacado de la web es una promesa que
+    el asesor no puede sostener. Que la columna no exista es la garantía.
+    """
+
+    __tablename__ = "programas_investigados"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    institucion = Column(String(255), nullable=False, index=True)
+    nombre = Column(String(500), nullable=False)
+
+    pais = Column(String(80), nullable=True, index=True)
+    ciudad = Column(String(160), nullable=True)
+
+    nivel = Column(String(40), nullable=False, index=True)
+    # Vocabulario cerrado de `app/services/areas.py`. El texto original se
+    # conserva al lado para poder rehacer el mapeo sin volver a extraer.
+    area = Column(String(80), nullable=True, index=True)
+    area_cruda = Column(String(160), nullable=True)
+
+    duracion = Column(String(120), nullable=True)
+    codigo_oficial = Column(String(80), nullable=True)
+    url_fuente = Column(Text, nullable=True)
+    dominio = Column(String(160), nullable=True)
+
+    lote = Column(String(8), nullable=True)
+    activo = Column(Boolean, default=True, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    # `embedding` (vector(1536)) existe en la tabla pero NO se declara aquí: el
+    # tipo `vector` necesitaría el paquete pgvector como dependencia del modelo,
+    # y la búsqueda semántica lo consulta por SQL directo de todos modos. Ver
+    # `app/services/busqueda_programas.py`.

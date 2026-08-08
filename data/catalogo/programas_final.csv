@@ -10859,6 +10859,359 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 21,Leeds Beckett University International Study Centre,International Year One - Sport and Exercise Science,curso_corto,Deporte,2 semestres,-,https://isc.leedsbeckett.ac.uk/programmes/international-year-one
 21,Leeds Beckett University International Study Centre,English Language preparation courses (online),curso_corto,Idiomas,no indicada,-,https://isc.leedsbeckett.ac.uk/programmes/pre-courses
 21,Leeds Beckett University International Study Centre,AI Digital Literacy,curso_corto,Tecnología,no indicada,-,https://isc.leedsbeckett.ac.uk/programmes/pre-courses
+22,Confederation College,Aviation Technician - Aircraft Maintenance,diplomado,Aviacion,2 years,0301,https://www.confederationcollege.ca/program/aviation-technician-aircraft-maintenance
+22,Confederation College,Carpentry and Renovation Techniques,curso_corto,Construccion,1 year,0383,https://www.confederationcollege.ca/program/carpentry-and-renovation-techniques
+22,Confederation College,Computer Programming,diplomado,Tecnologia,2 years,0180,https://www.confederationcollege.ca/program/computer-programming
+22,Confederation College,Developmental Services Worker,diplomado,Servicios Sociales,2 years,0139,https://www.confederationcollege.ca/program/developmental-services-worker
+22,Confederation College,Developmental Services Worker - Accelerated,diplomado,Servicios Sociales,9 months,0162,https://www.confederationcollege.ca/program/developmental-services-worker-accelerated
+22,Confederation College,Digital Marketing and Marketing Analytics,posgrado,Mercadeo,2 years,0268,https://www.confederationcollege.ca/program/digital-marketing-and-marketing-analytics
+22,Confederation College,Early Childhood Education,diplomado,Educacion,2 years,0102,https://www.confederationcollege.ca/program/early-childhood-education
+22,Confederation College,Embedded Systems,posgrado,Ingenieria,2 years,0331,https://www.confederationcollege.ca/program/embedded-systems
+22,Confederation College,Engineering Business and Safety Management,posgrado,Ingenieria,2 years,0342,https://www.confederationcollege.ca/program/engineering-business-and-safety-management
+22,Confederation College,Environmental Technician - Water Resource Management,diplomado,Medio Ambiente,2 years,0387,https://www.confederationcollege.ca/program/environmental-technician-water-resource-management
+22,Confederation College,Health Administration and Leadership,posgrado,Administracion en Salud,1 year,0294,https://www.confederationcollege.ca/program/health-administration-and-leadership
+22,Confederation College,Health Informatics,posgrado,Tecnologia,1 year,0265,https://www.confederationcollege.ca/program/health-informatics
+22,Confederation College,Honours Bachelor of Science in Nursing (BScN),bachelor,Enfermeria,4 years,0650,https://www.confederationcollege.ca/program/honours-bachelor-science-nursing-bscn
+22,Confederation College,Industrial Manufacturing Processes,posgrado,Ingenieria,2 years,0345,https://www.confederationcollege.ca/program/industrial-manufacturing-processes
+22,Confederation College,Information Communication Technology (ICT) Solutions for Business,posgrado,Tecnologia,2 years,0358,https://www.confederationcollege.ca/program/information-communication-technology-ict-solutions-business
+22,Confederation College,Interactive Media Development,diplomado,Medios Digitales,3 years,0174,https://www.confederationcollege.ca/program/interactive-media-development
+22,Confederation College,Mechanical Techniques,curso_corto,Mecanica,34 weeks,0394,https://www.confederationcollege.ca/program/mechanical-techniques
+22,Confederation College,Medical Laboratory Assistant,curso_corto,Salud,1 year,0603,https://www.confederationcollege.ca/program/medical-laboratory-assistant
+22,Confederation College,Motive Power Techniques - Heavy Equipment,curso_corto,Mecanica,34 weeks,0372,https://www.confederationcollege.ca/program/motive-power-techniques-heavy-equipment
+22,Confederation College,Personal Support Worker,curso_corto,Salud,1 year,0630,https://www.confederationcollege.ca/program/personal-support-worker
+22,Confederation College,Pharmacy Technician,diplomado,Quimica y Farmacia,2 years,0645,https://www.confederationcollege.ca/program/pharmacy-technician
+22,Confederation College,Practical Nursing,diplomado,Enfermeria,2 years,0619,https://www.confederationcollege.ca/program/practical-nursing
+22,Confederation College,Pre-Health Sciences - Pathway to Advanced Diplomas & Degrees,curso_corto,Salud,1 year,0153,https://www.confederationcollege.ca/program/pre-health-sciences-pathway-advanced-diplomas-and-degrees
+22,Confederation College,Recreation Therapy,diplomado,Salud,2 years,0108,https://www.confederationcollege.ca/program/recreation-therapy
+22,Confederation College,Recreation Therapy - Accelerated,diplomado,Salud,1 year,0105,https://www.confederationcollege.ca/program/recreation-therapy-accelerated
+22,Confederation College,Welding Techniques,diplomado,Manufactura,32 weeks,0375,https://www.confederationcollege.ca/program/welding-techniques
+22,Istituto Marangoni,Arts Curating,bachelor,Artes,3 anios,-,https://www.istitutomarangoni.com/en/art-courses/bachelor-degrees/art-curating-and-business/arts-curating
+22,Istituto Marangoni,Multimedia Arts,bachelor,Artes Digitales,3 anios,-,https://www.istitutomarangoni.com/en/art-courses/bachelor-degrees/multimedia-art/multimedia-arts
+22,Istituto Marangoni,Art & Culture Surgery,curso_corto,Artes,1 anio,-,https://www.istitutomarangoni.com/en/art-courses/foundation-year/art-curating-and-business/art-culture-surgery
+22,Istituto Marangoni,Digital Fine Art,diplomado,Artes Digitales,1 anio,-,https://www.istitutomarangoni.com/en/art-courses/intensive-course-one-year/multimedia-art/digital-fine-art
+22,Istituto Marangoni,Art Management,maestria,Artes,no indicada,-,https://www.istitutomarangoni.com/en/art-courses/master/art-curating-and-business/art-management
+22,Istituto Marangoni,Curating Art & Fashion,maestria,Artes,no indicada,-,https://www.istitutomarangoni.com/en/art-courses/master/art-curating-and-business/curating-art--fashion
+22,Istituto Marangoni,Creative Digital Media,maestria,Artes Digitales,no indicada,-,https://www.istitutomarangoni.com/en/art-courses/master/multimedia-art/creative-digital-media
+22,Istituto Marangoni,Art History & Culture Semester,intercambio,Artes,1 semestre,-,https://www.istitutomarangoni.com/en/art-courses/semester-exchange-program/art-curating-and-business/arts-curating
+22,Istituto Marangoni,Multimedia Arts Semester,intercambio,Artes Digitales,1 semestre,-,https://www.istitutomarangoni.com/en/art-courses/semester-exchange-program/multimedia-art/multimedia-arts-semester
+22,Istituto Marangoni,Art In Fashion,curso_corto,Artes,no indicada,-,https://www.istitutomarangoni.com/en/art-courses/short-course/art-curating-and-business/art-in-fashion
+22,Istituto Marangoni,Unveiling Art: From Renaissance To Contemporary Panorama,curso_corto,Artes,no indicada,-,https://www.istitutomarangoni.com/en/art-courses/short-course/art-curating-and-business/unveiling-art-from-renaissance-to-contemporary-panorama
+22,Istituto Marangoni,Fashion Luxury & Brand Management For Hospitality,maestria,Hospitalidad,no indicada,-,https://www.istitutomarangoni.com/en/courses-luxury-hospitality/master/luxury-hospitality/fashion-luxury-brand-management-for-hospitality
+22,Istituto Marangoni,Luxury Hospitality & Customer Experience Management,maestria,Hospitalidad,no indicada,-,https://www.istitutomarangoni.com/en/courses-luxury-hospitality/master/luxury-hospitality/luxury-hospitality-customer-experience-management
+22,Istituto Marangoni,Luxury Hospitality Management And Service Design,maestria,Hospitalidad,no indicada,-,https://www.istitutomarangoni.com/en/courses-luxury-hospitality/master/luxury-hospitality/luxury-hospitality-management-and-service-design
+22,Istituto Marangoni,Design Innovation For Emerging Technologies,bachelor,Diseño,3 anios,-,https://www.istitutomarangoni.com/en/design-courses/bachelor-degrees/design-innovation/design-innovation-for-emerging-technologies
+22,Istituto Marangoni,Interior Design / Interiors,bachelor,Diseño de Interiores,3 anios,-,https://www.istitutomarangoni.com/en/design-courses/bachelor-degrees/interior-design/interior-design
+22,Istituto Marangoni,Product Design BA,bachelor,Diseño Industrial,3 anios,-,https://www.istitutomarangoni.com/en/design-courses/bachelor-degrees/product-design/product-design-2
+22,Istituto Marangoni,Visual Design,bachelor,Diseño Gráfico,3 anios,-,https://www.istitutomarangoni.com/en/design-courses/bachelor-degrees/visual-design/visual-design
+22,Istituto Marangoni,Advanced Interior Design,intercambio,Diseño de Interiores,1 semestre,-,https://www.istitutomarangoni.com/en/design-courses/exchange-programs-master/interior-design/advanced-interior-design
+22,Istituto Marangoni,Jewellery Design Semester,intercambio,Diseño Industrial,1 semestre,-,https://www.istitutomarangoni.com/en/design-courses/exchange-programs-master/product-design/jewellery-design-semester
+22,Istituto Marangoni,Design Surgery,curso_corto,Diseño de Interiores,1 anio,-,https://www.istitutomarangoni.com/en/design-courses/foundation-year/interior-design/design-surgery
+22,Istituto Marangoni,Foundation in Design,curso_corto,Diseño de Interiores,1 anio,-,https://www.istitutomarangoni.com/en/design-courses/foundation-year/interior-design/foundation-in-design
+22,Istituto Marangoni,Foundation In Design Online,curso_corto,Diseño de Interiores,1 anio,-,https://www.istitutomarangoni.com/en/design-courses/foundation-year/interior-design/foundation-in-design-online
+22,Istituto Marangoni,Interior Design Intensive,diplomado,Diseño de Interiores,1 anio,-,https://www.istitutomarangoni.com/en/design-courses/intensive-course-one-year/interior-design/interior-design
+22,Istituto Marangoni,Luxury Interior Design & Management,maestria,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master-of-arts/interior-design/luxury-interior-design-management
+22,Istituto Marangoni,Design Innovation & Management,maestria,Diseño Industrial,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master-of-arts/product-design/design-innovation-management
+22,Istituto Marangoni,Communication Design,maestria,Diseño Gráfico,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master-of-arts/visual-design/communication-design
+22,Istituto Marangoni,Digital Design For Immersive Experiences,maestria,Diseño,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/design-innovation/digital-design-for-immersive-experiences
+22,Istituto Marangoni,Product Design For Human-robot Interaction,maestria,Diseño,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/design-innovation/product-design-for-human-robot-interaction
+22,Istituto Marangoni,Interior Contract Design,maestria,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/interior-design/interior-contract-design
+22,Istituto Marangoni,Contemporary Interior Design / Interior Design,maestria,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/interior-design/interior-design
+22,Istituto Marangoni,Luxury Boutique Hotel Interior Design,maestria,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/interior-design/luxury-boutique-hotel-interior-design
+22,Istituto Marangoni,Surface & Textile Design,maestria,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/interior-design/surface-textile-design
+22,Istituto Marangoni,Design Management,maestria,Diseño Industrial,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/product-design/design-management-strategic-innovation
+22,Istituto Marangoni,Fine Jewellery Design,maestria,Diseño Industrial,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/product-design/fine-jewellery-design
+22,Istituto Marangoni,Jewellery Design - Master's Degrees · Master's Courses · Master of Arts,maestria,Diseño Industrial,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/product-design/jewellery-design
+22,Istituto Marangoni,Product Design (Contemporary Furniture Design),maestria,Diseño Industrial,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/product-design/product-design
+22,Istituto Marangoni,Product & Furniture Design,maestria,Diseño Industrial,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/product-design/product-furniture-design
+22,Istituto Marangoni,Digital Art Direction,maestria,Diseño Gráfico,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/master/visual-design/digital-art-direction
+22,Istituto Marangoni,Interior Design · Online,curso_corto,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/online-short-course/interior-design/interior-design-online
+22,Istituto Marangoni,AI-enhanced Luxury Interior Design,curso_corto,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/professional-courses/interior-design/ai-enhanced-luxury-interior-design
+22,Istituto Marangoni,"Interior Design for Luxury Hospitality, Wellness and Retail",curso_corto,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/professional-courses/interior-design/interior-design-for-luxury-hospitality-wellness-and-retail
+22,Istituto Marangoni,Digital Design & Multimedia,curso_corto,Diseño Gráfico,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/professional-courses/visual-design/digital-design-multimedia
+22,Istituto Marangoni,Interior Design Semester,intercambio,Diseño de Interiores,1 semestre,-,https://www.istitutomarangoni.com/en/design-courses/semester-exchange-program/interior-design/interior-design-semester
+22,Istituto Marangoni,Product Design Semester,intercambio,Diseño Industrial,1 semestre,-,https://www.istitutomarangoni.com/en/design-courses/semester-exchange-program/product-design/product-design-semester
+22,Istituto Marangoni,Visual Design Semester,intercambio,Diseño Gráfico,1 semestre,-,https://www.istitutomarangoni.com/en/design-courses/semester-exchange-program/visual-design/visual-design-semester
+22,Istituto Marangoni,Ai For Design,curso_corto,Diseño,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/design-innovation/ai-for-design
+22,Istituto Marangoni,Interior Design,curso_corto,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/interior-design/interior-design
+22,Istituto Marangoni,Interior Design For Professionals,curso_corto,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/interior-design/interior-design-for-professionals
+22,Istituto Marangoni,Interior Design For Wellbeing,curso_corto,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/interior-design/interior-design-for-wellbeing-circularity
+22,Istituto Marangoni,Interior design & lighting,curso_corto,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/interior-design/interior-design-lighting
+22,Istituto Marangoni,Interior Design With Daewha Kang,curso_corto,Diseño de Interiores,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/interior-design/interior-design-with-daewha-kang
+22,Istituto Marangoni,Product Design,curso_corto,Diseño Industrial,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/product-design/product-design
+22,Istituto Marangoni,3d Graphics,curso_corto,Diseño Gráfico,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/visual-design/3d-graphics
+22,Istituto Marangoni,Digital Graphic Design,curso_corto,Diseño Gráfico,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/visual-design/digital-graphic-design
+22,Istituto Marangoni,Interaction Design,curso_corto,Diseño Gráfico,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/visual-design/interaction-design
+22,Istituto Marangoni,Video Storytelling & Motion Graphics,curso_corto,Diseño Gráfico,no indicada,-,https://www.istitutomarangoni.com/en/design-courses/short-course/visual-design/video-storytelling-motion-graphics
+22,Istituto Marangoni,Fashion Business,bachelor,Negocios,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-business/fashion-business
+22,Istituto Marangoni,Fashion Business & Buying,bachelor,Negocios,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-business/fashion-business-buying
+22,Istituto Marangoni,"Fashion Business, Digital Communication & Media",bachelor,Negocios,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-business/fashion-business-digital-communication-media
+22,Istituto Marangoni,Fashion Management,bachelor,Negocios,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-business/fashion-management-brand-strategies
+22,Istituto Marangoni,"Fashion Management, Digital Communication & Media",bachelor,Negocios,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-business/fashion-management-digital-communication-and-media
+22,Istituto Marangoni,Fashion Product,bachelor,Negocios,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-business/fashion-product
+22,Istituto Marangoni,Fashion Design,bachelor,Moda,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-design/fashion-design
+22,Istituto Marangoni,Fashion Design & Accessories,bachelor,Moda,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-design/fashion-design-accessories
+22,Istituto Marangoni,FASHION DESIGN & MARKETING,bachelor,Moda,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-design/fashion-design-marketing
+22,Istituto Marangoni,Fashion Communication & Image,bachelor,Moda,3 anios,-,https://www.istitutomarangoni.com/en/fashion-courses/bachelor-degrees/fashion-styling/fashion-communication-image
+22,Istituto Marangoni,Fashion Business & Marketing,intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/exchange-programs-master/fashion-business/fashion-business-marketing
+22,Istituto Marangoni,Fashion Buying & Merchandising,intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/exchange-programs-master/fashion-business/fashion-buying-merchandising
+22,Istituto Marangoni,Luxe À La Française,intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/exchange-programs-master/fashion-business/luxe-a-la-francaise
+22,Istituto Marangoni,Management Surgery,curso_corto,Negocios,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/foundation-year/fashion-business/management-surgery
+22,Istituto Marangoni,Fashion Foundation,curso_corto,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/foundation-year/fashion-design/fashion-foundation
+22,Istituto Marangoni,Fashion & Future,curso_corto,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/foundation-year/fashion-design/fashion-future
+22,Istituto Marangoni,Foundation in Fashion,curso_corto,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/foundation-year/fashion-design/foundation-in-fashion
+22,Istituto Marangoni,Foundation in Fashion & Design,curso_corto,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/foundation-year/fashion-design/foundation-in-fashion-design
+22,Istituto Marangoni,Foundation In Fashion Online,curso_corto,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/foundation-year/fashion-design/foundation-in-fashion-online
+22,Istituto Marangoni,Foundation Programme,curso_corto,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/foundation-year/fashion-design/foundation-programme
+22,Istituto Marangoni,Portfolio Surgery,curso_corto,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/foundation-year/fashion-design/portfolio-surgery
+22,Istituto Marangoni,Fashion Business & Digital Marketing,diplomado,Negocios,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-business/fashion-business-digital-marketing
+22,Istituto Marangoni,Luxury Fashion Business & Marketing,diplomado,Negocios,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-business/luxury-fashion-business-marketing
+22,Istituto Marangoni,Strategic Management in Luxury Businesses,diplomado,Negocios,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-business/strategic-management-in-luxury-businesses
+22,Istituto Marangoni,Embroidery And Pattern-making One-year,diplomado,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-design/embroidery-and-pattern-making
+22,Istituto Marangoni,Fashion Design One Year,diplomado,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-design/fashion-design
+22,Istituto Marangoni,Fashion Design & Styling,diplomado,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-design/fashion-design-styling
+22,Istituto Marangoni,Global Fashion,diplomado,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-design/global-fashion
+22,Istituto Marangoni,Shoes and accessories design intensive,diplomado,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-design/shoes-and-accessories-design
+22,Istituto Marangoni,Fashion Design & Image Styling Immersive,diplomado,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-styling/fashion-design-image-styling
+22,Istituto Marangoni,Fashion Styling & Digital Art Direction,diplomado,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-styling/fashion-styling-digital-art-direction
+22,Istituto Marangoni,Fashion Styling & Multimedia,diplomado,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/intensive-course-one-year/fashion-styling/fashion-styling-multimedia
+22,Istituto Marangoni,Fashion Luxury & Branding Innovation,maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master-of-arts/fashion-business/fashion-luxury-branding-innovation
+22,Istituto Marangoni,Fashion Design & Innovation,maestria,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master-of-arts/fashion-design/fashion-design-innovation
+22,Istituto Marangoni,Ai-curated Fashion Image & Marketing,maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-business/ai-curated-fashion-image-marketing
+22,Istituto Marangoni,Fashion & Luxury Brand Management,maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-business/fashion-luxury-brand-management
+22,Istituto Marangoni,Fashion Omnichannel & E-commerce,maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-business/fashion-omnichannel-e-commerce
+22,Istituto Marangoni,Fashion Product Management,maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-business/fashion-product-management
+22,Istituto Marangoni,"Fashion Promotion, Communication & Digital Media",maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-business/fashion-promotion-communication-digital-media
+22,Istituto Marangoni,Fashion Business & Entrepreneurship,maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-business/fashion-start-up
+22,Istituto Marangoni,Global Luxury Management for Business Professionals,maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-business/master-in-global-luxury-management-for-business-professionals
+22,Istituto Marangoni,MBA in Digital Transformation In Leadership For Fashion,maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-business/mba-in-digital-transformation-and-leadership-for-fashion
+22,Istituto Marangoni,POSTGRADUATE CERTIFICATE IN RESEARCH,maestria,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-business/postgraduate-certificate-in-research
+22,Istituto Marangoni,Fashion Design Womenswear,maestria,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-design/fashion-design
+22,Istituto Marangoni,Fashion Design For Knitwear Innovation,maestria,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-design/fashion-design-for-knitwear-innovation
+22,Istituto Marangoni,Fashion Design (Womenswear / Menswear),maestria,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-design/fashion-design-womenswear--menswear
+22,Istituto Marangoni,Fashion Design (womenswear/menswear),maestria,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-design/fashion-design-womenswear-menswear
+22,Istituto Marangoni,Fashion Design (womenswear / Menswear / Activewear),maestria,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-design/fashion-design-womenswear-menswear-activewear
+22,Istituto Marangoni,Fashion Textiles: Knitwear and Leatherwear Design,maestria,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-design/fashion-textiles-knitwear-and-leatherwear-design
+22,Istituto Marangoni,Luxury Accessories Design & Management,maestria,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-design/luxury-accessories-design-management
+22,Istituto Marangoni,"Fashion Styling, Creative Direction & Digital Content",maestria,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/master/fashion-styling/fashion-styling-creative-direction-digital-content
+22,Istituto Marangoni,3D Design & AI Digital Fashion (Online),curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/online-short-course/fashion-design/3d-design-ai-digital-fashion
+22,Istituto Marangoni,CLO3D Fashion (Online),curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/online-short-course/fashion-design/clo3d-fashion
+22,Istituto Marangoni,Digital Fashion and Portfolio Development (Online),curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/online-short-course/fashion-design/digital-fashion-and-portfolio-development
+22,Istituto Marangoni,Fashion Illustration & Generative AI (Online),curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/online-short-course/fashion-design/fashion-illustration-generative-ai
+22,Istituto Marangoni,Graphic Design for Fashion (Online),curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/online-short-course/fashion-design/graphic-design-for-fashion
+22,Istituto Marangoni,Introduction to Fashion Design & Visual Artistry (Online),curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/online-short-course/fashion-design/introduction-to-fashion-design-visual-artistry
+22,Istituto Marangoni,Ai-Driven Fashion Product Development & Merchandising,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-business/ai-driven-fashion-product-development-merchandising
+22,Istituto Marangoni,"Ai Strategies For Luxury, Fashion Business & Marketing",curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-business/ai-strategies-for-luxury-fashion-business-marketing
+22,Istituto Marangoni,Fashion e-Commerce & Digital Marketing,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-business/fashion-e-commerce-digital-marketing
+22,Istituto Marangoni,Fashion Entrepreneurship - Professional,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-business/fashion-entrepreneurship
+22,Istituto Marangoni,[Record #1835],curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-business/fashion-luxury-retail-visual-merchandising
+22,Istituto Marangoni,Luxury Branding - Professional,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-business/luxury-branding
+22,Istituto Marangoni,"Retail Management, Buying And Visual Merchandising",curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-business/retail-management-buying-and-visual-merchandising
+22,Istituto Marangoni,Advanced Pattern Cutting & Draping,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-design/advanced-pattern-cutting-draping
+22,Istituto Marangoni,"Design for Luxury Goods: Jewelry, Accessories & Footwear - Professional",curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-design/design-for-luxury-goods-jewelry-accessories-footwear
+22,Istituto Marangoni,Digital Design For Fashion,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-design/digital-design-for-fashion
+22,Istituto Marangoni,Generative AI for Fashion Designers,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-design/generative-ai-for-fashion-designers
+22,Istituto Marangoni,Metaverse & Web3,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-design/metaverse-web3
+22,Istituto Marangoni,Professional Experience,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-design/professional-experience
+22,Istituto Marangoni,Virtual Fashion,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-design/virtual-fashion
+22,Istituto Marangoni,AI-Curated Fashion Image & Film Production for Professionals,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/professional-courses/fashion-styling/ai-curated-fashion-image-film-production
+22,Istituto Marangoni,Fashion Business Semester,intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-business/fashion-business
+22,Istituto Marangoni,Fashion Business & Buying Semester,intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-business/fashion-business-buying-semester
+22,Istituto Marangoni,Fashion Business Communication & Media Semester,intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-business/fashion-business-digital-communication-media
+22,Istituto Marangoni,Fashion Management - Digital Communication & Media,intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-business/fashion-management--digital-communication-media-semester
+22,Istituto Marangoni,Fashion Management & Brand Strategies,intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-business/fashion-management-brand-strategies
+22,Istituto Marangoni,"Fashion Marketing, Digital Communication & Media - Semester",intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-business/fashion-marketing-digital-communication-media-semester
+22,Istituto Marangoni,Fashion Product Semester,intercambio,Negocios,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-business/fashion-product-semester
+22,Istituto Marangoni,Fashion Design & Accessories Semester,intercambio,Moda,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-design/fashion-design-accessories-semester
+22,Istituto Marangoni,Fashion Design & Accessories (womenswear) Semester,intercambio,Moda,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-design/fashion-design-accessories-womenswear-semester
+22,Istituto Marangoni,Fashion Design Semester,intercambio,Moda,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-design/fashion-design-semester
+22,Istituto Marangoni,Fashion Communication & Image Semester,intercambio,Moda,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-styling/fashion-communication-image-semester-2
+22,Istituto Marangoni,Fashion Styling & Creative Direction Semester,intercambio,Moda,1 semestre,-,https://www.istitutomarangoni.com/en/fashion-courses/semester-exchange-program/fashion-styling/fashion-styling-creative-direction-semester
+22,Istituto Marangoni,Brand Identity,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/brand-identity
+22,Istituto Marangoni,Design Thinking,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/design-thinking
+22,Istituto Marangoni,Fashion business & entrepreneurship · online,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/fashion-business-entrepreneurship
+22,Istituto Marangoni,Fashion Communication For Luxury,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/fashion-communication-for-luxury
+22,Istituto Marangoni,Fashion Digital Marketing & Pr,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/fashion-digital-marketing-pr
+22,Istituto Marangoni,Fashion Image & Business,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/fashion-image-business
+22,Istituto Marangoni,Fashion Summer Camp: Fashion Social Media,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/fashion-summer-camp-fashion-social-media
+22,Istituto Marangoni,Fashion Summer Camp: Fashion Trends Forecasting,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/fashion-summer-camp-fashion-trends-forecasting
+22,Istituto Marangoni,Fashion Trend Forecasting,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/fashion-trend-forecasting
+22,Istituto Marangoni,Luxury Fashion & Beauty Experience,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/luxury-fashion-beauty-experience
+22,Istituto Marangoni,Luxury Fashion For Professional,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/luxury-fashion-for-professional
+22,Istituto Marangoni,Product Development For Fragrances,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/product-development-for-fragrances
+22,Istituto Marangoni,Professional Fashion Insight,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/professional-fashion-insight
+22,Istituto Marangoni,Professional Fashion Insight: Fashion Business Immersion,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/professional-fashion-insight-fashion-business-immersion
+22,Istituto Marangoni,Professional Fashion Insight: Fashion Entrepreneurship Lab,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/professional-fashion-insight-fashion-entrepreneurship-lab
+22,Istituto Marangoni,Social Media for Fashion,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/social-media-for-fashion
+22,Istituto Marangoni,Strategic Licensing,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/strategic-licensing
+22,Istituto Marangoni,"Visual Merchandising, Image & Communication Strategies",curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-business/visual-merchandising-image-communication-strategies
+22,Istituto Marangoni,Accessories Design,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/accessories-design
+22,Istituto Marangoni,A.I for Fashion,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/ai-for-fashion
+22,Istituto Marangoni,Digital Fashion Illustration,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/digital-fashion-illustration
+22,Istituto Marangoni,Digital Pattern Making With Clo3d,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/digital-pattern-making-with-clo3d
+22,Istituto Marangoni,Draping,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/draping
+22,Istituto Marangoni,Experimental Fashion Design,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/experimental-fashion-draping
+22,Istituto Marangoni,EXPERIMENTAL TEXTILE DESIGN,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/experimental-textile-design
+22,Istituto Marangoni,Fashion Design • 1 Week,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fashion-design-1-week
+22,Istituto Marangoni,Fashion design & illustration,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fashion-design-illustration
+22,Istituto Marangoni,Fashion Discovery,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fashion-discovery
+22,Istituto Marangoni,Fashion drawing,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fashion-drawing
+22,Istituto Marangoni,Fashion Drawing For Visual Expression,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fashion-drawing-for-visual-expression
+22,Istituto Marangoni,Fashion Illustration,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fashion-illustration
+22,Istituto Marangoni,Fashion Illustration Live,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fashion-illustration-live
+22,Istituto Marangoni,Fashion Summer Camp: Fashion Design,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fashion-summer-camp-fashion-design
+22,Istituto Marangoni,Fashion Summer Camp: Fashion Sewing,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fashion-summer-camp-fashion-sewing
+22,Istituto Marangoni,Footwear Design,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/footwear-design
+22,Istituto Marangoni,Fundamentals of Fashion Design - Short courses,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/fundamentals-of-fashion-design
+22,Istituto Marangoni,Introduction To Fashion Design,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/introduction-to-fashion-design
+22,Istituto Marangoni,Introduction To Portfolio,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/introduction-to-portfolio
+22,Istituto Marangoni,Jewellery Design,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/jewellery-design
+22,Istituto Marangoni,Knitwear Design,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/knitwear-design
+22,Istituto Marangoni,Luxury Accessories,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/luxury-accessories
+22,Istituto Marangoni,LUXURY ACCESSORIES & SHOE DESIGN,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/luxury-accessories-shoe-design
+22,Istituto Marangoni,Pattern Cutting,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/pattern-cutting
+22,Istituto Marangoni,Pattern Cutting For Designers,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/pattern-cutting-for-designers
+22,Istituto Marangoni,Pattern Making Creation,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/pattern-making-creation
+22,Istituto Marangoni,Portfolio Creation,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/portfolio-creation
+22,Istituto Marangoni,Portfolio Design,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/portfolio-design
+22,Istituto Marangoni,Pre-sessional English,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/pre-sessional-english
+22,Istituto Marangoni,Professional Fashion Insight: Fashion Digital Design Lab,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/professional-fashion-insight-fashion-digital-design-lab
+22,Istituto Marangoni,[Record #2705],curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/sustainable-fashion-circularity
+22,Istituto Marangoni,Visual Design for Digital Patterns,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-design/visual-design-for-digital-patterns
+22,Istituto Marangoni,Creative Direction & Digital Storytelling,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-styling/creative-direction-digital-storytelling
+22,Istituto Marangoni,Fashion Image & Styling,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-styling/fashion-image-styling
+22,Istituto Marangoni,Fashion image & styling · online,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-styling/fashion-image-styling-online
+22,Istituto Marangoni,Fashion Styling For Social Media,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-styling/fashion-styling-for-social-media
+22,Istituto Marangoni,Fashion Styling for teenagers,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-styling/fashion-styling-for-teenagers
+22,Istituto Marangoni,Food Styling,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-styling/food-styling
+22,Istituto Marangoni,Visual Merchandising For Professional,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-course/fashion-styling/visual-merchandising-for-professional
+22,Istituto Marangoni,Fashion Business For Teenagers,curso_corto,Negocios,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-courses/fashion-business/fashion-business-for-teenagers
+22,Istituto Marangoni,Fashion Design for teenagers,curso_corto,Moda,no indicada,-,https://www.istitutomarangoni.com/en/fashion-courses/short-courses/fashion-design/fashion-design-for-teenagers
+22,Istituto Marangoni,Fashion styling,curso_corto,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/undergraduate-progression/fashion-styling/fashion-communication-image
+22,Istituto Marangoni,The Fashion Styling & Creative Direction,curso_corto,Moda,1 anio,-,https://www.istitutomarangoni.com/en/fashion-courses/undergraduate-progression/fashion-styling/fashion-styling-creative-direction
+22,Istituto Marangoni,Fashion Management - Fragrances & Cosmetics,bachelor,Belleza y Cosmética,3 anios,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/bachelor-degrees/fragrances-and-cosmetics-courses/fashion-management--fragrances-cosmetics
+22,Istituto Marangoni,Fragrances & Cosmetics Management,bachelor,Belleza y Cosmética,3 anios,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/bachelor-degrees/fragrances-and-cosmetics-courses/fragrances-cosmetics-management
+22,Istituto Marangoni,Fragrances & Cosmetics Product And Communication,bachelor,Belleza y Cosmética,3 anios,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/bachelor-degrees/fragrances-and-cosmetics-courses/fragrances-cosmetics-product-and-communication
+22,Istituto Marangoni,Management & Marketing For Fragrances And Cosmetics,diplomado,Belleza y Cosmética,1 anio,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/intensive-course-one-year/fragrances-and-cosmetics-courses/management-marketing-for-fragrances-and-cosmetics
+22,Istituto Marangoni,Product Management for Fragrances and Cosmetics,diplomado,Belleza y Cosmética,1 anio,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/intensive-course-one-year/fragrances-and-cosmetics-courses/product-management-for-fragrances-and-cosmetics
+22,Istituto Marangoni,Fragrances and Cosmetics Brand Management and Licensing,maestria,Belleza y Cosmética,no indicada,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/master/fragrances-and-cosmetics-courses/fragrances-and-cosmetics-brand-management-and-licensing
+22,Istituto Marangoni,Fragrances & Cosmetics Brand Management,maestria,Belleza y Cosmética,no indicada,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/master/fragrances-and-cosmetics-courses/fragrances-cosmetics-brand-management
+22,Istituto Marangoni,Marketing and Communication Management for Fragrances & Cosmetics,maestria,Belleza y Cosmética,no indicada,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/master/fragrances-and-cosmetics-courses/marketing-and-communication-management-for-fragrances-cosmetics
+22,Istituto Marangoni,Olfactory Experience Management for the Luxury Industry,maestria,Belleza y Cosmética,no indicada,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/master/fragrances-and-cosmetics-courses/olfactory-experience-management-for-the-luxury-industry
+22,Istituto Marangoni,Ai Strategies For Luxury Beauty Brand Management,curso_corto,Belleza y Cosmética,no indicada,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/professional-courses/fragrances-and-cosmetics-courses/ai-strategies-for-luxury-beauty-brand-management
+22,Istituto Marangoni,Introduction To Fashion & Beauty Image,curso_corto,Diseño,no indicada,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/short-course/beauty-image/introduction-to-fashion-beauty-image
+22,Istituto Marangoni,Luxury Beauty Management,curso_corto,Belleza y Cosmética,no indicada,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/short-course/fragrances-and-cosmetics-courses/luxury-beauty-management
+22,Istituto Marangoni,Fragrances and Cosmetics Management,curso_corto,Belleza y Cosmética,1 anio,-,https://www.istitutomarangoni.com/en/fragrances-and-cosmetics/undergraduate-progression/fragrances-and-cosmetics-courses/fragrances-and-cosmetics-management
+22,Kaplan Business School,Bachelor of Business,bachelor,Negocios,3 anios,067756B,https://www.kbs.edu.au/courses/bachelor-of-business
+22,Kaplan Business School,Bachelor of Business (Accounting),bachelor,Contaduria,3 anios,085958J,https://www.kbs.edu.au/courses/bachelor-of-business-accounting
+22,Kaplan Business School,Bachelor of Business (Hospitality & Tourism Management),bachelor,Hospitalidad,3 anios,085961C,https://www.kbs.edu.au/courses/bachelor-of-business-hospitality-and-tourism-management
+22,Kaplan Business School,Bachelor of Business (Management),bachelor,Negocios,3 anios,085959G,https://www.kbs.edu.au/courses/bachelor-of-business-management
+22,Kaplan Business School,Bachelor of Business (Marketing),bachelor,Mercadeo,3 anios,087660M,https://www.kbs.edu.au/courses/bachelor-of-business-marketing
+22,Kaplan Business School,Bachelor of Information Technology,bachelor,Tecnologia,3 anios,110277M,https://www.kbs.edu.au/courses/bachelor-of-information-technology
+22,Kaplan Business School,Diploma of Business,diplomado,Negocios,1 anio,086332B,https://www.kbs.edu.au/courses/diploma-of-business
+22,Kaplan Business School,Diploma of Information Technology,diplomado,Tecnologia,1 anio,110279J,https://www.kbs.edu.au/courses/diploma-of-information-technology
+22,Kaplan Business School,English for Academic Purposes,curso_corto,Idiomas,10 semanas por nivel,105225K,https://www.kbs.edu.au/courses/english-for-academic-purposes
+22,Kaplan Business School,Graduate Certificate in Accounting,posgrado,Contaduria,8 meses,063299K,https://www.kbs.edu.au/courses/graduate-certificate-in-accounting
+22,Kaplan Business School,Graduate Certificate in Business Administration,posgrado,Negocios,8 meses,078567E,https://www.kbs.edu.au/courses/graduate-certificate-in-business-administration
+22,Kaplan Business School,Graduate Certificate in Business Analytics,posgrado,Analitica de Datos,8 meses,0100431,https://www.kbs.edu.au/courses/graduate-certificate-in-business-analytics
+22,Kaplan Business School,Graduate Certificate in Information Technology,posgrado,Tecnologia,8 meses,110276A,https://www.kbs.edu.au/courses/graduate-certificate-in-information-technology
+22,Kaplan Business School,Graduate Diploma of Information Technology,posgrado,Tecnologia,1 anio,110275B,https://www.kbs.edu.au/courses/graduate-diploma-information-technology
+22,Kaplan Business School,Graduate Diploma of Business Administration,posgrado,Negocios,1 anio 4 meses,078566F,https://www.kbs.edu.au/courses/graduate-diploma-of-business-administration
+22,Kaplan Business School,Graduate Diploma of Business Analytics,posgrado,Analitica de Datos,1 anio,0100429,https://www.kbs.edu.au/courses/graduate-diploma-of-business-analytics
+22,Kaplan Business School,Master of Accounting,maestria,Contaduria,2 anios,078568D,https://www.kbs.edu.au/courses/master-of-accounting
+22,Kaplan Business School,Master of Business Analytics,maestria,Analitica de Datos,1 anio 8 meses,0100427,https://www.kbs.edu.au/courses/master-of-business-analytics
+22,Kaplan Business School,Master of Business Analytics (Extension),maestria,Analitica de Datos,2 anios,0100426,https://www.kbs.edu.au/courses/master-of-business-analytics-extension
+22,Kaplan Business School,Master of Business Analytics (Information Technology),maestria,Tecnologia,2 anios,116554B,https://www.kbs.edu.au/courses/master-of-business-analytics-information-technology
+22,Kaplan Business School,Master of Information Technology,maestria,Tecnologia,1 anio 8 meses,110274C,https://www.kbs.edu.au/courses/master-of-information-technology
+22,Kaplan Business School,Master of Information Technology (Extension),maestria,Tecnologia,2 anios,110273D,https://www.kbs.edu.au/courses/master-of-information-technology-extension
+22,Kaplan Business School,Master of Professional Accounting,maestria,Contaduria,1 anio 8 meses,063297A,https://www.kbs.edu.au/courses/master-of-professional-accounting
+22,Kaplan Business School,MBA - Master of Business Administration,mba,Negocios,2 anios,078565G,https://www.kbs.edu.au/courses/mba-master-of-business-administration
+22,Kaplan Business School,Study Abroad Program,intercambio,Interdisciplinar,1-2 trimestres,113787J,https://www.kbs.edu.au/courses/study-abroad-program
+22,ARU College,Foundation Pathway - Architecture,curso_corto,Arquitectura,2 trimestres,-,https://www.arucollege.com/undergraduate/architecture/
+22,ARU College,Foundation Pathway - Art and Design,curso_corto,Artes,2 trimestres,-,https://www.arucollege.com/undergraduate/art-and-design/
+22,ARU College,Foundation Pathway - Business,curso_corto,Negocios,2 trimestres,-,https://www.arucollege.com/undergraduate/business/
+22,ARU College,"Foundation Pathway - Engineering, Computing and Technology",curso_corto,Ingenieria,2 trimestres,-,https://www.arucollege.com/undergraduate/engineering-computing-and-technology/
+22,ARU College,"Foundation Pathway - English, Media, Drama and Writing",curso_corto,Comunicacion y Medios,2 trimestres,-,https://www.arucollege.com/undergraduate/english-media-drama-and-writing/
+22,ARU College,Foundation Pathway - Health and Social Care Professions,curso_corto,Salud,2 trimestres,-,https://www.arucollege.com/undergraduate/heath-and-social-care-professions/
+22,ARU College,Foundation Pathway - Humanities and Education,curso_corto,Humanidades,2 trimestres,-,https://www.arucollege.com/undergraduate/humanities-and-education/
+22,ARU College,Foundation Pathway - Law and Policing,curso_corto,Derecho,2 trimestres,-,https://www.arucollege.com/undergraduate/law-and-policing/
+22,ARU College,Foundation Pathway - Medical and Life Science,curso_corto,Ciencias Biomedicas,2 trimestres,-,https://www.arucollege.com/undergraduate/medical-and-life-science/
+22,ARU College,Foundation Pathway - Nursing,curso_corto,Enfermeria,2 trimestres,-,https://www.arucollege.com/undergraduate/nursing/
+22,ARU College,Foundation Pathway - Psychology,curso_corto,Psicologia,2 trimestres,-,https://www.arucollege.com/undergraduate/psychology/
+22,ARU College,Foundation Pathway - Sports Science,curso_corto,Deporte,2 trimestres,-,https://www.arucollege.com/undergraduate/sports-science/
+22,ARU College,First Year Pathway - Architecture,curso_corto,Arquitectura,1 anio,-,https://www.arucollege.com/undergraduate/architecture/
+22,ARU College,First Year Pathway - Art and Design,curso_corto,Artes,1 anio,-,https://www.arucollege.com/undergraduate/art-and-design/
+22,ARU College,First Year Pathway - Business,curso_corto,Negocios,1 anio,-,https://www.arucollege.com/undergraduate/business/
+22,ARU College,"First Year Pathway - Engineering, Computing and Technology",curso_corto,Ingenieria,1 anio,-,https://www.arucollege.com/undergraduate/engineering-computing-and-technology/
+22,ARU College,"First Year Pathway - English, Media, Drama and Writing",curso_corto,Comunicacion y Medios,1 anio,-,https://www.arucollege.com/undergraduate/english-media-drama-and-writing/
+22,ARU College,First Year Pathway - Health and Social Care Professions,curso_corto,Salud,1 anio,-,https://www.arucollege.com/undergraduate/heath-and-social-care-professions/
+22,ARU College,First Year Pathway - Humanities and Education,curso_corto,Humanidades,1 anio,-,https://www.arucollege.com/undergraduate/humanities-and-education/
+22,ARU College,First Year Pathway - Law and Policing,curso_corto,Derecho,1 anio,-,https://www.arucollege.com/undergraduate/law-and-policing/
+22,ARU College,First Year Pathway - Medical and Life Science,curso_corto,Ciencias Biomedicas,1 anio,-,https://www.arucollege.com/undergraduate/medical-and-life-science/
+22,ARU College,First Year Pathway - Nursing,curso_corto,Enfermeria,1 anio,-,https://www.arucollege.com/undergraduate/nursing/
+22,ARU College,First Year Pathway - Psychology,curso_corto,Psicologia,1 anio,-,https://www.arucollege.com/undergraduate/psychology/
+22,ARU College,First Year Pathway - Sports Science,curso_corto,Deporte,1 anio,-,https://www.arucollege.com/undergraduate/sports-science/
+22,ARU College,"Pre-Masters Pathway - Business, Finance and Management",curso_corto,Negocios,1 semestre,-,https://www.arucollege.com/postgraduate/business-finance-and-management/
+22,ARU College,"Pre-Masters Pathway - Computing, Engineering and Technology",curso_corto,Ingenieria,1 semestre,-,https://www.arucollege.com/postgraduate/computing-engineering-and-technology/
+22,ARU College,Pre-Masters Pathway - Criminology and Law,curso_corto,Derecho,1 semestre,-,https://www.arucollege.com/postgraduate/criminology-and-law/
+22,ARU College,Pre-Masters Pathway - Education,curso_corto,Educacion,1 semestre,-,https://www.arucollege.com/postgraduate/education/
+22,ARU College,Pre-Masters Pathway - Life and Medical Sciences,curso_corto,Ciencias Biomedicas,1 semestre,-,https://www.arucollege.com/postgraduate/life-and-medical-sciences/
+22,ARU College,Pre-Masters Pathway - Psychology and Sports Science,curso_corto,Psicologia,1 semestre,-,https://www.arucollege.com/postgraduate/psychology-and-sports-science/
+22,ARU College,Pre-Masters Pathway - Public Health and Social Sciences,curso_corto,Salud Publica,1 semestre,-,https://www.arucollege.com/postgraduate/public-health-and-social-sciences/
+22,Griffith College,Diploma of Business,diplomado,Negocios,2-3 trimestres (8-12 meses),109014M,https://www.griffithcollege.edu.au/study-options/diploma/business/
+22,Griffith College,Diploma of Criminology and Criminal Justice,diplomado,Criminologia,2-3 trimestres (8-12 meses),082070G,https://www.griffithcollege.edu.au/study-options/diploma/criminology/
+22,Griffith College,Diploma of Design,diplomado,Diseno,2-3 trimestres (8-12 meses),111385K,https://www.griffithcollege.edu.au/study-options/diploma/design/
+22,Griffith College,Diploma of Educational Studies,diplomado,Educacion,2-3 trimestres (8-12 meses),103070G,https://www.griffithcollege.edu.au/study-options/diploma/education/
+22,Griffith College,Diploma of Engineering,diplomado,Ingenieria,2-3 trimestres (8-12 meses),070423G,https://www.griffithcollege.edu.au/study-options/diploma/engineering/
+22,Griffith College,Diploma of Health Care,diplomado,Salud,2-3 trimestres (8-12 meses),075186J,https://www.griffithcollege.edu.au/study-options/diploma/health-care/
+22,Griffith College,Diploma of Health Sciences,diplomado,Salud,2-3 trimestres (8-12 meses),075188G,https://www.griffithcollege.edu.au/study-options/diploma/health-sciences/
+22,Griffith College,Diploma of Information Technology,diplomado,Tecnologia,2-3 trimestres (8-12 meses),026675J,https://www.griffithcollege.edu.au/study-options/diploma/information-technology/
+22,Griffith College,Diploma of International Tourism and Hotel Management,diplomado,Hospitalidad,2-3 trimestres (8-12 meses),109015K,https://www.griffithcollege.edu.au/study-options/diploma/international-tourism/
+22,Griffith College,Diploma of Social and Psychological Science,diplomado,Psicologia,2-3 trimestres (8-12 meses),092486M,https://www.griffithcollege.edu.au/study-options/diploma/psychology/
+22,Griffith College,Diploma of Science,diplomado,Ciencias,2-3 trimestres (8-12 meses),092487K,https://www.griffithcollege.edu.au/study-options/diploma/science/
+22,Griffith College,Foundation Program,curso_corto,Interdisciplinar,2 trimestres (8 meses),091322F,https://www.griffithcollege.edu.au/study-options/foundation/
+22,Griffith College,Masters Qualifying Program,curso_corto,Interdisciplinar,4 meses,095623E,https://www.griffithcollege.edu.au/study-options/masters-qualifying/
+22,Griffith College,English Language Program,curso_corto,Idiomas,no indicada,-,https://www.griffithcollege.edu.au/support/academic/english-language-program/
+22,Universal Higher Education (UHE),Bachelor of Information Technology,bachelor,Tecnologia,3 anios (6 terms),102223C,https://www.uhe.edu.au/bachelor-of-information-technology
+22,Universal Higher Education (UHE),Master of Information Technology,maestria,Tecnologia,2 anios,114614M,https://www.uhe.edu.au/master-information-technology
+22,Universal Higher Education (UHE),Master of Engineering Management,maestria,Ingenieria,2 anios (4 terms),114008M,https://www.uhe.edu.au/mem
+22,Universal Higher Education (UHE),Graduate Certificate in Information Technology,posgrado,Tecnologia,6 meses,114615K,https://www.uhe.edu.au/graduatecertificateininformationtechnology
+22,Universal Higher Education (UHE),Graduate Diploma of Information Technology,posgrado,Tecnologia,1 anio,114616J,https://www.uhe.edu.au/graduatediplomaofinformationtechnology
+22,TrEd College,10991NAT Diploma of Artificial Intelligence & Machine Learning,diplomado,Tecnologia,52 weeks,10991NAT,https://www.tredcollege.edu.au/courses/10991nat-diploma-of-artificial-intelligence-machine-learning/
+22,TrEd College,11241NAT Advanced Diploma of Applied Blockchain,diplomado,Tecnologia,no indicada,11241NAT,https://www.tredcollege.edu.au/courses/11241nat-advanced-diploma-of-applied-blockchain/
+22,TrEd College,BSB50420 Diploma of Leadership and Management,diplomado,Negocios,52 weeks,BSB50420,https://www.tredcollege.edu.au/courses/bsb50420-diploma-of-leadership-and-management/
+22,TrEd College,BSB60420 Advanced Diploma of Leadership & Management,diplomado,Negocios,52 weeks,BSB60420,https://www.tredcollege.edu.au/courses/bsb60420-advanced-diploma-of-leadership-management/
+22,TrEd College,CHC30121 Certificate III in Early Childhood Education and Care,curso_corto,Educacion,52 weeks,CHC30121,https://www.tredcollege.edu.au/courses/chc30121-certificate-iii-in-early-childhood-education-and-care/
+22,TrEd College,CHC33021 Certificate III in Individual Support,curso_corto,Servicios Sociales,24 weeks,CHC33021,https://www.tredcollege.edu.au/courses/chc33021-certificate-iii-in-individual-support/
+22,TrEd College,CHC43015 Certificate IV in Ageing Support,curso_corto,Servicios Sociales,no indicada,CHC43015,https://www.tredcollege.edu.au/courses/chc40315-certificate-iv-in-ageing-support/
+22,TrEd College,CHC50125 Diploma of Early Childhood Education and Care,diplomado,Educacion,52 weeks,CHC50125,https://www.tredcollege.edu.au/courses/chc50125-diploma-of-early-childhood-education-and-care/
+22,TrEd College,HLT54121 Diploma in Nursing,diplomado,Enfermeria,104 weeks,HLT54121,https://www.tredcollege.edu.au/courses/diploma-in-nursing/
+22,TrEd College,General English,curso_corto,Idiomas,6 meses - 1 anio,-,https://www.tredcollege.edu.au/courses/general-english/
+22,TrEd College,HLT33115 Cert III in Health Services Assistance,curso_corto,Salud,24 weeks,HLT33115,https://www.tredcollege.edu.au/courses/hlt33115-cert-iii-in-health-services-assistance/
+22,TrEd College,HLT35021 Certificate III in Dental Assisting,curso_corto,Odontologia,no indicada,HLT35021,https://www.tredcollege.edu.au/courses/hlt35021-certificate-iii-in-dental-assisting/
+22,TrEd College,HLT37215 Certificate III in Pathology Collection,curso_corto,Salud,no indicada,HLT37215,https://www.tredcollege.edu.au/courses/hlt37215-certificate-iii-in-pathology-collection/
+22,TrEd College,HLT45021 Certificate IV in Dental Assisting (Radiography),curso_corto,Odontologia,no indicada,HLT45021,https://www.tredcollege.edu.au/courses/hlt45021-certificate-iv-in-dental-assisting/
+22,TrEd College,HLT57715 Diploma of Practice Management,diplomado,Administracion en Salud,52 weeks,HLT57715,https://www.tredcollege.edu.au/courses/hlt57715-diploma-of-practice-management/
+22,TrEd College,PTE Preparation,curso_corto,Idiomas,no indicada,-,https://www.tredcollege.edu.au/courses/pte-preparation/
+22,TrEd College,SIT30821 Certificate III in Commercial Cookery,curso_corto,Gastronomia,52 weeks,SIT30821,https://www.tredcollege.edu.au/courses/sit30821-certificate-iii-in-commercial-cookery/
+22,TrEd College,SIT40521 Certificate IV in Kitchen Management,curso_corto,Gastronomia,78 weeks,SIT40521,https://www.tredcollege.edu.au/courses/sit404516-certificate-iv-in-kitchen-management/
+22,TrEd College,SIT50422 Diploma of Hospitality Management,diplomado,Hospitalidad,78 weeks,SIT50422,https://www.tredcollege.edu.au/courses/sit50422-diploma-of-hospitality-management/
+22,ECA College,Advanced Diploma of Information Technology (Cybersecurity),diplomado,Tecnologia,24 meses,ICT60220 / CRICOS 106167G,https://www.ecacollege.edu.au/courses/advanced-diploma-of-information-technology-cyber-security
+22,ECA College,Diploma of Business,diplomado,Negocios,12 meses,BSB50120 / CRICOS 085157J,https://www.ecacollege.edu.au/courses/diploma-in-business
+22,ECA College,Diploma of Information Technology,diplomado,Tecnologia,18 meses,ICT50220 / CRICOS 093390M,https://www.ecacollege.edu.au/courses/diploma-in-information-technology
+22,ECA College,English for Academic Purposes,curso_corto,Idiomas,5-20 semanas,-,https://www.ecacollege.edu.au/courses/english-for-academic-purposes
+22,ECA College,General Intensive English,curso_corto,Idiomas,1-52 semanas,-,https://www.ecacollege.edu.au/courses/general-english
+22,ECA College,Graduate Diploma of Engineering,posgrado,Ingenieria,15 meses,MEM80125 / CRICOS 119069B,https://www.ecacollege.edu.au/courses/graduate-diploma-of-engineering
+22,ECA College,Graduate Diploma of Management (Learning),posgrado,Negocios,12 meses,BSB80120 / CRICOS 107332B,https://www.ecacollege.edu.au/courses/graduate-diploma-of-management-learning
+22,University of Strathclyde International Study Centre,Undergraduate Foundation Programme - Business and Social Sciences,curso_corto,Negocios,2 semestres (3 terms),-,https://isc.strath.ac.uk/programmes/undergraduate-foundation
+22,University of Strathclyde International Study Centre,Undergraduate Foundation Programme - Engineering and Sciences,curso_corto,Ingenieria,2 semestres (3 terms),-,https://isc.strath.ac.uk/programmes/undergraduate-foundation
+22,University of Strathclyde International Study Centre,International Year Two,curso_corto,Interdisciplinar,2 semestres,-,https://isc.strath.ac.uk/programmes/international-year-two
+22,University of Strathclyde International Study Centre,Pre-Masters Programme,curso_corto,Interdisciplinar,2 terms,-,https://isc.strath.ac.uk/programmes/pre-masters/programme
+22,University of Strathclyde International Study Centre,Accelerated Pre-Masters Programme,curso_corto,Interdisciplinar,12 semanas,-,https://isc.strath.ac.uk/programmes/pre-masters/accelerated
+22,University of Strathclyde International Study Centre,English Language Preparation course (Online),curso_corto,Idiomas,no indicada,-,https://isc.strath.ac.uk/programmes/pre-courses/english-language-preparation-course
+22,Unity College Australia,11237NAT Certificate IV in Christian Ministry and Theology,curso_corto,Teologia,12 meses,11237NAT,https://unity.edu.au/christian-ministry-and-theology/
+22,Unity College Australia,11238NAT Diploma of Christian Ministry and Theology,diplomado,Teologia,12 meses,11238NAT,https://unity.edu.au/christian-ministry-and-theology/
+22,Unity College Australia,11239NAT Advanced Diploma of Christian Ministry and Theology,diplomado,Teologia,no indicada,11239NAT,https://unity.edu.au/christian-ministry-and-theology/
+22,Unity College Australia,BSB50420 Diploma of Leadership and Management (Online),diplomado,Negocios,no indicada,BSB50420,https://unity.edu.au/business-management/
 24,Chisholm Institute,Bachelor Of Business (Accounting) - International students,bachelor,Negocios,no indicada,CRS1401273,https://www.chisholm.edu.au/students/international/international-courses
 24,Chisholm Institute,"Bachelor of Community Mental Health, Alcohol and Other Drugs",bachelor,Salud Mental,no indicada,CRS1201285,https://www.chisholm.edu.au/students/international/international-courses
 24,Chisholm Institute,Diploma Of Community Services,diplomado,Servicios Sociales,no indicada,CHC52025,https://www.chisholm.edu.au/students/international/international-courses
@@ -11212,21 +11565,6 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 25,INSA Barcelona,Master in Data Visualization Management,maestria,Tecnología,no indicada,-,https://insabarcelona.com/estudios/masters/
 25,INSA Barcelona,Master in Digital Business Transformation,maestria,Tecnología,no indicada,-,https://insabarcelona.com/estudios/masters/
 25,INSA Barcelona,Master in Business Sustainability Management,maestria,Sostenibilidad,no indicada,-,https://insabarcelona.com/estudios/masters/
-25,Kaplan Business School,Diploma of Business,diplomado,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Diploma of Information Technology,diplomado,Tecnología,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Bachelor of Business,bachelor,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Bachelor of Business (Accounting),bachelor,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Bachelor of Business (Hospitality & Tourism Management),bachelor,Hospitalidad,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Bachelor of Business (Management),bachelor,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Bachelor of Business (Marketing),bachelor,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Bachelor of Information Technology,bachelor,Tecnología,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Graduate Certificate in Business Administration,posgrado,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Graduate Certificate in Business Analytics,posgrado,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Graduate Certificate in Accounting,posgrado,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Graduate Certificate in Information Technology,posgrado,Tecnología,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Graduate Diploma of Business Administration,posgrado,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Graduate Diploma of Business Analytics,posgrado,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Graduate Diploma of Information Technology,posgrado,Tecnología,no indicada,-,https://www.kbs.edu.au/courses
 25,Kaplan Business School,MBA – Master of Business Administration,mba,Negocios,no indicada,-,https://www.kbs.edu.au/courses
 25,Kaplan Business School,MBA – (Project Management),mba,Negocios,no indicada,-,https://www.kbs.edu.au/courses
 25,Kaplan Business School,MBA – (Health Services Management),mba,Salud,no indicada,-,https://www.kbs.edu.au/courses
@@ -11237,15 +11575,6 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 25,Kaplan Business School,MBA – (Women In Leadership),mba,Negocios,no indicada,-,https://www.kbs.edu.au/courses
 25,Kaplan Business School,MBA – (International Leadership),mba,Negocios,no indicada,-,https://www.kbs.edu.au/courses
 25,Kaplan Business School,MBA – (Two Specialisations),mba,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Master of Business Analytics,maestria,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Master of Business Analytics (Extension),maestria,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Master of Business Analytics (Information Technology),maestria,Tecnología,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Master of Information Technology,maestria,Tecnología,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Master of Information Technology (Extension),maestria,Tecnología,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Master of Professional Accounting,maestria,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Master of Accounting,maestria,Negocios,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,English for Academic Purposes,curso_corto,Idiomas,no indicada,-,https://www.kbs.edu.au/courses
-25,Kaplan Business School,Study Abroad Program,intercambio,Negocios,no indicada,-,https://www.kbs.edu.au/courses
 25,Shafston International College,General English,curso_corto,Idiomas,no indicada,-,https://shafston.edu/course/
 25,Shafston International College,IELTS Preparation,curso_corto,Idiomas,no indicada,-,https://shafston.edu/course/
 25,Shafston International College,Cambridge Exam Preparation,curso_corto,Idiomas,no indicada,-,https://shafston.edu/course/
@@ -12825,6 +13154,283 @@ lote,institucion,nombre,nivel,area,duracion,codigo_oficial,url_fuente
 29,Pacific English Study,IELTS Exam Preparation,curso_corto,Idiomas,1-64 semanas,CRICOS Provider 03215E,https://pacificenglishschool.com/courses/
 29,Pacific English Study,Pearson Test Preparation (PTE),curso_corto,Idiomas,14 semanas,CRICOS Provider 03215E,https://pacificenglishschool.com/courses/
 29,Pacific English Study,General English + Surfing,curso_corto,Idiomas,1-8 semanas,CRICOS Provider 03215E,https://pacificenglishschool.com/courses/
+30,Niagara College,Acting for Film and Digital Media,diplomado,Diseño y Medios,2 años,0198,https://www.niagaracollege.ca/0198
+30,Niagara College,Addictions and Mental Health,posgrado,Servicios Comunitarios,1 año,0292,https://www.niagaracollege.ca/amh
+30,Niagara College,Art and Design Foundation,curso_corto,Diseño y Medios,1 año,0188,https://www.niagaracollege.ca/0188
+30,Niagara College,Artisan Distilling,posgrado,Enología y Bebidas,1 año,0783,https://www.niagaracollege.ca/0783
+30,Niagara College,Autism and Behavioural Science,posgrado,Servicios Comunitarios,1 año,0192,https://www.niagaracollege.ca/0192
+30,Niagara College,Bachelor of Arts (Honours) Game Design,bachelor,Diseño y Medios,4 años,6800,https://www.niagaracollege.ca/6800
+30,Niagara College,Bachelor of Science (Honours) Game Programming,bachelor,Tecnología,4 años,6801,https://www.niagaracollege.ca/6801
+30,Niagara College,Baking and Pastry Arts Management,diplomado,Gastronomía,no indicada,0467,https://www.niagaracollege.ca/bpam
+30,Niagara College,Baking and Pastry Arts,curso_corto,Gastronomía,1 año,0458,https://www.niagaracollege.ca/0458
+30,Niagara College,"Beverage Business Management - Barcelona, Spain",posgrado,Enología y Bebidas,1 año,5785,https://www.niagaracollege.ca/5785
+30,Niagara College,Beverage Business Management (Online Program Delivery) (Online),posgrado,Enología y Bebidas,1 año,1785,https://www.niagaracollege.ca/1785
+30,Niagara College,Brewmaster and Brewery Operations Management,diplomado,Enología y Bebidas,2 años,0780,https://www.niagaracollege.ca/0780
+30,Niagara College,"Broadcasting - Radio, Television and Film (Film Production)",diplomado,Artes,3 años,0122,https://www.niagaracollege.ca/0165
+30,Niagara College,"Broadcasting - Radio, Television and Film (Radio & TV Presentation)",diplomado,Artes,3 años,0122,https://www.niagaracollege.ca/0163
+30,Niagara College,"Broadcasting - Radio, Television and Film (Television Production)",diplomado,Artes,3 años,0122,https://www.niagaracollege.ca/0164
+30,Niagara College,Business - Accounting,diplomado,Negocios,2 años,0473,https://www.niagaracollege.ca/0473
+30,Niagara College,Business - International Business,diplomado,Negocios,2 años,0448,https://www.niagaracollege.ca/0448
+30,Niagara College,Business - Sales and Marketing,diplomado,Negocios,2 años,0451,https://www.niagaracollege.ca/0451
+30,Niagara College,Business Administration - Human Resources (Co-op),diplomado,Negocios,3 años,0492,https://www.niagaracollege.ca/0492
+30,Niagara College,Business Administration - Accounting (Co-op),diplomado,Negocios,3 años,0498,https://www.niagaracollege.ca/0498
+30,Niagara College,Business Administration - Accounting,diplomado,Negocios,3 años,0497,https://www.niagaracollege.ca/0497
+30,Niagara College,Business Administration - International Business,diplomado,Negocios,3 años,0493,https://www.niagaracollege.ca/0493
+30,Niagara College,Business Administration - Marketing (Co-op),diplomado,Negocios,no indicada,0491,https://www.niagaracollege.ca/0491
+30,Niagara College,Business Administration - Supply Chain and Operations Management (Co-op),diplomado,Negocios,3 años,0490,https://www.niagaracollege.ca/0490
+30,Niagara College,Business,diplomado,Negocios,2 años,0470,https://www.niagaracollege.ca/0470
+30,Niagara College,Carpentry and Renovation Technician (Co-op),diplomado,Construcción,2 años,0757,https://www.niagaracollege.ca/0757
+30,Niagara College,Carpentry and Renovation Techniques,curso_corto,Construcción,1 año,0753,https://www.niagaracollege.ca/0753
+30,Niagara College,Child and Youth Care,diplomado,Servicios Comunitarios,6 trimestres consecutivos (24 meses),0169,https://www.niagaracollege.ca/0169
+30,Niagara College,Civil Engineering Technician,diplomado,Construcción,2 años,0760,https://www.niagaracollege.ca/0760
+30,Niagara College,Commercial Cannabis Production,posgrado,Agroindustria,1 año,0797,https://www.niagaracollege.ca/0797
+30,Niagara College,Community Mental Health - Multidiscipline,posgrado,Servicios Comunitarios,1 año,0964,https://www.niagaracollege.ca/0964
+30,Niagara College,Community Pharmacy Assistant,curso_corto,Salud,1 año,0811,https://www.niagaracollege.ca/0811
+30,Niagara College,Computer Engineering Technician,diplomado,Tecnología,2 años,0717,https://www.niagaracollege.ca/0717
+30,Niagara College,Computer Programming and Analysis (Co-op),diplomado,Tecnología,3 años,0414,https://www.niagaracollege.ca/0414
+30,Niagara College,Computer Programming,diplomado,Tecnología,2 años,0411,https://www.niagaracollege.ca/0411
+30,Niagara College,Computer Systems Technician - Network and Cloud Technologies,diplomado,Tecnología,2 años,0474,https://www.niagaracollege.ca/0474
+30,Niagara College,Construction Engineering Technology,diplomado,Construcción,3 años,0708,https://www.niagaracollege.ca/0708
+30,Niagara College,Culinary Innovation and Food Technology (Co-op),diplomado,Gastronomía,no indicada,0464,https://www.niagaracollege.ca/0464
+30,Niagara College,Culinary Management (Co-op),diplomado,Gastronomía,no indicada,0435,https://www.niagaracollege.ca/0435
+30,Niagara College,Culinary Skills,curso_corto,Gastronomía,1 año,0454,https://www.niagaracollege.ca/0454
+30,Niagara College,Cybersecurity,posgrado,Tecnología,1 año,0456,https://www.niagaracollege.ca/0456
+30,Niagara College,Data Analytics,posgrado,Tecnología,1 año,0902,https://www.niagaracollege.ca/0902
+30,Niagara College,Defence Systems Engineering Technician,diplomado,Ingeniería,2 años,0748,https://www.niagaracollege.ca/0748
+30,Niagara College,Defence Systems Engineering Technology,diplomado,Ingeniería,3 años,0749,https://www.niagaracollege.ca/0749
+30,Niagara College,Dental Assisting (Levels I and II),curso_corto,Salud,1 año,0101,https://www.niagaracollege.ca/0101
+30,Niagara College,Dental Office Administration,curso_corto,Negocios,1 año,0151,https://www.niagaracollege.ca/0151
+30,Niagara College,Early Childhood Education - Resource Consulting (Online Program Delivery) (Online),posgrado,Servicios Comunitarios,1 año,1220,https://www.niagaracollege.ca/1220
+30,Niagara College,Early Childhood Education,diplomado,Servicios Comunitarios,2 años,0102,https://www.niagaracollege.ca/0102
+30,Niagara College,Ecosystem Restoration,posgrado,Medio Ambiente,1 año,2000,https://www.niagaracollege.ca/2000
+30,Niagara College,Educational Assistance and Adult Supports,diplomado,Servicios Comunitarios,2 años,0103,https://www.niagaracollege.ca/0103
+30,Niagara College,Electrical Engineering Technician,diplomado,Ingeniería,2 años,0709,https://www.niagaracollege.ca/0709
+30,Niagara College,Electrical Engineering Technology (Co-op),diplomado,Ingeniería,3 años,0707,https://www.niagaracollege.ca/0707
+30,Niagara College,Electrical Techniques,curso_corto,Ingeniería,1 año,0758,https://www.niagaracollege.ca/0758
+30,Niagara College,Electronics Engineering Technician,diplomado,Ingeniería,2 años,0710,https://www.niagaracollege.ca/0710
+30,Niagara College,Electronics Engineering Technology (Co-op),diplomado,Ingeniería,3 años,0703,https://www.niagaracollege.ca/0703
+30,Niagara College,English Language and Culture,curso_corto,Idiomas,no indicada,-,https://www.niagaracollege.ca/elcp
+30,Niagara College,English for Academic Preparation (EAP),curso_corto,Idiomas,no indicada,-,https://www.niagaracollege.ca/eap
+30,Niagara College,Environmental Management and Assessment,posgrado,Medio Ambiente,1 año,0294,https://www.niagaracollege.ca/0234
+30,Niagara College,Environmental Technician (Co-op),diplomado,Medio Ambiente,2 años,0736,https://www.niagaracollege.ca/0736
+30,Niagara College,Esthetician,diplomado,Belleza y Estética,2 años,0395,https://www.niagaracollege.ca/0395
+30,Niagara College,Event Management,posgrado,Hospitalidad y Turismo,1 año,0185,https://www.niagaracollege.ca/0185
+30,Niagara College,Exercise Science for Health and Performance,posgrado,Salud,1 año,0260,https://www.niagaracollege.ca/0260
+30,Niagara College,Fitness and Health Promotion,diplomado,Salud,2 años,0232,https://www.niagaracollege.ca/0232
+30,Niagara College,Game Development,diplomado,Diseño y Medios,3 años,0441,https://www.niagaracollege.ca/0441
+30,Niagara College,General Arts and Science (Niagara-on-the-Lake),diplomado,Estudios Generales,no indicada,0805,https://www.niagaracollege.ca/0805
+30,Niagara College,General Arts and Science (Online Program Delivery) (Online),diplomado,Estudios Generales,no indicada,1800,https://www.niagaracollege.ca/1800
+30,Niagara College,General Arts and Science (Welland),diplomado,Estudios Generales,no indicada,0801,https://www.niagaracollege.ca/0801
+30,Niagara College,General Arts and Science - College Exploration (Niagara-on-the-Lake),curso_corto,Estudios Generales,no indicada,0825,https://www.niagaracollege.ca/0825
+30,Niagara College,General Arts and Science - College Exploration (Online Program Delivery) (Online),curso_corto,Estudios Generales,no indicada,1810,https://www.niagaracollege.ca/1810
+30,Niagara College,General Arts and Science - College Exploration (Welland),curso_corto,Estudios Generales,no indicada,0820,https://www.niagaracollege.ca/0820
+30,Niagara College,Gerontology,posgrado,Salud,1 año,0966,https://www.niagaracollege.ca/0966
+30,Niagara College,Graphic Design,diplomado,Diseño y Medios,3 años,0177,https://www.niagaracollege.ca/0177
+30,Niagara College,Greenhouse Technician (Co-op),diplomado,Agroindustria,2 años,0737,https://www.niagaracollege.ca/0737
+30,Niagara College,Greenhouse Technician,diplomado,Agroindustria,2 años,0777,https://www.niagaracollege.ca/0777
+30,Niagara College,Hairstyling,diplomado,Belleza y Estética,12 meses (3 trimestres consecutivos),0397,https://www.niagaracollege.ca/0397
+30,Niagara College,Honours Bachelor of Business Administration (Hospitality),bachelor,Hospitalidad y Turismo,4 años,6000,https://www.niagaracollege.ca/6000
+30,Niagara College,Honours Bachelor of Business Administration (Human Resources),bachelor,Negocios,4 años,6003,https://www.niagaracollege.ca/6003
+30,Niagara College,Horticulture Technician - Landscape (Co-op),diplomado,Agroindustria,2 años,0735,https://www.niagaracollege.ca/0735
+30,Niagara College,Horticulture Technician - Landscape,diplomado,Agroindustria,2 años,0775,https://www.niagaracollege.ca/0775
+30,Niagara College,Horticulture Technician (Co-op),diplomado,Agroindustria,2 años,0111,https://www.niagaracollege.ca/0111
+30,Niagara College,Horticulture Technician,diplomado,Agroindustria,2 años,0771,https://www.niagaracollege.ca/0771
+30,Niagara College,Hospitality - Hotel and Restaurant Operations (Co-op),diplomado,Hospitalidad y Turismo,2 años,0415,https://www.niagaracollege.ca/0415
+30,Niagara College,"Hospitality and Tourism Management - Barcelona, Spain",posgrado,Hospitalidad y Turismo,1 año,5460,https://www.niagaracollege.ca/5460
+30,Niagara College,Hospitality and Tourism Management,posgrado,Hospitalidad y Turismo,1 año,0461,https://www.niagaracollege.ca/0461
+30,Niagara College,Human Resources Management (Online Program Delivery) (Online),posgrado,Negocios,1 año,1452,https://www.niagaracollege.ca/1452
+30,Niagara College,Human Resources Management,posgrado,Negocios,1 año,0452,https://www.niagaracollege.ca/hrm
+30,Niagara College,Landscape Horticulture Techniques,curso_corto,Agroindustria,1 año,0730,https://www.niagaracollege.ca/0730
+30,Niagara College,Law Clerk (Co-op),diplomado,Negocios,2 años,0425,https://www.niagaracollege.ca/0425
+30,Niagara College,Mechanical Engineering Technician,diplomado,Ingeniería,2 años,0755,https://www.niagaracollege.ca/0755
+30,Niagara College,Mechanical Engineering Technology (Co-op),diplomado,Ingeniería,3 años 4 meses (inicio enero) / 3 años 8 meses (inicio septiembre),0705,https://www.niagaracollege.ca/0705
+30,Niagara College,Mechanical Techniques (General Machinist),curso_corto,Ingeniería,1 año,0754,https://www.niagaracollege.ca/0754
+30,Niagara College,Motive Power Technician - Automotive (Co-op),diplomado,Oficios Técnicos,2 años,0740,https://www.niagaracollege.ca/0740
+30,Niagara College,Motive Power Techniques - Automotive,curso_corto,Oficios Técnicos,1 año,0747,https://www.niagaracollege.ca/0747
+30,Niagara College,Occupational Therapist Assistant and Physiotherapist Assistant,diplomado,Salud,2 años,0195,https://www.niagaracollege.ca/0195
+30,Niagara College,Office Administration - Executive (Co-op),diplomado,Negocios,2 años,0481,https://www.niagaracollege.ca/0481
+30,Niagara College,Office Administration - General,curso_corto,Negocios,1 año,0431,https://www.niagaracollege.ca/0431
+30,Niagara College,Office Administration - Health Services,diplomado,Negocios,2 años,0463,https://www.niagaracollege.ca/0463
+30,Niagara College,Palliative Care - Multidiscipline,posgrado,Salud,1 año,0962,https://www.niagaracollege.ca/0962
+30,Niagara College,Personal Support Worker (PSW),curso_corto,Servicios Comunitarios,1 año,0942,https://www.niagaracollege.ca/0942
+30,Niagara College,Pharmacy Technician,diplomado,Salud,2 años,0813,https://www.niagaracollege.ca/0813
+30,Niagara College,Photography,diplomado,Diseño y Medios,2 años,0795,https://www.niagaracollege.ca/0795
+30,Niagara College,Photonics Engineering Technician,diplomado,Ingeniería,2 años,0750,https://www.niagaracollege.ca/0750
+30,Niagara College,Photonics Engineering Technology,diplomado,Ingeniería,3 años,0751,https://www.niagaracollege.ca/0751
+30,Niagara College,Police Foundations,diplomado,Seguridad y Justicia,2 años,0200,https://www.niagaracollege.ca/0200
+30,Niagara College,Pre-Community Services (Online Program Delivery) (Online),curso_corto,Servicios Comunitarios,1 año,1819,https://www.niagaracollege.ca/1819
+30,Niagara College,Pre-Community Services,curso_corto,Servicios Comunitarios,1 año,0819,https://www.niagaracollege.ca/0819
+30,Niagara College,Pre-Health Sciences - Pathway to Advanced Diplomas and Degrees,curso_corto,Salud,1 año,0851,https://www.niagaracollege.ca/0851
+30,Niagara College,Pre-Health Sciences - Pathway to Certificates and Diplomas (Online Program Delivery) (Online),curso_corto,Salud,1 año,1850,https://www.niagaracollege.ca/1850
+30,Niagara College,Pre-Health Sciences - Pathway to Certificates and Diplomas,curso_corto,Salud,1 año,0850,https://www.niagaracollege.ca/0850
+30,Niagara College,Professional Butchery Techniques,curso_corto,Gastronomía,1 año,0419,https://www.niagaracollege.ca/0419
+30,Niagara College,"Protection, Security and Investigation (Customs Border Services)",diplomado,Seguridad y Justicia,2 años,0212,https://www.niagaracollege.ca/0212
+30,Niagara College,"Protection, Security and Investigation (Private Security)",diplomado,Seguridad y Justicia,2 años,0211,https://www.niagaracollege.ca/0211
+30,Niagara College,Public Relations,posgrado,Comunicación,1 año,0171,https://www.niagaracollege.ca/0171
+30,Niagara College,Recreation Therapy,diplomado,Servicios Comunitarios,2 años,0178,https://www.niagaracollege.ca/0178
+30,Niagara College,Renewable Energies Technician,diplomado,Medio Ambiente,2 años,0765,https://www.niagaracollege.ca/0765
+30,Niagara College,Social Media Management,posgrado,Comunicación,1 año,0478,https://www.niagaracollege.ca/0478
+30,Niagara College,Social Service Worker,diplomado,Servicios Comunitarios,2 años,0123,https://www.niagaracollege.ca/0123
+30,Niagara College,Sport Administration,diplomado,Negocios,2 años,0193,https://www.niagaracollege.ca/0193
+30,Niagara College,Sport Management,diplomado,Negocios,3 años,0196,https://www.niagaracollege.ca/0196
+30,Niagara College,Supply Chain Management,posgrado,Negocios,1 año,0476,https://www.niagaracollege.ca/0476
+30,Niagara College,Tourism Management - Business Development (Co-op),diplomado,Hospitalidad y Turismo,2 años,0428,https://www.niagaracollege.ca/0428
+30,Niagara College,Welding Technician,diplomado,Oficios Técnicos,2 años,0761,https://www.niagaracollege.ca/0761
+30,Niagara College,Welding Techniques,curso_corto,Oficios Técnicos,1 año,0756,https://www.niagaracollege.ca/0756
+30,Niagara College,Winery and Viticulture Technician,diplomado,Enología y Bebidas,2 años,0738,https://www.niagaracollege.ca/0738
+30,Institut Linguistique Adenet (ILA),Curso Estándar de Francés,curso_corto,Idiomas,20 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-estandar-frances-adultos
+30,Institut Linguistique Adenet (ILA),Curso Intensivo de Francés,curso_corto,Idiomas,20+8 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-intensivo-frances-adultos
+30,Institut Linguistique Adenet (ILA),Curso Estándar «PLUS» de Francés,curso_corto,Idiomas,20+4 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-estandar-plus-frances-adultos
+30,Institut Linguistique Adenet (ILA),Curso Intensivo «PLUS» de Francés,curso_corto,Idiomas,28+4 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-intensivo-plus-frances-adultos
+30,Institut Linguistique Adenet (ILA),Curso Particular de Francés,curso_corto,Idiomas,"20, 30 o 40 lecciones/semana",-,https://www.ila-france.es/french-courses/curso-particular-frances-adultos
+30,Institut Linguistique Adenet (ILA),Curso Estándar de Francés de Larga Duración,curso_corto,Idiomas,20 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-estandar-frances-larga-duracion-adultos
+30,Institut Linguistique Adenet (ILA),Curso Intensivo de Francés de Larga Duración,curso_corto,Idiomas,20+8 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-intensivo-frances-larga-duracion-adultos
+30,Institut Linguistique Adenet (ILA),Curso de Preparación para el DELF y el DALF,curso_corto,Idiomas,20+8 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-preparacion-delf-dalf-adultos
+30,Institut Linguistique Adenet (ILA),Curso de Preparación para la Universidad,curso_corto,Idiomas,20+8 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-preparacion-universidad-adultos
+30,Institut Linguistique Adenet (ILA),Curso de Verano de Francés Estándar,vacacional,Idiomas,20 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-verano-frances-estandar-adultos
+30,Institut Linguistique Adenet (ILA),Curso de Verano de Francés Intensivo,vacacional,Idiomas,20+8 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-verano-frances-intensivo-adultos
+30,Institut Linguistique Adenet (ILA),Curso de Verano de Francés Estándar «PLUS»,vacacional,Idiomas,20+4 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-verano-frances-estandar-plus-adultos
+30,Institut Linguistique Adenet (ILA),Curso de Verano de Francés Intensivo «PLUS»,vacacional,Idiomas,28+4 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-verano-frances-intensivo-plus-adultos
+30,Institut Linguistique Adenet (ILA),Cursos Estándar de Francés + Francés Profesional,curso_corto,Idiomas,20+8 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-frances-negocios-adultos
+30,Institut Linguistique Adenet (ILA),Curso de Francés + Curso de Cocina,curso_corto,Idiomas,20+8 lecciones/semana,-,https://www.ila-france.es/french-courses/curso-frances-cocina-adultos
+30,Institut Linguistique Adenet (ILA),Curso de Francés para Mayores de 50 años,curso_corto,Idiomas,20 lecciones/semana + actividades,-,https://www.ila-france.es/french-courses/curso-frances-mayores-50-anos
+30,Australian Pacific College (APC) & English Unlimited,Advanced Diploma in Cyber Security,diplomado,Tecnología,4 trimestres tiempo completo (aprox. 1 año),22610VIC,https://www.apc.edu.au/course/advanced-diploma-in-cyber-security
+30,Australian Pacific College (APC) & English Unlimited,Advanced Diploma of Accounting,diplomado,Negocios,4 trimestres tiempo completo (aprox. 1 año),FNS60222 · CRICOS 110480H,https://www.apc.edu.au/course/advanced-diploma-of-accounting
+30,Australian Pacific College (APC) & English Unlimited,Advanced Diploma of Graphic Design,diplomado,Diseño,4 trimestres tiempo completo (aprox. 1 año),CUA60320 · CRICOS 106737M,https://www.apc.edu.au/course/advanced-diploma-of-graphic-design
+30,Australian Pacific College (APC) & English Unlimited,Advanced Diploma of Human Resource Management,diplomado,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB60320 · CRICOS 105321K,https://www.apc.edu.au/course/advanced-diploma-of-human-resource-management
+30,Australian Pacific College (APC) & English Unlimited,Advanced Diploma of Interior Design,diplomado,Diseño,4 trimestres tiempo completo (aprox. 1 año),MSF60122 · CRICOS 0100109,https://www.apc.edu.au/course/advanced-diploma-of-interior-design
+30,Australian Pacific College (APC) & English Unlimited,Advanced Diploma of Leadership and Management,diplomado,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB60420 · CRICOS 105318E,https://www.apc.edu.au/course/advanced-diploma-of-leadership-and-management
+30,Australian Pacific College (APC) & English Unlimited,Advanced Diploma of Marketing and Communication,diplomado,Marketing,4 trimestres tiempo completo (aprox. 1 año),BSB60520 · CRICOS 105324G,https://www.apc.edu.au/course/advanced-diploma-of-marketing-and-communication
+30,Australian Pacific College (APC) & English Unlimited,Advanced Diploma of Program Management,diplomado,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB60720 · CRICOS 104470E,https://www.apc.edu.au/course/advanced-diploma-of-program-management
+30,Australian Pacific College (APC) & English Unlimited,CAMBRIDGE ENGLISH: B2 First Preparation,curso_corto,Idiomas,3 a 12 semanas,CRICOS 0100894,https://www.apc.edu.au/course/b2-first-preparation
+30,Australian Pacific College (APC) & English Unlimited,CAMBRIDGE ENGLISH: C1 Advanced Preparation,curso_corto,Idiomas,2 a 12 semanas,CRICOS 0100893,https://www.apc.edu.au/course/c1-advanced-preparation
+30,Australian Pacific College (APC) & English Unlimited,Certificate II in Workplace Skills,curso_corto,Negocios,2 trimestres tiempo completo (aprox. 6 meses),BSB20120 · CRICOS 105315H,https://www.apc.edu.au/course/certificate-ii-in-workplace-skills
+30,Australian Pacific College (APC) & English Unlimited,Certificate III in Business,curso_corto,Negocios,2 trimestres tiempo completo (aprox. 6 meses),BSB30120 · CRICOS 105317F,https://www.apc.edu.au/course/certificate-iii-in-business
+30,Australian Pacific College (APC) & English Unlimited,Certificate III in Design Fundamentals,curso_corto,Diseño,2 trimestres tiempo completo (aprox. 6 meses),CUA30720 · CRICOS 105774C,https://www.apc.edu.au/course/certificate-iii-in-design-fundamentals
+30,Australian Pacific College (APC) & English Unlimited,Certificate III in Entrepreneurship and New Business,curso_corto,Negocios,2 trimestres tiempo completo (aprox. 6 meses),BSB30220,https://www.apc.edu.au/course/certificate-iii-in-entrepreneurship-new-business
+30,Australian Pacific College (APC) & English Unlimited,Certificate III in Hospitality,curso_corto,Hospitalidad,3 trimestres tiempo completo (aprox. 9 meses),SIT30622 · CRICOS 110483E,https://www.apc.edu.au/course/certificate-iii-in-hospitality
+30,Australian Pacific College (APC) & English Unlimited,Certificate III in Travel,curso_corto,Turismo,3 trimestres tiempo completo (aprox. 9 meses),SIT30222 · CRICOS 110836G,https://www.apc.edu.au/course/certificate-iii-in-travel
+30,Australian Pacific College (APC) & English Unlimited,Certificate IV in Accounting and Bookkeeping,curso_corto,Negocios,4 trimestres tiempo completo (aprox. 1 año),FNS40222 · CRICOS 109957H,https://www.apc.edu.au/course/certificate-iv-in-accounting-and-bookkeeping
+30,Australian Pacific College (APC) & English Unlimited,Certificate IV in Communicative TESOL,curso_corto,Educación,2 trimestres tiempo completo (aprox. 6 meses),10989NAT · CRICOS 107595A,https://www.apc.edu.au/course/certificate-iv-in-communicative-tesol
+30,Australian Pacific College (APC) & English Unlimited,Certificate IV in Cyber Security,curso_corto,Tecnología,4 trimestres tiempo completo (aprox. 1 año),22603VIC,https://www.apc.edu.au/course/certificate-iv-in-cyber-security
+30,Australian Pacific College (APC) & English Unlimited,Certificate IV in Entrepreneurship and New Business,curso_corto,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB40320,https://www.apc.edu.au/course/certificate-iv-in-entrepreneuship-new-business
+30,Australian Pacific College (APC) & English Unlimited,Certificate IV in Human Resource Management,curso_corto,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB40420 · CRICOS 105319D,https://www.apc.edu.au/course/certificate-iv-in-human-resource-management
+30,Australian Pacific College (APC) & English Unlimited,Certificate IV in Leadership and Management,curso_corto,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB40520 · CRICOS 103942H,https://www.apc.edu.au/course/certificate-iv-in-leadership-and-management
+30,Australian Pacific College (APC) & English Unlimited,Certificate IV in Marketing and Communication,curso_corto,Marketing,4 trimestres tiempo completo (aprox. 1 año),BSB40820 · CRICOS 105322J,https://www.apc.edu.au/course/certificate-iv-in-marketing-and-communication
+30,Australian Pacific College (APC) & English Unlimited,Certificate IV in Project Management Practice,curso_corto,Negocios,3 trimestres tiempo completo (aprox. 9 meses),BSB40920 · CRICOS 103915M,https://www.apc.edu.au/course/certificate-iv-in-project-management-practice
+30,Australian Pacific College (APC) & English Unlimited,Certificate IV in Training and Assessment,curso_corto,Educación,4 trimestres tiempo completo (aprox. 1 año),TAE40122 · CRICOS 118528K,https://www.apc.edu.au/course/certificate-iv-in-training-and-assessment
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Accounting,diplomado,Negocios,4 trimestres tiempo completo (aprox. 1 año),FNS50222 · CRICOS 110479A,https://www.apc.edu.au/course/diploma-of-accounting
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Graphic Design,diplomado,Diseño,4 trimestres tiempo completo (aprox. 1 año),CUA50720 · CRICOS 105821A,https://www.apc.edu.au/course/diploma-of-graphic-design
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Hospitality Management,diplomado,Hospitalidad,"6 trimestres tiempo completo (aprox. 1,5 años)",SIT50422 · CRICOS 110485C,https://www.apc.edu.au/course/diploma-of-hospitality-management
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Human Resource Management,diplomado,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB50320 · CRICOS 105320M,https://www.apc.edu.au/course/diploma-of-human-resource-management
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Interior Design,diplomado,Diseño,4 trimestres tiempo completo (aprox. 1 año),MSF50222 · CRICOS 0100107,https://www.apc.edu.au/course/diploma-of-interior-design
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Leadership and Management,diplomado,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB50420 · CRICOS 104130C,https://www.apc.edu.au/course/diploma-of-leadership-and-management
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Marketing and Communication,diplomado,Marketing,4 trimestres tiempo completo (aprox. 1 año),BSB50620 · CRICOS 105323H,https://www.apc.edu.au/course/diploma-of-marketing-and-communication
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Project Management,diplomado,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB50820 · CRICOS 104103F,https://www.apc.edu.au/course/diploma-of-project-management
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Social Media Marketing with Artificial Intelligence,diplomado,Marketing,4 trimestres tiempo completo (aprox. 1 año),11426NAT · CRICOS 120219E,https://www.apc.edu.au/course/diploma-of-social-media-marketing-with-artifical-intelligence
+30,Australian Pacific College (APC) & English Unlimited,Diploma of Travel and Tourism Management,diplomado,Turismo,"6 trimestres tiempo completo (aprox. 1,5 años)",SIT50122 · CRICOS 110482F,https://www.apc.edu.au/course/diploma-of-travel-and-tourism-management
+30,Australian Pacific College (APC) & English Unlimited,Diploma of User Experience Design,diplomado,Diseño,4 trimestres tiempo completo (aprox. 1 año),10992NAT · CRICOS 109333G,https://www.apc.edu.au/course/diploma-of-user-experience-design
+30,Australian Pacific College (APC) & English Unlimited,English for Academic Purposes (EAP),curso_corto,Idiomas,5 a 26 semanas,CRICOS 075995J,https://www.apc.edu.au/course/english-for-academic-purposes-eap
+30,Australian Pacific College (APC) & English Unlimited,General English - Everyday Teaching Method,curso_corto,Idiomas,1 a 77 semanas,CRICOS 017830M,https://www.apc.edu.au/course/general-english-everyday-teaching-method
+30,Australian Pacific College (APC) & English Unlimited,Graduate Diploma of Management (Learning),posgrado,Negocios,4 trimestres tiempo completo (aprox. 1 año),BSB80120 · CRICOS 105018F,https://www.apc.edu.au/course/graduate-diploma-of-management-learning
+30,Australian Pacific College (APC) & English Unlimited,IELTS Preparation,curso_corto,Idiomas,2 a 12 semanas,CRICOS 0100895,https://www.apc.edu.au/course/ielts-preparation
+30,Australian Pacific College (APC) & English Unlimited,Junior English Program,vacacional,Idiomas,1 a 4 semanas,-,https://www.apc.edu.au/course/junior-english-program
+30,Australian Pacific College (APC) & English Unlimited,Private English Lessons,curso_corto,Idiomas,1 a 26 semanas,-,https://www.apc.edu.au/course/private-english-lessons
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Audio Engineering and Production,bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/ba-hons-audio-engineering-and-production
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Creative Music Production,bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/ba-hons-creative-music-production
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Creative Musicianship,bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/ba-hons-creative-musicianship
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) DJ and Electronic Music Production,bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/ba-hons-dj-and-electronic-music-production
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Electronic Music Production,bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/ba-hons-electronic-music-production
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Live Event and Festival Management,bachelor,Negocios,3 años,-,https://www.icmp.ac.uk/course/ba-hons-live-event-festival-management
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Music Business and Entrepreneurship,bachelor,Negocios,3 años,-,https://www.icmp.ac.uk/course/ba-hons-music-business-entrepreneurship
+30,The Institute of Contemporary Music Performance (ICMP),"BA (Hons) Music for Film, TV & Games",bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/ba-hons-music-film-tv-games
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Music Marketing,bachelor,Marketing,3 años,-,https://www.icmp.ac.uk/course/ba-hons-music-marketing
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Music Psychology in Practice,bachelor,Psicología,3 años,-,https://www.icmp.ac.uk/course/ba-hons-music-psychology-in-practice
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Songwriting,bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/ba-hons-songwriting
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Songwriting and Artist Development,bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/ba-hons-songwriting-and-artist-development
+30,The Institute of Contemporary Music Performance (ICMP),BA (Hons) Songwriting and Production,bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/ba-hons-songwriting-and-production
+30,The Institute of Contemporary Music Performance (ICMP),BMus (Hons) Popular Music Performance,bachelor,Música,3 años,-,https://www.icmp.ac.uk/course/bmus-hons-popular-music-performance
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE in Creative Music Production,curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/cert-he-creative-music-production
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Creative Musicianship,curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/cert-he-creative-musicianship
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Electronic Music Production,curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/cert-he-electronic-music-production
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Live Event and Festival Management,curso_corto,Negocios,1 año,-,https://www.icmp.ac.uk/course/cert-he-live-event-and-festival-management
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Music Business and Entrepreneurship,curso_corto,Negocios,1 año,-,https://www.icmp.ac.uk/course/cert-he-music-business-entrepreneurship
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Music for Media,curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/cert-he-music-for-media
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Music Marketing,curso_corto,Marketing,1 año,-,https://www.icmp.ac.uk/course/cert-he-music-marketing
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Songwriting,curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/cert-he-songwriting
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Songwriting and Artist Development,curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/cert-he-songwriting-and-artist-development
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Songwriting and Production,curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/cert-he-songwriting-and-production
+30,The Institute of Contemporary Music Performance (ICMP),Cert HE Audio Engineering and Production,curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/certhe-audio-engineering-and-production
+30,The Institute of Contemporary Music Performance (ICMP),CertHE DJ and Electronic Music Production,curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/certhe-dj-and-electronic-music-production
+30,The Institute of Contemporary Music Performance (ICMP),CertHE Popular Music Performance (Bass),curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/certhe-popular-music-performance-bass
+30,The Institute of Contemporary Music Performance (ICMP),CertHE Popular Music Performance (Drums),curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/certhe-popular-music-performance-drums
+30,The Institute of Contemporary Music Performance (ICMP),CertHE Popular Music Performance (Guitar),curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/cert-he-popular-music-performance-guitar
+30,The Institute of Contemporary Music Performance (ICMP),CertHE Popular Music Performance (Keyboards),curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/certhe-popular-music-performance-keyboards
+30,The Institute of Contemporary Music Performance (ICMP),CertHE Popular Music Performance (Vocals),curso_corto,Música,1 año,-,https://www.icmp.ac.uk/course/certhe-popular-music-performance-vocals
+30,The Institute of Contemporary Music Performance (ICMP),MA Commercial Songwriting and Production,maestria,Música,1 año,-,https://www.icmp.ac.uk/course/ma-commercial-songwriting-and-production
+30,The Institute of Contemporary Music Performance (ICMP),MA Creative Music Production,maestria,Música,1 año,-,https://www.icmp.ac.uk/course/ma-creative-music-production
+30,The Institute of Contemporary Music Performance (ICMP),MA Music Business,maestria,Negocios,1 año,-,https://www.icmp.ac.uk/course/ma-music-business
+30,The Institute of Contemporary Music Performance (ICMP),MA Vocal Studies,maestria,Música,1 año,-,https://www.icmp.ac.uk/course/ma-vocal-studies
+30,The Institute of Contemporary Music Performance (ICMP),MMus Masters in Popular Music Performance,maestria,Música,1 año,-,https://www.icmp.ac.uk/course/masters-in-music-performance
+30,The Institute of Contemporary Music Performance (ICMP),MA Songwriting,maestria,Música,1 año,-,https://www.icmp.ac.uk/course/masters-in-songwriting
+30,The Institute of Contemporary Music Performance (ICMP),MSc Audio Engineering & Music Technology,maestria,Música,1 año,-,https://www.icmp.ac.uk/course/msc-audio-engineering-music-technology
+30,SPD - Scuola Politecnica di Design,Foundation Course,curso_corto,Diseño,9 meses,-,https://www.scuoladesign.com/courses/foundation-course
+30,SPD - Scuola Politecnica di Design,Preparatory Course in 3D Design Tools (Online),curso_corto,Diseño,16 semanas (96 horas),-,https://www.scuoladesign.com/courses/3d-design-tools-preparatory-course
+30,SPD - Scuola Politecnica di Design,Car Design Tools Preparatory Course,curso_corto,Diseño,14 semanas,-,https://www.scuoladesign.com/courses/car-design-tools-preparatory-course
+30,SPD - Scuola Politecnica di Design,Bachelor of Arts (Hons) in Design,bachelor,Diseño,3 años académicos,-,https://www.scuoladesign.com/courses/design
+30,SPD - Scuola Politecnica di Design,Bachelor of Arts (Hons) in Automotive and Transport Design,bachelor,Diseño,3 años académicos,-,https://www.scuoladesign.com/courses/automotive-and-transport-design
+30,SPD - Scuola Politecnica di Design,Bachelor of Arts (Hons) in Communication Design & Creative Strategy,bachelor,Diseño,3 años académicos,-,https://www.scuoladesign.com/courses/communication-design-creative-strategy
+30,SPD - Scuola Politecnica di Design,Bachelor of Arts in Car Design,bachelor,Diseño,3 años académicos,-,https://www.scuoladesign.com/courses/car-design
+30,SPD - Scuola Politecnica di Design,Master of Arts in Interior Design with Advanced Practice,maestria,Diseño,12 o 16 meses,-,https://www.scuoladesign.com/courses/interior-design
+30,SPD - Scuola Politecnica di Design,Master of Arts in Product Design with Advanced Practice,maestria,Diseño,12 o 16 meses,-,https://www.scuoladesign.com/courses/product-design
+30,SPD - Scuola Politecnica di Design,Master of Arts in Interaction Design & Creative Technology with Advanced Practice,maestria,Diseño,12 o 16 meses,-,https://www.scuoladesign.com/courses/interaction-design-creative-technology
+30,SPD - Scuola Politecnica di Design,Master of Arts in Communication Design with Advanced Practice,maestria,Diseño,12 o 16 meses,-,https://www.scuoladesign.com/courses/communication-design
+30,SPD - Scuola Politecnica di Design,Master of Arts in Food Design with Advanced Practice,maestria,Diseño,12 o 16 meses,-,https://www.scuoladesign.com/courses/food-design
+30,SPD - Scuola Politecnica di Design,Master of Arts in Transportation and Car Design with Advanced Practice,maestria,Diseño,16 meses,-,https://www.scuoladesign.com/courses/transportation-car-design
+30,SPD - Scuola Politecnica di Design,Master of Arts in Event and Exhibition Design (MEED) with Advanced Practice,maestria,Diseño,12 o 16 meses,-,https://www.scuoladesign.com/courses/meed-event-exhibition-design
+30,SPD - Scuola Politecnica di Design,Master in MID Interior Design,maestria,Diseño,12 meses,-,https://www.scuoladesign.com/courses/mid-interior-design
+30,SPD - Scuola Politecnica di Design,Creative Industries - AI and Creativity,curso_corto,Tecnología,no indicada,-,https://www.scuoladesign.com/courses/artificial-intelligence-and-creativity
+30,SPD - Scuola Politecnica di Design,LEGO® SERIOUS PLAY® METHOD,curso_corto,Negocios,no indicada,-,https://www.scuoladesign.com/courses/lego-serious-play
+30,Newdeal Institut (KLF Bordeaux),Curso estándar de francés,curso_corto,Idiomas,20 lecciones/semana · de 1 a 12+ semanas,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-de-frances-estandar/
+30,Newdeal Institut (KLF Bordeaux),Curso intensivo de francés,curso_corto,Idiomas,26 lecciones/semana · de 1 a 12+ semanas,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/cursos-de-frances-intensivo/
+30,Newdeal Institut (KLF Bordeaux),Curso intensivo de francés y preparación universitaria,curso_corto,Idiomas,26 lecciones/semana · 12/24/36 semanas,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-intensivo-de-larga-duracion-y-via-universitaria-en-burdeos/
+30,Newdeal Institut (KLF Bordeaux),Curso de francés INTENSIF PREMIUM,curso_corto,Idiomas,20 lecciones + 6 clases particulares/semana · de 1 a 12 semanas,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-de-frances-intensivo-premium/
+30,Newdeal Institut (KLF Bordeaux),Preparación intensiva para los exámenes DELF/DALF,curso_corto,Idiomas,2 semanas · 20 clases generales + 6 de preparación,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/preparacion-para-los-examenes-delf-b2-dalf-c1-en-burdeos/
+30,Newdeal Institut (KLF Bordeaux),Preparación para los exámenes DELF/DALF PREMIUM,curso_corto,Idiomas,20 lecciones + 6 clases particulares/semana · de 1 a 4 semanas,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/preparacion-para-los-examenes-delf-dalf-premium/
+30,Newdeal Institut (KLF Bordeaux),Clase de francés au pair,curso_corto,Idiomas,16 lecciones/semana · 10 semanas,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/cursos-de-frances-au-pair/
+30,Newdeal Institut (KLF Bordeaux),Cursos de francés para principiantes,curso_corto,Idiomas,no indicada · plataforma e-learning complementaria,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-de-frances-para-principiantes-absolutos/
+30,Newdeal Institut (KLF Bordeaux),Curso de francés con certificación,curso_corto,Idiomas,no indicada,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/curso-de-frances-con-certificacion/
+30,Newdeal Institut (KLF Bordeaux),Clases particulares de francés,curso_corto,Idiomas,6 o 12 clases/semana,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-en-burdeos-para-adultos/clases-particulares-de-frances/
+30,Newdeal Institut (KLF Bordeaux),Curso de francés nocturno ONLINE (Online),curso_corto,Idiomas,4 lecciones/semana · 4/8/12 semanas,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/curso-de-frances-en-linea/curso-de-frances-nocturno/
+30,Newdeal Institut (KLF Bordeaux),Clases particulares francés ONLINE (Online),curso_corto,Idiomas,6 o 12 clases/semana,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/curso-de-frances-en-linea/
+30,Newdeal Institut (KLF Bordeaux),Curso de Francés de los Negocios,curso_corto,Idiomas,pack de 6 a 12 lecciones,-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/cursos-de-frances-profesionales/curso-de-frances-de-los-negocios-individual/
+30,Newdeal Institut (KLF Bordeaux),Clases de francés para jóvenes,vacacional,Idiomas,20 lecciones/semana · desde 1 semana (verano),-,https://francais.newdealinstitut.com/es/cursos-de-frances-en-francia/
+30,Skills Australia Institute (SAI),Diploma of Business (Operations),diplomado,Negocios,52 semanas,BSB50120 · CRICOS 106514D,https://www.skillsaustralia.edu.au/diploma-of-business/
+30,Skills Australia Institute (SAI),Graduate Diploma of Management (Learning),posgrado,Negocios,104 semanas,BSB80120 · CRICOS 105327D,https://www.skillsaustralia.edu.au/graduate-diploma-of-management-learning/
+30,Skills Australia Institute (SAI),Certificate III in Early Childhood Education and Care,curso_corto,Educación,52 semanas,CHC30121,https://www.skillsaustralia.edu.au/certificate-iii-in-early-childhood-education-and-care/
+30,Skills Australia Institute (SAI),Diploma of Early Childhood Education and Care,diplomado,Educación,52 semanas,CHC50121,https://www.skillsaustralia.edu.au/diploma-of-early-childhood-education-and-care/
+30,Skills Australia Institute (SAI),Certificate III in Light Vehicle Mechanical Technology,curso_corto,Oficios Técnicos,78 semanas,AUR30620 · CRICOS 103646E,https://www.skillsaustralia.edu.au/certificate-iii-in-light-vehicle-mechanical-technology/
+30,Skills Australia Institute (SAI),Certificate IV in Automotive Mechanical Diagnosis,curso_corto,Oficios Técnicos,26 semanas,AUR40216 · CRICOS 102699M,https://www.skillsaustralia.edu.au/certificate-iv-in-automotive-mechanical-diagnosis/
+30,Skills Australia Institute (SAI),Diploma of Automotive Management,diplomado,Oficios Técnicos,26 semanas,AUR50116 · CRICOS 102700A,https://www.skillsaustralia.edu.au/diploma-of-automotive-management/
+30,Skills Australia Institute (SAI),Certificate III in Carpentry,curso_corto,Construcción,104 semanas,CPC30220,https://www.skillsaustralia.edu.au/certificate-iii-in-carpentry/
+30,Skills Australia Institute (SAI),Certificate III in Bricklaying and Blocklaying,curso_corto,Construcción,104 semanas,CPC33020 · CRICOS 108138G,https://www.skillsaustralia.edu.au/certificate-iii-in-bricklaying-and-blocklaying/
+30,Skills Australia Institute (SAI),Certificate III in Wall and Floor Tiling,curso_corto,Construcción,104 semanas,CPC31320 · CRICOS 108137H,https://www.skillsaustralia.edu.au/certificate-iii-in-wall-and-floor-tiling/
+30,Curtin College,Diploma of Built Environment,diplomado,Arquitectura y Construcción,Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses),CRICOS 087939G,https://www.curtincollege.edu.au/courses/diplomas/architecture-construction/
+30,Curtin College,Diploma of Commerce,diplomado,Negocios,Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses),CRICOS 087940C,https://www.curtincollege.edu.au/courses/diplomas/commerce/
+30,Curtin College,Diploma of Arts and Creative Industries,diplomado,Artes y Diseño,Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses),CRICOS 087938G,https://www.curtincollege.edu.au/courses/diplomas/communication-design-arts/
+30,Curtin College,Diploma of Computing,diplomado,Tecnología,Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses),CRICOS 087943M,https://www.curtincollege.edu.au/courses/diplomas/computer-science-it/
+30,Curtin College,Diploma of Engineering,diplomado,Ingeniería,Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 2-3 trimestres (8-12 meses),CRICOS 087941B,https://www.curtincollege.edu.au/courses/diplomas/engineering/
+30,Curtin College,Diploma of Health Sciences,diplomado,Salud,Etapa 1: 2-3 trimestres (8-12 meses) + Etapa 2: 12 meses,CRICOS 087942A,https://www.curtincollege.edu.au/courses/diplomas/health-sciences/
+30,Curtin College,Masters Qualifying Program (MQP),curso_corto,Estudios Generales,6 meses (1 semestre · 4 unidades),CRICOS 066028J,https://www.curtincollege.edu.au/courses/masters-qualifying-program/
+30,New Zealand School of Tourism (NZST),Certificate in Tourism (Tourism and Travel) Level 3,curso_corto,Turismo,16 semanas,NZQF Nivel 3,https://nzschooloftourism.co.nz/courses
+30,New Zealand School of Tourism (NZST),Certificate in Flight Attending & Aviation Level 4,curso_corto,Aviación,16 semanas,NZQF Nivel 4,https://nzschooloftourism.co.nz/courses/certificate-in-aviation
+30,New Zealand School of Tourism (NZST),Certificate in Tourism Level 4,curso_corto,Turismo,16 semanas,NZQF Nivel 4,https://nzschooloftourism.co.nz/courses/certificate-in-tourism
+30,New Zealand School of Tourism (NZST),Diploma in Tourism & Travel Management Level 5,diplomado,Turismo,32 semanas,NZQF Nivel 5,https://nzschooloftourism.co.nz/courses/diploma-travel-tourism-level-5
+30,New Zealand School of Tourism (NZST),Diploma in Hotel & Hospitality Management Level 5,diplomado,Hospitalidad,32 semanas,NZQF Nivel 5,https://nzschooloftourism.co.nz/courses/diploma-hotel-hospitality-management-level-5
+30,New Zealand School of Tourism (NZST),Diploma in Tourism and Travel Management Level 6,diplomado,Turismo,32 semanas,NZQF Nivel 6,https://nzschooloftourism.co.nz/courses/diploma-travel-tourism-level-6
+30,Vocational Training Institute (VTI),Diploma Of Leadership And Management,diplomado,Negocios,52 semanas,BSB50420,https://www.vocationalinstitute.com.au/bsb50420-diploma-of-leadership-and-management/
+30,Vocational Training Institute (VTI),Advanced Diploma Of Leadership And Management,diplomado,Negocios,52 semanas,BSB60420,https://www.vocationalinstitute.com.au/bsb60420-advanced-diploma-of-leadership-and-management/
+30,Vocational Training Institute (VTI),Graduate Diploma Of Management (Learning),posgrado,Negocios,52 semanas,BSB80120,https://www.vocationalinstitute.com.au/bsb80120-graduate-diploma-of-management-learning/
 31,Edinburgh Napier University,Certificate of Credit English as a Foreign Language - 8 Month Programme,curso_corto,Idiomas,8 meses,-,https://www.napier.ac.uk/courses/certificate-of-credit-english-as-a-foreign-language--8-month-programme-undergraduate-fulltime
 31,Edinburgh Napier University,Certificate of Credit English as a Foreign Language - Year Long Programme,curso_corto,Idiomas,1 año,-,https://www.napier.ac.uk/courses/certificate-of-credit-english-as-a-foreign-language--year-long-programme-undergraduate-fulltime
 31,Edinburgh Napier University,BA (Hons) Accounting,bachelor,Negocios,no indicada,-,https://www.napier.ac.uk/courses/ba-hons-accounting-undergraduate-fulltime

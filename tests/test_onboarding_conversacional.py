@@ -133,3 +133,65 @@ def test_el_extractor_conoce_los_hechos_del_onboarding():
     assert "voice_passion" in ids
     assert "life_stage" in ids
     assert len(ids) == len(cat.HECHOS)
+
+
+# ---------------------------------------------------------------------------
+# Una pregunta por mensaje · 2026-08-09, probándolo con JP
+# ---------------------------------------------------------------------------
+
+
+def test_al_modelo_se_le_destaca_UNA_sola_pregunta():
+    """Agrupó dos hechos en un mismo mensaje ("¿cómo te gustaría estudiar? ¿te
+    ves yéndote a otro país?") dos veces en una conversación de seis turnos.
+
+    La causa era el prompt: se le mostraba una lista numerada de seis pendientes
+    y, al verla, trataba de ser eficiente. Pedirle en el texto que no lo hiciera
+    no bastó —ya lo decía—, igual que pasó con la repetición de preguntas.
+
+    **No puede agrupar lo que no ve.** Se destaca una y el resto va marcado como
+    "todavía no", que le sirve para no cerrar antes de tiempo pero no para
+    preguntarlo.
+    """
+    bloque = conv._bloque_faltantes(
+        ["life_stage", "birthdate", "budget", "timeline"]
+    )
+
+    # La destacada aparece una vez, con su marca.
+    assert "Lo único que vas a preguntar ahora" in bloque
+    assert bloque.count("Lo único que vas a preguntar ahora") == 1
+    # Las demás están, pero explícitamente prohibidas para este turno.
+    assert "no lo preguntes todavía" in bloque.lower()
+
+
+def test_los_duros_se_marcan_para_que_no_los_deduzca():
+    """`birthdate` decide si le pedimos permiso a sus padres."""
+    bloque = conv._bloque_faltantes(["birthdate", "timeline"])
+
+    assert "no lo deduzcas" in bloque
+
+
+def test_sin_pendientes_no_se_inventa_una_pregunta():
+    assert "ya tienes todo" in conv._bloque_faltantes([])
+
+
+def test_al_modelo_se_le_da_la_edad_calculada():
+    """Probándolo, el modelo vio "2009" y cerró con *"tienes 15 años"* cuando
+    eran 16. El dato guardado estaba bien; el error era suyo al hacer la cuenta.
+
+    Un estudiante que lee mal su propia edad deja de creerle al resto de la
+    conversación, y la aritmética es justo lo que no hay que delegarle a un
+    modelo pudiendo dársela hecha.
+    """
+    from datetime import date
+
+    bloque = conv._bloque_recolectado({"birthdate": 2009})
+    esperada = date.today().year - 2009 - 1  # se cumple años el 31 de diciembre
+
+    assert f"{esperada} años" in bloque
+    assert "2009" in bloque
+
+
+def test_dar_la_edad_no_cambia_lo_que_se_guarda():
+    """El bloque es sólo lo que ve el modelo · la columna sigue siendo la fecha
+    del 31 de diciembre, que es de lo que depende el gate de menores."""
+    assert conv.a_onboarding_answers({"birthdate": 2009})["birthdate"] == "2009-12-31"

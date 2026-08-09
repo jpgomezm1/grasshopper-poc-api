@@ -75,6 +75,25 @@ def _bloque_recolectado(recolectados: Dict[str, Any]) -> str:
     for k, v in con_valor.items():
         h = catalogo.get_hecho(k)
         etiqueta = h.pregunta_typeform if h else k
+
+        # La edad se le da calculada · probándolo, el modelo vio "2009" y cerró
+        # con "tienes 15 años" cuando eran 16. El dato guardado estaba bien; el
+        # error era suyo al hacer la cuenta. Un estudiante que lee mal su propia
+        # edad deja de creerle al resto de la conversación, y la aritmética es
+        # justo lo que no hay que delegarle a un modelo pudiendo dársela hecha.
+        #
+        # Se calcula desde el 31 de diciembre, igual que se guarda: da la edad
+        # MÍNIMA posible, que es la dirección segura para el gate de menores.
+        if k == "birthdate":
+            try:
+                from datetime import date
+                anio = int(str(v)[:4])
+                hoy = date.today()
+                edad = hoy.year - anio - (0 if (hoy.month, hoy.day) >= (12, 31) else 1)
+                lineas.append(f"- Edad → {edad} años (nació en {anio})")
+                continue
+            except (TypeError, ValueError):
+                pass  # sin año usable se muestra crudo, como cualquier otro
         # Se le muestra la etiqueta legible y no el código: si ve `high_school`,
         # tiende a repetírselo a la persona tal cual.
         if h and h.opciones and isinstance(v, str):
@@ -86,15 +105,41 @@ def _bloque_recolectado(recolectados: Dict[str, Any]) -> str:
 
 
 def _bloque_faltantes(pendientes: List[str]) -> str:
+    """Lo que falta · **una sola pregunta destacada**, el resto como contexto.
+
+    La primera versión le mostraba al modelo una lista numerada de seis
+    pendientes, y probándolo con JP agrupó dos hechos en un mismo mensaje dos
+    veces en seis turnos: *"¿cómo te gustaría estudiar? ¿te ves yéndote a otro
+    país?"*. Es razonable — al ver seis preguntas trata de ser eficiente.
+
+    Pedirlo en el prompt no basta: ya dice "una sola pregunta por mensaje" y aun
+    así lo hizo. Es el mismo aprendizaje que dejó la repetición de preguntas en
+    el bot comercial ("mejora el tono pero no alcanza").
+
+    **No puede agrupar lo que no ve.** Se destaca una, y las demás van marcadas
+    como "todavía no": le sirven para no cerrar antes de tiempo, no para
+    preguntarlas.
+    """
     if not pendientes:
         return "(nada · ya tienes todo lo necesario)"
-    lineas = []
-    for i, hid in enumerate(pendientes[:6], 1):
-        h = catalogo.get_hecho(hid)
-        if not h:
-            continue
-        marca = " ← no lo deduzcas, pregúntalo" if hid in catalogo.DUROS else ""
-        lineas.append(f"{i}. {h.pregunta_typeform}{marca}")
+
+    h = catalogo.get_hecho(pendientes[0])
+    if h is None:
+        return "(nada · ya tienes todo lo necesario)"
+
+    marca = " (no lo deduzcas · pregúntalo)" if pendientes[0] in catalogo.DUROS else ""
+    lineas = [
+        f"**Lo único que vas a preguntar ahora:** {h.pregunta_typeform}{marca}",
+        "",
+        "Una sola pregunta. Si metes dos en el mismo mensaje, esto vuelve a ser "
+        "un formulario.",
+    ]
+
+    despues = [catalogo.get_hecho(x) for x in pendientes[1:4]]
+    despues = [x for x in despues if x is not None]
+    if despues:
+        lineas += ["", "Queda para más adelante — **no lo preguntes todavía**:"]
+        lineas += [f"- {x.pregunta_typeform}" for x in despues]
     return "\n".join(lineas)
 
 

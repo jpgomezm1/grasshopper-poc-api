@@ -195,3 +195,28 @@ def test_dar_la_edad_no_cambia_lo_que_se_guarda():
     """El bloque es sólo lo que ve el modelo · la columna sigue siendo la fecha
     del 31 de diciembre, que es de lo que depende el gate de menores."""
     assert conv.a_onboarding_answers({"birthdate": 2009})["birthdate"] == "2009-12-31"
+
+
+def test_en_el_primer_turno_NO_se_pospone_la_etapa_de_vida():
+    """La rotación que evita insistir se disparaba en el primer turno.
+
+    El historial arranca con el saludo, que pregunta por lo que le apasiona. Al
+    contarlo como "ya se preguntó", el código creía que la etapa de vida se
+    había preguntado sin obtener respuesta y la mandaba al final — así que el
+    campo que decide si se le ofrecen maestrías a alguien de 11° quedaba
+    postergado SIEMPRE, en toda conversación.
+
+    Se comprueba sobre `_rotar_si_no_respondieron` con la condición corregida:
+    sin mensajes del usuario, no hay nada que rotar.
+    """
+    from app.services.conversation_engine import _rotar_si_no_respondieron
+
+    solo_saludo = [{"role": "assistant", "content": "¿qué te apasiona?"}]
+    ya_hablo = any(t.get("role") == "user" for t in solo_saludo)
+    assert ya_hablo is False
+
+    faltan = ["life_stage", "birthdate", "budget"]
+    # Con la condición corregida no se rota: la etapa sigue primero.
+    assert _rotar_si_no_respondieron([] if not ya_hablo else faltan, faltan)[0] == "life_stage"
+    # Y contando el saludo —el bug— sí se rotaba.
+    assert _rotar_si_no_respondieron(faltan, faltan)[0] != "life_stage"

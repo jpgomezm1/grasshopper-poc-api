@@ -194,8 +194,17 @@ def responder(
 
     # Qué falta, y si el bot ya preguntó por lo primero sin obtener respuesta,
     # eso baja: se retoma más adelante, cuando la conversación dé pie.
+    #
+    # La condición es que la persona **ya haya hablado antes**, no que exista
+    # historial: el historial arranca con el saludo, que pregunta por lo que le
+    # apasiona. Contándolo, en el primer turno el código creía que ya se había
+    # preguntado por la etapa de vida sin obtener respuesta, y la mandaba al
+    # final — así que el campo más importante para filtrar (`life_stage`, que
+    # decide si se le ofrecen maestrías a alguien de 11°) quedaba postergado
+    # SIEMPRE, en toda conversación.
+    ya_hablo = any(t.get("role") == "user" for t in (historial or []))
     pendientes = _rotar_si_no_respondieron(
-        catalogo.faltantes(recolectados) if historial else [],
+        catalogo.faltantes(recolectados) if ya_hablo else [],
         catalogo.faltantes(actualizados),
     )
 

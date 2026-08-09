@@ -33,6 +33,7 @@ from app.api.v1 import (
     vocational_tests,
     study_preferences,
     busqueda,
+    onboarding_chat,
     ofertas,
     lead_profile,
     bot,
@@ -205,6 +206,7 @@ app.include_router(vocational_tests.router, prefix="/api/v1")
 app.include_router(study_preferences.router, prefix="/api/v1")
 app.include_router(ofertas.router, prefix="/api/v1")
 app.include_router(busqueda.router, prefix="/api/v1")
+app.include_router(onboarding_chat.router, prefix="/api/v1")
 app.include_router(lead_profile.router, prefix="/api/v1")
 app.include_router(bot.router, prefix="/api/v1")
 app.include_router(outreach.router, prefix="/api/v1")

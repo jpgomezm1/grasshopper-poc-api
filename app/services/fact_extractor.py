@@ -27,7 +27,18 @@ from typing import Any, Dict, List, Optional, Tuple
 from sqlalchemy.orm import Session as DBSession
 
 from app.core.ai_client import call_claude_tool, load_prompt
+from app.data import perfilador_typeform
 from app.data.perfilador_typeform import HECHOS, Hecho, get_hecho
+
+# El extractor sirve a DOS conversaciones con catálogos distintos: el perfilador
+# comercial (`perfilador_typeform`) y el onboarding de la plataforma
+# (`onboarding_hechos`). Se parametriza en vez de duplicarse porque aquí vive el
+# riesgo real —escribir en el perfil un valor que la persona nunca dijo— y ese
+# blindaje (tool use forzado, validación contra el vocabulario canónico, umbral
+# de confianza) tiene que ser el mismo para las dos. Duplicarlo garantizaría que
+# una de las copias se quede atrás.
+#
+# Por defecto es el catálogo comercial, así que el bot que ya funciona no cambia.
 from app.services.ai_usage_service import record_ai_usage
 
 logger = logging.getLogger(__name__)
@@ -49,7 +60,7 @@ _VERDADERO = {"true", "si", "sí", "yes", "y", "1", "claro", "correcto"}
 _FALSO = {"false", "no", "n", "0", "nunca", "negativo"}
 
 
-def _tool_schema() -> Dict[str, Any]:
+def _tool_schema(catalogo=perfilador_typeform) -> Dict[str, Any]:
     """Schema del tool call · **estable entre turnos, a propósito**.
 
     El enum de `id` lista TODOS los hechos, no solo los que faltan. Es tentador
@@ -69,7 +80,7 @@ def _tool_schema() -> Dict[str, Any]:
                     "properties": {
                         "id": {
                             "type": "string",
-                            "enum": [h.id for h in HECHOS],
+                            "enum": [h.id for h in catalogo.HECHOS],
                             "description": "Cuál de los hechos del catálogo se está registrando.",
                         },
                         "valor": {
@@ -98,10 +109,10 @@ def _tool_schema() -> Dict[str, Any]:
     }
 
 
-def _catalogo_para_prompt() -> str:
+def _catalogo_para_prompt(catalogo=perfilador_typeform) -> str:
     """Los hechos y sus opciones, en el formato que lee el extractor."""
     lineas: List[str] = []
-    for hecho in HECHOS:
+    for hecho in catalogo.HECHOS:
         partes = [f"- `{hecho.id}` · {hecho.pregunta_typeform}"]
         if hecho.opciones:
             codigos = " · ".join(
@@ -197,6 +208,7 @@ def extraer(
     *,
     session_id: str,
     db: Optional[DBSession] = None,
+    catalogo=perfilador_typeform,
 ) -> Tuple[Dict[str, Any], List[str]]:
     """Extrae los hechos del último mensaje de la persona.
 
@@ -205,6 +217,8 @@ def extraer(
         recolectados: lo que ya se tiene · el modelo no lo repite salvo corrección.
         session_id: para el tracking M-001 y los logs.
         db: sesión para `record_ai_usage`. Sin ella no se registra consumo.
+        catalogo: módulo con `HECHOS` y `get_hecho` · por defecto el perfilador
+            comercial. El onboarding pasa `app.data.onboarding_hechos`.
 
     Returns:
         (hechos_validos, descartados). `hechos_validos` ya viene con las claves
@@ -214,7 +228,7 @@ def extraer(
     """
     plantilla = load_prompt(PROMPT_NAME)
     prompt = (
-        plantilla.replace("{catalogo}", _catalogo_para_prompt())
+        plantilla.replace("{catalogo}", _catalogo_para_prompt(catalogo))
         .replace("{ya_recolectado}", _recolectado_para_prompt(recolectados))
         .replace("{mensaje}", mensaje)
     )
@@ -226,7 +240,7 @@ def extraer(
             "Registra los hechos que la persona dijo en su último mensaje. "
             "Solo lo que dijo — nunca lo que probablemente quiso decir."
         ),
-        input_schema=_tool_schema(),
+        input_schema=_tool_schema(catalogo),
         session_id=session_id,
         feature=FEATURE,
         temperature=0.0,
@@ -257,7 +271,9 @@ def extraer(
         if not isinstance(item, dict):
             continue
         hecho_id = item.get("id")
-        hecho = get_hecho(hecho_id) if isinstance(hecho_id, str) else None
+        # Del catalogo que se este usando · con el global se validaria contra
+        # el vocabulario equivocado y se descartaria TODO lo del onboarding.
+        hecho = catalogo.get_hecho(hecho_id) if isinstance(hecho_id, str) else None
         if hecho is None:
             descartados.append(str(hecho_id))
             continue

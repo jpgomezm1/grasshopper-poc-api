@@ -220,3 +220,49 @@ def test_en_el_primer_turno_NO_se_pospone_la_etapa_de_vida():
     assert _rotar_si_no_respondieron([] if not ya_hablo else faltan, faltan)[0] == "life_stage"
     # Y contando el saludo —el bug— sí se rotaba.
     assert _rotar_si_no_respondieron(faltan, faltan)[0] != "life_stage"
+
+
+# ---------------------------------------------------------------------------
+# La trampa que impedía cerrar · 2026-08-09, probándolo con JP
+# ---------------------------------------------------------------------------
+
+
+def test_un_obligatorio_sin_responder_no_se_va_detras_de_los_opcionales():
+    """La conversación no podía cerrar NUNCA.
+
+    A "¿qué quieres resolver?" respondió "saber si puedo vivir de esto". El
+    extractor se abstuvo con razón —no mapeaba a ninguna opción— y `main_goal`,
+    que es obligatorio, se fue al final detrás de diez preguntas opcionales.
+    Como nunca volvía, `listo_para_cerrar` jamás era True y seguía preguntando
+    hasta agotar los 14 datos: el formulario, por otra puerta.
+    """
+    faltan = ["main_goal", "voice_hobbies", "voice_experience", "modality"]
+    rotado = conv._rotar_dentro_del_tramo(faltan, faltan)
+
+    # Sigue al frente: es el único obligatorio que queda.
+    assert rotado[0] == "main_goal"
+
+
+def test_un_obligatorio_cede_el_turno_a_OTRO_obligatorio():
+    """Insistir sí es lo que vuelve esto un formulario · si hay otro obligatorio
+    pendiente, se pregunta ese y el primero se retoma después."""
+    faltan = ["main_goal", "voice_passion", "voice_hobbies"]
+    rotado = conv._rotar_dentro_del_tramo(faltan, faltan)
+
+    assert rotado[0] == "voice_passion"
+    assert "main_goal" in rotado
+
+
+def test_un_opcional_sin_responder_si_baja():
+    """Para lo opcional el comportamiento no cambia: si no lo respondieron, se
+    pasa a otra cosa."""
+    faltan = ["voice_hobbies", "voice_experience", "modality"]
+    rotado = conv._rotar_dentro_del_tramo(faltan, faltan)
+
+    assert rotado[0] != "voice_hobbies"
+
+
+def test_en_el_primer_turno_no_se_rota_nada():
+    faltan = ["life_stage", "birthdate"]
+
+    assert conv._rotar_dentro_del_tramo([], faltan) == faltan

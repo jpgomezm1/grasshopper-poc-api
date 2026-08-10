@@ -104,6 +104,37 @@ def _bloque_recolectado(recolectados: Dict[str, Any]) -> str:
     return "\n".join(lineas)
 
 
+def _rotar_dentro_del_tramo(antes: List[str], ahora: List[str]) -> List[str]:
+    """Baja la pregunta sin responder, **pero sólo detrás de sus iguales**.
+
+    La versión del bot comercial la mandaba al final de toda la cola, y aquí eso
+    abre una trampa que apareció probándolo con JP: a *"¿qué quieres resolver?"*
+    respondió *"saber si puedo vivir de esto"*, el extractor se abstuvo con razón
+    (no mapeaba a ninguna opción), y `main_goal` —que es **obligatorio**— se fue
+    al final detrás de diez preguntas opcionales.
+
+    Consecuencia: la conversación **no podía cerrar nunca**. Seguía preguntando
+    hasta agotar los 14 datos, que es exactamente el formulario que esto vino a
+    reemplazar, y sin salida visible para la persona.
+
+    Rotando dentro del tramo, un obligatorio cede el turno a otro obligatorio y
+    nunca a uno opcional. Si es el único que queda en su tramo, se queda al
+    frente y se vuelve a preguntar —reformulado, porque el modelo reacciona a lo
+    que la persona acaba de decir—, que es mucho mejor que no terminar jamás.
+    """
+    if not (antes and ahora and antes[0] == ahora[0]):
+        return ahora
+
+    cabeza = ahora[0]
+    obligatorio = cabeza in catalogo.OBLIGATORIOS
+    tramo = [x for x in ahora[1:] if (x in catalogo.OBLIGATORIOS) == obligatorio]
+    if not tramo:
+        return ahora  # es el único de su tramo · insistir es lo correcto
+
+    resto = [x for x in ahora[1:] if x not in tramo]
+    return tramo + [cabeza] + resto
+
+
 def _bloque_faltantes(pendientes: List[str]) -> str:
     """Lo que falta · **una sola pregunta destacada**, el resto como contexto.
 
@@ -203,7 +234,7 @@ def responder(
     # decide si se le ofrecen maestrías a alguien de 11°) quedaba postergado
     # SIEMPRE, en toda conversación.
     ya_hablo = any(t.get("role") == "user" for t in (historial or []))
-    pendientes = _rotar_si_no_respondieron(
+    pendientes = _rotar_dentro_del_tramo(
         catalogo.faltantes(recolectados) if ya_hablo else [],
         catalogo.faltantes(actualizados),
     )

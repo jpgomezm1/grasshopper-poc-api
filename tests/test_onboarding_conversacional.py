@@ -344,3 +344,20 @@ def test_las_dos_fuentes_de_verdad_de_lo_obligatorio_coinciden():
 
     for i in cat.OBLIGATORIOS:
         assert i in primeros, i
+
+
+def test_las_opciones_del_objetivo_hablan_como_un_estudiante():
+    """`main_goal` falló DOS veces probándolo con JP, con la misma frase:
+    *"quiero saber si de verdad puedo vivir de esto, y si sí, dónde
+    estudiarlo"* —que es literalmente el objetivo— se extrajo como
+    `voice_concerns` y `main_goal` quedó vacío, bloqueando el cierre.
+
+    La causa: las etiquetas eran nombres de categoría ("Descubrir qué
+    estudiar") y nadie de 16 años habla así. Dice "no sé qué hacer" o "quiero
+    saber si esto es lo mío". Las etiquetas ahora traen esos ejemplos.
+    """
+    opciones = cat.get_hecho("main_goal").opciones
+
+    assert "no sé qué hacer" in opciones["discover"]
+    assert "saber si puedo vivir de esto" in opciones["discover"]
+    assert "dónde estudiarlo" in opciones["study"]

@@ -126,13 +126,25 @@ HECHOS: List[Hecho] = [
         pregunta_typeform="¿Qué quieres resolver con esta orientación?",
         bloque="contexto",
         tipo="multi",
+        # Las etiquetas traen ejemplos de cómo lo dice un estudiante de verdad,
+        # no sólo el nombre de la categoría. Sin ellos, este hecho falló dos
+        # veces seguidas probándolo: *"quiero saber si de verdad puedo vivir de
+        # esto, y si sí, dónde estudiarlo"* —que es literalmente el objetivo— se
+        # extrajo como `voice_concerns` y `main_goal` quedó vacío, bloqueando el
+        # cierre de la conversación.
+        #
+        # Nadie de 16 años dice "quiero descubrir qué estudiar": dice "no sé qué
+        # hacer" o "quiero saber si esto es lo mío".
         opciones={
-            "discover": "Descubrir qué estudiar",
-            "study": "Estudiar una carrera",
+            "discover": "Descubrir qué estudiar · también: 'no sé qué hacer', "
+                        "'saber si esto que me gusta es lo mío', 'confirmar si "
+                        "voy bien encaminado', 'saber si puedo vivir de esto'",
+            "study": "Estudiar una carrera · también: 'saber dónde estudiarlo', "
+                     "'encontrar universidad', 'elegir dónde'",
             "learn_language": "Aprender un idioma",
             "work": "Trabajar en el exterior",
-            "emigrate": "Emigrar",
-            "explore": "Vivir la experiencia",
+            "emigrate": "Emigrar · irse a vivir a otro país",
+            "explore": "Vivir la experiencia de estar afuera",
         },
         onboarding_key="main_goal",
         obligatorio=True,

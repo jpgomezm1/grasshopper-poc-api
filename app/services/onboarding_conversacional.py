@@ -158,19 +158,27 @@ def _bloque_faltantes(pendientes: List[str]) -> str:
     if h is None:
         return "(nada · ya tienes todo lo necesario)"
 
-    marca = " (no lo deduzcas · pregúntalo)" if pendientes[0] in catalogo.DUROS else ""
+    marca = " · esto se pregunta, no se deduce" if pendientes[0] in catalogo.DUROS else ""
     lineas = [
-        f"**Lo único que vas a preguntar ahora:** {h.pregunta_typeform}{marca}",
+        f"**Lo único que quieres averiguar ahora:** "
+        f"{catalogo.que_averiguar(pendientes[0])}{marca}",
+        "",
+        # Antes iba aquí el texto literal de la pregunta del formulario, y el
+        # modelo lo repetía tal cual: la conversación sonaba idéntica siempre,
+        # sin importar lo que la persona hubiera contado. Eran las mismas
+        # catorce frases en otro envase.
+        "Formula tú la pregunta a partir de lo que acaba de contarte. Nada de "
+        "frases prefabricadas: a quien te habló de dibujar se le pregunta por "
+        "sus fortalezas de otra forma que a quien te habló de fútbol.",
         "",
         "Una sola pregunta. Si metes dos en el mismo mensaje, esto vuelve a ser "
         "un formulario.",
     ]
 
-    despues = [catalogo.get_hecho(x) for x in pendientes[1:4]]
-    despues = [x for x in despues if x is not None]
+    despues = [catalogo.que_averiguar(x) for x in pendientes[1:4]]
     if despues:
         lineas += ["", "Queda para más adelante — **no lo preguntes todavía**:"]
-        lineas += [f"- {x.pregunta_typeform}" for x in despues]
+        lineas += [f"- {x}" for x in despues]
     return "\n".join(lineas)
 
 

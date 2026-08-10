@@ -94,19 +94,24 @@ def test_a_quien_si_quiere_el_exterior_si_se_le_piden():
 
 
 def test_lo_duro_se_pregunta_primero():
-    """Etapa, nacimiento y presupuesto son filtros duros · sin ellos el
-    recomendador no puede descartar lo imposible."""
+    """Etapa y nacimiento son lo que no se puede deducir: uno decide si se le
+    pide permiso a los padres y el otro qué nivel se le puede ofrecer.
+
+    El presupuesto SALIO de aquí: a un estudiante de 16 no se le pregunta cuánto
+    puede pagar su familia."""
     orden = cat.faltantes({})
 
-    assert set(orden[:3]) == set(cat.DUROS)
+    assert set(orden[:len(cat.DUROS)]) == set(cat.DUROS)
+    assert "budget" not in cat.DUROS
 
 
 def test_se_cierra_sin_haber_preguntado_las_catorce():
     """El perfil sigue creciendo con el uso (journey, bitácora, tests). Insistir
     hasta completar los 14 datos sería el formulario con otra cara."""
     r = {
-        "life_stage": "high_school", "birthdate": 2008, "timeline": "asap",
+        "life_stage": "high_school", "birthdate": 2008,
         "main_goal": ["discover"], "voice_passion": "dibujar personajes",
+        "voice_strengths": "el color y las expresiones",
     }
 
     assert cat.listo_para_cerrar(r)
@@ -156,9 +161,9 @@ def test_al_modelo_se_le_destaca_UNA_sola_pregunta():
         ["life_stage", "birthdate", "budget", "timeline"]
     )
 
-    # La destacada aparece una vez, con su marca.
-    assert "Lo único que vas a preguntar ahora" in bloque
-    assert bloque.count("Lo único que vas a preguntar ahora") == 1
+    # La destacada aparece una vez.
+    assert "Lo único que quieres averiguar ahora" in bloque
+    assert bloque.count("Lo único que quieres averiguar ahora") == 1
     # Las demás están, pero explícitamente prohibidas para este turno.
     assert "no lo preguntes todavía" in bloque.lower()
 
@@ -167,7 +172,7 @@ def test_los_duros_se_marcan_para_que_no_los_deduzca():
     """`birthdate` decide si le pedimos permiso a sus padres."""
     bloque = conv._bloque_faltantes(["birthdate", "timeline"])
 
-    assert "no lo deduzcas" in bloque
+    assert "se pregunta, no se deduce" in bloque
 
 
 def test_sin_pendientes_no_se_inventa_una_pregunta():
@@ -266,3 +271,76 @@ def test_en_el_primer_turno_no_se_rota_nada():
     faltan = ["life_stage", "birthdate"]
 
     assert conv._rotar_dentro_del_tramo([], faltan) == faltan
+
+
+# ---------------------------------------------------------------------------
+# Hop es un orientador vocacional, no un formulario de admisión · 2026-08-09
+# ---------------------------------------------------------------------------
+# JP: "el usuario será el estudiante · temas de presupuesto no tiene mucho
+# sentido hacerle esa pregunta (él no sabe, pagan los papás) · quiero que el rol
+# de Hop sea de orientador vocacional".
+
+
+def test_a_un_estudiante_NO_se_le_pregunta_el_presupuesto():
+    """Quien conversa tiene 15-19 años: no sabe cuánto puede pagar su familia, y
+    preguntárselo delata que quien habla no es un orientador.
+
+    El campo no se borra —el asesor o el papá lo llenan desde su panel, y de ahí
+    sale `user.budget_band`— sólo se saca de esta conversación.
+    """
+    assert "budget" not in cat.faltantes({})
+    assert "budget" not in cat.faltantes({"life_stage": "high_school"})
+    assert "budget" in cat.NO_SE_LE_PREGUNTAN
+
+
+def test_el_presupuesto_sigue_pudiendo_guardarse():
+    """Que no se pregunte no significa que el campo desaparezca: el recomendador
+    lo lee y alguien más lo va a llenar."""
+    assert conv.a_onboarding_answers({"budget": "5k_15k"})["budget"] == "5k_15k"
+
+
+def test_primero_la_persona_y_despues_la_logistica():
+    """Un orientador pregunta quién eres antes que si tienes pasaporte. Con el
+    orden invertido la conversación se siente un trámite aunque las preguntas
+    sean las mismas."""
+    orden = cat.faltantes({})
+    pos = {h: i for i, h in enumerate(orden)}
+
+    assert pos["voice_passion"] < pos["passport"]
+    assert pos["voice_strengths"] < pos["countries"]
+    assert pos["voice_strengths"] < pos["modality"]
+
+
+def test_se_cierra_con_lo_vocacional_no_con_la_logistica():
+    """Lo que un orientador necesita para hablar con sentido es quién es la
+    persona · el país y la modalidad pueden llegar después."""
+    r = {"life_stage": "high_school", "birthdate": 2009,
+         "voice_passion": "dibujar personajes", "voice_strengths": "el color",
+         "main_goal": ["discover"]}
+
+    assert cat.listo_para_cerrar(r)
+
+
+def test_al_modelo_se_le_dice_QUE_averiguar_no_COMO_preguntarlo():
+    """Se le pasaba el texto literal del formulario y lo repetía tal cual: la
+    conversación sonaba idéntica siempre, sin importar lo que la persona hubiera
+    contado. Eran las mismas catorce frases en otro envase."""
+    bloque = conv._bloque_faltantes(["voice_strengths", "main_goal"])
+
+    # Ya no aparece la pregunta enlatada…
+    assert "¿Qué habilidades consideras" not in bloque
+    # …sino qué hay que averiguar, y la instrucción de formularla él.
+    assert "en qué siente que es bueno" in bloque
+    assert "Formula tú la pregunta" in bloque
+
+
+def test_las_dos_fuentes_de_verdad_de_lo_obligatorio_coinciden():
+    """`faltantes` ordenaba por el campo `obligatorio` del dataclass mientras
+    `listo_para_cerrar` usaba la tupla `OBLIGATORIOS`. Con dos listas, una se
+    queda atrás: `timeline` se priorizaba por encima de las fortalezas y el
+    cierre ni las miraba."""
+    orden = cat.faltantes({})
+    primeros = set(orden[:len(cat.DUROS) + len(cat.OBLIGATORIOS)])
+
+    for i in cat.OBLIGATORIOS:
+        assert i in primeros, i

@@ -50,13 +50,33 @@ from app.data.perfilador_typeform import Hecho
 # ---------------------------------------------------------------------------
 # Los hechos duros · se confirman, no se infieren
 # ---------------------------------------------------------------------------
-DUROS = ("life_stage", "birthdate", "budget")
+DUROS = ("life_stage", "birthdate")
+
+# ---------------------------------------------------------------------------
+# Lo que Hop NO le pregunta al estudiante
+# ---------------------------------------------------------------------------
+# **El presupuesto.** Quien conversa aquí es un chico de 15 a 18 años: no sabe
+# cuánto puede pagar su familia, y preguntárselo delata que quien habla no es un
+# orientador sino un formulario de admisión. JP, 2026-08-09: *"temas de
+# presupuesto no tiene mucho sentido hacerle esa pregunta (él no sabe, pagan los
+# papás)"*.
+#
+# El campo NO se borra: existe en `onboarding_answers` y lo puede llenar el
+# asesor o el papá desde su propio panel, y de ahí sale `user.budget_band` que
+# usa el recomendador. Sólo se saca de la conversación con el estudiante.
+#
+# Hoy además no filtra casi nada: el catálogo entero dice "costo por confirmar"
+# desde que se quitaron los precios que eran falsos.
+NO_SE_LE_PREGUNTAN = ("budget",)
 
 # Los que hacen falta para poder cerrar. `countries` y `passport` no están: sólo
 # aplican a quien dice que sí le interesa el exterior, y colgarlos de todos era
 # parte de por qué el formulario se sentía largo.
-OBLIGATORIOS = ("life_stage", "birthdate", "timeline", "main_goal",
-                "voice_passion")
+# Con esto Hop ya puede orientar. Son los que describen a la PERSONA y su
+# momento, no su logística: eso es lo que un orientador necesita para hablar con
+# sentido, y lo demás puede llegar después.
+OBLIGATORIOS = ("life_stage", "birthdate", "voice_passion", "voice_strengths",
+                "main_goal")
 
 HECHOS: List[Hecho] = [
     Hecho(
@@ -231,9 +251,73 @@ HECHOS: List[Hecho] = [
 
 _POR_ID = {h.id: h for h in HECHOS}
 
+# ---------------------------------------------------------------------------
+# El orden de la conversación · primero la persona, después la logística
+# ---------------------------------------------------------------------------
+# Hop es un **orientador vocacional**, no alguien tomando datos de admisión.
+# Un orientador pregunta primero quién eres, qué se te da bien y qué te mueve;
+# el país, la modalidad y el pasaporte vienen después, cuando ya hay algo que
+# orientar. Con el orden invertido —que es como venía— la conversación se siente
+# un trámite aunque las preguntas sean las mismas.
+#
+# La lista del catálogo (`HECHOS`) conserva el orden del formulario original,
+# que sirve para leerlo contra la pantalla vieja. Este es el orden en que se
+# CONVERSA, que es otra cosa.
+ORDEN_CONVERSACION = [
+    # Quién es y en qué momento está.
+    "life_stage", "birthdate",
+    # Lo vocacional · el corazón de lo que hace un orientador.
+    "voice_passion", "voice_strengths", "voice_experience", "voice_hobbies",
+    "voice_concerns",
+    # Qué espera de esto.
+    "main_goal", "timeline",
+    # Y sólo al final, la logística.
+    "international_interest", "countries", "modality", "passport",
+]
+
 # Los del bloque destino sólo se piden a quien dice que le interesa el exterior.
 # Es lo que baja el recorrido de 13 pasos a los ~8 que la clienta pedía.
 SOLO_SI_EXTERIOR = ("countries", "passport")
+
+
+# ---------------------------------------------------------------------------
+# Qué hay que averiguar · NO cómo preguntarlo
+# ---------------------------------------------------------------------------
+# Al modelo se le pasaba el texto literal de la pregunta del formulario
+# ("¿En qué etapa estás hoy?") y lo repetía tal cual. Por eso la conversación
+# sonaba idéntica siempre, sin importar lo que la persona hubiera contado: eran
+# las mismas catorce frases en otro envase.
+#
+# Estas descripciones dicen **qué necesitamos saber y para qué**, y dejan que el
+# modelo formule la pregunta a partir de lo que la persona acaba de decir. A
+# quien contó que dibuja se le pregunta por sus fortalezas de otra manera que a
+# quien contó que juega fútbol.
+QUE_AVERIGUAR = {
+    "life_stage": "en qué punto de sus estudios está (colegio, universidad, "
+                  "trabajando, buscando cambiar) · define qué se le puede ofrecer",
+    "birthdate": "el año en que nació · hay que preguntarlo, no deducirlo de que "
+                 "esté en un grado",
+    "timeline": "con cuánto tiempo cuenta para decidir",
+    "main_goal": "qué espera sacar de esta orientación · descubrir qué estudiar, "
+                 "elegir dónde, aprender un idioma, irse a vivir afuera",
+    "modality": "si se imagina estudiando presencial, en línea o le da igual",
+    "voice_passion": "qué le mueve de verdad y qué le gustaría llegar a hacer",
+    "voice_hobbies": "en qué se le va el tiempo cuando nadie lo obliga",
+    "voice_experience": "qué ha hecho o probado hasta ahora, y qué le gustó y "
+                        "qué no de eso",
+    "voice_strengths": "en qué siente que es bueno · sirve preguntarle qué le "
+                       "dicen los demás que hace bien, cuesta menos responder",
+    "voice_concerns": "qué le preocupa o le da miedo de esta decisión",
+    "international_interest": "si se ve estudiando fuera del país o prefiere quedarse",
+    "countries": "qué países o ciudades le llaman la atención",
+    "passport": "si ya tiene pasaporte vigente o le toca tramitarlo",
+}
+
+
+def que_averiguar(hecho_id: str) -> str:
+    """Qué hay que saber de este hecho · en lenguaje de orientador."""
+    h = _POR_ID.get(hecho_id)
+    return QUE_AVERIGUAR.get(hecho_id) or (h.pregunta_typeform if h else hecho_id)
 
 
 def get_hecho(hecho_id: str) -> Optional[Hecho]:
@@ -259,15 +343,21 @@ def faltantes(recolectados: Dict[str, Any]) -> List[str]:
     blando, que además fluye mejor cuando ya hay algo de confianza.
     """
     def peso(h: Hecho) -> tuple:
+        # El tramo sale de `OBLIGATORIOS` y no del campo `obligatorio` del
+        # dataclass: tenerlos como dos fuentes de verdad ya produjo que
+        # `faltantes` priorizara `timeline` (obligatorio en el dataclass) por
+        # encima de las fortalezas, mientras `listo_para_cerrar` ni las miraba.
         return (
-            0 if h.id in DUROS else (1 if h.obligatorio else 2),
-            HECHOS.index(h),
+            0 if h.id in DUROS else (1 if h.id in OBLIGATORIOS else 2),
+            ORDEN_CONVERSACION.index(h.id) if h.id in ORDEN_CONVERSACION
+            else len(ORDEN_CONVERSACION),
         )
 
     pendientes = [
         h for h in HECHOS
         if recolectados.get(h.id) in (None, "", [], {})
         and aplica(h.id, recolectados)
+        and h.id not in NO_SE_LE_PREGUNTAN
     ]
     return [h.id for h in sorted(pendientes, key=peso)]
 

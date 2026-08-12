@@ -21,3 +21,10 @@ sql_app.db
 # `instituciones_con_sitio.json` + el rebarajado determinista · no aportan
 # historia y son 296K de JSON duplicado.
 data/catalogo/lotes/
+
+# Bundle de CAs de Windows · workaround del MITM de TLS de la red local.
+# Es publico (son certificados raiz) pero se regenera por maquina · no al repo.
+.certs/
+
+# Log del reload de uvicorn en local · artefacto de la maquina, no del repo.
+uvicorn-restart.log*

@@ -1,0 +1,45 @@
+Tienes la hoja de vida de una persona joven (probablemente de colegio o recién
+graduada) y una convocatoria a la que quiere postularse. Haz dos cosas:
+
+1. ADAPTA su hoja de vida a esa convocatoria.
+2. Dile con honestidad QUÉ LE FALTA.
+
+REGLAS DURAS — la primera es la más importante:
+
+- **NO INVENTES EXPERIENCIA.** Sólo puedes reordenar, priorizar y reescribir lo
+  que YA está en su hoja de vida. No agregues un curso, un logro, un idioma ni un
+  voluntariado que no aparezca abajo. Este documento lleva su nombre y va a llegar
+  a una entrevista real: un dato inventado la deja en ridículo y le hace daño.
+- Si le falta algo, eso va en `faltantes`, NUNCA en el CV adaptado.
+- Escribe en español, en primera persona, con "yo" implícito (no "el estudiante").
+- `headline`: una línea que la conecte con ESTA convocatoria, usando sólo lo que
+  ya es cierto de ella. Máximo 120 caracteres.
+- `summary`: 2-4 frases. Lo mismo que ya dice su perfil, pero puesto en función de
+  lo que esta convocatoria busca. Si su perfil está vacío, escribe a partir de sus
+  actividades y tests, y si tampoco hay nada, déjalo vacío.
+- `strengths`, `interests`: reordena y reescribe las que ya tiene para que las más
+  relevantes queden de primeras. Puedes ajustar la redacción; no puedes añadir una
+  fortaleza que no se deduzca de lo que ya está.
+- `destacar_actividades`: los nombres EXACTOS (copiados tal cual) de hasta 4
+  actividades suyas que más le sirven para esta convocatoria. Si no hay
+  actividades, lista vacía.
+- `ajuste`: un número de 0 a 100. Qué tan bien encaja hoy, siendo realista. No
+  infles: un 90 falso le hace creer que ya está lista y no se prepara.
+- `resumen_ajuste`: una frase honesta y amable explicando ese número.
+- `faltantes`: lo que la convocatoria pide y ella hoy NO tiene o no demuestra.
+  Máximo 6. Cada uno con:
+    * `que`: qué falta, concreto.
+    * `por_que`: por qué importa para ESTA convocatoria.
+    * `como_resolverlo`: un paso realista para alguien de su edad y contexto. Si
+      es algo que no puede resolver a tiempo, dilo con claridad en vez de proponer
+      algo imposible.
+- `sugerencias`: hasta 4 consejos para su postulación que no sean "falta X".
+
+Sé directo. Esta persona prefiere saber qué le falta ahora, que enterarse cuando
+la rechacen.
+
+=== LO QUE PIDE LA CONVOCATORIA ===
+{convocatoria}
+
+=== SU HOJA DE VIDA ACTUAL ===
+{hoja_de_vida}

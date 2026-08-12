@@ -196,6 +196,67 @@ def save_answers(
     return profile
 
 
+def save_formato(
+    db: DBSession,
+    user_id: UUID,
+    *,
+    estandar: Optional[str] = None,
+    estilo: Optional[str] = None,
+    incluir_foto: Optional[bool] = None,
+) -> CVProfile:
+    """Guarda a qué destino va la hoja de vida y cómo se ve · migración 063.
+
+    Va aparte de `save_answers` porque son decisiones de otra naturaleza: las de
+    allá son las preguntas que la clienta pidió *antes* de generar el CV, y sin
+    ellas no se genera. Estas son preferencias — sin ellas el CV sale igual, en
+    `latam` + `clásico`.
+
+    Las claves se validan contra `cv_variants` y no contra una lista repetida
+    aquí: dos listas de estándares que se desincronizan es exactamente el bug
+    que este repo ya pagó dos veces.
+    """
+    from app.services.cv_variants import ESTANDARES, ESTILOS
+
+    profile = get_profile(db, user_id)
+    if profile is None:
+        profile = CVProfile(user_id=user_id)
+        db.add(profile)
+
+    if estandar is not None:
+        if estandar not in ESTANDARES:
+            raise ValueError(f"estándar desconocido: {estandar}")
+        profile.estandar = estandar
+
+    if estilo is not None:
+        if estilo not in ESTILOS:
+            raise ValueError(f"estilo desconocido: {estilo}")
+        profile.estilo = estilo
+
+    if incluir_foto is not None:
+        profile.incluir_foto = bool(incluir_foto)
+
+    profile.updated_at = datetime.utcnow()
+    db.commit()
+    db.refresh(profile)
+    return profile
+
+
+def preferencias_formato(profile: Optional[CVProfile]) -> Dict[str, Any]:
+    """Lo que eligió el estudiante, con los valores por defecto ya resueltos."""
+    from app.services.cv_variants import ESTANDAR_POR_DEFECTO, ESTILO_POR_DEFECTO
+
+    return {
+        "estandar": getattr(profile, "estandar", None) or ESTANDAR_POR_DEFECTO,
+        "estilo": getattr(profile, "estilo", None) or ESTILO_POR_DEFECTO,
+        # Sin decisión explícita se incluye: quien subió una foto la subió para
+        # que salga. El estándar `us` la omite igual, sin preguntar.
+        "incluir_foto": (
+            True if getattr(profile, "incluir_foto", None) is None
+            else bool(profile.incluir_foto)
+        ),
+    }
+
+
 def occupation_line(profile: Optional[CVProfile]) -> Optional[str]:
     """Una línea para el encabezado del CV: "Estoy en el colegio · Colegio Cumbres"."""
     if profile is None or not profile.current_occupation:

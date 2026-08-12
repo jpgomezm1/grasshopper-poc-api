@@ -128,7 +128,10 @@ def test_cv_503_does_not_leak_internal_error(app_with_db, monkeypatch):
 
     secret = "/usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0 SECRET-PATH"
 
-    def _boom(_cv):
+    # `**_variante` absorbe estandar/estilo/incluir_foto, que el endpoint pasa
+    # desde la migración 063. Un doble con la firma vieja fallaría por
+    # TypeError y no por el 503 que este test quiere comprobar.
+    def _boom(_cv, **_variante):
         raise RuntimeError(f"GTK missing. Underlying error: {secret}")
 
     monkeypatch.setattr(cv_pdf_service, "render_cv_pdf", _boom)
@@ -155,7 +158,9 @@ def test_cv_filename_sanitized_against_header_injection(app_with_db, monkeypatch
 
     from app.services import cv_pdf_service
 
-    monkeypatch.setattr(cv_pdf_service, "render_cv_pdf", lambda _cv: b"%PDF-1.4 fake")
+    monkeypatch.setattr(
+        cv_pdf_service, "render_cv_pdf", lambda _cv, **_variante: b"%PDF-1.4 fake"
+    )
 
     r = client.get("/api/v1/me/cv", headers={"Authorization": f"Bearer {token}"})
     assert r.status_code == 200, r.text

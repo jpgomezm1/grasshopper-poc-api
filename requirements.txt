@@ -34,6 +34,10 @@ openpyxl>=3.1,<4
 # libcairo2 libpango-1.0-0 libpangoft2-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
 weasyprint==68.1          # CVE-2025-68616 fixed in 68+
 Jinja2>=3.1.2
+# Hoja de vida en Word · segundo renderizador desde el mismo CVData.
+# A diferencia de WeasyPrint, esto es Python puro: no necesita GTK y por tanto
+# el .docx SÍ se puede generar y probar en Windows local.
+python-docx==1.1.2
 # Email transactional (GH-S7 · D-016 Resend · stub fallback)
 resend>=0.7.0
 # Retries (GH-S10-BE-01 · Bitrix client · exponential backoff)

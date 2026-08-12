@@ -69,6 +69,9 @@ class StorageBackend(Protocol):
     def signed_url(self, path: str, expires_in: int) -> str: ...
     def delete(self, path: str) -> bool: ...
     def exists(self, path: str) -> bool: ...
+    # `download` lo pidió la foto del CV: el PDF necesita los BYTES para
+    # incrustarlos en base64, no una URL. Ver `cv.py::_foto_data_uri`.
+    def download(self, path: str) -> tuple[bytes, str]: ...
 
 
 # -----------------------------------------------------------------------------
@@ -110,6 +113,11 @@ class _StubBackend:
 
     def exists(self, path: str) -> bool:
         return path in self._store
+
+    def download(self, path: str) -> tuple[bytes, str]:
+        if path not in self._store:
+            raise StorageError(f"object not found: {path}")
+        return self._store[path]
 
 
 # -----------------------------------------------------------------------------
@@ -177,6 +185,27 @@ class _SupabaseBackend:
         except Exception as exc:  # pragma: no cover
             logger.warning("storage delete failed path=%s err=%s", path, exc)
             return False
+
+    def download(self, path: str) -> tuple[bytes, str]:  # pragma: no cover - S12
+        """Bytes del objeto · el content-type se deduce de la extensión.
+
+        supabase-py no devuelve cabeceras en `download()`, sólo el cuerpo. Se
+        deduce de la ruta porque es lo que hay, y quien la escribió fue nuestro
+        propio `build_user_path` con el nombre saneado del archivo original.
+        """
+        try:
+            datos = self._client.storage.from_(self.bucket).download(path)
+        except Exception as exc:
+            raise StorageError(f"supabase download failed: {exc}") from exc
+
+        extension = path.rsplit(".", 1)[-1].lower() if "." in path else ""
+        content_type = {
+            "png": "image/png",
+            "jpg": "image/jpeg",
+            "jpeg": "image/jpeg",
+            "webp": "image/webp",
+        }.get(extension, "application/octet-stream")
+        return datos, content_type
 
     def exists(self, path: str) -> bool:  # pragma: no cover
         # supabase-py has no cheap exists check; we'd HEAD via signed_url.
@@ -292,6 +321,16 @@ def get_signed_url(path: str, expires_in_seconds: int = 3600) -> str:
     if expires_in_seconds < 60 or expires_in_seconds > 60 * 60 * 24 * 7:
         raise ValueError("expires_in_seconds must be between 60s and 7d")
     return get_backend().signed_url(path=path, expires_in=expires_in_seconds)
+
+
+def download_file(path: str) -> tuple[bytes, str]:
+    """Bytes del objeto y su content-type.
+
+    Lo necesita la foto de la hoja de vida: el PDF y el Word la incrustan en
+    base64 dentro del propio documento, así que hace falta el contenido y no
+    una URL firmada que caduca.
+    """
+    return get_backend().download(path=path)
 
 
 def delete_file(path: str) -> bool:

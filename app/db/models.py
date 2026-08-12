@@ -175,6 +175,8 @@ class User(Base):
     # Contact info
     phone = Column(String(50), nullable=True)
 
+    # (La foto de la hoja de vida vive en `user_photos`, no aquí · ver esa clase.)
+
     # English test
     english_test_completed = Column(Boolean, default=False, nullable=False)
     english_cefr_level = Column(String(10), nullable=True)
@@ -2559,7 +2561,157 @@ class CVProfile(Base):
     # --- Lo que el estudiante editó o quitó -------------------------------
     overrides = Column(JSON, nullable=True)
 
+    # --- Destino y apariencia · migración 063 -----------------------------
+    # `estandar` decide el CONTENIDO (foto, páginas, orden de secciones) y
+    # `estilo` sólo el CSS. La separación vive en `services/cv_variants.py`.
+    # Nullable a propósito: sin elegir nada, el renderizador cae en latam +
+    # clásico, que es exactamente el CV que ya existía.
+    estandar = Column(String(20), nullable=True)
+    estilo = Column(String(20), nullable=True)
+    incluir_foto = Column(Boolean, nullable=True)
+
+    # --- Enlace público · nace apagado ------------------------------------
+    # Son menores de edad: un enlace con nombre, colegio y foto no se enciende
+    # sin visto bueno de la clienta. Las columnas existen para no migrar el día
+    # que se autorice, no porque esté activo.
+    share_token = Column(String(64), nullable=True, unique=True, index=True)
+    share_habilitado = Column(Boolean, nullable=True)
+    share_creado_en = Column(DateTime, nullable=True)
+
     answered_at = Column(DateTime, nullable=True)
+    updated_at = Column(
+        DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True
+    )
+
+
+class Lugar(Base):
+    """Dónde queda una ciudad · caché de geocodificación · migración 066.
+
+    **No es data de negocio.** Se puede vaciar de un DELETE y regenerar con
+    `scripts/geocodificar_lugares.py`: lo único que se pierde es el tiempo de
+    volver a preguntarle al geocodificador.
+
+    La `clave` la produce `services/lugares.clave_lugar()` con formato
+    `<iso>:<ciudad>` (por ejemplo `gb:london`), y es lo que hace que
+    `'Londres'/'Reino Unido'` del catálogo investigado y `'London'/'UK'` del
+    autorizado sean **el mismo punto en el mapa**.
+
+    `precision` es la parte honesta de esta tabla:
+
+    * `ciudad`       · el geocodificador devolvió una ciudad concreta.
+    * `region`       · devolvió algo más grande (`'Ontario'` es una provincia,
+                       no una ciudad). El punto sirve para orientar, no para
+                       decir "la universidad queda aquí".
+    * `sin_resolver` · no se encontró, o el campo trae varios lugares a la vez
+                       (`'Madrid, Valencia, Canarias'`). **Se queda sin
+                       coordenadas**: inventar un punto es peor que no tenerlo.
+    """
+
+    __tablename__ = "lugares"
+
+    clave = Column(String(160), primary_key=True)
+
+    #: Tal como lo escribió la agencia · para mostrar, no para cruzar.
+    ciudad = Column(String(160), nullable=True)
+    pais_iso = Column(String(8), nullable=False, index=True)
+
+    lat = Column(Float, nullable=True)
+    lng = Column(Float, nullable=True)
+
+    precision = Column(String(20), nullable=True)
+    #: Quién lo resolvió (`nominatim`, `manual`…) · para poder rehacer sólo lo
+    #: que vino de una fuente concreta si algún día se cambia de proveedor.
+    fuente = Column(String(40), nullable=True)
+    verificado_en = Column(DateTime, nullable=True)
+
+
+class UserPhoto(Base):
+    """La foto de la hoja de vida, guardada en Neon · migración 065.
+
+    ## Por qué en la base y no en un bucket
+
+    El proyecto tiene `storage_service`, pero corre contra un stub en memoria
+    hasta que alguien configure Supabase — y mientras tanto la foto se pierde en
+    cada reinicio del dyno. Guardarla aquí la vuelve real hoy, sin depender de
+    credenciales que todavía no existen, y de paso entra en el mismo backup y en
+    la misma transacción que el resto del CV.
+
+    A esta escala la decisión es cómoda: son estudiantes, la foto va topada a
+    2 MB y hay decenas de usuarios, no millones. Si algún día son muchos, mover
+    esto a un bucket es cambiar este servicio y no el resto del código.
+
+    ## Por qué una tabla aparte y no una columna en `users`
+
+    **Ésta es la parte importante.** SQLAlchemy trae todas las columnas por
+    defecto, y `users` se consulta en cada request autenticado. Una columna
+    `bytea` de 2 MB ahí dentro se descargaría en cada login y en cada llamada a
+    la API, para algo que sólo hace falta al generar el PDF.
+
+    Aquí, `db.query(User)` no la toca nunca: hay que pedirla a propósito.
+    """
+
+    __tablename__ = "user_photos"
+
+    # El user_id ES la clave primaria · una foto por persona, y sustituirla es
+    # un UPDATE en vez de tener que limpiar filas viejas.
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        primary_key=True,
+    )
+
+    content_type = Column(String(60), nullable=False)
+    data = Column(LargeBinary, nullable=False)
+    size_bytes = Column(Integer, nullable=True)
+    updated_at = Column(
+        DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True
+    )
+
+
+class CVTarget(Base):
+    """Una convocatoria a la que el estudiante quiere adaptar su CV · migración 064.
+
+    Vacante, programa, beca o práctica: pega el texto y la IA le dice **qué le
+    falta** y le propone una versión adaptada.
+
+    Tres cosas que explican la forma de esta tabla:
+
+    * Son varias. Comparar lo que pide cada convocatoria contra el mismo CV base
+      es justo el valor; un campo suelto en `cv_profiles` sólo dejaría la última.
+    * `status` existe porque el análisis no cabe en un request: Heroku corta a
+      los 30 s y aquí hay dos llamadas al modelo. Se encola y se consulta.
+    * **`proposal` no es el CV.** Es una propuesta con forma de `overrides` que
+      el estudiante aplica si quiere. Mismo principio que
+      `linkedin_import_service`: es su hoja de vida y lleva su nombre, así que
+      nada se escribe sin que lo confirme.
+    """
+
+    __tablename__ = "cv_targets"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    # job · program · scholarship · internship · other · lo deduce la IA del
+    # propio texto, así que no lleva CHECK en la base.
+    kind = Column(String(30), nullable=True)
+    title = Column(String(300), nullable=True)
+    organization = Column(String(200), nullable=True)
+    raw_text = Column(Text, nullable=True)
+
+    parsed = Column(JSON, nullable=True)      # qué pide la convocatoria
+    analysis = Column(JSON, nullable=True)    # {ajuste, faltantes[], sugerencias[]}
+    proposal = Column(JSON, nullable=True)    # el CV adaptado, como overrides
+
+    # pending → analyzing → ready | failed
+    status = Column(String(20), nullable=True, default="pending")
+    error = Column(String(500), nullable=True)
+
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=True)
     updated_at = Column(
         DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=True
     )

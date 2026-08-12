@@ -140,7 +140,10 @@ def test_responder_habilita_la_generacion(app_with_db, monkeypatch):
 
     from app.services import cv_pdf_service
 
-    monkeypatch.setattr(cv_pdf_service, "render_cv_pdf", lambda _cv: b"%PDF-1.4 fake")
+    # `**_variante` absorbe estandar/estilo/incluir_foto (migración 063).
+    monkeypatch.setattr(
+        cv_pdf_service, "render_cv_pdf", lambda _cv, **_variante: b"%PDF-1.4 fake"
+    )
 
     with TestClient(app) as client:
         h = _headers(client, "a3.tres@grasshopper.dev")
@@ -349,7 +352,7 @@ def test_lo_editado_es_lo_que_sale_en_el_pdf(app_with_db, monkeypatch):
 
     capturado = {}
 
-    def _fake(cv):
+    def _fake(cv, **_variante):
         capturado["summary"] = cv.summary
         capturado["ocupacion"] = cv.current_occupation
         return b"%PDF-1.4 fake"

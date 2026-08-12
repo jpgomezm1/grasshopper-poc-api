@@ -27,12 +27,27 @@ DIMENSIONES = 1536
 # límite de tokens y hace que un fallo cueste poco trabajo repetido.
 TAMANO_LOTE = 256
 
+# El SDK trae por defecto `read=600s` y 2 reintentos: hasta media hora colgado.
+# Eso es razonable para un script de backfill, pero **`/ofertas` pide un vector
+# dentro del request** para ordenar el catálogo por afinidad, y ahí el orden es
+# un lujo: si el proveedor no responde en unos segundos, es infinitamente mejor
+# devolver el catálogo con su orden de siempre que dejar al estudiante mirando
+# una lista que carga y nunca llega.
+#
+# `busqueda_programas.vector_del_perfil` ya dice que sin vector "la búsqueda
+# sigue funcionando sin orden semántico" — esto es lo que hace que esa promesa
+# se cumpla también cuando el proveedor se cuelga, y no sólo cuando falla rápido.
+TIMEOUT_S = 8.0
+REINTENTOS = 1
+
 
 def _cliente() -> AsyncOpenAI:
     s = get_settings()
     if not s.openai_api_key:
         raise RuntimeError("falta OPENAI_API_KEY · no se pueden generar embeddings")
-    return AsyncOpenAI(api_key=s.openai_api_key)
+    return AsyncOpenAI(
+        api_key=s.openai_api_key, timeout=TIMEOUT_S, max_retries=REINTENTOS
+    )
 
 
 async def embeber(textos: Sequence[str]) -> List[List[float]]:

@@ -32,6 +32,13 @@ from app.services.pdf_service import (
     _format_es_date,
     _highlight_for,
 )
+from app.services.cv_variants import (
+    ESTANDAR_POR_DEFECTO,
+    ESTILO_POR_DEFECTO,
+    debe_incluir_foto,
+    obtener_estandar,
+    obtener_estilo,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -100,6 +107,12 @@ class CVData:
     # test del CV.
     test_highlights: List[tuple] = field(default_factory=list)
     activities: List[CVActivity] = field(default_factory=list)
+
+    # La foto viaja YA en base64 (`data:image/jpeg;base64,...`), no como URL.
+    # WeasyPrint yendo a buscar una URL firmada en tiempo de render es lento y
+    # falla en silencio dejando un hueco; además el hábito de la casa es que los
+    # documentos que se descargan sean autocontenidos.
+    photo_data_uri: Optional[str] = None
 
 
 # ---------------------------------------------------------------------------
@@ -212,6 +225,12 @@ body {
   color: #1f2430; font-size: 10.5pt; line-height: 1.5;
 }
 .header { border-bottom: 3px solid #C8D400; padding-bottom: 5mm; margin-bottom: 7mm; }
+/* La fila existe siempre, con foto o sin ella: así el encabezado no cambia de
+   caja de un estándar a otro y los estilos no tienen que compensarlo. */
+.h-row { display: flex; gap: 5mm; align-items: flex-start; }
+.h-main { flex: 1; }
+.photo { width: 26mm; height: 32mm; object-fit: cover;
+         border-radius: 4px; border: 2px solid #C8D400; }
 .name { font-size: 26pt; font-weight: 800; color: #164194; letter-spacing: -0.02em; margin: 0; }
 .headline { font-size: 12pt; color: #5b6470; margin-top: 1mm; font-weight: 600; }
 .contact { margin-top: 3mm; font-size: 9.5pt; color: #5b6470; }
@@ -257,7 +276,7 @@ def _chips(items: List[str], navy: bool = False) -> str:
     return "".join(f'<span class="{cls}">{escape(str(i))}</span>' for i in items if i)
 
 
-def _html_header(cv: CVData) -> str:
+def _html_header(cv: CVData, *, con_foto: bool = False) -> str:
     contact_bits = []
     # A3 · "antes de generarla debe preguntar qué hago actualmente". Va primero
     # porque es lo que ubica a quien lee la hoja de vida.
@@ -272,11 +291,24 @@ def _html_header(cv: CVData) -> str:
     if cv.english_level:
         contact_bits.append(f"<span>Inglés: <b>{escape(cv.english_level)}</b></span>")
     headline = f'<div class="headline">{escape(cv.headline)}</div>' if cv.headline else ""
+    # `con_foto` ya viene decidido por el estándar (ver `cv_variants.debe_incluir_foto`).
+    # Aquí sólo se pinta: la política no se vuelve a evaluar en dos sitios.
+    foto = ""
+    if con_foto and cv.photo_data_uri:
+        foto = (
+            f'<img class="photo" src="{escape(cv.photo_data_uri)}" '
+            f'alt="Foto de {escape(cv.student_name)}">'
+        )
     return f"""
 <div class="header">
-  <h1 class="name">{escape(cv.student_name)}</h1>
-  {headline}
-  <div class="contact">{"".join(contact_bits)}</div>
+  <div class="h-row">
+    <div class="h-main">
+      <h1 class="name">{escape(cv.student_name)}</h1>
+      {headline}
+      <div class="contact">{"".join(contact_bits)}</div>
+    </div>
+    {foto}
+  </div>
 </div>
 """
 
@@ -346,19 +378,50 @@ def _html_activities(cv: CVData) -> str:
     return f'<h2>Actividades extracurriculares</h2>{"".join(blocks)}'
 
 
-def render_cv_html(cv: CVData) -> str:
+# Cada sección reordenable, indexada por la clave que usa `cv_variants`. El
+# encabezado no está aquí porque no se reordena: siempre va primero.
+_SECCIONES = {
+    "perfil": _html_profile,
+    "tests": _html_tests,
+    "actividades": _html_activities,
+}
+
+
+def render_cv_html(
+    cv: CVData,
+    *,
+    estandar: str = ESTANDAR_POR_DEFECTO,
+    estilo: str = ESTILO_POR_DEFECTO,
+    incluir_foto: bool = True,
+) -> str:
+    """Arma el HTML del CV para un destino y una apariencia dados.
+
+    Los tres parámetros son keyword-only **con valor por defecto** a propósito:
+    `latam` + `clasico` reproducen exactamente el documento que este servicio
+    generaba antes de que existieran las variantes, así que llamarlo como
+    siempre sigue dando lo mismo de siempre.
+    """
+    est = obtener_estandar(estandar)
+    sty = obtener_estilo(estilo)
+
+    con_foto = debe_incluir_foto(
+        est, quiere_foto=incluir_foto, hay_foto=bool(cv.photo_data_uri)
+    )
+
+    cuerpo = "".join(
+        _SECCIONES[clave](cv) for clave in est.orden_secciones if clave in _SECCIONES
+    )
+
     return f"""<!doctype html>
 <html lang="es-CO">
 <head>
   <meta charset="utf-8">
   <title>Hoja de Vida · {escape(cv.student_name)}</title>
-  <style>{CSS}</style>
+  <style>{CSS}{sty.css}</style>
 </head>
 <body>
-  {_html_header(cv)}
-  {_html_profile(cv)}
-  {_html_tests(cv)}
-  {_html_activities(cv)}
+  {_html_header(cv, con_foto=con_foto)}
+  {cuerpo}
   <div class="footer">
     Hoja de Vida generada con Grasshopper · {escape(cv.generated_on)} ·
     documento personal del estudiante.
@@ -368,13 +431,21 @@ def render_cv_html(cv: CVData) -> str:
 """
 
 
-def render_cv_pdf(cv: CVData) -> bytes:
+def render_cv_pdf(
+    cv: CVData,
+    *,
+    estandar: str = ESTANDAR_POR_DEFECTO,
+    estilo: str = ESTILO_POR_DEFECTO,
+    incluir_foto: bool = True,
+) -> bytes:
     """Render a PDF bytes vía WeasyPrint (lazy import · igual que clinical/report).
 
     Maneja el caso GTK ausente (Windows dev) levantando RuntimeError con un
     mensaje claro para que el endpoint devuelva 503 en vez de un 500 opaco.
     """
-    html = render_cv_html(cv)
+    html = render_cv_html(
+        cv, estandar=estandar, estilo=estilo, incluir_foto=incluir_foto
+    )
 
     _gtk_hint = (
         "GTK runtime missing on this host (libgobject/cairo/pango). "

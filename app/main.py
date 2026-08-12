@@ -66,6 +66,7 @@ from app.api.v1 import (
     extracurriculars,
     parental_consent,
     cv as cv_router,
+    lugares as lugares_router,
     institutions,
     human_intervention,
     hop_chat,
@@ -206,6 +207,9 @@ app.include_router(vocational_tests.router, prefix="/api/v1")
 app.include_router(study_preferences.router, prefix="/api/v1")
 app.include_router(ofertas.router, prefix="/api/v1")
 app.include_router(busqueda.router, prefix="/api/v1")
+# Los lugares · el eje comun con el que Programas cruza los dos catalogos
+# (instituciones autorizadas + programas investigados) para la lista y el mapa.
+app.include_router(lugares_router.router, prefix="/api/v1")
 app.include_router(onboarding_chat.router, prefix="/api/v1")
 app.include_router(lead_profile.router, prefix="/api/v1")
 app.include_router(bot.router, prefix="/api/v1")
@@ -262,6 +266,11 @@ app.include_router(extracurriculars.router_gh, prefix="/api/v1")
 app.include_router(parental_consent.router_me, prefix="/api/v1")
 app.include_router(parental_consent.router_public, prefix="/api/v1")
 app.include_router(cv_router.router_me, prefix="/api/v1")
+app.include_router(cv_router.router_foto, prefix="/api/v1")
+# Ruta ABIERTA (sin auth) · sirve el CV compartido. Su guardia no es un
+# `Depends` de autenticación sino el flag `cv_public_link_enabled`, apagado por
+# defecto: ver la cabecera de esa sección en `cv.py`.
+app.include_router(cv_router.router_publico, prefix="/api/v1")
 # GH-LOCAL-CLIENT-CATALOG · 2026-05-28 · catálogo instituciones (xlsx cliente)
 app.include_router(institutions.router, prefix="/api/v1")
 # F-006 · 2026-05-28 · notas privadas de Intervención Humana (advisor-only)

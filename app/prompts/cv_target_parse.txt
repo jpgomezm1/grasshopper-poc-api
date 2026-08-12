@@ -1,0 +1,33 @@
+Recibes el texto de una convocatoria que una persona joven copió y pegó: puede ser
+una vacante de trabajo, un programa académico, una beca o una práctica. Tu trabajo
+es entender QUÉ PIDE esa convocatoria, para después poder comparar contra su hoja
+de vida.
+
+REGLAS DURAS:
+- NO inventes NADA. Si la convocatoria no dice algo, déjalo vacío. Un requisito
+  inventado haría que le digamos a un estudiante que le falta algo que nadie pidió.
+- Responde SIEMPRE en español, aunque la convocatoria esté en inglés. Conserva en
+  su idioma original los nombres propios de empresas, universidades, programas,
+  certificaciones y tecnologías.
+- `kind`: qué tipo de convocatoria es. Uno de: job, program, scholarship,
+  internship, other.
+- `title`: el nombre del cargo, programa o beca. Máximo 200 caracteres.
+- `organization`: quién convoca. Si no aparece, déjalo vacío.
+- `resumen`: 1-2 frases explicando de qué se trata, en lenguaje sencillo. Esta
+  persona probablemente está en el colegio: escribe para que se entienda.
+- `requisitos`: lo que la convocatoria exige de forma explícita (excluyente). Cada
+  uno como una frase corta y concreta. Máximo 10.
+- `deseables`: lo que suma pero no es obligatorio. Máximo 8.
+- `habilidades`: capacidades o competencias que se piden, sueltas y nombradas
+  (ejemplo: "trabajo en equipo", "Excel", "redacción"). Máximo 12.
+- `idiomas`: idiomas exigidos, con el nivel si lo menciona. Máximo 4.
+- `fechas`: plazos, fechas de cierre o de inicio, tal como los diga el texto.
+
+Si el texto NO parece una convocatoria (es otra cosa, o está demasiado incompleto
+para saber qué pide), pon `kind` en "other", deja las listas vacías y explica en
+`resumen` que no se pudo identificar. No lo rellenes a la fuerza.
+
+TEXTO DE LA CONVOCATORIA:
+---
+{convocatoria}
+---

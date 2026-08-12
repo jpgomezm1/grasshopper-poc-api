@@ -168,6 +168,13 @@ class Settings(BaseSettings):
     # Default True · production (Heroku w/ apt buildpack) keeps it on.
     clinical_pdf_enabled: bool = True
 
+    # Enlace público de la hoja de vida · APAGADO por defecto, y así se queda
+    # hasta que la clienta lo autorice. Los usuarios de esta plataforma son
+    # menores: publicar nombre y colegio en una URL sin autenticación no es una
+    # decisión de ingeniería. El código existe y está probado; encenderlo es
+    # poner CV_PUBLIC_LINK_ENABLED=true, y esa es una decisión de negocio.
+    cv_public_link_enabled: bool = False
+
     # Habeas Data · privacy policy versioning (GH-S11.5-BE-07 · D-026)
     # Bump when policy text changes materially → forces re-acceptance.
     privacy_policy_version: str = "1.0.0"

@@ -266,6 +266,11 @@ def list_ofertas(
     languageRequirement: Optional[str] = None,
     searchQuery: Optional[str] = None,
     scholarshipsForLatam: Optional[bool] = None,
+    # El lugar viene como la clave que produce `services/lugares.clave_lugar()`
+    # (`gb:london`). Se filtra por clave y no por `city`/`country` sueltos
+    # porque es lo único que cruza los dos idiomas del catálogo: pedir
+    # `city=London` dejaría fuera las fichas que dicen `Londres`.
+    lugar: Optional[str] = None,
     # B-051 · la lista completa (2.511 programas) pesaba varios MB por
     # fullDescription/media, que la UI de lista nunca muestra (las cards usan
     # shortDescription + portadas temáticas; el detalle hace su propio fetch
@@ -286,6 +291,16 @@ def list_ofertas(
         # nunca lee (raw = la fila entera del Excel, syllabus, testimonials,
         # ...). Cualquier columna nueva que _program_to_oferta o
         # admission_fit_service.classify empiecen a leer debe agregarse acá.
+        #
+        # 2026-08-10 · faltaban `subject` y `area`, y el aviso de arriba explica
+        # exactamente por qué dolía: el mapper SÍ las lee, así que SQLAlchemy las
+        # pedía **una por una** — dos consultas extra por fila, 2.508 filas, unos
+        # 169 ms cada una. Medido: el catálogo tardaba **7 minutos** en vez de
+        # 2 segundos, sin un solo error en consola. La lista se quedaba cargando
+        # y el estudiante nunca veía nada.
+        #
+        # Hay un test que compara esta lista contra lo que el mapper lee de
+        # verdad, para que la próxima columna no se olvide otra vez.
         q = q.options(load_only(
             Program.id, Program.program_id, Program.name, Program.slug,
             Program.country, Program.city, Program.institution,
@@ -298,6 +313,7 @@ def list_ofertas(
             Program.scholarships_for_latam, Program.acceptance_rate,
             Program.avg_admitted_gpa, Program.min_sat, Program.avg_sat,
             Program.min_english_level,
+            Program.subject, Program.area,
         ))
 
     if category:
@@ -350,6 +366,20 @@ def list_ofertas(
         )
 
     programs = q.order_by(*orden_del_catalogo()).all()
+
+    # Filtro por lugar · va aquí, sobre las filas ya cargadas, y no como un
+    # WHERE: la clave se calcula en Python a partir de `city` + `country`
+    # (`services/lugares.py`), así que no hay columna contra la que comparar.
+    # Con 2.508 filas el coste es despreciable frente a mantener la clave
+    # duplicada en la base y tener que rehacerla cada vez que cambie la tabla
+    # de equivalencias.
+    if lugar:
+        from app.services.lugares import clave_lugar
+
+        buscada = lugar.strip().lower()
+        programs = [
+            p for p in programs if clave_lugar(p.city, p.country) == buscada
+        ]
 
     # El catálogo se reordena por afinidad con el perfil del estudiante · lo que
     # ve primero es lo que más se parece a lo que ha ido contando en la app.

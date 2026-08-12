@@ -77,8 +77,16 @@ dejando la auditoría vacía en silencio (ya pasó).
 - **La rama local de Neon (`local-jp`) no tiene las migraciones 051 y 052** → cualquier script
   que lea `vocational_test_results` o `cv_profiles` falla en local. Producción sí las tiene.
 - **El PDF da 503 en Windows** (WeasyPrint necesita GTK). Pon `CLINICAL_PDF_ENABLED=false`.
-- **El `.env` local apunta al MISMO Neon que producción.** Cualquier prueba "de verdad"
-  escribe datos reales. Los tests usan SQLite en memoria a propósito.
+- **El `.env` local NO apunta a la base de producción** — aquí decía lo contrario y es falso.
+  Son dos endpoints distintos de Neon: el `.env` local es `ep-divine-mouse-…` y producción es
+  `ep-bitter-feather-…`. Comprobado el 2026-08-11 de dos formas: comparando los hosts de
+  `DATABASE_URL` (local vs `heroku config`), y porque el release que desplegó las migraciones
+  063-066 las **corrió** en producción cuando la base local ya estaba en `066`.
+
+  Importa en las dos direcciones: probar en local **no** escribe datos reales (el QA a mano
+  contra el backend local es seguro), y `alembic current` en local **no** dice en qué versión
+  está producción — eso se pregunta con `heroku releases:output` o contra la base de Heroku.
+  Los tests usan SQLite en memoria a propósito, eso no cambia.
 - **PowerShell suele funcionar donde Bash falla** (el clasificador bloquea comandos de forma
   intermitente).
 

@@ -378,6 +378,14 @@ def build_journey_response(
         actions=actions,
     )
 
+    # ¿El paso admite contestar hablando? La condición vive en un solo sitio y
+    # el front la lee de aquí (ver `journey_interprete.acepta_texto_libre`).
+    from app.services import journey_interprete
+
+    response.acepta_texto_libre = journey_interprete.acepta_texto_libre(
+        db, session, step
+    )
+
     # Add AI-generated content based on step type
     answers = session.answers or {}
 

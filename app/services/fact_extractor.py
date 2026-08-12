@@ -136,7 +136,7 @@ def _recolectado_para_prompt(recolectados: Dict[str, Any]) -> str:
     return "\n".join(f"- `{k}`: {v}" for k, v in con_valor.items())
 
 
-def _normalizar_opcion(hecho: Hecho, crudo: str) -> Optional[str]:
+def normalizar_opcion(hecho: Hecho, crudo: str) -> Optional[str]:
     """Devuelve el código canónico, o None si no mapea limpiamente.
 
     Acepta el código exacto y también la etiqueta visible, porque el modelo a
@@ -144,6 +144,13 @@ def _normalizar_opcion(hecho: Hecho, crudo: str) -> Optional[str]:
     parecido: un valor que no está en las opciones se descarta, que es lo que
     impide que `budget` termine con un texto que `seed_answers_from_onboarding`
     no sabe traducir.
+
+    Es pública porque la usa un tercer camino de entrada además de las dos
+    conversaciones de este módulo: el texto libre del Journey
+    (`journey_interprete`). Ahí el vocabulario canónico son las opciones de la
+    pregunta —copy de la clienta— y el riesgo es el mismo: escribir en la
+    sesión un valor que la persona nunca eligió. Reusar esta función es lo que
+    garantiza que las tres puertas descarten igual.
     """
     if not hecho.opciones:
         return None
@@ -172,7 +179,7 @@ def _coercionar(hecho: Hecho, item: Dict[str, Any]) -> Optional[Any]:
         for candidato in candidatos:
             if not isinstance(candidato, str):
                 continue
-            codigo = _normalizar_opcion(hecho, candidato)
+            codigo = normalizar_opcion(hecho, candidato)
             # De-dup conservando el orden en que los mencionó.
             if codigo and codigo not in validos:
                 validos.append(codigo)
@@ -183,7 +190,7 @@ def _coercionar(hecho: Hecho, item: Dict[str, Any]) -> Optional[Any]:
     valor = crudo.strip()
 
     if hecho.tipo == "opcion":
-        return _normalizar_opcion(hecho, valor)
+        return normalizar_opcion(hecho, valor)
 
     if hecho.tipo == "booleano":
         plegado = valor.casefold()

@@ -12,6 +12,8 @@ from app.schemas.session import (
     SessionEventCreate,
     SessionResponse,
     JourneyResponse,
+    JourneyInterpretacionCreate,
+    JourneyInterpretacionResponse,
 )
 from app.services.journey_service import (
     create_session,
@@ -24,6 +26,7 @@ from app.services import bitrix_sync_service
 from app.services import parental_consent_service
 from app.api.v1.auth import get_current_user, get_optional_current_user
 from app.core.access import assert_session_access
+from app.core.rate_limiter import rate_limit
 
 logger = logging.getLogger(__name__)
 
@@ -155,6 +158,64 @@ def submit_event(
             logger.warning("bitrix enqueue failed · %s", exc)
 
     return response
+
+
+@router.post(
+    "/{session_id}/interpretar",
+    response_model=JourneyInterpretacionResponse,
+    dependencies=[Depends(rate_limit("12/minute", scope="journey_interprete"))],
+)
+def interpretar_respuesta(
+    session_id: UUID,
+    cuerpo: JourneyInterpretacionCreate,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """Lee una respuesta contada con palabras · **no guarda nada**.
+
+    Devuelve a qué opción del paso equivale (o None, y entonces Hop repregunta)
+    y qué le dice Hop. Guardar sigue siendo el `answer` de siempre contra
+    `/events`: el mismo evento que dispara el botón, con el mismo valor
+    canónico. Por eso los seis servicios que leen las respuestas del Journey no
+    cambian, que es el punto de todo esto.
+
+    Se separa del evento a propósito: así una caída del modelo no puede tocar el
+    camino que escribe en la sesión, y los botones completan el paso igual.
+
+    409 cuando el paso no conversa —flag apagado, paso fuera de la lista, o el
+    front desincronizado pidiendo por un paso que no es el actual—: sin el
+    campo de texto en pantalla, llegar aquí significa que el cliente está fuera
+    de sincronía y debe recargar el estado.
+    """
+    session = assert_session_access(session_id, current_user, db)
+
+    from app.core.state_machine import get_step
+    from app.services import journey_interprete
+
+    if cuerpo.step_id != session.current_step:
+        raise HTTPException(status_code=409, detail="paso_desincronizado")
+
+    step = get_step(cuerpo.step_id)
+    if not journey_interprete.acepta_texto_libre(db, session, step):
+        raise HTTPException(status_code=409, detail="paso_no_conversacional")
+
+    texto = (cuerpo.texto or "").strip()
+    if not texto:
+        raise HTTPException(status_code=422, detail="texto_vacio")
+
+    lectura = journey_interprete.interpretar(
+        texto,
+        step,
+        session_id=str(session.id),
+        db=db,
+        user_id=session.user_id,
+    )
+    return JourneyInterpretacionResponse(
+        opcion=lectura.opcion,
+        confianza=lectura.confianza,
+        respuesta_de_hop=lectura.respuesta_de_hop,
+        necesita_confirmar=lectura.necesita_confirmar,
+    )
 
 
 @router.get("/{session_id}/raw", response_model=SessionResponse)

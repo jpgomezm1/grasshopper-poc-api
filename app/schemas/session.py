@@ -120,6 +120,18 @@ class JourneyResponse(BaseModel):
     side_panel: SidePanel
     actions: List[str]
 
+    # ¿Este paso se puede contestar hablando, además de con los botones?
+    #
+    # La decide el backend (`journey_interprete.acepta_texto_libre`: flag +
+    # lista de pasos) y el front sólo la lee. Este repo ya se quemó dos veces
+    # con dos sitios decidiendo lo mismo y divergiendo (P0-8), así que el front
+    # NO reimplementa la condición.
+    #
+    # Es aditivo y por defecto False: los seis servicios de aguas abajo leen
+    # `sessions.answers`, no esta respuesta, y con el flag apagado el contrato
+    # es idéntico al de siempre.
+    acepta_texto_libre: bool = False
+
     # AI-generated content for reflections
     reflection_content: Optional[str] = None
     synthesis_text: Optional[str] = None
@@ -127,6 +139,28 @@ class JourneyResponse(BaseModel):
     partial_summary_bullets: Optional[List[str]] = None
     partial_summary_motivation: Optional[str] = None
     suggested_routes: Optional[List[Dict[str, Any]]] = None
+
+
+class JourneyInterpretacionCreate(BaseModel):
+    """Lo que la persona contestó hablando, en el paso donde está."""
+
+    step_id: str
+    texto: str
+
+
+class JourneyInterpretacionResponse(BaseModel):
+    """La lectura de esa respuesta · **no se guardó nada todavía**.
+
+    `opcion` es siempre una de las opciones del paso, o None (Hop repregunta).
+    Si `necesita_confirmar`, la persona confirma con un clic antes de que se
+    guarde. En los tres casos, guardar es el `answer` de siempre — el mismo
+    evento que dispara el botón.
+    """
+
+    opcion: Optional[str] = None
+    confianza: str
+    respuesta_de_hop: str
+    necesita_confirmar: bool = False
 
 
 class SessionResponse(BaseModel):

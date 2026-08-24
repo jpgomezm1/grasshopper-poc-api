@@ -103,16 +103,16 @@ ESTANDAR_POR_DEFECTO = "latam"
 _CSS_MODERNO = """
 /* Moderno · barra de color, títulos sin caja y más aire. */
 .header { border-bottom: none; padding: 5mm 6mm; margin-bottom: 6mm;
-          background: #164194; border-radius: 6px; }
+          background: #47368C; border-radius: 6px; }
 .name { color: #ffffff; }
-.headline { color: #d9e26a; }
-.contact, .contact b { color: #e8ecf6; }
-h2 { border-bottom: none; color: #164194; font-weight: 800;
+.headline { color: #F2C9B4; }
+.contact, .contact b { color: #EAE7F4; }
+h2 { border-bottom: none; color: #47368C; font-weight: 800;
      letter-spacing: 0.10em; }
 h2::after { content: ""; display: block; width: 14mm; height: 2px;
-            background: #C8D400; margin-top: 1.5mm; }
+            background: #EE7238; margin-top: 1.5mm; }
 .test-card { background: #ffffff; border-left-width: 4px; }
-.activity { border-left-color: #C8D400; }
+.activity { border-left-color: #EE7238; }
 """
 
 _CSS_COMPACTO = """

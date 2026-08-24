@@ -22,7 +22,7 @@ from app.services.hop_chat_service import run_hop_chat
 router = APIRouter(prefix="/hop", tags=["Hop · chat IA"])
 
 # Detail del contrato cuando la IA está caída (NO cambiar · el FE lo muestra).
-AI_DOWN_DETAIL = "Hop no puede responder en este momento. Intenta de nuevo en unos minutos."
+AI_DOWN_DETAIL = "Tu guía no puede responder en este momento. Intenta de nuevo en unos minutos."
 
 
 @router.post(

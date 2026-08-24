@@ -75,7 +75,7 @@ class Settings(BaseSettings):
     # In S7 these stay empty so email_service.py uses the stub backend.
     # Real provisioning (Resend API key + DKIM/SPF + verified domain) lands in S12.
     resend_api_key: str = ""
-    email_from: str = "Grasshopper <hola@grasshopper.co>"
+    email_from: str = "Mentoring <hola@grasshopper.co>"
 
     # Bitrix CRM integration (GH-S10 · D-020 stub default · activation in S12)
     # If BITRIX_WEBHOOK_URL is empty → bitrix_client operates in stub mode

@@ -102,11 +102,23 @@ def entorno(monkeypatch):
     get_settings.cache_clear()
 
 
-def _estudiante(client, Maker, email="e2e@test.com"):
-    """Registra por la API y lo envejece para que califique como estancado."""
+def _estudiante(client, Maker, email="e2e@test.com", acepta_comunicaciones=False):
+    """Registra por la API y lo envejece para que califique como estancado.
+
+    Se registra **desmarcando la casilla** por defecto: desde el 2026-08-18 el
+    registro otorga el permiso de comunicaciones si viene marcada, así que un
+    alta normal ya sale con permiso. Este helper representa a la persona que
+    todavía NO lo dio, que es el punto de partida de la cadena que se prueba
+    abajo. El camino contrario tiene su propio test.
+    """
     r = client.post(
         "/api/v1/auth/register",
-        json={"email": email, "password": "Test2026!", "name": "Ana Ruiz"},
+        json={
+            "email": email,
+            "password": "Test2026!",
+            "name": "Ana Ruiz",
+            "acepta_comunicaciones": acepta_comunicaciones,
+        },
     )
     assert r.status_code in (200, 201), r.text
     token = r.json()["access_token"]
@@ -165,6 +177,25 @@ def test_la_cadena_completa_por_http(entorno):
     )
     assert fila.motivo == "sin_tests"
     db.close()
+
+
+def test_quien_acepto_al_registrarse_recibe_sin_pasar_por_preferencias(entorno):
+    """El camino nuevo · la razón por la que se movió el permiso al registro.
+
+    Medido en producción el 2026-08-18: la primera corrida real revisó 36
+    personas y no le escribió a ninguna, porque el permiso sólo se podía dar en
+    una pantalla a tres clics de profundidad. Este test fija que, aceptando en
+    el registro, la cadena completa funciona **sin visitar Preferencias**.
+    """
+    client, Maker, enviados = entorno
+    _estudiante(client, Maker, email="acepto@test.com", acepta_comunicaciones=True)
+
+    r = _correr(client)
+
+    assert r.status_code == 200, r.text
+    assert r.json()["enviados"] == 1
+    assert r.json()["sin_consentimiento"] == 0
+    assert [e["to"] for e in enviados] == ["acepto@test.com"]
 
 
 def test_correr_dos_veces_no_manda_dos_veces(entorno):

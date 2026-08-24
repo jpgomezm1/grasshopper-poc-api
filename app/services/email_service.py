@@ -271,7 +271,7 @@ def _build_backend() -> EmailBackend:
 
     settings = get_settings()
     api_key = (settings.resend_api_key or "").strip()
-    from_email = (settings.email_from or "Grasshopper <hola@grasshopper.co>").strip()
+    from_email = (settings.email_from or "Mentoring <hola@grasshopper.co>").strip()
 
     if not api_key:
         return _StubBackend()
@@ -303,24 +303,26 @@ def _build_html_body(student_name: str, school_name: Optional[str]) -> str:
     co_brand = ""
     if school_name:
         co_brand = (
-            f'<p style="color:#6b6276;font-size:12px;margin:0 0 8px 0;">'
+            f'<p style="color:#6B675E;font-size:12px;margin:0 0 8px 0;">'
             f"Reporte preparado para {school_name}</p>"
         )
     return f"""
 <!DOCTYPE html>
 <html lang="es">
 <head><meta charset="utf-8"/></head>
-<body style="font-family:-apple-system,Segoe UI,Inter,sans-serif;background:#faf8ff;padding:32px;color:#2b2433;">
-  <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #e5e1ed;border-radius:12px;padding:32px;">
+<body style="font-family:Lato,Segoe UI,Helvetica,Arial,sans-serif;background:#F9F5E9;padding:32px;color:#1D1D1B;">
+  <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #E2DDD0;border-radius:12px;padding:32px;">
+    <p style="margin:0 0 4px 0;font-size:22px;font-weight:700;letter-spacing:-0.02em;color:#EE7238;">Mentoring</p>
+    <p style="margin:0 0 24px 0;font-size:12px;color:#6B675E;">Conecta con tu propósito, trasciende con tu talento</p>
     {co_brand}
-    <h1 style="font-family:Quicksand,Inter,sans-serif;font-size:22px;margin:0 0 12px 0;color:#2b2433;">
+    <h1 style="font-size:22px;margin:0 0 12px 0;color:#1D1D1B;font-weight:700;letter-spacing:-0.01em;">
       Tu reporte de orientación profesional
     </h1>
     <p style="font-size:15px;line-height:1.6;margin:0 0 16px 0;">
       Hola {student_name},
     </p>
     <p style="font-size:15px;line-height:1.6;margin:0 0 16px 0;">
-      Te enviamos adjunto tu reporte personalizado de Grasshopper. Es un punto
+      Te enviamos adjunto tu reporte personalizado de Mentoring. Es un punto
       de partida para conversar con tu familia
       {"y con tu equipo de orientación en " + school_name if school_name else ""}
       sobre los siguientes pasos en tu camino académico.
@@ -329,11 +331,11 @@ def _build_html_body(student_name: str, school_name: Optional[str]) -> str:
       Cuando tengas dudas o nueva información, vuelve a la plataforma y
       regenera tu análisis · siempre tendremos una versión actualizada para ti.
     </p>
-    <p style="font-size:13px;color:#6b6276;margin:24px 0 0 0;">
-      — El equipo de Grasshopper
+    <p style="font-size:13px;color:#6B675E;margin:24px 0 0 0;">
+      — El equipo de Mentoring
     </p>
   </div>
-  <p style="text-align:center;font-size:11px;color:#6b6276;margin:16px 0 0 0;font-style:italic;">
+  <p style="text-align:center;font-size:11px;color:#6B675E;margin:16px 0 0 0;">
     Documento confidencial · uso personal y familiar
   </p>
 </body>
@@ -352,7 +354,7 @@ def send_report_email(
     student_name: str,
     report_pdf_bytes: bytes,
     school_name: Optional[str] = None,
-    filename: str = "reporte-grasshopper.pdf",
+    filename: str = "reporte-mentoring.pdf",
 ) -> EmailSendResult:
     """Send the PDF report to the recipient.
 
@@ -372,7 +374,7 @@ def send_report_email(
             reason="empty_pdf",
         )
 
-    subject = "Tu reporte de orientación profesional · Grasshopper"
+    subject = "Tu reporte de orientación profesional · Mentoring"
     html = _build_html_body(student_name=student_name, school_name=school_name)
 
     return get_backend().send_with_attachment(

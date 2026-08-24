@@ -172,7 +172,7 @@ def map_user_to_lead_fields(bundle: StudentSyncBundle) -> Dict[str, Any]:
     title_bits: List[str] = []
     if bundle.school_name:
         title_bits.append(bundle.school_name)
-    title_bits.append("Grasshopper · estudiante")
+    title_bits.append("Mentoring · estudiante")
     title = " · ".join(title_bits)
 
     fields: Dict[str, Any] = {
@@ -181,7 +181,7 @@ def map_user_to_lead_fields(bundle: StudentSyncBundle) -> Dict[str, Any]:
         "LAST_NAME": last_name,
         "EMAIL": [{"VALUE": bundle.email, "VALUE_TYPE": "WORK"}],
         "SOURCE_ID": "WEB",
-        "SOURCE_DESCRIPTION": "Grasshopper plataforma",
+        "SOURCE_DESCRIPTION": "Mentoring plataforma",
         "OPENED": "Y",
         "STATUS_ID": "PROCESSED" if bundle.advisor_requested else "NEW",
         "COMMENTS": _format_brief(bundle),
@@ -267,7 +267,7 @@ def map_advisor_lead_comment(bundle: StudentSyncBundle) -> str:
     """Comment posted to the timeline when an AdvisorLead is created."""
     summary = bundle.advisor_brief or "Solicitud de asesor sin brief auto-generado."
     return (
-        "Estudiante solicitó asesor humano desde Grasshopper.\n\n"
+        "Estudiante solicitó asesor humano desde Mentoring.\n\n"
         f"Email: {bundle.email}\n"
         f"Teléfono: {bundle.phone or '(no provisto)'}\n\n"
         f"Brief:\n{summary[:2000]}"

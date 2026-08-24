@@ -3,7 +3,7 @@
 Sprint 6 update (BE-09): authenticated students with cached recommendations
 will see those programs surface as Routes in the legacy journey UI. The
 underlying source of truth becomes `RecommendedProgram` (filtered against
-the Grasshopper catalog), instead of free-form AI-generated routes. The
+the Mentoring catalog), instead of free-form AI-generated routes. The
 free-form fallback is preserved for anonymous sessions / users without a
 consolidated profile yet.
 """

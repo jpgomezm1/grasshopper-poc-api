@@ -290,7 +290,7 @@ def render_cv_docx(
 
     pie = doc.add_paragraph()
     rp = pie.add_run(
-        f"Hoja de Vida generada con Grasshopper · {cv.generated_on} · "
+        f"Hoja de Vida generada con Mentoring · {cv.generated_on} · "
         "documento personal del estudiante."
     )
     rp.font.size = _pt(8)

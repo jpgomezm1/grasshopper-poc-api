@@ -103,7 +103,7 @@ def test_send_email_with_stub_returns_not_delivered(monkeypatch):
 
     result = svc.send_email(
         to="valeria@colegioandino.edu.co",
-        subject="Invitación a Colegio Andino · Grasshopper",
+        subject="Invitación a Colegio Andino · Mentoring",
         html_body="<p>Hola</p>",
         text_body="Hola",
     )
@@ -187,7 +187,7 @@ def test_send_email_invokes_backend_send_html(monkeypatch):
 
     result = svc.send_email(
         to="invitee@school.com",
-        subject="Invitación a Colegio · Grasshopper",
+        subject="Invitación a Colegio · Mentoring",
         html_body="<p>link</p>",
         text_body="link",
     )

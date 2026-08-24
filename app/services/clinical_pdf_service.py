@@ -24,6 +24,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from app.config import get_settings
+from app.services.brand import FONT_FACE_CSS
 from app.schemas.clinical import (
     ClinicalAnalysis,
     ClinicalRecommendationsResponse,
@@ -44,24 +45,26 @@ TEMPLATE_DIR = Path(__file__).parent.parent / "templates"
 # ---------------------------------------------------------------------------
 
 
-CSS = """
+CSS = (
+    FONT_FACE_CSS
+    + """
 @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
 body {
-  font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
-  color: #1f2937;
+  font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+  color: #1D1D1B;
   font-size: 10.5pt;
   line-height: 1.5;
 }
 h1, h2, h3, h4 {
-  color: #1e3a8a;
-  font-family: 'Quicksand', 'Nunito', sans-serif;
+  color: #47368C;
+  font-family: 'Satoshi', 'Lato', sans-serif;
   margin: 0 0 6mm 0;
 }
 h1 { font-size: 22pt; }
-h2 { font-size: 15pt; border-bottom: 2px solid #d1fae5; padding-bottom: 3mm; margin-top: 8mm; }
-h3 { font-size: 12pt; color: #065f46; margin-top: 5mm; }
+h2 { font-size: 15pt; border-bottom: 2px solid #E2DDD0; padding-bottom: 3mm; margin-top: 8mm; }
+h3 { font-size: 12pt; color: #B24310; margin-top: 5mm; }
 .cover { text-align: center; padding-top: 40mm; }
-.cover h1 { color: #065f46; font-size: 28pt; }
+.cover h1 { color: #47368C; font-size: 28pt; }
 .cover .subtitle { color: #6b7280; font-size: 12pt; margin-top: 4mm; }
 .cover .meta { margin-top: 30mm; font-size: 11pt; }
 .page-break { page-break-before: always; }
@@ -91,12 +94,12 @@ li { margin: 1mm 0; }
   gap: 3mm;
 }
 .score-card {
-  border: 1px solid #d1fae5;
+  border: 1px solid #E2DDD0;
   padding: 3mm;
   border-radius: 4px;
   background: #fafafa;
 }
-.score-card h4 { margin: 0 0 2mm 0; color: #065f46; font-size: 11pt; }
+.score-card h4 { margin: 0 0 2mm 0; color: #47368C; font-size: 11pt; }
 .muted { color: #6b7280; font-size: 9.5pt; }
 .recommendation {
   border: 1px solid #e5e7eb;
@@ -104,7 +107,7 @@ li { margin: 1mm 0; }
   margin: 3mm 0;
   border-radius: 4px;
 }
-.recommendation h4 { margin: 0; color: #065f46; }
+.recommendation h4 { margin: 0; color: #47368C; }
 .notes-space {
   border: 1.5px dashed #cbd5e1;
   height: 60mm;
@@ -112,7 +115,7 @@ li { margin: 1mm 0; }
   border-radius: 4px;
 }
 table { border-collapse: collapse; width: 100%; font-size: 9.5pt; }
-th { background: #ecfccb; color: #365314; text-align: left; padding: 2mm 3mm; }
+th { background: #FAE8E0; color: #B24310; text-align: left; padding: 2mm 3mm; }
 td { padding: 2mm 3mm; vertical-align: top; border-bottom: 1px solid #f0f0f0; }
 .confidential {
   background: #fef2f2;
@@ -124,6 +127,7 @@ td { padding: 2mm 3mm; vertical-align: top; border-bottom: 1px solid #f0f0f0; }
   font-weight: 600;
 }
 """
+)
 
 
 def _html_cover(student_name: str, advisor_name: str, generated_at: datetime) -> str:

@@ -7,7 +7,7 @@ Two output shapes:
      demográficos (etapa · presupuesto · país preferido).
 
   2. RecommendedProgram · una recomendación filtrada del catálogo
-     Grasshopper, con razón explícita del match y score 0-100.
+     Mentoring, con razón explícita del match y score 0-100.
 
 Ambos llegan al frontend como respuesta de los endpoints
 `POST /recommendations/generate` y `GET /recommendations/me`.
@@ -204,14 +204,14 @@ class BudgetFit(str):
 
 
 class RecommendedProgram(BaseModel):
-    """Una recomendación específica del catálogo Grasshopper.
+    """Una recomendación específica del catálogo Mentoring.
 
     `program_id` MUST corresponder a un `oferta_id` del catálogo (validado en
     services/ai_service.py · si la IA inventa uno, se descarta antes de
     persistir).
     """
 
-    program_id: str = Field(..., description="ID del catálogo Grasshopper (oferta_id)")
+    program_id: str = Field(..., description="ID del catálogo Mentoring (oferta_id)")
     program_slug: Optional[str] = Field(default=None, description="Slug para link FE.")
     program_name: str = Field(..., description="Nombre legible del programa.")
 

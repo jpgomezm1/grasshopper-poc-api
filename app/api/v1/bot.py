@@ -42,7 +42,7 @@ MAX_LARGO_MENSAJE = 2000
 # Estático a propósito: el saludo no necesita una llamada de IA. Ahorra latencia
 # en el primer contacto, que es donde más se abandona.
 SALUDO = (
-    "¡Hola! Soy el asistente de GrassHopper. Cuéntame qué estás buscando: "
+    "¡Hola! Soy el asistente de Mentoring. Cuéntame qué estás buscando: "
     "¿un idioma, un pregrado, un posgrado, o todavía lo estás pensando?"
 )
 

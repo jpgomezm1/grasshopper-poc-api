@@ -1,4 +1,4 @@
-"""Recommender filtrado por catálogo Grasshopper · Sprint 6.
+"""Recommender filtrado por catálogo Mentoring · Sprint 6.
 
 Pipeline:
     1. Toma ConsolidatedProfile del usuario (de consolidation_service)

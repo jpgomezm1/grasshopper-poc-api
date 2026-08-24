@@ -22,7 +22,7 @@ Layout (per S3-DESIGN-04 wireframe + S6 deliverables):
     6. Programas recomendados · top recommendations from S6
 
 Co-branding:
-- Grasshopper logo always shown (default asset under static/)
+- Mentoring logo always shown (default asset under static/)
 - School logo shown when User.school.logo_url is set (resolved upstream)
 """
 from __future__ import annotations
@@ -41,7 +41,7 @@ logger = logging.getLogger(__name__)
 PAGE_COUNT = 6
 GENERATOR_VERSION = "report_pdf_v1"
 TEMPLATE_PATH = Path(__file__).parent.parent / "templates" / "report_pdf.html"
-DEFAULT_LOGO_PATH = Path(__file__).parent.parent / "templates" / "static" / "grasshopper_logo.svg"
+DEFAULT_LOGO_PATH = Path(__file__).parent.parent / "templates" / "static" / "mentoring_logo.svg"
 
 
 # -----------------------------------------------------------------------------
@@ -90,7 +90,7 @@ class ReportPayload:
     student_grade: Optional[str]
     school_name: Optional[str]
     school_logo_url: Optional[str]
-    grasshopper_logo_path: str
+    mentoring_logo_path: str
     generated_on: str  # human-readable date in es-CO
     locale: str = "es-CO"
 
@@ -114,8 +114,8 @@ class ReportPayload:
     programs: List[ProgramItem] = field(default_factory=list)
 
     # Footer
-    contact_email_grasshopper: str = "hola@grasshopper.co"
-    contact_url_grasshopper: str = "www.grasshopper.co"
+    contact_email_mentoring: str = "hola@grasshopper.co"
+    contact_url_mentoring: str = "www.grasshopper.co"
     contact_email_school: Optional[str] = None
     confidentiality_note: str = "Documento confidencial · uso personal y familiar"
 
@@ -294,7 +294,7 @@ def build_payload(
     profile: Any,
     recommendations: List[Any],
     school: Any = None,
-    grasshopper_logo_path: Optional[str] = None,
+    mentoring_logo_path: Optional[str] = None,
     school_logo_url: Optional[str] = None,
     generated_on: Optional[datetime] = None,
     test_results: Optional[List[Any]] = None,
@@ -321,7 +321,7 @@ def build_payload(
     if school_logo is None and school is not None:
         school_logo = getattr(school, "logo_url", None)
 
-    logo_path = grasshopper_logo_path or str(DEFAULT_LOGO_PATH)
+    logo_path = mentoring_logo_path or str(DEFAULT_LOGO_PATH)
     gen_on = generated_on or datetime.utcnow()
 
     # --- Pages 2-4 from profile ---
@@ -398,7 +398,7 @@ def build_payload(
         student_grade=grade,
         school_name=school_name,
         school_logo_url=school_logo,
-        grasshopper_logo_path=logo_path,
+        mentoring_logo_path=logo_path,
         generated_on=_format_es_date(gen_on),
         locale=locale,
         summary_narrative=summary_narrative,

@@ -1345,7 +1345,7 @@ def license_upgrade_request(
     db: DBSession = Depends(get_db),
 ):
     school, user = bundle
-    # Notify Grasshopper team via audit log + (future) Notification.
+    # Notify Mentoring team via audit log + (future) Notification.
     log_action(
         db,
         user,

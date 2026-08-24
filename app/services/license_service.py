@@ -84,11 +84,11 @@ def assert_can_register_student(db: DBSession, school_id: UUID) -> None:
     detail_map = {
         "school_not_found": ("School not found.", status.HTTP_404_NOT_FOUND),
         "school_archived": (
-            "El colegio está archivado. Contacte al administrador de Grasshopper.",
+            "El colegio está archivado. Contacte al administrador de Mentoring.",
             status.HTTP_403_FORBIDDEN,
         ),
         "license_missing": (
-            "El colegio no tiene licencia activa. Contacte al administrador de Grasshopper.",
+            "El colegio no tiene licencia activa. Contacte al administrador de Mentoring.",
             status.HTTP_403_FORBIDDEN,
         ),
         "license_expired": (

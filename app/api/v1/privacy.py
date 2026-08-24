@@ -655,7 +655,7 @@ def _load_policy_markdown() -> str:
             continue
     # Fallback skeleton if file not deployed yet.
     return (
-        f"# Política de Tratamiento de Datos · Grasshopper · "
+        f"# Política de Tratamiento de Datos · Mentoring · "
         f"v{settings.privacy_policy_version}\n\n"
         "Documento en preparación. Para consultas escribir a "
         f"{settings.privacy_dpo_email}."

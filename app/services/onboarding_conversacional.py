@@ -62,7 +62,7 @@ MENSAJE_FALLBACK = (
 )
 
 SALUDO = (
-    "¡Hola! Soy Hop. Antes de mostrarte opciones quiero conocerte un poco.\n\n"
+    "¡Hola! Soy tu guía. Antes de mostrarte opciones quiero conocerte un poco.\n\n"
     "Cuéntame: ¿qué te apasiona y qué te gustaría lograr?"
 )
 

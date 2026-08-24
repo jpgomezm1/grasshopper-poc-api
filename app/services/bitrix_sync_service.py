@@ -831,7 +831,7 @@ def desync_user_on_revoke(
 
 
 def notify_failure_email(db: DBSession, log_row: BitrixSyncLog) -> None:
-    """Email the Grasshopper team when a sync fails after retries.
+    """Email the Mentoring team when a sync fails after retries.
 
     Uses the same email backend as reports (Resend default · stub fallback).
     No-op if BITRIX_NOTIFY_EMAIL is empty.
@@ -865,7 +865,7 @@ def notify_failure_email(db: DBSession, log_row: BitrixSyncLog) -> None:
         backend = get_email_backend()
         backend.send_with_attachment(
             to=to,
-            subject="[Grasshopper] Bitrix sync failed",
+            subject="[Mentoring] Bitrix sync failed",
             html=html,
             attachment_bytes=b"",
             attachment_filename="bitrix-failure.txt",

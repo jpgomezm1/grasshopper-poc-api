@@ -56,9 +56,9 @@ class UserRole(str, enum.Enum):
     - student        · estudiante (B2C o B2B según school_id)
     - psychologist   · psicólogo del colegio · ve estudiantes de su escuela en read-only
     - school_admin   · admin del colegio · gestiona estudiantes + reportes + branding del colegio
-    - gh_advisor     · orientador interno Grasshopper · ve B2C + B2B con contact_request
-    - gh_commercial  · asesora comercial Grasshopper · pipeline Bitrix + contact requests
-    - super_admin    · staff de Grasshopper · CRUD global de colegios, licencias, catálogo
+    - gh_advisor     · orientador interno Mentoring · ve B2C + B2B con contact_request
+    - gh_commercial  · asesora comercial Mentoring · pipeline Bitrix + contact requests
+    - super_admin    · staff de Mentoring · CRUD global de colegios, licencias, catálogo
 
     GH-S2-DB-01 · added 2026-04-30.
     GH-ROLES-001 · GH_ADVISOR + GH_COMMERCIAL added 2026-05-03 (migration 013).
@@ -79,7 +79,7 @@ GH_CONTACT_REQUEST_STATUSES = ("pending", "in_progress", "converted", "declined"
 
 
 class School(Base):
-    """B2B client (colegio) of Grasshopper.
+    """B2B client (colegio) of Mentoring.
 
     Owns the license + students + branding + reporting context. Created and
     managed by super_admin from the panel. School users (psychologist /
@@ -1184,7 +1184,7 @@ class BotConversation(Base):
     alarms = Column(JSON, nullable=True)
     score_rationale = Column(JSON, nullable=True)
 
-    # Derivación a GrassHopper · la "miga de pan" de la reunión del 21-07
+    # Derivación a Mentoring · la "miga de pan" de la reunión del 21-07
     wants_orientation = Column(Boolean, default=False, nullable=False)
 
     # Si la persona después se registra, se cuelga aquí para no repreguntarle

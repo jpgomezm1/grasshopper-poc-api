@@ -160,7 +160,7 @@ def evaluar(recolectados: Dict[str, Any]) -> Veredicto:
 
 
 def quiere_orientacion(recolectados: Dict[str, Any]) -> bool:
-    """True si esta persona es de GrassHopper, no de la agencia.
+    """True si esta persona es de Mentoring, no de la agencia.
 
     Es la bifurcación del negocio que Verónica explicó en la reunión (18:34):
     quien busca "orientación vocacional o comprender mis habilidades" no es un

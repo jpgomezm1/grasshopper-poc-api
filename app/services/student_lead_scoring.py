@@ -1,7 +1,7 @@
 """Student lead scoring · Bloque A · Sprint super_admin fixes 2026-05-03.
 
 Scoring deterministic (no LLM call) que evalúa cada estudiante de un colegio
-como **lead potencial** para el equipo Grasshopper · combina señales de
+como **lead potencial** para el equipo Mentoring · combina señales de
 engagement + perfil + intención. Output: 0..100 + banda + 1 línea de
 narrativa.
 

@@ -51,6 +51,9 @@ class RegisterRequest(BaseModel):
     email: EmailStr
     password: str
     name: Optional[str] = None
+    # RM-1 · la casilla del formulario, marcada por defecto. Ver
+    # `_register_student_internal` para por qué el consentimiento se toma aquí.
+    acepta_comunicaciones: bool = True
 
 
 class RegisterStudentRequest(BaseModel):
@@ -62,6 +65,7 @@ class RegisterStudentRequest(BaseModel):
     email: EmailStr
     password: str
     name: Optional[str] = None
+    acepta_comunicaciones: bool = True
 
 
 class RegisterSchoolUserRequest(BaseModel):
@@ -284,7 +288,7 @@ def login(
             )
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail="Su colegio está archivado. Contacte al administrador de Grasshopper.",
+                detail="Su colegio está archivado. Contacte al administrador de Mentoring.",
             )
 
     access_token = create_access_token(data={"sub": str(user.id)})
@@ -330,8 +334,10 @@ def register(
             email=payload.email,
             password=payload.password,
             name=payload.name,
+            acepta_comunicaciones=payload.acepta_comunicaciones,
         ),
         db,
+        http_request=request,
     )
 
 
@@ -351,12 +357,44 @@ def register_student(
 
     GH-S11-INFRA-04 · rate-limited to ``settings.rate_limit_register`` (default 3/min).
     """
-    return _register_student_internal(payload, db)
+    return _register_student_internal(payload, db, http_request=request)
 
 
-def _register_student_internal(request: RegisterStudentRequest, db: DBSession) -> TokenResponse:
+def _register_student_internal(
+    request: RegisterStudentRequest,
+    db: DBSession,
+    *,
+    http_request: Optional[Request] = None,
+) -> TokenResponse:
     """Shared implementation for student registration. Always sets role=student
-    and school_id=None regardless of payload to prevent privilege escalation."""
+    and school_id=None regardless of payload to prevent privilege escalation.
+
+    ## Los consentimientos se toman aquí, en el registro
+
+    Antes no se tomaban en ningún lado: `can_send_communications()` fallaba en
+    su PRIMER candado (`no_data_processing_consent`) para el 100% de la base, y
+    la única pantalla capaz de otorgar algo —Preferencias— sólo manda
+    `communications`, y está a tres clics de profundidad. Medido en producción
+    el 2026-08-18: 36 candidatos, 36 sin consentimiento, 0 enviados.
+
+    Dos consentimientos distintos y por eso dos decisiones distintas:
+
+    · `data_processing` · lo exige la Ley 1581 para tratar el dato. Se otorga al
+      crear la cuenta, con la política enlazada y a la vista en el formulario:
+      es la aceptación informada de la política, no una casilla suelta.
+    · `communications` · la casilla del formulario, **marcada por defecto**
+      (`acepta_comunicaciones=True`) pero visible y desmarcable. Si la persona
+      la desmarca NO se escribe la columna: no se registra un permiso que no
+      dio. Se puede cambiar después en Preferencias, en los dos sentidos.
+
+    Los menores siguen protegidos aparte y esto no los toca: `can_send_...`
+    exige además `consent_parental_at`, que sólo escribe el flujo del acudiente.
+
+    El `http_request` viaja para que la fila de auditoría guarde IP y navegador.
+    Sin él el consentimiento queda registrado igual, pero sin de dónde vino —
+    que es justo lo que se le pide a un consentimiento cuando alguien lo
+    reclama.
+    """
     existing_user = db.query(User).filter(User.email == request.email.lower()).first()
     if existing_user:
         raise HTTPException(
@@ -375,6 +413,27 @@ def _register_student_internal(request: RegisterStudentRequest, db: DBSession) -
 
     db.add(user)
     db.commit()
+    db.refresh(user)
+
+    # Los consentimientos van DESPUÉS del commit del usuario y en su propio
+    # try: si algo fallara escribiendo la fila de auditoría, la cuenta ya está
+    # creada y la persona no se queda sin poder entrar. Un consentimiento que
+    # no se registró se vuelve a pedir en Preferencias; una cuenta a medias, no.
+    from app.services import consent_service
+
+    try:
+        consent_service.grant_consent(
+            db, user, "data_processing", request=http_request
+        )
+        if request.acepta_comunicaciones:
+            consent_service.grant_consent(
+                db, user, "communications", request=http_request
+            )
+        db.commit()
+    except Exception:  # pragma: no cover · defensivo
+        db.rollback()
+        logger.exception("register · no se pudieron registrar los consentimientos")
+
     db.refresh(user)
 
     access_token = create_access_token(data={"sub": str(user.id)})

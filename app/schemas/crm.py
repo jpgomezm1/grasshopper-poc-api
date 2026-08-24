@@ -14,7 +14,7 @@ Surfaces:
 
 Reglas de origen (consumidas también por la query del listado):
 
-    Lead Grasshopper (lead propio):
+    Lead Mentoring (lead propio):
         school_id IS NULL
         OR (school_id NOT NULL AND gh_contact_status = 'converted')
     Lead potencial de colegio (radar · NO propio):

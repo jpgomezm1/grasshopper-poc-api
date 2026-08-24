@@ -19,7 +19,7 @@ DISCLAIMER_TEXT = (
     "clínico, ni una recomendación profesional definitiva. La interpretación "
     "asistida por inteligencia artificial es orientativa y debe ser revisada "
     "junto a tu orientador o psicólogo. Al continuar, autorizas el tratamiento "
-    "de tus respuestas conforme a la política de privacidad de Grasshopper "
+    "de tus respuestas conforme a la política de privacidad de Mentoring "
     "(Ley 1581 de 2012 · y GDPR cuando aplique). "
     "[TEXTO LEGAL PENDIENTE DE CONFIRMACIÓN DEL CLIENTE]"
 )

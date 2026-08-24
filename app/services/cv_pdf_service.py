@@ -32,6 +32,7 @@ from app.services.pdf_service import (
     _format_es_date,
     _highlight_for,
 )
+from app.services.brand import FONT_FACE_CSS
 from app.services.cv_variants import (
     ESTANDAR_POR_DEFECTO,
     ESTILO_POR_DEFECTO,
@@ -218,57 +219,60 @@ def build_cv_data(
 # ---------------------------------------------------------------------------
 
 
-CSS = """
+CSS = (
+    FONT_FACE_CSS
+    + """
 @page { size: A4; margin: 16mm 15mm 16mm 15mm; }
 body {
-  font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Satoshi', 'Lato', Arial, sans-serif;
   color: #1f2430; font-size: 10.5pt; line-height: 1.5;
 }
-.header { border-bottom: 3px solid #C8D400; padding-bottom: 5mm; margin-bottom: 7mm; }
+.header { border-bottom: 3px solid #EE7238; padding-bottom: 5mm; margin-bottom: 7mm; }
 /* La fila existe siempre, con foto o sin ella: así el encabezado no cambia de
    caja de un estándar a otro y los estilos no tienen que compensarlo. */
 .h-row { display: flex; gap: 5mm; align-items: flex-start; }
 .h-main { flex: 1; }
 .photo { width: 26mm; height: 32mm; object-fit: cover;
-         border-radius: 4px; border: 2px solid #C8D400; }
-.name { font-size: 26pt; font-weight: 800; color: #164194; letter-spacing: -0.02em; margin: 0; }
+         border-radius: 4px; border: 2px solid #EE7238; }
+.name { font-size: 26pt; font-weight: 800; color: #47368C; letter-spacing: -0.02em; margin: 0; }
 .headline { font-size: 12pt; color: #5b6470; margin-top: 1mm; font-weight: 600; }
 .contact { margin-top: 3mm; font-size: 9.5pt; color: #5b6470; }
 .contact span { margin-right: 5mm; }
 .contact b { color: #1f2430; font-weight: 700; }
 h2 {
-  font-size: 12.5pt; color: #164194; text-transform: uppercase;
+  font-size: 12.5pt; color: #47368C; text-transform: uppercase;
   letter-spacing: 0.06em; margin: 7mm 0 3mm 0; padding-bottom: 1.5mm;
-  border-bottom: 1px solid #e6e4d8;
+  border-bottom: 1px solid #E2DDD0;
 }
 .summary { color: #3a4150; margin: 0; }
 .chips { margin: 1mm 0; }
 .chip {
-  display: inline-block; background: #f5f7d6; color: #5b6b00;
-  border: 1px solid #d9e26a; border-radius: 20px;
+  display: inline-block; background: #FAE8E0; color: #B24310;
+  border: 1px solid #F2C9B4; border-radius: 20px;
   padding: 1mm 3mm; margin: 0 2mm 2mm 0; font-size: 9pt; font-weight: 600;
 }
-.chip.navy { background: #eef2fb; color: #164194; border-color: #c5d2ee; }
+.chip.navy { background: #ECE9F6; color: #47368C; border-color: #CFC7E6; }
 .test-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm; }
 .test-card {
-  border: 1px solid #e6e4d8; border-left: 3px solid #C8D400;
-  border-radius: 4px; padding: 2.5mm 3.5mm; background: #fbfcf2;
+  border: 1px solid #E2DDD0; border-left: 3px solid #EE7238;
+  border-radius: 4px; padding: 2.5mm 3.5mm; background: #FDF8F5;
 }
-.test-card .t-name { font-weight: 800; color: #164194; font-size: 10pt; }
-.test-card .t-hl { font-weight: 800; color: #5b6b00; font-size: 13pt; margin: 0.5mm 0; }
+.test-card .t-name { font-weight: 800; color: #47368C; font-size: 10pt; }
+.test-card .t-hl { font-weight: 800; color: #B24310; font-size: 13pt; margin: 0.5mm 0; }
 .test-card .t-desc { color: #7a8290; font-size: 8.5pt; }
-.activity { margin: 0 0 4mm 0; padding-left: 4mm; border-left: 2px solid #e6e4d8; }
+.activity { margin: 0 0 4mm 0; padding-left: 4mm; border-left: 2px solid #E2DDD0; }
 .activity .a-top { display: flex; justify-content: space-between; }
 .activity .a-name { font-weight: 800; color: #1f2430; font-size: 10.5pt; }
 .activity .a-meta { color: #7a8290; font-size: 9pt; white-space: nowrap; }
-.activity .a-cat { color: #164194; font-weight: 700; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; }
+.activity .a-cat { color: #47368C; font-weight: 700; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; }
 .activity .a-role { color: #5b6470; font-size: 9.5pt; }
 .activity .a-desc { color: #3a4150; font-size: 9.5pt; margin-top: 0.5mm; }
 .activity ul { margin: 1mm 0 0 0; padding-left: 5mm; }
 .activity li { font-size: 9.5pt; margin: 0.5mm 0; }
 .muted { color: #9aa0ab; font-style: italic; }
-.footer { margin-top: 9mm; padding-top: 3mm; border-top: 1px solid #e6e4d8; color: #9aa0ab; font-size: 8pt; }
+.footer { margin-top: 9mm; padding-top: 3mm; border-top: 1px solid #E2DDD0; color: #9aa0ab; font-size: 8pt; }
 """
+)
 
 
 def _chips(items: List[str], navy: bool = False) -> str:
@@ -320,13 +324,13 @@ def _html_profile(cv: CVData) -> str:
     if cv.summary:
         parts.append(f'<p class="summary">{escape(cv.summary)}</p>')
     if cv.strengths:
-        parts.append("<h3 style='font-size:10pt;color:#5b6b00;margin:4mm 0 1mm;'>Fortalezas</h3>")
+        parts.append("<h3 style='font-size:10pt;color:#B24310;margin:4mm 0 1mm;'>Fortalezas</h3>")
         parts.append(f'<div class="chips">{_chips(cv.strengths)}</div>')
     if cv.interests:
-        parts.append("<h3 style='font-size:10pt;color:#164194;margin:3mm 0 1mm;'>Áreas de interés</h3>")
+        parts.append("<h3 style='font-size:10pt;color:#47368C;margin:3mm 0 1mm;'>Áreas de interés</h3>")
         parts.append(f'<div class="chips">{_chips(cv.interests, navy=True)}</div>')
     if cv.values:
-        parts.append("<h3 style='font-size:10pt;color:#5b6b00;margin:3mm 0 1mm;'>Valores</h3>")
+        parts.append("<h3 style='font-size:10pt;color:#B24310;margin:3mm 0 1mm;'>Valores</h3>")
         parts.append(f'<div class="chips">{_chips(cv.values)}</div>')
     return "".join(parts)
 
@@ -423,7 +427,7 @@ def render_cv_html(
   {_html_header(cv, con_foto=con_foto)}
   {cuerpo}
   <div class="footer">
-    Hoja de Vida generada con Grasshopper · {escape(cv.generated_on)} ·
+    Hoja de Vida generada con Mentoring · {escape(cv.generated_on)} ·
     documento personal del estudiante.
   </div>
 </body>

@@ -64,17 +64,18 @@ def _html(nombre: Optional[str], mensaje: Mensaje, destino: str) -> str:
     return f"""<!DOCTYPE html>
 <html lang="es">
 <head><meta charset="utf-8"/></head>
-<body style="font-family:-apple-system,Segoe UI,Inter,sans-serif;background:#faf8ff;padding:32px;color:#2b2433;">
-  <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #e5e1ed;border-radius:12px;padding:32px;">
+<body style="font-family:Lato,Segoe UI,Helvetica,Arial,sans-serif;background:#F9F5E9;padding:32px;color:#1D1D1B;">
+  <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #E2DDD0;border-radius:12px;padding:32px;">
+    <p style="margin:0 0 20px 0;font-size:20px;font-weight:700;letter-spacing:-0.02em;color:#EE7238;">Mentoring</p>
     <p style="margin:0 0 16px 0;font-size:16px;">{saludo},</p>
     <p style="margin:0 0 24px 0;font-size:15px;line-height:1.6;">{mensaje.cuerpo}</p>
     <p style="margin:0 0 28px 0;">
-      <a href="{url}" style="background:#6d4aff;color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:600;font-size:14px;display:inline-block;">{mensaje.cta}</a>
+      <a href="{url}" style="background:#EE7238;color:#1D1D1B;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:600;font-size:14px;display:inline-block;">{mensaje.cta}</a>
     </p>
-    <p style="margin:0;color:#6b6276;font-size:12px;line-height:1.5;">
+    <p style="margin:0;color:#6B675E;font-size:12px;line-height:1.5;">
       Recibes este mensaje porque aceptaste que te acompañemos en tu proceso.
       Puedes dejar de recibirlos cuando quieras desde
-      <a href="{settings.frontend_base_url.rstrip('/')}/preferencias" style="color:#6d4aff;">tus preferencias</a>.
+      <a href="{settings.frontend_base_url.rstrip('/')}/preferencias" style="color:#B24310;">tus preferencias</a>.
     </p>
   </div>
 </body>

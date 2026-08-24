@@ -165,7 +165,7 @@ def test_render_html_includes_student_and_school():
     assert "Empatía" in html
 
 
-def test_render_html_no_school_only_grasshopper_brand():
+def test_render_html_no_school_only_mentoring_brand():
     payload = pdf_service.build_payload(
         user=_make_user(school_id=None),
         profile=_make_profile(),
@@ -175,8 +175,8 @@ def test_render_html_no_school_only_grasshopper_brand():
     html = pdf_service.render_report_html(payload)
     assert "Valeria Restrepo" in html
     assert "Colegio Andino" not in html
-    # Grasshopper logo path (svg) embedded
-    assert "grasshopper_logo" in html
+    # Mentoring logo path (svg) embedded
+    assert "mentoring_logo" in html
 
 
 def test_render_html_has_all_six_pages():

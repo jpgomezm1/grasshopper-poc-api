@@ -120,11 +120,11 @@ def request_consent(
     base = get_settings().frontend_base_url.rstrip("/")
     link = f"{base}/consentimiento-parental/{token}"
     student_name = student.name or "tu hijo/a"
-    subject = "Grasshopper · Autorización para un menor"
+    subject = "Mentoring · Autorización para un menor"
     html_body = (
         f"<p>Hola,</p>"
         f"<p>{student_name} te pidió autorizar su uso de la plataforma "
-        f"Grasshopper (tests de orientación vocacional y acompañamiento).</p>"
+        f"Mentoring (tests de orientación vocacional y acompañamiento).</p>"
         f"<p>Para revisar y firmar el consentimiento, abre este enlace "
         f"(válido por {CONSENT_TOKEN_TTL_HOURS} horas):</p>"
         f'<p><a href="{link}">{link}</a></p>'
@@ -134,7 +134,7 @@ def request_consent(
         to=parent_email,
         subject=subject,
         html_body=html_body,
-        text_body=f"{student_name} te pidió autorizar Grasshopper. Firma aquí: {link}",
+        text_body=f"{student_name} te pidió autorizar Mentoring. Firma aquí: {link}",
     )
     logger.info(
         "parental consent requested student=%s provider=%s delivered=%s",

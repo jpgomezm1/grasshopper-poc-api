@@ -127,8 +127,8 @@ DESTINOS_CONTRAOFERTA = [
 ]
 
 # Palabras textuales de Verónica (21-07, 18:34) cuando le explicó a JP qué
-# distingue un lead de la agencia de uno de GrassHopper. La última opción es la
-# que dispara la "miga de pan": no la resuelve el bot, la resuelve GrassHopper.
+# distingue un lead de la agencia de uno de Mentoring. La última opción es la
+# que dispara la "miga de pan": no la resuelve el bot, la resuelve Mentoring.
 TIPO_EXPERIENCIA = {
     "idioma": "Aprender o perfeccionar un idioma",
     "pregrado": "Hacer un pregrado",
@@ -301,7 +301,7 @@ HECHOS: List[Hecho] = [
         origen_opciones=PENDIENTE_CONFIRMAR,
         nota=(
             "La opción 'orientacion' es la bifurcación del negocio: ahí el lead NO "
-            "es de la agencia, es de GrassHopper, y el bot debe ofrecer la miga de "
+            "es de la agencia, es de Mentoring, y el bot debe ofrecer la miga de "
             "pan en vez de seguir perfilando destino."
         ),
     ),

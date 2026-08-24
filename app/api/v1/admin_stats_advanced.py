@@ -566,7 +566,7 @@ def stats_export(
     payload, rows, name = _gather_dataset(db, dataset, start, end)
 
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-    base = f"grasshopper_{name}_{ts}"
+    base = f"mentoring_{name}_{ts}"
 
     if fmt == "json":
         return Response(
@@ -589,7 +589,7 @@ def stats_export(
             headers={"Content-Disposition": f'attachment; filename="{base}.xlsx"'},
         )
     if fmt == "html":
-        title = f"Grasshopper · {name} · {start.date()} → {end.date()}"
+        title = f"Mentoring · {name} · {start.date()} → {end.date()}"
         return Response(
             content=_to_html_printable(title, rows),
             media_type="text/html; charset=utf-8",

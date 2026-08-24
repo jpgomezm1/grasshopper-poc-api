@@ -424,7 +424,7 @@ def export_students_csv(
         )
 
     buf.seek(0)
-    fname = f"grasshopper-{school.slug}-cohort-{datetime.utcnow().strftime('%Y%m%d')}.csv"
+    fname = f"mentoring-{school.slug}-cohort-{datetime.utcnow().strftime('%Y%m%d')}.csv"
     return StreamingResponse(
         iter([buf.getvalue()]),
         media_type="text/csv; charset=utf-8",
@@ -713,10 +713,10 @@ def post_invitation(
         accept_url = _build_accept_url(inv.token, request)
         result = send_email(
             to=inv.email,
-            subject=f"Invitación a {school.name} · Grasshopper",
+            subject=f"Invitación a {school.name} · Mentoring",
             html_body=f"""
             <p>Hola,</p>
-            <p>El equipo de <b>{school.name}</b> te invita a unirte a Grasshopper como
+            <p>El equipo de <b>{school.name}</b> te invita a unirte a Mentoring como
             <b>{inv.role}</b>.</p>
             <p>Para activar tu cuenta entra a este enlace antes de
             {inv.expires_at.strftime('%Y-%m-%d')}:</p>

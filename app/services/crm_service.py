@@ -879,7 +879,7 @@ def _format_narrative_block(snapshot: CrmJourneySnapshot) -> str:
         )
     if snapshot.hop_sessions.total_sessions:
         lines.append(
-            f"Conversaciones con Hop: {snapshot.hop_sessions.total_sessions} sesiones"
+            f"Conversaciones con la guía: {snapshot.hop_sessions.total_sessions} sesiones"
         )
     if not lines:
         return "(sin señales narrativas adicionales)"

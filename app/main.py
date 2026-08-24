@@ -160,8 +160,8 @@ async def lifespan(app: FastAPI):
 
 # Create FastAPI app
 app = FastAPI(
-    title="Grasshopper API",
-    description="Backend API for Grasshopper · vocational orientation platform",
+    title="Mentoring API",
+    description="Backend API for Mentoring · vocational orientation platform",
     version=settings.app_version,
     lifespan=lifespan,
 )
@@ -335,7 +335,7 @@ async def liveness_probe():
 async def root():
     """Root endpoint."""
     return {
-        "message": "Welcome to Grasshopper API",
+        "message": "Welcome to Mentoring API",
         "docs": "/docs",
         "health": "/health",
     }

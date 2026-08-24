@@ -4,16 +4,45 @@
   <meta charset="UTF-8" />
   <title>Reporte de Orientación Vocacional · {{ student_name }}</title>
   <style>
+    /* ---------- Fuentes de marca ----------
+       WeasyPrint no sale a internet: los archivos se sirven desde
+       `static/fonts/`, relativos al `base_url` (= app/templates) que le pasa
+       `pdf_service.render_report_pdf`. Vienen del paquete del manual
+       (`docs/Marca/Fonts`). */
+    @font-face {
+      font-family: "Satoshi";
+      src: url("static/fonts/Satoshi-Medium.otf") format("opentype");
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Satoshi";
+      src: url("static/fonts/Satoshi-Bold.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Lato";
+      src: url("static/fonts/Lato-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Lato";
+      src: url("static/fonts/LATO-HEAVY.TTF") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
     /* ---------- Page setup (CSS Paged Media · WeasyPrint) ---------- */
     @page {
       size: A4;
       margin: 18mm 16mm 16mm 16mm;
       @bottom-center {
-        content: "Generado por Grasshopper · Confidencial · v1.0 · página " counter(page) " de " counter(pages);
+        content: "Generado por Mentoring · Confidencial · v1.0 · página " counter(page) " de " counter(pages);
         font-size: 8pt;
-        color: #6b6276;
-        font-family: "Inter", "Helvetica", sans-serif;
-        font-style: italic;
+        color: #6B675E;
+        font-family: "Lato", "Helvetica", sans-serif;
       }
     }
 
@@ -28,17 +57,18 @@
     html, body {
       margin: 0;
       padding: 0;
-      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-      color: #2b2433;
+      font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+      color: #1D1D1B;
       font-size: 10.5pt;
       line-height: 1.5;
     }
 
     h1, h2, h3 {
-      font-family: "Quicksand", "Inter", sans-serif;
-      color: #2b2433;
+      font-family: "Satoshi", "Lato", sans-serif;
+      color: #1D1D1B;
       margin: 0 0 6pt 0;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     h1 { font-size: 24pt; line-height: 1.15; }
@@ -47,14 +77,17 @@
 
     p { margin: 0 0 6pt 0; }
 
-    /* ---------- Tokens (Grasshopper brand · POC) ---------- */
+    /* ---------- Tokens (marca Mentoring · docs/Marca) ---------- */
     :root {
-      --primary: #6c4cd9;
-      --primary-bg: #efeafc;
-      --border: #e5e1ed;
-      --surface-alt: #faf8ff;
-      --muted: #6b6276;
-      --foreground: #2b2433;
+      --primary: #EE7238;        /* naranja */
+      --primary-dark: #B24310;   /* naranja legible sobre claro */
+      --primary-bg: #FAE8E0;
+      --secondary: #47368C;      /* morado */
+      --tertiary: #BB388B;       /* magenta */
+      --border: #E2DDD0;
+      --surface-alt: #FBFAF6;
+      --muted: #6B675E;
+      --foreground: #1D1D1B;
     }
 
     .muted { color: var(--muted); }
@@ -102,7 +135,7 @@
     }
 
     .cover-band .name {
-      font-family: "Quicksand", "Inter", sans-serif;
+      font-family: "Satoshi", "Lato", sans-serif;
       font-size: 12pt;
       font-weight: 600;
       color: var(--foreground);
@@ -126,7 +159,7 @@
     }
 
     .cover-body .title {
-      font-family: "Quicksand", "Inter", sans-serif;
+      font-family: "Satoshi", "Lato", sans-serif;
       font-size: 26pt;
       font-weight: 600;
       margin-bottom: 8mm;
@@ -157,7 +190,7 @@
     }
 
     .cover-card .student {
-      font-family: "Quicksand", "Inter", sans-serif;
+      font-family: "Satoshi", "Lato", sans-serif;
       font-size: 18pt;
       font-weight: 600;
       margin-top: 1mm;
@@ -255,7 +288,7 @@
       padding: 1.5mm 4mm;
       border-radius: 100px;
       background: var(--primary-bg);
-      color: var(--primary);
+      color: var(--primary-dark);
       font-size: 9pt;
       font-weight: 500;
     }
@@ -276,7 +309,7 @@
       font-family: "JetBrains Mono", monospace;
     }
     .test-card .test-highlight {
-      font-family: "Quicksand", "Inter", sans-serif;
+      font-family: "Satoshi", "Lato", sans-serif;
       font-size: 16pt;
       font-weight: 600;
       margin: 2mm 0 1mm 0;
@@ -285,7 +318,7 @@
       font-size: 9pt;
       color: var(--muted);
     }
-    .test-reading { font-size: 9.5pt; line-height: 1.45; color: #1A1A1A; margin-top: 6px; }
+    .test-reading { font-size: 9.5pt; line-height: 1.45; color: var(--foreground); margin-top: 6px; }
 
     /* ---------- Programs (page 6) ---------- */
     .program-card {
@@ -304,7 +337,7 @@
     }
 
     .program-card .program-title {
-      font-family: "Quicksand", "Inter", sans-serif;
+      font-family: "Satoshi", "Lato", sans-serif;
       font-size: 12pt;
       font-weight: 600;
     }
@@ -317,7 +350,7 @@
       flex-shrink: 0;
       padding: 1.5mm 4mm;
       background: var(--primary-bg);
-      color: var(--primary);
+      color: var(--primary-dark);
       border-radius: 100px;
       font-family: "JetBrains Mono", monospace;
       font-size: 9pt;
@@ -382,12 +415,12 @@
     .contact-grid strong {
       color: var(--foreground);
       display: block;
-      font-family: "Quicksand", "Inter", sans-serif;
+      font-family: "Satoshi", "Lato", sans-serif;
       font-size: 10pt;
     }
 
     .info-box {
-      border: 1px solid #d8c9f5;
+      border: 1px solid #F2C9B4;
       background: var(--primary-bg);
       border-radius: 8pt;
       padding: 5mm 6mm;
@@ -413,11 +446,11 @@
 <div class="cover">
   <div class="cover-band">
     <div class="left">
-      {% if grasshopper_logo_path %}
-        <img src="{{ grasshopper_logo_path }}" alt="Grasshopper" />
+      {% if mentoring_logo_path %}
+        <img src="{{ mentoring_logo_path }}" alt="Mentoring" />
       {% endif %}
       <div>
-        <p class="label">Grasshopper</p>
+        <p class="label">Mentoring</p>
         <p class="name">Tu Bitácora</p>
       </div>
     </div>
@@ -461,7 +494,7 @@
    ============================================================ #}
 <div class="page">
   <div class="page-header">
-    <span>Grasshopper</span>
+    <span>Mentoring</span>
     {% if school_name %}<span>{{ school_name }}</span>{% endif %}
   </div>
 
@@ -495,7 +528,7 @@
    ============================================================ #}
 <div class="page">
   <div class="page-header">
-    <span>Grasshopper</span>
+    <span>Mentoring</span>
     {% if school_name %}<span>{{ school_name }}</span>{% endif %}
   </div>
 
@@ -530,7 +563,7 @@
    ============================================================ #}
 <div class="page">
   <div class="page-header">
-    <span>Grasshopper</span>
+    <span>Mentoring</span>
     {% if school_name %}<span>{{ school_name }}</span>{% endif %}
   </div>
 
@@ -569,7 +602,7 @@
    ============================================================ #}
 <div class="page">
   <div class="page-header">
-    <span>Grasshopper</span>
+    <span>Mentoring</span>
     {% if school_name %}<span>{{ school_name }}</span>{% endif %}
   </div>
 
@@ -594,12 +627,12 @@
    ============================================================ #}
 <div class="page">
   <div class="page-header">
-    <span>Grasshopper</span>
+    <span>Mentoring</span>
     {% if school_name %}<span>{{ school_name }}</span>{% endif %}
   </div>
 
   <h2>Programas recomendados para ti</h2>
-  <p class="muted small">Filtrados del catálogo Grasshopper según tu perfil, presupuesto y países preferidos.</p>
+  <p class="muted small">Filtrados del catálogo Mentoring según tu perfil, presupuesto y países preferidos.</p>
 
   {% if programs %}
     {% for p in programs %}
@@ -630,14 +663,14 @@
     <p class="label">Para ti y tu familia</p>
     Este reporte es un punto de partida, no un veredicto. Acompáñalo con conversación
     {% if school_name %}con tu equipo de orientación de {{ school_name }} y {% endif %}
-    con un advisor de Grasshopper.
+    con un advisor de Mentoring.
   </div>
 
   <div class="contact-grid">
     <div>
-      <strong>Grasshopper</strong>
-      {{ contact_email_grasshopper }}<br />
-      {{ contact_url_grasshopper }}
+      <strong>Mentoring</strong>
+      {{ contact_email_mentoring }}<br />
+      {{ contact_url_mentoring }}
     </div>
     {% if school_name %}
     <div class="right">

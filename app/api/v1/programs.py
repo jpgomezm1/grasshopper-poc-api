@@ -370,7 +370,7 @@ def export_programs(
     wb.save(buf)
     buf.seek(0)
 
-    filename = f"grasshopper_catalog_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.xlsx"
+    filename = f"mentoring_catalog_{datetime.utcnow().strftime('%Y%m%d_%H%M%S')}.xlsx"
     return Response(
         content=buf.getvalue(),
         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",

@@ -1,4 +1,4 @@
-# Contexto para agentes · backend GrassHopper
+# Contexto para agentes · backend Mentoring
 
 > FastAPI + SQLAlchemy + Alembic · Python **3.11.7** (fijado en `runtime.txt`) · Heroku.
 > API de una plataforma de orientación profesional **en producción, con usuarios reales**,
@@ -101,6 +101,26 @@ dejando la auditoría vacía en silencio (ya pasó).
 
 Comentarios **en español y explicando el porqué**, no el qué. Este repo documenta sus
 decisiones no obvias en el propio código; mantenlo.
+
+---
+
+## Marca · Mentoring (rebrand 2026-08-19)
+
+El producto se llama **Mentoring**. Manual en `docs/Marca/` (un nivel arriba del repo).
+
+- **`app/services/brand.py` es la fuente única** de colores y `@font-face` para todo lo que
+  el backend imprime. Antes había tres paletas incompatibles —el reporte y los correos con
+  un morado del POC, la hoja de vida con el lima/azul viejo, el clínico con su verde— y
+  ninguna era la marca vigente. No vuelvas a escribir hex a mano en una plantilla.
+- **Los colores de riesgo del informe clínico NO son de marca** (rojo/ámbar/azul). Los lee
+  la psicóloga; no los toques por estética.
+- Las fuentes viven en `app/templates/static/fonts/`. WeasyPrint no sale a internet: se
+  referencian relativas al `base_url` (= `app/templates`).
+- **La mascota no tiene nombre propio.** En código sigue siendo "Hop" (`hop_chat_service`,
+  `/v1/hop/*`); en cualquier texto que vea el usuario —y en los prompts de `app/prompts/`—
+  es **"tu guía"**. Los prompts le prohíben explícitamente inventarse un nombre.
+- El dominio de los correos (`hola@grasshopper.co`) **no cambió**: sólo el nombre visible
+  del remitente. Está pendiente con el cliente.
 
 ---
 

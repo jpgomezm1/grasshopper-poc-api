@@ -37,6 +37,7 @@ from app.services.cv_variants import (
     ESTANDAR_POR_DEFECTO,
     ESTILO_POR_DEFECTO,
     debe_incluir_foto,
+    idioma_va_en_seccion,
     obtener_estandar,
     obtener_estilo,
 )
@@ -270,6 +271,10 @@ h2 {
 .activity ul { margin: 1mm 0 0 0; padding-left: 5mm; }
 .activity li { font-size: 9.5pt; margin: 0.5mm 0; }
 .muted { color: #9aa0ab; font-style: italic; }
+/* Cláusula legal del destino (RGPD en España) · más pequeña que el cuerpo pero
+   legible: es un texto con efecto jurídico, no una marca de agua. */
+.aviso-legal { margin-top: 7mm; padding-top: 2.5mm; border-top: 1px solid #E2DDD0;
+               color: #5b6470; font-size: 8.5pt; line-height: 1.4; }
 .footer { margin-top: 9mm; padding-top: 3mm; border-top: 1px solid #E2DDD0; color: #9aa0ab; font-size: 8pt; }
 """
 )
@@ -280,7 +285,9 @@ def _chips(items: List[str], navy: bool = False) -> str:
     return "".join(f'<span class="{cls}">{escape(str(i))}</span>' for i in items if i)
 
 
-def _html_header(cv: CVData, *, con_foto: bool = False) -> str:
+def _html_header(
+    cv: CVData, *, con_foto: bool = False, omitir_idioma: bool = False
+) -> str:
     contact_bits = []
     # A3 · "antes de generarla debe preguntar qué hago actualmente". Va primero
     # porque es lo que ubica a quien lee la hoja de vida.
@@ -292,7 +299,9 @@ def _html_header(cv: CVData, *, con_foto: bool = False) -> str:
         contact_bits.append(f"<span>🏫 {escape(cv.school_name)}</span>")
     if cv.grade:
         contact_bits.append(f"<span>Grado: <b>{escape(str(cv.grade))}</b></span>")
-    if cv.english_level:
+    # `omitir_idioma` lo decide el estándar: donde los idiomas tienen sección
+    # propia (España, Europass) repetirlos aquí se lee como descuido.
+    if cv.english_level and not omitir_idioma:
         contact_bits.append(f"<span>Inglés: <b>{escape(cv.english_level)}</b></span>")
     headline = f'<div class="headline">{escape(cv.headline)}</div>' if cv.headline else ""
     # `con_foto` ya viene decidido por el estándar (ver `cv_variants.debe_incluir_foto`).
@@ -333,6 +342,26 @@ def _html_profile(cv: CVData) -> str:
         parts.append("<h3 style='font-size:10pt;color:#B24310;margin:3mm 0 1mm;'>Valores</h3>")
         parts.append(f'<div class="chips">{_chips(cv.values)}</div>')
     return "".join(parts)
+
+
+def _html_idiomas(cv: CVData) -> str:
+    """Los idiomas como sección propia · sólo la piden algunos destinos.
+
+    Hoy la plataforma sólo certifica el nivel de inglés (test AMES · CEFR), así
+    que eso es lo único que sale. **No se lista ningún otro idioma aunque el
+    estudiante lo mencione en su perfil**: un nivel de idioma sin medir es
+    exactamente el tipo de dato duro que no inventamos.
+
+    Se nombra el marco como MCER además de CEFR porque en España y en Europass
+    ese es el nombre con el que se lee.
+    """
+    if not cv.english_level:
+        return ""
+    return (
+        "<h2>Idiomas</h2>"
+        f'<p class="summary">Inglés · nivel <b>{escape(cv.english_level)}</b> '
+        "<span class=\"muted\">(Marco Común Europeo de Referencia · MCER/CEFR)</span></p>"
+    )
 
 
 def _html_tests(cv: CVData) -> str:
@@ -386,6 +415,7 @@ def _html_activities(cv: CVData) -> str:
 # encabezado no está aquí porque no se reordena: siempre va primero.
 _SECCIONES = {
     "perfil": _html_profile,
+    "idiomas": _html_idiomas,
     "tests": _html_tests,
     "actividades": _html_activities,
 }
@@ -416,6 +446,14 @@ def render_cv_html(
         _SECCIONES[clave](cv) for clave in est.orden_secciones if clave in _SECCIONES
     )
 
+    # La cláusula legal del destino (RGPD en España) va ANTES del pie de
+    # Mentoring: es parte del documento de la persona, no de nuestra firma.
+    aviso = (
+        f'<p class="aviso-legal">{escape(est.aviso_legal)}</p>'
+        if est.aviso_legal
+        else ""
+    )
+
     return f"""<!doctype html>
 <html lang="es-CO">
 <head>
@@ -424,8 +462,9 @@ def render_cv_html(
   <style>{CSS}{sty.css}</style>
 </head>
 <body>
-  {_html_header(cv, con_foto=con_foto)}
+  {_html_header(cv, con_foto=con_foto, omitir_idioma=idioma_va_en_seccion(est))}
   {cuerpo}
+  {aviso}
   <div class="footer">
     Hoja de Vida generada con Mentoring · {escape(cv.generated_on)} ·
     documento personal del estudiante.

@@ -137,6 +137,23 @@ class School(Base):
     # Independiente de `secondary_color` (uso interno school_admin).
     branding_primary_color = Column(String(20), nullable=True)
 
+    # ---- Materias que ofrece el colegio · cimientos malla completa (migración 068) ----
+    # Lista de strings (p.ej. ["Cálculo", "Física", "Programación"]). NULL =
+    # todavía no se cargó (no es lo mismo que "colegio sin electivas": eso
+    # sería lista vacía). Es un dato del COLEGIO, no del estudiante — constante
+    # para todos los alumnos de ese `school_id`, por eso vive aquí y no en
+    # `User` ni en `ExtracurricularActivity`.
+    #
+    # OJO para quien construya la recomendación de electivas (otro agente de
+    # esta misma corrida): esta columna hoy NO la escribe ni la lee ningún
+    # endpoint — es sólo el cimiento. Falta decidir y conectar: (a) quién la
+    # llena (formulario school_admin, import masivo, o inferencia desde lo que
+    # el estudiante reporta) y (b) quién la lee (el motor de electivas). No
+    # repetir aquí el error típico de este repo (campo que nadie escribe o que
+    # nadie lee) — conectar ambos lados en el mismo cambio cuando se aborde esa
+    # fase, no antes.
+    subjects_offered = Column(JSON, nullable=True)
+
     # Reverse relation to users that belong to this school
     users = relationship("User", back_populates="school")
     licenses = relationship(
@@ -2412,6 +2429,16 @@ class ExtracurricularActivity(Base):
     Etapa 1 (este sprint): CRUD + UI básica.
     Etapa 2 (sprint siguiente): IA gap analysis vs carrera objetivo.
     Etapa 3: CV PDF builder.
+
+    NOTA (2026-08-25 · reunión clienta 2026-08-24, "capitán del equipo de
+    fútbol / spelling bee en noveno"): ESTA es la tabla de "logros del
+    estudiante" que pidió la clienta. `category` ya cubre liderazgo
+    ("leadership") · deportivo ("sport") · académico ("academic") ·
+    artístico ("arts") · voluntariado ("volunteering") · otro ("other"),
+    más "work" que no pidió pero no estorba. Ya está conectada al perfil
+    consolidado / SOP (`consolidation_service._gather_activities`) y a la
+    hoja de vida (`cv_pdf_service.py`, `cv_docx_service.py`). No crear una
+    tabla nueva de "logros" — es esta.
     """
 
     __tablename__ = "extracurricular_activities"

@@ -72,6 +72,10 @@ from app.api.v1 import (
     hop_chat,
     career_gap,
     year_checkin,
+    electives,
+    journey_chat,
+    tools,
+    exam_prep,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -288,6 +292,25 @@ app.include_router(career_gap.router_professional, prefix="/api/v1")
 # Malla completa · fase 2 (memoria entre años) · qué dijo el año pasado vs hoy
 # + check-in de evolución cuando vuelve en un grado nuevo
 app.include_router(year_checkin.router, prefix="/api/v1")
+# Reunión clienta 2026-08-24 · materias electivas recomendadas según el área
+# de estudio ya declarada (y el colegio, si ya cargó qué ofrece)
+app.include_router(electives.router, prefix="/api/v1")
+
+# JR-JOURNEY-CHAT · el Journey como chat continuo (JP, reunión 24-08) ·
+# aditivo y detrás de un flag propio (`journey_chat.FLAG`) · el wizard de
+# siempre (`sessions.router`) no se toca.
+app.include_router(journey_chat.router, prefix="/api/v1")
+
+# Reunión clienta/JP 2026-08-24 (13:48) · la sección "Herramientas": las tres
+# mini apps (Statement of Purpose · copy de postulación a un trabajo · hoja de
+# vida por país). La tercera no tiene endpoints propios: es el selector de
+# destino del CV, que ya vive en `cv.py`.
+app.include_router(tools.router, prefix="/api/v1")
+
+# Reunión clienta 2026-08-24 (40:22) · práctica para SAT e IELTS · material
+# propio, NO el examen: *"yo lo que necesito es pasar el test, no que nadie me
+# certifique"*. El encuadre legal completo está en `app/data/exam_prep.py`.
+app.include_router(exam_prep.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

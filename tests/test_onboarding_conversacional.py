@@ -98,11 +98,19 @@ def test_lo_duro_se_pregunta_primero():
     pide permiso a los padres y el otro qué nivel se le puede ofrecer.
 
     El presupuesto SALIO de aquí: a un estudiante de 16 no se le pregunta cuánto
-    puede pagar su familia."""
-    orden = cat.faltantes({})
+    puede pagar su familia.
 
-    assert set(orden[:len(cat.DUROS)]) == set(cat.DUROS)
+    `birthdate` ya no puede aparecer junto con `life_stage` en el estado
+    vacío: desde AH 24-08 sólo se pregunta a colegio (`SOLO_PERFIL`), y saber
+    que es colegio requiere que `life_stage` YA esté respondido — por
+    definición deja de estar "faltante". Por eso el primer duro pendiente en
+    `{}` es sólo `life_stage`; en cuanto se conoce la etapa (colegio),
+    `birthdate` pasa a ser lo primero de lo que sigue pendiente."""
+    assert cat.faltantes({})[0] == "life_stage"
     assert "budget" not in cat.DUROS
+
+    orden_colegio = cat.faltantes({"life_stage": "high_school"})
+    assert orden_colegio[0] == "birthdate"
 
 
 def test_se_cierra_sin_haber_preguntado_las_catorce():
@@ -297,6 +305,60 @@ def test_a_un_estudiante_de_colegio_NO_se_le_pregunta_el_presupuesto():
     assert "budget" not in cat.faltantes({"life_stage": "high_school"})
     assert "budget" not in cat.faltantes({"life_stage": "high_school_early"})
     assert cat.SOLO_PERFIL["budget"] == (cat.PERFIL_PROFESIONAL,)
+
+
+# ---------------------------------------------------------------------------
+# El año de nacimiento · AH, reunión 24-08
+# ---------------------------------------------------------------------------
+# AH: *"y por ejemplo para que le preguntan que ano naciste? ya me esta
+# diciendo que se gradua en noviembre, eso es lo que necesito saber. y si
+# fuera un profesional pues yo ya no necesito saber la edad"*.
+#
+# Tiene razón para el profesional (deja de preguntarse del todo) pero NO para
+# colegio: ahí la deducción desde el grado es ambigua (un mismo grado agrupa
+# edades distintas) y el dato alimenta el gate legal de menores, así que
+# sigue siendo obligatorio — se documenta en el código junto a `SOLO_PERFIL`.
+
+
+def test_a_un_profesional_NO_se_le_pregunta_el_ano_de_nacimiento():
+    """Ya es adulto por definición del perfil · preguntárselo es la misma
+    fricción de formulario de la que se quejó la clienta."""
+    for etapa in ("university", "recent_grad", "working", "career_change"):
+        assert "birthdate" not in cat.faltantes({"life_stage": etapa}), etapa
+    assert cat.SOLO_PERFIL["birthdate"] == (cat.PERFIL_COLEGIO,)
+
+
+def test_a_colegio_SI_se_le_sigue_preguntando_el_ano_de_nacimiento():
+    """La deducción desde el grado es ambigua (un 11° puede tener 16 o 18
+    años) y de eso depende si se pide consentimiento parental — un daño legal
+    si se equivoca, no una molestia de producto."""
+    for etapa in ("high_school_early", "high_school"):
+        assert "birthdate" in cat.faltantes({"life_stage": etapa}), etapa
+
+
+def test_el_ano_de_nacimiento_ya_no_bloquea_el_cierre_de_un_profesional():
+    """Antes vivía en el `OBLIGATORIOS` global · ahora sólo bloquea a quien
+    está en colegio (`OBLIGATORIO_SI_PERFIL`), igual que `grade`."""
+    from app.data.adult_track_hechos import OBLIGATORIOS_ADULTO_IDS
+
+    completo = {i: "x" for i in cat.OBLIGATORIOS}
+    completo.update({i: "x" for i in OBLIGATORIOS_ADULTO_IDS})
+    completo["life_stage"] = "working"
+
+    assert "birthdate" not in cat.OBLIGATORIOS
+    assert cat.OBLIGATORIO_SI_PERFIL["birthdate"] == (cat.PERFIL_COLEGIO,)
+    assert cat.listo_para_cerrar(completo) is True
+
+
+def test_el_ano_de_nacimiento_SIGUE_bloqueando_el_cierre_de_colegio():
+    sin_nacimiento = {
+        "life_stage": "high_school", "grade": "11", "main_goal": ["discover"],
+        "voice_passion": "x", "voice_strengths": "x",
+    }
+    assert not cat.listo_para_cerrar(sin_nacimiento)
+
+    con_nacimiento = {**sin_nacimiento, "birthdate": 2008}
+    assert cat.listo_para_cerrar(con_nacimiento)
 
 
 def test_el_presupuesto_sigue_pudiendo_guardarse():
@@ -727,3 +789,51 @@ def test_grado_sin_contexto_se_degrada_al_comportamiento_anterior():
     rotado = conv._rotar_dentro_del_tramo(faltan, faltan)
 
     assert rotado[0] != "grade"
+
+
+# ---------------------------------------------------------------------------
+# El saludo fijo · AH, reunión 24-08
+# ---------------------------------------------------------------------------
+# AH, 04:27: *"como primera retroalimentacion sobran los de opciones,
+# solamente antes de, o sea quiero hacerte unas preguntas para conocerte
+# mejor y poder orientarte"*. Y 03:53: *"primero que todo queremos conocerte,
+# pero mas que que te apasiona, pues como en que estas, o sea hoy estas en
+# noveno, estas en decimo, estas en once, estas en doce, eres un
+# profesional"*.
+#
+# Es texto fijo (no lo genera el modelo) porque la clienta revisa el copy —
+# ver `conv.primer_mensaje`.
+
+
+def test_el_saludo_no_menciona_opciones():
+    """Encuadraba mal el producto: quien llega a Mentoring no busca opciones,
+    busca quién lo guíe (AH, 02:18)."""
+    assert "opciones" not in conv.SALUDO.lower()
+
+
+def test_el_saludo_pregunta_primero_por_la_etapa_no_por_la_pasion():
+    """Antes abría preguntando qué le apasiona, contradiciendo el orden real
+    de la conversación: `ORDEN_CONVERSACION` ya pide `life_stage` de primero.
+    El saludo tiene que abrir con lo mismo que el motor va a preguntar."""
+    saludo = conv.SALUDO.lower()
+
+    assert "etapa" in saludo
+    assert any(g in saludo for g in ("noveno", "décimo", "once", "doce"))
+    assert "profesional" in saludo
+    # Ya no es lo primero que se pregunta.
+    assert "apasiona" not in saludo
+
+
+def test_el_saludo_no_le_inventa_nombre_a_la_guia():
+    """El personaje lo diseña JP, no un agente · en texto visible sigue siendo
+    "tu guía", nunca un nombre propio."""
+    assert "tu guía" in conv.SALUDO
+    # Nombres que NO debe inventarse (ninguno pedido por el cliente todavía).
+    for nombre_prohibido in ("Hop", "hop"):
+        assert nombre_prohibido not in conv.SALUDO
+
+
+def test_primer_mensaje_es_el_saludo_fijo():
+    """No lo genera el modelo: sería distinto en cada sesión y la clienta
+    revisa el copy."""
+    assert conv.primer_mensaje() == conv.SALUDO

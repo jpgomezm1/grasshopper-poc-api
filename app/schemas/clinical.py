@@ -11,7 +11,7 @@ Surfaces:
 """
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import date, datetime
 from typing import Any, Dict, List, Literal, Optional
 from uuid import UUID
 
@@ -78,6 +78,23 @@ class DossierAspirations(BaseModel):
     inferred: List[str] = []  # del consolidated profile (suggested_career_paths)
 
 
+class DossierActivity(BaseModel):
+    """Un logro/actividad extracurricular en el dossier · reunión clienta 2026-08-24.
+
+    Mismos campos que `ExtracurricularOut` (`app/schemas/extracurriculars.py`) sin
+    `id`/`user_id`/timestamps: el dossier es de solo lectura para el advisor/psy,
+    no un CRUD.
+    """
+    category: str
+    name: str
+    role: Optional[str] = None
+    hours_per_week: Optional[int] = None
+    start_date: Optional[date] = None
+    end_date: Optional[date] = None
+    description: Optional[str] = None
+    achievements: List[str] = []
+
+
 class DossierResponse(BaseModel):
     """Full dossier payload · keys map to UI sections."""
     student_user_id: UUID
@@ -87,6 +104,10 @@ class DossierResponse(BaseModel):
     journey_answers: Dict[str, Any] = {}  # raw onboarding answers (for hobbies/family/academic captured ahí)
     has_consolidated_profile: bool = False
     tests_completed_count: int = 0
+    # Reunión clienta 2026-08-24 · "capitán del equipo de fútbol / spelling bee":
+    # el advisor/psy necesita ver los logros del estudiante en el dossier, no
+    # sólo en el CV. Lee `ExtracurricularActivity` (F-001), no crea nada nuevo.
+    activities: List[DossierActivity] = []
 
 
 # ---------------------------------------------------------------------------

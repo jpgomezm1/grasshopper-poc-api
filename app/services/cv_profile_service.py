@@ -215,7 +215,7 @@ def save_formato(
     aquí: dos listas de estándares que se desincronizan es exactamente el bug
     que este repo ya pagó dos veces.
     """
-    from app.services.cv_variants import ESTANDARES, ESTILOS
+    from app.services.cv_variants import ESTILOS, canonico
 
     profile = get_profile(db, user_id)
     if profile is None:
@@ -223,9 +223,15 @@ def save_formato(
         db.add(profile)
 
     if estandar is not None:
-        if estandar not in ESTANDARES:
+        # `canonico()` y no `in ESTANDARES`: desde que "colombia" es un alias de
+        # "latam" hay dos nombres válidos para el mismo destino, y lo que se
+        # GUARDA tiene que ser siempre el canónico. Si aquí quedara "colombia",
+        # el render lo resolvería igual pero la preferencia guardada tendría una
+        # clave que el catálogo no muestra, y el selector saldría en blanco.
+        clave = canonico(estandar)
+        if clave is None:
             raise ValueError(f"estándar desconocido: {estandar}")
-        profile.estandar = estandar
+        profile.estandar = clave
 
     if estilo is not None:
         if estilo not in ESTILOS:

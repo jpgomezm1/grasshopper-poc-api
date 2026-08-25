@@ -96,6 +96,28 @@ def create_snapshot(
                 for vr in voc_results
             ]
 
+            # Reunión clienta 2026-08-24 · el snapshot es el export que se
+            # lleva el estudiante (print-to-PDF): sus logros ("capitán del
+            # equipo de fútbol") deben salir ahí igual que sus tests, no sólo
+            # en la hoja de vida.
+            from app.services.extracurricular_service import list_activities_for_user
+
+            act_rows, _total = list_activities_for_user(db, user.id)
+            profile_data["activities"] = [
+                {
+                    "category": a.category,
+                    "name": a.name,
+                    "role": a.role,
+                    "hours_per_week": a.hours_per_week,
+                    "en_curso": a.end_date is None,
+                    "description": a.description,
+                    "achievements": [
+                        str(x) for x in (a.achievements or []) if x
+                    ],
+                }
+                for a in act_rows
+            ]
+
     # Create snapshot
     snapshot = Snapshot(
         session_id=session_id,

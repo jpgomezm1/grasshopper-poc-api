@@ -24,6 +24,7 @@ from sqlalchemy.orm import Session as DBSession
 from app.db.models import (
     DOSSIER_SECTIONS,
     ConsolidatedProfileCache,
+    ExtracurricularActivity,
     School,
     Session,
     StudentDossierNote,
@@ -31,6 +32,7 @@ from app.db.models import (
     VocationalTestResult,
 )
 from app.schemas.clinical import (
+    DossierActivity,
     DossierAspirations,
     DossierDemographics,
     DossierNoteOut,
@@ -179,6 +181,40 @@ def _build_aspirations(
     )
 
 
+def _build_activities(db: DBSession, student: User) -> List[DossierActivity]:
+    """Logros/actividades extracurriculares del estudiante · reunión clienta
+    2026-08-24 ("capitán del equipo de fútbol / spelling bee en noveno").
+
+    Reusa `ExtracurricularActivity` (F-001, ya existente) — el dossier no
+    inventa una tabla propia, sólo lee y proyecta a `DossierActivity`.
+    """
+    filas = (
+        db.query(ExtracurricularActivity)
+        .filter(ExtracurricularActivity.user_id == student.id)
+        .order_by(
+            ExtracurricularActivity.end_date.is_(None).desc(),
+            ExtracurricularActivity.start_date.desc().nullslast(),
+        )
+        .all()
+    )
+    salida: List[DossierActivity] = []
+    for a in filas:
+        logros = a.achievements if isinstance(a.achievements, list) else []
+        salida.append(
+            DossierActivity(
+                category=a.category,
+                name=a.name,
+                role=a.role,
+                hours_per_week=a.hours_per_week,
+                start_date=a.start_date,
+                end_date=a.end_date,
+                description=a.description,
+                achievements=[str(x) for x in logros if x],
+            )
+        )
+    return salida
+
+
 def _note_to_out(
     note: StudentDossierNote, advisor_name: Optional[str] = None
 ) -> DossierNoteOut:
@@ -244,6 +280,7 @@ def build_dossier(db: DBSession, student: User) -> DossierResponse:
         journey_answers=answers,
         has_consolidated_profile=has_profile,
         tests_completed_count=tests_count,
+        activities=_build_activities(db, student),
     )
 
 

@@ -1,0 +1,56 @@
+Vas a escribir el BORRADOR de un Statement of Purpose (carta de motivación) para
+una persona que quiere postularse a un programa concreto de una universidad
+concreta. Ella lo va a editar y lo va a firmar con su nombre.
+
+{idioma_instruccion}
+
+REGLAS DURAS — las dos primeras son las que no se negocian:
+
+1. **NO INVENTES NADA SOBRE ELLA.** Sólo puedes usar lo que aparece abajo en su
+   perfil: sus tests, sus actividades, sus logros, lo que ella misma escribió.
+   No agregues un premio, un voluntariado, un curso, un viaje, un idioma ni una
+   experiencia que no esté ahí. Este ensayo llega a un comité de admisiones real
+   y un dato falso la descalifica.
+
+2. **NO INVENTES NADA SOBRE LA UNIVERSIDAD NI SOBRE EL PROGRAMA.** No sabes su
+   ranking, ni el nombre de sus profesores, ni sus materias, ni sus fechas, ni
+   sus requisitos, ni cuántos estudiantes acepta. Si el párrafo necesita un dato
+   así, escríbelo entre corchetes como instrucción para ella. Ejemplos:
+     - "me interesa especialmente [completa aquí: el nombre de un curso o
+       laboratorio de este programa que te llame la atención]"
+     - "quiero trabajar con [completa aquí: nombre de un profesor del programa y
+       en qué investiga]"
+   Y repite cada corchete, en su propio renglón, dentro de `que_debes_completar`.
+
+3. **Nada de cifras.** Ni de dinero, ni porcentajes, ni rankings, ni puntajes
+   que no aparezcan abajo tal cual.
+
+4. Escribe en primera persona, con voz sobria y concreta. Prohibido el cliché de
+   apertura ("desde muy pequeño soñé con...", "siempre me ha apasionado..."). Se
+   empieza por un hecho suyo, no por una declaración de amor a la disciplina.
+
+5. Entre 4 y 6 párrafos. Un arco claro:
+     - qué la trajo hasta aquí (un hecho concreto de su trayectoria);
+     - qué demuestra que va en serio (lo que hizo, con nombre propio: sus
+       actividades, sus logros, sus resultados de tests si aportan);
+     - por qué ESTE programa y ESTA universidad (aquí van los corchetes);
+     - qué aporta ella al grupo;
+     - qué quiere hacer después.
+
+6. Si su perfil viene casi vacío, **escribe corto y dilo**: es mejor un borrador
+   honesto de tres párrafos que uno largo relleno de aire. No compenses la falta
+   de información con adjetivos.
+
+7. `puntos_usados`: lista los datos concretos de su perfil que usaste, uno por
+   renglón, tal como aparecen abajo. Sirve para que ella verifique de dónde salió
+   cada afirmación. Si algo no está en esa lista, es que no debería estar en el
+   ensayo.
+
+=== A DÓNDE SE POSTULA ===
+{destino}
+
+=== LO QUE ELLA CONTÓ SOBRE POR QUÉ QUIERE ESTE PROGRAMA ===
+{motivacion}
+
+=== SU PERFIL · ES LO ÚNICO CIERTO QUE TIENES SOBRE ELLA ===
+{hoja_de_vida}

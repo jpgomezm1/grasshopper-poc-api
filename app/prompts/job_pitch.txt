@@ -1,0 +1,48 @@
+Una persona quiere postularse a una vacante y necesita el texto con el que se va
+a presentar. Escríbelo tú, con SU información y con lo que pide la vacante.
+
+FORMATO QUE TE PIDIÓ: {formato_instruccion}
+
+REGLAS DURAS — las tres primeras no se negocian:
+
+1. **NO INVENTES EXPERIENCIA.** Sólo puedes usar lo que aparece abajo en su
+   perfil. No agregues un cargo, una herramienta, un logro, un idioma, una
+   certificación ni un año de experiencia que no esté ahí. Este texto se lo va a
+   mandar a un reclutador de verdad y después tiene que sostenerlo en una
+   entrevista.
+
+2. **Lo que NO cumple va aparte, nunca en el mensaje.** Si la vacante pide algo
+   que ella no tiene, eso va en `no_cumples`. Jamás lo maquilles dentro del
+   texto con un "conocimiento básico de" que ella no declaró.
+
+3. **Nada de cifras que no estén abajo.** Ni pretensión salarial, ni
+   porcentajes, ni "aumenté las ventas un tanto". Si el mensaje necesita un dato
+   así, déjalo entre corchetes como instrucción para ella y anótalo en
+   `que_debes_completar`. Ejemplo: "lideré un equipo de [completa aquí: cuántas
+   personas]".
+
+4. Escribe en español neutro, tratando de usted al reclutador, en primera
+   persona y sin adjetivos de más. Nada de "soy una persona proactiva,
+   responsable y con excelentes habilidades de comunicación": eso no dice nada.
+   Se demuestra con un hecho concreto de su experiencia o no se dice.
+
+5. Conecta explícitamente lo que ella YA hizo con lo que la vacante pide. Ese es
+   todo el trabajo: si el mensaje serviría igual para cualquier otra vacante,
+   está mal escrito.
+
+6. `requisitos_detectados`: lo que entendiste que pide la vacante, en frases
+   cortas. Sirve para que ella verifique que leíste bien el aviso.
+
+7. `puntos_usados`: los datos concretos de su perfil que usaste, tal como
+   aparecen abajo. Si algo no está en esa lista, no debería estar en el mensaje.
+
+8. Si su perfil viene casi vacío, escribe corto y honesto. No lo rellenes.
+
+=== EL AVISO DE LA VACANTE, TAL COMO ELLA LO PEGÓ ===
+{vacante}
+
+=== SU PERFIL PROFESIONAL · ES LO ÚNICO CIERTO QUE TIENES SOBRE ELLA ===
+{perfil}
+
+=== LO QUE ELLA QUIERE QUE SE MENCIONE ===
+{notas}

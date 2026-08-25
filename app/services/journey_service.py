@@ -223,6 +223,7 @@ def _ai_inputs_hash(
     answers: Optional[dict],
     onboarding: Optional[dict],
     tests: Optional[str] = None,
+    activities: Optional[list] = None,
 ) -> str:
     """Hash estable de los inputs que alimentan la generación IA de un paso.
 
@@ -233,9 +234,18 @@ def _ai_inputs_hash(
     viera sus rutas y después hiciera un test seguiría viendo las de antes,
     generadas sin mirar ningún test. Es el defecto de "campo que nadie lee" en
     otra forma — el mismo que este repo ya cometió cuatro veces.
+
+    `activities` (reunión clienta 2026-08-24 · conexión JR-7 a este pipeline):
+    sin esto, un estudiante que registra un logro nuevo seguiría viendo la
+    misma reflexión/síntesis/rutas cacheadas hasta que cambiara otra respuesta.
     """
     payload = json.dumps(
-        {"a": answers or {}, "o": onboarding or {}, "t": tests or ""},
+        {
+            "a": answers or {},
+            "o": onboarding or {},
+            "t": tests or "",
+            "act": activities or [],
+        },
         sort_keys=True,
         ensure_ascii=False,
         default=str,
@@ -394,18 +404,23 @@ def build_journey_response(
     # respuestas de Hop ("ya me contaste que…") en vez de sonar genérico.
     # Solo se consulta en pasos con IA; None si la sesión es anónima.
     onboarding = None
+    activities = None
     if session.user_id is not None and step.view_type in (
         ViewType.REFLECTION,
         ViewType.ROUTES_PICKER,
     ):
         owner = db.query(User).filter(User.id == session.user_id).first()
         onboarding = owner.onboarding_answers if owner else None
+        # JR-7 en este pipeline (reunión clienta 2026-08-24): el logro que el
+        # estudiante registró debe poder citarse en la reflexión/síntesis/rutas,
+        # no solo en el perfil consolidado.
+        activities = _owner_activities(db, session)
 
     if step.view_type == ViewType.REFLECTION:
         if step.id == "empathy":
             why_here = answers.get("whyHere", "")
             if why_here:
-                h = _ai_inputs_hash({"whyHere": why_here}, onboarding)
+                h = _ai_inputs_hash({"whyHere": why_here}, onboarding, activities=activities)
                 cached = _ai_cache_get(session, "empathy", h)
                 if cached is None:
                     reflection = generate_empathy_reflection(
@@ -414,12 +429,13 @@ def build_journey_response(
                         db=db,
                         user_id=session.user_id,
                         onboarding=onboarding,
+                        activities=activities,
                     )
                     cached = {"text": reflection.text}
                     _ai_cache_put(db, session, "empathy", h, cached)
                 response.reflection_content = cached["text"]
         elif step.id == "synthesis":
-            h = _ai_inputs_hash(answers, onboarding)
+            h = _ai_inputs_hash(answers, onboarding, activities=activities)
             cached = _ai_cache_get(session, "synthesis", h)
             if cached is None:
                 synthesis = generate_synthesis(
@@ -428,6 +444,7 @@ def build_journey_response(
                     db=db,
                     user_id=session.user_id,
                     onboarding=onboarding,
+                    activities=activities,
                 )
                 cached = {
                     "text": synthesis.text,
@@ -451,7 +468,7 @@ def build_journey_response(
 
         tests_block = format_tests_for_prompt(db, session.user_id)
         # El hash incluye los tests · si hace uno nuevo, las rutas se regeneran.
-        h = _ai_inputs_hash(answers, onboarding, tests_block)
+        h = _ai_inputs_hash(answers, onboarding, tests_block, activities=activities)
         cached = _ai_cache_get(session, "routes", h)
         if cached is None:
             routes_output = generate_routes(
@@ -461,6 +478,7 @@ def build_journey_response(
                 user_id=session.user_id,
                 onboarding=onboarding,
                 tests_block=tests_block,
+                activities=activities,
             )
             cached = {
                 "routes": [
@@ -654,6 +672,40 @@ def _owner_onboarding(db: DBSession, session: Session) -> Optional[dict]:
     return owner.onboarding_answers if owner else None
 
 
+def _owner_activities(db: DBSession, session: Session) -> Optional[List[Dict[str, Any]]]:
+    """Logros/actividades extracurriculares del dueño de la sesión (None si anónima).
+
+    Reunión clienta 2026-08-24 · conexión JR-7 a este pipeline: `ai_service`
+    (reflection/synthesis/routes) es un pipeline distinto del perfil
+    consolidado y no leía `ExtracurricularActivity`. Mismo shape que
+    `consolidation_service._gather_activities` (no se importa esa función
+    privada de otro servicio; se construye igual aquí para no acoplar los dos
+    pipelines) para que ambos describan las actividades de la misma forma.
+    """
+    if session.user_id is None:
+        return None
+    from app.services.extracurricular_service import list_activities_for_user
+
+    rows, _total = list_activities_for_user(db, session.user_id)
+    if not rows:
+        return None
+    salida: List[Dict[str, Any]] = []
+    for a in rows:
+        logros = a.achievements if isinstance(a.achievements, list) else []
+        salida.append(
+            {
+                "category": a.category,
+                "name": a.name,
+                "role": a.role,
+                "hours_per_week": a.hours_per_week,
+                "en_curso": a.end_date is None,
+                "description": a.description,
+                "achievements": [str(x) for x in logros if x],
+            }
+        )
+    return salida
+
+
 def contexto_de_navegacion(db: DBSession, session: Session) -> dict:
     """Lo que decide saltos y NO se puede deducir de las respuestas (JR-2).
 
@@ -711,7 +763,8 @@ def _create_journal_entry_for_reflection(
         # paso). Antes se generaba OTRA síntesis con una segunda llamada IA
         # (sin contexto de onboarding) → el diario guardaba un texto distinto.
         onboarding = _owner_onboarding(db, session)
-        h = _ai_inputs_hash(answers, onboarding)
+        activities = _owner_activities(db, session)
+        h = _ai_inputs_hash(answers, onboarding, activities=activities)
         cached = _ai_cache_get(session, "synthesis", h) or _ai_cache_get_any(
             session, "synthesis"
         )
@@ -722,6 +775,7 @@ def _create_journal_entry_for_reflection(
                 db=db,
                 user_id=session.user_id,
                 onboarding=onboarding,
+                activities=activities,
             )
             cached = {"text": synthesis.text}
             # no _ai_cache_put: el render del paso lo cacheará con su shape completo
@@ -758,7 +812,8 @@ def _handle_route_selection(
     coincidían y la elección se perdía en silencio.
     """
     onboarding = _owner_onboarding(db, session)
-    h = _ai_inputs_hash(answers, onboarding)
+    activities = _owner_activities(db, session)
+    h = _ai_inputs_hash(answers, onboarding, activities=activities)
     cached = _ai_cache_get(session, "routes", h) or _ai_cache_get_any(session, "routes")
     routes = (cached or {}).get("routes") or []
 

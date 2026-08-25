@@ -24,7 +24,9 @@ porque un error en ellos no es una molestia sino un daño:
 
 - **`birthdate`** · alimenta el gate de consentimiento parental. Deducir el año de
   nacimiento de una charla y equivocarse significa dejar entrar a un menor sin el
-  consentimiento de sus padres, o bloquear a un mayor. Se pregunta y se confirma.
+  consentimiento de sus padres, o bloquear a un mayor. Se pregunta y se confirma
+  **sólo cuando hace falta** — ver "Cuándo se pregunta el año de nacimiento" más
+  abajo, junto a `SOLO_PERFIL`.
 - **`life_stage`** · es filtro duro del recomendador (`academic_level`). Si dice
   "universidad" cuando está en el colegio, le aparecen maestrías.
 - **`budget`** · define qué se le muestra como alcanzable.
@@ -115,6 +117,43 @@ def perfil(recolectados: Dict[str, Any]) -> Optional[str]:
 # El campo nunca se borró: existe en `onboarding_answers` y también lo puede
 # llenar el asesor o el papá desde su panel, y de ahí sale `user.budget_band`
 # que usa el recomendador.
+#
+# **Cuándo se pregunta el año de nacimiento.** AH, reunión 24-08, sobre
+# `birthdate`: *"y por ejemplo para que le preguntan que ano naciste? ya me
+# esta diciendo que se gradua en noviembre, eso es lo que necesito saber. y si
+# fuera un profesional pues yo ya no necesito saber la edad"*.
+#
+# Tiene razón en la mitad de los casos, no en todos:
+#
+# - **Profesional** → nunca hace falta. Ya es adulto por definición del perfil
+#   (`university | recent_grad | working | career_change`) y el gate de
+#   menores no le aplica. Preguntárselo es la misma fricción de formulario de
+#   la que se quejó.
+# - **Colegio** → SIGUE preguntándose, a propósito. La sugerencia de la
+#   clienta es deducirlo del grado, pero esa deducción es ambigua: un
+#   estudiante de 11° puede tener 16 años o puede tener 18 (repitió año,
+#   entró tarde, currículo bilingüe con un año extra…), y justo esa frontera
+#   —16 años— es el umbral que usa `parental_consent_service.
+#   MINOR_AGE_THRESHOLD` para decidir si se bloquea hasta tener consentimiento
+#   de un acudiente. Adivinar mal en esa frontera dejaría entrar a un menor
+#   sin permiso de sus padres, que es un daño legal (Ley 1581/2012), no una
+#   molestia de producto — la misma razón por la que este campo ya estaba en
+#   `DUROS`. "Si la deducción es ambigua, se pregunta" gana sobre "sobra
+#   preguntarlo".
+#
+# NOTA para quien mantenga `app/services/consent_service.py` (fuera del
+# alcance de este archivo): `is_minor()` ahí trata `birthdate is None` como
+# "es menor" (default-deny), pensado para no dejar pasar a nadie sin dato. Un
+# profesional que nunca da su año de nacimiento por este cambio queda con
+# `birthdate = None` en su fila, así que ese gate (usado por `has_crm_consent`
+# y `can_send_communications`, NO por el bloqueo real de acceso —ver
+# `parental_consent_service.needs_parental_consent`, que con NULL no
+# bloquea—) lo seguirá tratando como menor para sincronizar a CRM o mandarle
+# comunicaciones. No es un problema nuevo de este cambio (ya le pasaba a
+# cualquier usuario sin `birthdate` cargada por otra vía) pero si el volumen
+# de profesionales que caen ahí importa, alguien con alcance sobre
+# `consent_service.py` debería considerar que `life_stage` en
+# `PERFIL_PROFESIONAL` es, por sí solo, evidencia razonable de mayoría de edad.
 SOLO_PERFIL: Dict[str, tuple] = {
     "budget": (PERFIL_PROFESIONAL,),
     # El grado y los datos del colegio sólo tienen sentido para quien todavía
@@ -123,6 +162,9 @@ SOLO_PERFIL: Dict[str, tuple] = {
     "grade": (PERFIL_COLEGIO,),
     "school_last_grade": (PERFIL_COLEGIO,),
     "school_accreditation": (PERFIL_COLEGIO,),
+    # Ver el bloque de comentario arriba · sólo se pregunta a quien está en
+    # colegio, nunca a un profesional.
+    "birthdate": (PERFIL_COLEGIO,),
 }
 
 # ---------------------------------------------------------------------------
@@ -211,12 +253,21 @@ SOLO_SI_ACREDITACION: Dict[str, tuple] = {
 # excluye— así que no hace falta que estos dos DE los mismos requisitos
 # discrepen entre sí.
 #
+# `birthdate` entra aquí por el mismo motivo, AH 24-08: sigue siendo
+# obligatorio para colegio (alimenta el gate de menores y el grado solo no
+# permite deducirlo con confianza — ver el comentario largo junto a
+# `SOLO_PERFIL`), y para un profesional deja de serlo del todo: no sólo no se
+# pregunta, tampoco puede bloquear un cierre que nunca le va a pedir el dato.
+# Antes vivía en el `OBLIGATORIOS` global (aplicaba a los dos perfiles); se
+# movió aquí para que el profesional deje de arrastrarlo.
+#
 # Las tres claves del profesional (`career_linkedin_profile_text`,
 # `career_job_satisfaction_score`, `career_target_role`) se suman más abajo,
 # en el bloque "Enganche de la ruta profesional" — mismo mecanismo, sin
 # necesidad de tocar esta tupla ahora que ya está definida.
 OBLIGATORIO_SI_PERFIL: Dict[str, tuple] = {
     "grade": (PERFIL_COLEGIO,),
+    "birthdate": (PERFIL_COLEGIO,),
 }
 
 
@@ -241,8 +292,13 @@ def es_obligatorio(hecho_id: str, recolectados: Dict[str, Any]) -> bool:
 # Con esto Hop ya puede orientar. Son los que describen a la PERSONA y su
 # momento, no su logística: eso es lo que un orientador necesita para hablar con
 # sentido, y lo demás puede llegar después.
-OBLIGATORIOS = ("life_stage", "birthdate", "voice_passion", "voice_strengths",
-                "main_goal")
+#
+# `birthdate` NO está aquí: dejó de ser global cuando se le pidió que un
+# profesional no lo cargara — ahora vive en `OBLIGATORIO_SI_PERFIL`,
+# condicionado a colegio, igual que `grade`. `life_stage` sigue siendo el
+# único hecho que de verdad aplica a los dos perfiles siempre: es justo el
+# que decide cuál es cada perfil.
+OBLIGATORIOS = ("life_stage", "voice_passion", "voice_strengths", "main_goal")
 
 HECHOS: List[Hecho] = [
     Hecho(
@@ -270,7 +326,12 @@ HECHOS: List[Hecho] = [
         onboarding_key="birthdate",
         obligatorio=True,
         alarma=True,
-        nota="Alimenta el gate de consentimiento parental · confirmar SIEMPRE",
+        # OJO: igual que en `grade`, el campo `obligatorio` de este dataclass
+        # es vestigial — la fuente real es `OBLIGATORIO_SI_PERFIL["birthdate"]`
+        # (sólo colegio). Se deja en True porque para colegio SÍ lo es; para
+        # profesional `SOLO_PERFIL` ya lo excluye de raíz.
+        nota="Alimenta el gate de consentimiento parental · sólo se pregunta "
+             "a quien está en colegio, nunca a un profesional (AH, 24-08)",
     ),
     Hecho(
         id="timeline",
@@ -634,7 +695,8 @@ QUE_AVERIGUAR = {
     "life_stage": "en qué punto de sus estudios está (colegio, universidad, "
                   "trabajando, buscando cambiar) · define qué se le puede ofrecer",
     "birthdate": "el año en que nació · hay que preguntarlo, no deducirlo de que "
-                 "esté en un grado",
+                 "esté en un grado (a un profesional no le corresponde, ver "
+                 "`SOLO_PERFIL`, así que esto sólo lo ve el modelo para colegio)",
     "timeline": "con cuánto tiempo cuenta para decidir",
     "main_goal": "qué espera sacar de esta orientación · descubrir qué estudiar, "
                  "elegir dónde, aprender un idioma, irse a vivir afuera",
@@ -739,11 +801,12 @@ def faltantes(recolectados: Dict[str, Any]) -> List[str]:
 def _obligatorios_activos(recolectados: Dict[str, Any]) -> List[str]:
     """Los obligatorios globales + los que lo son sólo para este perfil.
 
-    `grade` bloquea el cierre de un estudiante de colegio (sin grado la malla
-    no sabe dónde enrutarlo); `career_linkedin_profile_text`,
-    `career_job_satisfaction_score` y `career_target_role` bloquean el cierre
-    de un profesional (sin eso no hay con qué comparar el puesto ideal). Ver
-    `OBLIGATORIO_SI_PERFIL`.
+    `grade` y `birthdate` bloquean el cierre de un estudiante de colegio (sin
+    grado la malla no sabe dónde enrutarlo, y sin fecha de nacimiento no se
+    puede resolver el gate de menores con confianza); `career_linkedin_
+    profile_text`, `career_job_satisfaction_score` y `career_target_role`
+    bloquean el cierre de un profesional (sin eso no hay con qué comparar el
+    puesto ideal). Ver `OBLIGATORIO_SI_PERFIL`.
     """
     extra = [i for i in OBLIGATORIO_SI_PERFIL if perfil(recolectados) in OBLIGATORIO_SI_PERFIL[i]]
     return list(OBLIGATORIOS) + extra

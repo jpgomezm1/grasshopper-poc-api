@@ -193,16 +193,80 @@ _INTL_INTEREST_LABELS = {
     "intl_no": "No, quiere enfocarse localmente",
 }
 
+# Reunión clienta 2026-08-24 · JR-7 conectó las actividades extracurriculares
+# al PERFIL CONSOLIDADO (`consolidation_service`), pero los pasos IA del
+# journey (reflection/synthesis/routes, esta función) son un pipeline
+# DISTINTO que arma su propio contexto a partir de `onboarding_answers` — y
+# ese no leía logros en absoluto. Es el mismo "campo que nadie lee" en otro
+# sitio: el estudiante cuenta que fue capitán del equipo y Hop no lo refleja
+# hasta llegar al perfil consolidado (que corre aparte, con caché de 24h).
+_ACTIVITY_CATEGORY_LABELS = {
+    "sport": "deportivo",
+    "volunteering": "voluntariado",
+    "arts": "artístico",
+    "academic": "académico",
+    "leadership": "liderazgo",
+    "work": "laboral",
+    "other": "otro",
+}
 
-def format_onboarding_context(onboarding: Optional[Dict[str, Any]]) -> str:
+# Tope de actividades citadas en el prompt · mismo criterio que el tope de
+# 600 caracteres por campo de `_add`: una lista larga no debe inflar todos
+# los prompts que reciben este contexto.
+MAX_ACTIVITIES_EN_CONTEXTO = 8
+MAX_ACTIVITY_DESC_LEN = 200
+
+
+def _sanea_llaves(texto: str) -> str:
+    """`str.format` revienta con `{`/`}` sueltos en el texto del usuario."""
+    return texto.replace("{", "(").replace("}", ")")
+
+
+def _format_una_actividad(act: Dict[str, Any]) -> str:
+    """Una línea compacta por actividad · nombre + categoría + rol + logros."""
+    nombre = str(act.get("name") or "").strip() or "(sin nombre)"
+    detalle: List[str] = []
+    categoria = _ACTIVITY_CATEGORY_LABELS.get(act.get("category"), act.get("category"))
+    if categoria:
+        detalle.append(str(categoria))
+    if act.get("role"):
+        detalle.append(str(act["role"]).strip())
+    if act.get("hours_per_week"):
+        detalle.append(f"{act['hours_per_week']}h/semana")
+    detalle.append("en curso" if act.get("en_curso") else "finalizada")
+
+    linea = f"{nombre} ({', '.join(detalle)})"
+
+    descripcion = str(act.get("description") or "").strip()
+    if descripcion:
+        if len(descripcion) > MAX_ACTIVITY_DESC_LEN:
+            descripcion = descripcion[:MAX_ACTIVITY_DESC_LEN] + "…"
+        linea += f" — {descripcion}"
+
+    logros = [str(x).strip() for x in (act.get("achievements") or []) if str(x).strip()]
+    if logros:
+        linea += f" · logros: {'; '.join(logros[:3])}"
+
+    return _sanea_llaves(linea)
+
+
+def format_onboarding_context(
+    onboarding: Optional[Dict[str, Any]],
+    activities: Optional[List[Dict[str, Any]]] = None,
+) -> str:
     """Bloque de texto con lo que el usuario YA contó en el onboarding.
+
+    `activities` son sus actividades extracurriculares (`ExtracurricularActivity`,
+    mismo shape que `consolidation_service._gather_activities`) — opcional y
+    tolerante a `None` para no romper los call-sites que aún no las pasan.
 
     Devuelve "(sin datos del onboarding)" si no hay nada — los prompts lo
     toleran. Solo texto plano (sin llaves) → seguro para str.format.
     """
-    if not onboarding:
+    if not onboarding and not activities:
         return "(sin datos del onboarding)"
 
+    onboarding = onboarding or {}
     lines: List[str] = []
 
     def _add(label: str, value: Optional[str]) -> None:
@@ -270,6 +334,17 @@ def format_onboarding_context(onboarding: Optional[Dict[str, Any]]) -> str:
     if area:
         lines.append(f"- Área de estudio que le interesa continuar: {area}")
 
+    # JR-7 (extendido a este pipeline) · logros y actividades fuera del aula.
+    # Se citan aparte de las líneas de arriba (no con `_add`, que espera un
+    # solo string) porque son una LISTA de actividades, cada una con su
+    # propio detalle — aplanarlas en una sola línea le habría quitado a la IA
+    # la posibilidad de citar una en concreto en la reflexión.
+    actividades = [a for a in (activities or []) if isinstance(a, dict)]
+    if actividades:
+        lines.append("- Actividades y logros que registró (fuera del aula):")
+        for act in actividades[:MAX_ACTIVITIES_EN_CONTEXTO]:
+            lines.append(f"  · {_format_una_actividad(act)}")
+
     return "\n".join(lines) if lines else "(sin datos del onboarding)"
 
 
@@ -279,6 +354,7 @@ def generate_empathy_reflection(
     db: Optional[DBSession] = None,
     user_id: Optional[UUID] = None,
     onboarding: Optional[Dict[str, Any]] = None,
+    activities: Optional[List[Dict[str, Any]]] = None,
 ) -> EmpathyReflectionOutput:
     """
     Generate empathy reflection after 'whyHere' step.
@@ -289,6 +365,8 @@ def generate_empathy_reflection(
         db: DB session para tracking M-001 (opcional)
         user_id: dueño del journey para tracking M-001 (None si anónimo)
         onboarding: respuestas del onboarding (R4 · personalización)
+        activities: sus logros/actividades extracurriculares (conexión JR-7
+            a este pipeline · reunión clienta 2026-08-24)
 
     Returns:
         EmpathyReflectionOutput with text and detected emotion
@@ -297,7 +375,7 @@ def generate_empathy_reflection(
         prompt_template = load_prompt("reflection")
         prompt = prompt_template.format(
             user_input=why_here,
-            onboarding_context=format_onboarding_context(onboarding),
+            onboarding_context=format_onboarding_context(onboarding, activities),
         )
 
         response, meta = call_claude_with_meta(
@@ -377,6 +455,7 @@ def generate_synthesis(
     db: Optional[DBSession] = None,
     user_id: Optional[UUID] = None,
     onboarding: Optional[Dict[str, Any]] = None,
+    activities: Optional[List[Dict[str, Any]]] = None,
 ) -> SynthesisOutput:
     """
     Generate full synthesis reflection.
@@ -387,6 +466,7 @@ def generate_synthesis(
         db: DB session para tracking M-001 (opcional)
         user_id: dueño del journey para tracking M-001 (None si anónimo)
         onboarding: respuestas del onboarding (R4 · personalización)
+        activities: sus logros/actividades extracurriculares (JR-7 en este pipeline)
 
     Returns:
         SynthesisOutput with text, chips, motivations, and constraints
@@ -406,7 +486,7 @@ def generate_synthesis(
             language_level=answers.get("languageLevel", "No especificado"),
             geo_preference=answers.get("geoPreference", "No especificado"),
             declared_aspirations=(answers.get("declaredAspirations") or "No especificado")[:600],
-            onboarding_context=format_onboarding_context(onboarding),
+            onboarding_context=format_onboarding_context(onboarding, activities),
         )
 
         response, meta = call_claude_with_meta(
@@ -472,6 +552,7 @@ def generate_routes(
     user_id: Optional[UUID] = None,
     onboarding: Optional[Dict[str, Any]] = None,
     tests_block: Optional[str] = None,
+    activities: Optional[List[Dict[str, Any]]] = None,
 ) -> RouteSuggestionOutput:
     """
     Generate route suggestions.
@@ -482,6 +563,7 @@ def generate_routes(
         db: DB session para tracking M-001 (opcional)
         user_id: dueño del journey para tracking M-001 (None si anónimo)
         onboarding: respuestas del onboarding (R4 · personalización)
+        activities: sus logros/actividades extracurriculares (JR-7 en este pipeline)
         tests_block: resultados de sus tests, ya legibles
             (`test_interpretation_service.format_tests_for_prompt`). Hasta §1
             esta función construía la "hoja de ruta" **sin mirar un solo test**,
@@ -513,7 +595,7 @@ def generate_routes(
             motivations=", ".join(motivations),
             constraints=", ".join(constraints) if constraints else "Ninguna especial",
             declared_aspirations=(answers.get("declaredAspirations") or "No especificado")[:600],
-            onboarding_context=format_onboarding_context(onboarding),
+            onboarding_context=format_onboarding_context(onboarding, activities),
             # Nunca vacío: un hueco mudo en el prompt invita a inventar el perfil.
             tests_block=tests_block or SIN_TESTS_EN_RUTAS,
         )

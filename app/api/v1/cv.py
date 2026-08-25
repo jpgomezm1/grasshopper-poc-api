@@ -74,12 +74,19 @@ def _solo_estudiantes(user: User) -> None:
         )
 
 
-def _armar_cv(db: DBSession, user: User):
+def _armar_cv(db: DBSession, user: User, *, con_foto: bool = True):
     """Junta todo lo que va en la hoja de vida y aplica lo que el estudiante editó.
 
     Se comparte entre la vista previa y la descarga a propósito: si fueran dos
     caminos distintos, lo que la persona ve editando podría no ser lo que sale en
     el PDF, que es justo la confianza que A3 intenta dar.
+
+    `con_foto=False` (2026-08-25) es para quien necesita el CONTENIDO del CV y no
+    el documento: las herramientas de `tools.py` se lo pasan a un prompt, donde
+    la foto no pinta nada. Descargarla de storage y pasarla a base64 para no
+    usarla es medio megabyte de trabajo por request — y, tratándose de la foto de
+    un menor, mejor que ni se mueva si no hace falta. El valor por defecto es
+    `True` para que todos los llamadores de antes sigan igual.
     """
     activities, _ = extracurricular_service.list_activities_for_user(db, user.id)
 
@@ -106,7 +113,8 @@ def _armar_cv(db: DBSession, user: User):
     )
     # La foto viaja incrustada en base64 dentro del propio documento · así el
     # archivo que descarga el estudiante es autocontenido.
-    cv.photo_data_uri = cv_photo_service.obtener_data_uri(db, user.id)
+    if con_foto:
+        cv.photo_data_uri = cv_photo_service.obtener_data_uri(db, user.id)
     perfil = cv_profile_service.get_profile(db, user.id)
     return cv_profile_service.apply_overrides(cv, perfil), perfil
 

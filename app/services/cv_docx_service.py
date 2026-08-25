@@ -31,6 +31,7 @@ from app.services.cv_variants import (
     ESTANDAR_POR_DEFECTO,
     ESTILO_POR_DEFECTO,
     debe_incluir_foto,
+    idioma_va_en_seccion,
     obtener_estandar,
     obtener_estilo,
 )
@@ -102,6 +103,20 @@ def _seccion_perfil(doc, cv: CVData) -> None:
     _linea_lista(doc, "Fortalezas", cv.strengths, _LIMA_OSCURO)
     _linea_lista(doc, "Áreas de interés", cv.interests, _NAVY)
     _linea_lista(doc, "Valores", cv.values, _LIMA_OSCURO)
+
+
+def _seccion_idiomas(doc, cv: CVData) -> None:
+    """Espejo de `cv_pdf_service._html_idiomas` · si divergen, el estudiante se
+    baja dos documentos distintos creyendo que son el mismo (P0-8)."""
+    if not cv.english_level:
+        return
+    _titulo(doc, "Idiomas")
+    p = doc.add_paragraph()
+    r = p.add_run(f"Inglés · nivel {cv.english_level}")
+    r.font.size = _pt(10)
+    marco = p.add_run(" (Marco Común Europeo de Referencia · MCER/CEFR)")
+    marco.font.size = _pt(9)
+    marco.font.color.rgb = _rgb(_GRIS)
 
 
 def _seccion_tests(doc, cv: CVData) -> None:
@@ -176,12 +191,13 @@ def _seccion_actividades(doc, cv: CVData) -> None:
 
 _SECCIONES = {
     "perfil": _seccion_perfil,
+    "idiomas": _seccion_idiomas,
     "tests": _seccion_tests,
     "actividades": _seccion_actividades,
 }
 
 
-def _encabezado(doc, cv: CVData, *, con_foto: bool) -> None:
+def _encabezado(doc, cv: CVData, *, con_foto: bool, omitir_idioma: bool = False) -> None:
     from docx.shared import Mm
 
     foto = _foto_bytes(cv.photo_data_uri) if con_foto else None
@@ -228,7 +244,11 @@ def _encabezado(doc, cv: CVData, *, con_foto: bool) -> None:
             cv.email,
             cv.school_name,
             f"Grado: {cv.grade}" if cv.grade else None,
-            f"Inglés: {cv.english_level}" if cv.english_level else None,
+            # Donde los idiomas van en sección propia (España, Europass) el
+            # encabezado no los repite · mismo criterio que en el PDF.
+            f"Inglés: {cv.english_level}"
+            if (cv.english_level and not omitir_idioma)
+            else None,
         )
         if x
     ]
@@ -282,11 +302,20 @@ def render_cv_docx(
     base.font.name = "Calibri"
     base.font.size = _pt(9.5 if sty.clave == "compacto" else 10.5)
 
-    _encabezado(doc, cv, con_foto=con_foto)
+    _encabezado(doc, cv, con_foto=con_foto, omitir_idioma=idioma_va_en_seccion(est))
 
     for clave in est.orden_secciones:
         if clave in _SECCIONES:
             _SECCIONES[clave](doc, cv)
+
+    # La cláusula legal del destino (RGPD en España) va antes del pie de
+    # Mentoring: es parte del documento de la persona, no de nuestra firma.
+    if est.aviso_legal:
+        legal = doc.add_paragraph()
+        rl = legal.add_run(est.aviso_legal)
+        rl.font.size = _pt(8.5)
+        rl.font.color.rgb = _rgb(_GRIS)
+        legal.paragraph_format.space_before = _pt(10)
 
     pie = doc.add_paragraph()
     rp = pie.add_run(

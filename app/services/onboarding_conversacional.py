@@ -61,9 +61,26 @@ MENSAJE_FALLBACK = (
     "Perdona, se me enredó la respuesta. ¿Me lo cuentas otra vez?"
 )
 
+# AH, reunión 24-08, sobre la versión anterior de este saludo:
+# *"como primera retroalimentacion sobran los de opciones, solamente antes de,
+# o sea quiero hacerte unas preguntas para conocerte mejor y poder
+# orientarte"*. Mencionar "opciones" en la primera frase encuadra mal el
+# producto: quien llega a Mentoring no viene buscando opciones, viene
+# buscando quién lo guíe (AH, 02:18).
+#
+# Y pidió que lo primero sea la etapa, no la pasión — *"primero que todo
+# queremos conocerte, pero mas que que te apasiona, pues como en que estas, o
+# sea hoy estas en noveno, estas en decimo, estas en once, estas en doce,
+# eres un profesional"* (AH, 03:53). Esto ya coincide con el motor: en
+# `ORDEN_CONVERSACION` (`onboarding_hechos.py`) `life_stage` es el primer
+# hecho, así que lo que preguntaba el saludo (la pasión) y lo que el motor
+# preguntaba de verdad en el turno siguiente (la etapa) se contradecían. Este
+# texto ahora abre con lo mismo que el motor va a pedir primero.
 SALUDO = (
-    "¡Hola! Soy tu guía. Antes de mostrarte opciones quiero conocerte un poco.\n\n"
-    "Cuéntame: ¿qué te apasiona y qué te gustaría lograr?"
+    "¡Hola! Soy tu guía. Antes de orientarte quiero hacerte unas preguntas "
+    "para conocerte mejor.\n\n"
+    "Para empezar: ¿en qué etapa estás hoy? ¿Estás en noveno, en décimo, en "
+    "once, en doce, o ya eres un profesional?"
 )
 
 

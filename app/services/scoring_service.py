@@ -25,6 +25,10 @@ from app.data.vocational_tests import (
     calculate_vocational_scores,
     get_test_by_id,
 )
+from app.services.habilidades_blandas_service import (
+    TEST_ID as HABILIDADES_BLANDAS_TEST_ID,
+    calcular_habilidades_blandas,
+)
 
 
 # ---------------------------------------------------------------------------
@@ -437,4 +441,9 @@ def derive_test_extras(test_id: str, answers: Dict[str, int]) -> Dict[str, objec
         return calculate_vark(answers)
     if test_id == "motivadores":
         return calculate_motivadores(answers)
+    if test_id == HABILIDADES_BLANDAS_TEST_ID:
+        # El mapeo de habilidades blandas (ruta grado 10) tiene su propio módulo:
+        # su lectura no es un puntaje, son tendencias con reglas de empate y de
+        # respuestas incompletas. Ver `habilidades_blandas_service`.
+        return calcular_habilidades_blandas(answers)
     return None

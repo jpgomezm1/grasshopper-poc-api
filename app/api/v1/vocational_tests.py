@@ -14,10 +14,15 @@ from app.data.vocational_tests import (
     get_all_tests_summary,
     get_test_by_id,
     calculate_vocational_scores,
+    disponible_para_grado,
     VOCATIONAL_TESTS,
 )
 from app.services.scoring_service import derive_test_extras
-from app.services import parental_consent_service, test_interpretation_service
+from app.services import (
+    parental_consent_service,
+    test_interpretation_service,
+    vocational_bank_selector,
+)
 
 router = APIRouter(prefix="/vocational-tests", tags=["Vocational Tests"])
 
@@ -38,7 +43,9 @@ def _disclaimer_accepted(user: User, test_id: str) -> bool:
 
 @router.get("")
 def list_tests(current_user: User = Depends(get_current_user)):
-    return get_all_tests_summary()
+    # La descripción de Holland cambia según el grado (9°/10° ven la versión
+    # con lenguaje de su edad). El resto de tests sale igual que siempre.
+    return vocational_bank_selector.resumen_tests_para_usuario(current_user)
 
 
 # Static routes MUST come before /{test_id} to avoid path conflicts
@@ -111,7 +118,11 @@ def accept_disclaimer(
 
 @router.get("/{test_id}")
 def get_test(test_id: str, current_user: User = Depends(get_current_user)):
-    test = get_test_by_id(test_id)
+    # Único punto donde se elige el banco de preguntas. Para Holland, grados
+    # 9° y 10° reciben la redacción adaptada a 13-14 años; el instrumento es el
+    # mismo (mismos ids de ítem, misma dimensión, mismo puntaje), sólo cambia
+    # cómo está escrito cada enunciado.
+    test = vocational_bank_selector.test_para_usuario(test_id, current_user)
     if not test:
         raise HTTPException(status_code=404, detail="Test not found")
     return test
@@ -127,6 +138,30 @@ def submit_test(
     test = get_test_by_id(test_id)
     if not test:
         raise HTTPException(status_code=404, detail="Test not found")
+
+    # Malla completa · un instrumento que pertenece a una sola ruta (hoy el Mapeo
+    # de Habilidades Blandas, grado 10) no se contesta desde otra ruta: si sólo se
+    # filtrara el listado, bastaría con entrar por la URL directa.
+    #
+    # Excepción deliberada, alineada con "MEMORIA SÍ, LLAVE NO": quien YA tiene un
+    # resultado puede repetirlo aunque haya pasado de grado. Bloquearle rehacer algo
+    # que ya hizo sería una llave, y no se construyeron llaves. Nótese que leer el
+    # resultado viejo (`GET /{id}` y `/{id}/result`) nunca se bloquea, por lo mismo.
+    if not disponible_para_grado(
+        test, vocational_bank_selector.grado_del_estudiante(current_user)
+    ):
+        ya_lo_habia_hecho = (
+            db.query(VocationalTestResult)
+            .filter(
+                VocationalTestResult.user_id == current_user.id,
+                VocationalTestResult.test_id == test_id,
+            )
+            .first()
+        )
+        if not ya_lo_habia_hecho:
+            # 404 y no 403: para este estudiante el test no existe en su ruta, y
+            # el front ya trata el 403 como "falta aceptar el aviso legal".
+            raise HTTPException(status_code=404, detail="Test not found")
 
     # M-006 · gate: menor de 16 (edad conocida) sin consentimiento parental.
     # Va ANTES del disclaimer: un menor no debe avanzar a ningún paso del test

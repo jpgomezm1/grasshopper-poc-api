@@ -180,6 +180,12 @@ _TEST_LABELS = {
     "istrong": ("iStrong", "Áreas profesionales afines"),
     "vark": ("Estilos de aprendizaje (VARK)", "Cómo aprendes mejor"),
     "motivadores": ("Motivadores iniciales", "Qué te mueve a empezar"),
+    # Grado 10 · instrumento propio. La descripción dice "tendencias" a
+    # propósito: en el PDF que lee la familia no puede parecer una evaluación.
+    "habilidades-blandas": (
+        "Mapeo de habilidades blandas",
+        "Tendencias en liderazgo, resiliencia y trabajo en equipo",
+    ),
     # Alias históricos
     "riasec": ("Holland (RIASEC)", "Intereses profesionales"),
     "big5": ("Big Five", "Rasgos de personalidad"),
@@ -237,8 +243,10 @@ def _highlight_for(test_id: str, scores: Dict[str, Any]) -> Optional[str]:
     tid = (test_id or "").lower()
     extras = scores.get("_extras") if isinstance(scores.get("_extras"), dict) else {}
 
-    # VARK y Motivadores ya traen una etiqueta pensada para leerse.
-    if tid in {"vark", "motivadores"}:
+    # VARK, Motivadores y el mapeo de habilidades blandas ya traen una etiqueta
+    # pensada para leerse (y, en el caso del mapeo, para no sonar a diagnóstico:
+    # "Perfil parejo" o "Liderazgo y resiliencia", nunca un puntaje).
+    if tid in {"vark", "motivadores", "habilidades-blandas"}:
         return (extras.get("label") or "").strip() or None
 
     if tid == "mbti":

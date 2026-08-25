@@ -172,6 +172,62 @@ class User(Base):
     onboarding_status = Column(Enum(OnboardingStatus), default=OnboardingStatus.NOT_STARTED, nullable=False)
     onboarding_answers = Column(JSON, default=dict, nullable=False)
 
+    # ---- Grado real del estudiante · Cimientos malla completa (migración 067) ----
+    # `grade`: 9 | 10 | 11 | 12. NULL para quien no está en colegio (perfil
+    # `profesional` de `onboarding_hechos.PERFIL_POR_LIFE_STAGE`) o para quien
+    # todavía no lo ha dicho.
+    #
+    # Va en COLUMNA, no sólo en `onboarding_answers`, por tres razones que no
+    # aplican a la mayoría de hechos del onboarding (esos sí viven sólo en el
+    # JSON, ver `app/data/onboarding_hechos.py`):
+    #   1. La malla completa son **5 rutas** (grado 9, 10, 11, 12, adulto
+    #      profesional) y `life_stage` no alcanza esa resolución: su valor
+    #      `high_school_early` junta 9° y 10°, y `high_school` sólo cubre 11°
+    #      (ver `app/services/academic_level.py`, que hoy filtra por etapas de
+    #      3-4 valores, no por grado exacto). Sin una columna con dominio
+    #      cerrado (9-12), un valor libre como "9°", "Grado 9" o "noveno" no
+    #      sirve para enrutar programáticamente a una de las 5 rutas.
+    #   2. La tabla de memoria por año (`StudentYearSnapshot`, más abajo)
+    #      necesita el grado como dato estructurado para comparar "qué grado
+    #      cursaba el año pasado" contra "qué grado cursa hoy" sin parsear texto.
+    #   3. Precedente ya sentado en este mismo modelo con `birthdate`: un hecho
+    #      del onboarding puede vivir A LA VEZ como columna tipada (fuente de
+    #      verdad para lo que filtra/enruta) y como clave en
+    #      `onboarding_answers` (contrato que ya leen otros consumidores).
+    #
+    # OJO para quien conecte el chat de onboarding (otro agente, dueño de
+    # `onboarding_hechos.py` y `onboarding_conversacional.py`): YA EXISTEN
+    # lectores muertos de `onboarding_answers["grade"]` / `onboarding_answers["grado"]`
+    # (`cv_pdf_service.py:148`, `pdf_service.py:317`) y de
+    # `answers.get("grade") o answers.get("currentGrade")` (`dossier_service.py:99`,
+    # vía `_get_combined_answers` = onboarding_answers + session.answers). Ninguno
+    # escribe ese valor todavía — es exactamente el error tipo A de este repo
+    # (leer un campo que nadie escribe). Al conectar la pregunta del grado hay
+    # que escribir ESTA columna (`user.grade`, entero) Y espejarla en
+    # `onboarding_answers["grade"]` (string, p.ej. "11"), igual que
+    # `onboarding_chat.py` hace hoy con `birthdate` (líneas ~106-110). No basta
+    # con una sola escritura: dejar sólo el JSON revive el campo muerto a medias
+    # (se ve en el CV pero no enruta la malla); dejar sólo la columna no lo
+    # arregla en el CV/dossier.
+    grade = Column(Integer, nullable=True)
+
+    # ---- Lo que el estudiante CREE de su colegio · NO dato verificado ----
+    # Se pregunta en el chat de onboarding (con opción "no sé"), no se valida
+    # contra ningún registro del colegio. El prefijo `school_reported_` es
+    # deliberado para que nadie los confunda con un dato de `School` (la
+    # institución) ni los trate como verificados en un reporte o export.
+    #
+    # `school_reported_last_grade`: hasta qué grado llega el colegio del
+    # estudiante · 11 o 12. NULL = no preguntado o no aplica (perfil profesional).
+    school_reported_last_grade = Column(Integer, nullable=True)
+    # `school_reported_accreditation`: "ib" | "ap" | "american" | "bilingual" |
+    # "local" | "unknown". "unknown" es la respuesta explícita "no sé" (persona
+    # SÍ preguntada); NULL es "todavía no se le ha preguntado". La regla de
+    # producto ("si no se sabe, NO se muestran módulos AP/IB") trata los dos
+    # casos igual al momento de decidir qué mostrar — la distinción sólo importa
+    # para no volver a preguntar algo ya contestado.
+    school_reported_accreditation = Column(String(20), nullable=True)
+
     # Contact info
     phone = Column(String(50), nullable=True)
 
@@ -314,6 +370,12 @@ class User(Base):
         "ConsolidatedProfileCache",
         back_populates="user",
         uselist=False,
+        cascade="all, delete-orphan",
+    )
+    # Memoria por año escolar (migración 067) · ver `StudentYearSnapshot`.
+    year_snapshots = relationship(
+        "StudentYearSnapshot",
+        back_populates="user",
         cascade="all, delete-orphan",
     )
 
@@ -2794,3 +2856,80 @@ class PerfilVector(Base):
     # `embedding` (vector(1536)) vive en la tabla pero no se declara aquí · el
     # tipo necesitaría pgvector como dependencia del modelo. Se lee y escribe
     # por SQL directo desde `busqueda_programas`.
+
+
+class StudentYearSnapshot(Base):
+    """Memoria por año escolar · migración 067 (Cimientos, fase 1 de 4).
+
+    "MEMORIA SÍ, LLAVE NO" (decisión de producto ya tomada): el sistema
+    recuerda y compara año a año, pero no bloquea ni desbloquea contenido por
+    fecha. Esta tabla es sólo el registro — no hay ningún lector todavía que
+    lea calendario escolar ni feature-gate por él.
+
+    Una fila = "lo que este estudiante dijo/tenía en este año escolar". Se
+    llena UNA vez por (estudiante, año) — ver `uq_student_year_snapshot` — con
+    una copia de `onboarding_answers` en ese momento y el grado que cursaba.
+    "Comparar el año pasado con hoy" es entonces:
+
+        anterior = (
+            db.query(StudentYearSnapshot)
+            .filter_by(user_id=user.id)
+            .order_by(StudentYearSnapshot.school_year.desc())
+            .first()
+        )
+        hoy = user.onboarding_answers  # ya vive en User, no hace falta copiarlo
+
+    No se guarda una fila para "hoy": el dato de hoy YA está en `users` (
+    `onboarding_answers`, `grade`) y duplicarlo aquí sería la segunda fuente de
+    verdad que este repo ya pagó una vez (ver comentario de
+    `onboarding_hechos.PERFIL_POR_LIFE_STAGE`). Esta tabla sólo existe para
+    conservar lo que ya no está vigente: cuando el estudiante pasa de año y
+    sus respuestas cambian, ALGUIEN (fuera del alcance de esta fase — la
+    escribe el agente que construya el flujo de "nuevo año escolar") debe
+    copiar el estado saliente aquí ANTES de sobrescribirlo en `users`.
+
+    Quién escribe esta tabla y cuándo (ej. al detectar que `life_stage`/`grade`
+    cambiaron entre sesiones, o por un cron de inicio de año) es una decisión
+    de producto que no toma esta fase — aquí sólo se deja el cimiento: dónde
+    cabe la memoria y cómo se consulta.
+    """
+
+    __tablename__ = "student_year_snapshots"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False, index=True,
+    )
+
+    # Año calendario en que se tomó la foto (ej. 2026). Mismo tipo (Integer)
+    # que `Cohort.academic_year`, para que un futuro cruce cohort↔snapshot no
+    # tenga que convertir tipos.
+    school_year = Column(Integer, nullable=False)
+
+    # El grado que cursaba EN ESE momento · mismo dominio que `User.grade`
+    # (9-12, NULL si el perfil era profesional). Es una copia deliberada: si
+    # `User.grade` cambia después, esta fila no debe cambiar con él.
+    grade = Column(Integer, nullable=True)
+
+    # Copia de `User.onboarding_answers` en el momento del snapshot · mismo
+    # shape que la columna viva, así cualquier consumidor que ya sepa leer
+    # `onboarding_answers` (recomendador, dossier, CV) sabe leer esto sin
+    # aprender un formato nuevo.
+    onboarding_answers_snapshot = Column(JSON, nullable=True)
+
+    # Cuándo se tomó la foto (puede no coincidir con `created_at` si algún día
+    # se hace un backfill retroactivo).
+    captured_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    user = relationship("User", back_populates="year_snapshots")
+
+    __table_args__ = (
+        # Un estudiante, un año, una foto · quien escriba esta tabla más
+        # adelante puede hacer upsert sin duplicar filas por reintentos.
+        UniqueConstraint("user_id", "school_year", name="uq_student_year_snapshot"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<StudentYearSnapshot user_id={self.user_id} school_year={self.school_year}>"

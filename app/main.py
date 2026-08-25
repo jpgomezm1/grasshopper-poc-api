@@ -70,6 +70,8 @@ from app.api.v1 import (
     institutions,
     human_intervention,
     hop_chat,
+    career_gap,
+    year_checkin,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -277,6 +279,15 @@ app.include_router(institutions.router, prefix="/api/v1")
 app.include_router(human_intervention.router, prefix="/api/v1")
 # Fase C pieza C · 2026-06-09 · chat real de Hop (B-049)
 app.include_router(hop_chat.router, prefix="/api/v1")
+# Ruta del adulto profesional · auditoría de trayectoria + análisis de brecha
+app.include_router(career_gap.router, prefix="/api/v1")
+# Adaptador de sólo lectura sobre el mismo análisis, en el shape que ya
+# consume `journey-compass/src/lib/professionalApi.ts` — ver el docstring del
+# router en `career_gap.py` para el porqué de la fidelidad de datos.
+app.include_router(career_gap.router_professional, prefix="/api/v1")
+# Malla completa · fase 2 (memoria entre años) · qué dijo el año pasado vs hoy
+# + check-in de evolución cuando vuelve en un grado nuevo
+app.include_router(year_checkin.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

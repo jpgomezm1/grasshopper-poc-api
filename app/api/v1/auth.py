@@ -91,6 +91,14 @@ class UserResponse(BaseModel):
     created_at: datetime
     # M-006 · True si es menor de 16 (edad conocida) sin consentimiento parental.
     requires_parental_consent: bool = False
+    # Cimientos (migración 067) · el frontend ya los declaraba como TODO en
+    # `journey-compass/src/lib/api.ts` (`User.grade` et al.) a la espera de que
+    # `/auth/me` los sirviera. `from_attributes=True` los toma directo de las
+    # columnas homónimas del modelo — no hace falta más cableado que declararlos
+    # aquí.
+    grade: Optional[int] = None
+    school_reported_last_grade: Optional[int] = None
+    school_reported_accreditation: Optional[str] = None
 
     model_config = {
         "from_attributes": True,
@@ -617,8 +625,9 @@ _ONBOARDING_BUDGET_TO_BAND = {
 
 
 def _sync_onboarding_to_user_columns(user: User, answers: dict) -> None:
-    """Copia presupuesto y países del onboarding a las columnas que el
-    recomendador realmente lee. Best-effort: nunca rompe el guardado."""
+    """Copia presupuesto, países y grado del onboarding a las columnas que el
+    recomendador y la malla completa realmente leen. Best-effort: nunca rompe
+    el guardado."""
     if not isinstance(answers, dict):
         return
 
@@ -637,6 +646,46 @@ def _sync_onboarding_to_user_columns(user: User, answers: dict) -> None:
         ]
         if mapped:
             user.preferred_countries = mapped
+
+    # Cimientos (migración 067) · el otro lado de la escritura doble que pide
+    # el contrato de esa fase: `onboarding_hechos.a_onboarding_answers()` ya
+    # escribe estas tres claves en el JSON (vía `onboarding_key`), pero eso
+    # sólo alimenta a los lectores que leen el JSON (CV, dossier). El
+    # enrutador de la malla de 5 rutas necesita el ENTERO tipado
+    # (`vocational_bank_selector.grado_del_estudiante` ya lo lee de aquí, con
+    # el JSON sólo como fallback) — sin este bloque esa columna se queda NULL
+    # para siempre y el banco junior de Holland nunca le llega a nadie en
+    # producción.
+    grade_raw = answers.get("grade")
+    grade_int: Optional[int] = None
+    if isinstance(grade_raw, bool):
+        grade_int = None  # bool es subclase de int · se descarta explícito
+    elif isinstance(grade_raw, int):
+        grade_int = grade_raw
+    elif isinstance(grade_raw, str) and grade_raw.strip().isdigit():
+        grade_int = int(grade_raw.strip())
+    if grade_int in (9, 10, 11, 12):
+        user.grade = grade_int
+
+    # `school_reported_last_grade` es Integer (11|12) en la columna tipada.
+    # "unknown" (la opción "No sé" del catálogo) no tiene representación ahí
+    # a propósito: la distinción NULL="no preguntado" vs "unknown"="preguntado,
+    # no sabe" sólo existe en el JSON — ver el comentario de la columna en
+    # `db/models.py`.
+    last_grade_raw = answers.get("school_reported_last_grade")
+    last_grade_int: Optional[int] = None
+    if isinstance(last_grade_raw, bool):
+        last_grade_int = None
+    elif isinstance(last_grade_raw, int):
+        last_grade_int = last_grade_raw
+    elif isinstance(last_grade_raw, str) and last_grade_raw.strip().isdigit():
+        last_grade_int = int(last_grade_raw.strip())
+    if last_grade_int in (11, 12):
+        user.school_reported_last_grade = last_grade_int
+
+    accreditation = answers.get("school_reported_accreditation")
+    if accreditation in ("ib", "ap", "american", "bilingual", "local", "unknown"):
+        user.school_reported_accreditation = accreditation
 
 
 @router.put("/me/onboarding", response_model=OnboardingResponse)

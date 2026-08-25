@@ -1,3 +1,5 @@
+from app.data.habilidades_blandas import TEST_HABILIDADES_BLANDAS
+
 VOCATIONAL_TESTS = [
     {
         "id": "holland",
@@ -533,6 +535,10 @@ VOCATIONAL_TESTS = [
             },
         ],
     },
+    # Mapeo de Habilidades Blandas · sólo ruta grado 10 (ver `gradeRoutes`).
+    # Vive en su propio módulo porque es el único instrumento propio del banco
+    # y su copy de "esto no es psicométrico" no se puede diluir aquí en medio.
+    TEST_HABILIDADES_BLANDAS,
 ]
 
 
@@ -543,7 +549,29 @@ def get_test_by_id(test_id: str):
     return None
 
 
-def get_all_tests_summary():
+def disponible_para_grado(test: dict, grade) -> bool:
+    """¿Este test se le ofrece a un estudiante de este grado?
+
+    Malla completa · un test SIN `gradeRoutes` es de todas las rutas (los ocho
+    que ya existían siguen visibles para todo el mundo). Uno CON `gradeRoutes`
+    sólo aparece para los grados que declara.
+
+    `grade` es `User.grade` (entero 9-12 o None). NULL significa "perfil
+    profesional o todavía no sabemos el grado", y en ese caso el test gateado
+    NO se muestra: preferimos no ofrecer un instrumento de grado 10 a alguien de
+    quien no sabemos el grado, a ofrecérselo a quien no le corresponde.
+    """
+    rutas = test.get("gradeRoutes")
+    if not rutas:
+        return True
+    try:
+        # El grado puede llegar como string desde JSON ("10"); se compara el entero.
+        return int(grade) in rutas
+    except (TypeError, ValueError):
+        return False
+
+
+def get_all_tests_summary(grade=None):
     return [
         {
             "id": t["id"],
@@ -557,6 +585,7 @@ def get_all_tests_summary():
             "icon": t["icon"],
         }
         for t in VOCATIONAL_TESTS
+        if disponible_para_grado(t, grade)
     ]
 
 

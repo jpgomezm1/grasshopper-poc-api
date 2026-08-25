@@ -104,7 +104,9 @@ def _bloque_recolectado(recolectados: Dict[str, Any]) -> str:
     return "\n".join(lineas)
 
 
-def _rotar_dentro_del_tramo(antes: List[str], ahora: List[str]) -> List[str]:
+def _rotar_dentro_del_tramo(
+    antes: List[str], ahora: List[str], recolectados: Optional[Dict[str, Any]] = None,
+) -> List[str]:
     """Baja la pregunta sin responder, **pero sólo detrás de sus iguales**.
 
     La versión del bot comercial la mandaba al final de toda la cola, y aquí eso
@@ -121,13 +123,21 @@ def _rotar_dentro_del_tramo(antes: List[str], ahora: List[str]) -> List[str]:
     nunca a uno opcional. Si es el único que queda en su tramo, se queda al
     frente y se vuelve a preguntar —reformulado, porque el modelo reacciona a lo
     que la persona acaba de decir—, que es mucho mejor que no terminar jamás.
+
+    `recolectados` es opcional y sólo importa para `grade`: es obligatorio
+    SOLO para un estudiante de colegio (`catalogo.OBLIGATORIO_SI_PERFIL`), y
+    sin pasarle el perfil actual `catalogo.es_obligatorio` no tiene cómo
+    saberlo — se degrada a mirar sólo `catalogo.OBLIGATORIOS`, que es
+    exactamente el comportamiento de antes de que existiera la malla de 5
+    rutas.
     """
     if not (antes and ahora and antes[0] == ahora[0]):
         return ahora
 
     cabeza = ahora[0]
-    obligatorio = cabeza in catalogo.OBLIGATORIOS
-    tramo = [x for x in ahora[1:] if (x in catalogo.OBLIGATORIOS) == obligatorio]
+    contexto = recolectados or {}
+    obligatorio = catalogo.es_obligatorio(cabeza, contexto)
+    tramo = [x for x in ahora[1:] if catalogo.es_obligatorio(x, contexto) == obligatorio]
     if not tramo:
         return ahora  # es el único de su tramo · insistir es lo correcto
 
@@ -203,6 +213,118 @@ def primer_mensaje() -> str:
     return SALUDO
 
 
+_SIN_DINERO = (
+    "\n\n**No le preguntas por dinero.** No lo sabe y no le corresponde: eso lo "
+    "hablan sus papás con el asesor. Si él lo menciona, lo recibes sin ahondar."
+)
+
+# Las 5 rutas de la malla completa (Cimientos, migración 067). Antes esto eran
+# dos bloques —colegio y profesional—; la malla le pide cosas distintas a un
+# chico de 9° que a uno de 12°, y meterlos en el mismo "colegio" era perder
+# justo la diferencia que el cliente pidió: un chico de 13 años necesita un
+# tono sin presión, uno de 12° necesita acompañamiento de ejecución.
+#
+# Cada bloque es SOBRE TODO tono — de qué se habla y de qué no — no una lista
+# de preguntas: cuáles preguntas se activan ya lo decide `SOLO_SI_RUTA` en el
+# catálogo, esto es cómo *se siente* hablar con cada uno.
+_BLOQUE_POR_RUTA = {
+    catalogo.RUTA_GRADO_9: (
+        "Está en noveno, tiene entre 13 y 15 años, y esto es apenas el arranque "
+        "de la conversación sobre su futuro — no el final. **Nada de presión "
+        "por decidir.** Tu tono es curioso y ligero: se trata de que se conozca, "
+        "no de que resuelva su carrera hoy.\n\n"
+        "Pregúntale por lo que le gusta del colegio, a quién admira, qué haría "
+        "si nadie le calificara. Todavía no tiene sentido hablarle de "
+        "universidades ni de aplicaciones — eso está a años, y mencionarlo "
+        "ahora es la misma prisa que un formulario de admisión." + _SIN_DINERO
+    ),
+    catalogo.RUTA_GRADO_10: (
+        "Está en décimo, empezando a sentir que se acerca el momento de elegir "
+        "— sin estar ahí todavía. Es un tono intermedio: ya puedes preguntarle "
+        "qué materias le gustaría profundizar o qué le pone nervioso de la "
+        "decisión, pero sigue siendo exploración, no plan de acción.\n\n"
+        "Si te cuenta que le da ansiedad no saber qué quiere, no lo apures a "
+        "resolverlo — acompáñalo a nombrarlo." + _SIN_DINERO
+    ),
+    catalogo.RUTA_GRADO_11: (
+        "Está en once. En un colegio de calendario colombiano estándar este es "
+        "su último año; en uno bilingüe, IB o americano puede quedarle uno más "
+        "— tú no lo sabes todavía, así que no des por hecho cuál de los dos es. "
+        "Aquí sí empieza lo concreto: carreras que tiene en mente, si ya "
+        "presentó PSAT o SAT, si ha visitado universidades. Puedes hablar de "
+        "aplicar y de plazos, pero **nunca prometas que algo va a pasar** — "
+        "no sabes cupos ni fechas de nadie." + _SIN_DINERO
+    ),
+    catalogo.RUTA_GRADO_12: (
+        "Está en doce — el último año de un colegio que llega hasta ahí (IB, "
+        "americano, bilingüe). Ya no es exploración: es **ejecución**. Puede "
+        "estar aplicando ahora mismo o a punto de hacerlo, con fechas límite "
+        "reales encima. Pregúntale si ya aplicó y con qué puntajes cuenta, y "
+        "trátalo como a alguien que está EN la decisión, no acercándose a "
+        "ella.\n\n"
+        "El acompañamiento aquí es distinto: menos '¿qué te gustaría?' y más "
+        "'¿cómo vas?'. Sigue sin ser quien paga, así que el dinero se recibe si "
+        "lo menciona, no se pregunta." + _SIN_DINERO
+    ),
+    catalogo.RUTA_PROFESIONAL: (
+        "Ya está en la universidad o ya pasó por ella: puede estar cursando "
+        "una carrera, recién graduado, trabajando, o buscando cambiar de "
+        "rumbo. No está decidiendo por primera vez — trae recorrido, y a "
+        "veces desencanto con lo que eligió.\n\n"
+        "Pregúntale por lo que ya vivió, no por lo que imagina: qué ha "
+        "estudiado o trabajado, qué le sirvió de eso y qué no. Tratarlo como "
+        "a un chico de 16 es la forma más rápida de perderlo.\n\n"
+        "**Con él el dinero sí se habla.** Es quien decide y por lo general "
+        "quien paga, así que puedes preguntarle por su presupuesto con "
+        "naturalidad. Si no lo tiene claro, lo recibes y sigues."
+    ),
+}
+
+# Fallback genérico cuando se sabe el perfil (colegio) pero todavía no el
+# grado — o cuando ni siquiera se sabe el perfil. Es el mismo bloque de dos
+# vías que existía antes de la malla de 5 rutas: sigue siendo lo correcto
+# mientras la ruta exacta no se pueda derivar, por el mismo criterio
+# conservador que usa `ruta()` — ruta desconocida no se adivina.
+_BLOQUE_COLEGIO_GENERICO = (
+    "Es un estudiante de colegio, de 9° en adelante, y está frente a la "
+    "decisión más grande que ha tomado. Todavía no sabes en qué grado exacto "
+    "está, así que no le des un tono de urgencia ni de años por delante: "
+    "pregúntaselo pronto, porque de eso depende cómo seguir la conversación."
+    + _SIN_DINERO
+)
+
+_BLOQUE_SIN_ETAPA = (
+    "Todavía no sabes en qué etapa está: puede ser un estudiante de colegio "
+    "o alguien que ya pasó por la universidad. Hasta saberlo no des por "
+    "hecha su edad ni su experiencia, y no le preguntes por dinero."
+)
+
+
+def _bloque_perfil(recolectados: Dict[str, Any]) -> str:
+    """Con quién está hablando · el prompt ya no lo da por hecho.
+
+    Venía clavado en el prompt que la persona tenía "entre 15 y 19 años". Para
+    un profesional que ya se graduó eso no es un matiz de tono: le hace hablar
+    como si estuviera decidiendo por primera vez, y le prohibe tocar el dinero
+    —que en su caso sí le corresponde, porque es quien paga—.
+
+    Ahora hay 5 rutas (malla completa, Cimientos) en vez de 2 perfiles: un
+    chico de 9° (tono amigable, sin presión) no recibe el mismo trato que uno
+    de 12° (ejecución, fechas límite) ni que un adulto. Mientras la ruta no se
+    pueda derivar —porque falta `life_stage`, o porque es colegio pero falta
+    `grade`— el bloque lo dice en vez de inventarlo: adivinar sale más caro
+    que preguntar.
+    """
+    r = catalogo.ruta(recolectados)
+    if r is not None:
+        return _BLOQUE_POR_RUTA[r]
+
+    if catalogo.perfil(recolectados) == catalogo.PERFIL_COLEGIO:
+        return _BLOQUE_COLEGIO_GENERICO
+
+    return _BLOQUE_SIN_ETAPA
+
+
 def responder(
     mensaje: str,
     historial: List[Dict[str, str]],
@@ -245,11 +367,13 @@ def responder(
     pendientes = _rotar_dentro_del_tramo(
         catalogo.faltantes(recolectados) if ya_hablo else [],
         catalogo.faltantes(actualizados),
+        actualizados,
     )
 
     plantilla = load_prompt(PROMPT_NAME)
     system = (
-        plantilla.replace("{recolectado}", _bloque_recolectado(actualizados))
+        plantilla.replace("{perfil}", _bloque_perfil(actualizados))
+        .replace("{recolectado}", _bloque_recolectado(actualizados))
         .replace("{faltantes}", _bloque_faltantes(pendientes))
         .replace("{cierre}", _bloque_cierre(actualizados, pendientes))
     )
@@ -294,6 +418,18 @@ def a_onboarding_answers(recolectados: Dict[str, Any]) -> Dict[str, Any]:
     mínima posible para ese año, así que ante la duda la persona se clasifica
     como **menor** y se le pide consentimiento parental. Nunca al revés. Usar
     enero 1 invertiría exactamente esa garantía.
+
+    PENDIENTE fuera del alcance de este archivo: esto deja `grade`,
+    `school_reported_last_grade` y `school_reported_accreditation` en
+    `User.onboarding_answers` (JSON) — que es lo que ya leen `cv_pdf_service`,
+    `pdf_service` y `dossier_service` (leían de un campo que nadie escribía;
+    ahora sí lo escribe). Falta el otro lado: copiar esos mismos valores a las
+    columnas TIPADAS `User.grade` (int) / `User.school_reported_last_grade` /
+    `User.school_reported_accreditation` que trajo Cimientos (migración 067).
+    Eso vive en `_persistir()` (`app/api/v1/onboarding_chat.py`) y
+    `_sync_onboarding_to_user_columns()` (`app/api/v1/auth.py`) — archivos que
+    no son de este agente; mismo patrón que ya hace ese código con
+    `birthdate` → `user.birthdate`.
     """
     fuera = catalogo.a_onboarding_answers(recolectados)
 

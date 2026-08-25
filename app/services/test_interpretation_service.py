@@ -34,6 +34,12 @@ from app.core.ai_client import call_claude_with_meta, load_prompt
 from app.core.ai_json import parse_ai_json
 from app.db.models import User, VocationalTestResult
 from app.services.ai_usage_service import record_ai_usage
+from app.data.habilidades_blandas import HABILIDAD_INFO
+from app.services.habilidades_blandas_service import (
+    PERFIL_INSUFICIENTE,
+    PERFIL_PAREJO,
+    TEST_ID as HABILIDADES_BLANDAS_TEST_ID,
+)
 from app.services.scoring_service import (
     ISTRONG_BIS_INFO,
     ISTRONG_GOT_INFO,
@@ -131,6 +137,11 @@ def _label_map(test_id: str) -> Dict[str, tuple]:
     if test_id == "motivadores":
         return {
             k: (v.get("name", k), v.get("description", "")) for k, v in MOTIVADOR_INFO.items()
+        }
+    if test_id == HABILIDADES_BLANDAS_TEST_ID:
+        return {
+            k: (v.get("name", k), v.get("description", ""))
+            for k, v in HABILIDAD_INFO.items()
         }
     return {}
 
@@ -260,6 +271,43 @@ def _resultado_block(test_id: str, scores: Dict[str, Any]) -> str:
             valor = extras.get(clave)
             if valor and valor in etiquetas:
                 filas.append(f"Motivador {papel}: {etiquetas[valor][0]}")
+        if extras.get("headline"):
+            filas.append(f"Lectura del sistema: {extras['headline']}")
+
+    elif test_id == HABILIDADES_BLANDAS_TEST_ID:
+        # Este es el único instrumento propio del banco: no está normado. Si al
+        # modelo sólo le llegaran los porcentajes, escribiría "eres un líder nato"
+        # — que es justo la afirmación que este mapeo no puede sostener. Por eso
+        # las restricciones viajan con el dato, no sólo en el prompt base.
+        if extras.get("label"):
+            filas.append(f"RESULTADO: {extras['label']}")
+        filas.append(
+            "Este NO es un test psicométrico: es un mapeo propio sobre nueve "
+            "situaciones. Habla de TENDENCIAS de respuesta ('te inclinas a…'), "
+            "nunca de rasgos ('eres…'), y no lo presentes como un diagnóstico."
+        )
+        perfil = extras.get("perfil")
+        if perfil == PERFIL_INSUFICIENTE:
+            filas.append(
+                "Respondió muy pocos retos: NO nombres una tendencia. Invítalo a "
+                "completar el mapeo."
+            )
+        elif perfil == PERFIL_PAREJO:
+            filas.append(
+                "Respondió parejo en las tres habilidades: no hay una dominante. "
+                "No inventes una, y aclara que parejo no significa flojo."
+            )
+        tendencias = [t for t in (extras.get("tendencias") or []) if t in etiquetas]
+        if tendencias:
+            filas.append(
+                "Habilidades que más eligió: "
+                + " · ".join(etiquetas[t][0] for t in tendencias)
+            )
+        if not extras.get("completo") and perfil != PERFIL_INSUFICIENTE:
+            filas.append(
+                f"Mapeo parcial: respondió {extras.get('respondidas')} de "
+                f"{extras.get('total_retos')} retos. Dilo."
+            )
         if extras.get("headline"):
             filas.append(f"Lectura del sistema: {extras['headline']}")
 

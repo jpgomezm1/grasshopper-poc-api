@@ -183,3 +183,43 @@ def test_las_opciones_del_front_tienen_mapeo_en_el_backend():
         "working",
         "career_change",
     }
+
+
+# ---------------------------------------------------------------------------
+# Cimientos (migración 067) · el grado llega de punta a punta por HTTP.
+#
+# No basta con probar `_sync_onboarding_to_user_columns` como función pura
+# (ver `tests/test_p1_3_onboarding_llega_a_la_ia.py`): esto prueba el camino
+# REAL que usa el frontend — `PUT /auth/me/onboarding` con el grado, y que
+# `GET /auth/me` (lo que `journey-compass` lee para `resolveStudentTrack`)
+# efectivamente lo sirva. Es la frontera que un mock de la función pura no
+# puede garantizar por sí sola.
+# ---------------------------------------------------------------------------
+
+
+def test_el_grado_dicho_en_onboarding_llega_a_auth_me(client):
+    r = client.post("/api/v1/auth/register", json={
+        "email": "grado.e2e@example.com", "password": "Test2026!", "name": "Grado E2E",
+    })
+    assert r.status_code in (200, 201), r.text
+    token = r.json()["access_token"]
+    H = {"Authorization": f"Bearer {token}"}
+
+    r = client.put(
+        "/api/v1/auth/me/onboarding",
+        json={"answers": {
+            "life_stage": "high_school_early",
+            "grade": "9",
+            "school_reported_last_grade": "11",
+            "school_reported_accreditation": "ib",
+        }},
+        headers=H,
+    )
+    assert r.status_code < 400, r.text
+
+    perfil = client.get("/api/v1/auth/me", headers=H)
+    assert perfil.status_code == 200, perfil.text
+    body = perfil.json()
+    assert body["grade"] == 9
+    assert body["school_reported_last_grade"] == 11
+    assert body["school_reported_accreditation"] == "ib"

@@ -18,7 +18,11 @@ from app.api.v1.auth import _sync_onboarding_to_user_columns
 
 
 def _user(**kw):
-    base = dict(budget_band=None, budget_max_usd=None, preferred_countries=None)
+    base = dict(
+        budget_band=None, budget_max_usd=None, preferred_countries=None,
+        grade=None, school_reported_last_grade=None,
+        school_reported_accreditation=None,
+    )
     base.update(kw)
     return SimpleNamespace(**base)
 
@@ -74,6 +78,77 @@ def test_no_revienta_con_respuestas_vacias_o_raras():
     for basura in ({}, {"budget": "xxx"}, {"countries": "no-es-lista"}, None):
         _sync_onboarding_to_user_columns(u, basura)
     assert u.budget_band is None
+
+
+# ---------------------------------------------------------------------------
+# Cimientos (migración 067) · el otro lado de la escritura doble del grado.
+#
+# `onboarding_hechos.a_onboarding_answers()` ya escribe `grade` /
+# `school_reported_last_grade` / `school_reported_accreditation` en el JSON
+# de `onboarding_answers` (eso lo hizo el agente de onboarding). Lo que
+# faltaba —documentado como pendiente explícito en ese cambio— era copiar
+# esos mismos valores a las columnas TIPADAS que trajo Cimientos, que es lo
+# que lee `vocational_bank_selector.grado_del_estudiante` (Holland junior de
+# 9°/10°) y lo que sirve `/auth/me`. Sin este bloque esas columnas se quedan
+# NULL para siempre aunque el JSON ya tenga el dato.
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize("grade_raw,esperado", [
+    ("9", 9), ("10", 10), ("11", 11), ("12", 12), (11, 11),
+])
+def test_el_grado_del_onboarding_llega_a_la_columna_tipada(grade_raw, esperado):
+    u = _user()
+    _sync_onboarding_to_user_columns(u, {"grade": grade_raw})
+    assert u.grade == esperado
+
+
+@pytest.mark.parametrize("basura", ["8", "13", "", None, [], {}, True, "noveno"])
+def test_un_grado_fuera_del_dominio_no_se_escribe(basura):
+    """8° y 13° no existen en la malla · ante la duda, NULL y no una
+    conversión a ciegas (mismo criterio que 'no sé' con el presupuesto)."""
+    u = _user()
+    _sync_onboarding_to_user_columns(u, {"grade": basura})
+    assert u.grade is None
+
+
+def test_el_grado_no_pisa_uno_ya_guardado_con_basura_de_otro_turno():
+    """Un turno de conversación puede traer sólo parte de los hechos · si esta
+    vez no vino `grade`, el que ya estaba en la columna se queda."""
+    u = _user(grade=10)
+    _sync_onboarding_to_user_columns(u, {"budget": "5k_15k"})
+    assert u.grade == 10
+
+
+@pytest.mark.parametrize("valor,esperado", [("11", 11), ("12", 12), (12, 12)])
+def test_hasta_que_grado_llega_el_colegio_llega_a_la_columna(valor, esperado):
+    u = _user()
+    _sync_onboarding_to_user_columns(u, {"school_reported_last_grade": valor})
+    assert u.school_reported_last_grade == esperado
+
+
+def test_no_se_a_hasta_que_grado_llega_el_colegio_no_escribe_la_columna_entera():
+    """'unknown' (la opción 'No sé') no tiene representación en la columna
+    Integer · la distinción NULL vs 'unknown' sólo existe en el JSON, que ya
+    la preserva (ver el comentario de la columna en `db/models.py`)."""
+    u = _user()
+    _sync_onboarding_to_user_columns(u, {"school_reported_last_grade": "unknown"})
+    assert u.school_reported_last_grade is None
+
+
+@pytest.mark.parametrize(
+    "valor", ["ib", "ap", "american", "bilingual", "local", "unknown"]
+)
+def test_la_acreditacion_del_colegio_llega_a_la_columna(valor):
+    u = _user()
+    _sync_onboarding_to_user_columns(u, {"school_reported_accreditation": valor})
+    assert u.school_reported_accreditation == valor
+
+
+def test_una_acreditacion_fuera_de_catalogo_no_se_escribe():
+    u = _user()
+    _sync_onboarding_to_user_columns(u, {"school_reported_accreditation": "montessori"})
+    assert u.school_reported_accreditation is None
 
 
 # ---------------------------------------------------------------------------

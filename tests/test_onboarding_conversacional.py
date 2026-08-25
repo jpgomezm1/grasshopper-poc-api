@@ -107,9 +107,14 @@ def test_lo_duro_se_pregunta_primero():
 
 def test_se_cierra_sin_haber_preguntado_las_catorce():
     """El perfil sigue creciendo con el uso (journey, bitácora, tests). Insistir
-    hasta completar los 14 datos sería el formulario con otra cara."""
+    hasta completar todos los hechos sería el formulario con otra cara.
+
+    `grade` SÍ está incluido: desde la malla de 5 rutas es obligatorio para
+    quien está en colegio (sin grado no hay a cuál de las 4 rutas enrutarlo),
+    a diferencia de `budget` o de las preguntas propias de cada grado, que
+    siguen siendo enriquecimiento opcional."""
     r = {
-        "life_stage": "high_school", "birthdate": 2008,
+        "life_stage": "high_school", "birthdate": 2008, "grade": "11",
         "main_goal": ["discover"], "voice_passion": "dibujar personajes",
         "voice_strengths": "el color y las expresiones",
     }
@@ -281,16 +286,17 @@ def test_en_el_primer_turno_no_se_rota_nada():
 # de Hop sea de orientador vocacional".
 
 
-def test_a_un_estudiante_NO_se_le_pregunta_el_presupuesto():
-    """Quien conversa tiene 15-19 años: no sabe cuánto puede pagar su familia, y
-    preguntárselo delata que quien habla no es un orientador.
+def test_a_un_estudiante_de_colegio_NO_se_le_pregunta_el_presupuesto():
+    """No sabe cuánto puede pagar su familia, y preguntárselo delata que quien
+    habla no es un orientador.
 
     El campo no se borra —el asesor o el papá lo llenan desde su panel, y de ahí
-    sale `user.budget_band`— sólo se saca de esta conversación.
+    sale `user.budget_band`— sólo se saca de ESTA conversación.
     """
     assert "budget" not in cat.faltantes({})
     assert "budget" not in cat.faltantes({"life_stage": "high_school"})
-    assert "budget" in cat.NO_SE_LE_PREGUNTAN
+    assert "budget" not in cat.faltantes({"life_stage": "high_school_early"})
+    assert cat.SOLO_PERFIL["budget"] == (cat.PERFIL_PROFESIONAL,)
 
 
 def test_el_presupuesto_sigue_pudiendo_guardarse():
@@ -313,8 +319,12 @@ def test_primero_la_persona_y_despues_la_logistica():
 
 def test_se_cierra_con_lo_vocacional_no_con_la_logistica():
     """Lo que un orientador necesita para hablar con sentido es quién es la
-    persona · el país y la modalidad pueden llegar después."""
-    r = {"life_stage": "high_school", "birthdate": 2009,
+    persona · el país y la modalidad pueden llegar después.
+
+    `grade` es la excepción vocacional: no es logística, es lo que decide con
+    qué tono y qué preguntas propias de su grado se le habla el resto de la
+    conversación (ver `_bloque_perfil`)."""
+    r = {"life_stage": "high_school", "birthdate": 2009, "grade": "11",
          "voice_passion": "dibujar personajes", "voice_strengths": "el color",
          "main_goal": ["discover"]}
 
@@ -361,3 +371,359 @@ def test_las_opciones_del_objetivo_hablan_como_un_estudiante():
     assert "no sé qué hacer" in opciones["discover"]
     assert "saber si puedo vivir de esto" in opciones["discover"]
     assert "dónde estudiarlo" in opciones["study"]
+
+
+# ---------------------------------------------------------------------------
+# Los dos perfiles · colegio y profesional
+# ---------------------------------------------------------------------------
+
+def test_el_perfil_sale_de_life_stage_sin_campo_nuevo():
+    """Los seis valores de `life_stage` reparten entre los dos perfiles.
+
+    Que no quede ninguno sin mapear importa: un valor huérfano devolvería None
+    para siempre y esa persona nunca entraría a una rama.
+    """
+    assert cat.perfil({"life_stage": "high_school_early"}) == cat.PERFIL_COLEGIO
+    assert cat.perfil({"life_stage": "high_school"}) == cat.PERFIL_COLEGIO
+    assert cat.perfil({"life_stage": "university"}) == cat.PERFIL_PROFESIONAL
+    assert cat.perfil({"life_stage": "recent_grad"}) == cat.PERFIL_PROFESIONAL
+    assert cat.perfil({"life_stage": "working"}) == cat.PERFIL_PROFESIONAL
+    assert cat.perfil({"life_stage": "career_change"}) == cat.PERFIL_PROFESIONAL
+
+    opciones = set(cat.get_hecho("life_stage").opciones)
+    assert opciones == set(cat.PERFIL_POR_LIFE_STAGE), (
+        "hay un valor de life_stage sin perfil asignado"
+    )
+
+
+def test_sin_etapa_conocida_no_se_ramifica():
+    """El perfil es None hasta que se sepa la etapa · y ahí no se activa rama."""
+    assert cat.perfil({}) is None
+    assert cat.perfil({"life_stage": "loquesea"}) is None
+    assert "budget" not in cat.faltantes({})
+
+
+def test_a_un_profesional_SI_se_le_pregunta_el_presupuesto():
+    """La razón para no preguntarlo era la edad, no el campo: quien ya trabaja o
+    ya se graduó es justamente quien paga."""
+    for etapa in ("university", "recent_grad", "working", "career_change"):
+        assert "budget" in cat.faltantes({"life_stage": etapa}), etapa
+
+
+def test_el_presupuesto_no_bloquea_el_cierre_de_un_profesional():
+    """Es una rama, no un obligatorio nuevo: sin él se puede cerrar igual.
+
+    Sí hace falta completar los 3 obligatorios PROPIOS del profesional
+    (`OBLIGATORIO_SI_PERFIL`, enganchados por `adult_track_hechos.py`) — ese
+    es un bloqueo distinto al del presupuesto, que es lo que este test
+    verifica que NO bloquea.
+    """
+    from app.data.adult_track_hechos import OBLIGATORIOS_ADULTO_IDS
+
+    completo = {i: "x" for i in cat.OBLIGATORIOS}
+    completo.update({i: "x" for i in OBLIGATORIOS_ADULTO_IDS})
+    completo["life_stage"] = "working"
+    assert cat.listo_para_cerrar(completo) is True
+
+
+def test_el_prompt_le_habla_distinto_a_cada_perfil():
+    """El bloque de perfil es lo que hace que la rama se note en la conversación
+    y no sólo en qué campos se piden."""
+    colegio = conv._bloque_perfil({"life_stage": "high_school"})
+    profesional = conv._bloque_perfil({"life_stage": "working"})
+    sin_saber = conv._bloque_perfil({})
+
+    assert colegio != profesional
+    # Al de colegio se le prohibe el dinero · al profesional se le habilita.
+    assert "No le preguntas por dinero" in colegio
+    assert "el dinero sí se habla" in profesional
+    # Con perfil desconocido, tampoco.
+    assert "no le preguntes por dinero" in sin_saber
+
+
+def test_el_prompt_ya_no_asume_una_edad():
+    """La audiencia sale del bloque de perfil, no del texto fijo del prompt."""
+    from app.core.ai_client import load_prompt
+    plantilla = load_prompt("onboarding_conversacional")
+    assert "{perfil}" in plantilla
+    assert "entre 15 y 19" not in plantilla
+
+
+# ---------------------------------------------------------------------------
+# La malla completa · 5 rutas (Cimientos, migración 067) · 2026-08-24
+# ---------------------------------------------------------------------------
+# `life_stage` no alcanza la resolución que la malla pide: `high_school_early`
+# junta 9° y 10°, y a esos dos grados se les pregunta cosas distintas. La ruta
+# se deriva de `life_stage` + `grade` (el entero que definió Cimientos), nunca
+# se guarda aparte.
+
+
+def test_la_ruta_de_un_profesional_no_necesita_el_grado():
+    """Un profesional cae directo en su única ruta · preguntarle el grado no
+    tiene sentido."""
+    for etapa in ("university", "recent_grad", "working", "career_change"):
+        assert cat.ruta({"life_stage": etapa}) == cat.RUTA_PROFESIONAL, etapa
+
+
+def test_la_ruta_de_colegio_necesita_el_grado():
+    """Con perfil colegio pero sin grado, se sabe que es colegio y no cuál de
+    los cuatro — la ruta se queda en None, no se adivina."""
+    assert cat.ruta({"life_stage": "high_school"}) is None
+    assert cat.ruta({"life_stage": "high_school_early"}) is None
+
+
+def test_las_cuatro_rutas_de_colegio_salen_del_grado():
+    for grado, esperada in (
+        ("9", cat.RUTA_GRADO_9), ("10", cat.RUTA_GRADO_10),
+        ("11", cat.RUTA_GRADO_11), ("12", cat.RUTA_GRADO_12),
+    ):
+        r = {"life_stage": "high_school_early", "grade": grado}
+        assert cat.ruta(r) == esperada, grado
+
+
+def test_sin_etapa_la_ruta_tambien_es_none():
+    assert cat.ruta({}) is None
+    assert cat.ruta({"grade": "9"}) is None  # el grado solo no basta
+
+
+def test_el_grado_se_pregunta_a_quien_esta_en_colegio():
+    """Es el hecho nuevo del que depende TODA la ramificación de rutas."""
+    assert "grade" in cat.faltantes({"life_stage": "high_school"})
+    assert "grade" in cat.faltantes({"life_stage": "high_school_early"})
+
+
+def test_al_profesional_no_se_le_pregunta_el_grado():
+    assert "grade" not in cat.faltantes({"life_stage": "working"})
+
+
+def test_el_grado_bloquea_el_cierre_SOLO_para_colegio():
+    """A diferencia de `budget`, `grade` sí es obligatorio — pero condicionado
+    al perfil, igual que la pregunta misma (`SOLO_PERFIL`)."""
+    sin_grado = {"life_stage": "high_school", "birthdate": 2008,
+                 "voice_passion": "x", "voice_strengths": "x", "main_goal": ["discover"]}
+    assert not cat.listo_para_cerrar(sin_grado)
+
+    con_grado = {**sin_grado, "grade": "10"}
+    assert cat.listo_para_cerrar(con_grado)
+
+    # Para un profesional, `grade` ni siquiera aplica: no puede bloquear lo
+    # que no se le pregunta. Pero sus TRES propios obligatorios (enganchados
+    # por el mismo mecanismo, ver `test_career_engancha_sus_obligatorios_por_perfil`
+    # más abajo) sí bloquean — sin ellos el análisis de brecha no tiene con
+    # qué comparar, mismo motivo por el que `grade` bloquea a colegio.
+    profesional_sin_grade = {"life_stage": "working", "birthdate": 1998,
+                             "voice_passion": "x", "voice_strengths": "x",
+                             "main_goal": ["discover"],
+                             "career_linkedin_profile_text": "algo",
+                             "career_job_satisfaction_score": 3,
+                             "career_target_role": "Data Analyst"}
+    assert cat.listo_para_cerrar(profesional_sin_grade)
+
+
+def test_grade_no_es_obligatorio_global():
+    """`OBLIGATORIOS` sigue siendo la tupla estática de siempre: `grade` vive
+    en `OBLIGATORIO_SI_PERFIL`, no ahí — dos fuentes de verdad para lo mismo ya
+    se pagaron una vez en este archivo."""
+    assert "grade" not in cat.OBLIGATORIOS
+    assert cat.OBLIGATORIO_SI_PERFIL["grade"] == (cat.PERFIL_COLEGIO,)
+
+
+def test_career_engancha_sus_obligatorios_por_perfil_no_al_global():
+    """El módulo adulto (`adult_track_hechos.py`) sugería sumar sus 3
+    obligatorios directo a `OBLIGATORIOS`; el enganche real los puso en
+    `OBLIGATORIO_SI_PERFIL` en su lugar, exactamente por lo que prueba
+    `test_las_dos_fuentes_de_verdad_de_lo_obligatorio_coinciden` — todo lo que
+    está en `OBLIGATORIOS` tiene que aparecer en `faltantes({})` sin importar
+    el perfil, y estos tres NO deben (sólo aplican a un profesional)."""
+    from app.data.adult_track_hechos import OBLIGATORIOS_ADULTO_IDS
+
+    for hecho_id in OBLIGATORIOS_ADULTO_IDS:
+        assert hecho_id not in cat.OBLIGATORIOS, hecho_id
+        assert cat.OBLIGATORIO_SI_PERFIL.get(hecho_id) == (cat.PERFIL_PROFESIONAL,), hecho_id
+
+    # Y sí están enganchados de verdad: el catálogo los conoce, se pueden
+    # preguntar (`aplica`) y bloquean el cierre de un profesional que no los
+    # haya respondido.
+    for hecho_id in OBLIGATORIOS_ADULTO_IDS:
+        assert cat.get_hecho(hecho_id) is not None, hecho_id
+        assert cat.aplica(hecho_id, {"life_stage": "working"}) is True, hecho_id
+        assert cat.aplica(hecho_id, {"life_stage": "high_school_early"}) is False, hecho_id
+
+
+def test_las_preguntas_de_grado_9_solo_aplican_en_grado_9():
+    r9 = {"life_stage": "high_school_early", "grade": "9"}
+    r10 = {"life_stage": "high_school_early", "grade": "10"}
+
+    assert "g9_materias_favoritas" in cat.faltantes(r9)
+    assert "g9_idolos" in cat.faltantes(r9)
+    assert "g9_materias_favoritas" not in cat.faltantes(r10)
+
+
+def test_las_preguntas_de_grado_10_solo_aplican_en_grado_10():
+    r10 = {"life_stage": "high_school_early", "grade": "10"}
+    r9 = {"life_stage": "high_school_early", "grade": "9"}
+
+    assert "g10_materias_elegir" in cat.faltantes(r10)
+    assert "g10_que_lo_pone_nervioso" in cat.faltantes(r10)
+    assert "g10_materias_elegir" not in cat.faltantes(r9)
+
+
+def test_las_preguntas_de_grado_11_solo_aplican_en_grado_11():
+    r11 = {"life_stage": "high_school", "grade": "11"}
+    r12 = {"life_stage": "high_school", "grade": "12"}
+
+    for hecho in ("g11_carreras_en_mente", "g11_psat_sat", "g11_visitas_universidades"):
+        assert hecho in cat.faltantes(r11), hecho
+        assert hecho not in cat.faltantes(r12), hecho
+
+
+def test_las_preguntas_de_grado_12_solo_aplican_en_grado_12():
+    r12 = {"life_stage": "high_school", "grade": "12"}
+    r11 = {"life_stage": "high_school", "grade": "11"}
+
+    assert "g12_ya_aplico" in cat.faltantes(r12)
+    assert "g12_puntajes" in cat.faltantes(r12)
+    assert "g12_ya_aplico" not in cat.faltantes(r11)
+
+
+def test_sin_grado_conocido_no_se_activa_ninguna_pregunta_de_ruta():
+    """Ruta desconocida = no se ramifica, el mismo criterio conservador que ya
+    usa `SOLO_PERFIL`."""
+    sin_grado = cat.faltantes({"life_stage": "high_school"})
+    for hecho_id in cat.SOLO_SI_RUTA:
+        assert hecho_id not in sin_grado, hecho_id
+
+
+def test_las_preguntas_de_ruta_no_bloquean_el_cierre():
+    """Son enriquecimiento, no obligatorio nuevo — igual que `budget` para un
+    profesional."""
+    r = {"life_stage": "high_school_early", "grade": "9", "birthdate": 2011,
+         "voice_passion": "x", "voice_strengths": "x", "main_goal": ["discover"]}
+    assert cat.listo_para_cerrar(r)
+
+
+# ---------------------------------------------------------------------------
+# Los datos del colegio · terminan en 11 o 12, y acreditación · con "no sé"
+# ---------------------------------------------------------------------------
+
+
+def test_los_datos_del_colegio_solo_se_piden_a_colegio():
+    assert "school_last_grade" not in cat.faltantes({"life_stage": "working"})
+    assert "school_accreditation" not in cat.faltantes({"life_stage": "working"})
+    assert "school_last_grade" in cat.faltantes({"life_stage": "high_school"})
+    assert "school_accreditation" in cat.faltantes({"life_stage": "high_school"})
+
+
+def test_los_datos_del_colegio_admiten_no_se():
+    """Regla del cliente, literal: se pregunta CON OPCIÓN 'no sé'."""
+    opciones_grado = cat.get_hecho("school_last_grade").opciones
+    opciones_acreditacion = cat.get_hecho("school_accreditation").opciones
+
+    assert opciones_grado["unknown"] == "No sé"
+    assert opciones_acreditacion["unknown"] == "No sé"
+
+
+def test_modulos_ap_ib_solo_si_el_colegio_es_ib_o_ap():
+    """"Si no se sabe, NO se muestran módulos AP/IB" — ni con NULL (no
+    preguntado) ni con "unknown" (preguntó, no sabe) se activa."""
+    base = {"life_stage": "high_school_early", "grade": "9"}
+
+    assert "colegio_ap_ib_detalle" not in cat.faltantes(base)
+    assert "colegio_ap_ib_detalle" not in cat.faltantes(
+        {**base, "school_accreditation": "unknown"}
+    )
+    assert "colegio_ap_ib_detalle" not in cat.faltantes(
+        {**base, "school_accreditation": "local"}
+    )
+    assert "colegio_ap_ib_detalle" in cat.faltantes(
+        {**base, "school_accreditation": "ib"}
+    )
+    assert "colegio_ap_ib_detalle" in cat.faltantes(
+        {**base, "school_accreditation": "ap"}
+    )
+
+
+def test_ap_ib_aplica_sin_importar_el_grado():
+    """La acreditación es del colegio, no de la ruta: un IB puede tener
+    estudiantes en cualquiera de los 4 grados."""
+    for grado in ("9", "10", "11", "12"):
+        r = {"life_stage": "high_school_early", "grade": grado,
+             "school_accreditation": "ib"}
+        assert "colegio_ap_ib_detalle" in cat.faltantes(r), grado
+
+
+# ---------------------------------------------------------------------------
+# El chat le habla distinto a cada una de las 5 rutas
+# ---------------------------------------------------------------------------
+
+
+def test_las_5_rutas_producen_5_bloques_distintos():
+    bloques = {
+        r: conv._bloque_perfil({
+            "life_stage": "working" if r == cat.RUTA_PROFESIONAL else "high_school_early",
+            "grade": None if r == cat.RUTA_PROFESIONAL else r.rsplit("_", 1)[-1],
+        })
+        for r in cat.RUTAS
+    }
+    # Las 5 son distintas entre sí · si dos coincidieran, esa rama no se nota.
+    assert len(set(bloques.values())) == 5
+
+
+def test_grado_9_es_amigable_y_sin_presion():
+    bloque = conv._bloque_perfil({"life_stage": "high_school_early", "grade": "9"})
+    assert "presión" in bloque.lower()
+    assert "No le preguntas por dinero" in bloque
+
+
+def test_grado_12_es_de_ejecucion_y_fechas():
+    bloque = conv._bloque_perfil({"life_stage": "high_school", "grade": "12"})
+    assert "ejecución" in bloque.lower()
+    assert "No le preguntas por dinero" in bloque  # sigue sin ser quien paga
+
+
+def test_grado_11_no_asume_si_es_su_ultimo_ano():
+    """Sin `school_last_grade` no se sabe si once es el último año o el
+    penúltimo — el bloque no debe darlo por hecho en ningún sentido."""
+    bloque = conv._bloque_perfil({"life_stage": "high_school", "grade": "11"})
+    assert "no lo sabes" in bloque.lower() or "no sabes" in bloque.lower()
+
+
+def test_colegio_sin_grado_conocido_usa_el_bloque_generico_no_uno_de_ruta():
+    """Antes de saber el grado, sigue sin haber presión de dinero, pero
+    tampoco se adivina un tono de ejecución o de exploración."""
+    bloque = conv._bloque_perfil({"life_stage": "high_school"})
+    assert "No le preguntas por dinero" in bloque
+    assert "ejecución" not in bloque.lower()
+    assert bloque != conv._bloque_perfil({"life_stage": "high_school_early", "grade": "9"})
+
+
+# ---------------------------------------------------------------------------
+# La rotación de tramo reconoce que `grade` es obligatorio SOLO para colegio
+# ---------------------------------------------------------------------------
+
+
+def test_grado_sin_responder_cede_a_otro_obligatorio_de_colegio():
+    """Sin pasarle el contexto, `grade` se trataría como opcional y se iría
+    al fondo detrás de diez preguntas — el mismo bug que ya se corrigió una
+    vez para `main_goal`."""
+    contexto = {"life_stage": "high_school"}
+    faltan = ["grade", "voice_passion", "voice_hobbies", "voice_experience"]
+
+    rotado = conv._rotar_dentro_del_tramo(faltan, faltan, contexto)
+
+    # `voice_passion` es obligatorio global · `grade` es obligatorio de
+    # colegio · deben quedar juntos en el mismo tramo, y ninguno detrás de
+    # los opcionales.
+    assert rotado[0] == "voice_passion"
+    assert "grade" in rotado
+    assert rotado.index("grade") < rotado.index("voice_hobbies")
+
+
+def test_grado_sin_contexto_se_degrada_al_comportamiento_anterior():
+    """Sin `recolectados` (el default), `grade` no aparece en `OBLIGATORIOS` y
+    se trata como cualquier opcional — el comportamiento previo a la malla de
+    5 rutas, para no romper a quien todavía llama sin el tercer argumento."""
+    faltan = ["grade", "voice_hobbies", "voice_experience"]
+    rotado = conv._rotar_dentro_del_tramo(faltan, faltan)
+
+    assert rotado[0] != "grade"

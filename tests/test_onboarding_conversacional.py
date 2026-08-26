@@ -824,13 +824,19 @@ def test_el_saludo_pregunta_primero_por_la_etapa_no_por_la_pasion():
     assert "apasiona" not in saludo
 
 
-def test_el_saludo_no_le_inventa_nombre_a_la_guia():
-    """El personaje lo diseña JP, no un agente · en texto visible sigue siendo
-    "tu guía", nunca un nombre propio."""
-    assert "tu guía" in conv.SALUDO
-    # Nombres que NO debe inventarse (ninguno pedido por el cliente todavía).
-    for nombre_prohibido in ("Hop", "hop"):
-        assert nombre_prohibido not in conv.SALUDO
+def test_el_saludo_presenta_al_personaje_por_su_nombre():
+    """El personaje ya tiene nombre: Mento (decidido por AH el 2026-08-25).
+
+    Antes este test afirmaba lo contrario —que NO debía tener nombre propio—
+    porque el personaje estaba sin diseñar. Se actualiza junto con la decisión,
+    no se borra: sigue habiendo algo que proteger, solo que ahora es que el
+    nombre ESTÉ y que no reaparezca el viejo.
+    """
+    assert "Mento" in conv.SALUDO
+    assert "tu guía" not in conv.SALUDO
+    # "Hop" era la mascota de GrassHopper · nunca vuelve al texto visible.
+    for viejo in ("Hop", "hop"):
+        assert viejo not in conv.SALUDO
 
 
 def test_primer_mensaje_es_el_saludo_fijo():

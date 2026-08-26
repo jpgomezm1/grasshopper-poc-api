@@ -245,7 +245,7 @@ def test_chat_503_when_ai_down(app_with_db, monkeypatch):
 
     assert r.status_code == 503, r.text
     assert r.json()["detail"] == (
-        "Tu guía no puede responder en este momento. Intenta de nuevo en unos minutos."
+        "Mento no puede responder en este momento. Intenta de nuevo en unos minutos."
     )
 
 

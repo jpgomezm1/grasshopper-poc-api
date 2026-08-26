@@ -8,7 +8,7 @@ POST /api/v1/hop/chat
                         (default [] · máx 20 items),
              "oferta_id": str opcional}
   Response: {"reply": str, "profile_used": bool, "oferta_context_used": bool}
-  503     : detail = "Tu guía no puede responder en este momento. Intenta de
+  503     : detail = "Mento no puede responder en este momento. Intenta de
              nuevo en unos minutos."
 """
 from __future__ import annotations

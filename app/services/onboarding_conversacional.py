@@ -77,7 +77,7 @@ MENSAJE_FALLBACK = (
 # preguntaba de verdad en el turno siguiente (la etapa) se contradecían. Este
 # texto ahora abre con lo mismo que el motor va a pedir primero.
 SALUDO = (
-    "¡Hola! Soy tu guía. Antes de orientarte quiero hacerte unas preguntas "
+    "¡Hola! Soy Mento. Antes de orientarte quiero hacerte unas preguntas "
     "para conocerte mejor.\n\n"
     "Para empezar: ¿en qué etapa estás hoy? ¿Estás en noveno, en décimo, en "
     "once, en doce, o ya eres un profesional?"

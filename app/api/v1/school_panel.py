@@ -1007,6 +1007,16 @@ def accept_invitation(
 
     else:
         # New account: create from scratch using the invitation email + chosen password.
+        # Sin autorizacion de tratamiento no se crea la cuenta · mismo candado que
+        # en /auth/register. Va antes del `User(...)` para no dejar filas a medias.
+        if not payload.acepta_tratamiento_datos:
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail=(
+                    "Para crear tu cuenta necesitamos que autorices el tratamiento "
+                    "de tus datos personales."
+                ),
+            )
         target_role = UserRole(inv.role)
         logger.info(
             "invitation.accept · new account created · inv_id=%s role=%s",
@@ -1028,6 +1038,30 @@ def accept_invitation(
         db.add(user)
         db.commit()
         db.refresh(user)
+
+        # Consentimientos y correo DESPUES del commit y en su propio try: la
+        # cuenta ya existe, y ni una fila de auditoria ni un proveedor de correo
+        # caido pueden dejar a la persona sin poder entrar.
+        from app.services import consent_service, welcome_email
+
+        try:
+            consent_service.grant_consent(db, user, "data_processing", request=request)
+            if payload.acepta_comunicaciones:
+                consent_service.grant_consent(db, user, "communications", request=request)
+            db.commit()
+        except Exception:  # pragma: no cover · defensivo
+            db.rollback()
+            logger.exception(
+                "invitation.accept · no se pudieron registrar los consentimientos"
+            )
+        db.refresh(user)
+
+        try:
+            welcome_email.enviar_bienvenida(user)
+        except Exception:  # pragma: no cover · defensivo
+            logger.exception(
+                "invitation.accept · no se pudo enviar el correo de bienvenida"
+            )
 
     mark_accepted(db, inv, user)
 

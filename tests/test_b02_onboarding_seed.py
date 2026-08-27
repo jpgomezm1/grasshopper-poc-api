@@ -49,7 +49,11 @@ def client(tmp_path, monkeypatch):
 
 def _onboarded_student(client, email="b02.seed@example.com"):
     """Registra un estudiante y completa el onboarding con university/1_year."""
-    r = client.post("/api/v1/auth/register", json={"email": email, "password": "Test2026!", "name": "B02"})
+    r = client.post("/api/v1/auth/register", json={
+        "email": email, "password": "Test2026!", "name": "B02",
+        # Sin este permiso el registro es 422 · no hay cuenta que probar.
+        "acepta_tratamiento_datos": True,
+    })
     assert r.status_code in (200, 201), r.text
     token = r.json()["access_token"]
     H = {"Authorization": f"Bearer {token}"}
@@ -200,6 +204,8 @@ def test_las_opciones_del_front_tienen_mapeo_en_el_backend():
 def test_el_grado_dicho_en_onboarding_llega_a_auth_me(client):
     r = client.post("/api/v1/auth/register", json={
         "email": "grado.e2e@example.com", "password": "Test2026!", "name": "Grado E2E",
+        # Sin este permiso el registro es 422 · no hay cuenta que probar.
+        "acepta_tratamiento_datos": True,
     })
     assert r.status_code in (200, 201), r.text
     token = r.json()["access_token"]

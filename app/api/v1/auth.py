@@ -51,9 +51,19 @@ class RegisterRequest(BaseModel):
     email: EmailStr
     password: str
     name: Optional[str] = None
-    # RM-1 · la casilla del formulario, marcada por defecto. Ver
-    # `_register_student_internal` para por qué el consentimiento se toma aquí.
-    acepta_comunicaciones: bool = True
+    # Dos consentimientos DISTINTOS, y la diferencia es legal, no de forma:
+    #
+    # `acepta_tratamiento_datos` es la autorizacion de tratamiento de datos
+    # personales (Ley 1581/2012). Sin ella no se pueden procesar los datos, asi
+    # que bloquea el registro. Antes se tomaba de forma IMPLICITA ("al crear tu
+    # cuenta aceptas..."), que es la forma mas debil justo del consentimiento
+    # que mas importa — y aqui una parte de los usuarios son menores.
+    #
+    # `acepta_comunicaciones` es marketing y es OPCIONAL. Obligarla para poder
+    # entrar invalidaria el consentimiento, que tiene que ser libre. Por eso su
+    # default pasa de True a False: una casilla premarcada tampoco vale.
+    acepta_tratamiento_datos: bool = False
+    acepta_comunicaciones: bool = False
 
 
 class RegisterStudentRequest(BaseModel):
@@ -65,7 +75,9 @@ class RegisterStudentRequest(BaseModel):
     email: EmailStr
     password: str
     name: Optional[str] = None
-    acepta_comunicaciones: bool = True
+    # Ver el bloque de RegisterRequest · tratamiento obligatorio, marketing opcional.
+    acepta_tratamiento_datos: bool = False
+    acepta_comunicaciones: bool = False
 
 
 class RegisterSchoolUserRequest(BaseModel):
@@ -342,6 +354,7 @@ def register(
             email=payload.email,
             password=payload.password,
             name=payload.name,
+            acepta_tratamiento_datos=payload.acepta_tratamiento_datos,
             acepta_comunicaciones=payload.acepta_comunicaciones,
         ),
         db,
@@ -403,6 +416,18 @@ def _register_student_internal(
     que es justo lo que se le pide a un consentimiento cuando alguien lo
     reclama.
     """
+    # Sin autorizacion de tratamiento no se crea la cuenta. Se comprueba lo
+    # PRIMERO, antes incluso de mirar si el correo ya existe: no tiene sentido
+    # consultar la base con los datos de alguien que no autorizo que los usemos.
+    if not request.acepta_tratamiento_datos:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=(
+                "Para crear tu cuenta necesitamos que autorices el tratamiento "
+                "de tus datos personales."
+            ),
+        )
+
     existing_user = db.query(User).filter(User.email == request.email.lower()).first()
     if existing_user:
         raise HTTPException(
@@ -443,6 +468,21 @@ def _register_student_internal(
         logger.exception("register · no se pudieron registrar los consentimientos")
 
     db.refresh(user)
+
+    # Correo de bienvenida · antes no se mandaba NINGUNO. Alguien se registraba
+    # en una plataforma de orientacion con su correo y no recibia nada.
+    #
+    # Va en su propio try y al final: que el proveedor de correo este caido no
+    # puede impedir que alguien entre a su cuenta recien creada.
+    try:
+        from app.services import welcome_email
+
+        welcome_email.enviar_bienvenida(user)
+    except Exception:  # pragma: no cover · defensivo
+        logger.exception(
+            "register · no se pudo enviar el correo de bienvenida",
+            extra={"user_id": str(user.id)},
+        )
 
     access_token = create_access_token(data={"sub": str(user.id)})
     return TokenResponse(

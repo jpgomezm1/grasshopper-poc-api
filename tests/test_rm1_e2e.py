@@ -118,6 +118,8 @@ def _estudiante(client, Maker, email="e2e@test.com", acepta_comunicaciones=False
             "password": "Test2026!",
             "name": "Ana Ruiz",
             "acepta_comunicaciones": acepta_comunicaciones,
+            # Sin este permiso el registro es 422 · no hay cuenta que probar.
+            "acepta_tratamiento_datos": True,
         },
     )
     assert r.status_code in (200, 201), r.text

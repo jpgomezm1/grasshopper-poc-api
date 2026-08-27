@@ -57,6 +57,16 @@ class InvitationAccept(BaseModel):
     """Public accept payload · invitee chooses password + (optional) name."""
     password: str = Field(..., min_length=8, max_length=128)
     name: Optional[str] = Field(default=None, max_length=255)
+    # Que a alguien lo invite su colegio no autoriza nada: el titular del dato
+    # es el estudiante, no el colegio (Ley 1581/2012 art. 9). Esta era la
+    # segunda puerta de entrada al producto y no registraba NINGUN
+    # consentimiento — ni siquiera el de tratamiento de datos.
+    #
+    # Solo se exige al crear cuenta NUEVA. Quien ya tiene cuenta lo dio al
+    # registrarse; volver a pedirselo por aceptar una invitacion seria pedir
+    # dos veces lo mismo.
+    acepta_tratamiento_datos: bool = False
+    acepta_comunicaciones: bool = False
 
 
 class InvitationLookupResponse(BaseModel):

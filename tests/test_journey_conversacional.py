@@ -180,7 +180,11 @@ def _sin_cache_de_flags():
 def _estudiante(client, email):
     r = client.post(
         "/api/v1/auth/register",
-        json={"email": email, "password": "Test2026!", "name": "Conversa"},
+        json={
+            "email": email, "password": "Test2026!", "name": "Conversa",
+            # Sin este permiso el registro es 422 · no hay cuenta que probar.
+            "acepta_tratamiento_datos": True,
+        },
     )
     assert r.status_code in (200, 201), r.text
     return {"Authorization": f"Bearer {r.json()['access_token']}"}

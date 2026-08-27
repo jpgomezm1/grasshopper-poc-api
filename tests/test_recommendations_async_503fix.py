@@ -70,7 +70,11 @@ def env(tmp_path, monkeypatch):
 def _student(client, email="rec.async@example.com", with_test=False, sessionmaker_=None):
     r = client.post(
         "/api/v1/auth/register",
-        json={"email": email, "password": "Test2026!", "name": "Rec"},
+        json={
+            "email": email, "password": "Test2026!", "name": "Rec",
+            # Sin este permiso el registro es 422 · no hay cuenta que probar.
+            "acepta_tratamiento_datos": True,
+        },
     )
     assert r.status_code in (200, 201), r.text
     token = r.json()["access_token"]

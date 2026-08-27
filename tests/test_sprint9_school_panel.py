@@ -525,7 +525,7 @@ def test_invitation_accept_flow_creates_student_and_isolates_school(app_with_db)
     # Public accept OK
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "MyStrongPass1", "name": "Valeria"},
+        json={"password": "MyStrongPass1", "name": "Valeria", "acepta_tratamiento_datos": True},
     )
     assert r.status_code == 200, r.text
     body = r.json()
@@ -535,7 +535,7 @@ def test_invitation_accept_flow_creates_student_and_isolates_school(app_with_db)
     # Re-using the token fails
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "Whatever123", "name": "Anyone"},
+        json={"password": "Whatever123", "name": "Anyone", "acepta_tratamiento_datos": True},
     )
     assert r.status_code in (404, 410)
 
@@ -566,7 +566,7 @@ def test_invitation_revoke_blocks_accept(app_with_db):
     # accept now 410
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "Whatever123"},
+        json={"password": "Whatever123", "acepta_tratamiento_datos": True},
     )
     assert r.status_code == 410
 

@@ -222,7 +222,7 @@ def test_accept_new_email_anonymous_creates_account(app_with_db):
     # Sin autenticación (anónimo), email nunca registrado
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "NewPass123!", "name": "Newcomer"},
+        json={"password": "NewPass123!", "name": "Newcomer", "acepta_tratamiento_datos": True},
     )
     assert r.status_code == 200, r.text
     body = r.json()
@@ -267,7 +267,7 @@ def test_accept_existing_email_authenticated_as_owner_links_account(app_with_db)
     # Acepta autenticado como sí mismo
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "AttackerNewPass1!", "name": "Victim"},
+        json={"password": "AttackerNewPass1!", "name": "Victim", "acepta_tratamiento_datos": True},
         headers={"Authorization": f"Bearer {victim_token}"},
     )
     assert r.status_code == 200, r.text
@@ -324,7 +324,7 @@ def test_accept_existing_email_authenticated_as_different_user_returns_403(app_w
 
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "AttackerOwnPass1!", "name": "Attacker"},
+        json={"password": "AttackerOwnPass1!", "name": "Attacker", "acepta_tratamiento_datos": True},
         headers={"Authorization": f"Bearer {attacker_token}"},
     )
     assert r.status_code == 403, r.text
@@ -360,7 +360,7 @@ def test_accept_existing_email_anonymous_returns_401(app_with_db):
     # Intento anónimo (sin Authorization header)
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "AnyPass123!", "name": "Anyone"},
+        json={"password": "AnyPass123!", "name": "Anyone", "acepta_tratamiento_datos": True},
     )
     assert r.status_code == 401, r.text
     # Debe haber WWW-Authenticate header indicando Bearer
@@ -400,7 +400,7 @@ def test_accept_expired_token_returns_410(app_with_db):
 
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "AnyPass123!"},
+        json={"password": "AnyPass123!", "acepta_tratamiento_datos": True},
     )
     assert r.status_code == 410, r.text
 
@@ -429,7 +429,7 @@ def test_accept_cross_role_blocks_downgrade(app_with_db):
 
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "PsyPass123!"},
+        json={"password": "PsyPass123!", "acepta_tratamiento_datos": True},
         headers={"Authorization": f"Bearer {psy_token}"},
     )
     assert r.status_code == 409, r.text
@@ -464,7 +464,7 @@ def test_accept_cross_school_blocks_move(app_with_db):
 
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "StudentPass1!"},
+        json={"password": "StudentPass1!", "acepta_tratamiento_datos": True},
         headers={"Authorization": f"Bearer {student_token}"},
     )
     assert r.status_code == 409, r.text
@@ -497,7 +497,7 @@ def test_accept_inactive_ghost_account_anonymous_creates_account(app_with_db):
     # Sin autenticación → debe pasar porque la cuenta no está establecida
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "NewGhostPass1!", "name": "Ghost"},
+        json={"password": "NewGhostPass1!", "name": "Ghost", "acepta_tratamiento_datos": True},
     )
     # Puede ser 200 (cuenta inactiva no es "establecida") o 401 (si la lógica
     # usa solo is_active=False como criterio de no-establecida).
@@ -523,14 +523,14 @@ def test_double_accept_token_returns_410(app_with_db):
     # Primera aceptación: OK
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "OncePass123!", "name": "Once"},
+        json={"password": "OncePass123!", "name": "Once", "acepta_tratamiento_datos": True},
     )
     assert r.status_code == 200, r.text
 
     # Segunda aceptación con el mismo token: 410
     r2 = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "TwicePass123!", "name": "Twice"},
+        json={"password": "TwicePass123!", "name": "Twice", "acepta_tratamiento_datos": True},
     )
     assert r2.status_code == 410, r2.text
 
@@ -553,7 +553,7 @@ def test_audit_log_records_blocked_takeover(app_with_db):
     bad_token = _login(client, "badactor@test.com", "existingpass123")
     r = client.post(
         f"/api/v1/invitations/{invite_token}/accept",
-        json={"password": "BadPass1!"},
+        json={"password": "BadPass1!", "acepta_tratamiento_datos": True},
         headers={"Authorization": f"Bearer {bad_token}"},
     )
     assert r.status_code == 403
@@ -570,3 +570,109 @@ def test_audit_log_records_blocked_takeover(app_with_db):
     db.close()
     assert log is not None, "El audit log del takeover bloqueado debe existir."
     assert log.resource_type == "invitation"
+
+
+# ============================================================================
+# Consentimiento · la segunda puerta de entrada al producto
+# ============================================================================
+#
+# Aceptar una invitación era la OTRA forma de crear cuenta, y no registraba
+# ningún consentimiento: ni el de tratamiento de datos ni el de comunicaciones.
+# El titular del dato es el estudiante, no el colegio que lo invita
+# (Ley 1581/2012 art. 9), así que que lo inviten no autoriza nada.
+#
+# Consecuencia medible del agujero: quien entraba por aquí fallaba el primer
+# candado de `can_send_communications` para siempre, igual que los 36 casos que
+# destapó el 2026-08-18 por el otro camino.
+
+
+def _consentimientos(SessionLocal, email):
+    from app.db.models import User
+
+    db = SessionLocal()
+    try:
+        u = db.query(User).filter(User.email == email).first()
+        if not u:
+            return None
+        return (u.consent_data_processing_at, u.consent_communications_at)
+    finally:
+        db.close()
+
+
+def _invitacion_lista(app, SessionLocal, sufijo, email):
+    """Monta colegio + admin + invitación y devuelve el token."""
+    _make_super(SessionLocal)
+    client = TestClient(app)
+    super_token = _login(client, "root@gh.example.com", "rootpass123")
+    school_id = _make_school(client, super_token, "Colegio " + sufijo, "col-" + sufijo)
+    _make_school_admin(SessionLocal, school_id, "admin@%s.com" % sufijo)
+    admin_token = _login(client, "admin@%s.com" % sufijo, "adminpass123")
+    return client, _create_invitation(client, admin_token, email, role="student")
+
+
+def test_sin_autorizar_el_tratamiento_la_invitacion_no_crea_cuenta(app_with_db):
+    app, SessionLocal = app_with_db
+    client, token = _invitacion_lista(app, SessionLocal, "sinper", "sinpermiso@test.com")
+
+    r = client.post(
+        f"/api/v1/invitations/{token}/accept",
+        json={"password": "NewPass123!", "name": "Sin Permiso"},
+    )
+    assert r.status_code == 422, r.text
+    assert _consentimientos(SessionLocal, "sinpermiso@test.com") is None, (
+        "un 422 que igual deja la cuenta creada es peor que no tener reja"
+    )
+
+
+def test_aceptar_la_invitacion_registra_el_tratamiento_de_datos(app_with_db):
+    app, SessionLocal = app_with_db
+    client, token = _invitacion_lista(app, SessionLocal, "conper", "conpermiso@test.com")
+
+    r = client.post(
+        f"/api/v1/invitations/{token}/accept",
+        json={
+            "password": "NewPass123!",
+            "name": "Con Permiso",
+            "acepta_tratamiento_datos": True,
+        },
+    )
+    assert r.status_code == 200, r.text
+
+    tratamiento, comunicaciones = _consentimientos(SessionLocal, "conpermiso@test.com")
+    assert tratamiento is not None, (
+        "sin esto la persona falla el primer candado de can_send_communications "
+        "para siempre · es el bug del 2026-08-18 por la otra puerta"
+    )
+    assert comunicaciones is None, "no lo pidio · no se le registra"
+
+
+def test_por_invitacion_tambien_llega_el_correo_de_bienvenida(app_with_db, monkeypatch):
+    app, SessionLocal = app_with_db
+
+    enviados = []
+
+    class _Backend:
+        def send_html(self, *, to, subject, html, text=None):
+            enviados.append(to)
+            from app.services.email_service import EmailSendResult
+
+            return EmailSendResult(provider="falso", delivered=True, message_id="m1")
+
+    from app.services import email_service
+
+    monkeypatch.setattr(email_service, "get_backend", lambda: _Backend())
+
+    client, token = _invitacion_lista(app, SessionLocal, "correo", "correo.inv@test.com")
+    r = client.post(
+        f"/api/v1/invitations/{token}/accept",
+        json={
+            "password": "NewPass123!",
+            "name": "Correo",
+            "acepta_tratamiento_datos": True,
+        },
+    )
+    assert r.status_code == 200, r.text
+    assert "correo.inv@test.com" in enviados, (
+        "quien entra por invitacion tambien se registra por primera vez · "
+        "merece el mismo acuse que quien llega por el formulario"
+    )

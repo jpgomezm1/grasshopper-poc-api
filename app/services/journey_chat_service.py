@@ -258,7 +258,7 @@ def responder(
     # claridad alta (regla de JP, ver `journey_videos.elegir_video`).
     video = None
     for hecho_id in nuevos:
-        video = journey_videos.elegir_video(hecho_id, actualizados, ruta)
+        video = journey_videos.elegir_video(hecho_id, actualizados, ruta, db=db)
         if video is not None:
             break
 

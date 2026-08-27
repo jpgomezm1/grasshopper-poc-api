@@ -59,6 +59,9 @@ class VideoOut(BaseModel):
     url: str
     duracion_segundos: int
     tema: str
+    # El titulo real del video. Antes NO viajaba y el front lo fabricaba
+    # ("Un video que te puede ayudar") porque solo llegaba `tema`.
+    titulo: str = ""
 
 
 class InicioResponse(BaseModel):
@@ -237,6 +240,7 @@ def turno(
         video_out = VideoOut(
             id=video.id, url=video.url,
             duracion_segundos=video.duracion_segundos, tema=video.tema,
+            titulo=video.titulo,
         )
 
     return TurnoResponse(

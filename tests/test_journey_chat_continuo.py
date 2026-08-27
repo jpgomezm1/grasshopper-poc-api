@@ -389,30 +389,21 @@ def test_dontWant_y_declaredAspirations_no_bloquean_el_cierre():
     assert "dontWant" not in completo
 
 
-def test_el_video_se_ofrece_y_se_salta_segun_claridad(monkeypatch):
-    """JP, 24-08 (20:03): 'si ya tienes mucha claridad saltate los videos'."""
+def test_sin_sesion_de_base_de_datos_no_se_ofrece_video():
+    """El contenido se mudó a la tabla `orientation_videos` (2026-08-27).
+
+    Estos dos casos —la regla de claridad de JP y que el estante empiece
+    vacío— se prueban ahora en `tests/test_videos_orientacion.py`, contra la
+    tabla, que es de donde sale el contenido de verdad. Probarlos aquí sobre
+    una lista en código dejó de tener sentido: esa lista ya no existe.
+
+    Lo que sí sigue siendo de este archivo es la costura: el chat pide un
+    video y, si no hay con qué resolverlo, no se inventa uno ni revienta. Es
+    el caso que protege a la conversación de un fallo del estante.
+    """
     from app.data import journey_videos as jv
 
-    video = jv.JourneyVideo(
-        id="v1", momento="clarityLevel", url="https://cdn.example.com/v1.mp4",
-        duracion_segundos=90, tema="Cómo leer tu nivel de claridad",
-    )
-    monkeypatch.setattr(jv, "VIDEOS", [video])
-
-    # Claridad baja/media · se ofrece.
-    assert jv.elegir_video("clarityLevel", {"clarityLevel": "Tengo muchas dudas"}) == video
-    # Claridad alta · se salta, tal cual lo pidió JP.
-    assert jv.elegir_video("clarityLevel", {"clarityLevel": "Tengo algo claro y quiero validarlo"}) is None
-    # Sin nada cargado para ese momento, no se inventa un video.
-    assert jv.elegir_video("otro_momento", {}) is None
-
-
-def test_no_hay_videos_de_ejemplo_cargados():
-    """El estante empieza vacío a propósito · el contenido lo sube la
-    clienta, no se inventa (CLAUDE.md: 'la IA NUNCA inventa datos duros')."""
-    from app.data import journey_videos as jv
-
-    assert jv.VIDEOS == []
+    assert jv.elegir_video("clarityLevel", {"clarityLevel": "Tengo muchas dudas"}) is None
 
 
 # ── el gate de menores sigue aplicando ──────────────────────────────────────

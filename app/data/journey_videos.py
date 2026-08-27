@@ -7,19 +7,19 @@ Y JP propuso el criterio de cuándo mostrarlos (20:03): "que haga parte del
 journey, si ya tienes mucha claridad saltate los videos, si todavia
 necesitas que te oriente...".
 
-## Este módulo es el ESTANTE, no el contenido
+## Qué cambió el 2026-08-27
 
-`VIDEOS` empieza **vacío a propósito**. El contenido —URL, duración, de qué
-trata cada video— lo produce y sube la clienta, no nosotros: inventar una
-URL o una duración sería el mismo tipo de dato inventado por el que ya hubo
-un reclamo (ver `CLAUDE.md` del repo, "la IA NUNCA inventa datos duros").
+Este módulo era el estante Y el contenido: una lista `VIDEOS` en código, vacía
+a propósito, que sólo se podía llenar con un despliegue. Por eso la clienta
+nunca pudo cargar un video: no había dónde ponerlo.
 
-Falta, deliberadamente, CÓMO se cargan: quién los sube (¿la clienta por un
-panel? ¿un script de datos?) es una decisión de producto que no se tomó en
-la reunión del 24-08 — sólo se pidió el mecanismo. Cuando se decida, la
-forma más natural dado el resto del repo es un endpoint de escritura en
-`school_admin.py` o un panel interno, pero eso es de otro agente/otra
-corrida: aquí sólo se deja la estructura y el selector listos para usarse.
+Ahora el contenido vive en la tabla `orientation_videos` y este módulo es
+sólo el **adaptador** entre esa tabla y el chat del Journey. La selección y la
+regla de JP viven en `app.services.orientation_videos_service`, que es también
+quien alimenta la galería `/videos` — una decisión, una función.
+
+`JourneyVideo` se conserva como la forma que el chat espera de vuelta, para no
+propagar el modelo de SQLAlchemy hasta el router.
 
 ## Dónde se monta
 
@@ -28,19 +28,14 @@ Cada video se ancla a un `momento` = el id de un hecho de
 conversación recoge ese hecho, que es cuando tiene sentido en el hilo (por
 ejemplo, un video sobre "cómo elegir entre programa y país" después de
 `geoPreference`). `ruta` (opcional) lo dirige a una de las 5 rutas de la
-malla completa (Cimientos, migración 067) o lo deja genérico si es `None`.
-
-## Cómo se salta
-
-`elegir_video` nunca ofrece un video a quien ya respondió `clarityLevel`
-con "Tengo algo claro y quiero validarlo" — es la regla textual de JP. Fuera
-de ese caso, el video NUNCA es obligatorio: el front lo puede mostrar con un
-botón de saltar, esto sólo decide si se OFRECE.
+malla completa; sin ruta, aplica a todas.
 """
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, Optional
+
+from sqlalchemy.orm import Session as DBSession
 
 
 @dataclass(frozen=True)
@@ -54,52 +49,48 @@ class JourneyVideo:
     duracion_segundos: int
     # De qué trata, en una frase · lo que lee el estudiante antes de darle play.
     tema: str
+    # El título real del video. Antes no viajaba y el front lo fabricaba
+    # ("Un video que te puede ayudar", `journeyChatApi.ts`) porque el backend
+    # sólo mandaba `tema` — un texto inventado en la capa equivocada.
+    titulo: str = ""
     # None = aplica a cualquiera de las 5 rutas de la malla completa.
     ruta: Optional[str] = None
-
-
-# Vacío a propósito · ver docstring del módulo. NO agregar entradas de
-# ejemplo ni URLs de prueba: `elegir_video` se comporta igual con la lista
-# vacía (nunca ofrece nada) que con contenido real sin cargar todavía, así
-# que no hace falta un placeholder para que el mecanismo quede probado.
-VIDEOS: List[JourneyVideo] = []
-
-_CLARIDAD_ALTA = "Tengo algo claro y quiero validarlo"
-
-_POR_MOMENTO: Dict[str, List[JourneyVideo]] = {}
-
-
-def _index() -> Dict[str, List[JourneyVideo]]:
-    """Se reconstruye en cada llamada · `VIDEOS` es una lista módulo-level que
-    en el futuro puede recargarse (p.ej. si termina viniendo de una fuente
-    editable) y este selector no puede quedarse con un índice viejo."""
-    indice: Dict[str, List[JourneyVideo]] = {}
-    for v in VIDEOS:
-        indice.setdefault(v.momento, []).append(v)
-    return indice
 
 
 def elegir_video(
     momento: str,
     recolectados: Dict[str, Any],
     ruta: Optional[str] = None,
+    *,
+    db: Optional[DBSession] = None,
 ) -> Optional[JourneyVideo]:
-    """El video para este momento, o `None` si no hay uno cargado o si la
-    persona ya tiene claridad alta (regla de JP).
+    """El video para este momento, o `None`.
 
-    Nunca bloquea el avance de la conversación: es un complemento opcional
-    que el front puede mostrar mientras Hop sigue con la pregunta siguiente.
+    Devuelve `None` si no hay sesión de base de datos, si no hay ninguno
+    cargado para ese momento, o si la persona ya tiene claridad alta (regla de
+    JP). Las tres son el mismo resultado a propósito: el video es un
+    complemento opcional y **nunca** bloquea el avance de la conversación.
+
+    Sin `db` no se inventa nada. El chat del Journey siempre tiene sesión; que
+    el parámetro sea opcional es sólo para no romper a quien llame sin ella.
     """
-    if recolectados.get("clarityLevel") == _CLARIDAD_ALTA:
+    if db is None:
         return None
 
-    candidatos = _index().get(momento, [])
-    if not candidatos:
+    from app.services.orientation_videos_service import elegir_para_momento
+
+    fila = elegir_para_momento(db, momento, recolectados, ruta)
+    if fila is None:
         return None
 
-    # El específico de la ruta gana sobre el genérico si ambos existen.
-    especificos = [v for v in candidatos if ruta is not None and v.ruta == ruta]
-    if especificos:
-        return especificos[0]
-    genericos = [v for v in candidatos if v.ruta is None]
-    return genericos[0] if genericos else None
+    return JourneyVideo(
+        id=str(fila.id),
+        momento=fila.journey_moment or momento,
+        url=fila.url,
+        # El chat pinta la duración; 0 es "no la sabemos", que el front ya
+        # sabe no mostrar.
+        duracion_segundos=fila.duration_seconds or 0,
+        tema=fila.description or fila.title,
+        titulo=fila.title,
+        ruta=fila.journey_route,
+    )

@@ -76,6 +76,7 @@ from app.api.v1 import (
     journey_chat,
     tools,
     exam_prep,
+    videos,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -311,6 +312,12 @@ app.include_router(tools.router, prefix="/api/v1")
 # propio, NO el examen: *"yo lo que necesito es pasar el test, no que nadie me
 # certifique"*. El encuadre legal completo está en `app/data/exam_prep.py`.
 app.include_router(exam_prep.router, prefix="/api/v1")
+
+# Reunión clienta 2026-08-24 (19:52) · videos de orientación · *"hay unas
+# partes donde me gustaria irles poniendo como videos que yo tengo"*. Una sola
+# tabla alimenta las dos superficies: esta galería y el ofrecimiento dentro del
+# chat del Journey (ver `app/data/journey_videos.py`).
+app.include_router(videos.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

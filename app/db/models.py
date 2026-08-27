@@ -2960,3 +2960,88 @@ class StudentYearSnapshot(Base):
 
     def __repr__(self) -> str:
         return f"<StudentYearSnapshot user_id={self.user_id} school_year={self.school_year}>"
+
+
+class OrientationVideo(Base):
+    """Un video de orientación vocacional · reunión con Verónica del 2026-08-24.
+
+        "hay unas partes donde me gustaria irles poniendo como videos que yo tengo"
+
+    ## Por qué UNA tabla y no dos
+
+    Este contenido lo pedían dos sitios distintos y cada uno lo anclaba a su
+    manera: el chat del Journey por `momento` (después de qué pregunta se
+    ofrece, ver `app/data/journey_videos.py`) y la spec M-002 del cliente por
+    códigos RIASEC, con galería propia. Un video no puede tener dos
+    identidades: con dos tablas, la clienta subiría el mismo video dos veces y
+    las dos copias divergirían — que es el defecto que este repo ya documenta.
+
+    Así que los anclajes son COLUMNAS OPCIONALES del mismo video:
+
+        journey_moment  → aparece en el chat después de ese hecho
+        riasec_codes    → sube en "Para ti" de quien tenga esos códigos
+        topic           → la fila de la galería donde vive
+
+    Un video puede tener los tres, uno, o ninguno (y entonces sólo sale en la
+    galería general). Decisión de AH, 2026-08-27.
+
+    ## No alojamos el archivo
+
+    `url` es un enlace a YouTube o Vimeo. El almacenamiento propio
+    (`storage_service`) está en modo stub en producción y, aunque no lo
+    estuviera, transcodificar y servir video no es algo que queramos
+    construir. La clienta produce y sube a su plataforma; aquí va el enlace.
+    """
+
+    __tablename__ = "orientation_videos"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+
+    # --- el contenido ------------------------------------------------------
+    url = Column(String(500), nullable=False)
+    title = Column(String(200), nullable=False)
+    description = Column(Text, nullable=True)
+    # Miniatura propia. Si es NULL el front la deriva del id de YouTube · por
+    # eso es nullable y no obligatoria: pedirle a la clienta una imagen por
+    # video sería una barrera para que suba contenido.
+    thumbnail_url = Column(String(500), nullable=True)
+    duration_seconds = Column(Integer, nullable=True)
+
+    # --- dónde vive en la galería -----------------------------------------
+    # Texto libre a propósito: la taxonomía la pone quien carga el contenido,
+    # no nosotros. Inventar una lista cerrada de áreas sería adivinar de qué
+    # va a grabar la clienta.
+    topic = Column(String(60), nullable=False, index=True)
+    # Orden dentro de su fila · empates se resuelven por created_at.
+    sort_order = Column(Integer, nullable=False, default=0)
+
+    # --- anclajes opcionales ----------------------------------------------
+    # Lista de letras RIASEC, p.ej. ["R", "I"]. NULL = no está etiquetado y
+    # no puede subir a "Para ti" — que es correcto: sin etiqueta no sabemos
+    # a quién le sirve, y ordenarlo igual sería inventar relevancia.
+    riasec_codes = Column(JSON, nullable=True)
+    # Id de un Hecho de `app.data.journey_chat_hechos` · NULL = no se ofrece
+    # dentro de la conversación.
+    journey_moment = Column(String(50), nullable=True, index=True)
+    # Una de las 5 rutas de la malla · NULL = aplica a todas.
+    journey_route = Column(String(30), nullable=True)
+
+    # --- gestión -----------------------------------------------------------
+    # Permite cargar un video y dejarlo invisible hasta que la clienta lo
+    # apruebe, sin borrar la fila.
+    is_published = Column(Boolean, nullable=False, default=True, index=True)
+
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(
+        DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow,
+        nullable=False,
+    )
+
+    __table_args__ = (
+        UniqueConstraint("url", name="uq_orientation_video_url"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<OrientationVideo {self.title!r} topic={self.topic!r}>"

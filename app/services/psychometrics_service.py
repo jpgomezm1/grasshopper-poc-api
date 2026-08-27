@@ -46,21 +46,46 @@ def _scores_dict(test: VocationalTestResult) -> Dict[str, Any]:
     return test.scores or {}
 
 
+def holland_top_codes(test_scores: Dict[str, Any], n: int = 2) -> List[str]:
+    """Las `n` letras RIASEC dominantes, de mayor a menor · lista vacía si no hay.
+
+    Público porque lo necesita más de un consumidor: el perfil consolidado usa
+    la dominante y la galería de videos usa las dos primeras para armar la fila
+    "Para ti" (`orientation_videos_service`). Las formas que puede traer
+    `scores` son heterogéneas por historia del producto —de tests internos, de
+    PDFs parseados y de resultados viejos— y esa tolerancia tiene que vivir en
+    UN solo sitio; si cada consumidor la reimplementa, se desincronizan.
+    """
+    if not test_scores:
+        return []
+
+    # Forma A · {"holland_codes": [{"code": "S", ...}, ...]} ya viene ordenada.
+    codes = test_scores.get("holland_codes")
+    if isinstance(codes, list) and codes:
+        letras = []
+        for c in codes:
+            letra = str((c or {}).get("code", ""))[0:1].upper()
+            if letra and letra not in letras:
+                letras.append(letra)
+        return letras[:n]
+
+    # Forma B · {"R": 80, "I": 65, ...}
+    riasec_keys = ("R", "I", "A", "S", "E", "C")
+    pairs = [
+        (k, test_scores.get(k))
+        for k in riasec_keys
+        if isinstance(test_scores.get(k), (int, float))
+    ]
+    if not pairs:
+        return []
+    pairs.sort(key=lambda p: p[1] or 0, reverse=True)
+    return [k for k, _ in pairs[:n]]
+
+
 def _holland_top(test_scores: Dict[str, Any]) -> Optional[str]:
     """Return the dominant RIASEC letter (R/I/A/S/E/C) or None."""
-    # Common shapes: {"R": 80, "I": 65, ...} or {"holland_codes": [{"code":"S",...}]}
-    if not test_scores:
-        return None
-    if "holland_codes" in test_scores and isinstance(test_scores["holland_codes"], list):
-        codes = test_scores["holland_codes"]
-        if codes:
-            return str((codes[0] or {}).get("code", ""))[0:1] or None
-    riasec_keys = ("R", "I", "A", "S", "E", "C")
-    pairs = [(k, test_scores.get(k)) for k in riasec_keys if isinstance(test_scores.get(k), (int, float))]
-    if not pairs:
-        return None
-    pairs.sort(key=lambda p: p[1] or 0, reverse=True)
-    return pairs[0][0]
+    codes = holland_top_codes(test_scores, n=1)
+    return codes[0] if codes else None
 
 
 def _bigfive_traits(scores: Dict[str, Any]) -> Dict[str, float]:

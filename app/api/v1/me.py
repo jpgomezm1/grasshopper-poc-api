@@ -36,6 +36,7 @@ from app.db.models import (
     EnglishTestResult,
     OnboardingStatus,
     OrientationSession,
+    OrientationVideo,
     Route,
     RouteStatus,
     School,
@@ -513,6 +514,11 @@ class StudentDashboardResponse(BaseModel):
     # paso que hay que proponerle es distinto en cada caso.
     vocational_tests_completed: int = 0
     english_test_completed: bool = False
+    # P0-8 · el menu esconde "Videos" mientras no haya ninguno, igual que hace
+    # con "Rutas". La clienta se quejo textualmente de las secciones vacias:
+    # "¿por que todavia no sale nada?" / "yo aca ya estoy perdida". Va en el
+    # dashboard y no en una llamada aparte porque `AppShell` ya pide esto.
+    videos_count: int = 0
 
 
 def _evaluate_journey_complete(db: DBSession, student: User) -> tuple[bool, int, int]:
@@ -572,6 +578,11 @@ def get_dashboard(
             .count()
         ),
         english_test_completed=bool(current_user.english_test_completed),
+        videos_count=(
+            db.query(OrientationVideo)
+            .filter(OrientationVideo.is_published.is_(True))
+            .count()
+        ),
     )
 
 

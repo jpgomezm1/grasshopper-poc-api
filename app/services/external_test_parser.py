@@ -34,6 +34,7 @@ from typing import Optional
 from pydantic import ValidationError
 
 from app.core.ai_client import get_client, load_prompt
+from app.services import document_ai
 from app.config import get_settings
 from app.schemas.external_tests import (
     ParsedBig5,
@@ -125,75 +126,13 @@ def _extract_json(text: str) -> dict:
 # Vision path · used when the PDF has no text layer or the upload is an image
 # -----------------------------------------------------------------------------
 
-def _call_claude_messages(messages: list) -> tuple[str, dict]:
-    """Llama a Claude (texto o visión) y devuelve ``(texto, metadata)``.
-
-    La metadata alimenta el tracking M-001 (``model``/``tokens_input``/
-    ``tokens_output``/``latency_ms``). Robustez Fase C2: timeout explícito +
-    reintentos (antes el SDK pelado esperaba hasta 10 min sin reintentos) y el
-    texto sale del primer bloque con ``.text`` (no ``content[0]``, que puede no
-    ser texto).
-    """
-    settings = get_settings()
-    client = get_client().with_options(timeout=120.0, max_retries=2)
-    start = time.time()
-    response = client.messages.create(
-        model=settings.ai_model,
-        max_tokens=settings.ai_max_tokens or 1500,
-        temperature=0,  # determinista para parsing
-        messages=messages,
-    )
-    meta: dict = {
-        "model": settings.ai_model,
-        "latency_ms": int((time.time() - start) * 1000),
-    }
-    usage = getattr(response, "usage", None)
-    meta["tokens_input"] = getattr(usage, "input_tokens", None)
-    meta["tokens_output"] = getattr(usage, "output_tokens", None)
-
-    text: Optional[str] = None
-    for block in getattr(response, "content", []) or []:
-        t = getattr(block, "text", None)
-        if t is not None:
-            text = t
-            break
-    if text is None:
-        raise ParseError("Claude response has no text block")
-    return text, meta
-
-
-def _call_claude_vision(
-    prompt_text: str, image_bytes: bytes, image_mime: str
-) -> tuple[str, dict]:
-    """Call Claude with an image attachment.
-
-    Uses the configured ai_model (Sonnet recommended for vision · falls back
-    to whatever is set; per D-008 we reuse the POC model).
-    """
-    import base64
-    b64 = base64.standard_b64encode(image_bytes).decode("ascii")
-
-    return _call_claude_messages([
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "image",
-                    "source": {
-                        "type": "base64",
-                        "media_type": image_mime,
-                        "data": b64,
-                    },
-                },
-                {"type": "text", "text": prompt_text},
-            ],
-        }
-    ])
-
-
-def _call_claude_text(prompt_text: str) -> tuple[str, dict]:
-    """Call Claude with plain text only · cheaper path."""
-    return _call_claude_messages([{"role": "user", "content": prompt_text}])
+# Los tres helpers que estaban aquí se movieron a `app/services/document_ai.py`
+# cuando el lector de diplomas necesitó exactamente lo mismo. Se reexportan con
+# el nombre privado de antes para no tocar el resto de este archivo ni sus 15
+# tests · lo que importa es que haya UNA implementación, no dos que diverjan.
+_call_claude_messages = document_ai.call_claude_messages
+_call_claude_vision = document_ai.call_claude_vision
+_call_claude_text = document_ai.call_claude_text
 
 
 # -----------------------------------------------------------------------------

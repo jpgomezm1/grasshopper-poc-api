@@ -77,6 +77,7 @@ from app.api.v1 import (
     tools,
     exam_prep,
     videos,
+    logros,
 )
 
 # Configure logging early · structlog + PII masking (GH-S11)
@@ -318,6 +319,11 @@ app.include_router(exam_prep.router, prefix="/api/v1")
 # tabla alimenta las dos superficies: esta galería y el ofrecimiento dentro del
 # chat del Journey (ver `app/data/journey_videos.py`).
 app.include_router(videos.router, prefix="/api/v1")
+
+# Logros · AH 2026-08-28. Lee lo que el estudiante escribe ("soy el capitan del
+# equipo de futbol") o el diploma que sube, y devuelve una ficha PARA CONFIRMAR.
+# No guarda: eso sigue siendo de `POST /me/activities`, que ya existia.
+app.include_router(logros.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

@@ -76,34 +76,12 @@ def test_no_usage_when_extraction_fails(monkeypatch):
     assert outcome.usage is None
 
 
-def test_call_claude_messages_extracts_meta(monkeypatch):
-    """El helper devuelve (texto, metadata) con tokens y latencia reales."""
-    class _Usage:
-        input_tokens = 640
-        output_tokens = 210
-
-    class _Block:
-        text = "respuesta del modelo"
-
-    class _Response:
-        content = [_Block()]
-        usage = _Usage()
-
-    class _Client:
-        def with_options(self, **kw):
-            return self
-
-        class messages:  # noqa: N801 · imita el SDK
-            @staticmethod
-            def create(**kw):
-                return _Response()
-
-    monkeypatch.setattr(parser, "get_client", lambda: _Client())
-
-    text, meta = parser._call_claude_messages([{"role": "user", "content": "hola"}])
-
-    assert text == "respuesta del modelo"
-    assert meta["tokens_input"] == 640
-    assert meta["tokens_output"] == 210
-    assert "latency_ms" in meta
-    assert meta["model"]
+# `_call_claude_messages` se movió a `app/services/document_ai.py` el
+# 2026-08-28 (lo necesitaba también el lector de diplomas). Su test se mudó con
+# él a `tests/test_document_ai.py`, donde el mock apunta al módulo correcto.
+#
+# Vale la pena recordar por qué: al mover la función, este test seguía
+# parcheando `parser.get_client` y el parche dejó de aplicar — la llamada salió
+# a la API de Anthropic DE VERDAD y el test falló porque el modelo contestó un
+# saludo. Un mock que apunta al módulo equivocado no se ve como un mock roto:
+# se ve como una llamada de red silenciosa.

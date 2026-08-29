@@ -3,6 +3,15 @@ from app.data.habilidades_blandas import TEST_HABILIDADES_BLANDAS
 VOCATIONAL_TESTS = [
     {
         "id": "holland",
+        # La pregunta que este test responde, en las palabras del
+        # estudiante. "Anclas de Carrera" no le dice nada a nadie de 15;
+        # "¿qué no negociarías nunca?" sí. El nombre del instrumento se
+        # conserva y se muestra debajo porque da credibilidad, pero deja
+        # de ser lo primero que se lee.
+        "question": "¿Qué tipo de actividades disfrutas de verdad?",
+        # Los nueve tests agrupados por lo que responden · sin esto la
+        # pantalla son nueve tarjetas indistinguibles.
+        "group": "Qué te gusta",
         "slug": "holland",
         "name": "Test de Intereses Profesionales Holland (RIASEC)",
         "shortName": "Holland RIASEC",
@@ -64,6 +73,15 @@ VOCATIONAL_TESTS = [
     },
     {
         "id": "bigfive",
+        # La pregunta que este test responde, en las palabras del
+        # estudiante. "Anclas de Carrera" no le dice nada a nadie de 15;
+        # "¿qué no negociarías nunca?" sí. El nombre del instrumento se
+        # conserva y se muestra debajo porque da credibilidad, pero deja
+        # de ser lo primero que se lee.
+        "question": "¿Cómo eres cuando nadie te está mirando?",
+        # Los nueve tests agrupados por lo que responden · sin esto la
+        # pantalla son nueve tarjetas indistinguibles.
+        "group": "Cómo eres",
         "slug": "bigfive",
         "name": "Test de Personalidad Big Five (OCEAN)",
         "shortName": "Big Five",
@@ -127,6 +145,15 @@ VOCATIONAL_TESTS = [
     },
     {
         "id": "values",
+        # La pregunta que este test responde, en las palabras del
+        # estudiante. "Anclas de Carrera" no le dice nada a nadie de 15;
+        # "¿qué no negociarías nunca?" sí. El nombre del instrumento se
+        # conserva y se muestra debajo porque da credibilidad, pero deja
+        # de ser lo primero que se lee.
+        "question": "¿Qué necesitas de un trabajo para estar a gusto?",
+        # Los nueve tests agrupados por lo que responden · sin esto la
+        # pantalla son nueve tarjetas indistinguibles.
+        "group": "Qué te importa",
         "slug": "values",
         "name": "Test de Valores Laborales",
         "shortName": "Valores",
@@ -170,6 +197,15 @@ VOCATIONAL_TESTS = [
     },
     {
         "id": "career-anchors",
+        # La pregunta que este test responde, en las palabras del
+        # estudiante. "Anclas de Carrera" no le dice nada a nadie de 15;
+        # "¿qué no negociarías nunca?" sí. El nombre del instrumento se
+        # conserva y se muestra debajo porque da credibilidad, pero deja
+        # de ser lo primero que se lee.
+        "question": "¿Qué no estarías dispuesto a negociar nunca?",
+        # Los nueve tests agrupados por lo que responden · sin esto la
+        # pantalla son nueve tarjetas indistinguibles.
+        "group": "Qué te importa",
         "slug": "career-anchors",
         "name": "Test de Anclas de Carrera",
         "shortName": "Anclas de Carrera",
@@ -216,6 +252,15 @@ VOCATIONAL_TESTS = [
     # =====================================================================
     {
         "id": "mbti",
+        # La pregunta que este test responde, en las palabras del
+        # estudiante. "Anclas de Carrera" no le dice nada a nadie de 15;
+        # "¿qué no negociarías nunca?" sí. El nombre del instrumento se
+        # conserva y se muestra debajo porque da credibilidad, pero deja
+        # de ser lo primero que se lee.
+        "question": "¿Cómo decides y cómo te relacionas con los demás?",
+        # Los nueve tests agrupados por lo que responden · sin esto la
+        # pantalla son nueve tarjetas indistinguibles.
+        "group": "Cómo eres",
         "slug": "mbti",
         "name": "Indicador de Tipos de Personalidad MBTI",
         "shortName": "MBTI",
@@ -300,6 +345,15 @@ VOCATIONAL_TESTS = [
     # =====================================================================
     {
         "id": "istrong",
+        # La pregunta que este test responde, en las palabras del
+        # estudiante. "Anclas de Carrera" no le dice nada a nadie de 15;
+        # "¿qué no negociarías nunca?" sí. El nombre del instrumento se
+        # conserva y se muestra debajo porque da credibilidad, pero deja
+        # de ser lo primero que se lee.
+        "question": "¿En qué temas se te va el tiempo sin darte cuenta?",
+        # Los nueve tests agrupados por lo que responden · sin esto la
+        # pantalla son nueve tarjetas indistinguibles.
+        "group": "Qué te gusta",
         "slug": "istrong",
         "name": "iStrong - Inventario de Intereses Profesionales (basado en Holland)",
         "shortName": "iStrong",
@@ -396,6 +450,15 @@ VOCATIONAL_TESTS = [
     # y calculate_motivadores.
     {
         "id": "vark",
+        # La pregunta que este test responde, en las palabras del
+        # estudiante. "Anclas de Carrera" no le dice nada a nadie de 15;
+        # "¿qué no negociarías nunca?" sí. El nombre del instrumento se
+        # conserva y se muestra debajo porque da credibilidad, pero deja
+        # de ser lo primero que se lee.
+        "question": "¿Cómo aprendes mejor?",
+        # Los nueve tests agrupados por lo que responden · sin esto la
+        # pantalla son nueve tarjetas indistinguibles.
+        "group": "Qué te importa",
         "slug": "vark",
         "name": "Test de Estilos de Aprendizaje (VARK)",
         "shortName": "Estilos de Aprendizaje",
@@ -464,6 +527,15 @@ VOCATIONAL_TESTS = [
     },
     {
         "id": "motivadores",
+        # La pregunta que este test responde, en las palabras del
+        # estudiante. "Anclas de Carrera" no le dice nada a nadie de 15;
+        # "¿qué no negociarías nunca?" sí. El nombre del instrumento se
+        # conserva y se muestra debajo porque da credibilidad, pero deja
+        # de ser lo primero que se lee.
+        "question": "¿Qué te mueve a ponerte a hacer algo?",
+        # Los nueve tests agrupados por lo que responden · sin esto la
+        # pantalla son nueve tarjetas indistinguibles.
+        "group": "Qué te gusta",
         "slug": "motivadores",
         "name": "Test de Motivadores Iniciales",
         "shortName": "Motivadores",
@@ -571,6 +643,12 @@ def disponible_para_grado(test: dict, grade) -> bool:
         return False
 
 
+# Orden de los grupos en la pantalla · de lo más concreto a lo más
+# abstracto. Vive aquí y no en el front para que haya UN solo sitio que lo
+# decida.
+TEST_GROUP_ORDER = ['Qué te gusta', 'Cómo eres', 'Qué te importa']
+
+
 def get_all_tests_summary(grade=None):
     return [
         {
@@ -583,6 +661,8 @@ def get_all_tests_summary(grade=None):
             "estimatedMinutes": t["estimatedMinutes"],
             "questionCount": t["questionCount"],
             "icon": t["icon"],
+            "question": t.get("question"),
+            "group": t.get("group"),
         }
         for t in VOCATIONAL_TESTS
         if disponible_para_grado(t, grade)

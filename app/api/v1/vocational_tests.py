@@ -41,6 +41,20 @@ def _disclaimer_accepted(user: User, test_id: str) -> bool:
     return bool(entry) and entry.get("version") == DISCLAIMER_VERSION
 
 
+@router.get("/grupos")
+def list_group_order():
+    """El orden de los grupos de la pantalla de tests.
+
+    Va en su propio endpoint —y no dentro de cada test— porque es UNA lista
+    para toda la pantalla. Si el front la dedujera del orden en que llegan los
+    tests, un grupo sin tests disponibles para ese grado desaparecería del
+    orden sin que nadie lo notara.
+    """
+    from app.data.vocational_tests import TEST_GROUP_ORDER
+
+    return {"grupos": list(TEST_GROUP_ORDER)}
+
+
 @router.get("")
 def list_tests(current_user: User = Depends(get_current_user)):
     # La descripción de Holland cambia según el grado (9°/10° ven la versión

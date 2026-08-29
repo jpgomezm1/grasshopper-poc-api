@@ -200,6 +200,10 @@ RETOS_SITUACIONALES = [
 TEST_HABILIDADES_BLANDAS = {
     "id": "habilidades-blandas",
     "slug": "habilidades-blandas",
+    # Ver `question`/`group` en `vocational_tests.py` · este test vive
+    # aparte porque pertenece sólo a la ruta de grado 10.
+    "question": "¿Qué se te da bien, además de lo académico?",
+    "group": "Cómo eres",
     "name": "Mapeo de Habilidades Blandas",
     "shortName": "Habilidades blandas",
     "description": (

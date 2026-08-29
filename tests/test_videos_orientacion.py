@@ -16,9 +16,12 @@ poniendo como videos que yo tengo"*.
     aparece si la persona tiene códigos RIASEC *y* hay videos etiquetados con
     ellos. Hoy casi nadie tiene tests hechos, así que el caso normal es que no
     salga — y salir vacío o relleno sería peor que no salir.
- 4. **Que con poco contenido no se pinten filas.** La galería arranca en cero
-    y se llena de a poco; una fila de un elemento con su "Ver todos" al lado
-    parece un error de render.
+ 4. **Que la ruta muestre por dónde va y NO bloquee.** AH pidió el 2026-08-29
+    "ir desbloqueando los videos" y, al ver que chocaba con "MEMORIA SÍ, LLAVE
+    NO" —decisión de producto de la migración 067, aplicada ya en seis sitios—
+    eligió el camino visual: orden, palomitas y "sigue aquí", pero todo
+    abrible. La respuesta NO trae ningún campo de bloqueo, y hay un test que
+    lo fija para que nadie lo añada por inercia.
 """
 from __future__ import annotations
 
@@ -126,10 +129,19 @@ def _riasec(SessionLocal, headers_email, scores):
         db.close()
 
 
-def _galeria(client, headers):
+def _ruta(client, headers):
     r = client.get("/api/v1/me/videos", headers=headers)
     assert r.status_code == 200, r.text
     return r.json()
+
+
+def _todos(ruta):
+    return [v for e in ruta["etapas"] for v in e["videos"]]
+
+
+def _marcar(client, headers, video_id):
+    r = client.post(f"/api/v1/me/videos/{video_id}/visto", headers=headers)
+    assert r.status_code == 204, r.text
 
 
 # ---------------------------------------------------------------------------
@@ -137,14 +149,15 @@ def _galeria(client, headers):
 # ---------------------------------------------------------------------------
 
 
-def test_sin_videos_cargados_la_galeria_esta_vacia(app_with_db):
+def test_sin_videos_cargados_la_ruta_esta_vacia(app_with_db):
     """La tabla nace vacía a propósito · el contenido lo produce la clienta."""
     app, SessionLocal = app_with_db
     client = TestClient(app)
-    g = _galeria(client, _estudiante(client))
+    r = _ruta(client, _estudiante(client))
 
-    assert g["total"] == 0
-    assert g["filas"] == []
+    assert r["total"] == 0
+    assert r["etapas"] == []
+    assert r["siguiente_id"] is None
 
 
 def test_la_migracion_no_siembra_videos_de_ejemplo(app_with_db):
@@ -185,11 +198,10 @@ def test_un_solo_video_sirve_a_la_galeria_y_al_chat(app_with_db):
         journey_moment="geoPreference",
     )
 
-    # (a) sale en la galería
-    g = _galeria(client, headers)
-    assert g["total"] == 1
-    ids = [x["id"] for f in g["filas"] for x in f["videos"]]
-    assert str(v.id) in ids
+    # (a) sale en la ruta
+    r = _ruta(client, headers)
+    assert r["total"] == 1
+    assert str(v.id) in [x["id"] for x in _todos(r)]
 
     # (b) y el chat lo ofrece para su momento
     from app.data import journey_videos as jv
@@ -294,8 +306,12 @@ def test_el_video_de_la_ruta_gana_al_generico(app_with_db):
 # ---------------------------------------------------------------------------
 
 
-def test_sin_tests_hechos_no_hay_fila_para_ti(app_with_db):
-    """El caso NORMAL hoy: casi ningún estudiante tiene tests."""
+def test_sin_tests_hechos_nada_sale_recomendado(app_with_db):
+    """El caso NORMAL hoy: casi ningún estudiante tiene tests.
+
+    La insignia "encaja contigo" no puede salir sin códigos: prometería una
+    personalización que no existe.
+    """
     app, SessionLocal = app_with_db
     client = TestClient(app)
     headers = _estudiante(client)
@@ -303,16 +319,11 @@ def test_sin_tests_hechos_no_hay_fila_para_ti(app_with_db):
     for i in range(6):
         _video(SessionLocal, topic=f"Tema {i // 3}", riasec_codes=["R", "I"])
 
-    g = _galeria(client, headers)
-    assert "para-ti" not in [f["clave"] for f in g["filas"]]
+    assert not any(v["recomendado"] for v in _todos(_ruta(client, headers)))
 
 
 def test_con_tests_pero_sin_videos_etiquetados_tampoco(app_with_db):
-    """⭐ La otra mitad: tener códigos no basta si nada está etiquetado.
-
-    Sin este caso, la fila saldría vacía o —peor— con videos cualesquiera bajo
-    un rótulo que promete personalización.
-    """
+    """⭐ La otra mitad: tener códigos no basta si nada está etiquetado."""
     app, SessionLocal = app_with_db
     client = TestClient(app)
     headers = _estudiante(client, "sinetiqueta@test.com")
@@ -321,79 +332,150 @@ def test_con_tests_pero_sin_videos_etiquetados_tampoco(app_with_db):
     for i in range(6):
         _video(SessionLocal, topic=f"Tema {i // 3}")  # sin riasec_codes
 
-    g = _galeria(client, headers)
-    assert "para-ti" not in [f["clave"] for f in g["filas"]]
+    assert not any(v["recomendado"] for v in _todos(_ruta(client, headers)))
 
 
-def test_con_codigos_y_videos_etiquetados_si_aparece(app_with_db):
-    """El otro lado · si no, 'nunca aparece' tambien pasaria los dos de arriba."""
+def test_con_codigos_y_videos_etiquetados_si_se_marca(app_with_db):
+    """El otro lado · si no, 'nunca recomendar' pasaria los dos de arriba."""
     app, SessionLocal = app_with_db
     client = TestClient(app)
     headers = _estudiante(client, "conetiqueta@test.com")
     _riasec(SessionLocal, "conetiqueta@test.com", {"R": 90, "I": 70, "A": 10})
 
-    for i in range(6):
+    for _ in range(6):
         _video(SessionLocal, topic="Ingenieria", riasec_codes=["R"])
 
-    g = _galeria(client, headers)
-    filas = {f["clave"]: f for f in g["filas"]}
-    assert "para-ti" in filas
-    assert len(filas["para-ti"]["videos"]) == 6
+    assert all(v["recomendado"] for v in _todos(_ruta(client, headers)))
 
 
 # ---------------------------------------------------------------------------
-# 5 · el formato lo decide el backend
+# 5 · la ruta · orden, avance y "sigue aqui"
 # ---------------------------------------------------------------------------
 
 
-def test_con_poco_contenido_es_rejilla_y_no_filas(app_with_db):
-    """⭐ La galería arranca en cero. Una fila de un elemento con su 'Ver
-    todos' al lado se lee como un error de render, no como una categoría."""
+def test_las_etapas_salen_en_orden_y_los_sin_etapa_al_final(app_with_db):
     app, SessionLocal = app_with_db
     client = TestClient(app)
     headers = _estudiante(client)
 
-    for tema in ("Salud", "Arte", "Ingenieria"):
-        _video(SessionLocal, topic=tema)
+    _video(SessionLocal, title="C", stage="3 · Decidir", sort_order=1)
+    _video(SessionLocal, title="A", stage="1 · Descubrir", sort_order=1)
+    _video(SessionLocal, title="Z", stage=None, sort_order=1)
+    _video(SessionLocal, title="B", stage="2 · Conocer", sort_order=1)
 
-    g = _galeria(client, headers)
-    assert g["layout"] == "rejilla"
-    assert len(g["filas"]) == 1, "en rejilla va todo junto, sin agrupar por tema"
-    assert g["filas"][0]["clave"] == "todos"
+    r = _ruta(client, headers)
+    assert [e["titulo"] for e in r["etapas"]] == [
+        "1 · Descubrir", "2 · Conocer", "3 · Decidir", "Otros videos",
+    ]
 
 
-def test_con_suficiente_contenido_si_hay_filas_por_tema(app_with_db):
+def test_el_siguiente_es_el_primero_sin_abrir_y_es_uno_solo(app_with_db):
     app, SessionLocal = app_with_db
     client = TestClient(app)
     headers = _estudiante(client)
 
-    for _ in range(3):
-        _video(SessionLocal, topic="Salud")
-    for _ in range(3):
-        _video(SessionLocal, topic="Ingenieria")
+    for i in range(4):
+        _video(SessionLocal, title=f"V{i}", stage="Etapa", sort_order=i)
 
-    g = _galeria(client, headers)
-    assert g["layout"] == "filas"
-    assert {f["titulo"] for f in g["filas"]} == {"Salud", "Ingenieria"}
+    r = _ruta(client, headers)
+    assert [v["siguiente"] for v in _todos(r)] == [True, False, False, False]
+    assert r["siguiente_id"] == _todos(r)[0]["id"]
 
 
-def test_un_tema_con_muy_pocos_cae_en_otros_temas(app_with_db):
-    """Para que no queden filas de un solo elemento."""
+def test_al_abrir_uno_el_siguiente_avanza(app_with_db):
+    """⭐ Es lo que convierte la lista en una ruta."""
     app, SessionLocal = app_with_db
     client = TestClient(app)
     headers = _estudiante(client)
 
-    for _ in range(5):
-        _video(SessionLocal, topic="Salud")
-    _video(SessionLocal, topic="Arte", title="El unico de arte")
+    for i in range(3):
+        _video(SessionLocal, title=f"V{i}", stage="Etapa", sort_order=i)
 
-    g = _galeria(client, headers)
-    assert g["layout"] == "filas"
-    titulos = [f["titulo"] for f in g["filas"]]
-    assert "Salud" in titulos
-    assert "Arte" not in titulos
-    otros = [f for f in g["filas"] if f["clave"] == "otros"][0]
-    assert [v["title"] for v in otros["videos"]] == ["El unico de arte"]
+    r = _ruta(client, headers)
+    primero = _todos(r)[0]
+    _marcar(client, headers, primero["id"])
+
+    r2 = _ruta(client, headers)
+    assert r2["vistos"] == 1
+    assert _todos(r2)[0]["visto"] is True
+    assert _todos(r2)[1]["siguiente"] is True
+    assert r2["siguiente_id"] == _todos(r2)[1]["id"]
+
+
+def test_con_todo_abierto_no_hay_siguiente_inventado(app_with_db):
+    """No se propone "vuelve a ver el primero" · la ruta simplemente esta hecha."""
+    app, SessionLocal = app_with_db
+    client = TestClient(app)
+    headers = _estudiante(client)
+
+    for i in range(2):
+        _video(SessionLocal, title=f"V{i}", stage="Etapa", sort_order=i)
+
+    for v in _todos(_ruta(client, headers)):
+        _marcar(client, headers, v["id"])
+
+    r = _ruta(client, headers)
+    assert r["vistos"] == r["total"] == 2
+    assert r["siguiente_id"] is None
+    assert not any(v["siguiente"] for v in _todos(r))
+
+
+def test_marcar_dos_veces_no_cuenta_dos(app_with_db):
+    app, SessionLocal = app_with_db
+    client = TestClient(app)
+    headers = _estudiante(client)
+    v = _video(SessionLocal, stage="Etapa")
+
+    _marcar(client, headers, str(v.id))
+    _marcar(client, headers, str(v.id))
+
+    assert _ruta(client, headers)["vistos"] == 1
+
+
+def test_marcar_un_video_que_no_existe_es_404(app_with_db):
+    """Sin esto quedarian filas apuntando a nada y el avance podria pasar del
+    100%."""
+    app, SessionLocal = app_with_db
+    client = TestClient(app)
+    headers = _estudiante(client)
+
+    r = client.post(
+        "/api/v1/me/videos/00000000-0000-0000-0000-000000000000/visto",
+        headers=headers,
+    )
+    assert r.status_code == 404
+
+
+def test_lo_que_abrio_uno_no_lo_ve_abierto_otro(app_with_db):
+    app, SessionLocal = app_with_db
+    client = TestClient(app)
+    ana = _estudiante(client, "ana@test.com")
+    beto = _estudiante(client, "beto@test.com")
+    v = _video(SessionLocal, stage="Etapa")
+
+    _marcar(client, ana, str(v.id))
+
+    assert _ruta(client, ana)["vistos"] == 1
+    assert _ruta(client, beto)["vistos"] == 0
+
+
+def test_la_ruta_NO_trae_ningun_campo_de_bloqueo(app_with_db):
+    """⭐ "MEMORIA SI, LLAVE NO" (migracion 067, seis sitios del backend).
+
+    AH pidio "ir desbloqueando" y eligio el camino visual al ver el choque.
+    Este test existe para que nadie añada un candado por inercia: si algun dia
+    se bloquea de verdad, es una decision de producto que se habla con la
+    clienta, no un campo que aparece en un refactor.
+    """
+    app, SessionLocal = app_with_db
+    client = TestClient(app)
+    headers = _estudiante(client)
+    for i in range(3):
+        _video(SessionLocal, title=f"V{i}", stage="Etapa", sort_order=i)
+
+    prohibidos = {"bloqueado", "locked", "disponible", "unlocked", "requiere"}
+    for v in _todos(_ruta(client, headers)):
+        assert not (prohibidos & set(v)), f"apareci\u00f3 un campo de bloqueo en {v.keys()}"
 
 
 # ---------------------------------------------------------------------------
@@ -413,7 +495,7 @@ def test_un_video_sin_publicar_no_sale_en_ninguna_de_las_dos_superficies(app_wit
         is_published=False,
     )
 
-    assert _galeria(client, headers)["total"] == 0
+    assert _ruta(client, headers)["total"] == 0
 
     from app.data import journey_videos as jv
 

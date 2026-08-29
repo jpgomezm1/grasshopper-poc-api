@@ -1,4 +1,4 @@
-"""Esquemas de la galería de videos de orientación."""
+"""Esquemas de la ruta de videos de orientación."""
 from __future__ import annotations
 
 from typing import List, Optional
@@ -17,26 +17,36 @@ class VideoItem(BaseModel):
     # NULL = no la sabemos · el front no pinta el badge en vez de poner "0:00".
     duration_seconds: Optional[int] = None
     topic: str
+    stage: Optional[str] = None
     riasec_codes: List[str] = []
+    # Abierto por esta persona. Ojo con la palabra: sabemos que abrió el
+    # reproductor, no que lo vio entero (ver `OrientationVideoView`).
+    visto: bool = False
+    # El paso sugerido ahora · sólo uno en toda la ruta.
+    siguiente: bool = False
+    # Encaja con sus códigos RIASEC · no reordena nada, sólo lo señala.
+    recomendado: bool = False
 
 
-class VideoRow(BaseModel):
-    """Una fila de la galería · `clave` es estable para el front y las métricas."""
+class EtapaRuta(BaseModel):
+    """Un tramo del camino · `clave` es estable para el front y las métricas."""
 
     clave: str
     titulo: str
     videos: List[VideoItem]
+    vistos: int
+    total: int
 
 
-class VideoGalleryResponse(BaseModel):
-    """`layout` lo decide el BACKEND, no el front.
+class VideoRutaResponse(BaseModel):
+    """La ruta completa.
 
-    Con pocos videos las filas por tema se ven rotas (una fila de un elemento
-    con su "Ver todos" al lado parece un error), así que el servicio dice
-    explícitamente qué formato usar. La galería arranca en cero videos, así que
-    el caso de "poco contenido" es el normal durante un buen rato.
+    NO trae ningún campo de bloqueo, y es deliberado: "MEMORIA SÍ, LLAVE NO"
+    (migración 067). El camino muestra por dónde va la persona y sugiere el
+    siguiente paso; todos los videos se pueden abrir siempre.
     """
 
-    layout: str  # "filas" | "rejilla"
-    filas: List[VideoRow]
+    etapas: List[EtapaRuta]
     total: int
+    vistos: int
+    siguiente_id: Optional[str] = None

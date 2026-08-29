@@ -32,7 +32,14 @@ CSV con encabezado, separador coma, UTF-8. Columnas:
 
     url          obligatoria · enlace de YouTube o Vimeo · identifica la fila
     titulo       obligatoria
-    tema         obligatoria · la fila de la galería ("Ingeniería", "Salud"…)
+    tema         obligatoria · el ÁREA ("Ingeniería", "Salud"…)
+    etapa        opcional · el TRAMO de la ruta ("Descubrirte", "Decidir"…)
+
+`tema` y `etapa` son ejes distintos y por eso son dos columnas. Las áreas son
+paralelas —nadie recorre "primero Salud, luego Ingeniería"— mientras que las
+etapas tienen un antes y un después. Un video sin `etapa` cae al final de la
+ruta, en "Otros videos", visible a propósito: es contenido que falta colocar,
+no un error que haya que esconder.
     descripcion  opcional
     miniatura    opcional · si falta, el front la deriva del id de YouTube
     duracion     opcional · segundos, o "m:ss" (p.ej. "6:12")
@@ -137,6 +144,7 @@ def leer(ruta: Path) -> Tuple[List[Dict[str, Any]], List[str]]:
                     "url": url,
                     "title": titulo[:200],
                     "topic": tema[:60],
+                    "stage": _limpio(cruda.get("etapa")),
                     "description": _limpio(cruda.get("descripcion")),
                     "thumbnail_url": _limpio(cruda.get("miniatura")),
                     "duration_seconds": _duracion(cruda.get("duracion", "")),

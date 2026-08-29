@@ -3026,6 +3026,18 @@ class OrientationVideo(Base):
     # Una de las 5 rutas de la malla · NULL = aplica a todas.
     journey_route = Column(String(30), nullable=True)
 
+    # --- la ruta de aprendizaje --------------------------------------------
+    # Etapa del camino, p.ej. "Descubrirte" · "Conocer carreras" · "Decidir".
+    #
+    # NO es lo mismo que `topic`, y por eso son dos columnas. `topic` son
+    # AREAS (Salud, Ingeniería, Arte) y son paralelas: nadie recorre "primero
+    # Salud, luego Ingeniería". `stage` es la secuencia pedagógica, que sí
+    # tiene un antes y un después. Meterlas en el mismo campo obligaría a
+    # elegir entre agrupar por área o por etapa, y las dos vistas son útiles.
+    #
+    # NULL = todavía sin clasificar · cae al final del camino.
+    stage = Column(String(60), nullable=True, index=True)
+
     # --- gestión -----------------------------------------------------------
     # Permite cargar un video y dejarlo invisible hasta que la clienta lo
     # apruebe, sin borrar la fila.
@@ -3045,3 +3057,53 @@ class OrientationVideo(Base):
 
     def __repr__(self) -> str:
         return f"<OrientationVideo {self.title!r} topic={self.topic!r}>"
+
+
+class OrientationVideoView(Base):
+    """Qué videos ha abierto cada estudiante · AH, 2026-08-29.
+
+    Hace falta para que la galería sea una RUTA y no una lista: sin esto no
+    hay palomitas, ni "sigue aquí", ni porcentaje de avance.
+
+    ## Marca "abierto", no "visto entero"
+
+    Se escribe cuando el reproductor lleva unos segundos abierto. No sabemos si
+    la persona vio el video completo —eso exigiría la API de YouTube y
+    escuchar sus eventos— y el nombre del campo lo dice: `opened_at`. La UI lo
+    llama "visto" porque es lo que la persona entiende, pero el dato que
+    tenemos es más flojo que la palabra, y conviene que quien lea esta tabla
+    dentro de seis meses lo sepa.
+
+    ## Y no bloquea nada
+
+    "MEMORIA SÍ, LLAVE NO" (decisión de producto, ver migración 067): esta
+    tabla se lee para MOSTRAR por dónde va la persona y sugerir el siguiente
+    paso. Ningún video se cierra por no haber visto el anterior. En orientación
+    vocacional bloquear tiene un costo concreto: alguien con curiosidad por
+    enfermería no debería tener que ver tres videos antes de llegar.
+    """
+
+    __tablename__ = "orientation_video_views"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    video_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("orientation_videos.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    opened_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    __table_args__ = (
+        # Una fila por (estudiante, video) · volver a abrirlo no crea otra.
+        UniqueConstraint("user_id", "video_id", name="uq_video_view_user_video"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<OrientationVideoView user={self.user_id} video={self.video_id}>"

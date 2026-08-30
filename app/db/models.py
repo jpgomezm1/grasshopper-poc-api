@@ -1810,6 +1810,66 @@ class ParentRelationship(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
 
+class FamilyBudget(Base):
+    """Lo que el acudiente dice que la familia puede invertir · migración 073.
+
+    Verónica (Padres de Familia, Paso 2): *"Calculadora Financiera. Módulo
+    PRIVADO para ingresar presupuesto disponible para la educación de su
+    hijo."*
+
+    ## Por qué no son las columnas del estudiante
+
+    `User.budget_band` y `User.budget_max_usd` son del ESTUDIANTE: las llena él
+    en su onboarding y las lee el recomendador. Escribir ahí el número del
+    padre pisaría lo que dijo el hijo —son dos declaraciones distintas y las
+    dos legítimas— y rompería el "privado" que ella subraya: las
+    recomendaciones del estudiante cambiarían sin que él sepa por qué, y de ahí
+    a inferir la cifra de su familia hay un paso.
+
+    ## Por qué cuelga de la relación y no del padre
+
+    Un acudiente puede tener varios hijos, y el presupuesto no tiene por qué
+    ser el mismo para cada uno. Y si la relación se revoca (`is_active=False`:
+    divorcio, cambio de custodia), el dato deja de ser alcanzable por la misma
+    puerta.
+
+    ## Este dato NO viaja al estudiante
+
+    Ni a su pantalla, ni a su recomendador, ni al reporte que le manda a su
+    colegio. Es del acudiente y se queda con él. Hay tests que lo comprueban.
+    """
+
+    __tablename__ = "family_budgets"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    parent_relationship_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("parent_relationships.id", ondelete="CASCADE"),
+        nullable=False,
+        unique=True,
+        index=True,
+    )
+
+    # Techo ANUAL. Entero a propósito: los centavos no cambian ninguna decisión
+    # de este módulo y sí invitan a una falsa precisión.
+    anual_max = Column(Integer, nullable=True)
+    moneda = Column(String(3), nullable=True)
+
+    # Si contempla crédito o beca · cambia por completo qué es alcanzable.
+    # Sin preguntarlo, el módulo sólo sabría recomendar lo barato.
+    con_financiacion = Column(Boolean, nullable=True)
+
+    nota = Column(Text, nullable=True)
+
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(
+        DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False
+    )
+
+    def __repr__(self) -> str:
+        return f"<FamilyBudget relacion={self.parent_relationship_id}>"
+
+
 class Cohort(Base):
     """Logical group of students within a school (e.g. "11A 2026").
 

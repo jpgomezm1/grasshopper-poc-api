@@ -77,6 +77,7 @@ from app.api.v1 import (
     tools,
     exam_prep,
     academic_profile,
+    family_budget,
     counselor_sync,
     videos,
     logros,
@@ -336,6 +337,11 @@ app.include_router(counselor_sync.router, prefix="/api/v1")
 # Ficha academica (P3) · GPA, SAT, AP e IB. AH eligio que viva en "Mi perfil"
 # como algo que el estudiante actualiza, no que se congele en el onboarding.
 app.include_router(academic_profile.router, prefix="/api/v1")
+
+# Calculadora financiera del acudiente (P8) · "modulo PRIVADO para ingresar
+# presupuesto disponible para la educacion de su hijo". Privado de verdad: no
+# toca las columnas de presupuesto del estudiante ni su recomendador.
+app.include_router(family_budget.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

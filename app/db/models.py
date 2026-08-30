@@ -2962,6 +2962,78 @@ class StudentYearSnapshot(Base):
         return f"<StudentYearSnapshot user_id={self.user_id} school_year={self.school_year}>"
 
 
+class StudentAcademicProfile(Base):
+    """La ficha académica · GPA, SAT, AP e IB. Migración 072.
+
+    Verónica (Paso 3 · College List): *"para construir esto es importante
+    preguntarle al estudiante su GPA (promedio acumulado) y su sistema de
+    colegio … ¿tienes AP? ¿cuántas? ¿qué puntajes? ¿tienes SAT?"*.
+
+    ## Qué NO está aquí, y dónde está
+
+    La **acreditación del colegio** (IB / AP / americano / bilingüe / local) ya
+    se captura estructurada en el onboarding y vive en
+    `users.onboarding_answers`. No se copia: sería la segunda fuente de verdad
+    que este repo ya pagó cuatro veces.
+
+    ## `gpa` sin `gpa_scale` no significa nada
+
+    Un 4.2 sobre 5.0 (Colombia) y un 3.8 sobre 4.0 (EE. UU.) son el mismo
+    número en dos idiomas: traducido, el 4.2 es 3.36 y está POR DEBAJO del 3.8.
+
+    `Program.avg_admitted_gpa` ya arrastra ese defecto —es un `Float` sin
+    escala— y hoy es inofensivo sólo porque el GPA del estudiante siempre llega
+    `None`. Por eso aquí la escala se guarda SIEMPRE junto al número, y por eso
+    `academic_profile_service` expone además el porcentaje normalizado: quien
+    compare, que compare peras con peras.
+
+    ## Por qué la editas tú y no se deduce
+
+    AH eligió (2026-08-30) que esto viva en "Mi perfil" como una ficha que el
+    estudiante llena y ACTUALIZA: las notas suben, el SAT se repite, el IB
+    previsto cambia. Un dato que se congela en el onboarding envejece mal
+    justo en el año en que más importa.
+    """
+
+    __tablename__ = "student_academic_profiles"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        unique=True,
+        index=True,
+    )
+
+    # El promedio y su escala · van juntos o no van. Ver arriba.
+    gpa = Column(Float, nullable=True)
+    gpa_scale = Column(Float, nullable=True)
+
+    # SAT · 400-1600 en todo el mundo. Es la única métrica académica que se
+    # puede comparar tal cual, sin traducir.
+    sat_score = Column(Integer, nullable=True)
+    sat_taken_on = Column(Date, nullable=True)
+
+    # [{"materia": "Calculus AB", "puntaje": 5}, ...] · son N materias, y no
+    # hay un número fijo: columnas obligarían a migrar por cada examen nuevo.
+    ap_scores = Column(JSON, nullable=True)
+
+    # El total previsto del Diploma (0-45) · es lo que mira la universidad
+    # mientras el estudiante todavía lo está cursando.
+    ib_predicted_total = Column(Integer, nullable=True)
+
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(
+        DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False
+    )
+
+    user = relationship("User", foreign_keys=[user_id])
+
+    def __repr__(self) -> str:
+        return f"<StudentAcademicProfile user_id={self.user_id}>"
+
+
 class CounselorSyncReport(Base):
     """El reporte que el ESTUDIANTE le manda a su colegio · migración 071.
 

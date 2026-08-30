@@ -76,6 +76,7 @@ from app.api.v1 import (
     journey_chat,
     tools,
     exam_prep,
+    academic_profile,
     counselor_sync,
     videos,
     logros,
@@ -331,6 +332,10 @@ app.include_router(logros.router, prefix="/api/v1")
 # prefijo propio: monta rutas bajo /me y bajo /school, cada una con su control
 # de acceso — ver la cabecera del router.
 app.include_router(counselor_sync.router, prefix="/api/v1")
+
+# Ficha academica (P3) · GPA, SAT, AP e IB. AH eligio que viva en "Mi perfil"
+# como algo que el estudiante actualiza, no que se congele en el onboarding.
+app.include_router(academic_profile.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

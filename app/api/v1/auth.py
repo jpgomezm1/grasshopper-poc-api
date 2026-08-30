@@ -664,10 +664,20 @@ _ONBOARDING_BUDGET_TO_BAND = {
 }
 
 
-def _sync_onboarding_to_user_columns(user: User, answers: dict) -> None:
+from app.services import year_memory_service
+
+
+def _sync_onboarding_to_user_columns(
+    user: User, answers: dict, db: Optional[DBSession] = None
+) -> None:
     """Copia presupuesto, países y grado del onboarding a las columnas que el
     recomendador y la malla completa realmente leen. Best-effort: nunca rompe
-    el guardado."""
+    el guardado.
+
+    `db` es opcional sólo por compatibilidad: sin sesión no se puede guardar la
+    memoria del año (ver abajo), pero el resto del sync funciona igual. Los dos
+    llamadores reales la pasan.
+    """
     if not isinstance(answers, dict):
         return
 
@@ -705,6 +715,26 @@ def _sync_onboarding_to_user_columns(user: User, answers: dict) -> None:
     elif isinstance(grade_raw, str) and grade_raw.strip().isdigit():
         grade_int = int(grade_raw.strip())
     if grade_int in (9, 10, 11, 12):
+        # Memoria por año (P1 · 2026-08-29) · ESTE es el único sitio del sistema
+        # donde `User.grade` cambia, y por eso el snapshot se toma aquí.
+        #
+        # El cimiento (migración 067) lo dejó escrito: "cuando el estudiante
+        # pasa de año y sus respuestas cambian, ALGUIEN debe copiar el estado
+        # saliente ANTES de sobrescribirlo en `users`". Sin esta llamada la
+        # tabla se queda vacía para siempre y el "Check-in de Evolución" que
+        # pidió Verónica —"la IA le recuerda qué le gustaba en 9°"— no puede
+        # dispararse nunca, aunque su lector esté completo.
+        #
+        # Sólo cuando el grado CAMBIA de verdad: este sync corre en cada
+        # guardado del onboarding, y fotografiar en cada uno llenaría la tabla
+        # de ruido. `user.grade is not None` excluye la primera vez, que no
+        # tiene año anterior que conservar.
+        if (
+            db is not None
+            and user.grade is not None
+            and user.grade != grade_int
+        ):
+            year_memory_service.guardar_snapshot_saliente(db, user)
         user.grade = grade_int
 
     # `school_reported_last_grade` es Integer (11|12) en la columna tipada.
@@ -760,7 +790,7 @@ def update_onboarding(
     # _format_constraints_block), columnas que NADIE escribía. Es decir, le
     # preguntábamos al estudiante cuánto puede gastar y a dónde quiere ir, y después
     # recomendábamos sin usarlo. Ver ON-X1 en TODO_SPRINT3.
-    _sync_onboarding_to_user_columns(current_user, current_answers)
+    _sync_onboarding_to_user_columns(current_user, current_answers, db)
 
     # Update status if provided
     if request.status:

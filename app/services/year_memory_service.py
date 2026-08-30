@@ -1,16 +1,36 @@
 """Memoria entre años · comparar "qué dijo el año pasado" con "qué dice hoy".
 
 Fase 2 de 4 de la malla completa (Cimientos fue la fase 1 · migración 067).
-Este servicio es el LECTOR de `StudentYearSnapshot` — el cimiento dejó la tabla
-y la consulta documentada en su docstring (`app/db/models.py`), pero nada la
-escribe todavía. Eso es DELIBERADO y quedó así en el propio cimiento: "quién
-escribe esta tabla y cuándo ... es una decisión de producto que no toma esta
-fase". Esta fase tampoco la toma — construye el consumidor completo (lectura +
-comparación + check-in), listo para el día en que exista un disparador que
-guarde snapshots (detectar cambio de grado, cron de año escolar, acción manual
-de un asesor). Hasta entonces, `get_year_comparison` es honesto: `has_memory`
-sale en `False` para todos los estudiantes, porque no hay ninguna fila que
-leer — no se inventa un año anterior que no existe.
+Este servicio es el LECTOR **y, desde el 2026-08-29, también el ESCRITOR** de
+`StudentYearSnapshot`.
+
+## El escritor que faltaba (P1)
+
+El cimiento dejó la tabla y este servicio dejó la lectura completa
+—comparación y check-in incluidos— pero **nadie escribía**. Verificado con un
+grep: no había un solo constructor de `StudentYearSnapshot` fuera de
+`models.py`. Resultado: la tabla vacía para todo el mundo, `has_memory`
+siempre `False`, y el "Check-in de Evolución" que pidió Verónica —*"la IA le
+recuerda qué le gustaba en 9° y pregunta si algo cambió"*— **no podía
+dispararse jamás**, aunque estuviera construido de punta a punta.
+
+El cimiento no eligió el disparador a propósito ("es una decisión de producto
+que no toma esta fase"), pero sí dejó escrito el CUÁNDO: *"cuando el
+estudiante pasa de año y sus respuestas cambian, ALGUIEN debe copiar el estado
+saliente aquí ANTES de sobrescribirlo en `users`"*, y sugirió el cómo: *"al
+detectar que `grade` cambió"*.
+
+Eso es lo que hace `guardar_snapshot_saliente`, y por eso se llama desde
+`_sync_onboarding_to_user_columns` (`app/api/v1/auth.py`), que es el ÚNICO
+sitio del sistema donde `User.grade` cambia. Un solo punto de escritura para
+un solo punto de cambio.
+
+Se descartó el otro candidato —la pantalla de cierre de año, que lo pide en su
+propio TODO— porque `/cierre-de-ano` es alcanzable en cualquier momento y no
+cierra nada: alguien que la abre en marzo congelaría marzo. El cambio de grado
+es el momento real en que el año anterior deja de ser vigente.
+
+"MEMORIA SÍ, LLAVE NO" sigue intacto: esto guarda y compara. No bloquea nada.
 
 "MEMORIA SÍ, LLAVE NO": este módulo sólo lee y compara. No bloquea ni
 desbloquea nada, y no conoce calendario escolar — `school_year` es sólo la
@@ -33,10 +53,13 @@ necesitan snapshot: son el estado actual, siempre disponible.
 """
 from __future__ import annotations
 
+import copy
 import logging
 from dataclasses import dataclass, field
+from datetime import datetime
 from typing import Any, Dict, List, Optional
 
+from sqlalchemy import inspect as sa_inspect
 from sqlalchemy.orm import Session as DBSession
 
 from app.data.onboarding_hechos import get_hecho
@@ -213,6 +236,84 @@ def _campos_que_cambiaron(
             etiqueta = hecho.pregunta_typeform if hecho else _LABELS_FALLBACK.get(campo, campo)
             cambios.append(etiqueta)
     return cambios
+
+
+def _respuestas_salientes(user: User) -> Dict[str, Any]:
+    """Las respuestas de ANTES de la escritura de este request.
+
+    Los dos sitios que llaman al sync (`PUT /me/onboarding` y el onboarding
+    conversacional) hacen `user.onboarding_answers = {**viejas, **nuevas}`
+    ANTES de llamarlo. Leer el atributo aquí daría las NUEVAS, y guardaríamos
+    como "lo que dijo el año pasado" lo que acaba de decir hoy — justo al revés
+    de lo que pide el cimiento.
+
+    SQLAlchemy conserva el valor anterior en el historial de la sesión hasta el
+    flush, así que se lee de ahí. Si no hay historial (nadie tocó la columna en
+    este request) el valor vigente ES el saliente, y sirve igual.
+
+    Se copia en profundidad: la columna es JSON y quien nos llamó sigue
+    trabajando sobre ese dict. Guardar la referencia haría que el snapshot
+    cambiara con él.
+    """
+    try:
+        historial = sa_inspect(user).attrs.onboarding_answers.history
+        if historial.deleted:
+            previo = historial.deleted[0]
+            if isinstance(previo, dict):
+                return copy.deepcopy(previo)
+    except Exception:  # pragma: no cover · defensivo, nunca debe romper el guardado
+        logger.warning("No se pudo leer el historial de onboarding_answers", exc_info=True)
+    return copy.deepcopy(user.onboarding_answers or {})
+
+
+def guardar_snapshot_saliente(db: DBSession, user: User) -> bool:
+    """Congela el estado que está a punto de dejar de ser vigente.
+
+    Se llama JUSTO ANTES de sobrescribir `User.grade`. Devuelve `True` si
+    escribió una fila nueva.
+
+    ## Idempotente, y se queda con la PRIMERA foto del año
+
+    La tabla tiene `UniqueConstraint(user_id, school_year)`. Si ya hay foto de
+    este año no se toca: la primera es la que capturó el estado saliente de
+    verdad. Sobrescribirla con un segundo cambio de grado en el mismo año —una
+    corrección de dato, un ida y vuelta— reemplazaría el recuerdo bueno por
+    uno peor.
+
+    ## Best-effort, como el sync que lo llama
+
+    Nunca levanta. Perder un snapshot es una función que no se enciende ese
+    año; romper el guardado del onboarding es perderle las respuestas al
+    estudiante. El segundo es mucho peor.
+    """
+    try:
+        anio = datetime.utcnow().year
+        ya_existe = (
+            db.query(StudentYearSnapshot)
+            .filter(
+                StudentYearSnapshot.user_id == user.id,
+                StudentYearSnapshot.school_year == anio,
+            )
+            .first()
+        )
+        if ya_existe is not None:
+            return False
+
+        db.add(
+            StudentYearSnapshot(
+                user_id=user.id,
+                school_year=anio,
+                # El grado SALIENTE · todavía no lo sobrescribió el sync.
+                grade=user.grade,
+                onboarding_answers_snapshot=_respuestas_salientes(user),
+            )
+        )
+        # Sin commit: quien llama ya lo hace, y meter uno aquí partiría su
+        # transacción en dos.
+        return True
+    except Exception:  # pragma: no cover
+        logger.warning("No se pudo guardar el snapshot del año", exc_info=True)
+        return False
 
 
 def _ultimo_snapshot(db: DBSession, user_id) -> Optional[StudentYearSnapshot]:

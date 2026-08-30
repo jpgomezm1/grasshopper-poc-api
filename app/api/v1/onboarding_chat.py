@@ -111,7 +111,9 @@ def _persistir(db: DBSession, user: User, recolectados: Dict[str, Any]) -> None:
         except ValueError:
             pass
 
-    _sync_onboarding_to_user_columns(user, user.onboarding_answers)
+    # `db` para que el cambio de grado deje su foto del año saliente ·
+    # ver `year_memory_service.guardar_snapshot_saliente`.
+    _sync_onboarding_to_user_columns(user, user.onboarding_answers, db)
     db.commit()
 
 

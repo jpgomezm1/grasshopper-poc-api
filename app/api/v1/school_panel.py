@@ -117,6 +117,9 @@ from app.services.storage_service import (
 
 
 logger = logging.getLogger(__name__)
+from dataclasses import asdict
+
+from app.services import year_memory_service
 
 router = APIRouter(prefix="/school/me", tags=["School Panel"])
 public_router = APIRouter(prefix="/invitations", tags=["School Panel · public accept"])
@@ -435,6 +438,71 @@ def export_students_csv(
 # ============================================================================
 # Student detail · GH-S9-BE-03
 # ============================================================================
+
+
+@router.get(
+    "/students/{user_id}/memoria-de-anos",
+    summary="P1 · qué dijo el año pasado vs qué dice hoy",
+)
+def get_memoria_de_anos(
+    user_id: UUID,
+    bundle: tuple = Depends(_get_school_for_caller),
+    db: DBSession = Depends(get_db),
+):
+    """La comparación entre años de UN estudiante del colegio.
+
+    Verónica (Grado 10, Paso 1) pidió el "Check-in de Evolución" para el
+    estudiante. Esto es su otra mitad: que **la consejera también lo vea**, que
+    es lo que convierte "el sistema recuerda" en "la persona que te acompaña
+    recuerda".
+
+    ## Por qué un endpoint aparte y no `/year-checkin`
+
+    Aquel opera SIEMPRE sobre `current_user` — su propio docstring lo dice: *"es
+    información propia, no de un tercero, así que no hay superficie IDOR que
+    verificar"*. Añadirle un `user_id` le abriría justo esa superficie a un
+    endpoint que se escribió sin ella.
+
+    Aquí la guarda es la MISMA que ya protege el detalle 360 del estudiante:
+    mismo colegio, y 404 —no 403— si es de otro, para no confirmar que existe.
+
+    ## Lo que NO trae
+
+    El `checkin_message` redactado con IA. Ese texto está escrito para hablarle
+    al estudiante en segunda persona ("el año pasado me dijiste…"); mostrárselo
+    a la consejera sería ponerle en la boca una conversación que no tuvo.
+    Ella recibe los hechos: qué grado traía, qué decía, y qué cambió.
+    """
+    school, _caller = bundle
+
+    student = (
+        db.query(User)
+        .filter(User.id == user_id, User.role == UserRole.STUDENT)
+        .first()
+    )
+    if not student or str(student.school_id) != str(school.id):
+        # Misma respuesta en los dos casos · no se filtra la existencia.
+        raise HTTPException(status_code=404, detail="Student not found.")
+
+    comparacion = year_memory_service.get_year_comparison(db, student)
+    return {
+        "has_memory": comparacion.has_memory,
+        "is_new_grade": comparacion.is_new_grade,
+        "previous": (
+            {
+                "school_year": comparacion.previous.school_year,
+                "grade": comparacion.previous.grade,
+                "perfil": asdict(comparacion.previous.perfil),
+            }
+            if comparacion.previous
+            else None
+        ),
+        "today": {
+            "grade": comparacion.today.grade,
+            "perfil": asdict(comparacion.today.perfil),
+        },
+        "changed_fields": comparacion.changed_fields,
+    }
 
 
 @router.get(

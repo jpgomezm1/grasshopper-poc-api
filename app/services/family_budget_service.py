@@ -127,16 +127,30 @@ def que_alcanza(presupuesto: Optional[FamilyBudget]) -> Dict[str, Any]:
     ]
 
     monedas = {c for (_o, _mn, _mx, c) in con_precio if c}
-    minimos = [mn for (_o, mn, _mx, _c) in con_precio if mn is not None]
-    maximos = [mx for (_o, _mn, mx, _c) in con_precio if mx is not None]
+
+    # El rango va SEPARADO POR MONEDA, no en un solo mínimo-máximo global.
+    # Juntarlas daría "de 500 a 18.000 EUR/USD", que es exactamente lo que
+    # este módulo promete no hacer dos párrafos más abajo cuando se niega a
+    # convertir. Y el denominador de aquí es el mismo que el de
+    # `alcanzables.de`, así que el acudiente no lee 17 arriba y 10 abajo sin
+    # que nadie le explique de dónde salió la diferencia.
+    rangos = []
+    for moneda in sorted(monedas):
+        de_esa = [
+            (mn, mx) for (_o, mn, mx, c) in con_precio if c == moneda
+        ]
+        minimos = [mn for (mn, _mx) in de_esa if mn is not None]
+        maximos = [mx for (_mn, mx) in de_esa if mx is not None]
+        rangos.append({
+            "moneda": moneda,
+            "min": min(minimos) if minimos else None,
+            "max": max(maximos) if maximos else None,
+            "cuantas": len(de_esa),
+        })
 
     resultado: Dict[str, Any] = {
         "total_con_precio": len(con_precio),
-        "rango_del_catalogo": {
-            "min": min(minimos) if minimos else None,
-            "max": max(maximos) if maximos else None,
-            "monedas": sorted(monedas),
-        },
+        "rangos_por_moneda": rangos,
         "alcanzables": None,
         "cerca": None,
         "aviso": None,

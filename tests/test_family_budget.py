@@ -229,7 +229,31 @@ def test_el_rango_del_catalogo_se_ve_aunque_no_haya_presupuesto(app_with_db):
     cuerpo = client.get(_ruta(hijo), headers=_login(client, "madre@x.com")).json()
 
     assert cuerpo["anual_max"] is None
-    assert cuerpo["que_alcanza"]["rango_del_catalogo"]["min"] is not None
+    rangos = cuerpo["que_alcanza"]["rangos_por_moneda"]
+    assert rangos and rangos[0]["min"] is not None
+
+
+def test_el_rango_NO_mezcla_monedas_en_un_solo_numero(app_with_db):
+    """⭐ Un rango global diria "de 500 a 18.000 EUR/USD" — justo lo que este
+    modulo se niega a hacer cuando rechaza convertir. Y su denominador (17 con
+    precio) no seria el mismo que el de `alcanzables.de` (10 en USD), asi que
+    el acudiente leeria dos totales distintos sin que nadie se lo explique."""
+    app, S = app_with_db
+    hijo, _madre = _familia(S)
+
+    client = TestClient(app)
+    cabeceras = _login(client, "madre@x.com")
+    client.put(_ruta(hijo), headers=cabeceras,
+               json={"anual_max": 3000, "moneda": "USD"})
+    alcanza = client.get(_ruta(hijo), headers=cabeceras).json()["que_alcanza"]
+
+    rangos = {r["moneda"]: r for r in alcanza["rangos_por_moneda"]}
+    assert len(rangos) >= 1
+    for r in rangos.values():
+        assert r["cuantas"] > 0
+
+    # El denominador de "alcanzan X de Y" es el de SU moneda, no el total.
+    assert alcanza["alcanzables"]["de"] == rangos["USD"]["cuantas"]
 
 
 def test_no_inventa_tasas_de_cambio(app_with_db):

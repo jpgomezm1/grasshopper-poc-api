@@ -311,7 +311,8 @@ def list_ofertas(
             Program.description_long, Program.images, Program.highlights,
             Program.admission_dates, Program.scholarships, Program.tags,
             Program.scholarships_for_latam, Program.acceptance_rate,
-            Program.avg_admitted_gpa, Program.min_sat, Program.avg_sat,
+            Program.avg_admitted_gpa, Program.avg_admitted_gpa_scale,
+            Program.min_sat, Program.avg_sat,
             Program.min_english_level,
             Program.subject, Program.area,
         ))

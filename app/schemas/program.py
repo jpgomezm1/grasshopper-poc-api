@@ -6,7 +6,7 @@ from datetime import datetime
 from typing import Optional, List, Any, Dict
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
 VALID_BUDGET_TIERS = {"low", "medium", "high", "premium"}
@@ -157,10 +157,48 @@ class ProgramEditorialFields(BaseModel):
     # D-002 (2026-06-04) · variables de admisión · Reach/Match/Safety.
     # NULL = no curado (no se muestra badge). acceptance_rate en % (0-100).
     acceptance_rate: Optional[float] = Field(default=None, ge=0, le=100)
-    avg_admitted_gpa: Optional[float] = Field(default=None, ge=0, le=10)
+    avg_admitted_gpa: Optional[float] = Field(default=None, ge=0, le=100)
+    # Sobre cuánto va ese promedio · sin esto el número no se puede comparar
+    # con el de un estudiante (4.2/5.0 = 84 % está por DEBAJO de 3.8/4.0 =
+    # 95 %, pero crudos 4.2 > 3.8). Ver `admission_fit_service`.
+    avg_admitted_gpa_scale: Optional[float] = Field(default=None, gt=0, le=100)
     min_sat: Optional[int] = Field(default=None, ge=0, le=1600)
     avg_sat: Optional[int] = Field(default=None, ge=0, le=1600)
     min_english_level: Optional[str] = Field(default=None, max_length=10)
+
+    @model_validator(mode="after")
+    def _la_escala_del_gpa_es_coherente(self):
+        """Si vienen promedio Y escala, que cuadren entre sí.
+
+        Sólo se opina cuando están los dos: esta clase la heredan tanto la
+        creación como el PATCH parcial, y un update que toca sólo el promedio
+        sobre una fila que YA tiene escala es legítimo — pedirle reenviar un
+        dato que no cambió es la clase de fricción que hace que la gente rellene
+        el Excel a la brava.
+
+        Que no se pueda guardar un promedio HUÉRFANO se exige en `ProgramBase`,
+        donde sí hay una fila completa de la que hablar.
+
+        Las escalas se leen de `academic_profile_service` para que no haya dos
+        listas que se desincronicen. El import va dentro de la función a
+        propósito: un schema no debería arrastrar la capa de servicios al
+        importarse.
+        """
+        gpa = self.avg_admitted_gpa
+        escala = self.avg_admitted_gpa_scale
+        if gpa is None or escala is None:
+            return self
+
+        from app.services.academic_profile_service import ESCALAS_VALIDAS
+
+        if float(escala) not in ESCALAS_VALIDAS:
+            raise ValueError(
+                "Escala no reconocida. Las que manejamos: "
+                + ", ".join(str(e) for e in ESCALAS_VALIDAS)
+            )
+        if not (0 <= float(gpa) <= float(escala)):
+            raise ValueError(f"El promedio tiene que estar entre 0 y {escala}.")
+        return self
 
     @field_validator("min_english_level")
     @classmethod
@@ -238,6 +276,25 @@ class ProgramBase(ProgramEditorialFields):
 
 class ProgramCreate(ProgramBase):
     raw: Optional[Dict[str, Any]] = None
+
+    @model_validator(mode="after")
+    def _no_se_crea_un_promedio_huerfano(self):
+        """Al crear, el promedio de admisión viene con su escala o no viene.
+
+        Aquí no hay fila previa de la que heredar la escala, así que un
+        `avg_admitted_gpa` solo nace ya inservible: un 3.8 sin saber sobre
+        cuánto va no se puede comparar con el de ningún estudiante (4.2/5.0 es
+        84 % y está por DEBAJO de 3.8/4.0, que es 95 %). Ver la migración 074 y
+        `admission_fit_service`.
+        """
+        gpa = self.avg_admitted_gpa
+        escala = self.avg_admitted_gpa_scale
+        if (gpa is None) != (escala is None):
+            raise ValueError(
+                "avg_admitted_gpa y avg_admitted_gpa_scale van juntos: un "
+                "promedio sin saber sobre cuánto va no se puede comparar."
+            )
+        return self
 
 
 class ProgramUpdate(ProgramEditorialFields):

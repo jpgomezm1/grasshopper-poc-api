@@ -138,6 +138,10 @@ def _coerce_excel_cefr_optional(v):
 _ADMISSION_IMPORT_FIELDS = {
     "acceptance_rate": _coerce_excel_float_optional,
     "avg_admitted_gpa": _coerce_excel_float_optional,
+    # Sin esta columna el promedio de arriba no se puede comparar con el de
+    # un estudiante · ver `admission_fit_service`. 4.0, 5.0, 7.0, 10.0, 20.0
+    # o 100.0, las mismas que acepta la ficha del estudiante.
+    "avg_admitted_gpa_scale": _coerce_excel_float_optional,
     "min_sat": _coerce_excel_int_optional,
     "avg_sat": _coerce_excel_int_optional,
     "min_english_level": _coerce_excel_cefr_optional,
@@ -277,6 +281,7 @@ def create_program(
         # D-002 · variables de admisión (None si no se curan)
         acceptance_rate=payload.acceptance_rate,
         avg_admitted_gpa=payload.avg_admitted_gpa,
+        avg_admitted_gpa_scale=payload.avg_admitted_gpa_scale,
         min_sat=payload.min_sat,
         avg_sat=payload.avg_sat,
         min_english_level=payload.min_english_level,
@@ -361,6 +366,7 @@ def export_programs(
             # D-002 · vacío = sin curar (preserva tri-estado en el round-trip)
             p.acceptance_rate if p.acceptance_rate is not None else "",
             p.avg_admitted_gpa if p.avg_admitted_gpa is not None else "",
+            p.avg_admitted_gpa_scale if p.avg_admitted_gpa_scale is not None else "",
             p.min_sat if p.min_sat is not None else "",
             p.avg_sat if p.avg_sat is not None else "",
             p.min_english_level or "",

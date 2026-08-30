@@ -947,6 +947,14 @@ class Program(Base):
     # en porcentaje 0-100. min_english_level en CEFR (A1..C2).
     acceptance_rate = Column(Float, nullable=True)
     avg_admitted_gpa = Column(Float, nullable=True)
+    # La escala del promedio de arriba · sin ella el número no significa nada.
+    #
+    # Un 4.2 sobre 5.0 traducido es 3.36 y está POR DEBAJO de un 3.8 sobre 4.0,
+    # pero crudos 4.2 > 3.8. `admission_fit_service.classify()` comparaba así, y
+    # sólo era inofensivo mientras el GPA del estudiante llegara `None`. NULL
+    # aquí significa "no sabemos en qué escala está": el clasificador se salta
+    # esa señal en vez de inventarse la equivalencia. Migración 074.
+    avg_admitted_gpa_scale = Column(Float, nullable=True)
     min_sat = Column(Integer, nullable=True)
     avg_sat = Column(Integer, nullable=True)
     min_english_level = Column(String(10), nullable=True)
@@ -3041,9 +3049,9 @@ class StudentAcademicProfile(Base):
     Un 4.2 sobre 5.0 (Colombia) y un 3.8 sobre 4.0 (EE. UU.) son el mismo
     número en dos idiomas: traducido, el 4.2 es 3.36 y está POR DEBAJO del 3.8.
 
-    `Program.avg_admitted_gpa` ya arrastra ese defecto —es un `Float` sin
-    escala— y hoy es inofensivo sólo porque el GPA del estudiante siempre llega
-    `None`. Por eso aquí la escala se guarda SIEMPRE junto al número, y por eso
+    `Program.avg_admitted_gpa` arrastraba ese mismo defecto —un `Float` sin
+    escala— hasta que la migración 074 le dio su `avg_admitted_gpa_scale`. Por
+    eso aquí la escala se guarda SIEMPRE junto al número, y por eso
     `academic_profile_service` expone además el porcentaje normalizado: quien
     compare, que compare peras con peras.
 

@@ -252,3 +252,48 @@ def test_leido_se_marca_una_vez_y_no_cuenta_aperturas(db_session):
     cs.marcar_leido(db_session, r)
     db_session.commit()
     assert r.read_at == primera
+
+
+# ---------------------------------------------------------------------------
+# (i) el reporte se puede GUARDAR · no solo construir
+# ---------------------------------------------------------------------------
+
+def test_un_estudiante_CON_tests_hechos_puede_enviar_su_reporte(db_session):
+    """El reporte va a una columna JSON · nada dentro puede ser un datetime.
+
+    Este test existe porque el bug se escapó de los otros diecisiete: todos
+    sembraban estudiantes SIN tests vocacionales, así que `tests_hechos`
+    salía vacío y el `datetime` nunca llegaba al `json.dumps` del INSERT. El
+    envío reventaba con un 500 en cuanto el estudiante había hecho un test —
+    es decir, en cuanto era un estudiante de verdad.
+
+    Es el error nº2 de este repo: un test que pasa sin recorrer el camino
+    real. Por eso aquí se siembra el test vocacional Y se llega hasta el
+    flush, no hasta el diccionario.
+    """
+    import json
+
+    from app.db.models import VocationalTestResult
+    from app.services import counselor_sync_service as cs
+
+    colegio = _colegio(db_session)
+    alumno = _estudiante(db_session, school=colegio, email="con-tests@test.com")
+    db_session.add(VocationalTestResult(
+        user_id=alumno.id, test_id="riasec", answers={}, scores={},
+        created_at=datetime.utcnow(),
+    ))
+    db_session.commit()
+
+    # Lo que se enseña ya tiene que ser serializable · si la previa se ve pero
+    # el envío revienta, el estudiante da por hecho que lo mandó.
+    previa = cs.construir_reporte(db_session, alumno)
+    assert previa["sobre_que_decide"]["tests_hechos"], "sembramos un test y no aparece"
+    json.dumps(previa)  # revienta con el datetime crudo
+
+    reporte = cs.enviar(db_session, alumno, "Voy a mi reunión el jueves.")
+    db_session.commit()
+
+    assert reporte.id is not None
+    guardado = reporte.content["sobre_que_decide"]["tests_hechos"][0]
+    assert guardado["test_id"] == "riasec"
+    assert isinstance(guardado["taken_at"], str)

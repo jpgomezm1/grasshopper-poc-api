@@ -352,7 +352,17 @@ def _tests_tomados_hoy(db: DBSession, user_id) -> List[Dict[str, Any]]:
         .order_by(VocationalTestResult.created_at.desc())
         .all()
     )
-    return [{"test_id": r.test_id, "taken_at": r.created_at} for r in resultados]
+    # `taken_at` sale en ISO y no como `datetime` crudo porque este dict
+    # TERMINA DENTRO DE UN JSON: el reporte que el estudiante le congela a su
+    # colegio lo guarda en una columna JSON, y un datetime ahi revienta el
+    # INSERT entero. Serializarlo en la fuente y no en cada consumidor evita
+    # que el siguiente que guarde esto vuelva a tropezar. El contrato de
+    # salida ya era string (`schoolApi.ts:218`) y el schema pydantic
+    # (`year_memory.py:35`) parsea el ISO a datetime sin ayuda.
+    return [
+        {"test_id": r.test_id, "taken_at": r.created_at.isoformat()}
+        for r in resultados
+    ]
 
 
 def _rutas_activas_hoy(db: DBSession, user_id) -> List[str]:

@@ -271,7 +271,9 @@ def test_hoy_trae_un_test_por_tipo_ordenado_por_mas_reciente(db_session):
 
     comp = get_year_comparison(db_session, u)
     por_tipo = {t["test_id"]: t["taken_at"] for t in comp.today.tests_taken}
-    assert por_tipo == {"riasec": ahora, "big5": antes}
+    # En ISO, no `datetime`: este dict acaba dentro de una columna JSON
+    # (el reporte al colegio) y un datetime crudo revienta el INSERT.
+    assert por_tipo == {"riasec": ahora.isoformat(), "big5": antes.isoformat()}
     # El más reciente (riasec) sale primero.
     assert comp.today.tests_taken[0]["test_id"] == "riasec"
 

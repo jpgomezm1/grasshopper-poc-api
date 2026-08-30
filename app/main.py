@@ -76,6 +76,7 @@ from app.api.v1 import (
     journey_chat,
     tools,
     exam_prep,
+    counselor_sync,
     videos,
     logros,
 )
@@ -324,6 +325,12 @@ app.include_router(videos.router, prefix="/api/v1")
 # equipo de futbol") o el diploma que sube, y devuelve una ficha PARA CONFIRMAR.
 # No guarda: eso sigue siendo de `POST /me/activities`, que ya existia.
 app.include_router(logros.router, prefix="/api/v1")
+
+# Counselor Sync (P2 de la revision Sprint 2) · "un reporte ejecutivo de
+# progreso que el estudiante envia a su consejera antes de su reunion". Sin
+# prefijo propio: monta rutas bajo /me y bajo /school, cada una con su control
+# de acceso — ver la cabecera del router.
+app.include_router(counselor_sync.router, prefix="/api/v1")
 
 
 @app.get("/health", tags=["Infra"])

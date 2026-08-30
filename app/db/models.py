@@ -2962,6 +2962,71 @@ class StudentYearSnapshot(Base):
         return f"<StudentYearSnapshot user_id={self.user_id} school_year={self.school_year}>"
 
 
+class CounselorSyncReport(Base):
+    """El reporte que el ESTUDIANTE le manda a su colegio · migración 071.
+
+    Verónica, revisión Sprint 2 (Paso 5): *"al finalizar cada etapa, el sistema
+    genera un reporte ejecutivo de progreso que el estudiante envía a su
+    consejera antes de su reunión presencial"*.
+
+    ## Quién es el dueño de esto
+
+    El ESTUDIANTE. Es la diferencia con `StudentDossierNote`, que la escribe el
+    profesional y que el estudiante no puede ver nunca. Aquí es al revés: él lo
+    genera, él decide mandarlo, y él ve lo que mandó.
+
+    Por eso tampoco va con las alertas clínicas: "mi estudiante me mandó su
+    avance" no es una señal de riesgo.
+
+    ## `content` es una FOTO, no una vista
+
+    La consejera prepara la reunión con lo que recibió. Si esto se recalculara
+    al abrirlo, un estudiante que hace tres tests entre el envío y la cita
+    cambiaría en silencio el documento sobre el que ella ya trabajó.
+
+    Mismo criterio que `StudentYearSnapshot`: un recuerdo que se actualiza solo
+    no es un recuerdo.
+
+    ## Le llega al colegio, no a una persona
+
+    El modelo no asigna psicóloga a estudiante — el staff del colegio ve a los
+    de su escuela (`SCHOOL_STAFF_ROLES`). Guardar un destinatario individual
+    inventaría un vínculo que no existe.
+    """
+
+    __tablename__ = "counselor_sync_reports"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    student_user_id = Column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False, index=True,
+    )
+    # `SET NULL` y nullable: si el colegio se borra, el estudiante conserva lo
+    # que mandó. Y un B2C sin colegio no puede enviar (lo impide el endpoint),
+    # pero sus envíos viejos no deben re-apuntar si mañana se une a uno.
+    school_id = Column(
+        UUID(as_uuid=True), ForeignKey("schools.id", ondelete="SET NULL"),
+        nullable=True, index=True,
+    )
+    sent_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    # La foto del reporte en el momento del envío · ver arriba.
+    content = Column(JSON, nullable=False)
+
+    # Lo que el estudiante quiera añadir de su puño.
+    student_note = Column(Text, nullable=True)
+
+    # Cuándo lo abrió alguien del colegio. Sirve para que el estudiante sepa
+    # que llegó — NO para medir a la consejera, que ya está saturada y no
+    # necesita otro cronómetro encima.
+    read_at = Column(DateTime, nullable=True)
+
+    student = relationship("User", foreign_keys=[student_user_id])
+
+    def __repr__(self) -> str:
+        return f"<CounselorSyncReport student={self.student_user_id} sent_at={self.sent_at}>"
+
+
 class OrientationVideo(Base):
     """Un video de orientación vocacional · reunión con Verónica del 2026-08-24.
 

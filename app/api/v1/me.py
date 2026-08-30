@@ -53,6 +53,7 @@ from app.db.models import (
 from app.services import notifications_service
 
 logger = logging.getLogger(__name__)
+from app.services import exam_prep_service
 
 router = APIRouter(prefix="/me", tags=["StudentMe"])
 
@@ -519,6 +520,20 @@ class StudentDashboardResponse(BaseModel):
     # "¿por que todavia no sale nada?" / "yo aca ya estoy perdida". Va en el
     # dashboard y no en una llamada aparte porque `AppShell` ya pide esto.
     videos_count: int = 0
+    # AH, 2026-08-29: "tenemos 4 tipos de estudiante ... esto debe de ser
+    # diferente o ajustado a cada tipo". El mapa del Journey no puede ser el
+    # mismo para alguien de 9° que para alguien de 12° o para un profesional.
+    #
+    # Se DERIVA con `exam_prep_service.ruta_del_estudiante`, que es la forma
+    # canonica que ya existia (`perfil()` + el resolvedor de grado). No se
+    # guarda ni se recalcula aqui: una segunda forma de deducir la ruta seria
+    # el P0-8 de este repo, y ademas la ruta cambia sola cuando el estudiante
+    # pasa de grado.
+    #
+    # `None` cuando todavia no se sabe (falta el grado). El front cae a la
+    # escalera comun, que es la que servia hasta hoy: ruta desconocida es mejor
+    # que ruta adivinada.
+    ruta: Optional[str] = None
 
 
 def _evaluate_journey_complete(db: DBSession, student: User) -> tuple[bool, int, int]:
@@ -583,6 +598,7 @@ def get_dashboard(
             .filter(OrientationVideo.is_published.is_(True))
             .count()
         ),
+        ruta=exam_prep_service.ruta_del_estudiante(current_user),
     )
 
 

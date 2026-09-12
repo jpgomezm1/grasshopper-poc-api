@@ -1,0 +1,41 @@
+﻿institucion,pais,programas_extraidos,puede_vender_en_el_excel,niveles_que_de_verdad_ofrece,causa
+Arizona State University,USA,151,"[""pathway""]",bachelor; intercambio; pregrado,lo autorizado no existe en el sitio
+University of Portsmouth,UK,150,[],bachelor; diplomado; doctorado; maestria; mba; posgrado,campo vacio en el Excel
+College of the Canyons,USA,149,[],bachelor; curso_corto; pregrado,campo vacio en el Excel
+Simmons University,USA,74,"[""pathway""]",bachelor; doctorado; maestria; posgrado,lo autorizado no existe en el sitio
+MLC College of Business Technology and Healthcare,Canada,72,[],curso_corto; diplomado; posgrado,campo vacio en el Excel
+SRH Berlin University of Applied Sciences,Germany,66,[],bachelor; curso_corto; maestria; mba; vacacional,campo vacio en el Excel
+Texas Wesleyan University,USA,66,[],bachelor; curso_corto; maestria; mba; pregrado,campo vacio en el Excel
+Constructor University Bremen gGmbH,Germany,61,[],bachelor; curso_corto; doctorado; maestria; mba,campo vacio en el Excel
+Community College of Philadelphia,USA,57,"[""pathway""]",pregrado,lo autorizado no existe en el sitio
+University of Tulsa,USA,57,"[""pathway""]",bachelor; doctorado; maestria; posgrado,lo autorizado no existe en el sitio
+Oxford Royale,UK,51,"[""high_school""]",vacacional,lo autorizado no existe en el sitio
+"Hochschulen Fresenius, University of Applied Sciences",Germany,47,[],bachelor; diplomado; maestria; mba,campo vacio en el Excel
+Bucksmore Education,UK,44,[],curso_corto; vacacional,campo vacio en el Excel
+QIBA - Queensland International Business Academy,Australia,25,[],curso_corto; diplomado; posgrado,campo vacio en el Excel
+Eurasia,Germany,24,[],curso_corto; diplomado; vacacional,campo vacio en el Excel
+Windsor-Essex CDS,Canada,23,[],curso_corto; secundaria; vacacional,campo vacio en el Excel
+Global College Australasia,Australia,22,[],curso_corto; diplomado; posgrado,campo vacio en el Excel
+Sudbury Catholic School,Canada,21,[],secundaria,campo vacio en el Excel
+French Woods,USA,21,"[""vocacional""]",vacacional,lo autorizado no existe en el sitio
+Nelson English Centre,New Zealand,19,[],curso_corto; vacacional,campo vacio en el Excel
+UCEDA,USA,16,[],curso_corto,campo vacio en el Excel
+Alliance College,Australia,15,[],curso_corto; diplomado; posgrado,campo vacio en el Excel
+Worldwide Internships,International,12,"[""pasantias""]",intercambio,lo autorizado no existe en el sitio
+Charles Sturt University,Australia,10,"[""vocacional""]",bachelor; maestria; posgrado,lo autorizado no existe en el sitio
+Tr4inright,Australia,10,[],curso_corto; diplomado; posgrado,campo vacio en el Excel
+Acacia Institute,Australia,9,[],curso_corto; diplomado,campo vacio en el Excel
+ICM - International College of Manitoba,Canada,9,"[""pregrado""]",curso_corto,lo autorizado no existe en el sitio
+Sir Wilfrid Laurier School Board,Canada,8,"[""high_school""]",curso_corto; diplomado; especializacion; intercambio; vacacional,lo autorizado no existe en el sitio
+ICEDU,Spain,8,[],curso_corto; diplomado; vacacional,campo vacio en el Excel
+RCS Royal Crown School,Canada,8,[],curso_corto; secundaria,campo vacio en el Excel
+Munich University of Digital Technologies & Applied Sciences,Germany,7,[],bachelor; curso_corto; maestria,campo vacio en el Excel
+TMUIC Toronto Metropolitan University International College,Canada,7,"[""pregrado""]",curso_corto,lo autorizado no existe en el sitio
+Tamwood Language Centres,Canada,7,"[""idiomas""]",vacacional,lo autorizado no existe en el sitio
+Worldwide School of English,New Zealand,6,[],curso_corto,campo vacio en el Excel
+Texila College,Australia,6,"[""vocacional""]",bachelor,lo autorizado no existe en el sitio
+Nova Southeastern University’s Barry and Judy Silverman College of Pharmacy.,USA,5,"[""idiomas""]",doctorado; maestria,lo autorizado no existe en el sitio
+Kapiti College,New Zealand,4,[],curso_corto; secundaria,campo vacio en el Excel
+Kiwi English Academy,New Zealand,3,[],curso_corto,campo vacio en el Excel
+Universal Higher Education UHE,Australia,1,"[""vocacional""]",bachelor,lo autorizado no existe en el sitio
+GLOBAL BANKING TRAINING,UK,1,"[""pregrado"", ""posgrado""]",curso_corto,lo autorizado no existe en el sitio

@@ -108,6 +108,29 @@ def main() -> int:
     db.close()
 
     SALIDA.mkdir(parents=True, exist_ok=True)
+
+    # Archivar los CSV de la ronda anterior ANTES de renumerar los lotes.
+    #
+    # Los lotes se numeran desde 01 en cada ronda, asi que el `comp_02.csv` de
+    # la ronda nueva pisa el de la anterior. Paso de verdad: un agente
+    # sobrescribio 82 filas de otras cinco universidades y lo reporto el.
+    # Estaban salvadas porque se carga a la base despues de cada agente, pero
+    # depender de eso es apostar. Aqui es el unico momento en que el choque se
+    # puede evitar sin adivinar: si se van a renumerar los lotes, lo de antes
+    # ya es de otra ronda.
+    salida_csv = Path("data/catalogo/programas_agentes")
+    viejos = sorted(salida_csv.glob("*.csv")) if salida_csv.exists() else []
+    if viejos:
+        n = 1
+        while (salida_csv / f"ronda_{n:02d}").exists():
+            n += 1
+        archivo = salida_csv / f"ronda_{n:02d}"
+        archivo.mkdir(parents=True)
+        for f in viejos:
+            f.rename(archivo / f.name)
+        print(f"Archivados {len(viejos)} CSV de la ronda anterior en {archivo}")
+        print()
+
     for f in SALIDA.glob("comp_*.json"):
         f.unlink()
 

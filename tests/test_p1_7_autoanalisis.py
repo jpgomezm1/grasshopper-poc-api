@@ -99,10 +99,22 @@ def test_el_prompt_ordena_contrastar_lo_declarado_con_lo_medido():
 
 
 def test_las_carreras_sugeridas_deben_conectar_con_la_primera_opcion():
+    """El requisito no cambió; cambió dónde vive.
+
+    Antes las carreras se decidían en `suggested_career_paths` y la instrucción
+    estaba ahí. Al añadir `career_families` —la respuesta a "no sé cómo hacer
+    una descripción y una consejería de las familias más adecuadas para esta
+    persona"— las carreras se deciden en las familias, y `suggested_career_paths`
+    quedó como el espejo de sus nombres para los consumidores que sólo necesitan
+    la lista. Así que la instrucción se comprueba donde de verdad manda.
+    """
     plantilla = cs.load_prompt("consolidate_profile")
-    bloque = plantilla[plantilla.index("suggested_career_paths"):]
+    bloque = plantilla[plantilla.index("`career_families`"):]
     bloque = bloque[: bloque.index("\n- `tests_used`")]
     assert "primera opción" in bloque
+    # Y que `suggested_career_paths` siga amarrado a las familias: si se suelta,
+    # el modelo puede devolver caminos que no aconsejó en ninguna familia.
+    assert "exactamente los `name` de `career_families`" in bloque
 
 
 # ---------------------------------------------------------------------------

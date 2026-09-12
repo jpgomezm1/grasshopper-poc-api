@@ -20,7 +20,7 @@ from datetime import datetime
 from typing import List, Literal, Optional
 from uuid import UUID
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 # ---------------------------------------------------------------------------
@@ -57,13 +57,83 @@ class StrengthEvidence(BaseModel):
 
 
 class HollandCode(BaseModel):
-    """Top-3 RIASEC type with concrete percentage from the test."""
+    """Top-3 RIASEC · el orden siempre existe, el puntaje no siempre.
+
+    `score` es opcional a propósito. Varios reportes oficiales (el iStartStrong,
+    sin ir más lejos) NO publican escalas numéricas: publican el orden de
+    preferencia de los seis temas. Cuando el campo era obligatorio, el modelo
+    cumplía el contrato inventando porcentajes plausibles a partir de ese orden
+    —"Emprendedor 95"— y ese número terminaba en la tarjeta del estudiante y en
+    el PDF de la familia con la misma apariencia que un puntaje medido.
+
+    Los perfiles generados antes de este cambio traen score y siguen siendo válidos.
+    """
 
     code: Literal["R", "I", "A", "S", "E", "C"]
     label: str = Field(..., description="Etiqueta humana (Realista, Investigador, ...)")
-    score: float = Field(
-        ..., ge=0, le=100, description="Score 0-100 (porcentual)."
+    score: Optional[float] = Field(
+        None,
+        ge=0,
+        le=100,
+        description="Score 0-100 · null si el test no publicó puntajes numéricos.",
     )
+
+
+class CareerFamily(BaseModel):
+    """Una familia profesional, aconsejada · no solo nombrada.
+
+    `suggested_career_paths` existía desde el Sprint 6 y es una lista de nombres
+    sueltos. `ReporteIntermedioPdfLayout` ya lo tenía anotado como deuda: "son
+    3-5 caminos y sin porqué […] pedir una explicación por cada uno es cambiar
+    ese prompt, y ese prompt alimenta también al recomendador, al dossier del
+    asesor y a la hoja de vida: es una decisión de producto".
+
+    La clienta la pidió explícitamente (2026-09-06): "no sé cómo hacer una
+    descripción y una consejería de las familias que serían más adecuadas para
+    esta persona". Cuatro nombres en una fila son un resultado; un consejero
+    explica por qué cada uno calza, cómo se ve por dentro y qué mirar antes de
+    decidir. Eso es lo que este modelo obliga a producir.
+
+    `suggested_career_paths` se conserva y se mantiene en sync (son los `name`
+    de estas familias) porque de él dependen el recomendador de programas, el
+    dossier, el CV y el panel de acudientes.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    name: str = Field(..., max_length=80, description="Nombre de la familia profesional.")
+    fit_level: Literal["alto", "a explorar"] = Field(
+        ...,
+        description="Qué tan fuerte es el calce. Cualitativo a propósito · no hay "
+        "un número medido detrás y fabricar un porcentaje lo haría parecer que sí.",
+    )
+    why_it_fits: str = Field(
+        ...,
+        max_length=400,
+        description="Por qué le calza A ESTA persona · anclado en algo suyo, 2da persona.",
+    )
+    what_its_like: str = Field(
+        ...,
+        max_length=300,
+        description="Cómo se ve el día a día de esa familia.",
+    )
+    careers: List[str] = Field(
+        default_factory=list,
+        max_length=6,
+        description="Carreras o roles concretos que viven en esta familia.",
+    )
+    watch_out: Optional[str] = Field(
+        None,
+        max_length=300,
+        description="La tensión honesta · qué mirar antes de decidirse. None si no hay.",
+    )
+
+    @field_validator("careers", mode="before")
+    @classmethod
+    def _coerce_careers(cls, v):
+        if v is None:
+            return []
+        return v
 
 
 class ConsolidatedProfile(BaseModel):
@@ -166,6 +236,17 @@ class ConsolidatedProfile(BaseModel):
         default_factory=list,
         max_length=5,
         description="3-5 caminos profesionales sugeridos (ej. 'Producto digital · UX/UI').",
+    )
+
+    # La versión aconsejada de `suggested_career_paths` · ver CareerFamily.
+    #
+    # Opcional a propósito: los perfiles cacheados antes de este cambio no lo
+    # traen y deben seguir siendo válidos. El frontend cae a las etiquetas
+    # sueltas cuando la lista viene vacía.
+    career_families: List[CareerFamily] = Field(
+        default_factory=list,
+        max_length=5,
+        description="3-5 familias profesionales con su consejería. Vacío en perfiles antiguos.",
     )
 
     # Metadata

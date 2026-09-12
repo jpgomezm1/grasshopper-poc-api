@@ -76,10 +76,36 @@ def holland_top_codes(test_scores: Dict[str, Any], n: int = 2) -> List[str]:
         for k in riasec_keys
         if isinstance(test_scores.get(k), (int, float))
     ]
-    if not pairs:
-        return []
-    pairs.sort(key=lambda p: p[1] or 0, reverse=True)
-    return [k for k, _ in pairs[:n]]
+    if pairs:
+        pairs.sort(key=lambda p: p[1] or 0, reverse=True)
+        return [k for k, _ in pairs[:n]]
+
+    # Forma C · test subido en PDF. Los reportes oficiales (iStartStrong) NO
+    # publican puntajes numéricos: publican el orden de preferencia de los 6
+    # temas y el código Holland. Sin esta rama, un test subido y confirmado
+    # devolvía [] y no contaba para el perfil consolidado, las recomendaciones
+    # ni la fila "Para ti" de videos · se subía bien y no servía para nada.
+    meta = test_scores.get("_meta")
+    ranking = meta.get("theme_ranking") if isinstance(meta, dict) else None
+    if isinstance(ranking, list) and ranking:
+        letras = []
+        for x in ranking:
+            letra = str(x).strip().upper()[:1]
+            if letra in riasec_keys and letra not in letras:
+                letras.append(letra)
+        if letras:
+            return letras[:n]
+
+    codigo = test_scores.get("holland_code")
+    if isinstance(codigo, str) and codigo.strip():
+        letras = []
+        for letra in codigo.strip().upper():
+            if letra in riasec_keys and letra not in letras:
+                letras.append(letra)
+        if letras:
+            return letras[:n]
+
+    return []
 
 
 def _holland_top(test_scores: Dict[str, Any]) -> Optional[str]:

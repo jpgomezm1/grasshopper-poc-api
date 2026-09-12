@@ -43,6 +43,7 @@ def _rate_limit_external_upload(request: Request):
     s = get_settings()
     return rate_limit(s.rate_limit_external_test_upload)(request)
 from app.db.models import ExternalTestUpload, User, VocationalTestResult
+from app.services.external_test_normalizer import normalizar_scores
 from app.schemas.external_tests import (
     ConfirmRequest,
     UploadDetail,
@@ -423,6 +424,14 @@ def confirm_upload(
     # Sprint 6 will read from `vocational_test_results` regardless of source.
     test_id = upload.test_type  # 1:1 mapping by convention
 
+    # El payload del parser habla otro vocabulario que el resto de la plataforma
+    # ({"holland_code": "ECR", "realistic": null, ...} vs. {"R": 80, ...}) y trae
+    # strings y listas donde la UI espera números. Se traduce aquí, en el único
+    # punto por el que pasa todo test subido · ver external_test_normalizer.
+    scores_canonicos = normalizar_scores(
+        upload.test_type, final_payload.get("payload", final_payload)
+    )
+
     existing = (
         db.query(VocationalTestResult)
         .filter(
@@ -433,7 +442,7 @@ def confirm_upload(
     )
 
     if existing:
-        existing.scores = final_payload.get("payload", final_payload)
+        existing.scores = scores_canonicos
         existing.answers = {"_external_upload_id": str(upload.id)}
         existing.source = "external_upload"
         existing.external_upload_id = upload.id
@@ -442,7 +451,7 @@ def confirm_upload(
             user_id=current_user.id,
             test_id=test_id,
             answers={"_external_upload_id": str(upload.id)},
-            scores=final_payload.get("payload", final_payload),
+            scores=scores_canonicos,
             source="external_upload",
             external_upload_id=upload.id,
         )

@@ -9,11 +9,13 @@ display, but the parser MUST NOT echo them in logs.
 """
 from __future__ import annotations
 
+import re
+import unicodedata
 from datetime import datetime
 from typing import List, Literal, Optional, Union
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
 TestType = Literal["mbti", "istrong", "big5", "riasec"]
@@ -29,6 +31,86 @@ def _coerce_list_or_none(v):
     if isinstance(v, str):
         return [v]
     return v
+
+
+RIASEC_LETTERS = ("R", "I", "A", "S", "E", "C")
+
+# El reporte puede nombrar los temas en inglés o en español · el prompt pide letras,
+# pero el modelo a veces devuelve el nombre completo y "Enterprising" leído letra a
+# letra da "ERI", que es un código Holland distinto y verosímil. Mapeamos explícito.
+_NOMBRE_A_LETRA = {
+    "REALISTA": "R", "REALISTIC": "R",
+    "INVESTIGADOR": "I", "INVESTIGATIVO": "I", "INVESTIGATIVE": "I",
+    "ARTISTICO": "A", "ARTISTIC": "A",
+    "SOCIAL": "S",
+    "EMPRENDEDOR": "E", "ENTERPRISING": "E",
+    "CONVENCIONAL": "C", "CONVENTIONAL": "C",
+}
+
+_SEPARADORES = re.compile(r"[\s,;/\-·|]+")
+
+
+def _sin_tildes(t: str) -> str:
+    return "".join(
+        c for c in unicodedata.normalize("NFD", t) if unicodedata.category(c) != "Mn"
+    )
+
+
+def _letra_riasec(token: str) -> Optional[str]:
+    """Una letra RIASEC a partir de un token · letra suelta o nombre del tema."""
+    t = _sin_tildes(str(token).strip().upper())
+    if not t:
+        return None
+    if len(t) == 1:
+        return t if t in RIASEC_LETTERS else None
+    return _NOMBRE_A_LETRA.get(t)
+
+
+def _clean_riasec_seq(v) -> Optional[List[str]]:
+    """Normaliza una secuencia RIASEC a letras únicas y en orden.
+
+    Acepta lo que en la práctica devuelve el modelo: lista de letras, lista de
+    nombres ("Enterprising", "Emprendedor"), el string compacto "ECRISA" o los
+    nombres separados por comas o guiones.
+    """
+    if v is None:
+        return None
+    if isinstance(v, str):
+        tokens = [t for t in _SEPARADORES.split(v.strip()) if t]
+        # "ECRISA" es un solo token que sí hay que abrir letra por letra · un
+        # nombre como "Enterprising" no.
+        if len(tokens) == 1 and _sin_tildes(tokens[0].upper()) not in _NOMBRE_A_LETRA:
+            solo = tokens[0]
+            if 0 < len(solo) <= 6 and all(c.upper() in RIASEC_LETTERS for c in solo):
+                tokens = list(solo)
+        v = tokens
+    if not isinstance(v, list):
+        return None
+
+    out: List[str] = []
+    for x in v:
+        letra = _letra_riasec(x)
+        if letra and letra not in out:
+            out.append(letra)
+    return out or None
+
+
+def _completar_holland_code(code: str, ranking: Optional[List[str]]) -> str:
+    """Devuelve un código Holland de 3 letras.
+
+    El iStartStrong destaca solo los 2 temas top en su portada, y el modelo tiende
+    a devolver "EC". La tercera letra existe: está en la lista de "los otros cuatro
+    temas en tu orden de interés". Si tenemos el ranking, completamos desde ahí en
+    vez de mandar a revisión manual un código que el reporte sí permite armar.
+    """
+    limpio = _clean_riasec_seq(code) or []
+    if len(limpio) < 3 and ranking:
+        for letra in ranking:
+            if letra not in limpio:
+                limpio.append(letra)
+            if len(limpio) == 3:
+                break
+    return "".join(limpio[:3]) or (code or "").strip().upper()[:3]
 
 
 # -----------------------------------------------------------------------------
@@ -57,6 +139,15 @@ class ParsedMBTI(BaseModel):
     t_score: Optional[float] = Field(None, ge=0, le=100, description="% Thinking (T vs F)")
     j_score: Optional[float] = Field(None, ge=0, le=100, description="% Judging (J vs P)")
 
+    # Preference clarity index · escala 0-30 del MBTI Career Report oficial.
+    # NO es un porcentaje y no se puede convertir a uno: mide qué tan CLARA fue la
+    # preferencia, no cuánta. Vive aparte de los `*_score` justamente para que nadie
+    # los mezcle. La dirección de cada pci la da la letra correspondiente de `type_code`.
+    pci_ei: Optional[float] = Field(None, ge=0, le=30, description="pci del par E/I")
+    pci_sn: Optional[float] = Field(None, ge=0, le=30, description="pci del par S/N")
+    pci_tf: Optional[float] = Field(None, ge=0, le=30, description="pci del par T/F")
+    pci_jp: Optional[float] = Field(None, ge=0, le=30, description="pci del par J/P")
+
     strengths: Optional[List[str]] = Field(default_factory=list, max_length=10)
     suggested_careers: Optional[List[str]] = Field(default_factory=list, max_length=15)
 
@@ -76,6 +167,12 @@ class ParsedIStrong(BaseModel):
 
     holland_code: str = Field(..., description="3 letters · e.g. 'IER'")
 
+    # Orden de preferencia de los 6 temas · lo que publica el iStartStrong en vez
+    # de puntajes numéricos. Es información real del reporte, no una estimación.
+    theme_ranking: Optional[List[str]] = Field(
+        None, max_length=6, description="Los 6 temas RIASEC de mayor a menor interés"
+    )
+
     # GOTs · 0-100
     realistic: Optional[float] = Field(None, ge=0, le=100)
     investigative: Optional[float] = Field(None, ge=0, le=100)
@@ -92,6 +189,16 @@ class ParsedIStrong(BaseModel):
     @classmethod
     def _coerce_lists(cls, v):
         return _coerce_list_or_none(v)
+
+    @field_validator("theme_ranking", mode="before")
+    @classmethod
+    def _limpiar_ranking(cls, v):
+        return _clean_riasec_seq(v)
+
+    @model_validator(mode="after")
+    def _normalizar_codigo(self):
+        self.holland_code = _completar_holland_code(self.holland_code, self.theme_ranking)
+        return self
 
 
 class ParsedBig5(BaseModel):
@@ -121,6 +228,10 @@ class ParsedRIASEC(BaseModel):
 
     holland_code: str = Field(..., description="3 letters · e.g. 'SAE'")
 
+    theme_ranking: Optional[List[str]] = Field(
+        None, max_length=6, description="Los 6 temas RIASEC de mayor a menor interés"
+    )
+
     realistic: Optional[float] = Field(None, ge=0, le=100)
     investigative: Optional[float] = Field(None, ge=0, le=100)
     artistic: Optional[float] = Field(None, ge=0, le=100)
@@ -134,6 +245,16 @@ class ParsedRIASEC(BaseModel):
     @classmethod
     def _coerce_lists(cls, v):
         return _coerce_list_or_none(v)
+
+    @field_validator("theme_ranking", mode="before")
+    @classmethod
+    def _limpiar_ranking(cls, v):
+        return _clean_riasec_seq(v)
+
+    @model_validator(mode="after")
+    def _normalizar_codigo(self):
+        self.holland_code = _completar_holland_code(self.holland_code, self.theme_ranking)
+        return self
 
 
 ParsedPayload = Union[ParsedMBTI, ParsedIStrong, ParsedBig5, ParsedRIASEC]

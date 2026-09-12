@@ -53,7 +53,13 @@ logger = logging.getLogger(__name__)
 # y el prompt trata las dimensiones bipolares como tales. Subir la versión invalida
 # las lecturas cacheadas: las de MBTI, iStrong, VARK y Motivadores se escribieron sin
 # ver el resultado del test, así que hay que regenerarlas.
-PROMPT_VERSION = "interpret_test_v2"
+#
+# v3 · A1 · versión subida · 2026-09-08. El mismo defecto reapareció por la puerta
+# de los tests SUBIDOS en PDF: como no traen puntajes numéricos, el bloque salía
+# "(sin puntajes numéricos)" y el modelo escribía la lectura sin ver el código
+# Holland, el tipo MBTI ni el orden de preferencia. Subir la versión regenera esas
+# lecturas · el hash de caché la incluye (`scores_hash`).
+PROMPT_VERSION = "interpret_test_v3"
 
 
 class TestInterpretationUnavailable(Exception):
@@ -118,9 +124,12 @@ _MBTI_DIM = {
 
 
 def _label_map(test_id: str) -> Dict[str, tuple]:
-    if test_id == "holland":
+    # Un test subido en PDF se guarda con el test_id del tipo de reporte
+    # ("riasec", "big5"), no con el del test interno equivalente. Sin estos alias
+    # el mapa venía vacío y al modelo le llegaban las claves crudas.
+    if test_id in ("holland", "riasec"):
         return _HOLLAND
-    if test_id == "bigfive":
+    if test_id in ("bigfive", "big5"):
         return _BIGFIVE
     if test_id == "values":
         return _VALUES
@@ -154,9 +163,20 @@ def format_scores_block(test_id: str, scores: Dict[str, Any]) -> str:
     mapeo, no algo que deba llegarle al estudiante.
     """
     labels = _label_map(test_id)
-    numericos = {k: v for k, v in (scores or {}).items() if isinstance(v, (int, float))}
+    numericos = {
+        k: v
+        for k, v in (scores or {}).items()
+        if isinstance(v, (int, float)) and not isinstance(v, bool) and not k.startswith("_")
+    }
+
+    # A1 · versión subida. Salir aquí cuando no hay números dejaba al modelo con
+    # "(sin puntajes numéricos)" y nada más para un test subido en PDF: ni el
+    # código Holland, ni el tipo MBTI, ni el orden de preferencia. Escribía la
+    # lectura a ciegas — el mismo defecto que la auditoría del 29-07 corrigió para
+    # los tests internos, reapareciendo por la puerta de las subidas.
+    extra = _resultado_block(test_id, scores or {})
     if not numericos:
-        return "(sin puntajes numéricos)"
+        return extra or "(sin puntajes numéricos)"
 
     filas: List[str] = []
     desconocidas: List[str] = []
@@ -175,9 +195,100 @@ def format_scores_block(test_id: str, scores: Dict[str, Any]) -> str:
             extra={"test_id": test_id, "dimensiones": desconocidas},
         )
 
-    extra = _resultado_block(test_id, scores or {})
     if extra:
         return "\n".join(filas) + "\n\n" + extra
+    return "\n".join(filas)
+
+
+def _textos(v: Any) -> List[str]:
+    if isinstance(v, list):
+        return [str(x).strip() for x in v if x is not None and str(x).strip()]
+    if isinstance(v, str) and v.strip():
+        return [v.strip()]
+    return []
+
+
+def _bloque_test_subido(test_id: str, scores: Dict[str, Any]) -> str:
+    """El resultado de un test que el estudiante SUBIÓ en PDF, en prosa para la IA.
+
+    Los reportes oficiales (iStartStrong, MBTI Career Report) no publican escalas
+    numéricas: publican el orden de preferencia de los seis temas, o el tipo de
+    cuatro letras con su índice de claridad. `format_scores_block` filtraba a
+    valores numéricos, no encontraba ninguno y devolvía "(sin puntajes numéricos)"
+    · eso era literalmente todo lo que veía el modelo al escribir la lectura de
+    ese test para el estudiante y su familia.
+
+    Lo cualitativo vive bajo `_meta` desde `external_test_normalizer`. Las subidas
+    confirmadas ANTES de ese normalizador guardaron el payload del parser plano;
+    se leen igual desde la raíz para que una lectura vieja tampoco salga a ciegas.
+    """
+    meta = scores.get("_meta")
+    meta = meta if isinstance(meta, dict) else None
+    fuente: Dict[str, Any] = meta or scores
+
+    codigo = scores.get("holland_code")
+    tipo = scores.get("type_code")
+    ranking = fuente.get("theme_ranking")
+    intereses = _textos(fuente.get("top_basic_interests"))
+    carreras = _textos(fuente.get("suggested_careers"))
+    fortalezas = _textos(fuente.get("strengths"))
+    pci = fuente.get("pci") if isinstance(fuente.get("pci"), dict) else {}
+
+    # Si no hay ni titular ni nada cualitativo, esto no es un test subido.
+    if not any([codigo, tipo, ranking, intereses, carreras, fortalezas]):
+        return ""
+
+    etiquetas = _label_map(test_id)
+    filas: List[str] = []
+
+    if isinstance(codigo, str) and codigo.strip():
+        letras = [c for c in codigo.strip().upper() if c in _HOLLAND]
+        nombres = [_HOLLAND[c][0] for c in letras]
+        if nombres:
+            filas.append("ÁREAS DOMINANTES: " + " · ".join(nombres))
+
+    if isinstance(ranking, list) and ranking:
+        orden = []
+        for i, x in enumerate(ranking, start=1):
+            letra = str(x).strip().upper()[:1]
+            if letra in _HOLLAND:
+                orden.append(f"{i}º {_HOLLAND[letra][0]}")
+        if orden:
+            filas.append("ORDEN DE PREFERENCIA COMPLETO: " + " · ".join(orden))
+            filas.append(
+                "OJO: este reporte NO publica puntajes numéricos · publica este orden. "
+                "No inventes porcentajes ni digas que a la persona le faltan datos: "
+                "el orden es el resultado, y es suficiente para leerlo."
+            )
+
+    if isinstance(tipo, str) and tipo.strip():
+        filas.append(f"TIPO: {tipo.strip().upper()}")
+        letras_tipo = tipo.strip().upper()
+        for par, valor in pci.items():
+            etiqueta = etiquetas.get(par, (par, ""))[0]
+            letra = next((c for c in par if c in letras_tipo), "")
+            linea = f"- {etiqueta} → se inclina a «{letra}»" if letra else f"- {etiqueta}"
+            if isinstance(valor, (int, float)):
+                # El pci mide qué tan CLARA fue la preferencia (0-30) · no cuánta.
+                linea += f" (claridad {round(float(valor))} de 30)"
+            filas.append(linea)
+        if not pci:
+            filas.append(
+                "El reporte da el tipo pero no publica puntajes por dimensión · "
+                "lee el tipo, no inventes intensidades."
+            )
+
+    if intereses:
+        filas.append("INTERESES CONCRETOS MÁS ALTOS: " + " · ".join(intereses[:8]))
+    if fortalezas:
+        filas.append("FORTALEZAS QUE SEÑALA EL REPORTE: " + " · ".join(fortalezas[:8]))
+    if carreras:
+        filas.append("CARRERAS QUE SUGIERE EL REPORTE: " + " · ".join(carreras[:10]))
+
+    filas.append(
+        "Este resultado lo trajo el estudiante de un reporte externo que ya le "
+        "habían aplicado · trátalo con el mismo peso que un test hecho aquí."
+    )
     return "\n".join(filas)
 
 
@@ -198,6 +309,10 @@ def _resultado_block(test_id: str, scores: Dict[str, Any]) -> str:
     recibía como pilares las dimensiones donde MENOS se define. Por eso aquí cada
     dimensión se expresa como su preferencia, no como un número suelto.
     """
+    subido = _bloque_test_subido(test_id, scores)
+    if subido:
+        return subido
+
     extras = scores.get("_extras")
     if not isinstance(extras, dict):
         return ""

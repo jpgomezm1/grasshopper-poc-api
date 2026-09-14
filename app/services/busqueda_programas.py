@@ -230,7 +230,30 @@ def buscar(
             f"WHERE {where} ORDER BY pi.institucion, pi.nombre LIMIT :n"
         )
 
-    filas = db.execute(text(sql), params).mappings().all()
+    filas = list(db.execute(text(sql), params).mappings().all())
+
+    # ── Los que todavía no tienen vector no desaparecen ─────────────────────
+    #
+    # La rama semántica exige `pi.embedding IS NOT NULL`, y eso tenía un efecto
+    # que nadie había medido: con el catálogo a 33.907 programas y sólo 5.086
+    # embebidos, **un estudiante que hizo el test veía el 14% del catálogo y uno
+    # que no hizo nada veía el 100%** (esta función, rama `else`). Entre más
+    # señal daba la persona, más pequeño se le volvía el catálogo, en silencio.
+    #
+    # El backfill arregla la causa, pero el filtro seguiría siendo una trampa:
+    # cualquier tanda de extracción nueva vuelve a dejar filas sin vector
+    # durante horas o días. Así que se rellena: lo que no se pudo ordenar por
+    # parecido entra igual, con `similitud = 0`, y queda **detrás** de todo lo
+    # que sí se pudo ordenar. Se degrada por fila, no por catálogo.
+    if vector_perfil and len(filas) < params["n"]:
+        faltan = params["n"] - len(filas)
+        sin_vector = db.execute(
+            text(f"SELECT {_COLUMNAS}, 0.0 AS sim FROM {_DESDE} "
+                 f"WHERE {where} AND pi.embedding IS NULL "
+                 f"ORDER BY pi.institucion, pi.nombre LIMIT :faltan"),
+            {**params, "faltan": faltan},
+        ).mappings().all()
+        filas.extend(sin_vector)
 
     salida: List[Resultado] = []
     for r in filas:

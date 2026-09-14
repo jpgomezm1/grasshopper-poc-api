@@ -82,17 +82,39 @@ class _FilaFalsa(dict):
     """Lo que devolvería Postgres · `buscar` sólo lee por clave."""
 
 
-def _db_que_devuelve(filas):
+def _db_que_devuelve(filas, sin_vector=()):
+    """Doble de la sesión · `buscar()` hace hasta DOS consultas, no una.
+
+    La primera trae lo que tiene embedding, ordenado por parecido. La segunda
+    —sólo si la primera no llenó el cupo— trae lo que **no** tiene embedding,
+    para que un programa recién extraído no desaparezca del catálogo mientras
+    espera su vector. Devolver `filas` en las dos llamadas duplicaría todo, que
+    no es lo que hace la base.
+
+    Se distingue por el SQL y no por el número de llamada porque con vector hay
+    un `SET LOCAL ivfflat.probes` antes de la consulta real: contar llamadas deja
+    el doble desfasado en cuanto alguien añada otro `execute`.
+    """
     class _Res:
+        def __init__(self, datos):
+            self._datos = datos
+
         def mappings(self):
+            datos = self._datos
+
             class _M:
                 def all(_self):
-                    return filas
+                    return datos
             return _M()
 
     class _DB:
-        def execute(self, *a, **k):
-            return _Res()
+        def execute(self, sentencia, *a, **k):
+            sql = str(sentencia)
+            if "SET LOCAL" in sql:
+                return _Res([])
+            if "embedding IS NULL" in sql:
+                return _Res(list(sin_vector))
+            return _Res(filas)
 
     return _DB()
 
@@ -314,3 +336,62 @@ def test_la_confianza_llega_al_resultado():
     r = bp.buscar(_db_que_devuelve(filas), vector_perfil=[0.1] * 4, limite=1)[0]
 
     assert r.confianza == "verificable"
+
+
+# ---------------------------------------------------------------------------
+# Los programas sin embedding no desaparecen
+# ---------------------------------------------------------------------------
+
+
+def test_un_programa_sin_vector_sigue_apareciendo_para_quien_tiene_perfil():
+    """El bug que este caso protege es de los que no se ven mirando la pantalla.
+
+    La rama semántica exigía `pi.embedding IS NOT NULL`. Medido sobre el
+    catálogo real de septiembre 2026 —33.907 programas activos y 5.086
+    embebidos— eso significaba que **un estudiante que hizo el test veía el 14%
+    del catálogo y uno que no hizo nada veía el 100%**. En Nueva Zelanda, con
+    757 programas y 6 embebidos, el estudiante con perfil veía 6.
+
+    Entre más señal daba la persona, más pequeño se le volvía el catálogo, y
+    nada en la respuesta lo decía: `orden_semantico` seguía siendo `True`,
+    porque el orden semántico sí funcionaba — sobre casi nada.
+    """
+    con_vector = [_fila("Tiene vector", "Salud y Medicina", 0.70)]
+    sin_vector = [_fila("Recien extraido, sin vector", "Salud y Medicina", 0.0)]
+
+    r = bp.buscar(_db_que_devuelve(con_vector, sin_vector=sin_vector),
+                  vector_perfil=[0.1] * 4, codigos_riasec=[], limite=10)
+
+    nombres = [x.nombre for x in r]
+    assert "Recien extraido, sin vector" in nombres, (
+        "un programa sin embedding no puede desaparecer del catálogo"
+    )
+    # Y va DETRÁS: lo que sí se pudo ordenar por parecido manda.
+    assert nombres.index("Tiene vector") < nombres.index("Recien extraido, sin vector")
+
+
+def test_lo_que_no_tiene_vector_no_se_pide_cuando_ya_hay_de_sobra():
+    """El relleno es para cuando falta cupo, no un segundo viaje gratis.
+
+    Si la consulta semántica ya trajo los candidatos que se pedían, ir a buscar
+    los que no tienen vector sería una consulta de más en cada búsqueda.
+    """
+    llenos = [_fila(f"P{i}", "Artes", 0.5) for i in range(bp.CANDIDATOS)]
+    sin_vector = [_fila("NO deberia pedirse", "Artes", 0.0)]
+
+    r = bp.buscar(_db_que_devuelve(llenos, sin_vector=sin_vector),
+                  vector_perfil=[0.1] * 4, codigos_riasec=[], limite=5)
+
+    assert "NO deberia pedirse" not in [x.nombre for x in r]
+
+
+def test_sin_vector_de_perfil_no_hay_segunda_consulta():
+    """Sin vector, la primera consulta ya trae todo el conjunto elegible: no hay
+    nada que rellenar y pedirlo duplicaría filas."""
+    filas = [_fila("A", "Artes", 0.0)]
+    sin_vector = [_fila("A", "Artes", 0.0)]
+
+    r = bp.buscar(_db_que_devuelve(filas, sin_vector=sin_vector),
+                  vector_perfil=None, codigos_riasec=[], limite=10)
+
+    assert len(r) == 1

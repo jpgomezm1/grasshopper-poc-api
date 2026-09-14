@@ -60,9 +60,10 @@ VENTANA_RANKING = 500
 # Peso del refuerzo estructurado frente al parecido semántico · **calibrado
 # contra el catálogo real**, no elegido a ojo.
 #
-# Las similitudes de coseno de este catálogo se mueven entre 0.25 y 0.40, un
-# rango de apenas 0.15. La afinidad RIASEC llega a 2.0, así que el peso decide si
-# desempata o si manda:
+# ## Cómo se eligió (catálogo de 15.483, sólo 5.086 embebidos)
+#
+# Las similitudes se movían entre 0.25 y 0.40, un rango de apenas 0.15. La
+# afinidad RIASEC llega a 2.0, así que el peso decidía si desempata o si manda:
 #
 #   0.25 → manda. "Plant Maintenance" (mantenimiento de planta industrial)
 #          adelantaba a "Animal Science" para quien preguntaba por animales, y
@@ -71,8 +72,24 @@ VENTANA_RANKING = 500
 #   0.00 → sobra la capa, y se nota: sin ella, "me apasiona la cocina" devuelve
 #          primero "Diseño de Cocinas", que es diseño de muebles de cocina.
 #
-# Si cambian los textos que se embeben, hay que recalibrarlo: el número depende
-# del rango de similitudes que produzcan.
+# ## Qué cambió (2026-09-14 · catálogo de 33.552, el 100% embebido)
+#
+# Este comentario avisaba de que el número depende del corpus, y el corpus se
+# duplicó. Medido con `scripts/evaluar_busqueda.py` sobre el catálogo completo:
+#
+#   * **El rango de similitudes pasó de 0.15 a 0.355** (0.28–0.635). O sea que
+#     0.10 pesa hoy, en términos relativos, menos de la mitad de lo que pesaba.
+#   * **Y aun así ya no cambia nada.** Con los dos casos que justificaron el
+#     valor —animales+dibujar, cocina— el top-3 es **idéntico** con 0.00, 0.10,
+#     0.24 y 0.40. Con el catálogo denso, los primeros resultados de una
+#     consulta temática ya son todos del área afín: el refuerzo no tiene qué
+#     reordenar.
+#
+# No se cambia el número, y es deliberado: subirlo "para compensar el rango"
+# sería adivinar. El refuerzo sigue teniendo sentido donde de verdad se usa —el
+# vector difuso del PERFIL, no una consulta temática— y ese caso las 20
+# consultas del set de evaluación no lo cubren. Para recalibrarlo con evidencia
+# haría falta un set construido con vectores de perfil reales.
 PESO_AFINIDAD = 0.10
 
 # Cuántas listas del índice IVFFlat escanea cada búsqueda. Postgres usa **1** por
@@ -80,6 +97,18 @@ PESO_AFINIDAD = 0.10
 # programa perfecto puede vivir en una lista que nadie mira. Diez es el
 # compromiso — recorre casi todo sin perder la ventaja del índice sobre el
 # escaneo secuencial.
+#
+# ⚠️ **Desde 2026-09-14 el índice es HNSW, no IVFFlat, y esto ya no se usa.**
+# Se conserva junto al `SET LOCAL` que lo aplica porque ese `SET` está dentro de
+# un `try/except`: si la base volviera a tener un índice IVFFlat, el parámetro
+# vuelve a hacer falta y el valor ya está razonado.
+#
+# El cambio no fue por velocidad. IVFFlat calcula sus centroides al construirse,
+# así que **caduca cada vez que el catálogo crece** —uno calculado sobre 5.086
+# vectores no representa a 33.552— y se degrada en silencio: sigue devolviendo
+# resultados, sólo que peores. Es la misma clase de fallo que el
+# `embedding IS NOT NULL` que escondía el 86% del catálogo. HNSW es incremental
+# y su parámetro de búsqueda no depende del número de filas.
 PROBES = 10
 
 

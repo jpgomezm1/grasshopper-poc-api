@@ -63,10 +63,31 @@ class Caso:
 # `busqueda_programas.py`; el resto cubre las formas de consulta que un
 # estudiante escribe de verdad y los errores que ya se cometieron una vez.
 CASOS: List[Caso] = [
+    # ⚠️ Este caso FALLA a propósito desde 2026-09-14, y se deja fallando.
+    #
+    # Con el catálogo completo (33.552 embebidos), los 10 primeros son todos
+    # dibujo, ilustración y animación: **la mitad "animales" de la consulta se
+    # pierde entera**. Antes salía primero "MA Children's Book Illustration",
+    # que al menos rozaba las dos; ahora es el octavo.
+    #
+    # No es el índice ni el peso —probado con PESO_AFINIDAD de 0.00 a 0.40, el
+    # top-3 no se mueve—: es el límite de representar con UN vector una consulta
+    # con dos intereses. El promedio de "animales" y "dibujar" cae entre los dos
+    # y no se parece del todo a ninguno (similitud 0.347, baja para este
+    # corpus). Es exactamente lo que el intérprete de consulta por LLM viene a
+    # resolver, separando los dos conceptos.
+    #
+    # Se deja rojo en vez de ablandar la expectativa: una brecha medida que se
+    # ve en cada corrida vale más que una suite verde que no dice nada.
+    #
+    # Detalle curioso y real: "Grado Oficial en Animación" sale segundo. En
+    # español "animación" y "animales" comparten raíz, así que una consulta
+    # sobre animales empuja programas de animación.
     Caso("me gustan los animales pero también dibujar",
          espera=r"(animal|veterinar|zoo|wildlife|equine)",
          rechaza=r"(plant maintenance|mantenimiento de planta)",
-         nota="PESO_AFINIDAD 0.25 metia 'Plant Maintenance' por 'planta'"),
+         nota="BRECHA CONOCIDA · la consulta tiene dos intereses y un solo "
+              "vector sólo representa uno. Lo resuelve el intérprete por LLM."),
     Caso("me apasiona la cocina",
          espera=r"(culinar|cocina|chef|gastronom|cookery|patisser)",
          rechaza=r"(dise[ñn]o de cocina|kitchen design)",

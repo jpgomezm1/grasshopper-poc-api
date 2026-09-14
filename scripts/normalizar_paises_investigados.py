@@ -190,6 +190,42 @@ def main() -> int:
         for k, n in irresolubles.most_common(10):
             print(f"      {n:5}  {k}")
 
+    # ── 3 · una sola grafía por ciudad ──────────────────────────────────────
+    #
+    # `Londres` y `London` son dos filas distintas en la faceta de ciudad, con
+    # 1.542 y 463 programas. Mismo problema que tenía el país, y la herramienta
+    # ya existe: `lugares.clave_lugar` produce `gb:london` para las dos.
+    #
+    # Se unifica a la grafía **más frecuente en los datos** y no a la traducción
+    # al español, porque traducir aquí sería peligroso: `ca:london` es London,
+    # Ontario, y llamarla "Londres" es justo la confusión que el reporte al
+    # cliente marca como el error de destino más caro. `clave_lugar` las separa
+    # por país; la grafía la decide el dato, no nosotros.
+    grafias: Dict[str, Counter] = {}
+    for ciudad, pais, n in db.execute(text(
+        "select ciudad, pais, count(*) from programas_investigados "
+        "where activo and ciudad is not null group by 1, 2"
+    )):
+        k = lugares.clave_lugar(ciudad, pais)
+        if k:
+            grafias.setdefault(k, Counter())[(ciudad, pais)] += n
+
+    # (ciudad_vieja, pais) -> ciudad_buena. El país va en la llave porque la
+    # misma grafía puede existir en dos países y sólo se toca la del país cuya
+    # clave la agrupó.
+    ciudades_a_unificar: Dict[tuple, str] = {}
+    for k, cuenta in grafias.items():
+        if len(cuenta) > 1:
+            (gana, _), _ = cuenta.most_common(1)[0]
+            for (otra, pais) in cuenta:
+                if otra != gana:
+                    ciudades_a_unificar[(otra, pais)] = gana
+
+    print()
+    print(f"Ciudades con mas de una grafia : {len(ciudades_a_unificar)}")
+    for (otra, pais), gana in sorted(ciudades_a_unificar.items()):
+        print(f"    {otra:<18} -> {gana:<18} ({pais})")
+
     if not args.commit:
         print("\nSIMULACRO · no se escribio nada. Repetir con --commit.")
         db.close()
@@ -215,9 +251,17 @@ def main() -> int:
                      "where id = any(cast(:ids as uuid[]))"),
                 {"p": pais, "ids": ids[i:i + 500]},
             ).rowcount or 0
+    n_ciudad = 0
+    for (otra, pais), gana in ciudades_a_unificar.items():
+        n_ciudad += db.execute(
+            text("update programas_investigados set ciudad = :gana "
+                 "where activo and ciudad = :otra and pais = :pais"),
+            {"gana": gana, "otra": otra, "pais": pais},
+        ).rowcount or 0
     db.commit()
 
-    print(f"\nAPLICADO · {n_norm} filas unificadas · {n_asig} filas con pais nuevo.")
+    print(f"\nAPLICADO · {n_norm} filas unificadas · {n_asig} filas con pais nuevo "
+          f"· {n_ciudad} filas con la ciudad unificada.")
     restan = db.execute(text(
         "select count(*) from programas_investigados where activo and pais is null"
     )).scalar()

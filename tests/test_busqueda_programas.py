@@ -395,3 +395,94 @@ def test_sin_vector_de_perfil_no_hay_segunda_consulta():
                   vector_perfil=None, codigos_riasec=[], limite=10)
 
     assert len(r) == 1
+
+
+# ---------------------------------------------------------------------------
+# Paginación · y lo que la pantalla puede prometer
+# ---------------------------------------------------------------------------
+
+
+def test_el_paginador_no_ofrece_paginas_vacias():
+    """`total` y `total_paginas` responden preguntas distintas.
+
+    En modo relevancia el orden sólo existe dentro de `VENTANA_RANKING`: más
+    allá no hay nada ordenado que paginar. Calcular las páginas desde `total`
+    daría un paginador con páginas que no devuelven nada — medido con un filtro
+    real: 1.335 resultados, ventana de 500, 267 páginas ofrecidas y 167 vacías.
+
+    `total` sigue siendo el número honesto y se reporta aparte: es lo que le
+    dice al estudiante que afinar los filtros sirve para algo.
+    """
+    ventana = [_fila(f"P{i}", "Artes", 1.0 - i / 1000) for i in range(bp.VENTANA_RANKING)]
+
+    class _DBGrande:
+        def execute(self, sentencia, *a, **k):
+            sql = str(sentencia)
+            if "count(*)" in sql:
+                class _R:
+                    def scalar(_s):
+                        return 1335
+                return _R()
+            return _db_que_devuelve(ventana).execute(sentencia, *a, **k)
+
+    r = bp.buscar_pagina(_DBGrande(), vector_perfil=[0.1] * 4,
+                         codigos_riasec=[], filtros=bp.Filtros(),
+                         pagina=1, por_pagina=5)
+
+    assert r["total"] == 1335, "el total real no se recorta"
+    assert r["ranking_hasta"] == bp.VENTANA_RANKING
+    assert r["total_paginas"] == bp.VENTANA_RANKING // 5, (
+        "sólo se ofrecen las páginas que caben en la ventana ordenada"
+    )
+
+
+def test_sin_vector_se_pagina_el_conjunto_entero():
+    """Sin orden semántico no hay ventana que respetar: el `ORDER BY` es estable
+    y `LIMIT/OFFSET` alcanza todas las filas."""
+    filas = [_fila(f"P{i}", "Artes", 0.0) for i in range(5)]
+
+    class _DB:
+        def execute(self, sentencia, *a, **k):
+            if "count(*)" in str(sentencia):
+                class _R:
+                    def scalar(_s):
+                        return 1335
+                return _R()
+            return _db_que_devuelve(filas).execute(sentencia, *a, **k)
+
+    r = bp.buscar_pagina(_DB(), vector_perfil=None, codigos_riasec=[],
+                         filtros=bp.Filtros(), pagina=1, por_pagina=5)
+
+    assert r["ranking_hasta"] is None, "sin ranking, la pregunta no aplica"
+    assert r["total_paginas"] == 267
+    assert r["orden_semantico"] is False
+
+
+def test_solo_vendible_cruza_el_nivel_del_programa_con_lo_autorizado():
+    """No basta con que la ficha autorice algo: tiene que autorizar ESTE nivel.
+
+    Los dos catálogos hablan vocabularios distintos —la ficha dice `pregrado`,
+    el programa dice `bachelor`— y el puente vive en el importador. Si aquí se
+    comprobara sólo que la ficha tiene alguna autorización, una universidad
+    autorizada únicamente en idiomas mostraría sus doctorados.
+    """
+    sql, _ = bp._where(bp.Filtros(solo_vendible=True))
+
+    assert "institutions_catalog" in sql
+    assert "sin_oferta_vendible IS NULL" in sql
+    # El CASE traduce el nivel del programa a las autorizaciones que lo cubren.
+    assert "CASE pi.nivel" in sql
+    assert "WHEN 'bachelor' THEN ARRAY['pregrado']" in sql
+    # El literal es JSON dentro de SQL: `'"todos"'::jsonb`.
+    assert '\'"todos"\'' in sql, "una ficha con 'todos' autoriza cualquier nivel"
+
+
+def test_una_ficha_sin_niveles_declarados_no_autoriza_nada():
+    """`niveles_autorizados` vacío es un dato que falta, no un permiso.
+
+    Es el mismo criterio que el cargador: el Excel no dijo qué se puede vender
+    ahí, y prometerle a una familia un trámite que la agencia no tiene es peor
+    que mostrar de menos.
+    """
+    sql, _ = bp._where(bp.Filtros(solo_vendible=True))
+    assert "ic.niveles_autorizados IS NOT NULL" in sql

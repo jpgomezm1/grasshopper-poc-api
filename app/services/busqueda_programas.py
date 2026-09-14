@@ -27,13 +27,13 @@ programas; dentro de "Artes" caben 928.
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import List, Optional, Sequence
 
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
-from app.services import academic_level, areas as areas_mod
+from app.services import academic_level, areas as areas_mod, lugares
 
 logger = logging.getLogger(__name__)
 
@@ -41,6 +41,21 @@ logger = logging.getLogger(__name__)
 # los que se devuelven para que el refuerzo RIASEC tenga sobre qué trabajar: si
 # se pidieran justo los que se muestran, reordenar no cambiaría nada.
 CANDIDATOS = 120
+
+# Cuántos candidatos se traen cuando hay que paginar por relevancia.
+#
+# `CANDIDATOS` alcanza para devolver una sola página, pero no para paginar: la
+# página 3 necesitaría 360 candidatos, y como el reordenamiento ocurre en Python
+# sobre lo que trajo pgvector, pedir más candidatos **cambia el orden de las
+# páginas anteriores**. Se fija una ventana y se pagina dentro de ella.
+#
+# 500 no es un número redondo elegido a ojo: con 24 resultados por página son 21
+# páginas, muy por encima de lo que nadie recorre, y el coste de traerlos es una
+# sola consulta. Lo importante no es el número sino **decirlo**: la respuesta
+# lleva `ranking_hasta` y el total real del filtro, para que la pantalla pueda
+# escribir "te muestro los 500 que más te hablan de 3.412" en vez de fingir que
+# hay 3.412 ordenados por pertinencia.
+VENTANA_RANKING = 500
 
 # Peso del refuerzo estructurado frente al parecido semántico · **calibrado
 # contra el catálogo real**, no elegido a ojo.
@@ -114,6 +129,19 @@ class Filtros:
     # Para el panel de la agencia: poder ver sólo lo confirmable en un registro
     # público. Al estudiante no se le filtra — se le marca.
     confianzas: Sequence[str] = field(default_factory=tuple)
+    ciudades: Sequence[str] = field(default_factory=tuple)
+    # Sólo lo que la agencia tiene autorizado vender en esa institución, según
+    # `institutions_catalog.niveles_autorizados`.
+    #
+    # La migración 075 creó ese campo **para esta búsqueda** —su propio texto
+    # dice que existe para "que la búsqueda de programas sepa que la maestría de
+    # esa universidad NO se puede vender"— y hasta hoy nadie lo consultaba. Es
+    # el error nº1 del `CLAUDE.md`: un campo que se escribe y nadie lee.
+    #
+    # Va apagado por defecto y es del asesor, no del estudiante. Encendido
+    # esconde oferta real que quizá sí se puede tramitar por otra vía, y esa es
+    # una decisión comercial que toma quien conoce el contrato, no el producto.
+    solo_vendible: bool = False
 
 
 def niveles_excluidos(etapa: Optional[str]) -> List[str]:
@@ -129,6 +157,40 @@ def niveles_excluidos(etapa: Optional[str]) -> List[str]:
     es justo el error que A8 vino a arreglar.
     """
     return sorted(academic_level.niveles_fuera_de_alcance(etapa))
+
+
+def _sql_autorizan_este_nivel() -> str:
+    """`CASE` que, para el nivel de cada programa, da qué autorizaciones lo cubren.
+
+    Los dos catálogos hablan vocabularios distintos y eso no es un descuido: la
+    ficha dice lo que la agencia **vende** (`pregrado`, `posgrado`, `idiomas`,
+    `pathway`) y el programa dice lo que la institución **ofrece** (`bachelor`,
+    `maestria`, `curso_corto`). El puente ya existe y vive en el importador —
+    `NIVEL_AUTORIZADO_A_INVESTIGADO`— así que se invierte aquí en vez de
+    escribirlo otra vez: duplicarlo garantizaría que un día discrepen.
+
+    Se genera SQL y no se pasa como parámetro porque la respuesta depende de la
+    fila (`pi.nivel`), no de la consulta.
+    """
+    from scripts.import_catalogo_autorizado import (  # noqa: E402
+        NIVEL_AUTORIZADO_A_INVESTIGADO,
+    )
+
+    inverso: dict = {}
+    for autorizado, investigados in NIVEL_AUTORIZADO_A_INVESTIGADO.items():
+        for nivel in investigados:
+            inverso.setdefault(nivel, []).append(autorizado)
+
+    ramas = []
+    for nivel, autorizados in sorted(inverso.items()):
+        lista = ", ".join(f"'{a}'" for a in sorted(autorizados))
+        ramas.append(f"WHEN '{nivel}' THEN ARRAY[{lista}]")
+    # Un nivel que no esté en el puente no lo autoriza nada: es más seguro
+    # esconderlo del filtro "solo vendible" que asumir que se puede vender.
+    return "(CASE pi.nivel " + " ".join(ramas) + " ELSE ARRAY[]::text[] END)"
+
+
+_SQL_AUTORIZAN_ESTE_NIVEL = _sql_autorizan_este_nivel()
 
 
 def _where(f: Filtros) -> tuple:
@@ -152,6 +214,29 @@ def _where(f: Filtros) -> tuple:
     if f.confianzas:
         cond.append("pi.confianza = ANY(:confianzas)")
         params["confianzas"] = list(f.confianzas)
+    if f.ciudades:
+        cond.append("pi.ciudad = ANY(:ciudades)")
+        params["ciudades"] = list(f.ciudades)
+    if f.solo_vendible:
+        # El cruce con la ficha es por NOMBRE y no por `program_id`: 708
+        # programas no cuelgan de ninguna ficha, y con un join por id se
+        # esconderían aunque su institución sí esté autorizada. El nombre es lo
+        # que usan los scripts del catálogo para lo mismo.
+        #
+        # `niveles_autorizados` vacío o nulo **no autoriza nada**, igual que en
+        # el cargador: el Excel no dice qué se puede vender ahí, y eso es un dato
+        # que falta, no un permiso. Y `sin_oferta_vendible` marca las fichas que
+        # se investigaron y no tienen nada colocable (Guildford no acepta
+        # solicitudes internacionales, Aspasia sólo da formación subvencionada).
+        cond.append(
+            "EXISTS (SELECT 1 FROM institutions_catalog ic "
+            "         WHERE lower(ic.name) = lower(pi.institucion) "
+            "           AND ic.active "
+            "           AND ic.sin_oferta_vendible IS NULL "
+            "           AND ic.niveles_autorizados IS NOT NULL "
+            "           AND (ic.niveles_autorizados::jsonb @> '\"todos\"'::jsonb "
+            f"                OR ic.niveles_autorizados::jsonb ?| {_SQL_AUTORIZAN_ESTE_NIVEL}))"
+        )
     if f.program_id:
         # `CAST` explícito: la columna es UUID y el parámetro llega como texto.
         # Sin el casteo Postgres responde `operator does not exist: uuid = text`
@@ -184,6 +269,28 @@ _COLUMNAS = ("pi.id, pi.nombre, pi.institucion, pi.pais, pi.ciudad, pi.nivel, "
 # seguir siendo visibles · un JOIN normal los borraría del catálogo en silencio.
 _DESDE = ("programas_investigados pi "
           "LEFT JOIN programs p ON p.id = pi.program_id AND p.active")
+
+
+def _a_resultado(r, codigos_riasec: Sequence[str]) -> Resultado:
+    """Una fila de Postgres a `Resultado`, con su puntaje.
+
+    Está extraída porque la usan las dos vías —el ranking semántico y el listado
+    paginado— y tenerla duplicada era la forma segura de que un día el puntaje
+    se calculara distinto según por dónde entrara la consulta.
+    """
+    afin = areas_mod.afinidad(r["area"], codigos_riasec) if r["area"] else 0.0
+    sim = float(r["sim"] or 0.0)
+    return Resultado(
+        id=str(r["id"]), nombre=r["nombre"], institucion=r["institucion"],
+        pais=r["pais"], ciudad=r["ciudad"], nivel=r["nivel"], area=r["area"],
+        duracion=r["duracion"], codigo_oficial=r["codigo_oficial"],
+        url_fuente=r["url_fuente"],
+        program_id=str(r["program_id"]) if r["program_id"] else None,
+        confianza=r["confianza"],
+        oferta_slug=r["oferta_slug"], oferta_nombre=r["oferta_nombre"],
+        similitud=round(sim, 4), afinidad=round(afin, 3),
+        puntaje=round(sim + PESO_AFINIDAD * afin, 4),
+    )
 
 
 def buscar(
@@ -255,22 +362,7 @@ def buscar(
         ).mappings().all()
         filas.extend(sin_vector)
 
-    salida: List[Resultado] = []
-    for r in filas:
-        afin = areas_mod.afinidad(r["area"], codigos_riasec) if r["area"] else 0.0
-        sim = float(r["sim"] or 0.0)
-        salida.append(Resultado(
-            id=str(r["id"]), nombre=r["nombre"], institucion=r["institucion"],
-            pais=r["pais"], ciudad=r["ciudad"], nivel=r["nivel"], area=r["area"],
-            duracion=r["duracion"], codigo_oficial=r["codigo_oficial"],
-            url_fuente=r["url_fuente"],
-            program_id=str(r["program_id"]) if r["program_id"] else None,
-            confianza=r["confianza"],
-            oferta_slug=r["oferta_slug"], oferta_nombre=r["oferta_nombre"],
-            similitud=round(sim, 4), afinidad=round(afin, 3),
-            puntaje=round(sim + PESO_AFINIDAD * afin, 4),
-        ))
-
+    salida = [_a_resultado(r, codigos_riasec) for r in filas]
     salida.sort(key=lambda x: -x.puntaje)
     return salida[:limite]
 
@@ -288,10 +380,14 @@ def areas_sugeridas(
     que ya eligió Malta, donde hay cero programas de eso, es un callejón sin
     salida. Sólo se ofrecen áreas que tienen oferta bajo los filtros vigentes.
     """
-    f = filtros or Filtros()
     # El área es justo lo que se está eligiendo · no puede filtrar aquí.
-    f = Filtros(paises=f.paises, areas=(), niveles=f.niveles,
-                etapa_de_vida=f.etapa_de_vida, instituciones=f.instituciones)
+    #
+    # Se usa `replace` y no se reconstruye campo por campo: la versión anterior
+    # enumeraba cinco campos y **descartaba en silencio** los demás, así que al
+    # añadir `ciudades`, `confianzas` o `solo_vendible` los conteos habrían
+    # dejado de respetarlos sin que nada fallara. Con `replace`, un campo nuevo
+    # se hereda solo.
+    f = replace(filtros or Filtros(), areas=())
     where, params = _where(f)
 
     filas = db.execute(text(
@@ -650,12 +746,215 @@ def orden_personal_del_catalogo(
 
 def paises_disponibles(db: Session, filtros: Optional[Filtros] = None) -> List[dict]:
     """Los países con oferta, con su conteo · el primer paso del recorrido."""
-    f = filtros or Filtros()
-    f = Filtros(paises=(), areas=f.areas, niveles=f.niveles,
-                etapa_de_vida=f.etapa_de_vida)
+    # Mismo criterio que en `areas_sugeridas`: el país es la dimensión que se
+    # está eligiendo, así que no filtra aquí, pero todo lo demás sí. `replace`
+    # en vez de reconstruir: la versión anterior enumeraba cuatro campos y
+    # descartaba los demás en silencio, así que `ciudades`, `confianzas` o
+    # `solo_vendible` no se habrían respetado en el conteo sin que nada fallara.
+    f = replace(filtros or Filtros(), paises=())
     where, params = _where(f)
     filas = db.execute(text(
         f"SELECT pi.pais AS pais, count(*) AS n FROM programas_investigados pi "
         f"WHERE {where} AND pi.pais IS NOT NULL GROUP BY pi.pais ORDER BY n DESC"
     ), params).mappings().all()
     return [{"pais": r["pais"], "programas": r["n"]} for r in filas]
+
+
+def contar(db: Session, filtros: Optional[Filtros] = None) -> int:
+    """Cuántos programas cumplen el filtro duro · el total honesto.
+
+    Va aparte de `buscar()` a propósito. `buscar` devuelve como mucho una
+    ventana ordenada por pertinencia; este es el tamaño real del conjunto. Sin
+    los dos números la pantalla no puede distinguir "esto es todo lo que hay" de
+    "esto es lo que te alcancé a ordenar", y esa diferencia es la que le dice al
+    estudiante si vale la pena afinar los filtros.
+    """
+    where, params = _where(filtros or Filtros())
+    return db.execute(
+        text(f"SELECT count(*) FROM programas_investigados pi WHERE {where}"),
+        params,
+    ).scalar() or 0
+
+
+def buscar_pagina(
+    db: Session,
+    vector_perfil: Optional[Sequence[float]] = None,
+    codigos_riasec: Sequence[str] = (),
+    filtros: Optional[Filtros] = None,
+    pagina: int = 1,
+    por_pagina: int = 24,
+    orden: str = "relevancia",
+) -> dict:
+    """Una página de resultados, con el total real y hasta dónde llega el orden.
+
+    Dos modos, y la respuesta dice cuál ocurrió:
+
+    * **relevancia** (hay vector) · se trae la ventana de `VENTANA_RANKING`,
+      se reordena con el refuerzo RIASEC y se corta la página **dentro de la
+      ventana**. Más allá de la ventana no se pagina: no se puede sin recalcular
+      el orden entero, y fingir que se puede daría páginas que cambian solas.
+    * **listado** (sin vector, o `orden` explícito) · `LIMIT`/`OFFSET` normal
+      sobre un orden estable. Aquí sí se pagina el conjunto completo.
+
+    El estudiante nunca ve "no hay más": ve cuántos hay y que afinando llega.
+    """
+    f = filtros or Filtros()
+    pagina = max(1, pagina)
+    desde = (pagina - 1) * por_pagina
+    total = contar(db, f)
+
+    semantico = bool(vector_perfil) and orden == "relevancia"
+    if semantico:
+        ventana = buscar(db, vector_perfil=vector_perfil,
+                         codigos_riasec=codigos_riasec, filtros=f,
+                         limite=VENTANA_RANKING)
+        pagina_items = ventana[desde:desde + por_pagina]
+        alcance = len(ventana)
+    else:
+        where, params = _where(f)
+        params["n"] = por_pagina
+        params["off"] = desde
+        orden_sql = {
+            "nombre": "pi.nombre, pi.institucion",
+            "institucion": "pi.institucion, pi.nombre",
+        }.get(orden, "pi.institucion, pi.nombre")
+        filas = db.execute(
+            text(f"SELECT {_COLUMNAS}, 0.0 AS sim FROM {_DESDE} "
+                 f"WHERE {where} ORDER BY {orden_sql} LIMIT :n OFFSET :off"),
+            params,
+        ).mappings().all()
+        pagina_items = [_a_resultado(r, codigos_riasec) for r in filas]
+        alcance = total
+
+    # Las páginas que de verdad devuelven algo. En modo relevancia el orden sólo
+    # existe dentro de la ventana, así que ofrecer páginas más allá sería ofrecer
+    # páginas vacías: con 1.335 resultados y ventana de 500, `total / por_pagina`
+    # da 267 páginas de las que 167 no traen nada. `total` sigue siendo el número
+    # honesto y va aparte — es lo que le dice al estudiante que afinar sirve.
+    alcanzable = min(total, alcance) if semantico else total
+
+    return {
+        "programas": pagina_items,
+        "pagina": pagina,
+        "por_pagina": por_pagina,
+        "total": total,
+        "total_paginas": max(1, -(-alcanzable // por_pagina)),
+        # Hasta dónde llega el orden por pertinencia · `None` cuando se pagina
+        # el conjunto entero y la pregunta no aplica.
+        "ranking_hasta": alcance if semantico else None,
+        "orden_semantico": semantico,
+    }
+
+
+#: Las dimensiones que se cuentan a la vez. `institucion` NO está: son 534
+#: valores y multiplicaría el cubo sin que nadie los recorra en una lista. Va
+#: por su propio camino, con buscador.
+_DIMENSIONES = ("pais", "area", "nivel", "ciudad")
+
+#: Cómo se llama en pantalla el bucket de los que no tienen el dato. Escritas a
+#: mano y no generadas con f-string porque el género no se deduce: "Sin ciudad
+#: registrado" es lo que salía, y una etiqueta mal escrita en la faceta más
+#: visible del producto se lee como descuido de todo lo demás.
+_SIN_DATO = {
+    "pais": "Sin país registrado",
+    "area": "Sin área registrada",
+    "nivel": "Sin nivel registrado",
+    "ciudad": "Sin ciudad registrada",
+}
+
+
+def facetas(db: Session, filtros: Optional[Filtros] = None,
+            tope_por_faceta: int = 40) -> dict:
+    """Los conteos de cada filtro, en **una sola consulta**.
+
+    ## Por qué "leave-one-out"
+
+    El conteo que sirve para decidir es el que **no aplica el filtro de su
+    propia dimensión**. Si el usuario ya eligió Reino Unido y la lista de países
+    contara aplicando ese filtro, todos los demás países saldrían en cero y el
+    multi-select sería inútil: no podría añadir Irlanda porque parecería vacía.
+
+    ## Por qué un cubo y no cinco consultas
+
+    Lo directo es una consulta por faceta, cada una con su dimensión quitada.
+    Son cinco ida-y-vuelta a Neon **por cada tecleo** del usuario. En vez de eso
+    se trae un `GROUP BY` de las cuatro dimensiones a la vez con el filtro duro
+    **sin ninguna de ellas**, y los cinco estados se agregan en memoria. Una
+    consulta, conteos exactos, y todas las combinaciones a la vez.
+
+    ## Lo que no se sabe también se cuenta
+
+    Un programa sin ciudad no desaparece: cae en un bucket con `valor = None` y
+    su etiqueta. Es el mismo criterio del mapa, que cuenta en pantalla las
+    opciones sin ubicación en vez de dejarlas fuera sin avisar — y es justo lo
+    que evita que el 12% del catálogo se esfume porque nadie le puso el dato.
+    """
+    f = filtros or Filtros()
+    # El cubo se calcula con el filtro duro SIN las dimensiones facetadas: son
+    # las que se van a contar en todos sus estados.
+    base = replace(f, paises=(), areas=(), niveles=(), ciudades=())
+    where, params = _where(base)
+
+    cols = ", ".join(f"pi.{d}" for d in _DIMENSIONES)
+    filas = db.execute(text(
+        f"SELECT {cols}, count(*) AS n FROM programas_investigados pi "
+        f"WHERE {where} GROUP BY {cols}"
+    ), params).mappings().all()
+
+    elegido = {
+        "pais": set(f.paises), "area": set(f.areas),
+        "nivel": set(f.niveles), "ciudad": set(f.ciudades),
+    }
+
+    salida: dict = {}
+    for dim in _DIMENSIONES:
+        # Las demás dimensiones sí filtran; la propia no. Una celda cuenta para
+        # esta faceta sólo si cumple todo lo elegido en las otras tres.
+        otras = [d for d in _DIMENSIONES if d != dim]
+        cuenta: dict = {}
+        for r in filas:
+            if any(elegido[d] and r[d] not in elegido[d] for d in otras):
+                continue
+            cuenta[r[dim]] = cuenta.get(r[dim], 0) + r["n"]
+        ordenado = sorted(cuenta.items(), key=lambda kv: (-kv[1], str(kv[0])))
+        salida[dim] = [
+            {
+                "valor": v,
+                "programas": n,
+                # El `None` necesita nombre: en pantalla "Sin ciudad registrada"
+                # con su conteo es honesto; una fila en blanco no lo es.
+                "etiqueta": v if v is not None else _SIN_DATO[dim],
+                "elegido": v in elegido[dim],
+            }
+            for v, n in ordenado[:tope_por_faceta]
+        ]
+    return salida
+
+
+def instituciones_disponibles(db: Session, filtros: Optional[Filtros] = None,
+                              texto: Optional[str] = None,
+                              limite: int = 50) -> List[dict]:
+    """Las instituciones con oferta bajo el filtro · con buscador.
+
+    Aparte del cubo porque son 534: nadie recorre esa lista con la vista, se
+    busca por nombre. El `texto` acota sin tildes —"catolica" encuentra
+    "Católica"— apoyado en el índice trigram de la migración 077.
+    """
+    f = replace(filtros or Filtros(), instituciones=())
+    where, params = _where(f)
+    if texto:
+        where += " AND inmutable_unaccent(lower(pi.institucion)) LIKE :q_inst"
+        # `_plano` de `lugares` ya hace lo mismo que el índice de la
+        # migración 077: minúsculas, sin tildes, espacios colapsados.
+        params["q_inst"] = f"%{lugares._plano(texto)}%"
+    filas = db.execute(text(
+        f"SELECT pi.institucion AS institucion, count(*) AS n "
+        f"FROM programas_investigados pi WHERE {where} "
+        f"GROUP BY pi.institucion ORDER BY n DESC, pi.institucion LIMIT :lim"
+    ), {**params, "lim": limite}).mappings().all()
+    return [
+        {"valor": r["institucion"], "programas": r["n"],
+         "etiqueta": r["institucion"],
+         "elegido": r["institucion"] in set((filtros or Filtros()).instituciones)}
+        for r in filas
+    ]

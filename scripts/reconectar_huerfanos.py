@@ -51,6 +51,23 @@ from scripts.import_catalogo_autorizado import (  # noqa: E402
 
 SALIDA = Path("data/catalogo/revision")
 
+# ── Alias verificados a mano ────────────────────────────────────────────────
+#
+# Pares que SON la misma institución y que `clave_relajada` se niega a cruzar,
+# con razón: la regla es determinista a propósito y aflojarla hasta que cruzaran
+# estos casos también cruzaría cosas distintas.
+#
+# Clave y valor van por `clave_nombre`. Se agrega sólo lo comprobado.
+ALIAS_VERIFICADOS = {
+    # El Excel del cliente reemplazó la ficha vieja por una con la sigla
+    # delante; la vieja quedó inactiva y sus 509 programas siguieron activos
+    # apuntando a una ficha muerta. Resultado: la misma universidad dos veces
+    # en el catálogo, con dos listas de programas distintas. Se diferencian en
+    # un "of" (`...University Belfast` vs `...University Of Belfast`).
+    clave_nombre("Queen's University Belfast"):
+        "QUB - The Queen’s University Of Belfast",
+}
+
 
 def _permitidos(autorizados) -> set:
     """Mismo criterio que el cargador: vacío = falta el dato = no se muestra."""
@@ -95,6 +112,19 @@ def main() -> int:
 
     reconectar, ambiguos, sin_ficha = [], [], []
     for nombre, n in huerfanos:
+        # Un alias verificado manda sobre la clave relajada. La clave es
+        # deliberadamente estricta y hace bien en no cruzar
+        # `Queen's University Belfast` con `QUB - The Queen's University Of
+        # Belfast` —se diferencian en un "of", y ablandarla hasta que cruzaran
+        # metería `Loyola University` con `Lynn University`—. Lo que se afloja
+        # es el caso concreto, revisado, no la regla.
+        alias = ALIAS_VERIFICADOS.get(clave_nombre(nombre))
+        if alias:
+            hit = [c for c in por_relajada.get(clave_relajada(alias), [])
+                   if clave_nombre(c[0]) == clave_nombre(alias)]
+            if hit:
+                reconectar.append((nombre, n, hit[0][0], hit[0][1]))
+                continue
         cand = por_relajada.get(clave_relajada(nombre), [])
         if len(cand) == 1:
             reconectar.append((nombre, n, cand[0][0], cand[0][1]))

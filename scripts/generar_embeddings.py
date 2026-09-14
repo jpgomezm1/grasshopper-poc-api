@@ -63,14 +63,30 @@ async def main() -> int:
                 break
 
             vectores = await emb.embeber([emb.texto_de_programa(p) for p in filas])
-            for p, v in zip(filas, vectores):
-                # El vector se escribe por SQL directo: la columna es de tipo
-                # `vector` de pgvector y el modelo no la declara (ver models.py).
-                db.execute(
-                    text("UPDATE programas_investigados SET embedding = :v "
-                         "WHERE id = :id"),
-                    {"v": "[" + ",".join(f"{x:.6f}" for x in v) + "]", "id": p.id},
-                )
+
+            # Un solo viaje por lote, no uno por fila.
+            #
+            # Escribir fila a fila son 256 ida-y-vuelta a Neon por lote, y con
+            # ~75 ms de latencia cada uno eso son ~19 s de espera por lote
+            # contra ~4 s que tarda la API de embeddings: el cuello no era el
+            # proveedor, éramos nosotros. Medido sobre el catálogo de 33.907
+            # programas, la diferencia es de ~2,7 horas a ~20 minutos, y este
+            # script hay que correrlo también contra producción.
+            #
+            # El vector se escribe por SQL directo porque la columna es de tipo
+            # `vector` de pgvector y el modelo no la declara (ver models.py).
+            db.execute(
+                text("UPDATE programas_investigados AS pi "
+                     "   SET embedding = CAST(v.emb AS vector) "
+                     "  FROM (SELECT unnest(CAST(:ids AS uuid[])) AS id, "
+                     "               unnest(CAST(:embs AS text[])) AS emb) AS v "
+                     " WHERE pi.id = v.id"),
+                {
+                    "ids": [str(p.id) for p in filas],
+                    "embs": ["[" + ",".join(f"{x:.6f}" for x in v) + "]"
+                             for v in vectores],
+                },
+            )
             db.commit()
             hechos += len(filas)
             print(f"  {hechos}/{objetivo}")
@@ -87,8 +103,21 @@ async def main() -> int:
     return 0
 
 
+def _soporta_hnsw(db) -> bool:
+    v = db.execute(text(
+        "SELECT extversion FROM pg_extension WHERE extname = 'vector'"
+    )).scalar()
+    if not v:
+        return False
+    try:
+        partes = tuple(int(x) for x in str(v).split(".")[:2])
+    except ValueError:
+        return False
+    return partes >= (0, 5)
+
+
 def reconstruir_indice(db) -> None:
-    """Crea (o rehace) el índice IVFFlat · **sólo con los vectores ya cargados**.
+    """Crea (o rehace) el índice vectorial · **sólo con los vectores cargados**.
 
     Va aquí y no en la migración porque IVFFlat calcula sus centroides con
     k-means sobre las filas existentes al crear el índice. Creado sobre una tabla
@@ -96,23 +125,45 @@ def reconstruir_indice(db) -> None:
     por defecto, las búsquedas devuelven resultados casi aleatorios: pasó, y
     devolvía Skilled Trades a quien preguntaba por dibujo.
 
-    Por eso también se **rehace** cada vez que se completan embeddings: un índice
-    calculado sobre 1.000 vectores no representa bien a 15.000.
+    ## Por qué HNSW cuando se puede (pgvector ≥ 0.5)
+
+    El defecto de IVFFlat en este producto no es la velocidad: es que **hay que
+    rehacerlo cada vez que el catálogo crece**, y el catálogo crece por tandas
+    de extracción constantemente. Un índice calculado sobre 5.086 vectores no
+    representa a 33.907, y la forma en que se degrada es la peor posible para
+    detectarla: sigue devolviendo resultados, sólo que peores. Es la misma clase
+    de fallo silencioso que el `embedding IS NOT NULL` que se acaba de arreglar.
+
+    HNSW es incremental —cada fila nueva se inserta en el grafo— así que no
+    caduca al crecer la tabla, y su parámetro de búsqueda (`hnsw.ef_search`,
+    por defecto 40) no depende del número de filas, a diferencia de `probes`,
+    que sí. Cuesta más construirlo, y eso se paga una vez.
+
+    Si pgvector es anterior a 0.5 se cae a IVFFlat con `lists` recalculado, que
+    es lo que había.
     """
     n = db.execute(text(
         "SELECT count(*) FROM programas_investigados WHERE embedding IS NOT NULL"
     )).scalar()
     if not n:
         return
-    # Recomendación de pgvector: lists ~ filas/1000 hasta 1M de filas, con un
-    # mínimo razonable para que haya de dónde escoger.
-    lists = max(10, min(1000, n // 1000 or 1))
-    print(f"reconstruyendo indice ivfflat sobre {n} vectores (lists={lists})…")
+
     db.execute(text("DROP INDEX IF EXISTS ix_prog_inv_embedding"))
-    db.execute(text(
-        f"CREATE INDEX ix_prog_inv_embedding ON programas_investigados "
-        f"USING ivfflat (embedding vector_cosine_ops) WITH (lists = {lists})"
-    ))
+    if _soporta_hnsw(db):
+        print(f"construyendo indice hnsw sobre {n} vectores…")
+        db.execute(text(
+            "CREATE INDEX ix_prog_inv_embedding ON programas_investigados "
+            "USING hnsw (embedding vector_cosine_ops)"
+        ))
+    else:
+        # Recomendación de pgvector: lists ~ filas/1000 hasta 1M de filas, con un
+        # mínimo razonable para que haya de dónde escoger.
+        lists = max(10, min(1000, n // 1000 or 1))
+        print(f"reconstruyendo indice ivfflat sobre {n} vectores (lists={lists})…")
+        db.execute(text(
+            f"CREATE INDEX ix_prog_inv_embedding ON programas_investigados "
+            f"USING ivfflat (embedding vector_cosine_ops) WITH (lists = {lists})"
+        ))
     db.commit()
     print("indice listo")
 

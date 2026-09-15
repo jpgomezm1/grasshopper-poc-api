@@ -12,7 +12,7 @@ así que no es un parámetro de configuración: es una decisión con migración.
 from __future__ import annotations
 
 import logging
-from typing import List, Sequence
+from typing import List, Optional, Sequence
 
 from openai import AsyncOpenAI
 
@@ -41,25 +41,42 @@ TIMEOUT_S = 8.0
 REINTENTOS = 1
 
 
-def _cliente() -> AsyncOpenAI:
+#: Timeout para las cargas por lotes · NO es el de la búsqueda en vivo.
+#
+# `TIMEOUT_S = 8.0` existe para que una llamada lenta no cuelgue una petición del
+# estudiante. Pero un lote de 256 textos tarda más que uno solo, y con 8 segundos
+# el backfill de producción murió a mitad de camino con `APITimeoutError` tras
+# llevar 14.592 de 48.768. Son dos usos con exigencias opuestas: en vivo importa
+# no hacer esperar, en lote importa terminar.
+TIMEOUT_LOTE_S = 120.0
+REINTENTOS_LOTE = 3
+
+
+def _cliente(timeout: float = TIMEOUT_S,
+             reintentos: int = REINTENTOS) -> AsyncOpenAI:
     s = get_settings()
     if not s.openai_api_key:
         raise RuntimeError("falta OPENAI_API_KEY · no se pueden generar embeddings")
     return AsyncOpenAI(
-        api_key=s.openai_api_key, timeout=TIMEOUT_S, max_retries=REINTENTOS
+        api_key=s.openai_api_key, timeout=timeout, max_retries=reintentos
     )
 
 
-async def embeber(textos: Sequence[str]) -> List[List[float]]:
+async def embeber(textos: Sequence[str],
+                  timeout: Optional[float] = None) -> List[List[float]]:
     """Vectores para una lista de textos, en el mismo orden.
 
     Devuelve exactamente tantos vectores como textos recibió. Si el proveedor
     devolviera menos, es un error y se levanta: rellenar con ceros metería
     programas que "se parecen a todo" en cada búsqueda.
+
+    `timeout` sólo lo pasan los scripts de carga masiva, que necesitan esperar
+    más que una petición en vivo · ver `TIMEOUT_LOTE_S`.
     """
     if not textos:
         return []
-    cliente = _cliente()
+    cliente = (_cliente(timeout, REINTENTOS_LOTE) if timeout
+               else _cliente())
     fuera: List[List[float]] = []
     for i in range(0, len(textos), TAMANO_LOTE):
         trozo = list(textos[i:i + TAMANO_LOTE])

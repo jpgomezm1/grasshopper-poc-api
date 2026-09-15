@@ -62,7 +62,13 @@ async def main() -> int:
             if not filas:
                 break
 
-            vectores = await emb.embeber([emb.texto_de_programa(p) for p in filas])
+            vectores = await emb.embeber(
+                [emb.texto_de_programa(p) for p in filas],
+                # Timeout de lote, no el de la busqueda en vivo: con los 8 s
+                # del camino en vivo, el backfill de produccion murio a
+                # mitad con APITimeoutError tras 14.592 de 48.768.
+                timeout=emb.TIMEOUT_LOTE_S,
+            )
 
             # Un solo viaje por lote, no uno por fila.
             #

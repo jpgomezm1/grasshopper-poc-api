@@ -182,6 +182,8 @@ def main() -> int:
     ap.add_argument("--guardar", help="escribe el resultado a un JSON")
     ap.add_argument("--comparar", help="compara contra un JSON anterior")
     ap.add_argument("--limite", type=int, default=10)
+    ap.add_argument("--umbral", action="store_true",
+                    help="mide donde separar 'respuesta' de 'no te entendi'")
     args = ap.parse_args()
 
     print("=" * 72)
@@ -218,11 +220,93 @@ def main() -> int:
         print(f"  similitud media  {sa['similitud_top1_media']}  ->  "
               f"{sn['similitud_top1_media']}")
 
+    if args.umbral:
+        u = asyncio.run(medir_umbral())
+        print()
+        print("=" * 72)
+        print("UMBRAL DE CONFIANZA")
+        print("=" * 72)
+        print(f"  consultas que funcionan : {u['buenas_min']} - {u['buenas_max']}")
+        print(f"  consultas que no        : {u['malas_min']} - {u['malas_max']}")
+        print(f"  hueco entre las dos     : {u['hueco']}")
+        print(f"  umbral sugerido         : {u['umbral_sugerido'] or 'NO (se solapan)'}")
+
     if args.guardar:
         with open(args.guardar, "w", encoding="utf-8") as fh:
             json.dump(r, fh, ensure_ascii=False, indent=2)
         print(f"\nguardado en {args.guardar}")
     return 0
+
+
+
+
+# ---------------------------------------------------------------------------
+# El umbral de confianza
+# ---------------------------------------------------------------------------
+#
+# Las consultas que el sistema resuelve bien y las que no **no se solapan** en
+# similitud, y esa frontera es explotable: por debajo de ella el sistema no sabe,
+# y decirlo vale más que presentar el resultado equivocado con cara de certeza.
+#
+# Medido antes de las glosas (catálogo completo, índice HNSW):
+#     resuelve bien ..... 0.483 – 0.635
+#     no entiende ....... 0.224 – 0.433
+#
+# Hay que re-medirlo después de cada cambio en lo que se embebe: las glosas
+# suben las similitudes y un umbral calibrado antes queda bajo.
+
+CONSULTAS_QUE_FUNCIONAN = [
+    "quiero ser enfermera", "diseño gráfico", "ingeniería mecánica",
+    "quiero trabajar ayudando a personas mayores", "marketing digital",
+    "psicología clínica", "arquitectura", "finanzas y contabilidad",
+    # Estas dos estaban en la lista de abajo y se movieron el 2026-09-14, **por
+    # la respuesta y no por el puntaje**: con las glosas y el índice parcial,
+    # "no sé qué quiero estudiar" devuelve `Exploratory/Undecided Program` y
+    # "viajar y conocer gente" devuelve `Study Tours`. Las dos son respuestas
+    # correctas, así que clasificarlas como fallo para ensanchar el hueco sería
+    # exactamente la trampa que este archivo existe para evitar.
+    "no se que quiero estudiar",
+    "algo donde pueda viajar y conocer gente",
+]
+
+CONSULTAS_QUE_NO_ENTIENDE = [
+    # Negación · un embedding no puede representar "no", y se ve: devuelve
+    # `Postgrado en Diseño del Espacio Interior`, o sea justo una oficina.
+    "quiero un trabajo donde no tenga que estar sentado en una oficina",
+    # Condiciones de trabajo, no materia de estudio · devuelve "Business Work
+    # experience", que es un programa de prácticas, no una carrera.
+    "quiero ganar buena plata y trabajar en una empresa grande",
+    # Ruido
+    "asdfgh qwerty", "hola",
+]
+
+
+async def medir_umbral() -> dict:
+    """Dónde poner la raya entre "esto es una respuesta" y "no te entendí"."""
+    from app.db.database import SessionLocal
+    db = SessionLocal()
+    try:
+        async def top1(q: str) -> float:
+            v = await emb.embeber_uno(q)
+            r = bp.buscar(db, vector_perfil=v, codigos_riasec=(),
+                          filtros=bp.Filtros(), limite=1)
+            return r[0].similitud if r else 0.0
+
+        buenas = [await top1(q) for q in CONSULTAS_QUE_FUNCIONAN]
+        malas = [await top1(q) for q in CONSULTAS_QUE_NO_ENTIENDE]
+    finally:
+        db.close()
+
+    hueco = min(buenas) - max(malas)
+    return {
+        "buenas_min": round(min(buenas), 3), "buenas_max": round(max(buenas), 3),
+        "malas_min": round(min(malas), 3), "malas_max": round(max(malas), 3),
+        "hueco": round(hueco, 3),
+        # En medio del hueco: lo más lejos posible de equivocarse en cualquiera
+        # de las dos direcciones. Si las dos nubes se solapan (`hueco <= 0`) no
+        # se propone número: un umbral inventado escondería resultados buenos.
+        "umbral_sugerido": round((min(buenas) + max(malas)) / 2, 2) if hueco > 0 else None,
+    }
 
 
 if __name__ == "__main__":

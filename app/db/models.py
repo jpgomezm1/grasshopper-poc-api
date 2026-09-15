@@ -2949,6 +2949,22 @@ class ProgramaInvestigado(Base):
     # aguanta una verificación del que sólo aguanta una mirada.
     confianza = Column(String(20), nullable=True, index=True)
 
+    # Migración 078 · una frase que dice de qué va **el campo de estudio** en el
+    # vocabulario de un estudiante de 16 años — no de qué va este programa, que
+    # el modelo no lo sabe y no se le pregunta.
+    #
+    # Existe porque el vector se construía sólo con título + área + nivel, que es
+    # el vocabulario del catálogo, mientras el estudiante escribe en el suyo.
+    # Medido: la consulta "me interesa cómo piensa la gente" contra
+    # `Psychology BSc` pasa de 0.256 a 0.350 con glosa, y el que ganaba sin ella
+    # era `Social and Political Theory` con 0.324.
+    #
+    # `(sin glosa)` es la respuesta válida cuando el título no permite saber el
+    # campo ("Foundation Programme", un código suelto). Se guarda así y **no se
+    # embebe**: añadir la misma frase a cientos de programas los acercaría entre
+    # sí sin ninguna razón.
+    glosa = Column(Text, nullable=True)
+
     # `embedding` (vector(1536)) existe en la tabla pero NO se declara aquí: el
     # tipo `vector` necesitaría el paquete pgvector como dependencia del modelo,
     # y la búsqueda semántica lo consulta por SQL directo de todos modos. Ver

@@ -150,10 +150,25 @@ def reconstruir_indice(db) -> None:
 
     db.execute(text("DROP INDEX IF EXISTS ix_prog_inv_embedding"))
     if _soporta_hnsw(db):
-        print(f"construyendo indice hnsw sobre {n} vectores…")
+        # ⚠️ **Parcial `WHERE activo`, y no es cosmético.**
+        #
+        # HNSW **post-filtra**: saca `ef_search` candidatos del índice y recién
+        # después aplica el `WHERE`. Con el índice completo, las 15.216 filas
+        # ocultas compiten por esos candidatos y se los llevan — medido, una
+        # búsqueda sin filtro devolvía **9 resultados de 33.552**. Y el síntoma
+        # engaña: con un filtro estrecho (un país, un área) Postgres deja de
+        # usar el índice y escanea, así que ahí devolvía los 120 correctos. O
+        # sea que fallaba justo en el caso por defecto del estudiante.
+        #
+        # Con el predicado parcial, todo lo que hay en el índice ya pasa el
+        # filtro y los candidatos no se desperdician. El predicado tiene que
+        # coincidir con el de la consulta (`busqueda_programas._DESDE`) para que
+        # el planificador lo use.
+        print(f"construyendo indice hnsw parcial sobre {n} vectores…")
         db.execute(text(
             "CREATE INDEX ix_prog_inv_embedding ON programas_investigados "
-            "USING hnsw (embedding vector_cosine_ops)"
+            "USING hnsw (embedding vector_cosine_ops) "
+            "WHERE activo AND embedding IS NOT NULL"
         ))
     else:
         # Recomendación de pgvector: lists ~ filas/1000 hasta 1M de filas, con un

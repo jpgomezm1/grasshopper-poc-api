@@ -486,3 +486,95 @@ def test_una_ficha_sin_niveles_declarados_no_autoriza_nada():
     """
     sql, _ = bp._where(bp.Filtros(solo_vendible=True))
     assert "ic.niveles_autorizados IS NOT NULL" in sql
+
+
+# ---------------------------------------------------------------------------
+# El indice vectorial post-filtra · la trampa que costo 33.543 resultados
+# ---------------------------------------------------------------------------
+
+
+def test_se_le_pide_al_indice_mas_candidatos_de_los_que_caben_en_el_filtro():
+    """HNSW saca `ef_search` candidatos y **recién después** aplica el `WHERE`.
+
+    Con el valor por defecto de Postgres (40) y el índice sobre la tabla
+    completa, las 15.216 filas ocultas se llevaban los candidatos: una búsqueda
+    sin filtro devolvía **9 programas de 33.552**. Sin error y sin aviso.
+
+    Y el síntoma engañaba: con un filtro estrecho (un país, un área) el
+    planificador dejaba de usar el índice y escaneaba, así que ahí sí devolvía
+    los 120. O sea que fallaba justo en el caso por defecto del estudiante y
+    funcionaba en el que uno probaría para depurarlo.
+
+    `EF_SEARCH` tiene que ser del orden de lo que se pide, o el índice devuelve
+    menos de lo pedido.
+    """
+    assert bp.EF_SEARCH >= bp.CANDIDATOS, (
+        "pedir más candidatos de los que el índice explora devuelve páginas cortas"
+    )
+
+
+def test_la_busqueda_fija_el_parametro_del_indice():
+    """Si no se fija, manda el valor por defecto de la base · ver el test de arriba."""
+    sentencias = []
+
+    class _DB:
+        def execute(self, sentencia, *a, **k):
+            sentencias.append(str(sentencia))
+            return _db_que_devuelve([]).execute(sentencia, *a, **k)
+
+    bp.buscar(_DB(), vector_perfil=[0.1] * 4, codigos_riasec=[], limite=5)
+
+    assert any("hnsw.ef_search" in s for s in sentencias)
+
+
+def test_el_indice_vectorial_se_crea_parcial_sobre_lo_activo():
+    """El predicado del índice tiene que coincidir con el de la consulta.
+
+    Si el índice contiene las filas ocultas, esas compiten por los candidatos
+    que el post-filtro va a descartar. Parcial, todo lo que hay dentro ya pasa
+    el filtro y ningún candidato se desperdicia.
+    """
+    import scripts.generar_embeddings as ge
+
+    creado = {}
+
+    class _DB:
+        def execute(self, sentencia, *a, **k):
+            sql = str(sentencia)
+            if "CREATE INDEX" in sql:
+                creado["sql"] = sql
+            class _R:
+                def scalar(_s):
+                    # nº de vectores para la rama que decide ivfflat vs hnsw
+                    return 1000 if "count(*)" in sql else "0.8.0"
+            return _R()
+
+        def commit(self):
+            pass
+
+    ge.reconstruir_indice(_DB())
+
+    assert "hnsw" in creado["sql"].lower()
+    assert "WHERE activo" in creado["sql"], (
+        "sin el predicado parcial, las filas ocultas se llevan los candidatos"
+    )
+
+
+def test_el_umbral_de_confianza_no_filtra_nada():
+    """Decir "no te entendí" no es lo mismo que no responder.
+
+    "No sé qué quiero estudiar" es una frase legítima de alguien de 16 años y
+    merece una conversación, no una lista vacía. El umbral marca la respuesta;
+    no la esconde.
+    """
+    import inspect
+    fuente = inspect.getsource(bp.buscar_pagina)
+
+    assert "entendi_la_consulta" in fuente
+    # El umbral no puede aparecer en ninguna condición que descarte resultados.
+    assert "UMBRAL_CONFIANZA" in fuente
+    for linea in fuente.splitlines():
+        if "UMBRAL_CONFIANZA" in linea:
+            assert "entendi_la_consulta" in linea, (
+                "el umbral sólo debe marcar la respuesta, nunca recortarla"
+            )

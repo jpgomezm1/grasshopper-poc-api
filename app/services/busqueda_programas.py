@@ -57,6 +57,38 @@ CANDIDATOS = 120
 # hay 3.412 ordenados por pertinencia.
 VENTANA_RANKING = 500
 
+# Por debajo de esta similitud, el sistema NO entendió la consulta.
+#
+# No es una intuición: las consultas que resuelve bien y las que no **no se
+# solapan**, y el hueco se mide con `scripts/evaluar_busqueda.py --umbral`.
+# Medido el 2026-09-14, con el catálogo completo, índice HNSW y las glosas:
+#
+#     resuelve bien ..... 0.439 – 0.661   ("psicología clínica", "ser enfermera",
+#                                          "no sé qué quiero estudiar")
+#     no entiende ....... 0.240 – 0.355   ("no quiero estar en una oficina",
+#                                          "hola", ruido)
+#
+# 0.40 va en medio del hueco: lo más lejos posible de equivocarse en cualquiera
+# de las dos direcciones.
+#
+# Ojo con un error que ya se cometió al calibrarlo. La primera medición dio 0.47
+# porque el índice HNSW devolvía cero filas para las consultas vagas —ver
+# `EF_SEARCH`— y "no sé qué quiero estudiar" contaba como fallo. Arreglado el
+# índice, esa consulta devuelve `Exploratory/Undecided Program`, que es la
+# respuesta correcta. **El umbral se calibra contra la calidad de la respuesta,
+# no contra el puntaje**: mover casos de lado para ensanchar el hueco es
+# exactamente la trampa que el set de evaluación existe para evitar.
+#
+# **Esto no filtra nada.** Los resultados se devuelven igual; lo que cambia es
+# que la respuesta dice que no está segura, para que la pantalla pueda preguntar
+# en vez de presentar un resultado dudoso con cara de certeza. Enterrar lo que
+# cae por debajo sería peor: "no sé qué quiero estudiar" es una frase legítima de
+# alguien de 16 años y merece una conversación, no una lista vacía.
+#
+# Hay que re-medirlo cada vez que cambie lo que se embebe: antes de las glosas
+# el corte limpio estaba en 0.45.
+UMBRAL_CONFIANZA = 0.40
+
 # Peso del refuerzo estructurado frente al parecido semántico · **calibrado
 # contra el catálogo real**, no elegido a ojo.
 #
@@ -110,6 +142,24 @@ PESO_AFINIDAD = 0.10
 # `embedding IS NOT NULL` que escondía el 86% del catálogo. HNSW es incremental
 # y su parámetro de búsqueda no depende del número de filas.
 PROBES = 10
+
+# Cuántos candidatos explora HNSW antes de quedarse con los mejores. Postgres
+# usa 40 por defecto, y 40 es poco aquí por una razón que no es obvia:
+#
+# **HNSW post-filtra.** Saca `ef_search` candidatos del índice y recién después
+# aplica el `WHERE`. Si el filtro descarta la mayoría de esos candidatos, el
+# resultado sale corto o vacío — sin error, sin aviso. Medido antes del índice
+# parcial: una búsqueda sin filtro devolvía **9 programas de 33.552**, porque las
+# filas ocultas se llevaban los candidatos.
+#
+# El índice parcial (`WHERE activo`) resuelve el caso grande; esto cubre el
+# resto, porque los filtros de país, área y nivel siguen post-filtrando. 200 es
+# el compromiso: suficiente para que un filtro estrecho no vacíe la página, y
+# muy por debajo del punto donde deja de compensar frente al escaneo.
+#
+# Se pide `CANDIDATOS`(120) o `VENTANA_RANKING`(500) según el caso, así que este
+# número tiene que ser del mismo orden o el índice devuelve menos de lo pedido.
+EF_SEARCH = 200
 
 
 @dataclass
@@ -348,8 +398,9 @@ def buscar(
         # búsqueda funciona, sólo con la recuperación por defecto.
         try:
             db.execute(text(f"SET LOCAL ivfflat.probes = {int(PROBES)}"))
+            db.execute(text(f"SET LOCAL hnsw.ef_search = {int(EF_SEARCH)}"))
         except Exception:
-            logger.debug("no se pudo fijar ivfflat.probes", exc_info=True)
+            logger.debug("no se pudo fijar el parametro del indice", exc_info=True)
         # `<=>` es distancia coseno en pgvector: 0 idéntico, 2 opuesto. La
         # similitud es 1 - distancia, para que "más alto es mejor" en todo el
         # resto de la función.
@@ -862,12 +913,23 @@ def buscar_pagina(
     # honesto y va aparte — es lo que le dice al estudiante que afinar sirve.
     alcanzable = min(total, alcance) if semantico else total
 
+    # ¿Entendimos lo que pidió? · se mira el MEJOR resultado de la ventana, no
+    # el de esta página: la página 4 tiene similitudes bajas por definición y no
+    # dice nada sobre si la consulta se entendió.
+    mejor = max((x.similitud for x in (ventana if semantico else pagina_items)),
+                default=0.0)
+
     return {
         "programas": pagina_items,
         "pagina": pagina,
         "por_pagina": por_pagina,
         "total": total,
         "total_paginas": max(1, -(-alcanzable // por_pagina)),
+        # `None` sin orden semántico: sin vector no hay similitud que juzgar, y
+        # devolver `False` haría creer que la consulta se entendió mal cuando en
+        # realidad no se intentó entenderla.
+        "entendi_la_consulta": (mejor >= UMBRAL_CONFIANZA) if semantico else None,
+        "mejor_similitud": round(mejor, 4) if semantico else None,
         # Hasta dónde llega el orden por pertinencia · `None` cuando se pagina
         # el conjunto entero y la pregunta no aplica.
         "ranking_hasta": alcance if semantico else None,

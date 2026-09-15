@@ -89,6 +89,16 @@ _registrar("NZ", "Nueva Zelanda", "New Zealand")
 _registrar("PL", "Polonia", "Poland")
 _registrar("US", "Estados Unidos", "USA", "United States", "EEUU", "EE.UU.")
 _registrar("AE", "Emiratos Árabes Unidos", "UAE", "United Arab Emirates")
+# Entraron con las tandas de extracción de septiembre 2026, cuando el catálogo
+# pasó de 15.483 a 33.907 programas. Sin ellos, 51 programas salían como "país
+# desconocido" — que es exactamente para lo que sirve `es_pais_desconocido`.
+_registrar("IN", "India")
+_registrar("PT", "Portugal")
+# Malasia no aparece como valor de país en ninguna columna: aparece porque
+# Heriot-Watt dicta 6 programas en su campus de Malasia y la única evidencia de
+# eso es la ruta de la URL (`hw.ac.uk/malaysia/...`). Sin registrarla, esos 6
+# se quedarían sin país o —peor— se les asignaría el del campus principal.
+_registrar("MY", "Malasia", "Malaysia")
 
 # Chipre del Norte no tiene código ISO-3166: sólo lo reconoce Turquía. Se le da
 # un código propio con prefijo `X` (el rango que ISO reserva para uso privado)

@@ -82,17 +82,39 @@ class _FilaFalsa(dict):
     """Lo que devolvería Postgres · `buscar` sólo lee por clave."""
 
 
-def _db_que_devuelve(filas):
+def _db_que_devuelve(filas, sin_vector=()):
+    """Doble de la sesión · `buscar()` hace hasta DOS consultas, no una.
+
+    La primera trae lo que tiene embedding, ordenado por parecido. La segunda
+    —sólo si la primera no llenó el cupo— trae lo que **no** tiene embedding,
+    para que un programa recién extraído no desaparezca del catálogo mientras
+    espera su vector. Devolver `filas` en las dos llamadas duplicaría todo, que
+    no es lo que hace la base.
+
+    Se distingue por el SQL y no por el número de llamada porque con vector hay
+    un `SET LOCAL ivfflat.probes` antes de la consulta real: contar llamadas deja
+    el doble desfasado en cuanto alguien añada otro `execute`.
+    """
     class _Res:
+        def __init__(self, datos):
+            self._datos = datos
+
         def mappings(self):
+            datos = self._datos
+
             class _M:
                 def all(_self):
-                    return filas
+                    return datos
             return _M()
 
     class _DB:
-        def execute(self, *a, **k):
-            return _Res()
+        def execute(self, sentencia, *a, **k):
+            sql = str(sentencia)
+            if "SET LOCAL" in sql:
+                return _Res([])
+            if "embedding IS NULL" in sql:
+                return _Res(list(sin_vector))
+            return _Res(filas)
 
     return _DB()
 
@@ -314,3 +336,245 @@ def test_la_confianza_llega_al_resultado():
     r = bp.buscar(_db_que_devuelve(filas), vector_perfil=[0.1] * 4, limite=1)[0]
 
     assert r.confianza == "verificable"
+
+
+# ---------------------------------------------------------------------------
+# Los programas sin embedding no desaparecen
+# ---------------------------------------------------------------------------
+
+
+def test_un_programa_sin_vector_sigue_apareciendo_para_quien_tiene_perfil():
+    """El bug que este caso protege es de los que no se ven mirando la pantalla.
+
+    La rama semántica exigía `pi.embedding IS NOT NULL`. Medido sobre el
+    catálogo real de septiembre 2026 —33.907 programas activos y 5.086
+    embebidos— eso significaba que **un estudiante que hizo el test veía el 14%
+    del catálogo y uno que no hizo nada veía el 100%**. En Nueva Zelanda, con
+    757 programas y 6 embebidos, el estudiante con perfil veía 6.
+
+    Entre más señal daba la persona, más pequeño se le volvía el catálogo, y
+    nada en la respuesta lo decía: `orden_semantico` seguía siendo `True`,
+    porque el orden semántico sí funcionaba — sobre casi nada.
+    """
+    con_vector = [_fila("Tiene vector", "Salud y Medicina", 0.70)]
+    sin_vector = [_fila("Recien extraido, sin vector", "Salud y Medicina", 0.0)]
+
+    r = bp.buscar(_db_que_devuelve(con_vector, sin_vector=sin_vector),
+                  vector_perfil=[0.1] * 4, codigos_riasec=[], limite=10)
+
+    nombres = [x.nombre for x in r]
+    assert "Recien extraido, sin vector" in nombres, (
+        "un programa sin embedding no puede desaparecer del catálogo"
+    )
+    # Y va DETRÁS: lo que sí se pudo ordenar por parecido manda.
+    assert nombres.index("Tiene vector") < nombres.index("Recien extraido, sin vector")
+
+
+def test_lo_que_no_tiene_vector_no_se_pide_cuando_ya_hay_de_sobra():
+    """El relleno es para cuando falta cupo, no un segundo viaje gratis.
+
+    Si la consulta semántica ya trajo los candidatos que se pedían, ir a buscar
+    los que no tienen vector sería una consulta de más en cada búsqueda.
+    """
+    llenos = [_fila(f"P{i}", "Artes", 0.5) for i in range(bp.CANDIDATOS)]
+    sin_vector = [_fila("NO deberia pedirse", "Artes", 0.0)]
+
+    r = bp.buscar(_db_que_devuelve(llenos, sin_vector=sin_vector),
+                  vector_perfil=[0.1] * 4, codigos_riasec=[], limite=5)
+
+    assert "NO deberia pedirse" not in [x.nombre for x in r]
+
+
+def test_sin_vector_de_perfil_no_hay_segunda_consulta():
+    """Sin vector, la primera consulta ya trae todo el conjunto elegible: no hay
+    nada que rellenar y pedirlo duplicaría filas."""
+    filas = [_fila("A", "Artes", 0.0)]
+    sin_vector = [_fila("A", "Artes", 0.0)]
+
+    r = bp.buscar(_db_que_devuelve(filas, sin_vector=sin_vector),
+                  vector_perfil=None, codigos_riasec=[], limite=10)
+
+    assert len(r) == 1
+
+
+# ---------------------------------------------------------------------------
+# Paginación · y lo que la pantalla puede prometer
+# ---------------------------------------------------------------------------
+
+
+def test_el_paginador_no_ofrece_paginas_vacias():
+    """`total` y `total_paginas` responden preguntas distintas.
+
+    En modo relevancia el orden sólo existe dentro de `VENTANA_RANKING`: más
+    allá no hay nada ordenado que paginar. Calcular las páginas desde `total`
+    daría un paginador con páginas que no devuelven nada — medido con un filtro
+    real: 1.335 resultados, ventana de 500, 267 páginas ofrecidas y 167 vacías.
+
+    `total` sigue siendo el número honesto y se reporta aparte: es lo que le
+    dice al estudiante que afinar los filtros sirve para algo.
+    """
+    ventana = [_fila(f"P{i}", "Artes", 1.0 - i / 1000) for i in range(bp.VENTANA_RANKING)]
+
+    class _DBGrande:
+        def execute(self, sentencia, *a, **k):
+            sql = str(sentencia)
+            if "count(*)" in sql:
+                class _R:
+                    def scalar(_s):
+                        return 1335
+                return _R()
+            return _db_que_devuelve(ventana).execute(sentencia, *a, **k)
+
+    r = bp.buscar_pagina(_DBGrande(), vector_perfil=[0.1] * 4,
+                         codigos_riasec=[], filtros=bp.Filtros(),
+                         pagina=1, por_pagina=5)
+
+    assert r["total"] == 1335, "el total real no se recorta"
+    assert r["ranking_hasta"] == bp.VENTANA_RANKING
+    assert r["total_paginas"] == bp.VENTANA_RANKING // 5, (
+        "sólo se ofrecen las páginas que caben en la ventana ordenada"
+    )
+
+
+def test_sin_vector_se_pagina_el_conjunto_entero():
+    """Sin orden semántico no hay ventana que respetar: el `ORDER BY` es estable
+    y `LIMIT/OFFSET` alcanza todas las filas."""
+    filas = [_fila(f"P{i}", "Artes", 0.0) for i in range(5)]
+
+    class _DB:
+        def execute(self, sentencia, *a, **k):
+            if "count(*)" in str(sentencia):
+                class _R:
+                    def scalar(_s):
+                        return 1335
+                return _R()
+            return _db_que_devuelve(filas).execute(sentencia, *a, **k)
+
+    r = bp.buscar_pagina(_DB(), vector_perfil=None, codigos_riasec=[],
+                         filtros=bp.Filtros(), pagina=1, por_pagina=5)
+
+    assert r["ranking_hasta"] is None, "sin ranking, la pregunta no aplica"
+    assert r["total_paginas"] == 267
+    assert r["orden_semantico"] is False
+
+
+def test_solo_vendible_cruza_el_nivel_del_programa_con_lo_autorizado():
+    """No basta con que la ficha autorice algo: tiene que autorizar ESTE nivel.
+
+    Los dos catálogos hablan vocabularios distintos —la ficha dice `pregrado`,
+    el programa dice `bachelor`— y el puente vive en el importador. Si aquí se
+    comprobara sólo que la ficha tiene alguna autorización, una universidad
+    autorizada únicamente en idiomas mostraría sus doctorados.
+    """
+    sql, _ = bp._where(bp.Filtros(solo_vendible=True))
+
+    assert "institutions_catalog" in sql
+    assert "sin_oferta_vendible IS NULL" in sql
+    # El CASE traduce el nivel del programa a las autorizaciones que lo cubren.
+    assert "CASE pi.nivel" in sql
+    assert "WHEN 'bachelor' THEN ARRAY['pregrado']" in sql
+    # El literal es JSON dentro de SQL: `'"todos"'::jsonb`.
+    assert '\'"todos"\'' in sql, "una ficha con 'todos' autoriza cualquier nivel"
+
+
+def test_una_ficha_sin_niveles_declarados_no_autoriza_nada():
+    """`niveles_autorizados` vacío es un dato que falta, no un permiso.
+
+    Es el mismo criterio que el cargador: el Excel no dijo qué se puede vender
+    ahí, y prometerle a una familia un trámite que la agencia no tiene es peor
+    que mostrar de menos.
+    """
+    sql, _ = bp._where(bp.Filtros(solo_vendible=True))
+    assert "ic.niveles_autorizados IS NOT NULL" in sql
+
+
+# ---------------------------------------------------------------------------
+# El indice vectorial post-filtra · la trampa que costo 33.543 resultados
+# ---------------------------------------------------------------------------
+
+
+def test_se_le_pide_al_indice_mas_candidatos_de_los_que_caben_en_el_filtro():
+    """HNSW saca `ef_search` candidatos y **recién después** aplica el `WHERE`.
+
+    Con el valor por defecto de Postgres (40) y el índice sobre la tabla
+    completa, las 15.216 filas ocultas se llevaban los candidatos: una búsqueda
+    sin filtro devolvía **9 programas de 33.552**. Sin error y sin aviso.
+
+    Y el síntoma engañaba: con un filtro estrecho (un país, un área) el
+    planificador dejaba de usar el índice y escaneaba, así que ahí sí devolvía
+    los 120. O sea que fallaba justo en el caso por defecto del estudiante y
+    funcionaba en el que uno probaría para depurarlo.
+
+    `EF_SEARCH` tiene que ser del orden de lo que se pide, o el índice devuelve
+    menos de lo pedido.
+    """
+    assert bp.EF_SEARCH >= bp.CANDIDATOS, (
+        "pedir más candidatos de los que el índice explora devuelve páginas cortas"
+    )
+
+
+def test_la_busqueda_fija_el_parametro_del_indice():
+    """Si no se fija, manda el valor por defecto de la base · ver el test de arriba."""
+    sentencias = []
+
+    class _DB:
+        def execute(self, sentencia, *a, **k):
+            sentencias.append(str(sentencia))
+            return _db_que_devuelve([]).execute(sentencia, *a, **k)
+
+    bp.buscar(_DB(), vector_perfil=[0.1] * 4, codigos_riasec=[], limite=5)
+
+    assert any("hnsw.ef_search" in s for s in sentencias)
+
+
+def test_el_indice_vectorial_se_crea_parcial_sobre_lo_activo():
+    """El predicado del índice tiene que coincidir con el de la consulta.
+
+    Si el índice contiene las filas ocultas, esas compiten por los candidatos
+    que el post-filtro va a descartar. Parcial, todo lo que hay dentro ya pasa
+    el filtro y ningún candidato se desperdicia.
+    """
+    import scripts.generar_embeddings as ge
+
+    creado = {}
+
+    class _DB:
+        def execute(self, sentencia, *a, **k):
+            sql = str(sentencia)
+            if "CREATE INDEX" in sql:
+                creado["sql"] = sql
+            class _R:
+                def scalar(_s):
+                    # nº de vectores para la rama que decide ivfflat vs hnsw
+                    return 1000 if "count(*)" in sql else "0.8.0"
+            return _R()
+
+        def commit(self):
+            pass
+
+    ge.reconstruir_indice(_DB())
+
+    assert "hnsw" in creado["sql"].lower()
+    assert "WHERE activo" in creado["sql"], (
+        "sin el predicado parcial, las filas ocultas se llevan los candidatos"
+    )
+
+
+def test_el_umbral_de_confianza_no_filtra_nada():
+    """Decir "no te entendí" no es lo mismo que no responder.
+
+    "No sé qué quiero estudiar" es una frase legítima de alguien de 16 años y
+    merece una conversación, no una lista vacía. El umbral marca la respuesta;
+    no la esconde.
+    """
+    import inspect
+    fuente = inspect.getsource(bp.buscar_pagina)
+
+    assert "entendi_la_consulta" in fuente
+    # El umbral no puede aparecer en ninguna condición que descarte resultados.
+    assert "UMBRAL_CONFIANZA" in fuente
+    for linea in fuente.splitlines():
+        if "UMBRAL_CONFIANZA" in linea:
+            assert "entendi_la_consulta" in linea, (
+                "el umbral sólo debe marcar la respuesta, nunca recortarla"
+            )

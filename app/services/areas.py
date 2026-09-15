@@ -275,6 +275,13 @@ def _norm(s: str) -> str:
 
 _INDICE = {}
 for _canon, _crudos in _MAPA_CRUDO.items():
+    # El propio valor canónico tiene que mapear a sí mismo. Sin esta línea
+    # `normalizar` no hacía round-trip: `normalizar("salud")` devolvía
+    # "Salud y Medicina", pero `normalizar("Salud y Medicina")` devolvía None
+    # salvo que el nombre exacto estuviera además en su lista de crudos. Quien
+    # pasa un valor ya normalizado —un re-proceso, o un modelo al que se le dio
+    # el vocabulario cerrado— perdía el programa entero en silencio.
+    _INDICE[_norm(_canon)] = _canon
     for _c in _crudos:
         _INDICE[_norm(_c)] = _canon
 

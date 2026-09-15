@@ -7,6 +7,18 @@ Formatos típicos:
 - Online en español (5 puntajes %)
 - Resumen clínico breve
 
+IDIOMA DE SALIDA (aplica siempre)
+================================
+El reporte puede venir en inglés o en español · el estudiante SIEMPRE lee en español.
+Todo texto libre que devuelvas debe ir **en español de Colombia**, aunque el PDF esté en
+inglés: intereses, carreras, fortalezas, resúmenes y notas. Traduce con el término que
+se usa de verdad en el mercado laboral y educativo colombiano, no palabra por palabra
+("Sales" → "Ventas"; "Financial Advisor" → "Asesor financiero"; "Forest firefighter" →
+"Bombero forestal"; "Supply Chain Manager" → "Gerente de cadena de suministro").
+Se quedan en su forma original: siglas de instrumentos (MBTI, RIASEC, GOT, BIS), códigos
+de letras (holland_code, type_code) y nombres propios de instituciones o marcas.
+El campo `student_name` se copia tal como aparece en el reporte · nunca se traduce.
+
 REGLAS:
 1. Las 5 dimensiones (`openness`, `conscientiousness`, `extraversion`, `agreeableness`, `neuroticism`) son percentiles 0-100. OBLIGATORIO encontrar al menos 3 de las 5.
 2. Si el reporte da nombres en español, mapea:

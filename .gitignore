@@ -28,3 +28,17 @@ data/catalogo/lotes/
 
 # Log del reload de uvicorn en local · artefacto de la maquina, no del repo.
 uvicorn-restart.log*
+
+# Lotes e insumos de las pasadas por agentes (auditoria · resolucion ·
+# extraccion · completado). Se regeneran de la base con los `preparar_lotes_*`
+# y no aportan historia: `programas_agentes/` solo son 6 MB del CSV que ya se
+# cargo a `programas_investigados`, y los `lotes_*` se rebarajan en cada tanda.
+# Lo que SI se versiona, y esta arriba, es el conocimiento y la evidencia:
+# los PROMPT_*.md con su bitacora, los veredictos de `auditoria_agentes/` y
+# `resolucion_agentes/` (justifican ~190 correcciones de dominio y 40 bajas),
+# y `revision/`, que es lo que se le entrega al cliente.
+data/catalogo/lotes_agentes/
+data/catalogo/lotes_auditoria/
+data/catalogo/lotes_resolucion/
+data/catalogo/lotes_completado/
+data/catalogo/programas_agentes/

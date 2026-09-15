@@ -90,6 +90,23 @@ def texto_de_programa(p) -> str:
     No se incluye el país: el país es un filtro duro que resuelve SQL. Meterlo
     aquí haría que "quiero estudiar en Canadá" empuje por parecido de texto
     programas que no están en Canadá.
+
+    ## La glosa
+
+    Título, área y nivel son el vocabulario del **catálogo**; el estudiante
+    escribe en el suyo. La glosa (migración 078) es el puente: una frase que
+    dice de qué va el campo en las palabras de un chico de 16 años. Medido:
+
+        consulta "me interesa cómo piensa la gente" vs Psychology BSc
+            sin glosa .... 0.256
+            con glosa .... 0.350   (+37%)
+
+    y el que ganaba esa consulta sin glosa era `Social and Political Theory`
+    con 0.324 — o sea que la diferencia no es cosmética, cambia la respuesta.
+
+    Va **al final** y no al principio a propósito: el nombre sigue siendo lo que
+    más identifica al programa, y anteponerle 25 palabras de contexto diluiría
+    la señal de los títulos que ya funcionan bien.
     """
     partes = [p.nombre or ""]
     if p.area:
@@ -98,6 +115,12 @@ def texto_de_programa(p) -> str:
         partes.append(f"Nivel: {p.nivel}")
     if p.institucion:
         partes.append(f"Institución: {p.institucion}")
+    glosa = (getattr(p, "glosa", None) or "").strip()
+    # `(sin glosa)` es la respuesta honesta del modelo cuando el título no dice
+    # de qué campo es. No se embebe: añadiría la misma frase a cientos de
+    # programas distintos y los acercaría entre sí sin ninguna razón.
+    if glosa and glosa != "(sin glosa)":
+        partes.append(glosa)
     return ". ".join(x for x in partes if x)
 
 

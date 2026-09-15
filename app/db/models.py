@@ -1003,6 +1003,12 @@ class InstitutionCatalog(Base):
     city = Column(String(255), nullable=True)
     partner_group = Column(String(120), nullable=True, index=True)
     programs_offered = Column(JSON, nullable=True)
+    # Migración 075 · `programs_offered` es el texto crudo del Excel (ocho formas
+    # de decir lo mismo, en dos idiomas); esto es ese dato normalizado a un
+    # vocabulario cerrado, que es lo único con lo que se puede filtrar.
+    niveles_autorizados = Column(JSON, nullable=True)
+    # El 1-10 / estrellas del cliente · NULL = sin priorizar, no prioridad cero.
+    prioridad = Column(Integer, nullable=True, index=True)
     agreement_status = Column(String(40), nullable=True, index=True)
     starting_date = Column(Date, nullable=True)
     end_date = Column(Date, nullable=True)
@@ -1013,6 +1019,13 @@ class InstitutionCatalog(Base):
     commissions = Column(JSON, nullable=True)
     source_sheet = Column(String(60), nullable=True)
     active = Column(Boolean, default=True, nullable=False, index=True)
+    # Migración 076 · se investigó y NO hay nada vendible a un estudiante
+    # colombiano: no acepta solicitudes internacionales, la oferta es
+    # subvencionada para residentes, o la entidad no dicta nada ella misma.
+    # Guarda el motivo, no una bandera — es lo que se le lleva al cliente.
+    # Distinto de `active = false`, que es "la ficha no va en el producto".
+    # Reversible: si la institución reabre, se limpia y vuelve a la cola.
+    sin_oferta_vendible = Column(Text, nullable=True)
     raw = Column(JSON, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
@@ -2921,6 +2934,36 @@ class ProgramaInvestigado(Base):
         UUID(as_uuid=True), ForeignKey("programs.id", ondelete="SET NULL"),
         nullable=True, index=True,
     )
+
+    # Hasta dónde llega la evidencia de que este programa existe. La columna vivía
+    # en la tabla —con las 15.483 filas usándola— pero no estaba declarada aquí,
+    # así que era invisible para cualquier código que pasara por el ORM.
+    #
+    #   `verificable` · trae código oficial (CRICOS, RTO, código nacional). Es el
+    #                   único que se puede contrastar contra un registro externo.
+    #   `publicado`   · sin código, pero la URL es del dominio oficial.
+    #   `indicativo`  · ni lo uno ni lo otro. Se muestra marcado como referencia.
+    #
+    # No es decorativo: una URL que responde no prueba nada (varios sitios sirven
+    # la portada para rutas inventadas), y esto es lo que distingue el dato que
+    # aguanta una verificación del que sólo aguanta una mirada.
+    confianza = Column(String(20), nullable=True, index=True)
+
+    # Migración 078 · una frase que dice de qué va **el campo de estudio** en el
+    # vocabulario de un estudiante de 16 años — no de qué va este programa, que
+    # el modelo no lo sabe y no se le pregunta.
+    #
+    # Existe porque el vector se construía sólo con título + área + nivel, que es
+    # el vocabulario del catálogo, mientras el estudiante escribe en el suyo.
+    # Medido: la consulta "me interesa cómo piensa la gente" contra
+    # `Psychology BSc` pasa de 0.256 a 0.350 con glosa, y el que ganaba sin ella
+    # era `Social and Political Theory` con 0.324.
+    #
+    # `(sin glosa)` es la respuesta válida cuando el título no permite saber el
+    # campo ("Foundation Programme", un código suelto). Se guarda así y **no se
+    # embebe**: añadir la misma frase a cientos de programas los acercaría entre
+    # sí sin ninguna razón.
+    glosa = Column(Text, nullable=True)
 
     # `embedding` (vector(1536)) existe en la tabla pero NO se declara aquí: el
     # tipo `vector` necesitaría el paquete pgvector como dependencia del modelo,

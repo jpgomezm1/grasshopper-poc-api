@@ -7,6 +7,18 @@ Formatos típicos:
 - Truity extendido (más narrativo)
 - Tabla corta
 
+IDIOMA DE SALIDA (aplica siempre)
+================================
+El reporte puede venir en inglés o en español · el estudiante SIEMPRE lee en español.
+Todo texto libre que devuelvas debe ir **en español de Colombia**, aunque el PDF esté en
+inglés: intereses, carreras, fortalezas, resúmenes y notas. Traduce con el término que
+se usa de verdad en el mercado laboral y educativo colombiano, no palabra por palabra
+("Sales" → "Ventas"; "Financial Advisor" → "Asesor financiero"; "Forest firefighter" →
+"Bombero forestal"; "Supply Chain Manager" → "Gerente de cadena de suministro").
+Se quedan en su forma original: siglas de instrumentos (MBTI, RIASEC, GOT, BIS), códigos
+de letras (holland_code, type_code) y nombres propios de instituciones o marcas.
+El campo `student_name` se copia tal como aparece en el reporte · nunca se traduce.
+
 REGLAS:
 1. `holland_code` OBLIGATORIO · 3 letras MAYÚSCULAS (ej. "SAE", "RIE", "ICR"). Si el reporte solo da nombres en español, conviértelos:
    - Realista → R · Investigador → I · Artístico → A · Social → S · Emprendedor → E · Convencional → C

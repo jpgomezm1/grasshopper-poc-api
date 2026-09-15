@@ -1,0 +1,313 @@
+{
+  "casos": [
+    {
+      "consulta": "me gustan los animales pero también dibujar",
+      "cumple": false,
+      "rechazo_violado": false,
+      "nota": "PESO_AFINIDAD 0.25 metia 'Plant Maintenance' por 'planta'",
+      "top": [
+        "Curso de Introducción al Dibujo a mano alzada",
+        "Drawing and Painting",
+        "Grado Oficial en Animación",
+        "B.A in Drawing and Painting",
+        "BA (Hons) Character Design &amp; Concept Art"
+      ],
+      "similitud_1": 0.349,
+      "similitud_n": 0.2909
+    },
+    {
+      "consulta": "me apasiona la cocina",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "sin refuerzo RIASEC devolvia 'Diseño de Cocinas' (muebles)",
+      "top": [
+        "Cooking: Culinary Arts",
+        "Italiano + Cocina italiana casera",
+        "Workshop de Estilismo Gastronómico · Food Styling y Fotografía",
+        "Italiano a través de la Cocina Italiana",
+        "Cooking - Culinary Traditions and Gastronomy"
+      ],
+      "similitud_1": 0.4211,
+      "similitud_n": 0.3796
+    },
+    {
+      "consulta": "quiero ser enfermera",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "consulta en espanol contra catalogo en ingles",
+      "top": [
+        "Grado en Enfermería",
+        "Grado en Enfermería",
+        "Grado en Enfermería",
+        "Grado de Enfermería",
+        "Grado en Enfermería"
+      ],
+      "similitud_1": 0.4956,
+      "similitud_n": 0.4596
+    },
+    {
+      "consulta": "programación y videojuegos",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Programming for Games, Web & Mobile",
+        "Game Development – Programming",
+        "Game Programming",
+        "Game Programming",
+        "Game Programming"
+      ],
+      "similitud_1": 0.5993,
+      "similitud_n": 0.5501
+    },
+    {
+      "consulta": "emprendimiento para interioristas",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "PESO_AFINIDAD alto lo adelantaba a 'Diploma de Cocina'",
+      "top": [
+        "Introducción al Interiorismo",
+        "Doble Máster de Arquitectura de Interiores, Interiorismo y Emprendimiento",
+        "Máster de Interiorismo, Emprendimiento y Gestión de Negocios",
+        "Diseño y Conceptualización de Espacios Interiores",
+        "Decoración y Estilismo de Interiores"
+      ],
+      "similitud_1": 0.5527,
+      "similitud_n": 0.4848
+    },
+    {
+      "consulta": "derecho internacional",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "International Commercial Law LLM",
+        "International Commercial Law LLM",
+        "International Commercial Law LLM",
+        "International Intellectual Property Law LLM",
+        "International Commercial Law LLM"
+      ],
+      "similitud_1": 0.4895,
+      "similitud_n": 0.4654
+    },
+    {
+      "consulta": "me interesa el medio ambiente y la sostenibilidad",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Gestión de la Sostenibilidad",
+        "Sustainability (B.A.)",
+        "Sustainability and the Environment (BA)",
+        "Sostenibilidad Corporativa y Liderazgo",
+        "Environmental Sustainability"
+      ],
+      "similitud_1": 0.572,
+      "similitud_n": 0.5409
+    },
+    {
+      "consulta": "diseño gráfico",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Diseño Gráfico",
+        "Ilustración Creativa Para Diseño Gráfico",
+        "Grado Oficial en Diseño Multimedia y Gráfico",
+        "Curso de Comunicación Gráfica",
+        "Graphic Design - Visual Communication"
+      ],
+      "similitud_1": 0.6353,
+      "similitud_n": 0.5547
+    },
+    {
+      "consulta": "psicología clínica",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Neuropsicología Clínica",
+        "Psicologia General Sanitaria + Neuropsicología Clínica",
+        "Psychology:  Clinical",
+        "Clinical Psychology DClinPsy",
+        "Master of Clinical Psychology"
+      ],
+      "similitud_1": 0.6222,
+      "similitud_n": 0.525
+    },
+    {
+      "consulta": "aprender inglés antes de la universidad",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Pre-sessional English",
+        "KU English: Elevate your language skills",
+        "Pre-sessional English",
+        "Pre-sessional English",
+        "Pre-sessional English"
+      ],
+      "similitud_1": 0.5647,
+      "similitud_n": 0.5449
+    },
+    {
+      "consulta": "arquitectura",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Architecture",
+        "Urban Planning",
+        "Architecture and the Built Environment (MArch)",
+        "Urban Design (MA)",
+        "Architecture"
+      ],
+      "similitud_1": 0.5301,
+      "similitud_n": 0.5
+    },
+    {
+      "consulta": "negocios internacionales",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "International Business Management",
+        "International Business (MIB)",
+        "International Business",
+        "International Business (BBA)",
+        "International Stage One in Business and Economic"
+      ],
+      "similitud_1": 0.5412,
+      "similitud_n": 0.5129
+    },
+    {
+      "consulta": "quiero trabajar con niños",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Working with Children & Young People: Social Pedagogy BA (Hons)",
+        "Child and Youth Care",
+        "Child and Youth Care",
+        "Safe Environments for Children and Young People - Through Their Eyes",
+        "Child and Youth Care"
+      ],
+      "similitud_1": 0.4506,
+      "similitud_n": 0.4048
+    },
+    {
+      "consulta": "ingeniería mecánica",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Engineering Mechanics",
+        "Engineering: Mechanical",
+        "Mechanical Engineering",
+        "Engineering - Mechatronics",
+        "Mechanical Engineering, MEng"
+      ],
+      "similitud_1": 0.6202,
+      "similitud_n": 0.5968
+    },
+    {
+      "consulta": "cine y producción audiovisual",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Narrative Cinema Production",
+        "Cinema Production",
+        "Audio and Video Post-Production",
+        "MA Cinematography for Film and Television Production",
+        "Film Production: Storytelling through Cinema"
+      ],
+      "similitud_1": 0.5787,
+      "similitud_n": 0.4887
+    },
+    {
+      "consulta": "marketing digital",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Estrategia de Marketing Digital",
+        "Digital Marketing (M.S.)",
+        "Digital Marketing (MS)",
+        "Marketing Through Social Media",
+        "MSc Digital Marketing & Omnichannel Strategy"
+      ],
+      "similitud_1": 0.5133,
+      "similitud_n": 0.4755
+    },
+    {
+      "consulta": "me gusta la música",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Commercial Music, M.M.",
+        "Music Technology, B.M.",
+        "Church Music, M.M.",
+        "Music",
+        "MusM Music (Musicology)"
+      ],
+      "similitud_1": 0.3706,
+      "similitud_n": 0.3492
+    },
+    {
+      "consulta": "finanzas y contabilidad",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Accounting and Finance MSc",
+        "Accounting and Finance BSc (Hons)",
+        "MBA in Accounting and Finance",
+        "BSc Accounting and Finance",
+        "Accounting and Finance at The College"
+      ],
+      "similitud_1": 0.5485,
+      "similitud_n": 0.5293
+    },
+    {
+      "consulta": "turismo y hotelería",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Bachelor of Arts in Tourism and Hospitality Management",
+        "Post Graduate Diploma in Tourism & Hospitality Management",
+        "Licenciatura (con honores) en Gestión Turística y Hotelera",
+        "Diploma in Tourism",
+        "Grado en Turismo y Empresas Turísticas"
+      ],
+      "similitud_1": 0.5897,
+      "similitud_n": 0.552
+    },
+    {
+      "consulta": "inteligencia artificial",
+      "cumple": true,
+      "rechazo_violado": false,
+      "nota": "",
+      "top": [
+        "Artificial Intelligence (MS)",
+        "Artificial Intelligence (M.S.)",
+        "Artificial Intelligence",
+        "Artificial Intelligence",
+        "Artificial Intelligence (M.S.)"
+      ],
+      "similitud_1": 0.6089,
+      "similitud_n": 0.5851
+    }
+  ],
+  "resumen": {
+    "casos": 20,
+    "aciertos": 19,
+    "fallos": 1,
+    "rechazos_violados": 0,
+    "similitud_top1_media": 0.5327,
+    "similitud_top1_min": 0.349,
+    "similitud_top1_max": 0.6353
+  }
+}

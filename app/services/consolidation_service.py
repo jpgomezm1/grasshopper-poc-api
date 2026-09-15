@@ -44,7 +44,11 @@ settings = get_settings()
 # Cache TTL · 24h (BE-06)
 CACHE_TTL = timedelta(hours=24)
 
-PROMPT_VERSION = "consolidate_v1"
+# v2 · 2026-09-08 · el perfil pasó de nombrar familias profesionales a aconsejarlas
+# (`career_families`). Subir la versión importa: `_is_cache_valid` la compara, así
+# que los perfiles cacheados con el prompt viejo se regeneran en vez de quedarse
+# sin la consejería. Tiene un costo de IA de una sola vez por estudiante.
+PROMPT_VERSION = "consolidate_v2"
 
 
 # ---------------------------------------------------------------------------
@@ -312,7 +316,10 @@ def render_consolidate_prompt(inputs: Dict[str, Any]) -> str:
 def _call_claude_for_consolidation(
     prompt: str,
     user_id: str,
-    max_tokens: int = 2000,
+    # 2000 alcanzaba para el perfil sin consejería. `career_families` agrega
+    # ~4 bloques de prosa; con el techo viejo la respuesta se cortaba y
+    # `call_claude_with_meta` trata stop_reason=max_tokens como fallo.
+    max_tokens: int = 4000,
     temperature: float = 0.3,
 ) -> Tuple[Optional[str], Dict[str, Any]]:
     """Direct call (bypassing the journey-tuned `call_claude`) so we can
@@ -359,6 +366,10 @@ def _is_cache_valid(row: ConsolidatedProfileCache, expected_hash: str) -> bool:
     if row.invalidated_at is not None:
         return False
     if row.profile_hash != expected_hash:
+        return False
+    # Un prompt nuevo produce un perfil distinto con los mismos inputs · sin esto,
+    # una mejora del análisis tardaba hasta 24h en verse y solo por expiración.
+    if row.prompt_version != PROMPT_VERSION:
         return False
     if row.generated_at is None:
         return False

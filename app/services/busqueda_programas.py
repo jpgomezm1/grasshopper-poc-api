@@ -1049,3 +1049,142 @@ def instituciones_disponibles(db: Session, filtros: Optional[Filtros] = None,
          "elegido": r["institucion"] in set((filtros or Filtros()).instituciones)}
         for r in filas
     ]
+
+
+def mezclar_por_concepto(listas: List[List[Resultado]], limite: int) -> List[Resultado]:
+    """Une los resultados de varios conceptos sin que uno se coma al otro.
+
+    ## El problema
+
+    "Me gustan los animales pero también dibujar" son dos intereses. Buscarlos
+    con un solo vector promedia los dos y no se parece bien a ninguno —medido,
+    similitud 0.347 contra 0.45-0.48 buscando cada concepto por separado— y el
+    resultado son diez programas de dibujo y cero de animales.
+
+    ## Por qué intercalar y no ordenar por puntaje
+
+    Ordenar la unión por similitud parece lo natural y **reproduce el problema**:
+    "dibujar" tiene 2.041 programas en el catálogo y "animales" 312, así que el
+    concepto con más oferta copa las primeras posiciones igual. Lo que la persona
+    pidió son las dos cosas, y lo honesto es darle de las dos.
+
+    Se intercala por rondas —el mejor de cada concepto, luego el segundo de cada
+    uno— así que con dos conceptos la primera página trae mitad y mitad, y el
+    orden dentro de cada mitad sigue siendo por pertinencia.
+    """
+    vistos: set = set()
+    salida: List[Resultado] = []
+    for ronda in range(max((len(x) for x in listas), default=0)):
+        for lista in listas:
+            if ronda >= len(lista):
+                continue
+            r = lista[ronda]
+            if r.id in vistos:
+                continue
+            vistos.add(r.id)
+            salida.append(r)
+            if len(salida) >= limite:
+                return salida
+    return salida
+
+
+async def buscar_con_texto(
+    db: Session,
+    consulta: str,
+    vector_perfil: Optional[Sequence[float]] = None,
+    codigos_riasec: Sequence[str] = (),
+    filtros: Optional[Filtros] = None,
+    pagina: int = 1,
+    por_pagina: int = 24,
+) -> dict:
+    """Una búsqueda escrita por el estudiante, con sus palabras.
+
+    Junta las tres piezas en el orden que importa:
+
+    1. **Interpretar** lo que escribió (`interprete_busqueda`). De ahí salen los
+       conceptos a buscar y, si los pidió explícitamente, filtros. Los filtros
+       que propone el modelo **se marcan con su origen** y viajan a la pantalla
+       para que el estudiante los vea y los pueda quitar: un filtro invisible
+       puede esconder 33.000 programas sin que nadie se entere.
+    2. **Buscar cada concepto por separado** y mezclar. Promediar dos intereses
+       en un vector no se parece bien a ninguno — medido, 0.346 contra 0.618.
+    3. **El filtro duro no se toca.** Sigue siendo SQL y sigue decidiendo qué es
+       elegible. La interpretación ordena y sugiere; no abre la puerta.
+
+    Sin texto, o si el intérprete falla, cae a `buscar_pagina` con el vector del
+    perfil: exactamente el comportamiento anterior.
+    """
+    from app.services import embeddings as emb, interprete_busqueda as ib
+
+    f = filtros or Filtros()
+    texto = (consulta or "").strip()
+    if not texto:
+        return {**buscar_pagina(db, vector_perfil, codigos_riasec, f,
+                                pagina, por_pagina),
+                "interpretacion": None}
+
+    interp = await ib.interpretar(texto)
+
+    # Los filtros que propuso el modelo se SUMAN a los que el estudiante ya
+    # eligió; nunca los reemplazan. Y sólo se aplican donde él no había elegido
+    # nada — si ya marcó "Canadá" y el texto dice "Londres", manda lo que marcó.
+    f = replace(
+        f,
+        paises=tuple(f.paises) or tuple(interp.paises),
+        areas=tuple(f.areas) or tuple(interp.areas),
+        niveles=tuple(f.niveles) or tuple(interp.niveles),
+        ciudades=tuple(f.ciudades) or tuple(interp.ciudades),
+    )
+
+    sugeridos = [
+        {"tipo": tipo, "valor": v, "origen": "texto"}
+        for tipo, valores in (("pais", interp.paises), ("area", interp.areas),
+                              ("nivel", interp.niveles), ("ciudad", interp.ciudades))
+        for v in valores
+    ]
+
+    if not interp.conceptos:
+        # Sin conceptos no hay nada que buscar por texto: se cae al perfil, que
+        # es la mejor señal disponible. Pasa con "hola" y con "no sé qué quiero
+        # estudiar" — y en el segundo caso el perfil es justo lo que hace falta.
+        r = buscar_pagina(db, vector_perfil, codigos_riasec, f, pagina, por_pagina)
+    else:
+        listas = []
+        for c in interp.conceptos:
+            try:
+                vc = await emb.embeber_uno(c)
+            except Exception:
+                logger.warning("no se pudo embeber el concepto %r", c, exc_info=True)
+                continue
+            listas.append(buscar(db, vector_perfil=vc, codigos_riasec=codigos_riasec,
+                                 filtros=f, limite=VENTANA_RANKING))
+        if not listas:
+            r = buscar_pagina(db, vector_perfil, codigos_riasec, f, pagina, por_pagina)
+        else:
+            ventana = mezclar_por_concepto(listas, limite=VENTANA_RANKING)
+            desde = (max(1, pagina) - 1) * por_pagina
+            total = contar(db, f)
+            alcanzable = min(total, len(ventana))
+            mejor = max((x.similitud for x in ventana), default=0.0)
+            r = {
+                "programas": ventana[desde:desde + por_pagina],
+                "pagina": max(1, pagina), "por_pagina": por_pagina,
+                "total": total,
+                "total_paginas": max(1, -(-alcanzable // por_pagina)),
+                "ranking_hasta": len(ventana),
+                "orden_semantico": True,
+                "entendi_la_consulta": mejor >= UMBRAL_CONFIANZA,
+                "mejor_similitud": round(mejor, 4),
+            }
+
+    r["interpretacion"] = {
+        "conceptos": interp.conceptos,
+        "entendi": interp.entendi,
+        # Lo que este catálogo no tiene · la pantalla escribe el mensaje. Es
+        # mejor decir "no tenemos precios, tu asesor tiene tarifas negociadas"
+        # que devolver resultados como si la pregunta se hubiera respondido.
+        "fuera_de_alcance": interp.fuera_de_alcance,
+        "filtros_sugeridos": sugeridos,
+        "interpretada": interp.interpretada,
+    }
+    return r

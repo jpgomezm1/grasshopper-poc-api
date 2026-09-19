@@ -21,12 +21,14 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 from uuid import UUID
 
+from sqlalchemy import text
 from sqlalchemy.orm import Session as DBSession
 
 from app.config import get_settings
 from app.core.ai_client import call_claude_with_meta, load_prompt
 from app.data.ofertas import get_all_ofertas
 from app.db.models import ConsolidatedProfileCache, Program, User
+from app.services import areas as areas_mod
 from app.services.catalog_service import get_catalog_for_recommender
 from app.services import academic_level
 from app.schemas.consolidated_profile import (
@@ -140,12 +142,105 @@ def etapa_de_vida(db: DBSession, user: User) -> Optional[str]:
     return (answers or {}).get("lifeStage")
 
 
+#: Cuántos programas concretos se citan por ficha en el prompt.
+#
+# Tres alcanza para que el modelo sepa QUÉ hay ahí sin inflar 25 fichas con
+# listas largas. El objetivo no es listarle el catálogo: es que deje de creer
+# que "Colorado State University · Todos los programas" es una caja negra.
+PROGRAMAS_POR_FICHA = 3
+
+#: Hasta cuántas áreas afines se consideran al buscar esos programas.
+AREAS_AFINES_TOPE = 6
+
+
+def areas_afines_del_perfil(profile: ConsolidatedProfile) -> List[str]:
+    """Las áreas del vocabulario cerrado que le hablan a este perfil.
+
+    Sale de los códigos RIASEC y no de `interests`, que es texto libre que el
+    modelo escribe a su gusto ("Diseño UX", "Biología marina") y no cruza contra
+    `programas_investigados.area`. Sin códigos devuelve `[]` y el enriquecimiento
+    simplemente no ocurre.
+    """
+    codigos = [h.code for h in (profile.holland_codes or []) if getattr(h, "code", None)]
+    if not codigos:
+        return []
+    puntuadas = [(areas_mod.afinidad(a, codigos), a) for a in areas_mod.AREAS]
+    return [a for puntaje, a in sorted(puntuadas, key=lambda x: -x[0]) if puntaje > 0][
+        :AREAS_AFINES_TOPE
+    ]
+
+
+def programas_concretos_por_ficha(
+    db: DBSession,
+    ids_fichas: List[str],
+    areas_afines: List[str],
+    tope: int = PROGRAMAS_POR_FICHA,
+) -> Dict[str, List[Dict[str, str]]]:
+    """Qué programas REALES tiene cada ficha, dentro de lo que le interesa.
+
+    ## Por qué existe esta función
+
+    El catálogo del recomendador (`programs`) son fichas a nivel institución:
+    "Idiomas · ILAC", "Colorado State University · Todos los programas". No hay
+    una sola fila que diga "Doctor of Veterinary Medicine". Por eso a una
+    estudiante que quiere ser veterinaria se le recomendaban cinco academias de
+    inglés — medido el 2026-09-19, las 25 fichas que llegaron al prompt eran 10
+    de idiomas, 6 de colegio y ninguna vocacional.
+
+    Pero el dato SÍ existe: `programas_investigados.program_id` enlaza 27.514
+    programas con 449 de las 583 fichas activas, y entre ellos está el "Doctor of
+    Veterinary Medicine" de Colorado State — cuya ficha, además, dice "Todos los
+    programas". O sea que la agencia sí puede colocar ahí a alguien; lo único que
+    faltaba era que el recomendador pudiera verlo.
+
+    **Esto no inventa autorizaciones.** Sólo muestra, de las instituciones que la
+    agencia ya representa, qué se estudia realmente en ellas.
+
+    Devuelve `{}` ante cualquier fallo: el recomendador funcionaba sin esto y
+    tiene que seguir funcionando sin esto.
+    """
+    if not ids_fichas or not areas_afines:
+        return {}
+    try:
+        filas = db.execute(
+            text(
+                "SELECT program_id::text AS ficha, nombre, area, nivel FROM ("
+                "  SELECT pi.program_id, pi.nombre, pi.area, pi.nivel,"
+                "         row_number() OVER ("
+                "           PARTITION BY pi.program_id"
+                "           ORDER BY array_position(CAST(:areas AS text[]), pi.area),"
+                "                    pi.nombre"
+                "         ) AS rn"
+                "    FROM programas_investigados pi"
+                "   WHERE pi.activo"
+                "     AND pi.program_id = ANY(CAST(:ids AS uuid[]))"
+                "     AND pi.area = ANY(CAST(:areas AS text[]))"
+                ") t WHERE rn <= :tope"
+            ),
+            {"ids": ids_fichas, "areas": areas_afines, "tope": tope},
+        ).mappings().all()
+    except Exception:
+        # SQLite en los tests no tiene `array_position` ni `uuid[]`, y una
+        # consulta caída no puede tumbar una recomendación. El enriquecimiento
+        # es un extra, no un requisito.
+        logger.debug("no se pudieron leer los programas concretos", exc_info=True)
+        return {}
+
+    fuera: Dict[str, List[Dict[str, str]]] = {}
+    for f in filas:
+        fuera.setdefault(f["ficha"], []).append(
+            {"nombre": f["nombre"], "area": f["area"], "nivel": f["nivel"]}
+        )
+    return fuera
+
+
 def filter_catalog(
     user: User,
     profile: ConsolidatedProfile,
     catalog: Optional[List[Dict[str, Any]]] = None,
     cap: int = CATALOG_CAP_FOR_PROMPT,
     life_stage: Optional[str] = None,
+    programas_por_ficha: Optional[Dict[str, List[Dict[str, str]]]] = None,
 ) -> List[Dict[str, Any]]:
     """Filter the catalog before passing to AI.
 
@@ -282,6 +377,25 @@ def filter_catalog(
         if "C" in riasec_codes and category in {"certificacion_corta", "carrera_completa"}:
             score += 0.2
 
+        # Lo que esa institución ENSEÑA de verdad, dentro de lo que le interesa
+        # a esta persona.
+        #
+        # Es el arreglo del sesgo medido el 2026-09-19: a una estudiante que
+        # quiere ser veterinaria le llegaban 25 fichas de las que 10 eran
+        # academias de inglés y ninguna vocacional, porque una ficha sólo dice
+        # "Idiomas" o "Todos los programas" y el resto del puntaje lo decidían
+        # el país preferido y la prioridad comercial.
+        #
+        # Los pesos bajan rápido a propósito: **tener algo relevante es el
+        # salto; tener mucho es un matiz**. 0.6 por el primero lo pone por
+        # delante de una escuela de idiomas que sólo puntúa por país (1.0) y
+        # presupuesto desconocido (0.7); el techo de ~1.05 lo deja por debajo de
+        # la suma de un país preferido más un nivel que le corresponde, para que
+        # no atropelle a los otros criterios.
+        concretos = (programas_por_ficha or {}).get(str(o.get("id") or ""), [])
+        for peso, _ in zip((0.6, 0.3, 0.15), concretos):
+            score += peso
+
         # F-003 · becas para LatAm · pondera (no solo filtra). Pesa más cuando
         # el presupuesto aprieta (band 'bajo' o programa 'stretch'), donde una
         # beca puede ser decisiva para que el programa sea alcanzable.
@@ -351,6 +465,10 @@ def filter_catalog(
             ),
             # P2-5 · Lo que la agencia está autorizada a vender de esa institución.
             "programs_offered": o.get("programsOffered"),
+            # Lo que esa institución enseña de verdad · de `programas_investigados`.
+            "programas_concretos": (programas_por_ficha or {}).get(
+                str(o.get("id") or ""), []
+            ),
             "_budget_fit_hint": kind,
         }
         out.append(slim)
@@ -568,6 +686,17 @@ def _format_catalog_block(catalog: List[Dict[str, Any]]) -> str:
         # ahí" de "no lo tenemos cargado" si le mandamos lo mismo en ambos casos.
         if c.get("programs_offered"):
             campos.append(f"podemos_ofrecer={', '.join(c['programs_offered'])}")
+        # Los programas reales de esa institución, con su nivel. Sin esto el
+        # modelo escribe "te prepara para carreras de veterinaria" sobre una
+        # academia de inglés, porque es lo único que puede decir con una ficha
+        # que sólo trae una etiqueta. Con esto puede nombrar el programa.
+        concretos = c.get("programas_concretos") or []
+        if concretos:
+            citados = "; ".join(
+                f"{p['nombre']}" + (f" ({p['nivel']})" if p.get("nivel") else "")
+                for p in concretos
+            )
+            campos.append(f"programas_reales={citados}")
         campos.append(f"tags={','.join(c.get('tags') or [])}")
         parts.append("- " + " · ".join(campos))
     return "\n".join(parts)
@@ -785,8 +914,26 @@ def generate_recommendations(
     #    fallback al demo estático si la tabla está vacía (dev sin seed).
     catalog_source = _get_catalog_source(db)
     life_stage = etapa_de_vida(db, user)
+
+    # Qué enseña de verdad cada institución, dentro de lo que le interesa a esta
+    # persona. Una sola consulta para todo el catálogo · ver
+    # `programas_concretos_por_ficha` para por qué esto existe.
+    areas_afines = areas_afines_del_perfil(profile)
+    por_ficha = programas_concretos_por_ficha(
+        db,
+        [str(o["id"]) for o in catalog_source if o.get("id")],
+        areas_afines,
+    )
+    if por_ficha:
+        logger.info(
+            "Puente de catálogos · %d fichas con programas concretos en %s",
+            len(por_ficha), ", ".join(areas_afines[:3]),
+            extra={"user_id": str(user.id)},
+        )
+
     catalog = filter_catalog(
-        user, profile, catalog=catalog_source, life_stage=life_stage
+        user, profile, catalog=catalog_source, life_stage=life_stage,
+        programas_por_ficha=por_ficha,
     )
     if not catalog:
         raise RecommendationFailure(

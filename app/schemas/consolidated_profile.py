@@ -16,11 +16,15 @@ GH-S6-BE-01 + GH-S6-BE-02 · added 2026-04-30.
 """
 from __future__ import annotations
 
+import logging
+import re
 from datetime import datetime
 from typing import List, Literal, Optional
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
@@ -38,6 +42,44 @@ class PersonalityDimension(BaseModel):
     insight: str = Field(
         ..., description="Insight corto · una frase explicando qué significa."
     )
+
+    @field_validator("level", mode="before")
+    @classmethod
+    def _al_vocabulario_cerrado(cls, v):
+        """Un matiz del modelo no puede costarle el perfil entero al estudiante.
+
+        Visto en vivo el 2026-09-19: el modelo devolvió `"medio-alto"` para una
+        dimensión y **toda** la generación del perfil falló por validación —
+        `ConsolidationFailure`, "Análisis no disponible", sin recomendaciones.
+        Y es no determinista: le pasa a unos estudiantes y a otros no, con los
+        mismos datos.
+
+        Perder catorce campos buenos por un guion en el decimoquinto es un mal
+        negocio. Se traduce al vocabulario cerrado tomando el ÚLTIMO nivel
+        reconocido del texto, que es la convención del compuesto en español:
+        "medio-alto" tira hacia alto, "bajo-medio" hacia medio.
+
+        Lo que NO se hace es inventar: si no se reconoce nada se queda en
+        "medio" —el neutro— y se deja constancia en el log, porque un modelo que
+        empieza a devolver vocabulario nuevo es algo que alguien debe mirar, no
+        algo que se deba tapar en silencio.
+        """
+        if v in ("alto", "medio", "bajo"):
+            return v
+        texto = str(v or "").strip().lower()
+        reconocidos = [
+            p for p in re.split(r"[^a-záéíóúñ]+", texto)
+            if p in ("alto", "alta", "medio", "media", "bajo", "baja")
+        ]
+        if reconocidos:
+            return {"alta": "alto", "media": "medio", "baja": "bajo"}.get(
+                reconocidos[-1], reconocidos[-1]
+            )
+        logger.warning(
+            "nivel de personalidad fuera del vocabulario · se usa 'medio'",
+            extra={"valor": texto[:40]},
+        )
+        return "medio"
 
 
 class StrengthEvidence(BaseModel):

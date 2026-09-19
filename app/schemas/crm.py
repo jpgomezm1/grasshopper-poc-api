@@ -169,11 +169,32 @@ class CrmTestSnapshot(BaseModel):
 
 
 class CrmConsolidatedProfileLite(BaseModel):
+    """Lo que el equipo comercial ve del perfil vocacional del estudiante.
+
+    Hasta el 2026-09-19 eran `summary`, `interests` y `values` — y el `summary`
+    salía SIEMPRE vacío, porque se buscaba en tres claves (`synthesis`,
+    `summary`, `text`) que el perfil no tiene: la suya se llama
+    `summary_narrative`.
+
+    El score del lead mide **qué tan avanzado va en el embudo** (journey, tests,
+    presupuesto), no quién es la persona. Sin fortalezas, sin códigos Holland y
+    sin familias profesionales, quien llama no tenía con qué abrir la
+    conversación más allá de "veo que hiciste tres tests".
+
+    Sigue sin viajar nada clínico ni el contenido del journal: son campos que el
+    propio estudiante ve en su perfil.
+    """
+
     generated_at: datetime
     has_profile: bool = True
     summary: Optional[str] = None  # short (<=300 chars) · safe for staff
     interests: List[str] = Field(default_factory=list)
     values: List[str] = Field(default_factory=list)
+    strengths: List[str] = Field(default_factory=list)
+    #: Top RIASEC, legible ("Social", "Investigador") · no las siglas crudas.
+    holland: List[str] = Field(default_factory=list)
+    #: Las familias profesionales aconsejadas, con su nivel de calce.
+    familias: List[str] = Field(default_factory=list)
 
 
 class CrmJournalMeta(BaseModel):

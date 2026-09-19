@@ -98,24 +98,37 @@ def test_hop_chat_prompt_tiene_placeholder_journey():
     assert "NUNCA le vuelvas a preguntar algo que ya está en el contexto" in text
 
 
-def test_build_journey_block_sin_sesion():
+# Estos dos tests amarraban el `MagicMock` a la FORMA de la consulta
+# (`query().filter().order_by().first()`). Cuando la elección de sesión se
+# unificó en `services/sesion_canonica.py` —que consulta distinto— el doble
+# siguió respondiendo encantado y devolvió una sesión falsa en vez de None: el
+# error #2 del `backend/CLAUDE.md`, un test que pasa sin ejercitar el camino
+# real. Ahora se dobla la FRONTERA (quién es la sesión canónica), que es la
+# pregunta que a estos tests de verdad les importa.
+def _db_con_sesion(monkeypatch, sesion):
+    from unittest.mock import MagicMock
+
+    from app.services import sesion_canonica as modulo
+
+    monkeypatch.setattr(modulo, "sesion_canonica", lambda db, user_id: sesion)
+    return MagicMock()
+
+
+def test_build_journey_block_sin_sesion(monkeypatch):
     """Usuario sin journey → bloque honesto, sin explotar."""
     from types import SimpleNamespace
-    from unittest.mock import MagicMock
 
     from app.services.hop_chat_service import _build_journey_block
 
-    db = MagicMock()
-    db.query.return_value.filter.return_value.order_by.return_value.first.return_value = None
+    db = _db_con_sesion(monkeypatch, None)
     user = SimpleNamespace(id="u1", onboarding_answers=ONBOARDING)
     block = _build_journey_block(db, user)
     assert "aún no lo ha empezado" in block
     assert "Me apasiona la tecnología" in block
 
 
-def test_build_journey_block_con_sesion():
+def test_build_journey_block_con_sesion(monkeypatch):
     from types import SimpleNamespace
-    from unittest.mock import MagicMock
 
     from app.services.hop_chat_service import _build_journey_block
 
@@ -128,8 +141,7 @@ def test_build_journey_block_con_sesion():
             "dontWant": "algo muy teórico",
         },
     )
-    db = MagicMock()
-    db.query.return_value.filter.return_value.order_by.return_value.first.return_value = session
+    db = _db_con_sesion(monkeypatch, session)
     user = SimpleNamespace(id="u1", onboarding_answers=None)
     block = _build_journey_block(db, user)
     assert "en curso (etapa: exploracion)" in block

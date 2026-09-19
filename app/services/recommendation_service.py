@@ -419,6 +419,45 @@ def _cached_recs_match_catalog(
 # ---------------------------------------------------------------------------
 
 
+def _format_families_block(profile: ConsolidatedProfile) -> str:
+    """Las familias profesionales aconsejadas · lo que el estudiante YA leyó.
+
+    `career_families` (migración del prompt a `consolidate_v2`, 2026-09-08) es la
+    consejería que pidió la clienta: por qué cada familia le calza, cómo se ve
+    por dentro y qué oficios viven ahí. Se genera, se le muestra a la persona en
+    `TuLecturaCard` y en el PDF… y **no llegaba a este prompt**, que era el que
+    decidía qué programas se le recomiendan. El recomendador sólo veía
+    `suggested_career_paths`: los nombres de las familias, sin su porqué.
+
+    Dos cosas se ganan al conectarlo:
+
+    1. **Los oficios concretos.** "Salud y cuidado animal" no se parece a ningún
+       programa del catálogo; "Veterinaria" y "Zootecnia" sí. Es la misma razón
+       por la que `busqueda_programas._rutas_del_perfil` los usa para el vector.
+    2. **Coherencia con lo que la persona ya leyó.** El `why_match` de cada
+       recomendación puede retomar el porqué que ella vio en su perfil, en vez
+       de inventar uno paralelo que suene a otra lectura de la misma persona.
+
+    Se omiten `what_its_like` y `watch_out`: están escritos para que los lea el
+    estudiante, no aportan al calce con un programa, y este prompt ya carga 25
+    fichas de catálogo.
+
+    Devuelve "" en perfiles anteriores al cambio, que no traen familias.
+    """
+    familias = profile.career_families or []
+    if not familias:
+        return ""
+    lineas = []
+    for f in familias:
+        cabeza = f"  · {f.name} (calce {f.fit_level})"
+        if f.careers:
+            cabeza += f" · oficios: {', '.join(f.careers)}"
+        lineas.append(cabeza)
+        if f.why_it_fits:
+            lineas.append(f"      por qué le calza: {f.why_it_fits}")
+    return "- Familias profesionales que ya le aconsejamos:\n" + "\n".join(lineas)
+
+
 def _format_profile_block(profile: ConsolidatedProfile) -> str:
     holland = ", ".join(
         f"{h.code} ({h.label}) {h.score}" for h in (profile.holland_codes or [])
@@ -426,7 +465,7 @@ def _format_profile_block(profile: ConsolidatedProfile) -> str:
     dims = "; ".join(
         f"{d.name}: {d.level}" for d in (profile.personality_dimensions or [])
     ) or "—"
-    return (
+    bloque = (
         f"- Resumen: {profile.summary_narrative}\n"
         f"- Fortalezas: {', '.join(profile.strengths)}\n"
         f"- Intereses: {', '.join(profile.interests)}\n"
@@ -438,6 +477,8 @@ def _format_profile_block(profile: ConsolidatedProfile) -> str:
         f"- Caminos sugeridos: {', '.join(profile.suggested_career_paths) or '—'}\n"
         f"- Constraints: {', '.join(profile.constraints) or '—'}"
     )
+    familias = _format_families_block(profile)
+    return f"{bloque}\n{familias}" if familias else bloque
 
 
 def _format_constraints_block(user: User, life_stage: Optional[str] = None) -> str:

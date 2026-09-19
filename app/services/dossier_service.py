@@ -65,13 +65,15 @@ def _is_minor(birthdate: Optional[date]) -> Optional[bool]:
 
 
 def _latest_session_answers(db: DBSession, user_id: UUID) -> Dict[str, Any]:
-    sess = (
-        db.query(Session)
-        .filter(Session.user_id == user_id)
-        .order_by(Session.updated_at.desc())
-        .first()
-    )
-    return (sess.answers if sess and sess.answers else {}) or {}
+    """La sesión canónica, no la última tocada · ver `sesion_canonica`.
+
+    El dossier es lo que el asesor lee antes de sentarse con la familia: que
+    mire una sesión distinta de la que alimentó el perfil consolidado —que
+    también sale en el mismo dossier— es la peor versión de esta desalineación.
+    """
+    from app.services.sesion_canonica import respuestas_canonicas
+
+    return respuestas_canonicas(db, user_id)
 
 
 def _get_combined_answers(db: DBSession, student: User) -> Dict[str, Any]:
@@ -130,15 +132,29 @@ def _build_aspirations(
     """
     answers = _get_combined_answers(db, student)
     declared: List[str] = []
-    # Capture any free-form aspiration fields from onboarding or journey
+    # Lo que la persona declaró con sus palabras, mire donde mire.
+    #
+    # ⚠️ Esta lista tenía cuatro llaves que **nadie escribe** —`dreamCareer`,
+    # `dream_career`, `topInterests`, `favoriteSubjects`— mientras el dato que
+    # buscaban existía al lado con otro nombre: el onboarding por grado guarda
+    # `g11_carreras_en_mente` ("¿qué carreras tienes en mente hoy?") y
+    # `g9_materias_favoritas` ("¿cuáles son tus materias favoritas?"). O sea que
+    # el asesor abría el dossier y veía "sin aspiraciones declaradas" de alguien
+    # que las había escrito. Es el defecto #1 del repo por partida doble: leer un
+    # campo que nadie escribe Y no leer el que sí.
+    #
+    # Las muertas se quitan en vez de dejarlas "por si acaso": una llave que no
+    # existe no falla, sólo esconde el hueco.
     for key in (
         "declaredAspirations",  # B-017 · nueva pregunta del journey
         "aspirations",
-        "dreamCareer",
-        "dream_career",
-        "topInterests",
         "interests",
-        "favoriteSubjects",
+        # Onboarding conversacional por grado (`onboarding_hechos.py`).
+        "g11_carreras_en_mente",
+        "g9_materias_favoritas",
+        "g10_materias_elegir",
+        # Ruta del adulto (`adult_track_hechos.py`) · su aspiración es un rol.
+        "career_target_role",
     ):
         val = answers.get(key)
         if isinstance(val, str) and val.strip():

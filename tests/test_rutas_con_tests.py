@@ -286,3 +286,54 @@ def test_el_fallback_se_marca_como_generico(monkeypatch):
 def test_las_dos_constantes_de_sin_tests_coinciden():
     """Están duplicadas para evitar un ciclo de imports · que no se separen."""
     assert ai_service.SIN_TESTS_EN_RUTAS == tis.SIN_TESTS
+
+
+# ---------------------------------------------------------------------------
+# Los logros fuera del aula · también por este endpoint
+# ---------------------------------------------------------------------------
+
+
+def test_generar_rutas_por_el_endpoint_incluye_los_logros(db, monkeypatch):
+    """JR-7 · la misma pantalla daba resultados distintos según por dónde se
+    pidiera.
+
+    `journey_service` ya pasaba las actividades a `generate_routes`;
+    `POST /routes/{id}/generate` no. Y por ese endpoint entra justo quien
+    abandonó el journey a mitad —el caso que pidió la clienta— así que
+    "capitana del equipo de vóleibol" se volvía a perder exactamente donde
+    ella dijo que se perdía.
+    """
+    from app.api.v1 import routes as endpoint
+    from app.db.models import ExtracurricularActivity, Session as SesionJourney
+
+    user = _estudiante(db)
+    _resultado(db, user)
+
+    sesion = SesionJourney(user_id=user.id, answers={"whyHere": "no sé qué estudiar"})
+    db.add(sesion)
+    db.add(
+        ExtracurricularActivity(
+            user_id=user.id,
+            category="sport",
+            name="Equipo de vóleibol",
+            role="Capitana",
+        )
+    )
+    db.commit()
+    db.refresh(sesion)
+
+    capturado = {}
+
+    def _falso_generate_routes(answers, session_id, **kw):
+        capturado.update(kw)
+        return SimpleNamespace(routes=[])
+
+    monkeypatch.setattr(endpoint, "assert_session_access", lambda sid, u, d: sesion)
+    monkeypatch.setattr(ai_service, "generate_routes", _falso_generate_routes)
+
+    endpoint.generate_routes_for_session(sesion.id, db=db, current_user=user)
+
+    actividades = capturado.get("activities") or []
+    assert actividades, "el endpoint volvió a generar rutas sin los logros"
+    assert actividades[0]["name"] == "Equipo de vóleibol"
+    assert actividades[0]["role"] == "Capitana"

@@ -72,6 +72,7 @@ from app.schemas.crm import (
     ScoreBreakdownSignal,
 )
 from app.services.ai_usage_service import record_ai_usage
+from app.services.sesion_canonica import sesion_canonica
 from app.services.student_lead_scoring import _band as score_band  # reuse banding
 from app.services.student_lead_scoring import _journey_progress_ratio
 
@@ -363,14 +364,20 @@ def _bulk_score_users(
         .all()
     )
 
+    # La sesión canónica de cada usuario, en bloque · misma regla que
+    # `sesion_canonica` (la más antigua CON respuestas), resuelta en una sola
+    # consulta porque esto arma la lista completa de leads y una consulta por
+    # fila serían cientos de viajes a Neon. Si las dos versiones se separan, la
+    # lista y el detalle del MISMO lead mostrarían avances distintos.
     sessions_by_user: Dict[UUID, JourneySession] = {}
     for s in (
         db.query(JourneySession)
         .filter(JourneySession.user_id.in_(user_ids))
-        .order_by(JourneySession.updated_at.desc())
+        .order_by(JourneySession.created_at.asc(), JourneySession.id.asc())
         .all()
     ):
-        if s.user_id not in sessions_by_user:
+        previa = sessions_by_user.get(s.user_id)
+        if previa is None or (not previa.answers and s.answers):
             sessions_by_user[s.user_id] = s
 
     last_activity_by_user = {
@@ -589,13 +596,11 @@ def compute_kpis(db: DBSession) -> CrmKpisResponse:
 
 
 def _get_journey_snapshot(db: DBSession, user: User) -> CrmJourneySnapshot:
-    # Latest session for journey progress
-    sess = (
-        db.query(JourneySession)
-        .filter(JourneySession.user_id == user.id)
-        .order_by(JourneySession.updated_at.desc())
-        .first()
-    )
+    # La sesión canónica · ver `sesion_canonica`. Importa para el score: el
+    # avance del journey pesa 30 de 100 puntos, y con una duplicada vacía creada
+    # después de la buena, `updated_at desc` devolvía el cascarón y el lead
+    # aparecía frío teniendo el journey hecho.
+    sess = sesion_canonica(db, user.id)
     journey_progress = _journey_progress_ratio(sess)
 
     tests_q = (
@@ -1251,12 +1256,7 @@ def regenerate_ai_analysis(
 
     # Build inputs
     snapshot = _get_journey_snapshot(db, user)
-    sess = (
-        db.query(JourneySession)
-        .filter(JourneySession.user_id == user.id)
-        .order_by(JourneySession.updated_at.desc())
-        .first()
-    )
+    sess = sesion_canonica(db, user.id)
     tests_n = len(snapshot.tests)
     has_profile = snapshot.consolidated_profile is not None
     has_contact = (user.gh_contact_status or "") in ("pending", "in_progress")
@@ -1304,12 +1304,7 @@ def get_cached_ai_analysis(user: User) -> Optional[CrmAiAnalysis]:
 def get_lead_detail(
     db: DBSession, user: User, *, include_ai: bool = True
 ) -> CrmLeadDetailResponse:
-    sess = (
-        db.query(JourneySession)
-        .filter(JourneySession.user_id == user.id)
-        .order_by(JourneySession.updated_at.desc())
-        .first()
-    )
+    sess = sesion_canonica(db, user.id)
     tests_n = (
         db.query(func.count(VocationalTestResult.id))
         .filter(VocationalTestResult.user_id == user.id)

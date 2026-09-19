@@ -467,6 +467,12 @@ def _register_student_internal(
         db.rollback()
         logger.exception("register · no se pudieron registrar los consentimientos")
 
+    # El quiz de la landing que esta persona quizá hizo antes de tener cuenta.
+    # Va después del commit y en su propio try, igual que los consentimientos:
+    # un quiz viejo con forma rara no puede costarle la cuenta a nadie.
+    from app.services.rescate_lead_quiz import rescatar as _rescatar_quiz
+
+    _rescatar_quiz(db, user)
     db.refresh(user)
 
     # Correo de bienvenida · antes no se mandaba NINGUNO. Alguien se registraba

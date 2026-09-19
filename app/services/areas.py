@@ -75,15 +75,55 @@ AREAS = [
 # El orden es parte del dato, no decoración: a un perfil puramente Artístico hay
 # que ofrecerle Artes antes que Comunicación, y con un conjunto sin orden el
 # desempate caía en el orden alfabético del vocabulario —que no significa nada.
+# ## Qué se corrigió el 2026-09-19, y por qué sólo se AGREGÓ
+#
+# Medido: 80 de los 91 programas de veterinaria del catálogo quedaron en el área
+# "Agricultura y Veterinaria", que estaba **sólo** en la lista del código
+# Realista. Para una estudiante S-I-A —Social e Investigativa, el arquetipo de
+# quien quiere ser veterinaria— esa área puntuaba **0.00**, mientras "Salud y
+# Medicina" puntuaba 1.70. O sea que el refuerzo castigaba sistemáticamente a
+# los programas que esa persona debía ver.
+#
+# El argumento ya estaba escrito arriba para medicina: "es Investigativa
+# (diagnóstico) y Social (paciente) a la vez, y quedarse con una sola de las dos
+# empobrece la recomendación". La veterinaria ES medicina; el razonamiento
+# simplemente no se había aplicado. Va al final de I y de S: un veterinario
+# diagnostica y cuida, pero el arquetipo de esos códigos sigue siendo el
+# científico y el docente.
+#
+# "Belleza y Estética" no estaba en NINGUNA lista, así que puntuaba 0 para todo
+# el mundo. Es trabajo manual con criterio estético: entra en R y en A.
+#
+# Va al FINAL de las dos listas, y no donde su centralidad diría. Insertarla en
+# medio empuja una posición a todo lo que le sigue, y como la afinidad es
+# `1.0 - 0.1 * indice`, eso **baja** la de las áreas de más abajo: en la primera
+# versión de este cambio, Idiomas y Deporte pasaron de 0.60 a 0.50 sin que nadie
+# lo hubiera pedido. Lo cazó `test_ninguna_afinidad_bajo_para_ningun_perfil`.
+# Su posición dentro de A es discutible —probablemente la estética es más
+# artística que los idiomas—, pero moverla deja de ser un alta pura y obliga a
+# re-medir el catálogo entero. Cuando alguien quiera hacerlo, que lo haga con el
+# set de evaluación, no de pasada.
+#
+# **Sólo se agregó, nunca se quitó ni se reordenó.** La propiedad importa: con
+# altas puras, ninguna afinidad puede bajar, así que el cambio no puede hundir
+# nada que hoy funcione — sólo puede subir lo que estaba injustamente en cero.
+# Un reordenamiento sí habría exigido re-medir el catálogo entero.
+#
+# ## Lo que se deja fuera a propósito
+#
+# "Preparación Académica" (pathways, foundation, pre-master) sigue sin código, y
+# no es un olvido: no es un campo del saber sino un PASO hacia uno. Reforzarla
+# por afinidad la haría competir con la carrera a la que la persona quiere
+# llegar, que es justo lo contrario de lo que sirve.
 RIASEC_AREAS = {
     # Realista · trabajo manual, físico, con máquinas y al aire libre.
-    "R": [OFICIOS, AGRO, INGENIERIA, ARQUITECTURA, DEPORTE, AMBIENTE],
+    "R": [OFICIOS, AGRO, INGENIERIA, ARQUITECTURA, DEPORTE, AMBIENTE, BELLEZA],
     # Investigativo · analizar, entender, resolver.
-    "I": [CIENCIAS, SALUD, TECNOLOGIA, INGENIERIA, AMBIENTE, PSICOLOGIA],
+    "I": [CIENCIAS, SALUD, TECNOLOGIA, INGENIERIA, AMBIENTE, PSICOLOGIA, AGRO],
     # Artístico · crear, expresar, diseñar.
-    "A": [ARTES, DISENO, COMUNICACION, ARQUITECTURA, IDIOMAS],
+    "A": [ARTES, DISENO, COMUNICACION, ARQUITECTURA, IDIOMAS, BELLEZA],
     # Social · enseñar, cuidar, acompañar.
-    "S": [EDUCACION, PSICOLOGIA, SALUD, SOCIALES, DEPORTE, HOSPITALIDAD],
+    "S": [EDUCACION, PSICOLOGIA, SALUD, SOCIALES, DEPORTE, HOSPITALIDAD, AGRO],
     # Emprendedor · persuadir, liderar, vender.
     "E": [NEGOCIOS, DERECHO, HOSPITALIDAD, COMUNICACION],
     # Convencional · organizar, ordenar, seguir procedimientos.

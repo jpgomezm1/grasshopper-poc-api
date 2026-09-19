@@ -595,6 +595,66 @@ def compute_kpis(db: DBSession) -> CrmKpisResponse:
 # ---------------------------------------------------------------------------
 
 
+def _perfil_lite(cp) -> Optional[CrmConsolidatedProfileLite]:
+    """El perfil vocacional que ve el equipo comercial · None si no hay.
+
+    Está extraída de `_get_journey_snapshot` para poder probarla: la
+    correspondencia entre las claves del JSON y los campos del schema es
+    justamente donde se coló el bug del `summary` que llegaba siempre vacío,
+    y eso no se caza montando el snapshot entero con dobles.
+    """
+    if cp is None:
+        return None
+    pdata = cp.profile_data or {}
+    # The exact shape of the profile_data is controlled by the
+    # consolidation_service · we extract conservatively.
+    # ⚠️ `summary_narrative` es el nombre REAL del campo. Antes se buscaba
+    # en `synthesis`, `summary` y `text` — tres claves que el perfil no
+    # tiene — así que el resumen llegaba SIEMPRE vacío al CRM. Se conservan
+    # como alternativas por si un perfil antiguo las trae, pero la buena va
+    # primero.
+    summary = (
+        pdata.get("summary_narrative")
+        or pdata.get("synthesis")
+        or pdata.get("summary")
+        or pdata.get("text")
+    )
+    summary = summary[:300] if isinstance(summary, str) else None
+
+    def _lista(*claves):
+        for k in claves:
+            v = pdata.get(k)
+            if isinstance(v, list):
+                return v
+        return []
+
+    # El perfil vocacional, no sólo el avance en el embudo · ver el
+    # docstring de `CrmConsolidatedProfileLite`.
+    holland = [
+        f"{(h.get('label') or h.get('code') or '').strip()}"
+        for h in _lista("holland_codes") if isinstance(h, dict)
+    ]
+    familias = []
+    for f in _lista("career_families"):
+        if isinstance(f, dict) and (f.get("name") or "").strip():
+            calce = f.get("fit_level")
+            familias.append(
+                f"{f['name']} ({calce})" if calce else str(f["name"])
+            )
+
+    profile = CrmConsolidatedProfileLite(
+        generated_at=cp.generated_at,
+        has_profile=True,
+        summary=summary,
+        interests=[str(x) for x in _lista("interests", "areas_of_interest")[:6]],
+        values=[str(x) for x in _lista("values")[:6]],
+        strengths=[str(x) for x in _lista("strengths")[:5]],
+        holland=[h for h in holland if h][:3],
+        familias=familias[:5],
+    )
+    return profile
+
+
 def _get_journey_snapshot(db: DBSession, user: User) -> CrmJourneySnapshot:
     # La sesión canónica · ver `sesion_canonica`. Importa para el score: el
     # avance del journey pesa 30 de 100 puntos, y con una duplicada vacía creada
@@ -620,9 +680,6 @@ def _get_journey_snapshot(db: DBSession, user: User) -> CrmJourneySnapshot:
         for t in tests_q
     ]
 
-    # Consolidated profile (lite · just the synthesis · NEVER raw answers
-    # if they exceed 300 chars)
-    profile = None
     cp = (
         db.query(ConsolidatedProfileCache)
         .filter(
@@ -631,28 +688,7 @@ def _get_journey_snapshot(db: DBSession, user: User) -> CrmJourneySnapshot:
         )
         .first()
     )
-    if cp:
-        pdata = cp.profile_data or {}
-        # The exact shape of the profile_data is controlled by the
-        # consolidation_service · we extract conservatively.
-        summary = pdata.get("synthesis") or pdata.get("summary") or pdata.get("text")
-        if isinstance(summary, str):
-            summary = summary[:300]
-        else:
-            summary = None
-        interests = pdata.get("interests") or pdata.get("areas_of_interest") or []
-        values = pdata.get("values") or []
-        if not isinstance(interests, list):
-            interests = []
-        if not isinstance(values, list):
-            values = []
-        profile = CrmConsolidatedProfileLite(
-            generated_at=cp.generated_at,
-            has_profile=True,
-            summary=summary,
-            interests=[str(x) for x in interests[:6]],
-            values=[str(x) for x in values[:6]],
-        )
+    profile = _perfil_lite(cp)
 
     # Journal · METADATA ONLY (D-025)
     journal_meta = CrmJournalMeta(total_entries=0, entries_by_type={}, last_entry_at=None)

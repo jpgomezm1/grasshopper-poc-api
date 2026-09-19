@@ -148,6 +148,60 @@ def _format_journal(entries: List[JournalEntry], limit: int = 30) -> str:
     return "\n".join(rows)
 
 
+def _todo_lo_que_escribio(
+    db: DBSession, student: User
+) -> Tuple[Dict[str, Any], List[JournalEntry]]:
+    """Las respuestas y la bitácora del estudiante · de TODAS sus sesiones.
+
+    ## Por qué no se elige una sesión
+
+    El resto del sistema tuvo durante meses dos definiciones de "la sesión del
+    estudiante" —la más antigua en `sessions.py` y el chat, la última
+    actualizada en el perfil y el CRM— y el 2026-09-19 se unificaron en
+    `services/sesion_canonica`. Este archivo se quedó fuera de esa unificación
+    **a propósito**, porque la regla del `backend/CLAUDE.md` es que la
+    sensibilidad del detector de riesgo suicida la valida la psicóloga, no quien
+    programa, y cambiar QUÉ TEXTO se analiza es cambiar la sensibilidad.
+
+    Así que aquí no se elige: se leen todas. La propiedad importa y es la razón
+    de ser de esta función — **el detector no puede ver menos texto del que veía
+    antes**, elija lo que elija cualquier otro criterio. Antes analizaba la
+    sesión más recientemente tocada; si un race dejó duplicadas, el texto de las
+    otras era invisible. Un estudiante podía escribir algo grave en una sesión y
+    que el detector estuviera mirando la otra.
+
+    La dirección del cambio es la única aceptable en un detector de riesgo: sólo
+    puede aumentar lo que se revisa. Que eso implique más activaciones del
+    protocolo —el archivo ya documenta falsos positivos conocidos— es una
+    consecuencia clínica que la psicóloga debe conocer, y está escrita aquí para
+    que no se descubra por accidente.
+
+    Las respuestas se fusionan con la sesión más reciente ganando en las claves
+    repetidas: es la respuesta vigente de la persona.
+    """
+    sesiones = (
+        db.query(Session)
+        .filter(Session.user_id == student.id)
+        .order_by(Session.updated_at.asc())
+        .all()
+    )
+    if not sesiones:
+        return {}, []
+
+    respuestas: Dict[str, Any] = {}
+    for s in sesiones:            # de la más vieja a la más nueva
+        if s.answers:             # la última tocada pisa a las anteriores
+            respuestas.update(s.answers)
+
+    bitacora = (
+        db.query(JournalEntry)
+        .filter(JournalEntry.session_id.in_([s.id for s in sesiones]))
+        .order_by(JournalEntry.created_at.desc())
+        .all()
+    )
+    return respuestas, bitacora
+
+
 def _gather_inputs(db: DBSession, student: User) -> Dict[str, Any]:
     cache = (
         db.query(ConsolidatedProfileCache)
@@ -160,21 +214,7 @@ def _gather_inputs(db: DBSession, student: User) -> Dict[str, Any]:
         .order_by(VocationalTestResult.test_id.asc())
         .all()
     )
-    sess = (
-        db.query(Session)
-        .filter(Session.user_id == student.id)
-        .order_by(Session.updated_at.desc())
-        .first()
-    )
-    journey_answers = (sess.answers if sess else {}) or {}
-    journal_rows: List[JournalEntry] = []
-    if sess:
-        journal_rows = (
-            db.query(JournalEntry)
-            .filter(JournalEntry.session_id == sess.id)
-            .order_by(JournalEntry.created_at.desc())
-            .all()
-        )
+    journey_answers, journal_rows = _todo_lo_que_escribio(db, student)
     # P1-3 · El onboarding tampoco llegaba al análisis clínico, y ahí duele
     # especialmente: `voice_concerns` es literalmente "¿hay algo que te preocupe o
     # te genere dudas sobre tu futuro?" — la pregunta más relevante que le hacemos
@@ -339,20 +379,7 @@ def _build_corpus(student: User, journey_answers: Dict[str, Any], journal_rows: 
 def _rule_based_patterns(
     db: DBSession, student: User
 ) -> List[BehavioralPattern]:
-    sess = (
-        db.query(Session)
-        .filter(Session.user_id == student.id)
-        .order_by(Session.updated_at.desc())
-        .first()
-    )
-    journey_answers = (sess.answers if sess else {}) or {}
-    journal_rows: List[JournalEntry] = []
-    if sess:
-        journal_rows = (
-            db.query(JournalEntry)
-            .filter(JournalEntry.session_id == sess.id)
-            .all()
-        )
+    journey_answers, journal_rows = _todo_lo_que_escribio(db, student)
     corpus = _build_corpus(student, journey_answers, journal_rows)
 
     out: List[BehavioralPattern] = []

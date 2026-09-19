@@ -386,6 +386,24 @@ def format_onboarding_context(
     if area:
         lines.append(f"- Área de estudio que le interesa continuar: {area}")
 
+    # El quiz de la landing · la PRIMERA señal vocacional que dio, a veces
+    # semanas antes de registrarse. Se rescata en `rescate_lead_quiz` y se
+    # renderiza aquí, en el mismo cambio: escribir la clave sin conectarla es
+    # exactamente cómo ese quiz llevaba meses cayendo en un pozo.
+    #
+    # Se presenta como lo que es —un test corto de la web, no un psicométrico—
+    # para que el modelo no le dé el peso de un Holland o un Big Five.
+    arquetipo = (onboarding.get("quiz_arquetipo") or "").strip()
+    if arquetipo:
+        rasgos = onboarding.get("quiz_rasgos") or []
+        if isinstance(rasgos, str):
+            rasgos = [rasgos]
+        linea = f"- Test corto que hizo en la web (señal preliminar): {arquetipo}"
+        sueltos = [str(t).strip() for t in rasgos if str(t).strip()][:4]
+        if sueltos:
+            linea += f" · rasgos: {', '.join(sueltos)}"
+        lines.append(_sanea_llaves(linea))
+
     # Lo que contó de su momento escolar o laboral · ver `_ONBOARDING_RELATO`.
     # Pasa por `_add`, así que hereda el tope de 600 caracteres y el saneo de
     # llaves que ya protegen a las respuestas de voz.

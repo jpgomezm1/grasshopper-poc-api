@@ -75,6 +75,23 @@ class ProgramaEncontrado(BaseModel):
     puntaje: float
 
 
+class FamiliaContexto(BaseModel):
+    """Una familia profesional aconsejada · texto ya escrito, nada generado aquí.
+
+    Es lo que el estudiante YA leyó en su perfil. Se devuelve otra vez para que
+    la cabecera del catálogo pueda decirle por qué está viendo estos programas,
+    en vez de soltarle 340 resultados sin explicación.
+    """
+
+    indice: int
+    nombre: str
+    calce: Optional[str] = None
+    por_que_calza: Optional[str] = None
+    como_es: Optional[str] = None
+    oficios: List[str] = []
+    ojo_con: Optional[str] = None
+
+
 class Resultados(BaseModel):
     programas: List[ProgramaEncontrado]
     total_mostrado: int
@@ -87,6 +104,15 @@ class Resultados(BaseModel):
     # El estudiante puede ver que entre más usa la app, mejor le responde; y un
     # asesor puede explicar por qué salió lo que salió.
     senales: List[str] = []
+    # Qué está ordenando esto · "familia" · "perfil" · "abierta".
+    #
+    # Los tres son estados legítimos, no un éxito y dos fallos, y la pantalla
+    # tiene que poder decir en cuál está: quien todavía no hizo el test merece
+    # saber que está viendo el catálogo sin ordenar, no creer que eso es lo que
+    # le recomendamos.
+    modo: str = "abierta"
+    # La familia que ordenó estos resultados · null salvo en modo "familia".
+    familia: Optional[FamiliaContexto] = None
 
 
 def _filtros(user: User, perfil: bp.PerfilBusqueda, pais, area, institucion,
@@ -128,6 +154,30 @@ def listar_areas(
     return bp.areas_sugeridas(db, perfil.codigos_riasec, f)
 
 
+@router.get("/familias", response_model=List[FamiliaContexto])
+def listar_familias(
+    db: DBSession = Depends(get_db),
+    user: User = Depends(get_current_user),
+):
+    """Las familias profesionales que ya le aconsejamos · el eje del catálogo.
+
+    Devuelve lista vacía para quien todavía no tiene perfil con familias (los
+    perfiles anteriores a `consolidate_v2` no las traen), y eso **no es un
+    error**: la pantalla cae al recorrido país → área, que es lo que había.
+
+    A diferencia de `/paises` y `/areas`, aquí NO se devuelve un conteo de
+    programas, y la omisión es deliberada: una familia no filtra el catálogo,
+    lo **ordena**. Todas tendrían el mismo número —el catálogo elegible
+    entero— y ese número parecería decir algo que no dice.
+    """
+    from app.services import familias_programas as fam
+
+    return [
+        FamiliaContexto(indice=i, **fam.contexto_de_familia(f))
+        for i, f in enumerate(fam.familias_del_usuario(db, user))
+    ]
+
+
 @router.get("/programas", response_model=Resultados)
 async def buscar_programas(
     pais: Optional[str] = None,
@@ -137,12 +187,19 @@ async def buscar_programas(
     # institución para mostrar su oferta real en vez de mandar al estudiante a
     # buscarla otra vez en otro sitio.
     program_id: Optional[str] = None,
+    # La familia profesional por la que está navegando · su posición en
+    # `/busqueda/familias`. Ordena el catálogo por parecido con ESE campo en vez
+    # de con el perfil entero, que es la diferencia entre "lo que te pega en
+    # general" y "lo que hay de esto que te aconsejamos".
+    familia: Optional[int] = Query(None, ge=0),
     limite: int = Query(20, ge=1, le=100),
     incluir_no_viables: bool = False,
     db: DBSession = Depends(get_db),
     user: User = Depends(get_current_user),
 ):
     """Paso 3 · los programas, ordenados por qué tanto le hablan a esta persona."""
+    from app.services import familias_programas as fam
+
     perfil = bp.perfil_del_usuario(db, user)
     f = _filtros(user, perfil, pais, area, institucion, incluir_no_viables,
                  program_id=program_id)
@@ -152,11 +209,40 @@ async def buscar_programas(
     # el orden semántico pero devuelve el mismo conjunto de programas elegibles.
     # Dejar a alguien sin catálogo porque una API externa no responde sería peor
     # que un orden alfabético.
-    vector = await bp.vector_del_perfil(db, perfil, user)
+    #
+    # Con `familia`, el vector es el de ESA familia y reemplaza al del perfil.
+    # No se promedian: el perfil ya está dentro de la familia (el modelo la
+    # escribió leyéndolo), y promediar aplanaría justo lo que distingue a una
+    # familia de las otras cuatro del mismo estudiante.
+    elegida = fam.familia_por_indice(db, user, familia) if familia is not None else None
+    vector_familia = None
+    if elegida:
+        vector_familia = await fam.vector_de_familia(db, user, familia,
+                                                     familia=elegida)
+
+    # `en_familia` mira el vector de la FAMILIA, no el que terminó ordenando.
+    # Si el proveedor se cayó y caímos al perfil, la cabecera NO puede seguir
+    # diciendo "programas de Salud y cuidado animal" sobre una lista que ya no
+    # está ordenada por eso: sería una promesa que la lista no cumple.
+    en_familia = vector_familia is not None
+
+    vector = vector_familia
+    if vector is None:
+        # Sin familia, con un índice que ya no existe, o con el proveedor caído:
+        # se cae al perfil. Nunca a una pantalla vacía.
+        vector = await bp.vector_del_perfil(db, perfil, user)
+        if elegida:
+            logger.info("familia sin vector · se ordena por perfil",
+                        extra={"user_id": str(user.id), "familia": familia})
 
     encontrados = bp.buscar(
         db, vector_perfil=vector, codigos_riasec=perfil.codigos_riasec,
         filtros=f, limite=limite,
+        # Navegando por familia, el refuerzo RIASEC se apaga: la familia ya es
+        # la señal estructurada, y el código global del estudiante le ganaba
+        # —medido— metiendo medicina humana dentro de "Salud y cuidado animal".
+        # `afinidad` se sigue reportando; sólo deja de pesar. Ver `bp.buscar`.
+        peso_afinidad=0.0 if en_familia else bp.PESO_AFINIDAD,
     )
     return Resultados(
         programas=[ProgramaEncontrado(**vars(x)) for x in encontrados],
@@ -164,4 +250,9 @@ async def buscar_programas(
         orden_semantico=vector is not None,
         uso_el_test=perfil.hizo_el_test,
         senales=perfil.senales,
+        modo=("familia" if en_familia
+              else "perfil" if vector is not None
+              else "abierta"),
+        familia=(FamiliaContexto(indice=familia, **fam.contexto_de_familia(elegida))
+                 if en_familia else None),
     )

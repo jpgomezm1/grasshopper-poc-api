@@ -350,12 +350,18 @@ _DESDE = ("programas_investigados pi "
           "LEFT JOIN programs p ON p.id = pi.program_id AND p.active")
 
 
-def _a_resultado(r, codigos_riasec: Sequence[str]) -> Resultado:
+def _a_resultado(r, codigos_riasec: Sequence[str],
+                 peso_afinidad: float = PESO_AFINIDAD) -> Resultado:
     """Una fila de Postgres a `Resultado`, con su puntaje.
 
     Está extraída porque la usan las dos vías —el ranking semántico y el listado
     paginado— y tenerla duplicada era la forma segura de que un día el puntaje
     se calculara distinto según por dónde entrara la consulta.
+
+    `peso_afinidad` se puede bajar a 0 para **no aplicar** el refuerzo RIASEC
+    sin dejar de reportarlo: `afinidad` sigue viajando al frontend, que es la
+    trazabilidad que un asesor necesita para explicar un resultado. Lo usa la
+    navegación por familia · ver `buscar`.
     """
     afin = areas_mod.afinidad(r["area"], codigos_riasec) if r["area"] else 0.0
     sim = float(r["sim"] or 0.0)
@@ -368,7 +374,7 @@ def _a_resultado(r, codigos_riasec: Sequence[str]) -> Resultado:
         confianza=r["confianza"],
         oferta_slug=r["oferta_slug"], oferta_nombre=r["oferta_nombre"],
         similitud=round(sim, 4), afinidad=round(afin, 3),
-        puntaje=round(sim + PESO_AFINIDAD * afin, 4),
+        puntaje=round(sim + peso_afinidad * afin, 4),
     )
 
 
@@ -378,6 +384,7 @@ def buscar(
     codigos_riasec: Sequence[str] = (),
     filtros: Optional[Filtros] = None,
     limite: int = 20,
+    peso_afinidad: float = PESO_AFINIDAD,
 ) -> List[Resultado]:
     """Programas para este estudiante, el más pertinente primero.
 
@@ -385,6 +392,32 @@ def buscar(
     funcionando**, sólo pierde el orden semántico. Que una API externa esté caída
     no puede dejar al estudiante sin catálogo — el mismo criterio que ya rige en
     el resto del producto, donde la IA cae a plantillas deterministas.
+
+    ## `peso_afinidad = 0` · cuando el vector YA es la señal estructurada
+
+    El refuerzo RIASEC existe para desempatar cuando las similitudes vienen
+    aplastadas en un rango de 0.15 (ver `PESO_AFINIDAD`). Navegando por una
+    familia profesional no se cumple ninguna de las dos cosas: las similitudes
+    se abren (0.51–0.63 medido) y la familia ya es una señal estructurada
+    fuerte. Aplicar encima el RIASEC global **cuenta dos veces a la persona y
+    le gana a la familia que ella eligió**. Medido el 2026-09-19 sobre la
+    familia "Salud y cuidado animal" de un perfil Social-dominante:
+
+        con refuerzo ... Animal and Veterinary Science · Veterinary Medicine ·
+                         Veterinary Technology · **Care, Health and Society** ·
+                         **BSc/MD Dual Degree** · **Medicine Academy**
+        sin refuerzo ... Animal and Veterinary Science · Veterinary Medicine ·
+                         Veterinary Medical Assistant · Veterinary Assistant ·
+                         Veterinary Technology · Pre-Veterinary Medicine
+
+    Tres de los seis primeros se volvían medicina HUMANA dentro de la familia
+    ANIMAL, porque el código Social del estudiante premia el área "Salud y
+    Medicina" (3ª de su lista) por encima de "Agricultura y Veterinaria", que
+    sólo es afín al código Realista y por tanto puntúa 0. Y es peor en las
+    familias marcadas "a explorar", que existen justamente para mirar fuera del
+    código dominante: reforzar por ese código empuja en contra de su propósito.
+
+    `afinidad` se sigue reportando · sólo deja de pesar.
     """
     f = filtros or Filtros()
     where, params = _where(f)
@@ -442,7 +475,7 @@ def buscar(
         ).mappings().all()
         filas.extend(sin_vector)
 
-    salida = [_a_resultado(r, codigos_riasec) for r in filas]
+    salida = [_a_resultado(r, codigos_riasec, peso_afinidad) for r in filas]
     salida.sort(key=lambda x: -x.puntaje)
     return salida[:limite]
 
@@ -581,6 +614,53 @@ def _texto_del_journal(db: Session, user) -> List[str]:
     return fuera
 
 
+def _rutas_del_perfil(datos: dict) -> List[str]:
+    """Los caminos profesionales del perfil · familias **y** sus oficios.
+
+    `suggested_career_paths` son los nombres de las familias y nada más:
+    "Salud y cuidado animal", "Producto digital". Como vocabulario para buscar
+    en un catálogo son pobres — ningún programa se llama así. Los oficios que
+    viven dentro de cada familia (`career_families[].careers`) sí se parecen a
+    los nombres reales: "Veterinaria", "Zootecnia", "Diseño de interacción".
+
+    Medir importa más que argumentar, pero el mecanismo es claro: el vector del
+    estudiante se construye con este texto (`embeddings.texto_de_perfil`) y se
+    compara contra el nombre del programa, su área y su glosa. Acercarlo al
+    vocabulario del catálogo es exactamente para lo que se escribió la glosa —
+    el mismo puente, desde el otro lado.
+
+    Las familias se generan desde `consolidate_v2` (2026-09-08); los perfiles
+    anteriores no las traen y caen a la lista suelta de siempre. El orden
+    conserva el del modelo (la primera familia es la de mayor calce) y se
+    deduplica sin distinguir mayúsculas, porque el nombre de la familia suele
+    repetirse dentro de sus propios oficios.
+    """
+    fuera: List[str] = []
+    vistos: set = set()
+
+    def _sumar(valor) -> None:
+        texto = str(valor or "").strip()
+        if texto and texto.lower() not in vistos:
+            vistos.add(texto.lower())
+            fuera.append(texto)
+
+    for familia in (datos.get("career_families") or []):
+        if not isinstance(familia, dict):
+            continue
+        _sumar(familia.get("name"))
+        for oficio in (familia.get("careers") or []):
+            _sumar(oficio)
+
+    # Siempre, no sólo como fallback: `suggested_career_paths` debería ser el
+    # espejo de los `name` (lo exige el prompt), pero si un perfil viejo o una
+    # respuesta incompleta lo desalinea, perder un camino es peor que repetirlo
+    # — y el dedupe de arriba se encarga de que repetirlo no cueste nada.
+    for ruta in (datos.get("suggested_career_paths") or []):
+        _sumar(ruta)
+
+    return fuera
+
+
 def perfil_del_usuario(db: Session, user) -> PerfilBusqueda:
     """Arma el perfil de búsqueda desde lo que el estudiante ya dejó.
 
@@ -624,7 +704,7 @@ def perfil_del_usuario(db: Session, user) -> PerfilBusqueda:
                 ) if c
             ]
             p.intereses = [str(x) for x in (datos.get("interests") or [])]
-            p.rutas = [str(x) for x in (datos.get("suggested_career_paths") or [])]
+            p.rutas = _rutas_del_perfil(datos)
             if p.codigos_riasec or p.intereses:
                 p.senales.append("tests")
     except Exception:  # pragma: no cover · defensivo

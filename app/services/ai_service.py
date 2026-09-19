@@ -193,6 +193,58 @@ _INTL_INTEREST_LABELS = {
     "intl_no": "No, quiere enfocarse localmente",
 }
 
+#: Lo que la persona contó en texto libre sobre su momento escolar o laboral.
+#
+# Estas trece respuestas se guardaban en `onboarding_answers` y **no las leía
+# nadie**: es el defecto #1 de este repo ("escribir un campo que nadie lee") otra
+# vez, y a escala. Diez vienen del onboarding por grado (`onboarding_hechos.py`)
+# y tres de la ruta del adulto (`adult_track_hechos.py`).
+#
+# El caso que más duele es `g11_carreras_en_mente`: la persona escribe qué
+# carreras tiene en mente y el recomendador nunca las veía. Igual de grave del
+# otro lado, `career_target_role` — a quien ya trabaja se le pregunta a dónde
+# quiere llegar y esa respuesta sólo volvía a su propia pantalla.
+#
+# Va como tabla y no como trece `_add` sueltos para que conectar un hecho nuevo
+# sea agregar una fila, y para que `test_onboarding_llega_al_prompt` pueda
+# recorrerla y fallar cuando alguien agregue un `onboarding_key` sin decidir si
+# va al prompt. El orden es el de la conversación.
+_ONBOARDING_RELATO = (
+    ("g9_materias_favoritas", "Materias favoritas del colegio"),
+    ("g9_idolos", "A quién admira o a quién le gustaría parecerse"),
+    ("g10_materias_elegir", "Materias que profundizaría si pudiera elegir"),
+    ("g10_que_lo_pone_nervioso", "Qué le pone nervioso de ir decidiendo su futuro"),
+    ("g11_carreras_en_mente", "Carreras que tiene en mente hoy, aunque sin certeza"),
+    ("g11_psat_sat", "PSAT/SAT · si ya lo presentó y cómo se siente con eso"),
+    ("g11_visitas_universidades", "Universidades que ya visitó o está mirando"),
+    ("g12_ya_aplico", "Si ya aplicó a alguna universidad"),
+    ("g12_puntajes", "Puntajes que ya tiene"),
+    ("colegio_ap_ib_detalle", "Cursos AP/IB que está tomando"),
+    ("career_current_role", "Su rol actual"),
+    ("career_job_satisfaction_text", "Por qué califica así su satisfacción laboral"),
+    ("career_target_role", "El rol al que quiere llegar"),
+)
+
+#: Claves del onboarding que a propósito NO viajan en este bloque, y por qué.
+#
+# El test de completitud exige que cada `onboarding_key` del catálogo esté o en
+# `_ONBOARDING_RELATO`, o renderizada a mano más abajo, o aquí. Sin esta tercera
+# lista el test obligaría a meter todo al prompt, que tampoco es lo correcto:
+# hay datos que ya viajan por otro camino y repetirlos sólo gasta tokens.
+ONBOARDING_FUERA_DEL_PROMPT = {
+    # Ya viajan por `_format_demographic_block` o por columnas de `User`.
+    "life_stage", "birthdate", "grade", "school_reported_last_grade",
+    "school_reported_accreditation", "countries", "budget",
+    # Dato comercial del asesor (¿tiene pasaporte vigente?), no vocacional:
+    # no cambia qué programa le calza a la persona.
+    "passport",
+    # Lo lee `journey_service` directamente para adaptar el journey.
+    "timeline",
+    # El texto del perfil de LinkedIn se analiza en `career_gap_service` con su
+    # propio prompt; volcarlo crudo aquí inflaría todos los prompts del journey.
+    "career_linkedin_profile_text",
+}
+
 # Reunión clienta 2026-08-24 · JR-7 conectó las actividades extracurriculares
 # al PERFIL CONSOLIDADO (`consolidation_service`), pero los pasos IA del
 # journey (reflection/synthesis/routes, esta función) son un pipeline
@@ -333,6 +385,21 @@ def format_onboarding_context(
     area = _STUDY_AREA_LABELS.get(onboarding.get("study_area"))
     if area:
         lines.append(f"- Área de estudio que le interesa continuar: {area}")
+
+    # Lo que contó de su momento escolar o laboral · ver `_ONBOARDING_RELATO`.
+    # Pasa por `_add`, así que hereda el tope de 600 caracteres y el saneo de
+    # llaves que ya protegen a las respuestas de voz.
+    for clave, etiqueta in _ONBOARDING_RELATO:
+        _add(etiqueta, onboarding.get(clave))
+
+    # La satisfacción laboral va aparte porque es un entero 1-5 y `_add` espera
+    # texto. La escala se escribe explícita: un "3" suelto el modelo lo puede
+    # leer como 3/10 y concluir que la persona está mucho peor de lo que dijo.
+    satisfaccion = onboarding.get("career_job_satisfaction_score")
+    if isinstance(satisfaccion, int) and 1 <= satisfaccion <= 5:
+        lines.append(
+            f"- Satisfacción con su trabajo actual: {satisfaccion} de 5"
+        )
 
     # JR-7 (extendido a este pipeline) · logros y actividades fuera del aula.
     # Se citan aparte de las líneas de arriba (no con `_add`, que espera un

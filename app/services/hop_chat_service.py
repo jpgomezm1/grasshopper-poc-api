@@ -120,15 +120,14 @@ def _build_journey_block(db: DBSession, user: User) -> str:
     """
     parts: List[str] = []
 
-    # Auditoría R5 · misma sesión canónica que el resto de endpoints (la más
-    # antigua): si un race dejó duplicadas, el chat no debe leer OTRA sesión
-    # distinta a la que el front está usando.
-    session = (
-        db.query(Session)
-        .filter(Session.user_id == user.id)
-        .order_by(Session.created_at.asc())
-        .first()
-    )
+    # Auditoría R5 · misma sesión canónica que el resto de endpoints: si un race
+    # dejó duplicadas, el chat no debe leer OTRA sesión distinta a la que el
+    # front está usando. La regla vive en un solo sitio desde 2026-09-18 — este
+    # archivo la cumplía y el perfil consolidado no, que es como Mento terminaba
+    # hablando de un journey distinto del que alimentó su propio perfil.
+    from app.services.sesion_canonica import sesion_canonica
+
+    session = sesion_canonica(db, user.id)
     if session is not None:
         stage = getattr(session.current_stage, "value", session.current_stage)
         estado = "completado" if session.is_completed else f"en curso (etapa: {stage})"

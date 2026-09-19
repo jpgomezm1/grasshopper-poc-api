@@ -229,16 +229,20 @@ def score_students_for_school(
         .all()
     )
 
-    # Sessions per user · take latest one for journey progress
+    # La sesión canónica de cada uno · la más antigua CON respuestas, misma
+    # regla que `services/sesion_canonica.py` y que el CRM. El avance del
+    # journey pesa 30 de los 100 puntos de este score, así que elegir mal la
+    # sesión no descuadra un dato de pantalla: mueve el lead de banda.
     sessions_by_user: dict[UUID, JourneySession] = {}
     sessions = (
         db.query(JourneySession)
         .filter(JourneySession.user_id.in_(user_ids))
-        .order_by(JourneySession.updated_at.desc())
+        .order_by(JourneySession.created_at.asc(), JourneySession.id.asc())
         .all()
     )
     for s in sessions:
-        if s.user_id not in sessions_by_user:
+        previa = sessions_by_user.get(s.user_id)
+        if previa is None or (not previa.answers and s.answers):
             sessions_by_user[s.user_id] = s
 
     rows: List[StudentLeadScore] = []

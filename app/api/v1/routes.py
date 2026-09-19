@@ -134,6 +134,7 @@ def generate_routes_for_session(
     salen del journey y no aportarían nada nuevo.
     """
     from app.services.ai_service import generate_routes
+    from app.services.journey_service import _owner_activities
     from app.services.recommendation_service import user_has_tests
     from app.services.test_interpretation_service import format_tests_for_prompt
 
@@ -153,6 +154,13 @@ def generate_routes_for_session(
         user_id=current_user.id,
         onboarding=current_user.onboarding_answers or {},
         tests_block=tests_block,
+        # JR-7 · sus logros fuera del aula. El camino del journey
+        # (`journey_service`, línea 481) ya los pasaba; este endpoint no, así
+        # que las rutas salían distintas según por dónde se hubieran pedido —
+        # y justo por aquí entra quien abandonó el journey a mitad, que es el
+        # caso que pidió la clienta. "Capitana del equipo de vóleibol" volvía a
+        # perderse exactamente donde ella dijo que se perdía.
+        activities=_owner_activities(db, session),
     )
 
     # Se reemplazan las rutas previas de esta sesión: son la versión sin tests

@@ -20,13 +20,19 @@ from types import SimpleNamespace
 from unittest.mock import MagicMock
 
 
+# Los dobles responden `.first()` Y `.all()`. La elección de sesión se unificó
+# en `services/sesion_canonica.py` (2026-09-18) y consulta con `.all()`; un
+# doble que sólo contestaba `.first()` seguía devolviendo un MagicMock feliz en
+# vez de "no hay sesión", y el test pasaba sin ejercitar nada. Es el error #2
+# del `backend/CLAUDE.md`, y por eso ahora se cubren las dos formas.
 def _mock_db_no_session():
-    """Return a db stub where `.query().filter().order_by().first()` returns None."""
+    """db stub sin ninguna sesión de journey."""
     db = MagicMock()
     chain = db.query.return_value
     chain.filter.return_value = chain
     chain.order_by.return_value = chain
     chain.first.return_value = None
+    chain.all.return_value = []
     return db
 
 
@@ -36,7 +42,9 @@ def _mock_db_with_session(answers):
     chain = db.query.return_value
     chain.filter.return_value = chain
     chain.order_by.return_value = chain
-    chain.first.return_value = SimpleNamespace(answers=answers)
+    sesion = SimpleNamespace(answers=answers)
+    chain.first.return_value = sesion
+    chain.all.return_value = [sesion]
     return db
 
 
@@ -113,7 +121,9 @@ def _mock_db_aspirations(session_answers, profile_data=None):
     sess_chain = MagicMock()
     sess_chain.filter.return_value = sess_chain
     sess_chain.order_by.return_value = sess_chain
-    sess_chain.first.return_value = SimpleNamespace(answers=session_answers)
+    _sesion = SimpleNamespace(answers=session_answers)
+    sess_chain.first.return_value = _sesion
+    sess_chain.all.return_value = [_sesion]
     # query for ConsolidatedProfileCache
     cache_chain = MagicMock()
     cache_chain.filter.return_value = cache_chain
@@ -147,7 +157,12 @@ def test_aspirations_falls_back_to_onboarding_keys_when_no_journey():
     """B-017 · if the student only did onboarding (no journey), fall back to onboarding aspirations."""
     from app.services.dossier_service import _build_aspirations
 
-    student = _user(onboarding_answers={"dreamCareer": "Doctor sin fronteras"})
+    # ⚠️ Este test decía `dreamCareer`, y ESA es la razón por la que la llave
+    # muerta sobrevivió tanto: el dossier la leía, el test la cubría… y ninguna
+    # pregunta del producto la escribía jamás. Un valor inventado en un test no
+    # demuestra que el dato exista. Ahora se usan las llaves que el onboarding
+    # por grado SÍ guarda (`onboarding_hechos.py`).
+    student = _user(onboarding_answers={"g11_carreras_en_mente": "Doctor sin fronteras"})
     db = _mock_db_aspirations(session_answers={})  # no journey data
     aspirations, _, _ = _build_aspirations(db, student)
     assert "Doctor sin fronteras" in aspirations.declared
@@ -157,7 +172,7 @@ def test_aspirations_journey_overrides_onboarding():
     """B-017 · journey answer should be present even if onboarding had old aspiration data."""
     from app.services.dossier_service import _build_aspirations
 
-    student = _user(onboarding_answers={"dreamCareer": "Old answer"})
+    student = _user(onboarding_answers={"g11_carreras_en_mente": "Old answer"})
     db = _mock_db_aspirations(
         session_answers={"declaredAspirations": "New journey answer"}
     )

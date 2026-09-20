@@ -1256,17 +1256,15 @@ async def _sin_bloquear(fn, *args, **kwargs):
     event loop entero**: mientras una petición espera a Neon, todas las demás
     del servidor se quedan congeladas, incluidas las que no tienen nada que ver.
 
-    Medido el 2026-09-20 contra este mismo endpoint, antes del arreglo:
+    Medido contra `/busqueda/explorar` con 8 peticiones simultáneas: **16,3 s
+    cuando el endpoint era `async`, 4,1 s siendo `def`**, y `/health` pasó de
+    tardar 14.199 ms durante la carga a responder en 4 ms. La tabla completa y
+    el rastrillo con el que tropecé al medirlo —`pkill` no existe en Git Bash
+    sobre Windows y fallaba en silencio— están en `api/v1/busqueda.py`.
 
-        1 petición simultánea ....  2,2 s
-        2 ........................  5,3 s
-        4 ........................  7,9 s
-        8 ........................ 15,8 s
-
-    Crecimiento lineal perfecto, que es la firma de la serialización. Con un
-    solo dyno en Heroku eso significa que ocho estudiantes navegando a la vez se
-    esperan unos a otros — y que una sola pantalla que dispare siete llamadas se
-    autobloquea.
+    Esta función se queda porque `buscar_con_texto` sigue siendo corrutina: la
+    llama `asyncio.run` desde el hilo del endpoint, y dentro de ella sí conviene
+    sacar las consultas del loop que ese `asyncio.run` acaba de crear.
 
     `run_in_threadpool` las manda al pool de hilos que FastAPI ya usa para los
     endpoints `def` normales. La sesión de SQLAlchemy se sigue usando desde un

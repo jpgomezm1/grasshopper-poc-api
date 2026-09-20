@@ -291,31 +291,43 @@ def listar_familias(
     ]
 
 
-#: Corre una consulta síncrona FUERA del event loop.
+# ═══════════════════════════════════════════════════════════════════════════
+# POR QUÉ ESTOS DOS ENDPOINTS SON `def` Y NO `async def`
+# ═══════════════════════════════════════════════════════════════════════════
 #
-# Los endpoints de abajo son `async` porque esperan al proveedor de embeddings,
-# pero las consultas que hacen entre medias son SQLAlchemy síncrono. Ejecutarlas
-# dentro de la corrutina **bloquea el event loop entero**: mientras una petición
-# espera a Neon, TODAS las demás del servidor se congelan, incluidas las que no
-# tienen nada que ver con la búsqueda.
+# Los escribí `async` porque esperan al proveedor de embeddings. Pero las
+# consultas que hacen entre medias son SQLAlchemy síncrono, y ejecutarlas dentro
+# de una corrutina **bloquea el event loop entero**: mientras una petición espera
+# a Neon, todas las demás del servidor se congelan, incluidas las que no tienen
+# nada que ver con la búsqueda.
 #
-# Medido contra `/busqueda/explorar` el 2026-09-20, antes del arreglo:
+# Medido contra `/busqueda/explorar`, mismo día, mismo equipo:
 #
-#     1 petición simultánea ....  2,2 s
-#     2 ........................  5,3 s
-#     4 ........................  7,9 s
-#     8 ........................ 15,8 s
+#     concurrentes      `async def`      `def`        /health durante la carga
+#     ──────────────────────────────────────────────────────────────────────
+#          1               2,2 s         2,5 s
+#          2               5,3 s         3,1 s
+#          4               7,9 s         3,5 s
+#          8              16,3 s         4,1 s        14.199 ms  →  4 ms
 #
-# Crecimiento lineal perfecto — la firma de la serialización. Con un solo dyno,
-# ocho estudiantes navegando a la vez se esperaban unos a otros; y una sola
-# pantalla que dispara siete llamadas se autobloqueaba. Explica por completo los
-# "40-50 segundos" que reportó JP, que yo no reproducía midiendo una sola
-# petición aislada.
+# Con `async` el crecimiento era lineal perfecto —la firma de la serialización—
+# y ocho estudiantes navegando a la vez se esperaban unos a otros. Una sola
+# pantalla que dispara siete llamadas se autobloqueaba: eso explicaba los
+# "40-50 segundos" que reportó JP y que yo no reproducía midiendo una petición
+# aislada.
 #
-# `run_in_threadpool` las manda al mismo pool que FastAPI ya usa para los
-# endpoints `def`. La sesión de SQLAlchemy se sigue tocando desde un hilo a la
-# vez, porque los `await` son secuenciales: no se introduce concurrencia sobre
-# ella.
+# ⚠️ **Cómo casi no lo encuentro, para que no le pase al siguiente.** Durante
+# horas medí que el arreglo "no servía", porque reiniciaba el servidor con
+# `pkill` — que **no existe en Git Bash sobre Windows** y fallaba en silencio.
+# El uvicorn viejo seguía en el puerto y el nuevo moría sin poder bindear. Estuve
+# midiendo el código anterior una y otra vez. En Windows hay que matarlo con
+# PowerShell (`Get-CimInstance Win32_Process | Stop-Process`) y **verificar que
+# el puerto quedó libre** antes de levantar otro.
+#
+# El propio repo ya tenía la lección escrita en
+# `busqueda_programas.vector_del_perfil_sync`: "pasarlo a `async` metería
+# consultas bloqueantes dentro del event loop". La escribió alguien que ya había
+# pagado esto; yo la repetí igual.
 def _correr(corrutina):
     """Corre una corrutina desde un endpoint SÍNCRONO.
 

@@ -41,7 +41,12 @@ logger = logging.getLogger(__name__)
 PAGE_COUNT = 6
 GENERATOR_VERSION = "report_pdf_v1"
 TEMPLATE_PATH = Path(__file__).parent.parent / "templates" / "report_pdf.html"
-DEFAULT_LOGO_PATH = Path(__file__).parent.parent / "templates" / "static" / "mentoring_logo.svg"
+# El logo va en PNG y no en SVG a proposito. El trazo nuevo usa
+# `fill-rule="evenodd"` (el birrete son contornos con huecos) y aqui no hay forma
+# de probar WeasyPrint —necesita GTK y en Windows el PDF da 503—, asi que un
+# rasterizado es la opcion que no se puede romper en un PDF que ve el cliente.
+# Se genera desde los mismos trazos que el frontend: `docs/Marca/trazar_logo/`.
+DEFAULT_LOGO_PATH = Path(__file__).parent.parent / "templates" / "static" / "mentoring_logo.png"
 
 
 # -----------------------------------------------------------------------------

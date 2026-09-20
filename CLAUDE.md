@@ -121,6 +121,13 @@ El producto se llama **Mentoring**. Manual en `docs/Marca/` (un nivel arriba del
   es **Mento**. Los prompts ahora le dicen su nombre; antes le prohibían tener uno.
 - El dominio de los correos (`hola@grasshopper.co`) **no cambió**: sólo el nombre visible
   del remitente. Está pendiente con el cliente.
+- **El logo tiene símbolo** (un birrete sobre un círculo, en cuadrado naranja) desde que se
+  vectorizó del original el 2026-09-20. El backend sí lo pinta: la portada de `report_pdf.html`
+  usa `app/templates/static/mentoring_logo.png` (`DEFAULT_LOGO_PATH` en `pdf_service.py`).
+  **Va en PNG y no en SVG a propósito** — el trazo usa `fill-rule="evenodd"` y aquí no hay
+  forma de probar WeasyPrint. Se regenera desde `docs/Marca/trazar_logo/`, no se redibuja.
+  En la portada va la **insignia sola**, no el lockup: la banda ya imprime la palabra
+  "Mentoring" al lado y el lockup la diría dos veces.
 
 ---
 

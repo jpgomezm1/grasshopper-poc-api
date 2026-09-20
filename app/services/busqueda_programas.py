@@ -803,6 +803,7 @@ async def vector_del_perfil(db: Session, perfil: PerfilBusqueda,
 
         try:
             crudo = "[" + ",".join(f"{x:.6f}" for x in vector) + "]"
+
             propia.execute(text(
                 "INSERT INTO perfil_vectores (user_id, firma, actualizado, embedding)"
                 " VALUES (:u, :f, now(), :v)"
@@ -944,6 +945,7 @@ def buscar_pagina(
     pagina: int = 1,
     por_pagina: int = 24,
     orden: str = "relevancia",
+    peso_afinidad: float = PESO_AFINIDAD,
 ) -> dict:
     """Una página de resultados, con el total real y hasta dónde llega el orden.
 
@@ -967,7 +969,7 @@ def buscar_pagina(
     if semantico:
         ventana = buscar(db, vector_perfil=vector_perfil,
                          codigos_riasec=codigos_riasec, filtros=f,
-                         limite=VENTANA_RANKING)
+                         limite=VENTANA_RANKING, peso_afinidad=peso_afinidad)
         pagina_items = ventana[desde:desde + por_pagina]
         alcance = len(ventana)
     else:
@@ -983,7 +985,8 @@ def buscar_pagina(
                  f"WHERE {where} ORDER BY {orden_sql} LIMIT :n OFFSET :off"),
             params,
         ).mappings().all()
-        pagina_items = [_a_resultado(r, codigos_riasec) for r in filas]
+        pagina_items = [_a_resultado(r, codigos_riasec, peso_afinidad)
+                        for r in filas]
         alcance = total
 
     # Las páginas que de verdad devuelven algo. En modo relevancia el orden sólo
@@ -1168,6 +1171,39 @@ def mezclar_por_concepto(listas: List[List[Resultado]], limite: int) -> List[Res
     return salida
 
 
+async def _sin_bloquear(fn, *args, **kwargs):
+    """Corre una consulta síncrona FUERA del event loop.
+
+    ## Por qué existe
+
+    `buscar_con_texto` es `async` porque necesita esperar al proveedor de
+    embeddings. Pero las consultas que hace entre medias son SQLAlchemy
+    síncrono, y ejecutarlas directamente dentro de una corrutina **bloquea el
+    event loop entero**: mientras una petición espera a Neon, todas las demás
+    del servidor se quedan congeladas, incluidas las que no tienen nada que ver.
+
+    Medido el 2026-09-20 contra este mismo endpoint, antes del arreglo:
+
+        1 petición simultánea ....  2,2 s
+        2 ........................  5,3 s
+        4 ........................  7,9 s
+        8 ........................ 15,8 s
+
+    Crecimiento lineal perfecto, que es la firma de la serialización. Con un
+    solo dyno en Heroku eso significa que ocho estudiantes navegando a la vez se
+    esperan unos a otros — y que una sola pantalla que dispare siete llamadas se
+    autobloquea.
+
+    `run_in_threadpool` las manda al pool de hilos que FastAPI ya usa para los
+    endpoints `def` normales. La sesión de SQLAlchemy se sigue usando desde un
+    hilo a la vez (los `await` son secuenciales), así que no se introduce
+    concurrencia sobre ella.
+    """
+    from starlette.concurrency import run_in_threadpool
+
+    return await run_in_threadpool(fn, *args, **kwargs)
+
+
 async def buscar_con_texto(
     db: Session,
     consulta: str,
@@ -1199,7 +1235,7 @@ async def buscar_con_texto(
     f = filtros or Filtros()
     texto = (consulta or "").strip()
     if not texto:
-        return {**buscar_pagina(db, vector_perfil, codigos_riasec, f,
+        return {**await _sin_bloquear(buscar_pagina, db, vector_perfil, codigos_riasec, f,
                                 pagina, por_pagina),
                 "interpretacion": None}
 
@@ -1227,7 +1263,8 @@ async def buscar_con_texto(
         # Sin conceptos no hay nada que buscar por texto: se cae al perfil, que
         # es la mejor señal disponible. Pasa con "hola" y con "no sé qué quiero
         # estudiar" — y en el segundo caso el perfil es justo lo que hace falta.
-        r = buscar_pagina(db, vector_perfil, codigos_riasec, f, pagina, por_pagina)
+        r = await _sin_bloquear(buscar_pagina, db, vector_perfil, codigos_riasec, f,
+                                pagina, por_pagina)
     else:
         listas = []
         for c in interp.conceptos:
@@ -1236,14 +1273,16 @@ async def buscar_con_texto(
             except Exception:
                 logger.warning("no se pudo embeber el concepto %r", c, exc_info=True)
                 continue
-            listas.append(buscar(db, vector_perfil=vc, codigos_riasec=codigos_riasec,
+            listas.append(await _sin_bloquear(
+                buscar, db, vector_perfil=vc, codigos_riasec=codigos_riasec,
                                  filtros=f, limite=VENTANA_RANKING))
         if not listas:
-            r = buscar_pagina(db, vector_perfil, codigos_riasec, f, pagina, por_pagina)
+            r = await _sin_bloquear(buscar_pagina, db, vector_perfil, codigos_riasec, f,
+                                pagina, por_pagina)
         else:
             ventana = mezclar_por_concepto(listas, limite=VENTANA_RANKING)
             desde = (max(1, pagina) - 1) * por_pagina
-            total = contar(db, f)
+            total = await _sin_bloquear(contar, db, f)
             alcanzable = min(total, len(ventana))
             mejor = max((x.similitud for x in ventana), default=0.0)
             r = {

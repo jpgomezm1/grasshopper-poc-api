@@ -843,3 +843,70 @@ def test_primer_mensaje_es_el_saludo_fijo():
     """No lo genera el modelo: sería distinto en cada sesión y la clienta
     revisa el copy."""
     assert conv.primer_mensaje() == conv.SALUDO
+
+
+# ---------------------------------------------------------------------------
+# El saludo consulta lo que ya sabemos · 2026-09-19
+# ---------------------------------------------------------------------------
+#
+# `GET /onboarding-chat/inicio` calculaba los hechos conocidos y despues abria
+# igual con `SALUDO`, que pregunta la etapa. O sea: leia el dato y lo tiraba,
+# con el dato a dos lineas de distancia. Le pasaba a cualquiera que dejara la
+# conversacion a medias y volviera —lo normal en alguien de 16 años— y a quien
+# venia del formulario viejo: Mento abria preguntandole algo que ya le habia
+# contestado, que es la forma mas rapida de que alguien deje de creer que lo
+# estas escuchando.
+
+
+def test_sin_saber_nada_abre_pidiendo_la_etapa():
+    """El caso de siempre · no se toca."""
+    assert conv.primer_mensaje() == conv.SALUDO
+    assert conv.primer_mensaje({}) == conv.SALUDO
+    assert conv.primer_mensaje({"life_stage": ""}) == conv.SALUDO
+
+
+def test_si_ya_sabe_la_etapa_NO_la_vuelve_a_preguntar():
+    """El bug, en una linea."""
+    saludo = conv.primer_mensaje({"life_stage": "high_school", "grade": 11})
+    assert "¿en qué etapa estás hoy?" not in saludo
+    assert saludo != conv.SALUDO
+
+
+def test_retoma_por_lo_primero_que_falta():
+    """Y pregunta algo util, no un relleno · el orden lo decide `faltantes`."""
+    from app.data import onboarding_hechos as cat
+
+    conocidos = {"life_stage": "high_school", "grade": 11,
+                 "voice_passion": "los animales"}
+    esperado = cat.get_hecho(cat.faltantes(conocidos)[0]).pregunta_typeform
+    assert esperado in conv.primer_mensaje(conocidos)
+
+
+def test_cuando_no_falta_nada_no_inventa_una_pregunta():
+    """Llenar el turno con una pregunta de mas es lo que hacia insoportable al
+    formulario viejo."""
+    from app.data import onboarding_hechos as cat
+
+    completo = {h.id: "algo" for h in cat.HECHOS}
+    assert conv.primer_mensaje(completo) == conv.SALUDO_COMPLETO
+
+
+def test_las_tres_variantes_siguen_siendo_texto_fijo():
+    """La razon original para no generarlo sigue en pie: la clienta revisa el
+    copy y no puede cambiar en cada sesion."""
+    for texto in (conv.SALUDO, conv.SALUDO_RETOMA, conv.SALUDO_COMPLETO):
+        assert isinstance(texto, str) and texto.strip()
+        assert "Mento" in texto
+        for viejo in ("Hop", "hop"):
+            assert viejo not in texto
+
+
+def test_el_endpoint_le_pasa_los_hechos_al_saludo():
+    """La punta que faltaba: la funcion podia estar perfecta y el endpoint
+    seguir llamandola sin argumentos."""
+    import inspect
+
+    from app.api.v1 import onboarding_chat
+
+    fuente = inspect.getsource(onboarding_chat.inicio)
+    assert "primer_mensaje(hechos)" in fuente

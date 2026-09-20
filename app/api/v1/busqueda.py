@@ -107,6 +107,10 @@ class ProgramaDetalle(BaseModel):
     ficha: Optional[dict] = None
     #: Si el área le habla a los códigos RIASEC de esta persona.
     area_afin: bool = False
+    #: Qué más se estudia en esta institución · ordenado por lo que le encaja.
+    otros_de_la_institucion: List[ProgramaEncontrado] = []
+    #: El mismo campo, en otras instituciones · "¿dónde más puedo estudiar esto?"
+    donde_mas: List[ProgramaEncontrado] = []
 
 
 class FamiliaContexto(BaseModel):
@@ -476,6 +480,22 @@ def detalle_de_programa(
                      "ciudad": p.city}
 
     perfil = bp.perfil_del_usuario(db, user)
+
+    # Las dos preguntas que siguen a "me gusta este programa". Los datos ya
+    # estaban en la base; lo único que faltaba era preguntárselos. Cada bloque
+    # cae solo si falla: un detalle sin vecinos sigue siendo un detalle.
+    try:
+        otros = bp.otros_de_la_institucion(
+            db, str(fila.id), fila.institucion, perfil.codigos_riasec)
+    except Exception:
+        logger.warning("no se pudo listar el resto de la institución", exc_info=True)
+        otros = []
+    try:
+        donde_mas = bp.donde_mas_esta(db, str(fila.id), fila.institucion)
+    except Exception:
+        logger.warning("no se pudo buscar dónde más está este programa", exc_info=True)
+        donde_mas = []
+
     return ProgramaDetalle(
         id=str(fila.id), nombre=fila.nombre, institucion=fila.institucion,
         pais=fila.pais, ciudad=fila.ciudad, nivel=fila.nivel, area=fila.area,
@@ -487,6 +507,8 @@ def detalle_de_programa(
         ficha=ficha,
         area_afin=bool(fila.area and perfil.codigos_riasec
                        and areas_mod.afinidad(fila.area, perfil.codigos_riasec) > 0),
+        otros_de_la_institucion=[ProgramaEncontrado(**vars(x)) for x in otros],
+        donde_mas=[ProgramaEncontrado(**vars(x)) for x in donde_mas],
     )
 
 

@@ -661,6 +661,80 @@ def _rutas_del_perfil(datos: dict) -> List[str]:
     return fuera
 
 
+#: Cuántos programas se sugieren en cada bloque del detalle.
+VECINOS = 6
+
+
+def otros_de_la_institucion(db: Session, programa_id: str, institucion: str,
+                            codigos_riasec: Sequence[str] = (),
+                            limite: int = VECINOS) -> List[Resultado]:
+    """Qué más se estudia en esta institución · ordenado por lo que le encaja.
+
+    Es la pregunta que sigue naturalmente a "me gusta este programa", y la
+    respuesta ya estaba en la base: 33.552 programas agrupados por institución.
+    Sin esto, el estudiante que encontró Veterinaria en la UCAM tenía que volver
+    al buscador y escribir el nombre de la universidad para ver qué más había.
+
+    ## Por qué se ordena por parecido y no por afinidad RIASEC
+
+    La primera versión ordenaba por afinidad con sus códigos Holland, y salió
+    mal de una forma instructiva: a alguien mirando *Animal and Veterinary
+    Science* en Wyoming le ofrecía **Dental Hygiene** y **Dietetics**. Todas son
+    "Salud y Medicina", todas empatan en 1.7, y el desempate acababa siendo el
+    orden alfabético — o sea, ruido con cara de criterio.
+
+    Ordenar por parecido con el programa que está viendo responde la pregunta
+    que de verdad se hizo: *"me interesa esto — ¿qué más de esto hay aquí?"*.
+    El perfil ya ordenó la búsqueda que lo trajo hasta aquí; repetirlo en este
+    bloque no aporta y sí estorba.
+
+    Si el programa no tiene embedding se cae al orden alfabético, que es pobre
+    pero honesto.
+    """
+    filas = db.execute(text(
+        f"SELECT {_COLUMNAS}, "
+        f"       coalesce(1 - (pi.embedding <=> base.embedding), 0.0) AS sim "
+        f"  FROM {_DESDE} "
+        f"  LEFT JOIN (SELECT embedding FROM programas_investigados "
+        f"              WHERE id = CAST(:id AS uuid)) AS base ON true "
+        f" WHERE pi.activo AND pi.institucion = :inst "
+        f"   AND pi.id <> CAST(:id AS uuid) "
+        f" ORDER BY sim DESC NULLS LAST, pi.nombre LIMIT :n"
+    ), {"inst": institucion, "id": programa_id, "n": limite}).mappings().all()
+
+    return [_a_resultado(r, codigos_riasec, peso_afinidad=0.0) for r in filas]
+
+
+def donde_mas_esta(db: Session, programa_id: str, institucion: str,
+                   limite: int = VECINOS) -> List[Resultado]:
+    """El MISMO campo de estudio, en otras instituciones.
+
+    "¿Dónde más puedo estudiar esto?" es la otra pregunta obvia, y es la que
+    convierte un catálogo en una herramienta de decisión: ver que Medicina
+    Veterinaria existe en seis sitios más, con sus países, es justo lo que
+    permite comparar sin que nosotros inventemos una comparación.
+
+    Se resuelve con el embedding **del programa**, no con el del estudiante: lo
+    que se busca aquí es parecido entre programas. Se excluye la institución de
+    origen para que los seis resultados aporten algo nuevo; repetir la misma
+    universidad sería contestar otra pregunta.
+
+    Devuelve `[]` si el programa no tiene embedding · la pantalla simplemente
+    no pinta el bloque.
+    """
+    filas = db.execute(text(
+        f"SELECT {_COLUMNAS}, 1 - (pi.embedding <=> base.embedding) AS sim "
+        f"  FROM {_DESDE}, "
+        f"       (SELECT embedding FROM programas_investigados "
+        f"         WHERE id = CAST(:id AS uuid)) AS base "
+        f" WHERE pi.activo AND base.embedding IS NOT NULL "
+        f"   AND pi.embedding IS NOT NULL "
+        f"   AND pi.institucion <> :inst "
+        f" ORDER BY pi.embedding <=> base.embedding LIMIT :n"
+    ), {"id": programa_id, "inst": institucion, "n": limite}).mappings().all()
+    return [_a_resultado(r, (), peso_afinidad=0.0) for r in filas]
+
+
 def perfil_del_usuario(db: Session, user) -> PerfilBusqueda:
     """Arma el perfil de búsqueda desde lo que el estudiante ya dejó.
 

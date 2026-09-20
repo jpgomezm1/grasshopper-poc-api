@@ -127,7 +127,9 @@ def inicio(
 
     hechos = _hechos_del_usuario(user)
     return InicioResponse(
-        respuesta=conv.primer_mensaje(),
+        # Los hechos VAN al saludo. Calcularlos aquí y abrir igualmente
+        # preguntando la etapa —que es lo que hacía— es leer un dato y tirarlo.
+        respuesta=conv.primer_mensaje(hechos),
         recolectado=hechos,
         listo=cat.listo_para_cerrar(hechos),
     )

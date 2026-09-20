@@ -220,14 +220,53 @@ def _bloque_cierre(recolectados: Dict[str, Any], pendientes: List[str]) -> str:
     )
 
 
-def primer_mensaje() -> str:
+#: Con qué abre cuando ya sabemos algo de la persona.
+#
+# Antes NO existía: `primer_mensaje()` devolvía siempre `SALUDO`, que pregunta
+# la etapa, aunque `GET /onboarding-chat/inicio` **acabara de calcular** que ya
+# la sabía. El endpoint leía los hechos conocidos y los ignoraba para el saludo:
+# el defecto #1 del `backend/CLAUDE.md`, con el dato a dos líneas de distancia.
+#
+# A quién le pasaba: a cualquiera que dejara la conversación a medias y volviera
+# —que es lo normal en un chico de 16 años— y a quien venía del formulario
+# viejo. Mento abría preguntándole algo que ya le había contestado, que es la
+# forma más rápida de que alguien deje de creer que lo estás escuchando.
+SALUDO_RETOMA = (
+    "¡Hola de nuevo! Soy Mento. Ya tengo parte de lo que me contaste, así que "
+    "no te voy a repetir lo mismo.\n\n{pregunta}"
+)
+
+#: Y cuando ya no falta nada · no se inventa una pregunta por llenar el turno.
+SALUDO_COMPLETO = (
+    "¡Hola de nuevo! Soy Mento. Ya tengo lo que necesitaba para orientarte. "
+    "Si quieres contarme algo más, dímelo; si no, sigamos."
+)
+
+
+def primer_mensaje(recolectados: Optional[Dict[str, Any]] = None) -> str:
     """Con qué abre la conversación · no lo genera el modelo.
 
     Es la primera frase que un estudiante lee del producto, y dejarla al modelo
     la volvería distinta en cada sesión y difícil de revisar por la clienta, que
-    revisa la copy.
+    revisa la copy. Por eso las tres variantes son texto fijo y la pregunta sale
+    del catálogo, no de una generación.
+
+    `recolectados` es lo que ya sabemos de la persona. Sin él se comporta como
+    siempre —abre pidiendo la etapa— y por eso el parámetro es opcional: los
+    call-sites viejos siguen funcionando igual.
     """
-    return SALUDO
+    conocidos = {k: v for k, v in (recolectados or {}).items()
+                 if v not in (None, "", [], {})}
+    if not conocidos:
+        return SALUDO
+
+    pendientes = catalogo.faltantes(conocidos)
+    if not pendientes:
+        return SALUDO_COMPLETO
+
+    h = catalogo.get_hecho(pendientes[0])
+    pregunta = h.pregunta_typeform if h else catalogo.que_averiguar(pendientes[0])
+    return SALUDO_RETOMA.format(pregunta=pregunta)
 
 
 _SIN_DINERO = (

@@ -149,6 +149,31 @@ def contexto_de_familia(familia: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def vector_de_familia_sync(db: Session, user, indice: int,
+                           familia: Optional[Dict[str, Any]] = None
+                           ) -> Optional[List[float]]:
+    """`vector_de_familia` desde código síncrono · mismo patrón que
+    `busqueda_programas.vector_del_perfil_sync`, y por la misma razón.
+
+    Los endpoints de búsqueda tienen que ser `def`: FastAPI los corre en un hilo
+    aparte, y volverlos `async` mete las consultas bloqueantes dentro del event
+    loop, que es de donde se llegó a medir 8 peticiones simultáneas tardando 16
+    segundos mientras `/health` se quedaba 14 sin responder.
+
+    Como ese hilo no tiene loop propio, `asyncio.run` es correcto. Si por lo que
+    sea ya hubiera uno, no se fuerza: se devuelve None y la pantalla cae al
+    vector del perfil. Ordenar peor es mucho mejor que colgar el proceso.
+    """
+    import asyncio
+
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        return asyncio.run(vector_de_familia(db, user, indice, familia))
+    logger.warning("vector_de_familia_sync llamado con un loop activo")
+    return None
+
+
 async def vector_de_familia(db: Session, user, indice: int,
                             familia: Optional[Dict[str, Any]] = None
                             ) -> Optional[List[float]]:

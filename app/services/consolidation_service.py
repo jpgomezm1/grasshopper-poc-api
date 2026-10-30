@@ -143,7 +143,7 @@ def gather_user_inputs(db: DBSession, user: User) -> Dict[str, Any]:
     # quién es el estudiante para todo lo demás.
     activities = _gather_activities(db, user)
 
-    return {
+    inputs = {
         "user_id": str(user.id),
         "demographic": demographic,
         "tests": tests_block,
@@ -151,6 +151,46 @@ def gather_user_inputs(db: DBSession, user: User) -> Dict[str, Any]:
         "onboarding": onboarding,
         "activities": activities,
     }
+
+    # E-10 · Sprint 4 · la etapa entra SOLO para 10° y 11°, que son las que
+    # piden una lista de 10. Como entra al hash, esos perfiles se regeneran la
+    # próxima vez que se abran y traen su lista; los de las demás etapas
+    # conservan su hash y no gastan IA de nuevo.
+    from app.services import exam_prep_service
+
+    ruta = exam_prep_service.ruta_del_estudiante(user)
+    if ruta in ETAPAS_CON_LISTA:
+        inputs["etapa"] = ruta
+    return inputs
+
+
+# E-10 · lo que se le pide a cada etapa con lista. Va como bloque del prompt y
+# no en el prompt fijo para que las demás etapas no reciban una instrucción que
+# no les toca (y no devuelvan una lista que nadie pidió).
+ETAPAS_CON_LISTA = {
+    "grado_10": (
+        "ESTA PERSONA VA EN GRADO 10. Su entregable incluye \"10 carreras afines con su porqué\".\n"
+        "Llena `carreras_afines` con EXACTAMENTE 10 carreras, de la más a la menos afín:\n"
+        "  · `name`: la carrera con el nombre que se usa en Colombia.\n"
+        "  · `family`: el `name` de la familia de `career_families` a la que pertenece, o null si no está en ninguna.\n"
+        "  · `why`: 15-30 palabras, en segunda persona, anclado en algo de ESTA persona (un resultado, algo que escribió, algo que hace).\n"
+        "  Deja `profesiones_del_futuro` vacío."
+    ),
+    "grado_11": (
+        "ESTA PERSONA VA EN GRADO 11. Su entregable incluye \"10 profesiones del futuro\".\n"
+        "Llena `profesiones_del_futuro` con EXACTAMENTE 10 profesiones con demanda creciente, de la que más a la que menos le calza:\n"
+        "  · `name`: la profesión con el nombre que se usa en Colombia.\n"
+        "  · `why_grows`: 15-25 palabras sobre por qué crece. SIN cifras ni porcentajes: no tienes una fuente detrás y se leerían como un dato medido.\n"
+        "  · `why_fits`: 15-30 palabras, en segunda persona, anclado en algo de ESTA persona.\n"
+        "  Deja `carreras_afines` vacío."
+    ),
+}
+
+_SIN_LISTA = "Esta persona no está en 10° ni en 11°: deja `carreras_afines` y `profesiones_del_futuro` vacíos."
+
+
+def _format_etapa_block(etapa: Optional[str]) -> str:
+    return ETAPAS_CON_LISTA.get(etapa or "", _SIN_LISTA)
 
 
 def _gather_activities(db: DBSession, user: User) -> List[Dict[str, Any]]:
@@ -310,6 +350,7 @@ def render_consolidate_prompt(inputs: Dict[str, Any]) -> str:
         journey_answers_block=_format_journey_block(inputs["journey_answers"]),
         onboarding_block=format_onboarding_context(inputs.get("onboarding")),
         activities_block=_format_activities_block(inputs.get("activities") or []),
+        etapa_block=_format_etapa_block(inputs.get("etapa")),
     )
 
 
@@ -324,7 +365,10 @@ def _call_claude_for_consolidation(
     # 2000 alcanzaba para el perfil sin consejería. `career_families` agrega
     # ~4 bloques de prosa; con el techo viejo la respuesta se cortaba y
     # `call_claude_with_meta` trata stop_reason=max_tokens como fallo.
-    max_tokens: int = 4000,
+    # E-10 · 4000 → 6000: las 10 carreras (o profesiones) de 10° y 11° suman
+    # ~1000-1300 tokens a un perfil que ya rondaba los 3000. Es un techo, no un
+    # gasto: solo se cobra lo que de verdad se genera.
+    max_tokens: int = 6000,
     temperature: float = 0.3,
 ) -> Tuple[Optional[str], Dict[str, Any]]:
     """Direct call (bypassing the journey-tuned `call_claude`) so we can

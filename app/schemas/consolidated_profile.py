@@ -178,6 +178,39 @@ class CareerFamily(BaseModel):
         return v
 
 
+def _hasta_diez(v):
+    """E-10 · nunca más de 10, y una respuesta rara no tumba el perfil entero.
+
+    Si la IA devuelve 12, se toman las 10 primeras (vienen ordenadas). Si
+    devuelve algo que no es lista, queda vacío: la lista es un extra del perfil
+    y perderla es mejor que perder el perfil completo con un error de validación.
+    """
+    if not isinstance(v, list):
+        return []
+    return v[:10]
+
+
+class CarreraAfin(BaseModel):
+    """E-10 · Sprint 4 · una de las "10 carreras afines" del entregable de 10°.
+
+    Verónica, malla por grado: "Reporte Vocacional Intermedio (RIASEC de 9° +
+    Big 5 → 10 carreras afines con su porqué)". Las familias aconsejan; esta
+    lista es lo que la persona puede ir a buscar mañana, una por una.
+    """
+
+    name: str = Field(..., max_length=80)
+    family: Optional[str] = Field(None, max_length=80, description="La familia a la que pertenece.")
+    why: str = Field(..., max_length=300, description="Su porqué, anclado en algo de la persona.")
+
+
+class ProfesionDelFuturo(BaseModel):
+    """E-10 · Sprint 4 · una de las "10 profesiones del futuro" del entregable de 11°."""
+
+    name: str = Field(..., max_length=80)
+    why_grows: str = Field(..., max_length=300, description="Por qué crece · sin cifras inventadas.")
+    why_fits: str = Field(..., max_length=300, description="Por qué le calza a esta persona.")
+
+
 class ConsolidatedProfile(BaseModel):
     """Perfil consolidado IA · output del prompt master de análisis cruzado.
 
@@ -274,6 +307,18 @@ class ConsolidatedProfile(BaseModel):
 
     # Lista corta de rutas profesionales sugeridas (no programs · esto va en
     # RecommendedProgram). Aquí la idea es áreas de carrera generales.
+    # E-10 · Sprint 4 · los entregables con número de la malla por grado. Solo se
+    # piden a 10° (`carreras_afines`) y a 11° (`profesiones_del_futuro`); para el
+    # resto quedan vacíos. Opcionales y tolerantes a propósito: los perfiles de
+    # antes no los traen, y una lista mal formada no debe tumbar el perfil.
+    carreras_afines: List[CarreraAfin] = Field(default_factory=list, max_length=10)
+    profesiones_del_futuro: List[ProfesionDelFuturo] = Field(default_factory=list, max_length=10)
+
+    @field_validator("carreras_afines", "profesiones_del_futuro", mode="before")
+    @classmethod
+    def _diez_como_maximo(cls, v):
+        return _hasta_diez(v)
+
     suggested_career_paths: List[str] = Field(
         default_factory=list,
         max_length=5,

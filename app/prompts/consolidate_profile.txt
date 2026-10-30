@@ -101,6 +101,9 @@ REGLAS DE CALIDAD:
 - NO digas "no tengo suficiente información" — si falta data, usa el subset disponible y mantén el output mínimo viable.
 - Si dos tests dan señales contradictorias, prioriza la convergencia (lo que aparece en 2+ tests).
 
+LO PROPIO DE SU GRADO:
+{etapa_block}
+
 ESQUEMA DE SALIDA EXACTO:
 
 {{
@@ -129,6 +132,12 @@ ESQUEMA DE SALIDA EXACTO:
       "careers": ["string", "string", "string"],
       "watch_out": "string ≤30 palabras · la tensión honesta · o null"
     }}
+  ],
+  "carreras_afines": [
+    {{"name": "string", "family": "string · name de una career_family · o null", "why": "string · 15-30 palabras · 2da persona"}}
+  ],
+  "profesiones_del_futuro": [
+    {{"name": "string", "why_grows": "string · 15-25 palabras · sin cifras", "why_fits": "string · 15-30 palabras · 2da persona"}}
   ],
   "suggested_career_paths": ["string · los name de career_families, mismo orden"],
   "tests_used": ["holland", "bigfive", "values", "mbti", "istrong"]

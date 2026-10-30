@@ -191,6 +191,8 @@ _TEST_LABELS = {
         "Mapeo de habilidades blandas",
         "Tendencias en liderazgo, resiliencia y trabajo en equipo",
     ),
+    # Grado 12 · chequeo propio (E-4, Sprint 4).
+    "recheck": ("Re-chequeo", "Qué tan listo estás para decidir"),
     # Alias históricos
     "riasec": ("Holland (RIASEC)", "Intereses profesionales"),
     "big5": ("Big Five", "Rasgos de personalidad"),
@@ -251,7 +253,7 @@ def _highlight_for(test_id: str, scores: Dict[str, Any]) -> Optional[str]:
     # VARK, Motivadores y el mapeo de habilidades blandas ya traen una etiqueta
     # pensada para leerse (y, en el caso del mapeo, para no sonar a diagnóstico:
     # "Perfil parejo" o "Liderazgo y resiliencia", nunca un puntaje).
-    if tid in {"vark", "motivadores", "habilidades-blandas"}:
+    if tid in {"vark", "motivadores", "habilidades-blandas", "recheck"}:
         return (extras.get("label") or "").strip() or None
 
     if tid == "mbti":

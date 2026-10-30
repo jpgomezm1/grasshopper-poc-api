@@ -73,8 +73,10 @@ TESTS_POR_TRAMO: Dict[str, Tuple[str, ...]] = {
     RUTA_GRADO_10: ("bigfive", "habilidades-blandas", "motivadores"),
     # Filtro realista.
     RUTA_GRADO_11: ("istrong", "mbti", "bigfive"),
-    # Plan de vuelo · re-chequeo corto de motivadores.
-    RUTA_GRADO_12: ("motivadores",),
+    # Plan de vuelo · decisión #4 del demo: "re-chequeo corto: motivadores +
+    # confianza en la decisión". El re-chequeo va primero porque es lo que
+    # dice qué le falta para decidir (E-4, Sprint 4).
+    RUTA_GRADO_12: ("recheck", "motivadores"),
     # Reinvención y upskilling.
     RUTA_PROFESIONAL: ("mbti", "istrong", "values", "career-anchors"),
 }

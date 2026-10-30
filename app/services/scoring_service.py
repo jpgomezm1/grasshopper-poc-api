@@ -25,6 +25,7 @@ from app.data.vocational_tests import (
     calculate_vocational_scores,
     get_test_by_id,
 )
+from app.data.rechequeo import TEST_ID as RECHEQUEO_TEST_ID
 from app.services.habilidades_blandas_service import (
     TEST_ID as HABILIDADES_BLANDAS_TEST_ID,
     calcular_habilidades_blandas,
@@ -446,4 +447,11 @@ def derive_test_extras(test_id: str, answers: Dict[str, int]) -> Dict[str, objec
         # su lectura no es un puntaje, son tendencias con reglas de empate y de
         # respuestas incompletas. Ver `habilidades_blandas_service`.
         return calcular_habilidades_blandas(answers)
+    if test_id == RECHEQUEO_TEST_ID:
+        # E-4 · el re-chequeo de 12° se califica con la escala genérica; los
+        # extras dicen dónde está firme y qué le falta, que es la lectura.
+        from app.data.rechequeo import calcular_rechequeo
+        from app.data.vocational_tests import calculate_vocational_scores
+
+        return calcular_rechequeo(calculate_vocational_scores(test_id, answers))
     return None

@@ -1,4 +1,5 @@
 from app.data.habilidades_blandas import TEST_HABILIDADES_BLANDAS
+from app.data.rechequeo import TEST_RECHEQUEO
 
 VOCATIONAL_TESTS = [
     {
@@ -611,6 +612,8 @@ VOCATIONAL_TESTS = [
     # Vive en su propio módulo porque es el único instrumento propio del banco
     # y su copy de "esto no es psicométrico" no se puede diluir aquí en medio.
     TEST_HABILIDADES_BLANDAS,
+    # Re-chequeo · sólo ruta grado 12 (E-4, Sprint 4). Propio, como el de arriba.
+    TEST_RECHEQUEO,
 ]
 
 

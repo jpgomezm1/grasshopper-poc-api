@@ -35,6 +35,7 @@ from app.core.ai_json import parse_ai_json
 from app.db.models import User, VocationalTestResult
 from app.services.ai_usage_service import record_ai_usage
 from app.data.habilidades_blandas import HABILIDAD_INFO
+from app.data.rechequeo import RECHEQUEO_INFO, TEST_ID as RECHEQUEO_TEST_ID
 from app.services.habilidades_blandas_service import (
     PERFIL_INSUFICIENTE,
     PERFIL_PAREJO,
@@ -152,6 +153,8 @@ def _label_map(test_id: str) -> Dict[str, tuple]:
             k: (v.get("name", k), v.get("description", ""))
             for k, v in HABILIDAD_INFO.items()
         }
+    if test_id == RECHEQUEO_TEST_ID:
+        return {k: (v["name"], v["description"]) for k, v in RECHEQUEO_INFO.items()}
     return {}
 
 
@@ -425,6 +428,23 @@ def _resultado_block(test_id: str, scores: Dict[str, Any]) -> str:
             )
         if extras.get("headline"):
             filas.append(f"Lectura del sistema: {extras['headline']}")
+
+    elif test_id == RECHEQUEO_TEST_ID:
+        # E-4 · como el mapeo de habilidades, es propio y no está normado: la
+        # restricción viaja con el dato. Lo útil para alguien de 12° no es una
+        # nota, es saber qué le falta para decidir.
+        if extras.get("label"):
+            filas.append(f"RESULTADO: {extras['label']}")
+        filas.append(
+            "Es un chequeo propio de 8 afirmaciones, no un test psicométrico. NO des "
+            "una nota ni un porcentaje global de 'confianza'. Empieza por lo que le "
+            "FALTA para decidir y qué puede hacer este año para cerrarlo; después, "
+            "dónde está firme."
+        )
+        for papel, clave in (("Le falta", "falta"), ("Está firme en", "firme")):
+            dims = [d for d in (extras.get(clave) or []) if d in etiquetas]
+            if dims:
+                filas.append(f"{papel}: " + " · ".join(etiquetas[d][0] for d in dims))
 
     return "\n".join(filas)
 

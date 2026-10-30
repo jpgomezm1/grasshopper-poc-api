@@ -61,7 +61,11 @@ def hechos_desde_respuestas(respuestas: Dict[str, str]) -> Dict[str, Any]:
     if who == "padre":
         return hechos
 
-    if who == "colegio" and stage in _ETAPA_COLEGIO:
+    # E-6 · "Ya me gradué" (del colegio) ahora tiene su etapa exacta en el
+    # onboarding: antes no se pasaba porque no había dónde ponerlo.
+    if who == "colegio" and stage == "grad":
+        hechos["life_stage"] = "school_grad"
+    elif who == "colegio" and stage in _ETAPA_COLEGIO:
         hechos["life_stage"] = _ETAPA_COLEGIO[stage]
         hechos["grade"] = stage
         if respuestas.get("extra") in _TIPO_COLEGIO:

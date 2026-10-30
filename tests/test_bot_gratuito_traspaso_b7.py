@@ -56,8 +56,10 @@ def test_universidad_y_trabajo():
 def test_lo_que_no_tiene_equivalencia_exacta_no_se_pasa():
     # Papá o mamá: quien llenó el bot no es el estudiante.
     assert hechos_desde_respuestas({**RESPUESTAS, "who": "padre"}) == {}
-    # "Ya me gradué" del colegio: no se sabe qué hace hoy.
-    assert "life_stage" not in hechos_desde_respuestas({**RESPUESTAS, "stage": "grad"})
+    # "Ya me gradué" del colegio: desde E-6 tiene su etapa exacta, y el grado no
+    # se pasa (es implícito: 12).
+    assert hechos_desde_respuestas({**RESPUESTAS, "stage": "grad"})["life_stage"] == "school_grad"
+    assert "grade" not in hechos_desde_respuestas({**RESPUESTAS, "stage": "grad"})
     # Colegio alemán o francés: el onboarding no tiene esa opción.
     assert "school_accreditation" not in hechos_desde_respuestas({**RESPUESTAS, "extra": "de-fr"})
     # El presupuesto nunca: los tramos no coinciden.

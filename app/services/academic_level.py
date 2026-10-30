@@ -51,6 +51,9 @@ _NORMALIZACION = {
     # Códigos de users.onboarding_answers["life_stage"]
     "high_school_early": EN_COLEGIO,
     "high_school": TERMINANDO_COLEGIO,
+    # E-6 · ya terminó el colegio: para qué nivel puede cursar, es lo mismo que
+    # quien lo está terminando (pregrado).
+    "school_grad": TERMINANDO_COLEGIO,
     "university": EN_UNIVERSIDAD,
     "recent_grad": EGRESADO,
     "career_change": EGRESADO,

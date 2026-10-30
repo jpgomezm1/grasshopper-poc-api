@@ -548,6 +548,10 @@ class StudentDashboardResponse(BaseModel):
     ingles_aplica: bool = True
     # Las funciones que su plan no incluye · la guía las pinta con candado.
     funciones_con_candado: List[str] = []
+    # E-6 · la etapa que declaró (`life_stage`). La ruta no basta para el
+    # encuadre: un universitario de primer semestre y alguien que ya trabaja
+    # caen los dos en "profesional", y "mover tu carrera" solo le habla al segundo.
+    etapa: Optional[str] = None
 
 
 class PasoDeTest(BaseModel):
@@ -655,6 +659,7 @@ def get_dashboard(
         ),
         ruta=exam_prep_service.ruta_del_estudiante(current_user),
         **_guia_de_su_etapa(db, current_user),
+        etapa=(current_user.onboarding_answers or {}).get("life_stage"),
     )
 
 

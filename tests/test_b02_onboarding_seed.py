@@ -182,6 +182,8 @@ def test_las_opciones_del_front_tienen_mapeo_en_el_backend():
     assert set(_ONBOARDING_LIFE_STAGE_MAP) == {
         "high_school_early",
         "high_school",
+        # E-6 · Sprint 4 · "Ya terminé el colegio".
+        "school_grad",
         "university",
         "recent_grad",
         "working",

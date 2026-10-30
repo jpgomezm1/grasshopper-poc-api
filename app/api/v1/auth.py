@@ -712,7 +712,12 @@ def _sync_onboarding_to_user_columns(
     # el JSON sólo como fallback) — sin este bloque esa columna se queda NULL
     # para siempre y el banco junior de Holland nunca le llega a nadie en
     # producción.
-    grade_raw = answers.get("grade")
+    # E-6 · `grado_de` y no `answers["grade"]`: quien eligió "Ya terminé el
+    # colegio" no tiene grado declarado (no se le pregunta) pero sí uno
+    # implícito, el 12, y la malla lo lee de esta columna.
+    from app.data.onboarding_hechos import grado_de
+
+    grade_raw = grado_de(answers)
     grade_int: Optional[int] = None
     if isinstance(grade_raw, bool):
         grade_int = None  # bool es subclase de int · se descarta explícito

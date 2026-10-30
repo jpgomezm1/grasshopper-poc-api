@@ -62,6 +62,8 @@ _ONBOARDING_LIFE_STAGE_MAP = {
     # `high_school` conserva su valor y su significado — ahora sí es cierto.
     "high_school_early": "En el colegio",
     "high_school": "Terminando el colegio",
+    # E-6 · el journey no tiene "ya terminé": lo más cercano y cierto es esto.
+    "school_grad": "Terminando el colegio",
     "university": "En la universidad",
     "recent_grad": "En transición / no seguro",
     "working": "Ya trabajando",

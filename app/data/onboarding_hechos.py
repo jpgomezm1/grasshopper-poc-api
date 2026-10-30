@@ -88,6 +88,12 @@ PERFIL_POR_LIFE_STAGE: Dict[str, str] = {
     # Colegio · desde 9° en adelante.
     "high_school_early": PERFIL_COLEGIO,   # 9° y 10°
     "high_school": PERFIL_COLEGIO,         # 11°
+    # E-6 · Sprint 4 · ya terminó el colegio y no ha entrado a la universidad
+    # (año sabático, aplicando). El demo de Verónica lo manda a 12°: está a un
+    # paso de aplicar. Antes la única opción parecida era "Recién graduado", que
+    # lo mandaba a la ruta profesional (anclas de carrera, "mover tu carrera") y
+    # le quitaba justo lo que necesita: el re-chequeo y la práctica de exámenes.
+    "school_grad": PERFIL_COLEGIO,         # → 12° (ver GRADO_IMPLICITO)
     # Profesionales · ya está en la universidad o ya pasó por ella.
     "university": PERFIL_PROFESIONAL,
     "recent_grad": PERFIL_PROFESIONAL,
@@ -201,6 +207,28 @@ RUTA_POR_GRADO: Dict[str, str] = {
 }
 
 
+# E-6 · etapas que YA dicen el grado. A quien terminó el colegio no se le
+# pregunta "¿en qué grado estás?": sería una pregunta sin respuesta posible.
+GRADO_IMPLICITO: Dict[str, str] = {"school_grad": "12"}
+
+
+def grado_de(recolectados: Dict[str, Any]) -> Optional[str]:
+    """El grado declarado o, si la etapa ya lo dice, el implícito.
+
+    Una sola función para las dos preguntas que dependen de esto —qué ruta le
+    toca y si hay que preguntarle el grado—, más la columna `users.grade`.
+    """
+    # La etapa manda sobre un grado viejo: quien estaba en 11° y ahora dice
+    # "Ya terminé el colegio" tiene el "11" guardado de antes, y no es su grado.
+    implicito = GRADO_IMPLICITO.get(recolectados.get("life_stage") or "")
+    if implicito:
+        return implicito
+    grado = recolectados.get("grade")
+    if grado not in (None, "", [], {}):
+        return str(grado)
+    return None
+
+
 def ruta(recolectados: Dict[str, Any]) -> Optional[str]:
     """Una de las 5 rutas de la malla, o None si todavía no se puede saber.
 
@@ -214,10 +242,10 @@ def ruta(recolectados: Dict[str, Any]) -> Optional[str]:
         return RUTA_PROFESIONAL
     if p != PERFIL_COLEGIO:
         return None
-    grado = recolectados.get("grade")
-    if grado in (None, "", [], {}):
+    grado = grado_de(recolectados)
+    if grado is None:
         return None
-    return RUTA_POR_GRADO.get(str(grado))
+    return RUTA_POR_GRADO.get(grado)
 
 
 # Hechos que sólo aplican dentro de UNA ruta de colegio · las preguntas propias
@@ -282,6 +310,9 @@ def es_obligatorio(hecho_id: str, recolectados: Dict[str, Any]) -> bool:
     """
     if hecho_id in OBLIGATORIOS:
         return True
+    # E-6 · el grado no bloquea a quien ya lo dijo con su etapa.
+    if hecho_id == "grade" and recolectados.get("life_stage") in GRADO_IMPLICITO:
+        return False
     perfiles = OBLIGATORIO_SI_PERFIL.get(hecho_id)
     return perfiles is not None and perfil(recolectados) in perfiles
 
@@ -309,8 +340,12 @@ HECHOS: List[Hecho] = [
         opciones={
             "high_school_early": "En el colegio (9° o 10°)",
             "high_school": "Terminando el colegio (11°)",
+            # E-6 · Sprint 4. "Recién graduado" era ambiguo (¿del colegio o de la
+            # universidad?) y quien acababa de salir del colegio terminaba en la
+            # ruta profesional.
+            "school_grad": "Ya terminé el colegio",
             "university": "En la universidad",
-            "recent_grad": "Recién graduado",
+            "recent_grad": "Recién graduado de la universidad",
             "working": "Trabajando",
             "career_change": "Buscando cambiar de carrera",
         },
@@ -755,6 +790,9 @@ def aplica(hecho_id: str, recolectados: Dict[str, Any]) -> bool:
     """
     if hecho_id in SOLO_SI_EXTERIOR:
         return recolectados.get("international_interest") != "intl_no"
+    # E-6 · a quien terminó el colegio no se le pregunta el grado: ya lo dijo.
+    if hecho_id == "grade" and recolectados.get("life_stage") in GRADO_IMPLICITO:
+        return False
     # Las preguntas de AP/IB · gatean por lo que el estudiante contó de su
     # colegio, no por la ruta. Con acreditación desconocida (NULL o
     # "unknown") no se ramifica: es la regla explícita del cliente.

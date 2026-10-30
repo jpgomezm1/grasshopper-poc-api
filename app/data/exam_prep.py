@@ -959,6 +959,318 @@ _ITEMS_SAT_ALGEBRA = [
             "distractor 12 sale de sumarle 3 al resultado en vez de a la entrada."
         ),
     ),
+    # I-1b · Sprint 4 · ampliación del banco (de 6 a 25). Mismas reglas que los
+    # de arriba: propios, enunciado en inglés, explicación en español con la
+    # trampa de cada distractor. Las respuestas las comprueba
+    # `tests/test_banco_sat_i1b.py` haciendo la cuenta.
+    _item(
+        "sat-alg-7",
+        habilidad="sat_algebra",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="If 4(x + 2) = 28, what is the value of x?",
+        options=["5", "7", "6.5", "3"],
+        correct="5",
+        explanation=(
+            "Primero se divide entre 4: x + 2 = 7. Después se resta 2: x = 5. El "
+            "distractor 7 es el valor de x + 2, un paso antes de terminar. El 6.5 "
+            "sale de olvidar que el 4 multiplica TODO el paréntesis (4x + 2 = 28). "
+            "Comprueba: 4(5 + 2) = 28."
+        ),
+    ),
+    _item(
+        "sat-alg-8",
+        habilidad="sat_algebra",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "A taxi charges a fixed fee of 3 dollars plus 2 dollars per kilometre. "
+            "A ride cost 19 dollars. How many kilometres long was the ride?"
+        ),
+        options=["8", "11", "9.5", "6"],
+        correct="8",
+        explanation=(
+            "La ecuación es 2k + 3 = 19. Se quita lo fijo: 2k = 16, y k = 8. El "
+            "9.5 sale de dividir 19 entre 2 sin restar la tarifa fija, y el 11 de "
+            "SUMARLA en vez de restarla. Lo fijo se paga una vez y no depende de "
+            "los kilómetros: siempre sale primero."
+        ),
+    ),
+    _item(
+        "sat-alg-9",
+        habilidad="sat_algebra",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="If x/3 + 2 = 6, what is the value of x?",
+        options=["12", "24", "4", "6"],
+        correct="12",
+        explanation=(
+            "Se resta 2: x/3 = 4. Se multiplica por 3: x = 12. El distractor 4 es "
+            "el valor de x/3, no de x. El 24 sale de multiplicar por 3 antes de "
+            "restar el 2: (6 + 2) × 3. El orden importa: deshaz primero lo que "
+            "está más afuera (la suma) y al final lo que está pegado a la x."
+        ),
+    ),
+    _item(
+        "sat-alg-10",
+        habilidad="sat_algebra",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="What value of x satisfies 7 − x = 2x + 1?",
+        options=["2", "−2", "6", "8/3"],
+        correct="2",
+        explanation=(
+            "Se pasan las x a un lado y los números al otro: 7 − 1 = 2x + x, o "
+            "sea 6 = 3x, y x = 2. El 6 es el valor de 3x. El 8/3 sale de sumar el "
+            "1 en vez de restarlo (7 + 1 = 3x). Comprueba: 7 − 2 = 5 y 2(2) + 1 = 5."
+        ),
+    ),
+    _item(
+        "sat-alg-11",
+        habilidad="sat_algebra",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "The sum of a number and 9 is equal to 4 times the number. What is the "
+            "number?"
+        ),
+        options=["3", "9/4", "13", "36"],
+        correct="3",
+        explanation=(
+            "Traducido: n + 9 = 4n. Se resta n: 9 = 3n, y n = 3. El 9/4 sale de "
+            "escribir 4n = 9 olvidando que la n también estaba a la izquierda. El "
+            "36 es 4 × 9. En problemas de palabras, escribe la ecuación completa "
+            "antes de hacer cualquier cuenta."
+        ),
+    ),
+    _item(
+        "sat-alg-12",
+        habilidad="sat_algebra",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "The graph of y = 3x − 4 crosses the y-axis at which value of y?"
+        ),
+        options=["−4", "3", "4", "4/3"],
+        correct="−4",
+        explanation=(
+            "La recta cruza el eje y cuando x = 0: y = 3(0) − 4 = −4. En la forma "
+            "y = mx + b, ese punto es la b. El 3 es la pendiente, no el corte. El "
+            "4/3 es donde cruza el eje X (cuando y = 0), que es la otra pregunta "
+            "que suelen confundir."
+        ),
+    ),
+    _item(
+        "sat-alg-13",
+        habilidad="sat_algebra",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Maria has 50 dollars and spends 6 dollars every day. Which expression "
+            "gives the amount of money she has left after d days?"
+        ),
+        options=["50 − 6d", "6d − 50", "50d − 6", "44d"],
+        correct="50 − 6d",
+        explanation=(
+            "Empieza con 50 y cada día resta 6: después de d días restó 6d. "
+            "6d − 50 da negativo al principio, que no tiene sentido. El 44d sale "
+            "de restar 50 − 6 una sola vez y multiplicar. Truco: prueba con d = 1, "
+            "la respuesta correcta tiene que dar 44."
+        ),
+    ),
+    _item(
+        "sat-alg-14",
+        habilidad="sat_algebra",
+        nivel=NIVEL_INTERMEDIO,
+        question="If x + y = 10 and x − y = 4, what is the value of y?",
+        options=["3", "7", "6", "4"],
+        correct="3",
+        explanation=(
+            "Sumando las ecuaciones: 2x = 14, x = 7. Reemplazando: 7 + y = 10, "
+            "y = 3. El distractor 7 es la x: la pregunta pide la y. Otra forma, "
+            "más corta: restando las ecuaciones queda 2y = 6. Lee siempre al final "
+            "qué variable te piden."
+        ),
+    ),
+    _item(
+        "sat-alg-15",
+        habilidad="sat_algebra",
+        nivel=NIVEL_INTERMEDIO,
+        question="Which of the following gives all solutions of |x − 3| = 5?",
+        options=["x = 8 or x = −2", "x = 8 only", "x = 2 or x = −8", "x = −2 only"],
+        correct="x = 8 or x = −2",
+        explanation=(
+            "El valor absoluto es una distancia: x está a 5 unidades del 3, hacia "
+            "un lado o hacia el otro. Entonces x − 3 = 5 (x = 8) o x − 3 = −5 "
+            "(x = −2). Quedarse solo con el 8 es el error más común. El par 2 y −8 "
+            "sale de leer |x + 3| en vez de |x − 3|."
+        ),
+    ),
+    _item(
+        "sat-alg-16",
+        habilidad="sat_algebra",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A line has a slope of −3 and passes through the point (0, 2). Which "
+            "is an equation of the line?"
+        ),
+        options=["y = −3x + 2", "y = 2x − 3", "y = −3x − 2", "y = 3x + 2"],
+        correct="y = −3x + 2",
+        explanation=(
+            "En y = mx + b, m es la pendiente y b el punto donde cruza el eje y. "
+            "El punto (0, 2) está sobre el eje y, así que b = 2, y m = −3. La "
+            "opción y = 2x − 3 invierte los papeles; las otras dos cambian un "
+            "signo. Comprueba: con x = 0, y = 2."
+        ),
+    ),
+    _item(
+        "sat-alg-17",
+        habilidad="sat_algebra",
+        nivel=NIVEL_INTERMEDIO,
+        question="Which line is parallel to the line y = 2x + 5?",
+        options=["y = 2x − 3", "y = −2x + 5", "y = (1/2)x + 5", "y = −(1/2)x − 3"],
+        correct="y = 2x − 3",
+        explanation=(
+            "Las rectas paralelas tienen la MISMA pendiente y distinto corte. La "
+            "pendiente de y = 2x + 5 es 2, y la única opción con pendiente 2 es "
+            "y = 2x − 3. La opción −(1/2) es la pendiente de una perpendicular, "
+            "que es la otra pregunta típica. Que compartan el +5 no las hace "
+            "paralelas: comparten un punto."
+        ),
+    ),
+    _item(
+        "sat-alg-18",
+        habilidad="sat_algebra",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Three notebooks and two pens cost 13 dollars. One notebook and two "
+            "pens cost 7 dollars. What is the price of one notebook?"
+        ),
+        options=["3 dollars", "2 dollars", "4 dollars", "6 dollars"],
+        correct="3 dollars",
+        explanation=(
+            "Las dos compras tienen los mismos dos bolígrafos. La diferencia (13 − 7 "
+            "= 6 dólares) es solo de cuadernos: 2 cuadernos cuestan 6, así que uno "
+            "cuesta 3. El distractor 6 es el precio de DOS cuadernos. El 2 es el "
+            "precio de un bolígrafo (7 − 3 = 4, entre 2). Restar ecuaciones que "
+            "comparten un término es el camino corto."
+        ),
+    ),
+    _item(
+        "sat-alg-19",
+        habilidad="sat_algebra",
+        nivel=NIVEL_INTERMEDIO,
+        question="Which of the following is equivalent to 2(x − 1) ≤ 3x + 4?",
+        options=["x ≥ −6", "x ≤ −6", "x ≥ 6", "x ≤ 6"],
+        correct="x ≥ −6",
+        explanation=(
+            "Se distribuye: 2x − 2 ≤ 3x + 4. Se pasan las x a la derecha, donde "
+            "quedan positivas: −2 − 4 ≤ 3x − 2x, o sea −6 ≤ x, que es x ≥ −6. "
+            "Pasarlas a la derecha evita dividir por un negativo y voltear el "
+            "signo. La opción x ≤ −6 es justo el error de dividir entre −1 sin "
+            "voltearlo."
+        ),
+    ),
+    _item(
+        "sat-alg-20",
+        habilidad="sat_algebra",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A plumber charges a fixed visit fee plus an hourly rate. A 2-hour job "
+            "costs 110 dollars and a 5-hour job costs 230 dollars. What is the "
+            "hourly rate?"
+        ),
+        options=["40 dollars", "46 dollars", "55 dollars", "120 dollars"],
+        correct="40 dollars",
+        explanation=(
+            "Entre los dos trabajos la tarifa fija es la misma, así que la "
+            "diferencia es solo por horas: 230 − 110 = 120 dólares por 3 horas "
+            "más, o sea 40 por hora (y la visita cuesta 30). El 55 y el 46 "
+            "dividen el total entre las horas, como si no hubiera tarifa fija. El "
+            "120 es la diferencia sin dividir entre las 3 horas."
+        ),
+    ),
+    _item(
+        "sat-alg-21",
+        habilidad="sat_algebra",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "In the system 2x + 3y = 6 and 4x + ky = 12, k is a constant. For what "
+            "value of k does the system have infinitely many solutions?"
+        ),
+        options=["6", "3", "−6", "12"],
+        correct="6",
+        explanation=(
+            "Infinitas soluciones quiere decir que las dos ecuaciones son la "
+            "MISMA recta. La segunda tiene que ser la primera multiplicada por un "
+            "número: 4x es 2 × 2x y 12 es 2 × 6, así que el factor es 2 y "
+            "k = 2 × 3 = 6. El distractor 3 es el coeficiente original sin "
+            "multiplicar. Si te pidieran \"ninguna solución\", cambiaría solo el "
+            "lado derecho."
+        ),
+    ),
+    _item(
+        "sat-alg-22",
+        habilidad="sat_algebra",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "The lines 3x + 2y = 12 and y = x + 1 intersect at the point (a, b). "
+            "What is the value of a + b?"
+        ),
+        options=["5", "2", "3", "6"],
+        correct="5",
+        explanation=(
+            "Se reemplaza la y de la segunda en la primera: 3x + 2(x + 1) = 12, "
+            "5x + 2 = 12, x = 2. Entonces y = 3, y a + b = 5. Los distractores 2 "
+            "y 3 son cada coordenada por separado: la pregunta pide la suma. "
+            "Cuando una ecuación ya trae la y despejada, sustituir es lo más rápido."
+        ),
+    ),
+    _item(
+        "sat-alg-23",
+        habilidad="sat_algebra",
+        nivel=NIVEL_AVANZADO,
+        question="If a/b = 3/4 and b = 2a − 10, what is the value of a?",
+        options=["15", "20", "12", "30"],
+        correct="15",
+        explanation=(
+            "De a/b = 3/4 sale b = 4a/3. Igualando: 4a/3 = 2a − 10. Multiplicando "
+            "por 3: 4a = 6a − 30, entonces 2a = 30 y a = 15 (y b = 20). El 20 es "
+            "la b. El 30 es el valor de 2a. Comprueba la razón: 15/20 = 3/4."
+        ),
+    ),
+    _item(
+        "sat-alg-24",
+        habilidad="sat_algebra",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Line ℓ is perpendicular to the line y = (2/3)x + 1 and passes through "
+            "the point (0, 4). Which is an equation of line ℓ?"
+        ),
+        options=[
+            "y = −(3/2)x + 4",
+            "y = (3/2)x + 4",
+            "y = −(2/3)x + 4",
+            "y = (2/3)x − 4",
+        ],
+        correct="y = −(3/2)x + 4",
+        explanation=(
+            "La pendiente de una perpendicular es la recíproca CON el signo "
+            "cambiado: de 2/3 pasa a −3/2. El punto (0, 4) da el corte: +4. La "
+            "opción (3/2) invierte la fracción pero olvida el signo; la −(2/3) "
+            "cambia el signo pero no invierte. Hacen falta las dos cosas."
+        ),
+    ),
+    _item(
+        "sat-alg-25",
+        habilidad="sat_algebra",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "The sum of two numbers is 30. One of the numbers is 6 more than twice "
+            "the other. What is the larger number?"
+        ),
+        options=["22", "8", "18", "24"],
+        correct="22",
+        explanation=(
+            "Si el menor es x, el mayor es 2x + 6. Entonces x + 2x + 6 = 30, "
+            "3x = 24, x = 8, y el mayor es 22. El 8 es el número menor: la "
+            "pregunta pide el mayor. El 24 es el valor de 3x. Comprueba: "
+            "8 + 22 = 30 y 22 = 2(8) + 6."
+        ),
+    ),
 ]
 
 
@@ -1074,6 +1386,355 @@ _ITEMS_SAT_DATOS = [
             "3/8. El distractor 9/40 es 45/200, que respondería otra pregunta "
             "(elegir entre los 200). En tablas de doble entrada, la frase que "
             "define el grupo manda sobre el total."
+        ),
+    ),
+    # I-1b · Sprint 4 · ampliación del banco (de 6 a 25). Ver la nota en álgebra.
+    _item(
+        "sat-dat-7",
+        habilidad="sat_datos",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="12 is what percent of 48?",
+        options=["25 percent", "4 percent", "36 percent", "400 percent"],
+        correct="25 percent",
+        explanation=(
+            "\"Qué porcentaje es A de B\" se calcula A/B: 12/48 = 0.25, o sea 25%. "
+            "El 400% sale de dividir al revés (48/12 = 4). El 36 es la resta "
+            "48 − 12, que no es un porcentaje de nada. La parte va arriba; el "
+            "total, abajo."
+        ),
+    ),
+    _item(
+        "sat-dat-8",
+        habilidad="sat_datos",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="What is the mean of the values 4, 7, 10 and 15?",
+        options=["9", "8.5", "10", "36"],
+        correct="9",
+        explanation=(
+            "La media es la suma entre la cantidad de datos: (4 + 7 + 10 + 15) / 4 "
+            "= 36/4 = 9. El 8.5 es la MEDIANA (el promedio de los dos del medio, "
+            "7 y 10). El 36 es la suma sin dividir. En el examen ponen las dos "
+            "medidas juntas a propósito: lee cuál te piden."
+        ),
+    ),
+    _item(
+        "sat-dat-9",
+        habilidad="sat_datos",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "On a map, 1 centimetre represents 5 kilometres. Two towns are 7.5 "
+            "centimetres apart on the map. What is the actual distance between "
+            "them?"
+        ),
+        options=["37.5 kilometres", "1.5 kilometres", "12.5 kilometres", "35 kilometres"],
+        correct="37.5 kilometres",
+        explanation=(
+            "Cada centímetro vale 5 km, así que 7.5 cm valen 7.5 × 5 = 37.5 km. "
+            "El 1.5 sale de dividir en vez de multiplicar. El 12.5 suma 7.5 + 5. "
+            "El 35 multiplica solo los 7 centímetros enteros y se come el medio."
+        ),
+    ),
+    _item(
+        "sat-dat-10",
+        habilidad="sat_datos",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "The price of a book is 50 dollars. The price increases by 10 percent. "
+            "What is the new price?"
+        ),
+        options=["55 dollars", "60 dollars", "5 dollars", "50.10 dollars"],
+        correct="55 dollars",
+        explanation=(
+            "El 10% de 50 es 5, y el precio sube a 55. Atajo: subir 10% es "
+            "multiplicar por 1.10. El 5 es el aumento, no el precio nuevo. El "
+            "50.10 sale de sumar \"10\" como si fueran centavos. El 60 suma 10 "
+            "dólares en vez de 10 por ciento."
+        ),
+    ),
+    _item(
+        "sat-dat-11",
+        habilidad="sat_datos",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "A class has 12 boys and 18 girls. What is the ratio of boys to the "
+            "total number of students in the class?"
+        ),
+        options=["2:5", "2:3", "3:5", "3:2"],
+        correct="2:5",
+        explanation=(
+            "El total es 12 + 18 = 30, y 12:30 simplificado es 2:5. El 2:3 es la "
+            "razón de niños a NIÑAS (12:18), que es lo que la mayoría responde "
+            "sin leer \"to the total\". El 3:5 es niñas sobre el total. Antes de "
+            "simplificar, mira qué dos cantidades compara la pregunta."
+        ),
+    ),
+    _item(
+        "sat-dat-12",
+        habilidad="sat_datos",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="What is the median of the values 3, 9, 1, 8 and 4?",
+        options=["4", "1", "5", "8"],
+        correct="4",
+        explanation=(
+            "Para la mediana primero se ORDENAN: 1, 3, 4, 8, 9. El del medio es 4. "
+            "El 1 es el que queda en el medio sin ordenar, que es la trampa. El 5 "
+            "es la media (25/5). Ordenar es un paso que no se puede saltar."
+        ),
+    ),
+    _item(
+        "sat-dat-13",
+        habilidad="sat_datos",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "A store sells 3 pens for 2.40 dollars. At the same price per pen, how "
+            "much do 5 pens cost?"
+        ),
+        options=["4.00 dollars", "4.80 dollars", "3.60 dollars", "12.00 dollars"],
+        correct="4.00 dollars",
+        explanation=(
+            "Precio por unidad: 2.40 / 3 = 0.80 dólares. Cinco cuestan 5 × 0.80 = "
+            "4.00. El 12.00 multiplica 2.40 por 5, como si 2.40 fuera el precio de "
+            "uno. El 4.80 duplica el paquete de 3 (eso serían 6). Bajar a \"por "
+            "uno\" evita las tres trampas."
+        ),
+    ),
+    _item(
+        "sat-dat-14",
+        habilidad="sat_datos",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "The price of an item is increased by 20 percent and then the new price "
+            "is decreased by 20 percent. How does the final price compare with the "
+            "original price?"
+        ),
+        options=[
+            "It is 4 percent lower.",
+            "It is the same.",
+            "It is 4 percent higher.",
+            "It is 20 percent lower.",
+        ],
+        correct="It is 4 percent lower.",
+        explanation=(
+            "Con 100 de precio: sube a 120, y el 20% de 120 es 24, así que baja a "
+            "96. Queda 4% por debajo. El \"es igual\" es la intuición que el examen "
+            "castiga: el segundo 20% se calcula sobre un número más grande. En "
+            "multiplicadores: 1.20 × 0.80 = 0.96."
+        ),
+    ),
+    _item(
+        "sat-dat-15",
+        habilidad="sat_datos",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "The mean of a student's first 5 test scores is 82. What score does "
+            "the student need on the 6th test to raise the mean of all 6 scores "
+            "to 84?"
+        ),
+        options=["94", "86", "84", "100"],
+        correct="94",
+        explanation=(
+            "Se trabaja con totales, no con promedios: los 5 primeros suman "
+            "5 × 82 = 410, y para un promedio de 84 en 6 hacen falta 6 × 84 = 504 "
+            "puntos. Falta 504 − 410 = 94. El 86 sale de pensar \"subir 2 puntos, "
+            "entonces 2 más que el promedio deseado\": no alcanza, porque el "
+            "último examen tiene que levantar a los otros cinco."
+        ),
+    ),
+    _item(
+        "sat-dat-16",
+        habilidad="sat_datos",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A line of best fit for a set of data is y = 1.5x + 20, where y is the "
+            "height of a plant, in centimetres, and x is the number of weeks since "
+            "it was measured for the first time. What is the best interpretation "
+            "of 1.5 in this context?"
+        ),
+        options=[
+            "The plant grows about 1.5 centimetres per week.",
+            "The plant was about 1.5 centimetres tall when first measured.",
+            "The plant grows about 20 centimetres per week.",
+            "After 1.5 weeks, the plant is about 20 centimetres tall.",
+        ],
+        correct="The plant grows about 1.5 centimetres per week.",
+        explanation=(
+            "En y = mx + b, la pendiente (1.5) es cuánto cambia y por cada unidad "
+            "de x: centímetros por semana. El 20 es la altura en la semana 0, el "
+            "punto de partida. La segunda y la tercera opción intercambian los "
+            "papeles de los dos números. \"About\" está ahí porque es una recta de "
+            "ajuste: describe la tendencia, no cada planta."
+        ),
+    ),
+    _item(
+        "sat-dat-17",
+        habilidad="sat_datos",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A train travels at 90 kilometres per hour. What is this speed in "
+            "metres per second?"
+        ),
+        options=["25", "1.5", "324", "250"],
+        correct="25",
+        explanation=(
+            "90 km son 90 000 m, y una hora son 3 600 segundos: 90 000 / 3 600 = "
+            "25 m/s. El 1.5 divide entre 60 solo una vez (de horas a minutos). El "
+            "324 multiplica por 3.6 en vez de dividir. Escribe las unidades en la "
+            "cuenta: si al final no queda m/s, la operación está al revés."
+        ),
+    ),
+    _item(
+        "sat-dat-18",
+        habilidad="sat_datos",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A bag contains 4 red marbles, 6 blue marbles and 10 green marbles. "
+            "If one marble is chosen at random, what is the probability that it is "
+            "NOT green?"
+        ),
+        options=["1/2", "1/10", "3/10", "1/5"],
+        correct="1/2",
+        explanation=(
+            "No verdes son 4 + 6 = 10 de un total de 20: 10/20 = 1/2. El 3/10 es "
+            "solo la probabilidad de azul y el 1/5 solo la de roja: cada uno "
+            "cuenta la mitad de los casos. Atajo: P(no verde) = 1 − P(verde) = "
+            "1 − 10/20."
+        ),
+    ),
+    _item(
+        "sat-dat-19",
+        habilidad="sat_datos",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "After a 15 percent discount, a laptop costs 680 dollars. What was the "
+            "price before the discount?"
+        ),
+        options=["800 dollars", "782 dollars", "578 dollars", "695 dollars"],
+        correct="800 dollars",
+        explanation=(
+            "Con descuento del 15% se paga el 85% del precio original: "
+            "0.85 × P = 680, P = 680 / 0.85 = 800. El 782 sale de sumarle el 15% "
+            "a 680, que es la trampa clásica: ese 15% se calculó sobre el precio "
+            "original, no sobre el rebajado. Comprueba: el 15% de 800 es 120, y "
+            "800 − 120 = 680."
+        ),
+    ),
+    _item(
+        "sat-dat-20",
+        habilidad="sat_datos",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Data set A is 48, 49, 50, 51, 52. Data set B is 30, 40, 50, 60, 70. "
+            "Which statement is true?"
+        ),
+        options=[
+            "The sets have the same mean, and set B has the larger standard deviation.",
+            "The sets have the same mean, and set A has the larger standard deviation.",
+            "Set B has the larger mean.",
+            "The sets have the same standard deviation.",
+        ],
+        correct="The sets have the same mean, and set B has the larger standard deviation.",
+        explanation=(
+            "Los dos están centrados en 50, así que la media es la misma. La "
+            "desviación estándar mide qué tan lejos están los datos del centro: "
+            "en B se alejan hasta 20, en A apenas 2. No hace falta calcularla; el "
+            "examen pregunta la idea. Que B tenga números más grandes no le sube "
+            "la media."
+        ),
+    ),
+    _item(
+        "sat-dat-21",
+        habilidad="sat_datos",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "A random sample of 400 residents of a city was surveyed, and 36 "
+            "percent said they support building a new park. The margin of error "
+            "for this estimate is 5 percentage points. Which conclusion is best "
+            "supported?"
+        ),
+        options=[
+            "It is plausible that between 31 and 41 percent of all residents of the city support the park.",
+            "Exactly 36 percent of all residents of the city support the park.",
+            "Between 31 and 41 percent of the 400 residents surveyed support the park.",
+            "Most residents of the city support the park.",
+        ],
+        correct="It is plausible that between 31 and 41 percent of all residents of the city support the park.",
+        explanation=(
+            "El margen de error habla de TODA la población, no de la muestra: en "
+            "la muestra ya sabemos que fue exactamente 36%. Por eso la tercera "
+            "opción está mal aunque traiga los mismos números. \"Exactamente\" "
+            "ignora el margen, y \"la mayoría\" contradice el dato. La palabra "
+            "\"plausible\" es la que el examen usa para estas conclusiones."
+        ),
+    ),
+    _item(
+        "sat-dat-22",
+        habilidad="sat_datos",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "A population of bacteria doubles every 3 hours. If there are 500 "
+            "bacteria now, how many will there be after 12 hours?"
+        ),
+        options=["8,000", "2,000", "4,000", "6,000"],
+        correct="8,000",
+        explanation=(
+            "En 12 horas hay 12/3 = 4 duplicaciones: 500 × 2 × 2 × 2 × 2 = "
+            "500 × 16 = 8 000. El 2 000 multiplica por 4 (las duplicaciones) en "
+            "vez de por 2⁴. El 6 000 multiplica por 12 horas, como si creciera "
+            "igual cada hora. Duplicar es crecimiento exponencial: se multiplica, "
+            "no se suma."
+        ),
+    ),
+    _item(
+        "sat-dat-23",
+        habilidad="sat_datos",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "A savings account starts with 1,000 dollars and earns 5 percent "
+            "interest per year, compounded once a year. How much money is in the "
+            "account after 2 years?"
+        ),
+        options=["1,102.50 dollars", "1,100.00 dollars", "1,105.00 dollars", "1,050.00 dollars"],
+        correct="1,102.50 dollars",
+        explanation=(
+            "Cada año se multiplica por 1.05: 1 000 × 1.05 × 1.05 = 1 102.50. El "
+            "1 100 es interés simple (50 + 50): olvida que el segundo año el 5% se "
+            "calcula sobre 1 050. El 1 050 es el saldo después de un solo año. "
+            "Interés compuesto es lo mismo que el aumento porcentual repetido."
+        ),
+    ),
+    _item(
+        "sat-dat-24",
+        habilidad="sat_datos",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "In a group of 60 students, 25 take French, 30 take art, and 10 take "
+            "both French and art. How many students take neither French nor art?"
+        ),
+        options=["15", "5", "25", "45"],
+        correct="15",
+        explanation=(
+            "Los 10 que toman las dos materias están contados en los 25 Y en los "
+            "30. Los que toman al menos una son 25 + 30 − 10 = 45, y ninguna, "
+            "60 − 45 = 15. El 5 sale de no restar los 10 repetidos (60 − 55). El "
+            "45 es la cantidad que toma al menos una: es el paso intermedio."
+        ),
+    ),
+    _item(
+        "sat-dat-25",
+        habilidad="sat_datos",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Class A has 20 students with a mean score of 70. Class B has 30 "
+            "students with a mean score of 80. What is the mean score of all 50 "
+            "students?"
+        ),
+        options=["76", "75", "78", "74"],
+        correct="76",
+        explanation=(
+            "No se promedian los promedios (eso da 75, el distractor), porque los "
+            "grupos son de distinto tamaño. Se suman los totales: 20 × 70 = 1 400 "
+            "y 30 × 80 = 2 400; la suma, 3 800, se divide entre 50 estudiantes: 76. La clase más "
+            "grande pesa más, por eso el resultado queda más cerca de 80."
         ),
     ),
 ]

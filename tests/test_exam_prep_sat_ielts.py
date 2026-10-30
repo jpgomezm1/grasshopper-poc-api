@@ -818,7 +818,9 @@ class TestSinRepetir:
             for _ in range(5):
                 _, ids = _hacer_tanda(client, h, EXAMEN_SAT, limite=8)
                 vistos += ids
-            assert len(vistos) == len(set(vistos)) == 39
+            # 5 tandas de 8 = 40 ejercicios distintos (I-1b amplió el banco: ya
+            # no se agota antes de la quinta).
+            assert len(vistos) == len(set(vistos)) == min(40, len(_clave(EXAMEN_SAT)))
 
     def test_salen_TODOS_los_ejercicios_del_banco(self, app_with_db):
         """Antes 6 de los 39 de SAT no aparecían nunca."""
@@ -827,7 +829,7 @@ class TestSinRepetir:
         with TestClient(app) as client:
             h = _headers(client, "prep.todos@grasshopper.dev")
             vistos = set()
-            for _ in range(10):
+            for _ in range(-(-len(_clave(EXAMEN_SAT)) // banco.TAMANO_SESION) + 1):
                 cuerpo, ids = _hacer_tanda(client, h, EXAMEN_SAT)
                 if not ids:
                     break
@@ -852,7 +854,8 @@ class TestSinRepetir:
         with TestClient(app) as client:
             h = _headers(client, "prep.agotado@grasshopper.dev")
             cuerpo = None
-            for _ in range(6):
+            total = len(_clave(EXAMEN_SAT))
+            for _ in range(-(-total // banco.TAMANO_SESION)):
                 cuerpo, ids = _hacer_tanda(client, h, EXAMEN_SAT)
             final = client.get(f"{BASE}/{EXAMEN_SAT}/practice", headers=h).json()
             assert final["items"] == []
@@ -861,7 +864,7 @@ class TestSinRepetir:
 
             r = client.delete(f"{BASE}/{EXAMEN_SAT}/practice/seen", headers=h)
             assert r.status_code == 200, r.text
-            assert r.json()["reset"] == 39
+            assert r.json()["reset"] == total
             assert r.json()["disclaimer"] == banco.AVISO_NO_OFICIAL
 
             otra_vez = client.get(f"{BASE}/{EXAMEN_SAT}/practice", headers=h).json()
@@ -896,4 +899,4 @@ class TestSinRepetir:
                 )
                 assert r.status_code == 200, r.text
             sesion = client.get(f"{BASE}/{EXAMEN_SAT}/practice", headers=h).json()
-            assert sesion["unseen"] == 38
+            assert sesion["unseen"] == len(_clave(EXAMEN_SAT)) - 1

@@ -39,6 +39,7 @@ from app.api.v1 import (
     bot,
     bot_gratuito,
     plan,
+    admin_planes,
     outreach,
     schools,
     external_test_uploads,
@@ -228,6 +229,7 @@ app.include_router(lead_profile.router, prefix="/api/v1")
 app.include_router(bot.router, prefix="/api/v1")
 app.include_router(bot_gratuito.router, prefix="/api/v1")
 app.include_router(plan.router, prefix="/api/v1")
+app.include_router(admin_planes.router, prefix="/api/v1")
 app.include_router(outreach.router, prefix="/api/v1")
 app.include_router(schools.router, prefix="/api/v1")
 app.include_router(external_test_uploads.router, prefix="/api/v1")

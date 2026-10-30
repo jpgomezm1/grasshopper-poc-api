@@ -23,10 +23,12 @@ es justo lo que pide este sprint. Este script crea un juego fijo:
   Si una ya existe, la deja como está (no le borra lo que ya hicieron con ella),
   salvo con `--reiniciar`.
 
-## Cuando existan los planes (D-1)
+## Los planes (D-6)
 
-Hay que agregar la variante por plan (gratis / pago / VIP). Hoy no existe el
-concepto de plan por usuario, así que sembrarlo sería inventar un campo.
+Las cuentas sin `plan` quedan como `pago` (la migración 081 sube a pago las
+B2C que ya existían). Las `.gratis` y `.vip` llevan una fila de plan propio,
+sin vencimiento, para ver la plataforma como la ve cada plan. Necesitan que la
+tabla `user_plans` exista: correr este script DESPUÉS de desplegar Sprint 4.
 
 ## Uso
 
@@ -66,6 +68,10 @@ class Cuenta:
     respuestas: Optional[Dict[str, Any]] = None
     anio_nacimiento: Optional[int] = None
     grado: Optional[int] = field(default=None)
+    # D-6 · el plan propio de la cuenta (gratis · vip). `None` = el que le toque
+    # por la regla: las que existían antes de Sprint 4 quedan `pago` por la
+    # migración 081 (D9).
+    plan: Optional[str] = None
 
     @property
     def email(self) -> str:
@@ -124,7 +130,20 @@ CUENTAS: List[Cuenta] = [
     Cuenta("nuevo1", "Prueba Nueva 1", "Sin onboarding · para recorrer el registro desde cero"),
     Cuenta("nuevo2", "Prueba Nueva 2", "Sin onboarding · para recorrer el registro desde cero"),
     Cuenta("nuevo3", "Prueba Nueva 3", "Sin onboarding · para recorrer el registro desde cero"),
+    # D-6 · Sprint 4 · para ver la plataforma como la ve cada plan. Las de arriba
+    # quedan como `pago`; estas llevan su plan explícito, así la migración no las
+    # sube a pago y se ven los candados y el muro de pago.
+    Cuenta("grado9.gratis", "Prueba Grado 9 Gratis", "Colegio · 9° · plan GRATIS (candados y muro de pago)",
+           _colegio("high_school_early", 9, 11, 2012), 2012, 9, plan="gratis"),
+    Cuenta("grado11.gratis", "Prueba Grado 11 Gratis", "Colegio · 11° · plan GRATIS (candados y muro de pago)",
+           _colegio("high_school", 11, 12, 2010), 2010, 11, plan="gratis"),
+    Cuenta("profesional.gratis", "Prueba Profesional Gratis", "Trabajando · plan GRATIS (candados y muro de pago)",
+           _onboarding("working", budget="5k_15k", **_CARRERA), 1994, plan="gratis"),
+    Cuenta("grado11.vip", "Prueba Grado 11 VIP", "Colegio · 11° · plan VIP (sesión 1:1 abierta)",
+           _colegio("high_school", 11, 12, 2010), 2010, 11, plan="vip"),
 ]
+
+METODO_PLAN_PRUEBA = "cuenta de prueba (K-1/D-6)"
 
 
 def _aplicar_estado(u: Any, c: Cuenta) -> None:
@@ -149,6 +168,22 @@ def _aplicar_estado(u: Any, c: Cuenta) -> None:
     u.consent_parental_at = ahora if c.grado else None
 
 
+def _asegurar_plan(db: Any, u: Any, c: Cuenta) -> None:
+    """Le deja su plan de prueba sin vencimiento · una sola fila, no duplica."""
+    if not c.plan:
+        return
+    from app.db.models import UserPlan
+
+    ya = (
+        db.query(UserPlan)
+        .filter(UserPlan.user_id == u.id, UserPlan.metodo == METODO_PLAN_PRUEBA, UserPlan.plan == c.plan)
+        .first()
+    )
+    if ya is None:
+        ahora = datetime.utcnow()
+        db.add(UserPlan(user_id=u.id, plan=c.plan, desde=ahora, metodo=METODO_PLAN_PRUEBA, creado_en=ahora))
+
+
 def sembrar(db: Any, *, aplicar: bool, reiniciar: bool = False) -> List[Dict[str, str]]:
     """Crea las que falten · devuelve qué pasó con cada una."""
     from app.api.v1.auth import get_password_hash
@@ -165,10 +200,13 @@ def sembrar(db: Any, *, aplicar: bool, reiniciar: bool = False) -> List[Dict[str
                 u = User(email=c.email, hashed_password=clave_hash, role=UserRole.STUDENT)
                 _aplicar_estado(u, c)
                 db.add(u)
+                db.flush()  # para tener `u.id` y colgarle el plan
+                _asegurar_plan(db, u, c)
         elif reiniciar:
             accion = "reiniciar"
             if aplicar:
                 _aplicar_estado(u, c)
+                _asegurar_plan(db, u, c)
         else:
             accion = "ya existe (no se toca)"
         informe.append({"email": c.email, "accion": accion, "descripcion": c.descripcion})

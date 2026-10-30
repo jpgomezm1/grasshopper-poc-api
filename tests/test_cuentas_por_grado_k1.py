@@ -57,9 +57,10 @@ def test_sin_aplicar_no_escribe_nada(db):
     assert _por_email(db) == {}
 
 
-def test_crea_las_nueve(db):
+def test_crea_las_trece(db):
+    # 9 de K-1 + 4 de D-6 (gratis y VIP).
     script.sembrar(db, aplicar=True)
-    assert len(_por_email(db)) == len(script.CUENTAS) == 9
+    assert len(_por_email(db)) == len(script.CUENTAS) == 13
 
 
 @pytest.mark.parametrize(
@@ -131,7 +132,7 @@ def test_correrlo_dos_veces_no_duplica_ni_pisa(db):
 
     informe = script.sembrar(db, aplicar=True)
     assert {f["accion"] for f in informe} == {"ya existe (no se toca)"}
-    assert len(_por_email(db)) == 9
+    assert len(_por_email(db)) == 13
     u = _por_email(db)["prueba.grado11@grasshopper.dev"]
     assert u.onboarding_answers["voice_passion"] == "lo que escribió quien probó"
 
@@ -147,3 +148,41 @@ def test_reiniciar_las_devuelve_a_su_estado_inicial(db):
     u = _por_email(db)["prueba.nuevo1@grasshopper.dev"]
     assert u.onboarding_status == OnboardingStatus.NOT_STARTED
     assert u.onboarding_answers == {}
+
+
+# ---------------------------------------------------------------------------
+# D-6 · las variantes por plan
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.planes_reales
+@pytest.mark.parametrize(
+    "usuario, plan",
+    [("grado9.gratis", "gratis"), ("grado11.gratis", "gratis"), ("profesional.gratis", "gratis"), ("grado11.vip", "vip")],
+)
+def test_las_variantes_quedan_con_su_plan(db, usuario, plan):
+    from app.services import plan_service
+
+    script.sembrar(db, aplicar=True)
+    u = _por_email(db)[f"prueba.{usuario}@grasshopper.dev"]
+    vigente = plan_service.plan_vigente(db, u)
+    assert (vigente.plan, vigente.origen, vigente.hasta) == (plan, "propio", None)
+
+
+@pytest.mark.planes_reales
+def test_las_de_siempre_no_llevan_fila_de_plan(db):
+    """Su plan sale de la regla (la migración 081 las sube a pago), no del script."""
+    from app.db.models import UserPlan
+
+    script.sembrar(db, aplicar=True)
+    u = _por_email(db)["prueba.grado11@grasshopper.dev"]
+    assert db.query(UserPlan).filter(UserPlan.user_id == u.id).count() == 0
+
+
+def test_reiniciar_no_duplica_el_plan(db):
+    from app.db.models import UserPlan
+
+    script.sembrar(db, aplicar=True)
+    script.sembrar(db, aplicar=True, reiniciar=True)
+    u = _por_email(db)["prueba.grado11.vip@grasshopper.dev"]
+    assert db.query(UserPlan).filter(UserPlan.user_id == u.id).count() == 1

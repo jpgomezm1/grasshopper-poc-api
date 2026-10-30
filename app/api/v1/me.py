@@ -537,6 +537,58 @@ class StudentDashboardResponse(BaseModel):
     # escalera comun, que es la que servia hasta hoy: ruta desconocida es mejor
     # que ruta adivinada.
     ruta: Optional[str] = None
+    # J-2 · Sprint 4 · la escalera de SU grado: cada test de su etapa (en el
+    # orden de la matriz, `app/data/permisos.py`), si ya lo hizo y si su plan lo
+    # tiene con candado. Va en el dashboard y no en otra llamada para que los
+    # cuatro que pintan la guía (barra, inicio, Journey, Hopper) lean lo MISMO:
+    # si uno lo calculara aparte, es el P0-8 de este repo. Vacío si no se sabe
+    # su grado: el front cae a la escalera común.
+    tests_de_su_etapa: List["PasoDeTest"] = []
+    # Si el test de inglés es de su etapa (D-2: de 10° en adelante).
+    ingles_aplica: bool = True
+    # Las funciones que su plan no incluye · la guía las pinta con candado.
+    funciones_con_candado: List[str] = []
+
+
+class PasoDeTest(BaseModel):
+    id: str
+    nombre: str
+    hecho: bool
+    con_candado: bool
+
+
+StudentDashboardResponse.model_rebuild()
+
+
+def _guia_de_su_etapa(db: DBSession, student: User) -> dict:
+    """J-2 · los datos de la escalera por grado, leídos de la matriz de permisos."""
+    from app.data import permisos as matriz
+    from app.data.vocational_tests import VOCATIONAL_TESTS
+    from app.services import permisos_service
+
+    p = permisos_service.permisos(db, student)
+    hechos = {
+        r.test_id
+        for r in db.query(VocationalTestResult.test_id)
+        .filter(VocationalTestResult.user_id == student.id)
+        .all()
+    }
+    nombres = {t["id"]: t.get("shortName") or t["name"] for t in VOCATIONAL_TESTS}
+    pasos = []
+    if p.tramo:
+        for test_id in matriz.TESTS_POR_TRAMO.get(p.tramo, ()):
+            acceso = p.tests.get(test_id)
+            pasos.append(PasoDeTest(
+                id=test_id,
+                nombre=nombres.get(test_id, test_id),
+                hecho=test_id in hechos,
+                con_candado=bool(acceso and acceso.motivo == "plan"),
+            ))
+    return {
+        "tests_de_su_etapa": pasos,
+        "ingles_aplica": p.ingles.motivo != "no_es_de_su_grado",
+        "funciones_con_candado": sorted(k for k, a in p.funciones.items() if a.motivo == "plan"),
+    }
 
 
 def _evaluate_journey_complete(db: DBSession, student: User) -> tuple[bool, int, int]:
@@ -602,6 +654,7 @@ def get_dashboard(
             .count()
         ),
         ruta=exam_prep_service.ruta_del_estudiante(current_user),
+        **_guia_de_su_etapa(db, current_user),
     )
 
 

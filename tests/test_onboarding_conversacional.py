@@ -818,24 +818,33 @@ def test_el_saludo_pregunta_primero_por_la_etapa_no_por_la_pasion():
     saludo = conv.SALUDO.lower()
 
     assert "etapa" in saludo
-    assert any(g in saludo for g in ("noveno", "décimo", "once", "doce"))
+    # C-2 · Sprint 4 · su redacción pregunta "en qué grado estás" en vez de
+    # enumerar noveno, décimo, once y doce.
+    assert "grado" in saludo
     assert "profesional" in saludo
     # Ya no es lo primero que se pregunta.
     assert "apasiona" not in saludo
 
 
 def test_el_saludo_presenta_al_personaje_por_su_nombre():
-    """El personaje ya tiene nombre: Mento (decidido por AH el 2026-08-25).
+    """El personaje se llama Hopper (decidido por JP el 2026-10-29, con el
+    feedback de Sprint 4). Antes fue Mento, decidido por AH el 2026-08-25.
 
     Antes este test afirmaba lo contrario —que NO debía tener nombre propio—
     porque el personaje estaba sin diseñar. Se actualiza junto con la decisión,
     no se borra: sigue habiendo algo que proteger, solo que ahora es que el
     nombre ESTÉ y que no reaparezca el viejo.
     """
-    assert "Mento" in conv.SALUDO
+    # C-2 · Sprint 4 · el primer mensaje ya NO saluda ni se presenta: lo hace la
+    # pantalla de bienvenida justo antes, y Verónica pidió no saludar dos veces.
+    # El nombre se sigue protegiendo en los saludos de quien vuelve.
+    assert "Hopper" not in conv.SALUDO
+    assert "hola" not in conv.SALUDO.lower()
+    assert "Hopper" in conv.SALUDO_RETOMA
+    assert "Hopper" in conv.SALUDO_COMPLETO
     assert "tu guía" not in conv.SALUDO
-    # "Hop" era la mascota de GrassHopper · nunca vuelve al texto visible.
-    for viejo in ("Hop", "hop"):
+    # El nombre anterior (Mento, 25-08 a 29-10) no vuelve al texto visible.
+    for viejo in ("Mento",):
         assert viejo not in conv.SALUDO
 
 
@@ -853,7 +862,7 @@ def test_primer_mensaje_es_el_saludo_fijo():
 # igual con `SALUDO`, que pregunta la etapa. O sea: leia el dato y lo tiraba,
 # con el dato a dos lineas de distancia. Le pasaba a cualquiera que dejara la
 # conversacion a medias y volviera —lo normal en alguien de 16 años— y a quien
-# venia del formulario viejo: Mento abria preguntandole algo que ya le habia
+# venia del formulario viejo: Hopper abria preguntandole algo que ya le habia
 # contestado, que es la forma mas rapida de que alguien deje de creer que lo
 # estas escuchando.
 
@@ -868,7 +877,7 @@ def test_sin_saber_nada_abre_pidiendo_la_etapa():
 def test_si_ya_sabe_la_etapa_NO_la_vuelve_a_preguntar():
     """El bug, en una linea."""
     saludo = conv.primer_mensaje({"life_stage": "high_school", "grade": 11})
-    assert "¿en qué etapa estás hoy?" not in saludo
+    assert "en qué etapa estás" not in saludo
     assert saludo != conv.SALUDO
 
 
@@ -896,8 +905,7 @@ def test_las_tres_variantes_siguen_siendo_texto_fijo():
     copy y no puede cambiar en cada sesion."""
     for texto in (conv.SALUDO, conv.SALUDO_RETOMA, conv.SALUDO_COMPLETO):
         assert isinstance(texto, str) and texto.strip()
-        assert "Mento" in texto
-        for viejo in ("Hop", "hop"):
+        for viejo in ("Mento",):
             assert viejo not in texto
 
 
@@ -909,4 +917,5 @@ def test_el_endpoint_le_pasa_los_hechos_al_saludo():
     from app.api.v1 import onboarding_chat
 
     fuente = inspect.getsource(onboarding_chat.inicio)
-    assert "primer_mensaje(hechos)" in fuente
+    # B-7 · ahora también recibe `desde_bot`; lo que importa es que lleve los hechos.
+    assert "primer_mensaje(hechos" in fuente

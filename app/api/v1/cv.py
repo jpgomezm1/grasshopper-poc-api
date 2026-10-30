@@ -45,6 +45,7 @@ from sqlalchemy.orm import Session as DBSession
 from pydantic import BaseModel, Field
 
 from app.core.rate_limiter import rate_limit
+from app.api.v1.llave_plan import requiere
 from app.db.database import get_db
 from app.db.models import CVTarget, School, User, UserRole, VocationalTestResult
 from app.services import (
@@ -149,7 +150,13 @@ class FormatoRequest(BaseModel):
     incluir_foto: bool | None = None
 
 
-@router_me.put("/formato", summary="Guardar a qué destino va mi hoja de vida y cómo se ve")
+# D-3 · la hoja de vida: crear y editar es pago; leerla y descargar la que ya
+# tiene, no (quien baja de plan no pierde lo que hizo).
+@router_me.put(
+    "/formato",
+    summary="Guardar a qué destino va mi hoja de vida y cómo se ve",
+    dependencies=[Depends(requiere("hoja_de_vida"))],
+)
 def save_formato(
     request: FormatoRequest,
     db: DBSession = Depends(get_db),
@@ -363,6 +370,7 @@ class LinkedInImportRequest(BaseModel):
 @router_me.post(
     "/import-linkedin",
     summary="CV-2 · estructurar el perfil de LinkedIn que la persona pegó",
+    dependencies=[Depends(requiere("hoja_de_vida"))],
 )
 def import_linkedin(
     request: LinkedInImportRequest,
@@ -415,7 +423,11 @@ def import_linkedin(
     }
 
 
-@router_me.put("/profile", summary="A3 · responder las preguntas y editar mi hoja de vida")
+@router_me.put(
+    "/profile",
+    summary="A3 · responder las preguntas y editar mi hoja de vida",
+    dependencies=[Depends(requiere("hoja_de_vida"))],
+)
 def save_cv_profile(
     request: CVProfileRequest,
     db: DBSession = Depends(get_db),
@@ -570,7 +582,7 @@ class CVTargetRequest(BaseModel):
     "/targets",
     status_code=status.HTTP_202_ACCEPTED,
     summary="Pegar una convocatoria y pedir que adaptemos el CV a ella",
-    dependencies=[Depends(rate_limit("6/minute", scope="cv_target"))],
+    dependencies=[Depends(rate_limit("6/minute", scope="cv_target")), Depends(requiere("hoja_de_vida"))],
 )
 def crear_target(
     request: CVTargetRequest,
@@ -678,6 +690,7 @@ def ver_target(
 @router_me.post(
     "/targets/{target_id}/apply",
     summary="Aplicar a mi hoja de vida la propuesta de esta convocatoria",
+    dependencies=[Depends(requiere("hoja_de_vida"))],
 )
 def aplicar_target(
     target_id: str,
@@ -733,7 +746,7 @@ _FOTO_MAX_MB = 2
 @router_foto.post(
     "/photo",
     summary="Subir mi foto para la hoja de vida",
-    dependencies=[Depends(rate_limit("10/minute", scope="cv_photo"))],
+    dependencies=[Depends(rate_limit("10/minute", scope="cv_photo")), Depends(requiere("hoja_de_vida"))],
 )
 async def subir_foto(
     request: Request,
@@ -829,7 +842,11 @@ def _link_publico_activo() -> bool:
     return bool(get_settings().cv_public_link_enabled)
 
 
-@router_me.post("/share", summary="Generar el enlace público de mi hoja de vida")
+@router_me.post(
+    "/share",
+    summary="Generar el enlace público de mi hoja de vida",
+    dependencies=[Depends(requiere("hoja_de_vida"))],
+)
 def crear_share(
     db: DBSession = Depends(get_db),
     current_user: User = Depends(get_current_user),

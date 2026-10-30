@@ -17,7 +17,7 @@ señal vocacional que la persona da, muchas veces semanas antes de registrarse.
 
 Cuando alguien se registra con el mismo correo con el que hizo el quiz, sus
 respuestas se recuperan y entran a `onboarding_answers`, que es el bolsillo que
-ya leen el perfil consolidado, el chat de Mento y las rutas del journey. Y
+ya leen el perfil consolidado, el chat de Hopper y las rutas del journey. Y
 `converted` por fin significa algo.
 
 ## Los dos extremos, en el mismo commit

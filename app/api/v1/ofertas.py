@@ -30,7 +30,11 @@ from app.services.catalog_service import display_name_for_program
 
 logger = logging.getLogger(__name__)
 
-router = APIRouter(prefix="/ofertas", tags=["Ofertas"])
+from app.api.v1.llave_plan import requiere  # noqa: E402
+
+# D-3 · Sprint 4 · la llave del plan, para TODO este router: programas y universidades son pago.
+# Ver `app/api/v1/llave_plan.py` y la matriz en `app/data/permisos.py`.
+router = APIRouter(prefix="/ofertas", tags=["Ofertas"], dependencies=[Depends(requiere("programas"))])
 
 
 # ---------------------------------------------------------------------------

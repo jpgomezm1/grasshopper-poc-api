@@ -10,10 +10,10 @@ Dos huecos de la misma auditoría, distintos entre sí:
    lo que se le recomienda.
 
 2. **Dos definiciones de "la sesión del estudiante".** `POST /sessions` y el
-   chat de Mento usaban la más antigua; el perfil consolidado, el CRM y el
+   chat de Hopper usaban la más antigua; el perfil consolidado, el CRM y el
    dossier la última actualizada. Con sesiones duplicadas —que los races
    produjeron, según el propio código— el perfil se armaba sobre una sesión y
-   Mento leía otra.
+   Hopper leía otra.
 """
 from __future__ import annotations
 

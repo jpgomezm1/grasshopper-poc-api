@@ -772,3 +772,128 @@ class TestConexionConElDiagnosticoDeIngles:
         info = servicio.diagnostico_de_ingles(None, u)
         assert info["endpoint"] == servicio.ENDPOINT_DIAGNOSTICO_INGLES
         assert "diagnóstico de inglés" in info["message"]
+
+
+# ---------------------------------------------------------------------------
+# 7 · I-1 · Sprint 4 · no repetir entre sesiones
+# ---------------------------------------------------------------------------
+#
+# Verónica: "Revisé el Pre SAT y las preguntas se empiezan a repetir desde la
+# 19 o algo así en adelante". La cola vivía en la memoria del navegador: al
+# volver se servía la ronda 1 otra vez, y por el reparto entre habilidades 6 de
+# los 39 ejercicios de SAT no salían nunca. Ahora se guarda lo respondido.
+
+
+def _clave(exam_id):
+    return {i["id"]: i["correct"] for i in banco.items(exam_id=exam_id)}
+
+
+def _hacer_tanda(client, h, exam_id, limite=10, responder=None):
+    """Pide una tanda y responde `responder` de sus ejercicios (todos si None)."""
+    r = client.get(f"{BASE}/{exam_id}/practice?limit={limite}", headers=h)
+    assert r.status_code == 200, r.text
+    cuerpo = r.json()
+    ids = [i["id"] for i in cuerpo["items"]]
+    a_responder = ids if responder is None else ids[:responder]
+    if a_responder:
+        clave = _clave(exam_id)
+        rc = client.post(
+            f"{BASE}/{exam_id}/practice/check",
+            json={"answers": {i: clave[i] for i in a_responder}},
+            headers=h,
+        )
+        assert rc.status_code == 200, rc.text
+    return cuerpo, ids
+
+
+class TestSinRepetir:
+    def test_cinco_sesiones_seguidas_sin_una_sola_repetida(self, app_with_db):
+        """Cada GET es una sesión NUEVA (como recargar la pantalla): sin memoria
+        esto devolvía la ronda 1 las cinco veces."""
+        app, SessionLocal = app_with_db
+        _estudiante(SessionLocal, "prep.norep@grasshopper.dev", grade=11)
+        with TestClient(app) as client:
+            h = _headers(client, "prep.norep@grasshopper.dev")
+            vistos = []
+            for _ in range(5):
+                _, ids = _hacer_tanda(client, h, EXAMEN_SAT, limite=8)
+                vistos += ids
+            assert len(vistos) == len(set(vistos)) == 39
+
+    def test_salen_TODOS_los_ejercicios_del_banco(self, app_with_db):
+        """Antes 6 de los 39 de SAT no aparecían nunca."""
+        app, SessionLocal = app_with_db
+        _estudiante(SessionLocal, "prep.todos@grasshopper.dev", grade=11)
+        with TestClient(app) as client:
+            h = _headers(client, "prep.todos@grasshopper.dev")
+            vistos = set()
+            for _ in range(10):
+                cuerpo, ids = _hacer_tanda(client, h, EXAMEN_SAT)
+                if not ids:
+                    break
+                vistos |= set(ids)
+            assert vistos == set(_clave(EXAMEN_SAT))
+
+    def test_lo_que_no_respondio_vuelve_a_salir(self, app_with_db):
+        """Se marca al CORREGIR, no al entregar: si contesta 3 de 10 y se va, los
+        otros 7 no los vio."""
+        app, SessionLocal = app_with_db
+        _estudiante(SessionLocal, "prep.parcial@grasshopper.dev", grade=11)
+        with TestClient(app) as client:
+            h = _headers(client, "prep.parcial@grasshopper.dev")
+            _, primera = _hacer_tanda(client, h, EXAMEN_SAT, responder=3)
+            _, segunda = _hacer_tanda(client, h, EXAMEN_SAT, responder=0)
+            assert not set(primera[:3]) & set(segunda)
+            assert set(primera[3:]) <= set(segunda)
+
+    def test_cuando_respondio_todo_se_le_dice_y_puede_empezar_de_nuevo(self, app_with_db):
+        app, SessionLocal = app_with_db
+        _estudiante(SessionLocal, "prep.agotado@grasshopper.dev", grade=11)
+        with TestClient(app) as client:
+            h = _headers(client, "prep.agotado@grasshopper.dev")
+            cuerpo = None
+            for _ in range(6):
+                cuerpo, ids = _hacer_tanda(client, h, EXAMEN_SAT)
+            final = client.get(f"{BASE}/{EXAMEN_SAT}/practice", headers=h).json()
+            assert final["items"] == []
+            assert final["exhausted"] is True
+            assert final["unseen"] == 0
+
+            r = client.delete(f"{BASE}/{EXAMEN_SAT}/practice/seen", headers=h)
+            assert r.status_code == 200, r.text
+            assert r.json()["reset"] == 39
+            assert r.json()["disclaimer"] == banco.AVISO_NO_OFICIAL
+
+            otra_vez = client.get(f"{BASE}/{EXAMEN_SAT}/practice", headers=h).json()
+            assert otra_vez["items"] and otra_vez["exhausted"] is False
+
+    def test_cada_examen_y_cada_estudiante_por_separado(self, app_with_db):
+        app, SessionLocal = app_with_db
+        _estudiante(SessionLocal, "prep.a@grasshopper.dev", grade=11)
+        _estudiante(SessionLocal, "prep.b@grasshopper.dev", grade=11)
+        with TestClient(app) as client:
+            ha = _headers(client, "prep.a@grasshopper.dev")
+            hb = _headers(client, "prep.b@grasshopper.dev")
+            _, sat_a = _hacer_tanda(client, ha, EXAMEN_SAT)
+            # Otro estudiante arranca de cero.
+            _, sat_b = _hacer_tanda(client, hb, EXAMEN_SAT, responder=0)
+            assert sat_a == sat_b
+            # El IELTS del mismo estudiante no se entera de su SAT.
+            ielts = client.get(f"{BASE}/{EXAMEN_IELTS}/practice", headers=ha).json()
+            assert ielts["unseen"] == len(_clave(EXAMEN_IELTS))
+
+    def test_responder_dos_veces_no_duplica_ni_revienta(self, app_with_db):
+        app, SessionLocal = app_with_db
+        _estudiante(SessionLocal, "prep.doble@grasshopper.dev", grade=11)
+        with TestClient(app) as client:
+            h = _headers(client, "prep.doble@grasshopper.dev")
+            item = next(iter(_clave(EXAMEN_SAT)))
+            for _ in range(2):
+                r = client.post(
+                    f"{BASE}/{EXAMEN_SAT}/practice/check",
+                    json={"answers": {item: "x", "no_existe": "y"}},
+                    headers=h,
+                )
+                assert r.status_code == 200, r.text
+            sesion = client.get(f"{BASE}/{EXAMEN_SAT}/practice", headers=h).json()
+            assert sesion["unseen"] == 38

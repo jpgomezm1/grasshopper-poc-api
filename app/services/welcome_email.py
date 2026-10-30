@@ -64,7 +64,7 @@ def construir_html(user: User) -> str:
                color:{brand.TINTA};font-weight:700;">{saludo}</h1>
 
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:{brand.TINTA};">
-      Soy Mento, y voy a acompañarte en esto. Tu cuenta ya está creada.
+      Soy Hopper, y voy a acompañarte en esto. Tu cuenta ya está creada.
     </p>
 
     <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:{brand.TINTA};">
@@ -101,7 +101,7 @@ def construir_texto(user: User) -> str:
     saludo = f"Hola, {nombre}." if nombre else "Hola."
     return (
         f"{saludo}\n\n"
-        "Soy Mento, y voy a acompañarte en esto. Tu cuenta ya está creada.\n\n"
+        "Soy Hopper, y voy a acompañarte en esto. Tu cuenta ya está creada.\n\n"
         "Lo que sigue es una conversación para conocerte: qué te mueve, qué se "
         "te da bien y qué te preocupa. No hay respuestas correctas y no tienes "
         "que hacerlo de una sola vez.\n\n"

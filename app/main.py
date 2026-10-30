@@ -37,6 +37,8 @@ from app.api.v1 import (
     ofertas,
     lead_profile,
     bot,
+    bot_gratuito,
+    plan,
     outreach,
     schools,
     external_test_uploads,
@@ -224,6 +226,8 @@ app.include_router(lugares_router.router, prefix="/api/v1")
 app.include_router(onboarding_chat.router, prefix="/api/v1")
 app.include_router(lead_profile.router, prefix="/api/v1")
 app.include_router(bot.router, prefix="/api/v1")
+app.include_router(bot_gratuito.router, prefix="/api/v1")
+app.include_router(plan.router, prefix="/api/v1")
 app.include_router(outreach.router, prefix="/api/v1")
 app.include_router(schools.router, prefix="/api/v1")
 app.include_router(external_test_uploads.router, prefix="/api/v1")

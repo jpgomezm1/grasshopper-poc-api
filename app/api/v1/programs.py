@@ -62,7 +62,11 @@ from app.services.audit_service import log_action
 logger = logging.getLogger(__name__)
 
 
-router = APIRouter(prefix="/programs", tags=["Programs"])
+from app.api.v1.llave_plan import requiere  # noqa: E402
+
+# D-3 · Sprint 4 · la llave del plan, para TODO este router: programas y universidades son pago. El equipo y el admin pasan por rol.
+# Ver `app/api/v1/llave_plan.py` y la matriz en `app/data/permisos.py`.
+router = APIRouter(prefix="/programs", tags=["Programs"], dependencies=[Depends(requiere("programas"))])
 
 
 REQUIRED_FIELDS = [

@@ -34,7 +34,11 @@ from app.db.models import OrientationVideo, User, UserRole
 from app.schemas.videos import EtapaRuta, VideoItem, VideoRutaResponse
 from app.services.orientation_videos_service import construir_ruta, marcar_abierto
 
-router = APIRouter(prefix="/me/videos", tags=["StudentMe · Videos"])
+from app.api.v1.llave_plan import requiere  # noqa: E402
+
+# D-3 · Sprint 4 · la llave del plan, para TODO este router: la biblioteca de videos es pago.
+# Ver `app/api/v1/llave_plan.py` y la matriz en `app/data/permisos.py`.
+router = APIRouter(prefix="/me/videos", tags=["StudentMe · Videos"], dependencies=[Depends(requiere("biblioteca"))])
 
 
 def _solo_estudiante(user: User) -> None:

@@ -407,6 +407,68 @@ def _ordenar_pool(items: List[Dict[str, Any]], nivel: Optional[str]) -> List[Dic
     return mezclado
 
 
+# ---------------------------------------------------------------------------
+# Lo que ya respondió · I-1, Sprint 4
+# ---------------------------------------------------------------------------
+
+
+def _con_seguimiento(db: Any, user: Any) -> bool:
+    """Si hay dónde recordar. Sin `db` (los tests de selección pura, y antes de
+    esta tarea todos los llamados) la sesión se comporta como siempre: por
+    rondas y sin memoria."""
+    return db is not None and getattr(user, "id", None) is not None
+
+
+def ids_respondidos(db: Any, user: Any, exam_id: str) -> set:
+    """Los ejercicios de este examen que el estudiante ya respondió."""
+    if not _con_seguimiento(db, user):
+        return set()
+    from app.db.models import ExamPracticeSeen
+
+    filas = (
+        db.query(ExamPracticeSeen.item_id)
+        .filter(ExamPracticeSeen.user_id == user.id, ExamPracticeSeen.exam_id == exam_id)
+        .all()
+    )
+    return {f[0] for f in filas}
+
+
+def registrar_respondidos(db: Any, user: Any, exam_id: str, item_ids: List[str]) -> int:
+    """Marca como respondidos los ejercicios corregidos · devuelve cuántos nuevos.
+
+    Solo cuenta ids que de verdad son de este examen: el endpoint de corrección
+    ya reporta los ajenos en `ignored`, y aquí tampoco se guardan.
+    """
+    if not _con_seguimiento(db, user):
+        return 0
+    from app.db.models import ExamPracticeSeen
+
+    validos = {i["id"] for i in banco.items(exam_id=exam_id)}
+    ya = ids_respondidos(db, user, exam_id)
+    nuevos = [i for i in dict.fromkeys(item_ids) if i in validos and i not in ya]
+    for item_id in nuevos:
+        db.add(ExamPracticeSeen(user_id=user.id, exam_id=exam_id, item_id=item_id))
+    if nuevos:
+        db.commit()
+    return len(nuevos)
+
+
+def reiniciar(db: Any, user: Any, exam_id: str) -> int:
+    """Olvida lo respondido de este examen · para "empezar de nuevo" cuando ya
+    practicó todo el banco. Devuelve cuántos se borraron."""
+    if not _con_seguimiento(db, user):
+        return 0
+    from app.db.models import ExamPracticeSeen
+
+    borrados = (
+        db.query(ExamPracticeSeen)
+        .filter(ExamPracticeSeen.user_id == user.id, ExamPracticeSeen.exam_id == exam_id)
+        .delete(synchronize_session=False)
+    )
+    db.commit()
+    return int(borrados or 0)
+
+
 def sesion(
     db: Any,
     user: Any,
@@ -439,6 +501,13 @@ def sesion(
 
     diagnostico = diagnostico_de_ingles(db, user)
 
+    # I-1 · Sprint 4 · con base de datos, la sesión trae SOLO lo que no ha
+    # respondido, y la ronda deja de importar: el corrimiento por ronda era la
+    # forma de no repetir sin memoria, y con memoria saltaría ejercicios que
+    # todavía no vio. Sin base de datos todo sigue como antes.
+    seguimiento = _con_seguimiento(db, user)
+    respondidos = ids_respondidos(db, user, exam_id) if seguimiento else set()
+
     # Un pool ordenado por habilidad · después se intercalan para que una sesión
     # de examen completo no sean seis ejercicios de gramática y ninguno de
     # lectura.
@@ -448,6 +517,8 @@ def sesion(
         decision = _nivel_para(h, diagnostico)
         niveles_usados.append({"skill": h["id"], **decision})
         pool = _ordenar_pool(banco.items(exam_id=exam_id, skill_id=h["id"]), decision["level"])
+        if seguimiento:
+            pool = [i for i in pool if i["id"] not in respondidos]
         # La ronda corre la ventana dentro del pool de ESA habilidad, de forma
         # circular: la ronda 2 empieza donde terminó la 1 y nunca se queda sin
         # ejercicios.
@@ -457,7 +528,7 @@ def sesion(
         # salen ~limite/nº de habilidades por ronda. Correr el pool entero por
         # `limite` haría que la ronda 2 repitiera casi todo (probado: repetía 5
         # de 6).
-        if pool:
+        if pool and not seguimiento:
             por_habilidad = -(-limite // len(habilidades))  # techo de la división
             corrimiento = ((ronda - 1) * por_habilidad) % len(pool)
             pool = pool[corrimiento:] + pool[:corrimiento]
@@ -477,11 +548,19 @@ def sesion(
                     seleccion.append(item)
         indice += 1
 
+    sin_responder = sum(len(p) for p in pools) if seguimiento else None
+
     return {
         "exam": exam_id,
         "skill": skill_id,
         "round": ronda,
         "items": [banco.item_publico(i) for i in seleccion],
+        # I-1 · `exhausted` = ya respondió todo el banco (o toda la habilidad
+        # pedida): la pantalla lo dice y ofrece empezar de nuevo, en vez de
+        # repetir en silencio. `unseen` cuenta lo que le queda ANTES de esta
+        # tanda. Los dos son `False`/`None` sin seguimiento.
+        "exhausted": bool(seguimiento and not seleccion),
+        "unseen": sin_responder,
         "levels": niveles_usados,
         "englishDiagnostic": diagnostico,
         "disclaimer": banco.AVISO_NO_OFICIAL,

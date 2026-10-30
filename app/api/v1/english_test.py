@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session as DBSession
 from pydantic import BaseModel
 
 from app.api.v1.auth import get_current_user
+from app.api.v1.llave_plan import requiere_ingles
 from app.db.database import get_db
 from app.db.models import User, EnglishTestResult
 from app.data.english_test_questions import (
@@ -45,12 +46,13 @@ class TestResultResponse(BaseModel):
     instrument: str | None = None
 
 
-@router.get("/questions")
+# D-3 · el test de inglés: pago y de 10° en adelante. Leer el resultado no se bloquea.
+@router.get("/questions", dependencies=[Depends(requiere_ingles)])
 def get_questions(current_user: User = Depends(get_current_user)):
     return get_questions_for_client()
 
 
-@router.post("/submit", response_model=TestResultResponse)
+@router.post("/submit", response_model=TestResultResponse, dependencies=[Depends(requiere_ingles)])
 def submit_test(
     request: SubmitAnswersRequest,
     current_user: User = Depends(get_current_user),

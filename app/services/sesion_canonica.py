@@ -13,7 +13,7 @@ mal por sí sola — lo que estaba mal era que fueran dos:
 
 Con una sola sesión por persona da igual. Con duplicadas —y el propio código
 dice que los races las produjeron— el perfil consolidado se construía sobre una
-sesión y el chat de Mento leía otra, así que Mento podía no saber nada de lo que
+sesión y el chat de Hopper leía otra, así que Hopper podía no saber nada de lo que
 la persona acababa de contar. Es la clase de desalineación que no rompe nada y
 sólo se nota como "la IA no me está entendiendo".
 

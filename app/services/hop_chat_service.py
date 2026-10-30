@@ -123,7 +123,7 @@ def _build_journey_block(db: DBSession, user: User) -> str:
     # Auditoría R5 · misma sesión canónica que el resto de endpoints: si un race
     # dejó duplicadas, el chat no debe leer OTRA sesión distinta a la que el
     # front está usando. La regla vive en un solo sitio desde 2026-09-18 — este
-    # archivo la cumplía y el perfil consolidado no, que es como Mento terminaba
+    # archivo la cumplía y el perfil consolidado no, que es como Hopper terminaba
     # hablando de un journey distinto del que alimentó su propio perfil.
     from app.services.sesion_canonica import sesion_canonica
 

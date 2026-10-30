@@ -58,6 +58,10 @@ class InicioResponse(BaseModel):
     respuesta: str
     recolectado: Dict[str, Any]
     listo: bool
+    # B-7 · Sprint 4 · si se le muestra la pantalla de bienvenida (C-1). Antes
+    # el front la saltaba con solo que hubiera algún dato; quien llega del bot
+    # gratuito trae datos pero todavía no ha conversado con Hopper.
+    bienvenida: bool = True
 
 
 def _hechos_del_usuario(user: User) -> Dict[str, Any]:
@@ -125,13 +129,18 @@ def inicio(
     """El primer mensaje, y lo que ya sabemos de esta persona."""
     from app.data import onboarding_hechos as cat
 
+    from app.services.bot_gratuito_traspaso import solo_trae_lo_del_bot
+
     hechos = _hechos_del_usuario(user)
+    desde_bot = solo_trae_lo_del_bot(user, hechos)
     return InicioResponse(
         # Los hechos VAN al saludo. Calcularlos aquí y abrir igualmente
         # preguntando la etapa —que es lo que hacía— es leer un dato y tirarlo.
-        respuesta=conv.primer_mensaje(hechos),
+        respuesta=conv.primer_mensaje(hechos, desde_bot=desde_bot),
         recolectado=hechos,
         listo=cat.listo_para_cerrar(hechos),
+        # Sin datos, o con solo lo que vino del bot: todavía no ha conversado.
+        bienvenida=not hechos or desde_bot,
     )
 
 

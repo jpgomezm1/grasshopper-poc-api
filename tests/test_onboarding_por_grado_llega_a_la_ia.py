@@ -11,7 +11,7 @@ guardadas que no leía nadie**:
 
 Todas se persisten en `User.onboarding_answers` (tienen `onboarding_key` en
 `onboarding_hechos.HECHOS`), y `format_onboarding_context` —el bloque que ve la
-IA en reflection, synthesis, routes, el chat de Mento y el perfil consolidado—
+IA en reflection, synthesis, routes, el chat de Hopper y el perfil consolidado—
 no tocaba ninguna. O sea: se le preguntaba a un chico de 11° qué carreras tiene
 en mente y después se le recomendaba sin usarlo.
 

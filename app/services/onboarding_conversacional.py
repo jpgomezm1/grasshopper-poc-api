@@ -30,6 +30,7 @@ que leían: no saben que la pantalla cambió.
 from __future__ import annotations
 
 import logging
+from datetime import date
 from typing import Any, Dict, List, Optional, Tuple
 
 from sqlalchemy.orm import Session as DBSession
@@ -76,11 +77,19 @@ MENSAJE_FALLBACK = (
 # hecho, así que lo que preguntaba el saludo (la pasión) y lo que el motor
 # preguntaba de verdad en el turno siguiente (la etapa) se contradecían. Este
 # texto ahora abre con lo mismo que el motor va a pedir primero.
+# C-2 · Sprint 4 (2026-10-29) · Verónica: *"ESTÁ MUY ROBÓTICO… no es necesario
+# saludar porque en el punto anterior estaba saludándome"*. La pantalla de
+# bienvenida (C-1) ya presenta a Hopper, así que este primer mensaje entra
+# directo a la pregunta, con su redacción literal. No nombra a los
+# universitarios porque ella no lo hizo; si alguien contesta "estoy en la
+# universidad", el motor lo clasifica igual. Los saludos de RETOMA y COMPLETO
+# sí saludan: quien vuelve a una conversación a medias no ve la bienvenida.
 SALUDO = (
-    "¡Hola! Soy Mento. Antes de orientarte quiero hacerte unas preguntas "
-    "para conocerte mejor.\n\n"
-    "Para empezar: ¿en qué etapa estás hoy? ¿Estás en noveno, en décimo, en "
-    "once, en doce, o ya eres un profesional?"
+    "Para empezar, cuéntame en qué etapa estás: ¿estás en el colegio o eres "
+    "profesional?\n\n"
+    "Si estás en el colegio, cuéntame en qué grado estás y cuánto te falta "
+    "para graduarte. Si eres profesional, cuéntame cuántos años de "
+    "experiencia tienes."
 )
 
 
@@ -118,6 +127,71 @@ def _bloque_recolectado(recolectados: Dict[str, Any]) -> str:
         elif h and h.opciones and isinstance(v, list):
             v = ", ".join(h.opciones.get(x, x) for x in v)
         lineas.append(f"- {etiqueta} → {v}")
+    return "\n".join(lineas)
+
+
+_MESES = (
+    "enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+    "septiembre", "octubre", "noviembre", "diciembre",
+)
+
+
+def _anios_que_le_quedan(recolectados: Dict[str, Any]) -> Optional[Tuple[int, int]]:
+    """Cuántos años de colegio le quedan, incluido el que cursa · (mínimo, máximo).
+
+    Es un rango y no un número porque depende de hasta qué grado llega su
+    colegio, que no siempre sabemos: alguien de 11° termina este año si el
+    colegio llega a once, y el próximo si llega a doce. Con el dato, el rango
+    se cierra en un solo número. `None` si no está en colegio o falta el grado,
+    o si los datos se contradicen (11° en un colegio que "llega a once" es
+    válido; 12° en uno que llega a once no lo es, y no se adivina cuál está mal).
+    """
+    try:
+        grado = int(str(recolectados.get("grade") or "").strip())
+    except ValueError:
+        return None
+    if grado not in (9, 10, 11, 12):
+        return None
+    ultimo = str(recolectados.get("school_last_grade") or "").strip()
+    if ultimo in ("11", "12"):
+        if grado > int(ultimo):
+            return None
+        n = int(ultimo) - grado + 1
+        return (n, n)
+    # Sin saber hasta dónde llega el colegio: entre terminar en once y en doce.
+    return (max(11 - grado + 1, 1), 12 - grado + 1)
+
+
+def _bloque_momento(recolectados: Dict[str, Any], hoy: Optional[date] = None) -> str:
+    """La fecha de hoy y lo que le queda de colegio, calculados en código.
+
+    C-3 · Sprint 4 · En una prueba, el modelo escribió *"Con 16 años y
+    graduándote en 2026 — perdón, en junio de 2028 — tienes tiempo real…"*. No
+    sabía en qué fecha estaba (este bloque no existía) y hacía la cuenta de
+    cabeza, a la vista. Es el mismo error que ya se corrigió con la edad (ver
+    `_bloque_recolectado`): la aritmética de fechas se le da hecha.
+
+    El AÑO de graduación NO se calcula: depende del calendario del colegio
+    (A termina en noviembre, B en junio), que no preguntamos — sería otra
+    pregunta más y la clienta ya se queja de que son muchas. Por eso se le dan
+    los años escolares que le quedan, que sí se saben, y el prompt le prohíbe
+    inventar un año o un mes que la persona no haya dicho.
+    """
+    hoy = hoy or date.today()
+    lineas = [f"- Hoy es {hoy.day} de {_MESES[hoy.month - 1]} de {hoy.year}."]
+    rango = _anios_que_le_quedan(recolectados)
+    if rango is not None:
+        minimo, maximo = rango
+        if minimo == maximo:
+            texto = "el que cursa ahora es el último" if minimo == 1 else (
+                f"{minimo} años escolares, incluido el que cursa ahora"
+            )
+        else:
+            texto = (
+                f"entre {minimo} y {maximo} años escolares, incluido el que cursa "
+                "ahora (depende de si su colegio llega a once o a doce, que no sabemos)"
+            )
+        lineas.append(f"- Años de colegio que le quedan → {texto}.")
     return "\n".join(lineas)
 
 
@@ -229,21 +303,33 @@ def _bloque_cierre(recolectados: Dict[str, Any], pendientes: List[str]) -> str:
 #
 # A quién le pasaba: a cualquiera que dejara la conversación a medias y volviera
 # —que es lo normal en un chico de 16 años— y a quien venía del formulario
-# viejo. Mento abría preguntándole algo que ya le había contestado, que es la
+# viejo. Hopper abría preguntándole algo que ya le había contestado, que es la
 # forma más rápida de que alguien deje de creer que lo estás escuchando.
 SALUDO_RETOMA = (
-    "¡Hola de nuevo! Soy Mento. Ya tengo parte de lo que me contaste, así que "
+    "¡Hola de nuevo! Soy Hopper. Ya tengo parte de lo que me contaste, así que "
     "no te voy a repetir lo mismo.\n\n{pregunta}"
 )
 
 #: Y cuando ya no falta nada · no se inventa una pregunta por llenar el turno.
 SALUDO_COMPLETO = (
-    "¡Hola de nuevo! Soy Mento. Ya tengo lo que necesitaba para orientarte. "
+    "¡Hola de nuevo! Soy Hopper. Ya tengo lo que necesitaba para orientarte. "
     "Si quieres contarme algo más, dímelo; si no, sigamos."
 )
 
 
-def primer_mensaje(recolectados: Optional[Dict[str, Any]] = None) -> str:
+# B-7 · Sprint 4 · quien llega del bot gratuito ya contó algunas cosas, pero
+# todavía no ha conversado con Hopper: acaba de ver la bienvenida (C-1), así que
+# no se le saluda otra vez ni se le dice "de nuevo". Solo se le reconoce lo que
+# ya dijo y se sigue con lo que falta.
+SALUDO_DESDE_BOT = (
+    "Ya me contaste algunas cosas en el perfil gratis, así que no te las voy a "
+    "repetir.\n\n{pregunta}"
+)
+
+
+def primer_mensaje(
+    recolectados: Optional[Dict[str, Any]] = None, *, desde_bot: bool = False,
+) -> str:
     """Con qué abre la conversación · no lo genera el modelo.
 
     Es la primera frase que un estudiante lee del producto, y dejarla al modelo
@@ -266,6 +352,8 @@ def primer_mensaje(recolectados: Optional[Dict[str, Any]] = None) -> str:
 
     h = catalogo.get_hecho(pendientes[0])
     pregunta = h.pregunta_typeform if h else catalogo.que_averiguar(pendientes[0])
+    if desde_bot:
+        return SALUDO_DESDE_BOT.format(pregunta=pregunta)
     return SALUDO_RETOMA.format(pregunta=pregunta)
 
 
@@ -429,6 +517,7 @@ def responder(
     plantilla = load_prompt(PROMPT_NAME)
     system = (
         plantilla.replace("{perfil}", _bloque_perfil(actualizados))
+        .replace("{momento}", _bloque_momento(actualizados))
         .replace("{recolectado}", _bloque_recolectado(actualizados))
         .replace("{faltantes}", _bloque_faltantes(pendientes))
         .replace("{cierre}", _bloque_cierre(actualizados, pendientes))

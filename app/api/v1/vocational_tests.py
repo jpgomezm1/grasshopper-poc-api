@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session as DBSession
 from pydantic import BaseModel
 
 from app.api.v1.auth import get_current_user
+from app.api.v1.llave_plan import requiere_lectura_nueva, requiere_test
 from app.db.database import get_db
 from app.db.models import User, VocationalTestResult
 from app.data.disclaimer import DISCLAIMER_TEXT, DISCLAIMER_VERSION
@@ -130,7 +131,9 @@ def accept_disclaimer(
     }
 
 
-@router.get("/{test_id}")
+# D-3 · ver las preguntas y responder: pago y de su grado. Leer el
+# resultado ya hecho (`/result`) no se bloquea.
+@router.get("/{test_id}", dependencies=[Depends(requiere_test)])
 def get_test(test_id: str, current_user: User = Depends(get_current_user)):
     # Único punto donde se elige el banco de preguntas. Para Holland, grados
     # 9° y 10° reciben la redacción adaptada a 13-14 años; el instrumento es el
@@ -142,7 +145,7 @@ def get_test(test_id: str, current_user: User = Depends(get_current_user)):
     return test
 
 
-@router.post("/{test_id}/submit")
+@router.post("/{test_id}/submit", dependencies=[Depends(requiere_test)])
 def submit_test(
     test_id: str,
     request: SubmitVocationalRequest,
@@ -270,7 +273,7 @@ def get_test_result(
 # ---------------------------------------------------------------------------
 
 
-@router.get("/{test_id}/interpretation")
+@router.get("/{test_id}/interpretation", dependencies=[Depends(requiere_lectura_nueva)])
 def get_test_interpretation(
     test_id: str,
     force: bool = False,

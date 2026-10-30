@@ -65,3 +65,41 @@ def _reset_rate_limiter_between_tests():
         gh_limiter.reset()
     except Exception:
         pass
+
+
+# ---------------------------------------------------------------------------
+# D-3 · Sprint 4 · los planes en los tests
+# ---------------------------------------------------------------------------
+#
+# Desde D-3 las funciones pagas se niegan (402) a un estudiante sin plan, y casi
+# todos los tests crean estudiantes sin plan. Esos tests prueban la FUNCIÓN
+# (responder un test, el chat, la hoja de vida…), no el plan, así que por
+# defecto todos corren como plan `pago`. Los tests de los planes y de la llave
+# (D-1, D-2, D-3) se marcan con `@pytest.mark.planes_reales` y ven la regla de
+# verdad. Así un test de la hoja de vida no se rompe por el plan, y el plan
+# tiene sus propios tests que no dependen de este atajo.
+
+
+def pytest_configure(config):
+    config.addinivalue_line(
+        "markers", "planes_reales: el test usa la regla real de planes (sin el plan pago por defecto)",
+    )
+
+
+@pytest.fixture(autouse=True)
+def _plan_pago_por_defecto(request, monkeypatch):
+    if request.node.get_closest_marker("planes_reales"):
+        yield
+        return
+    from app.services import plan_service
+
+    original = plan_service.plan_vigente
+
+    def _pago_si_no_tiene(db, user, ahora=None):
+        real = original(db, user, ahora)
+        if real.plan == plan_service.PLAN_GRATIS and real.origen == "ninguno":
+            return plan_service.PlanVigente(plan_service.PLAN_PAGO, "tests")
+        return real
+
+    monkeypatch.setattr(plan_service, "plan_vigente", _pago_si_no_tiene)
+    yield

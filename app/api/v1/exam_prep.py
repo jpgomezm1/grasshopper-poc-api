@@ -35,7 +35,11 @@ from app.db.database import get_db
 from app.db.models import User
 from app.services import exam_prep_service
 
-router = APIRouter(prefix="/exam-prep", tags=["Exam Prep"])
+from app.api.v1.llave_plan import requiere  # noqa: E402
+
+# D-3 · Sprint 4 · la llave del plan, para TODO este router: la práctica de SAT e IELTS es pago, y solo de 11°, 12° y profesional.
+# Ver `app/api/v1/llave_plan.py` y la matriz en `app/data/permisos.py`.
+router = APIRouter(prefix="/exam-prep", tags=["Exam Prep"], dependencies=[Depends(requiere("practica_examenes"))])
 
 
 class CheckAnswersRequest(BaseModel):
@@ -89,10 +93,14 @@ def obtener_practica(
 ):
     """Una tanda de ejercicios SIN las respuestas.
 
-    `round` sirve para pedir la siguiente tanda sin repetir: la selección es
-    determinista (no hay `random`), así que sin este parámetro quien vuelve
-    vería siempre los mismos ejercicios. No se guarda por qué ronda va cada
-    estudiante — no hay tabla y hoy nadie leería ese dato.
+    I-1 · Sprint 4 · trae solo los ejercicios que el estudiante no ha
+    respondido (`exam_practice_seen`), así que no se repiten entre visitas.
+    Cuando ya respondió todo, `items` viene vacío y `exhausted` en `true`: la
+    pantalla lo dice y ofrece empezar de nuevo (`DELETE …/practice/seen`).
+
+    `round` se sigue aceptando por compatibilidad, pero con memoria ya no
+    decide nada: era la forma de no repetir cuando no se guardaba qué había
+    visto cada quien.
     """
     _examen_o_404(exam_id)
     try:
@@ -118,12 +126,40 @@ def revisar_practica(
     exam_id: str,
     request: CheckAnswersRequest,
     current_user: User = Depends(get_current_user),
+    db: DBSession = Depends(get_db),
 ):
     """Corrige lo respondido y devuelve la explicación de CADA ejercicio.
 
-    No se persiste nada, así que no necesita `db`. La explicación viaja también
-    cuando la respuesta fue correcta: acertar por descarte y no saber por qué es
-    el escenario que esta práctica intenta evitar.
+    La explicación viaja también cuando la respuesta fue correcta: acertar por
+    descarte y no saber por qué es el escenario que esta práctica intenta evitar.
+
+    I-1 · Sprint 4 · además marca esos ejercicios como respondidos, para que la
+    siguiente tanda no los repita. Se marca AQUÍ y no al entregar la tanda: si
+    la persona contesta 3 de 10 y se va, los otros 7 tienen que volver a salir.
+    No se guarda si acertó.
     """
     _examen_o_404(exam_id)
-    return exam_prep_service.evaluar(exam_id, request.answers)
+    resultado = exam_prep_service.evaluar(exam_id, request.answers)
+    exam_prep_service.registrar_respondidos(
+        db, current_user, exam_id, [r["id"] for r in resultado.get("results", [])],
+    )
+    return resultado
+
+
+@router.delete("/{exam_id}/practice/seen")
+def reiniciar_practica(
+    exam_id: str,
+    current_user: User = Depends(get_current_user),
+    db: DBSession = Depends(get_db),
+):
+    """Olvida lo respondido de este examen · "empezar de nuevo".
+
+    Lo ofrece la pantalla cuando ya practicó todo el banco. Solo afecta a quien
+    lo pide y solo a este examen.
+    """
+    _examen_o_404(exam_id)
+    return {
+        "exam": exam_id,
+        "reset": exam_prep_service.reiniciar(db, current_user, exam_id),
+        "disclaimer": banco.AVISO_NO_OFICIAL,
+    }

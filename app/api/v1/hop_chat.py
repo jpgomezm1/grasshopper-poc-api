@@ -19,10 +19,14 @@ from app.db.models import User
 from app.schemas.hop_chat import HopChatRequest, HopChatResponse
 from app.services.hop_chat_service import run_hop_chat
 
-router = APIRouter(prefix="/hop", tags=["Hop · chat IA"])
+from app.api.v1.llave_plan import requiere  # noqa: E402
+
+# D-3 · Sprint 4 · la llave del plan, para TODO este router: el chat con Hopper es pago.
+# Ver `app/api/v1/llave_plan.py` y la matriz en `app/data/permisos.py`.
+router = APIRouter(prefix="/hop", tags=["Hop · chat IA"], dependencies=[Depends(requiere("chat_hopper"))])
 
 # Detail del contrato cuando la IA está caída (NO cambiar · el FE lo muestra).
-AI_DOWN_DETAIL = "Mento no puede responder en este momento. Intenta de nuevo en unos minutos."
+AI_DOWN_DETAIL = "Hopper no puede responder en este momento. Intenta de nuevo en unos minutos."
 
 
 @router.post(

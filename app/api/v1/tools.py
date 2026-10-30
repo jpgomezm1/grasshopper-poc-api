@@ -44,6 +44,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session as DBSession
 
 from app.core.rate_limiter import rate_limit
+from app.api.v1.llave_plan import requiere
 from app.db.database import get_db
 from app.db.models import User, UserRole
 from app.services import cv_variants, job_pitch_service, sop_service
@@ -214,7 +215,8 @@ class StatementOfPurposeRequest(BaseModel):
 @router.post(
     "/statement-of-purpose",
     summary="Escribir el borrador del Statement of Purpose",
-    dependencies=[Depends(rate_limit("4/minute", scope="tools_sop"))],
+    # D-3 · la carta de motivación es pago.
+    dependencies=[Depends(rate_limit("4/minute", scope="tools_sop")), Depends(requiere("carta_motivacion"))],
 )
 def escribir_statement_of_purpose(
     request: StatementOfPurposeRequest,
@@ -289,7 +291,7 @@ class JobApplicationRequest(BaseModel):
 @router.post(
     "/job-application",
     summary="Escribir el copy para postularse a una vacante",
-    dependencies=[Depends(rate_limit("4/minute", scope="tools_job"))],
+    dependencies=[Depends(rate_limit("4/minute", scope="tools_job")), Depends(requiere("carta_motivacion"))],
 )
 def escribir_postulacion(
     request: JobApplicationRequest,

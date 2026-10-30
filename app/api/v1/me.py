@@ -30,6 +30,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.api.v1.llave_plan import requiere
 from app.db.database import get_db
 from app.db.models import (
     CohortPsychologistAssignment,
@@ -300,6 +301,8 @@ class SessionRequestOut(BaseModel):
     "/session-requests",
     response_model=SessionRequestOut,
     status_code=status.HTTP_201_CREATED,
+    # D-3 · la sesión 1:1 con un counsellor es VIP.
+    dependencies=[Depends(requiere("sesion_1a1"))],
 )
 def request_session(
     payload: SessionRequestIn,

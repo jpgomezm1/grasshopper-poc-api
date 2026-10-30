@@ -61,7 +61,7 @@ def _latest_session_answers(db: DBSession, user_id: UUID) -> Dict[str, Any]:
 
     El nombre queda como está porque lo importan `recommendation_service` y los
     tests, pero **ya no es "la última"**: es la canónica. Este servicio ordenaba
-    por `updated_at desc` mientras `POST /sessions` y el chat de Mento usaban la
+    por `updated_at desc` mientras `POST /sessions` y el chat de Hopper usaban la
     más antigua, así que con sesiones duplicadas el perfil consolidado se armaba
     sobre una sesión distinta de la que la persona estaba llenando. Ver
     `sesion_canonica` para la regla y por qué no puede devolver menos datos que

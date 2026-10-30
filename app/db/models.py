@@ -1280,7 +1280,7 @@ class BotConversation(Base):
     # Veredicto comercial · lo escribe `bot_lead_scoring.evaluar`
     score = Column(Integer, nullable=True)
     band = Column(String(20), nullable=True)      # hot · warm · cold
-    route = Column(String(20), nullable=True)     # asesor · telemercadeo · descartar
+    route = Column(String(20), nullable=True)     # asesor · perfilamiento (bot gratuito) · telemercadeo · descartar
     alarms = Column(JSON, nullable=True)
     score_rationale = Column(JSON, nullable=True)
 
@@ -3355,3 +3355,97 @@ class OrientationVideoView(Base):
 
     def __repr__(self) -> str:
         return f"<OrientationVideoView user={self.user_id} video={self.video_id}>"
+
+
+class ExamPracticeSeen(Base):
+    """Qué ejercicios de práctica (SAT, IELTS) ya respondió cada estudiante.
+
+    I-1 · Sprint 4 (2026-10-29) · Verónica: *"Revisé el Pre SAT y las preguntas
+    se empiezan a repetir desde la 19 o algo así en adelante"*. La sesión no
+    recordaba nada: la cola vivía en la memoria del navegador, así que al
+    recargar o volver se servía la ronda 1 otra vez, y por el reparto entre
+    habilidades 6 de los 39 ejercicios de SAT no salían nunca.
+
+    ## "Respondido", no "servido"
+
+    Se escribe al CORREGIR (`POST …/practice/check`), no al entregar la tanda.
+    La tanda trae hasta 10 y la pantalla los muestra de a uno: si la persona
+    contesta 3 y se va, los otros 7 no los vio y deben volver a salir.
+
+    ## Lo que NO es
+
+    No es un histórico de puntajes: no guarda si acertó. Solo sirve para no
+    repetir. Si algún día el asesor necesita el desempeño, se agrega ese dato
+    junto con su lector, no antes (ver el docstring de `exam_prep_service.sesion`).
+    """
+
+    __tablename__ = "exam_practice_seen"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+    exam_id = Column(String(20), nullable=False)
+    # El id del ejercicio en `app/data/exam_prep.py` · no es FK porque el banco
+    # vive en código, no en la base.
+    item_id = Column(String(60), nullable=False)
+    answered_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    __table_args__ = (
+        # Una fila por (estudiante, ejercicio) · responderlo otra vez no crea otra.
+        UniqueConstraint("user_id", "item_id", name="uq_exam_practice_seen_user_item"),
+    )
+
+    def __repr__(self) -> str:
+        return f"<ExamPracticeSeen user={self.user_id} item={self.item_id}>"
+
+
+class UserPlan(Base):
+    """El plan de un usuario B2C: gratis, pago o VIP · D-1, Sprint 4 (2026-10-29).
+
+    Decisión D1 de JP con el feedback de Sprint 4 (Verónica: *"todo el mundo ve
+    todo y es abrumador"*): una parte gratis y otra paga, por grado. Revierte
+    "por ahora no cerremos puertas" (29-08) y "memoria sí, llave no" (migración
+    067), pero solo en lo que toca a PLANES: el contenido se sigue sin bloquear
+    por fecha.
+
+    ## Una fila por cambio, nunca se edita
+
+    Activar, renovar o bajar de plan agrega una fila. El plan vigente es la fila
+    más reciente que esté vigente (`desde` ≤ ahora y `hasta` vacío o futuro).
+    Así queda el historial de quién activó qué y cuándo, que es lo que la
+    agencia necesita cuando alguien dice "yo pagué".
+
+    ## Lo que NO está aquí
+
+    - **El plan derivado de una licencia de colegio**: no se escribe, se
+      calcula (`plan_service.plan_vigente`). Si la licencia vence, el plan
+      cambia solo, sin que nadie tenga que acordarse.
+    - **El cobro**: no hay pasarela (D2). `metodo` es texto libre de quien
+      activa ("transferencia", "Bitrix #123").
+    """
+
+    __tablename__ = "user_plans"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True,
+    )
+    # gratis · pago · vip
+    plan = Column(String(10), nullable=False)
+    desde = Column(DateTime, default=datetime.utcnow, nullable=False)
+    # NULL = sin vencimiento.
+    hasta = Column(DateTime, nullable=True)
+    # Quién lo activó · NULL = el sistema (p. ej. la migración de las cuentas que ya existían).
+    activado_por_id = Column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="SET NULL"), nullable=True,
+    )
+    metodo = Column(String(120), nullable=True)
+    notas = Column(Text, nullable=True)
+    creado_en = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+    def __repr__(self) -> str:
+        return f"<UserPlan user={self.user_id} plan={self.plan} hasta={self.hasta}>"

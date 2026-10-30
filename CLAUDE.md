@@ -116,9 +116,10 @@ El producto se llama **Mentoring**. Manual en `docs/Marca/` (un nivel arriba del
   la psicóloga; no los toques por estética.
 - Las fuentes viven en `app/templates/static/fonts/`. WeasyPrint no sale a internet: se
   referencian relativas al `base_url` (= `app/templates`).
-- **La mascota se llama Mento** (decidido el 2026-08-25 por AH). En código sigue siendo "Hop" (`hop_chat_service`,
-  `/v1/hop/*`); en cualquier texto que vea el usuario —y en los prompts de `app/prompts/`—
-  es **Mento**. Los prompts ahora le dicen su nombre; antes le prohibían tener uno.
+- **La mascota es el grillo y se llama Hopper** (decidido el 2026-10-29 por JP, con el feedback
+  de Sprint 4: "tampoco el nombre debe ser MENTO"; antes fue Mento, del 25-08 al 29-10). En
+  código sigue siendo "Hop" (`hop_chat_service`, `/v1/hop/*`); en cualquier texto que vea el
+  usuario —y en los prompts de `app/prompts/`— es **Hopper**. Los prompts le dicen su nombre.
 - El dominio de los correos (`hola@grasshopper.co`) **no cambió**: sólo el nombre visible
   del remitente. Está pendiente con el cliente.
 - **El logo tiene símbolo** (un birrete sobre un círculo, en cuadrado naranja) desde que se

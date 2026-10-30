@@ -32,6 +32,13 @@ def _current_active_license(db: DBSession, school_id: UUID) -> License | None:
     )
 
 
+def licencia_vigente(db: DBSession, school_id: UUID) -> License | None:
+    """La licencia que rige hoy para este colegio, o None · nombre público de
+    `_current_active_license`. Lo usa `plan_service.plan_vigente` (D-1, Sprint 4)
+    para que la regla de "licencia vigente" viva en un solo sitio."""
+    return _current_active_license(db, school_id)
+
+
 def can_register_student(db: DBSession, school_id: UUID) -> Tuple[bool, str]:
     """Return (allowed, reason).
 

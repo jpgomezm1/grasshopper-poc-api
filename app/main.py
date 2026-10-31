@@ -38,6 +38,7 @@ from app.api.v1 import (
     lead_profile,
     bot,
     bot_gratuito,
+    prospectos,
     plan,
     admin_planes,
     outreach,
@@ -228,6 +229,8 @@ app.include_router(onboarding_chat.router, prefix="/api/v1")
 app.include_router(lead_profile.router, prefix="/api/v1")
 app.include_router(bot.router, prefix="/api/v1")
 app.include_router(bot_gratuito.router, prefix="/api/v1")
+# G-1 · Sprint 4 · panel de prospectos (bot gratuito + perfilador + quiz).
+app.include_router(prospectos.router, prefix="/api/v1")
 app.include_router(plan.router, prefix="/api/v1")
 app.include_router(admin_planes.router, prefix="/api/v1")
 app.include_router(outreach.router, prefix="/api/v1")

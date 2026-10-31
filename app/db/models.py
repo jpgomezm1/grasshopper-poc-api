@@ -1244,6 +1244,12 @@ class LeadProfile(Base):
     converted = Column(Boolean, default=False, nullable=False)
     source = Column(String(50), default="landing_quiz", nullable=False)
 
+    # G-1 · Sprint 4 · en qué va el equipo comercial con este prospecto
+    # (migración 082). NULL = "nuevo", o "convertido" si ya creó cuenta: se
+    # deriva al leer en `prospectos_service`, no se escribe.
+    estado = Column(String(20), nullable=True)
+    estado_actualizado_en = Column(DateTime, nullable=True)
+
     def __repr__(self) -> str:
         return f"<LeadProfile id={self.id}>"
 
@@ -1286,6 +1292,12 @@ class BotConversation(Base):
 
     # Derivación a Mentoring · la "miga de pan" de la reunión del 21-07
     wants_orientation = Column(Boolean, default=False, nullable=False)
+
+    # G-1 · Sprint 4 · en qué va el equipo comercial con este prospecto
+    # (migración 082). NULL = "nuevo", o "convertido" si ya creó cuenta: se
+    # deriva al leer en `prospectos_service`, no se escribe.
+    estado = Column(String(20), nullable=True)
+    estado_actualizado_en = Column(DateTime, nullable=True)
 
     # Si la persona después se registra, se cuelga aquí para no repreguntarle
     # en el onboarding lo que el bot ya sabe.

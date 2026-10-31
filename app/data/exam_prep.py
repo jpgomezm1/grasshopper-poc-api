@@ -556,6 +556,305 @@ _ITEMS_SAT_GRAMATICA = [
             "misma persona (“I hurt myself”)."
         ),
     ),
+    # I-1b · Sprint 4 · ampliación del banco (de 9 a 25). Ver la nota en álgebra.
+    _item(
+        "sat-gram-10",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "Each of the players on the team ______ a new uniform for the season."
+        ),
+        options=["has", "have", "are", "were"],
+        correct="has",
+        explanation=(
+            "El sujeto es “Each”, que siempre es singular: cada uno, de a uno. "
+            "“of the players on the team” solo dice de qué grupo se habla. El "
+            "oído pide “have” por “players”, que es la trampa. Tapa todo lo que "
+            "va después de “of” y lee “Each has a new uniform”."
+        ),
+    ),
+    _item(
+        "sat-gram-11",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "The students left ______ backpacks in the hallway before the assembly."
+        ),
+        options=["their", "there", "they're", "its"],
+        correct="their",
+        explanation=(
+            "Las mochilas son DE los estudiantes: posesivo plural, “their”. "
+            "“There” es un lugar (“allí”) y “they're” es “they are”: lee la "
+            "oración con “they are backpacks” y deja de tener sentido. “Its” es "
+            "posesivo singular, y “students” es plural."
+        ),
+    ),
+    _item(
+        "sat-gram-12",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Which option joins the two ideas correctly?\n\n"
+            "The rain finally stopped ______ went outside to play."
+        ),
+        options=[", so we", ", we", " we", " so, we"],
+        correct=", so we",
+        explanation=(
+            "Son dos oraciones completas (“The rain stopped” y “we went "
+            "outside”). Para unirlas con coma hace falta una conjunción: coma + "
+            "“so”. Solo la coma (“, we”) es el error que en inglés se llama "
+            "comma splice, y sin nada (“ we”) las dos oraciones quedan pegadas. "
+            "La coma va ANTES de la conjunción, no después."
+        ),
+    ),
+    _item(
+        "sat-gram-13",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "Yesterday, the team ______ the final report to the director."
+        ),
+        options=["submitted", "submits", "will submit", "has submitted"],
+        correct="submitted",
+        explanation=(
+            "“Yesterday” fija un momento terminado del pasado, y eso pide el "
+            "pasado simple. “Has submitted” es la trampa: el present perfect no "
+            "se usa con un tiempo pasado concreto (“yesterday”, “in 2020”, "
+            "“last week”). Busca siempre la palabra que marca el tiempo."
+        ),
+    ),
+    _item(
+        "sat-gram-14",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "The two ______ cars were parked outside the house."
+        ),
+        options=["brothers'", "brother's", "brothers", "brothers's"],
+        correct="brothers'",
+        explanation=(
+            "Son DOS hermanos y los carros son de ellos: plural posesivo. Para "
+            "un plural terminado en s, el apóstrofo va después de la s: "
+            "“brothers'”. “Brother's” sería de un solo hermano, y “brothers” sin "
+            "apóstrofo no indica posesión. “Brothers's” no existe."
+        ),
+    ),
+    _item(
+        "sat-gram-15",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "There were ______ people at the concert this year than last year."
+        ),
+        options=["fewer", "less", "lesser", "few"],
+        correct="fewer",
+        explanation=(
+            "“People” se puede contar (una persona, dos personas), y con lo "
+            "contable se usa “fewer”. “Less” es para lo que no se cuenta "
+            "(“less water”, “less time”). “Few” no sirve con “than”: la "
+            "comparación pide la forma comparativa."
+        ),
+    ),
+    _item(
+        "sat-gram-16",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Which option joins the two ideas correctly?\n\n"
+            "The main road was closed for repairs ______ we took a longer route."
+        ),
+        options=["; therefore,", ", therefore", " therefore", ", therefore;"],
+        correct="; therefore,",
+        explanation=(
+            "“Therefore” NO es una conjunción como “so” o “and”: es un adverbio, "
+            "y no puede unir dos oraciones con una coma. Lo correcto es punto y "
+            "coma antes y coma después. “, therefore” es el error más frecuente "
+            "del examen, justamente porque suena bien al leerlo en voz alta."
+        ),
+    ),
+    _item(
+        "sat-gram-17",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "Neither the teacher nor the students ______ ready for the surprise "
+            "fire drill."
+        ),
+        options=["were", "was", "is", "has been"],
+        correct="were",
+        explanation=(
+            "Con “neither… nor” (y con “either… or”) el verbo concuerda con el "
+            "sustantivo MÁS CERCANO: “the students”, plural, pide “were”. “Was” "
+            "concuerda con “the teacher”, que está más lejos. Si la oración "
+            "fuera “neither the students nor the teacher”, sería “was”."
+        ),
+    ),
+    _item(
+        "sat-gram-18",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "The coach gave the trophy to Lucía and ______."
+        ),
+        options=["her", "she", "herself", "hers"],
+        correct="her",
+        explanation=(
+            "Después de “to” va pronombre objeto: “her”. El mismo truco de "
+            "siempre: quita “Lucía and” y lee “gave the trophy to she”, que "
+            "suena mal de inmediato. “Herself” solo va cuando sujeto y objeto son "
+            "la misma persona, y “hers” es posesivo (“the trophy is hers”)."
+        ),
+    ),
+    _item(
+        "sat-gram-19",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "She packed only three things for the trip______ a camera, a map, "
+            "and a notebook."
+        ),
+        options=[":", ";", ", which", " and"],
+        correct=":",
+        explanation=(
+            "Los dos puntos presentan una lista o una explicación DESPUÉS de una "
+            "oración completa: “She packed only three things” ya está completa, y "
+            "lo que sigue dice cuáles. El punto y coma pide una oración completa "
+            "a cada lado, y “a camera, a map…” no lo es. Truco: si puedes poner "
+            "“namely” en el lugar, van dos puntos."
+        ),
+    ),
+    _item(
+        "sat-gram-20",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "The new policy aims to reduce costs, improve customer service, and "
+            "______."
+        ),
+        options=[
+            "increase sales",
+            "increasing sales",
+            "the increase of sales",
+            "sales will increase",
+        ],
+        correct="increase sales",
+        explanation=(
+            "En una lista, todos los elementos tienen que tener la misma forma "
+            "(paralelismo). Los dos primeros son verbos en base: “reduce”, "
+            "“improve”; el tercero también: “increase”. “Increasing” cambia la "
+            "forma, y las otras dos opciones meten un sustantivo o una oración "
+            "entera donde iba un verbo."
+        ),
+    ),
+    _item(
+        "sat-gram-21",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "Having finished the exam early, ______"
+        ),
+        options=[
+            "Tomás quietly left the room.",
+            "the room was left quietly by Tomás.",
+            "the exam was handed in by Tomás.",
+            "it was time for Tomás to leave.",
+        ],
+        correct="Tomás quietly left the room.",
+        explanation=(
+            "La frase inicial (“Having finished the exam early”) describe a "
+            "alguien, y en inglés ese alguien tiene que ser lo primero después "
+            "de la coma. ¿Quién terminó el examen? Tomás. En las otras opciones "
+            "lo primero es “the room”, “the exam” o “it”, y la oración termina "
+            "diciendo que el salón o el examen terminaron el examen."
+        ),
+    ),
+    _item(
+        "sat-gram-22",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "The scientist ______ the committee selected will present her "
+            "findings first."
+        ),
+        options=["whom", "who", "whose", "which"],
+        correct="whom",
+        explanation=(
+            "El comité seleccionó A la científica: es objeto del verbo "
+            "“selected”, y el pronombre objeto es “whom”. Prueba: reescribe la "
+            "parte con “he/him”: “the committee selected HIM”, no “HE”; si va "
+            "“him”, va “whom”. “Which” es para cosas, y “whose” indica posesión."
+        ),
+    ),
+    _item(
+        "sat-gram-23",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "If she ______ the earlier bus, she would have arrived on time."
+        ),
+        options=["had caught", "caught", "would catch", "has caught"],
+        correct="had caught",
+        explanation=(
+            "La segunda parte (“would have arrived”) habla de algo que NO pasó "
+            "en el pasado. Esa condición imposible pide past perfect en el “if”: "
+            "“had caught”. “Caught” sirve para una situación hipotética del "
+            "presente (“If she caught…, she would arrive”). “Would” nunca va "
+            "dentro del “if”."
+        ),
+    ),
+    _item(
+        "sat-gram-24",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "On the top shelf of the library ______ several old dictionaries."
+        ),
+        options=["are", "is", "was", "has been"],
+        correct="are",
+        explanation=(
+            "La oración está invertida: el sujeto va DESPUÉS del verbo. "
+            "Reordénala: “Several old dictionaries are on the top shelf”. El "
+            "sujeto es plural. La trampa es que justo antes del espacio hay dos "
+            "sustantivos singulares (“shelf”, “library”) que empujan hacia "
+            "“is”."
+        ),
+    ),
+    _item(
+        "sat-gram-25",
+        habilidad="sat_gramatica",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the option that completes the sentence correctly.\n\n"
+            "The population of Bogotá is much larger than ______."
+        ),
+        options=[
+            "that of Medellín",
+            "Medellín",
+            "those of Medellín",
+            "Medellín's population's",
+        ],
+        correct="that of Medellín",
+        explanation=(
+            "La comparación tiene que ser entre cosas del mismo tipo: población "
+            "con población, no población con ciudad. “That of Medellín” "
+            "significa “the population of Medellín”. “Medellín” solo compara una "
+            "población con una ciudad, que es justo lo que el examen castiga. "
+            "“Those” es plural, y “population” es singular."
+        ),
+    ),
 ]
 
 
@@ -1849,6 +2148,301 @@ _ITEMS_SAT_AVANZADO = [
             "BC = 5 (el que no lo toca). Entonces sin A = 5/13. El 12/13 es el "
             "coseno, y está ahí porque identificar mal cuál lado es el opuesto es "
             "el error típico."
+        ),
+    ),
+    # I-1b · Sprint 4 · ampliación del banco (de 6 a 25). Ver la nota en álgebra.
+    _item(
+        "sat-adv-7",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="A rectangle is 8 units long and 5 units wide. What is its perimeter?",
+        options=["26", "40", "13", "21"],
+        correct="26",
+        explanation=(
+            "El perímetro es la vuelta completa: 8 + 5 + 8 + 5 = 26, o 2(8 + 5). "
+            "El 40 es el ÁREA (8 × 5), que es la confusión que buscan. El 13 suma "
+            "solo dos lados, media vuelta. Perímetro se mide en unidades; área, "
+            "en unidades cuadradas."
+        ),
+    ),
+    _item(
+        "sat-adv-8",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="What is the value of 2³ + 3²?",
+        options=["17", "12", "15", "72"],
+        correct="17",
+        explanation=(
+            "2³ = 2 × 2 × 2 = 8 y 3² = 3 × 3 = 9; la suma es 17. El 12 sale de "
+            "multiplicar base por exponente (2 × 3 + 3 × 2), que es el error de "
+            "fondo con potencias. El 72 multiplica los dos resultados (8 × 9) en "
+            "vez de sumarlos."
+        ),
+    ),
+    _item(
+        "sat-adv-9",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Two angles of a triangle measure 50 degrees and 60 degrees. What is "
+            "the measure of the third angle?"
+        ),
+        options=["70 degrees", "110 degrees", "80 degrees", "90 degrees"],
+        correct="70 degrees",
+        explanation=(
+            "Los ángulos de cualquier triángulo suman 180°: 180 − 50 − 60 = 70. "
+            "El 110 es la suma de los dos dados, un paso antes de terminar. El 90 "
+            "asume un triángulo rectángulo, y nada en el enunciado lo dice."
+        ),
+    ),
+    _item(
+        "sat-adv-10",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="Which expression is equivalent to (x + 3)(x − 3)?",
+        options=["x² − 9", "x² + 9", "x² − 6x − 9", "x² − 3"],
+        correct="x² − 9",
+        explanation=(
+            "Multiplicando todo por todo: x² − 3x + 3x − 9 = x² − 9; los términos "
+            "del medio se cancelan. Es la \"diferencia de cuadrados\", y conviene "
+            "reconocerla de memoria: (a + b)(a − b) = a² − b². El x² + 9 es el "
+            "error de signo, y el x² − 3 multiplica solo los primeros y olvida "
+            "elevar el 3."
+        ),
+    ),
+    _item(
+        "sat-adv-11",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="A circle has a radius of 5. What is its circumference?",
+        options=["10π", "25π", "5π", "20π"],
+        correct="10π",
+        explanation=(
+            "La circunferencia (el borde) es 2πr = 2π × 5 = 10π. El 25π es el "
+            "ÁREA (πr²), que es la fórmula con la que la confunden. El 5π olvida "
+            "el 2, o usa el radio donde iba el diámetro."
+        ),
+    ),
+    _item(
+        "sat-adv-12",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="If f(x) = x² − 1, what is the value of f(4)?",
+        options=["15", "7", "17", "9"],
+        correct="15",
+        explanation=(
+            "Se reemplaza x por 4: 4² − 1 = 16 − 1 = 15. El 7 sale de calcular "
+            "2 × 4 − 1, o sea leer x² como 2x. El 17 suma el 1 en vez de "
+            "restarlo. Escribir el número entre paréntesis, (4)² − 1, evita "
+            "estos dos errores."
+        ),
+    ),
+    _item(
+        "sat-adv-13",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="A triangle has a base of 10 and a height of 6. What is its area?",
+        options=["30", "60", "16", "32"],
+        correct="30",
+        explanation=(
+            "El área de un triángulo es base por altura SOBRE DOS: (10 × 6) / 2 "
+            "= 30. El 60 olvida dividir entre 2: esa sería el área del rectángulo "
+            "que lo contiene. El 16 suma los dos números."
+        ),
+    ),
+    _item(
+        "sat-adv-14",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="Which expression is equivalent to 3x(x + 2)?",
+        options=["3x² + 6x", "3x² + 2", "3x² + 6", "x² + 6x"],
+        correct="3x² + 6x",
+        explanation=(
+            "El 3x multiplica a CADA término del paréntesis: 3x · x = 3x² y "
+            "3x · 2 = 6x. El 3x² + 2 multiplica solo el primer término. El "
+            "3x² + 6 multiplica el 2 por el 3 pero se olvida de la x. Comprueba "
+            "con x = 1: 3(1)(3) = 9 y 3 + 6 = 9."
+        ),
+    ),
+    _item(
+        "sat-adv-15",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_INTERMEDIO,
+        question="What are the solutions of x² − 49 = 0?",
+        options=[
+            "x = 7 and x = −7",
+            "x = 7 only",
+            "x = 49 and x = −49",
+            "x = 3.5 and x = −3.5",
+        ],
+        correct="x = 7 and x = −7",
+        explanation=(
+            "x² = 49 tiene DOS soluciones, porque (−7)² también es 49. Quedarse "
+            "con el 7 es el error más frecuente. El 3.5 sale de dividir 49 entre "
+            "2 y otra vez entre 7, confundiendo la raíz con una división."
+        ),
+    ),
+    _item(
+        "sat-adv-16",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_INTERMEDIO,
+        question="Which of the following is a factored form of x² + 7x + 12?",
+        options=["(x + 3)(x + 4)", "(x + 2)(x + 6)", "(x + 1)(x + 12)", "(x − 3)(x − 4)"],
+        correct="(x + 3)(x + 4)",
+        explanation=(
+            "Se buscan dos números que multiplicados den 12 y sumados den 7: "
+            "3 y 4. Las otras dos parejas positivas también multiplican 12, pero "
+            "suman 8 y 13: es la trampa, cumplir solo una de las dos condiciones. "
+            "(x − 3)(x − 4) da +12 pero −7x."
+        ),
+    ),
+    _item(
+        "sat-adv-17",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A cylinder has a radius of 3 and a height of 10. What is its volume?"
+        ),
+        options=["90π", "30π", "60π", "900π"],
+        correct="90π",
+        explanation=(
+            "El volumen del cilindro es el área de la base por la altura: "
+            "πr² × h = π × 9 × 10 = 90π. El 30π olvida elevar el radio al "
+            "cuadrado. El 60π es el área de la superficie lateral (2πrh), otra "
+            "fórmula del mismo cilindro."
+        ),
+    ),
+    _item(
+        "sat-adv-18",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Two triangles are similar. A side of length 4 in the smaller triangle "
+            "corresponds to a side of length 6 in the larger triangle. Another "
+            "side of the smaller triangle has length 10. What is the length of the "
+            "corresponding side of the larger triangle?"
+        ),
+        options=["15", "12", "20/3", "16"],
+        correct="15",
+        explanation=(
+            "En triángulos semejantes los lados son proporcionales: el grande es "
+            "6/4 = 1.5 veces el pequeño, y 10 × 1.5 = 15. El 12 suma la "
+            "diferencia (10 + 2) en vez de multiplicar por la razón, que es el "
+            "error típico. El 20/3 aplica la razón al revés (10 × 4/6)."
+        ),
+    ),
+    _item(
+        "sat-adv-19",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_INTERMEDIO,
+        question="If 2^(x + 1) = 32, what is the value of x?",
+        options=["4", "5", "16", "15"],
+        correct="4",
+        explanation=(
+            "32 es 2⁵, así que x + 1 = 5 y x = 4. El 5 es el exponente completo "
+            "(x + 1), un paso antes de terminar. El 16 y el 15 tratan la "
+            "ecuación como si fuera 2(x + 1) = 32. Con potencias, escribe los "
+            "dos lados con la misma base y compara exponentes."
+        ),
+    ),
+    _item(
+        "sat-adv-20",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A circle has a radius of 8. What is the length of an arc that "
+            "corresponds to a central angle of 90 degrees?"
+        ),
+        options=["4π", "8π", "16π", "2π"],
+        correct="4π",
+        explanation=(
+            "90° es la cuarta parte de 360°, así que el arco es la cuarta parte "
+            "de la circunferencia: (1/4) × 2π × 8 = 4π. El 16π es la "
+            "circunferencia completa. El 8π es media vuelta (180°). Arco = "
+            "(ángulo/360) × circunferencia."
+        ),
+    ),
+    _item(
+        "sat-adv-21",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_AVANZADO,
+        question="What is the minimum value of f(x) = x² − 6x + 5?",
+        options=["−4", "3", "5", "−9"],
+        correct="−4",
+        explanation=(
+            "El mínimo de una parábola está en el vértice, en x = −b/(2a) = 6/2 = "
+            "3. Pero la pregunta pide el VALOR mínimo, no dónde ocurre: "
+            "f(3) = 9 − 18 + 5 = −4. El 3 es la x del vértice, la trampa "
+            "principal. El 5 es el corte con el eje y."
+        ),
+    ),
+    _item(
+        "sat-adv-22",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_AVANZADO,
+        question="What is the sum of the solutions of 2x² − 8x + 3 = 0?",
+        options=["4", "−4", "3/2", "8"],
+        correct="4",
+        explanation=(
+            "No hace falta resolverla: en ax² + bx + c = 0, la suma de las "
+            "soluciones es −b/a = −(−8)/2 = 4. El −4 olvida el signo menos de "
+            "la fórmula. El 3/2 es el PRODUCTO de las soluciones (c/a). El 8 "
+            "olvida dividir entre a. Resolverla con la fórmula general da lo "
+            "mismo, pero toma cinco veces más tiempo."
+        ),
+    ),
+    _item(
+        "sat-adv-23",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "In the xy-plane, the graph of (x − 2)² + (y + 1)² = 25 is a circle. "
+            "What are the center and the radius of the circle?"
+        ),
+        options=[
+            "Center (2, −1), radius 5",
+            "Center (−2, 1), radius 5",
+            "Center (2, −1), radius 25",
+            "Center (2, 1), radius 5",
+        ],
+        correct="Center (2, −1), radius 5",
+        explanation=(
+            "La forma es (x − h)² + (y − k)² = r², con centro (h, k). Como "
+            "y + 1 = y − (−1), k = −1: el centro es (2, −1). El lado derecho es "
+            "r², así que r = √25 = 5. Las trampas son las dos de siempre: copiar "
+            "los signos tal como aparecen y olvidar sacar la raíz."
+        ),
+    ),
+    _item(
+        "sat-adv-24",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "In a right triangle, x is one of the acute angles and sin x = 3/5. "
+            "What is cos x?"
+        ),
+        options=["4/5", "3/4", "5/3", "5/4"],
+        correct="4/5",
+        explanation=(
+            "sin x = 3/5 dice que el cateto opuesto es 3 y la hipotenusa 5; por "
+            "Pitágoras el otro cateto es 4 (es el triángulo 3-4-5). El coseno es "
+            "adyacente sobre hipotenusa: 4/5. El 3/4 es la tangente. Los "
+            "valores mayores que 1 (5/3, 5/4) son imposibles para seno y coseno: "
+            "se descartan sin hacer cuentas."
+        ),
+    ),
+    _item(
+        "sat-adv-25",
+        habilidad="sat_avanzado",
+        nivel=NIVEL_AVANZADO,
+        question="If x² + y² = 20 and xy = 8, what is the value of (x + y)²?",
+        options=["36", "28", "20", "64"],
+        correct="36",
+        explanation=(
+            "(x + y)² = x² + 2xy + y² = (x² + y²) + 2xy = 20 + 16 = 36. No hace "
+            "falta encontrar x ni y. El 28 suma xy una sola vez (olvida el 2). El "
+            "20 es el error de creer que (x + y)² = x² + y². Cuando te dan sumas "
+            "de cuadrados y productos, busca la identidad."
         ),
     ),
 ]

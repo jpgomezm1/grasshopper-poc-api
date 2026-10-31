@@ -76,6 +76,28 @@ CUENTAS = {
     "sat-dat-22": lambda: f"{500 * 2 ** (12 // 3):,}",
     "sat-dat-24": lambda: _num(60 - (25 + 30 - 10)),
     "sat-dat-25": lambda: _num(F(20 * 70 + 30 * 80, 50)),
+    # ---- matemática avanzada (tanda 2)
+    "sat-adv-7": lambda: _num(2 * (8 + 5)),
+    "sat-adv-8": lambda: _num(2 ** 3 + 3 ** 2),
+    "sat-adv-9": lambda: f"{180 - 50 - 60} degrees",
+    "sat-adv-11": lambda: f"{2 * 5}π",
+    "sat-adv-12": lambda: _num(4 ** 2 - 1),
+    "sat-adv-13": lambda: _num(F(10 * 6, 2)),
+    # las dos raíces de x² = 49
+    "sat-adv-15": lambda: " and ".join(f"x = {_num(r)}" for r in (7, -7) if r ** 2 == 49),
+    "sat-adv-17": lambda: f"{3 ** 2 * 10}π",
+    "sat-adv-18": lambda: _num(10 * F(6, 4)),
+    # 2^(x+1) = 32 = 2^5
+    "sat-adv-19": lambda: _num(next(x for x in range(10) if 2 ** (x + 1) == 32)),
+    # (90/360) · 2π · 8
+    "sat-adv-20": lambda: f"{_num(F(90, 360) * 2 * 8)}π",
+    # vértice en x = 3 → f(3)
+    "sat-adv-21": lambda: _num(3 ** 2 - 6 * 3 + 5),
+    # −b/a
+    "sat-adv-22": lambda: _num(F(8, 2)),
+    # cateto adyacente por Pitágoras: √(5² − 3²) = 4
+    "sat-adv-24": lambda: _num(F(int((5 ** 2 - 3 ** 2) ** 0.5), 5)),
+    "sat-adv-25": lambda: _num(20 + 2 * 8),
 }
 
 
@@ -123,7 +145,7 @@ def test_las_de_rectas_cuadran():
     assert banco.get_item("sat-alg-24")["correct"] == "y = −(3/2)x + 4"
 
 
-@pytest.mark.parametrize("habilidad", ["sat_algebra", "sat_datos"])
+@pytest.mark.parametrize("habilidad", ["sat_algebra", "sat_datos", "sat_avanzado", "sat_gramatica"])
 def test_cada_habilidad_ampliada_tiene_25_y_los_tres_niveles(habilidad):
     items = banco.items(skill_id=habilidad)
     assert len(items) == 25
@@ -135,3 +157,17 @@ def test_cada_habilidad_ampliada_tiene_25_y_los_tres_niveles(habilidad):
         banco.NIVEL_INTERMEDIO: 9,
         banco.NIVEL_AVANZADO: 7,
     }
+
+
+def test_las_de_expresiones_algebraicas_cuadran():
+    """Se evalúan las dos expresiones en varios valores: si son equivalentes,
+    dan lo mismo en todos."""
+    for x in (-3, 0, 1, 2, 5):
+        assert (x + 3) * (x - 3) == x ** 2 - 9          # adv-10
+        assert 3 * x * (x + 2) == 3 * x ** 2 + 6 * x    # adv-14
+        assert x ** 2 + 7 * x + 12 == (x + 3) * (x + 4) # adv-16
+    assert banco.get_item("sat-adv-10")["correct"] == "x² − 9"
+    assert banco.get_item("sat-adv-14")["correct"] == "3x² + 6x"
+    assert banco.get_item("sat-adv-16")["correct"] == "(x + 3)(x + 4)"
+    # adv-23 · centro (2, −1) y radio √25
+    assert banco.get_item("sat-adv-23")["correct"] == f"Center (2, −1), radius {int(25 ** 0.5)}"

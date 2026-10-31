@@ -145,7 +145,10 @@ def test_las_de_rectas_cuadran():
     assert banco.get_item("sat-alg-24")["correct"] == "y = −(3/2)x + 4"
 
 
-@pytest.mark.parametrize("habilidad", ["sat_algebra", "sat_datos", "sat_avanzado", "sat_gramatica"])
+@pytest.mark.parametrize(
+    "habilidad",
+    ["sat_algebra", "sat_datos", "sat_avanzado", "sat_gramatica", "sat_expresion", "sat_lectura"],
+)
 def test_cada_habilidad_ampliada_tiene_25_y_los_tres_niveles(habilidad):
     items = banco.items(skill_id=habilidad)
     assert len(items) == 25
@@ -171,3 +174,36 @@ def test_las_de_expresiones_algebraicas_cuadran():
     assert banco.get_item("sat-adv-16")["correct"] == "(x + 3)(x + 4)"
     # adv-23 · centro (2, −1) y radio √25
     assert banco.get_item("sat-adv-23")["correct"] == f"Center (2, −1), radius {int(25 ** 0.5)}"
+
+
+def test_el_banco_de_sat_llega_a_150():
+    assert len(banco.items(exam_id="sat")) == 150
+
+
+def test_cada_texto_nuevo_de_lectura_tiene_al_menos_dos_preguntas():
+    """Un texto con una sola pregunta es caro de leer para lo que da."""
+    nuevos = ("sleep_memory", "market_morning", "postal_codes", "glaciers",
+              "libraries_argument", "octopus", "translator")
+    for t in nuevos:
+        assert banco.texto(t), t
+        assert len([i for i in banco.items(skill_id="sat_lectura") if i["passage_id"] == t]) >= 2, t
+
+
+# Preguntas de detalle · (frase del texto que la respalda, lo que dice la respuesta).
+_DETALLE = {
+    "sat-read-8": ("the students who had slept recalled about a third more pairs", "slept recalled more"),
+    "sat-read-13": ("the person who received a letter, not the person who sent it, paid", "received the letter"),
+    "sat-read-16": ("received unusually heavy snowfall", "heavy snowfall"),
+    "sat-read-21": ("two thirds of them sit in the arms", "arms"),
+    "sat-read-23": ("silence of a house after guests have left", "silence of a house after guests have left"),
+}
+
+
+@pytest.mark.parametrize("item_id", sorted(_DETALLE))
+def test_las_preguntas_de_detalle_estan_escritas_en_el_texto(item_id):
+    """En las de "According to the text" la respuesta tiene que estar escrita en
+    el texto, no deducida: si alguien edita el texto, esto lo detecta."""
+    respaldo, en_la_respuesta = _DETALLE[item_id]
+    item = banco.get_item(item_id)
+    assert respaldo in banco.texto(item["passage_id"])
+    assert en_la_respuesta in item["correct"]

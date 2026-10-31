@@ -311,6 +311,87 @@ _TEXTOS: Dict[str, str] = {
         "expensive to buy, they sit unused during the day, and a single train "
         "crossing four countries must satisfy four sets of safety rules."
     ),
+    # I-1b · Sprint 4 · textos propios para la ampliación de lectura del SAT.
+    # Escritos para este repo; ninguno viene de un examen ni de un libro.
+    "sleep_memory": (
+        "Sleep and Memory\n\n"
+        "In a small study, twenty-four university students memorised a list of "
+        "forty word pairs in the evening. Half of them then slept normally; the "
+        "other half stayed awake in the laboratory. The next afternoon, after "
+        "both groups had rested, the students who had slept recalled about a "
+        "third more pairs than those who had not. The researchers argue that "
+        "sleep does not simply protect memories from interference but actively "
+        "strengthens them. They are careful, however, to call their result a "
+        "starting point: the group was small, and every participant was a "
+        "student between eighteen and twenty-two."
+    ),
+    "market_morning": (
+        "Every Saturday my grandfather bargained for tomatoes he had already "
+        "decided to buy. He would lift one, frown at it as though it had "
+        "personally disappointed him, and name a price so low that the seller "
+        "laughed. Then the real conversation began: about the rain, about the "
+        "seller's daughter, about a bus route that had been cancelled in 1987. "
+        "By the time the tomatoes went into his bag, the price had stopped "
+        "mattering to either of them. I was twelve before I understood that he "
+        "had never once been shopping."
+    ),
+    "postal_codes": (
+        "Paying for a Letter\n\n"
+        "In much of eighteenth-century Europe, the person who received a letter, "
+        "not the person who sent it, paid the postage. The cost depended on the "
+        "distance and the number of sheets, and for many families it was a "
+        "real expense. Some correspondents found a way around it. They agreed "
+        "in advance on small marks — a dot in a corner, a particular way of "
+        "writing the address — that carried a short message by themselves. The "
+        "receiver would read the outside of the letter, learn that all was "
+        "well, and politely refuse to pay. The practice was one of the reasons "
+        "reformers later argued that senders should pay in advance."
+    ),
+    "glaciers": (
+        "Retreating Glaciers\n\n"
+        "A survey of thirty mountain glaciers measured how far the front edge of "
+        "each one moved between 2000 and 2020. Twenty-six of them retreated, "
+        "with a median loss of about 400 metres. Of the four that did not, "
+        "three were in a single valley that received unusually heavy snowfall "
+        "during the period, and one could not be measured reliably after a "
+        "landslide covered its edge. The authors conclude that the overall "
+        "pattern is clear, but they warn against using the few stable glaciers "
+        "as evidence that the trend has stopped."
+    ),
+    "libraries_argument": (
+        "Libraries as Infrastructure\n\n"
+        "We tend to describe public libraries as places that lend books, and "
+        "then we are surprised when people ask whether we still need them. "
+        "But lending was never the whole job. A library is one of the few "
+        "indoor public spaces where nobody is expected to buy anything: a "
+        "student can do homework there, a job seeker can print a résumé, and "
+        "an older resident can ask for help with a form. Critics are right that "
+        "fewer people borrow printed books than before. That is an argument for "
+        "changing what libraries offer, not for closing them. A city does not "
+        "close its bridges because fewer people walk across them."
+    ),
+    "octopus": (
+        "Thinking with Arms\n\n"
+        "An octopus has about five hundred million neurons, a number closer to "
+        "that of a dog than to that of most invertebrates. What surprises "
+        "researchers is where those neurons are: roughly two thirds of them sit "
+        "in the arms rather than in the central brain. In experiments, an arm "
+        "that has been separated from the body can still reach toward food and "
+        "pull away from an unpleasant touch. The central brain appears to set "
+        "general goals, while each arm works out many of the details on its "
+        "own."
+    ),
+    "translator": (
+        "Every translator keeps a private list of words that refuse to cross "
+        "the border. Mine begins with a word from my grandmother's language for "
+        "the particular silence of a house after guests have left: not "
+        "emptiness, not peace, but something with the warmth of both. For years "
+        "I tried to translate it with a phrase, then with a footnote, and each "
+        "time the word arrived on the other side smaller than it had been. I no "
+        "longer think of this as a failure. A word that resists translation is "
+        "not a gap in the other language; it is a record of what one group of "
+        "people decided was worth naming."
+    ),
 }
 
 
@@ -1002,6 +1083,424 @@ _ITEMS_SAT_EXPRESION = [
             "o un artículo definido que exige un antecedente."
         ),
     ),
+    # I-1b · Sprint 4 · ampliación del banco (de 6 a 25). Ver la nota en álgebra.
+    _item(
+        "sat-exp-7",
+        habilidad="sat_expresion",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best transition.\n\n"
+            "Many desert animals avoid the heat of the day. ______, the fennec fox "
+            "hunts at night and rests in a cool burrow while the sun is up."
+        ),
+        options=["For example", "However", "In contrast", "Finally"],
+        correct="For example",
+        explanation=(
+            "La segunda oración es un caso concreto de la primera: el zorro "
+            "fennec es UN animal del desierto que evita el calor. Eso pide una "
+            "transición de ejemplo. \"However\" e \"In contrast\" anuncian lo "
+            "contrario, y \"Finally\" cierra una lista que no existe. Pregúntate "
+            "qué relación hay entre las dos ideas antes de mirar las opciones."
+        ),
+    ),
+    _item(
+        "sat-exp-8",
+        habilidad="sat_expresion",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best transition.\n\n"
+            "The new park gives children a safe place to play. ______, it gives "
+            "older residents a shaded place to meet in the afternoons."
+        ),
+        options=["In addition", "Instead", "Nevertheless", "For instance"],
+        correct="In addition",
+        explanation=(
+            "Las dos oraciones nombran beneficios del parque, uno después del "
+            "otro: la segunda SUMA. \"Instead\" diría que el segundo reemplaza al "
+            "primero, y \"Nevertheless\" que hay un contraste. \"For instance\" "
+            "presentaría un ejemplo de lo primero, y los mayores no son un "
+            "ejemplo de los niños."
+        ),
+    ),
+    _item(
+        "sat-exp-9",
+        habilidad="sat_expresion",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="Which choice states the idea most concisely?",
+        options=[
+            "The meeting was postponed until Friday.",
+            "The meeting was postponed and moved to a later date, which was Friday.",
+            "The meeting, which had been planned, was postponed until a later day, Friday.",
+            "The meeting was postponed until Friday, a day that was later.",
+        ],
+        correct="The meeting was postponed until Friday.",
+        explanation=(
+            "\"Postponed\" ya significa \"movido a una fecha posterior\": decirlo "
+            "otra vez es redundante. Lo mismo \"which had been planned\" (toda "
+            "reunión aplazada estaba planeada). En estas preguntas gana la opción "
+            "más corta que conserva TODA la información, y aquí la información es "
+            "solo \"se aplazó\" y \"hasta el viernes\"."
+        ),
+    ),
+    _item(
+        "sat-exp-10",
+        habilidad="sat_expresion",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="Which choice states the idea most concisely?",
+        options=[
+            "She repeated the instructions.",
+            "She repeated the instructions again.",
+            "She repeated the instructions again a second time.",
+            "She said the instructions again, repeating them.",
+        ],
+        correct="She repeated the instructions.",
+        explanation=(
+            "\"Repeat\" ya incluye la idea de \"otra vez\", así que \"again\" sobra, "
+            "y \"a second time\" sobra todavía más. La última opción dice lo mismo "
+            "dos veces con verbos distintos. La redundancia suena natural al "
+            "hablar, y por eso el examen la usa como trampa."
+        ),
+    ),
+    _item(
+        "sat-exp-11",
+        habilidad="sat_expresion",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best transition.\n\n"
+            "The bridge was closed for three months of repairs. ______, many "
+            "drivers had to take a route that added twenty minutes to their trip."
+        ),
+        options=["As a result", "For example", "Similarly", "On the other hand"],
+        correct="As a result",
+        explanation=(
+            "El desvío de veinte minutos es CONSECUENCIA del cierre del puente: "
+            "causa y efecto. \"Similarly\" compararía dos cosas parecidas y \"On "
+            "the other hand\" presentaría un contraste. Truco: si puedes unir las "
+            "dos oraciones con \"so\", la transición es de consecuencia."
+        ),
+    ),
+    _item(
+        "sat-exp-12",
+        habilidad="sat_expresion",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the most precise word.\n\n"
+            "The recipe calls for a ______ amount of salt: just a pinch, so that "
+            "the flavour of the fish is not covered."
+        ),
+        options=["small", "big", "strange", "normal"],
+        correct="small",
+        explanation=(
+            "La misma oración da la pista: \"just a pinch\" (apenas una pizca). "
+            "La palabra tiene que coincidir con esa idea. \"Normal\" no dice nada "
+            "sobre la cantidad, y \"strange\" no tiene relación con el contexto. "
+            "En estas preguntas casi siempre hay una pista escrita después de la "
+            "coma o de los dos puntos."
+        ),
+    ),
+    _item(
+        "sat-exp-13",
+        habilidad="sat_expresion",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best transition.\n\n"
+            "Cats spend a large part of the day sleeping to save energy for "
+            "hunting. ______, lions rest for up to twenty hours a day between hunts."
+        ),
+        options=["Similarly", "However", "Instead", "Therefore"],
+        correct="Similarly",
+        explanation=(
+            "Los leones hacen LO MISMO que los gatos (descansar mucho entre "
+            "cacerías), así que la transición es de semejanza. \"However\" "
+            "anunciaría que hacen algo distinto. \"Therefore\" diría que los leones "
+            "descansan PORQUE los gatos duermen, y una cosa no causa la otra."
+        ),
+    ),
+    _item(
+        "sat-exp-14",
+        habilidad="sat_expresion",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A student has taken these notes:\n"
+            "• Venus and Earth are almost the same size.\n"
+            "• The surface of Venus is about 460 °C.\n"
+            "• The average surface temperature of Earth is about 15 °C.\n\n"
+            "The student wants to emphasise A DIFFERENCE between the two planets. "
+            "Which choice best accomplishes that goal?"
+        ),
+        options=[
+            "Although Venus and Earth are almost the same size, the surface of Venus is about 460 °C, while Earth's averages about 15 °C.",
+            "Venus and Earth are almost the same size.",
+            "Venus and Earth are both planets that are almost the same size.",
+            "Venus, which is almost the same size as Earth, is a planet.",
+        ],
+        correct="Although Venus and Earth are almost the same size, the surface of Venus is about 460 °C, while Earth's averages about 15 °C.",
+        explanation=(
+            "El objetivo es una DIFERENCIA, y la única diferencia en las notas es "
+            "la temperatura. Las otras tres opciones solo dicen lo que tienen en "
+            "común: el tamaño. \"Although\" además prepara el contraste. Busca qué "
+            "nota responde al objetivo y descarta las opciones que no la usan."
+        ),
+    ),
+    _item(
+        "sat-exp-15",
+        habilidad="sat_expresion",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A student has taken these notes:\n"
+            "• Gabriel García Márquez was a Colombian writer.\n"
+            "• He won the Nobel Prize in Literature in 1982.\n"
+            "• His best-known novel is One Hundred Years of Solitude.\n\n"
+            "The student wants to introduce García Márquez to an audience that "
+            "has never heard of him. Which choice best accomplishes that goal?"
+        ),
+        options=[
+            "Gabriel García Márquez, a Colombian writer best known for the novel One Hundred Years of Solitude, won the Nobel Prize in Literature in 1982.",
+            "One Hundred Years of Solitude is García Márquez's best-known novel.",
+            "In 1982, the Nobel Prize in Literature went to García Márquez.",
+            "García Márquez won the prize in 1982 for his writing.",
+        ],
+        correct="Gabriel García Márquez, a Colombian writer best known for the novel One Hundred Years of Solitude, won the Nobel Prize in Literature in 1982.",
+        explanation=(
+            "Para un público que no lo conoce hace falta decir QUIÉN es: el "
+            "nombre completo y que era un escritor colombiano. Solo la primera "
+            "opción lo dice. Las otras asumen que el lector ya sabe quién es "
+            "(\"García Márquez\" a secas), y la última ni siquiera dice qué premio "
+            "ganó."
+        ),
+    ),
+    _item(
+        "sat-exp-16",
+        habilidad="sat_expresion",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the best transition.\n\n"
+            "Most smartphones are replaced after about three years. ______, a "
+            "well-maintained bicycle can be used for decades."
+        ),
+        options=["In contrast", "For example", "As a result", "In addition"],
+        correct="In contrast",
+        explanation=(
+            "Tres años frente a décadas: las dos oraciones se oponen en cuánto "
+            "duran las cosas. Eso pide contraste. \"As a result\" diría que la "
+            "bicicleta dura PORQUE los celulares se cambian, y \"In addition\" "
+            "sumaría una idea del mismo sentido. Cuando las dos oraciones tienen "
+            "datos que chocan, busca el contraste."
+        ),
+    ),
+    _item(
+        "sat-exp-17",
+        habilidad="sat_expresion",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Where should the following sentence be added?\n\n"
+            "\"These early devices were expensive and could store only a few "
+            "songs.\"\n\n"
+            "(1) Portable music players first became popular in the late 1990s. "
+            "(2) Within a few years, however, prices dropped and storage grew "
+            "enormously. "
+            "(3) Today, most people listen to music on their phones instead. "
+            "(4) Dedicated music players are now sold mainly to runners."
+        ),
+        options=[
+            "After sentence 1",
+            "After sentence 2",
+            "After sentence 3",
+            "After sentence 4",
+        ],
+        correct="After sentence 1",
+        explanation=(
+            "\"These early devices\" necesita que los aparatos se acaben de "
+            "nombrar: eso pasa en la frase 1. Además la frase 2 empieza con "
+            "\"however, prices dropped\", y ese contraste solo tiene sentido si "
+            "antes se dijo que eran caros. El pronombre al comienzo de la oración "
+            "nueva y el conector de la siguiente deciden la posición."
+        ),
+    ),
+    _item(
+        "sat-exp-18",
+        habilidad="sat_expresion",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the most precise word.\n\n"
+            "The two witnesses gave ______ accounts of the accident: one said the "
+            "car was red, and the other said it was blue."
+        ),
+        options=["conflicting", "detailed", "emotional", "brief"],
+        correct="conflicting",
+        explanation=(
+            "La parte después de los dos puntos es la definición de la palabra "
+            "que falta: un testigo dijo rojo y el otro azul, así que sus versiones "
+            "se contradicen. \"Detailed\" podría ser cierto, pero no es lo que el "
+            "ejemplo muestra. La palabra correcta es la que el resto de la "
+            "oración demuestra, no una que simplemente podría ser verdad."
+        ),
+    ),
+    _item(
+        "sat-exp-19",
+        habilidad="sat_expresion",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A writer is explaining how honeybees tell each other where to find "
+            "food. Which sentence is LEAST relevant to that explanation and "
+            "should be removed?\n\n"
+            "(1) A bee that finds flowers returns to the hive and performs a "
+            "movement called the waggle dance. "
+            "(2) The angle of the dance shows the direction of the food. "
+            "(3) Honey has been used as a medicine for thousands of years. "
+            "(4) The length of the dance tells the other bees how far away the "
+            "food is."
+        ),
+        options=["Sentence 3", "Sentence 1", "Sentence 2", "Sentence 4"],
+        correct="Sentence 3",
+        explanation=(
+            "El párrafo explica CÓMO se comunican las abejas, y las frases 1, 2 "
+            "y 4 forman esa explicación (la danza, su dirección, su distancia). "
+            "El uso medicinal de la miel es un dato verdadero e interesante, pero "
+            "de otro tema. Lo que hay que preguntarse no es si es cierto, sino si "
+            "sirve al propósito declarado."
+        ),
+    ),
+    _item(
+        "sat-exp-20",
+        habilidad="sat_expresion",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the best transition.\n\n"
+            "The team expected the new fertiliser to increase the harvest. ______, "
+            "the plots that received it produced slightly less than the others."
+        ),
+        options=["Instead", "Similarly", "For example", "Therefore"],
+        correct="Instead",
+        explanation=(
+            "Se esperaba un aumento y ocurrió lo contrario: \"Instead\" marca que "
+            "pasó algo distinto de lo previsto. \"Therefore\" diría que la caída "
+            "fue CONSECUENCIA de la expectativa, que no tiene sentido. "
+            "\"Similarly\" y \"For example\" no contrastan nada."
+        ),
+    ),
+    _item(
+        "sat-exp-21",
+        habilidad="sat_expresion",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "A student has taken these notes:\n"
+            "• Researchers studied 300 high-school students for one year.\n"
+            "• Half of them took a 20-minute walk before class.\n"
+            "• The students who walked scored higher on attention tests.\n"
+            "• The researchers say more studies are needed.\n\n"
+            "The student wants to PRESENT THE STUDY'S FINDING while "
+            "acknowledging its limits. Which choice best accomplishes that goal?"
+        ),
+        options=[
+            "In a one-year study of 300 high-school students, those who walked for 20 minutes before class scored higher on attention tests, though the researchers say more studies are needed.",
+            "Walking for 20 minutes before class improves the attention of every high-school student.",
+            "Researchers studied 300 high-school students for one year, and half of them walked before class.",
+            "More studies are needed on high-school students and attention.",
+        ],
+        correct="In a one-year study of 300 high-school students, those who walked for 20 minutes before class scored higher on attention tests, though the researchers say more studies are needed.",
+        explanation=(
+            "El objetivo tiene dos partes: el hallazgo Y sus límites. La segunda "
+            "opción da el hallazgo pero lo convierte en una verdad para \"every "
+            "student\", lo contrario de reconocer límites. La tercera describe el "
+            "estudio sin decir qué encontró, y la cuarta solo da el límite. "
+            "Revisa que la opción cumpla TODAS las partes del objetivo."
+        ),
+    ),
+    _item(
+        "sat-exp-22",
+        habilidad="sat_expresion",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Where should the following sentence be added?\n\n"
+            "\"Her answer surprised everyone: the city should plant trees "
+            "instead.\"\n\n"
+            "(1) In 2015, the city asked an engineer how to reduce flooding in "
+            "the downtown streets. "
+            "(2) Most officials expected her to recommend larger drainage pipes. "
+            "(3) Tree roots, she explained, help the soil absorb rainwater before "
+            "it reaches the streets. "
+            "(4) Ten years later, flooding downtown has dropped by half."
+        ),
+        options=[
+            "After sentence 2",
+            "After sentence 1",
+            "After sentence 3",
+            "After sentence 4",
+        ],
+        correct="After sentence 2",
+        explanation=(
+            "\"Surprised everyone\" necesita que antes se diga qué esperaban (la "
+            "frase 2: tuberías más grandes), e \"instead\" contrasta con eso "
+            "mismo. Y la frase 3 (\"Tree roots, she explained…\") explica una "
+            "propuesta de árboles que ya tiene que haber aparecido. Los dos "
+            "lados de la oración nueva encajan solo entre la 2 y la 3."
+        ),
+    ),
+    _item(
+        "sat-exp-23",
+        habilidad="sat_expresion",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the most precise word.\n\n"
+            "The historian was careful not to overstate her case; she described "
+            "the letters as ______ evidence that the two writers had met, not as "
+            "proof."
+        ),
+        options=["suggestive", "conclusive", "irrelevant", "fabricated"],
+        correct="suggestive",
+        explanation=(
+            "La oración da los dos límites: no exagerar y \"not as proof\". La "
+            "palabra tiene que estar entre \"nada\" y \"prueba\": evidencia que "
+            "apunta a algo sin demostrarlo, \"suggestive\". \"Conclusive\" es "
+            "justamente lo que se niega. \"Irrelevant\" y \"fabricated\" van "
+            "demasiado lejos hacia el otro lado: ella sí la considera evidencia."
+        ),
+    ),
+    _item(
+        "sat-exp-24",
+        habilidad="sat_expresion",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the best transition.\n\n"
+            "Electric buses are more expensive to buy than diesel ones. ______, "
+            "they cost far less to run, and many cities recover the difference "
+            "within a few years."
+        ),
+        options=["Even so", "For instance", "As a result", "Likewise"],
+        correct="Even so",
+        explanation=(
+            "La primera oración da una desventaja y la segunda un argumento que "
+            "la compensa: \"Even so\" (aun así) reconoce la desventaja y sigue "
+            "adelante. \"As a result\" diría que cuestan menos de operar PORQUE "
+            "son caros de comprar. \"Likewise\" sumaría otra desventaja. Las "
+            "transiciones de concesión son las más difíciles del examen."
+        ),
+    ),
+    _item(
+        "sat-exp-25",
+        habilidad="sat_expresion",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "A writer claims that reading on paper helps people remember more "
+            "than reading on a screen. Which sentence, if added, would best "
+            "SUPPORT that claim?"
+        ),
+        options=[
+            "In one experiment, students who read a story on paper recalled the order of events better than students who read the same story on a tablet.",
+            "Many people say they prefer the smell of printed books.",
+            "Tablets can store thousands of books in a single device.",
+            "Paper has been used for writing for about two thousand years.",
+        ],
+        correct="In one experiment, students who read a story on paper recalled the order of events better than students who read the same story on a tablet.",
+        explanation=(
+            "La afirmación es sobre RECORDAR, y solo la primera opción da "
+            "evidencia sobre memoria, comparando papel y pantalla con el mismo "
+            "texto. Que a la gente le guste el olor del papel es una preferencia, "
+            "no un efecto en la memoria. Las otras dos son datos ciertos que no "
+            "tocan la afirmación."
+        ),
+    ),
 ]
 
 
@@ -1147,6 +1646,440 @@ _ITEMS_SAT_LECTURA = [
             "explícito, así que la última opción dice más de lo que el texto "
             "autoriza. En opciones de dos partes, verifica que las DOS estén "
             "respaldadas: basta con que una falle para descartarla."
+        ),
+    ),
+    # I-1b · Sprint 4 · ampliación del banco (de 6 a 25), sobre 7 textos propios
+    # nuevos. Ver la nota en álgebra.
+    _item(
+        "sat-read-7",
+        habilidad="sat_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="sleep_memory",
+        question="Which choice best states the main idea of the text?",
+        options=[
+            "A small study suggests that sleep helps strengthen memories, though the authors treat the result with caution.",
+            "University students remember word pairs better in the afternoon than in the evening.",
+            "Staying awake in a laboratory damages the memory of young people.",
+            "Sleep has been proven to improve memory in people of all ages.",
+        ],
+        correct="A small study suggests that sleep helps strengthen memories, though the authors treat the result with caution.",
+        explanation=(
+            "La idea principal tiene que cubrir el texto entero: el hallazgo "
+            "(dormir ayudó a recordar) Y la cautela del final. La última opción "
+            "dice \"proven\" y \"all ages\", justo lo que los autores se cuidan de "
+            "no decir. La segunda se queda con un detalle de la hora. Desconfía "
+            "de las opciones más absolutas que el texto."
+        ),
+    ),
+    _item(
+        "sat-read-8",
+        habilidad="sat_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="sleep_memory",
+        question=(
+            "According to the text, how did the two groups of students differ "
+            "the next afternoon?"
+        ),
+        options=[
+            "The students who had slept recalled more word pairs.",
+            "The students who had stayed awake recalled more word pairs.",
+            "Both groups recalled the same number of word pairs.",
+            "Only the students who had slept were tested.",
+        ],
+        correct="The students who had slept recalled more word pairs.",
+        explanation=(
+            "El texto lo dice de forma literal: \"the students who had slept "
+            "recalled about a third more pairs\". En las preguntas de detalle "
+            "(\"According to the text\") la respuesta está escrita; no hay que "
+            "deducir nada. Vuelve a la frase exacta antes de marcar."
+        ),
+    ),
+    _item(
+        "sat-read-9",
+        habilidad="sat_lectura",
+        nivel=NIVEL_AVANZADO,
+        passage="sleep_memory",
+        question=(
+            "Which finding, if true, would most directly address the limitation "
+            "the researchers mention?"
+        ),
+        options=[
+            "A larger study including people of many ages finds a similar effect of sleep on memory.",
+            "A second group of twenty-four students shows the same result.",
+            "Students who memorised the list in the morning recalled fewer pairs.",
+            "Students say they feel more rested after a full night of sleep.",
+        ],
+        correct="A larger study including people of many ages finds a similar effect of sleep on memory.",
+        explanation=(
+            "Los autores nombran DOS límites: el grupo era pequeño y todos eran "
+            "estudiantes de 18 a 22 años. Solo la primera opción responde a los "
+            "dos. Repetirlo con otros veinticuatro estudiantes sigue siendo un "
+            "grupo pequeño y de la misma edad. Que se sientan descansados no dice "
+            "nada sobre la memoria."
+        ),
+    ),
+    _item(
+        "sat-read-10",
+        habilidad="sat_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="market_morning",
+        question=(
+            "The detail that the grandfather had \"already decided to buy\" the "
+            "tomatoes mainly serves to"
+        ),
+        options=[
+            "show that the bargaining was not really about the price.",
+            "suggest that the grandfather could not afford the tomatoes.",
+            "explain why the seller laughed at the grandfather.",
+            "indicate that the tomatoes were of poor quality.",
+        ],
+        correct="show that the bargaining was not really about the price.",
+        explanation=(
+            "Si ya había decidido comprarlos, regatear no tenía un fin práctico. "
+            "El resto del texto lo confirma: \"the price had stopped mattering\". "
+            "El ceño fruncido ante el tomate es teatro, no una queja real por la "
+            "calidad. Pregúntate qué cambiaría si se borrara el detalle."
+        ),
+    ),
+    _item(
+        "sat-read-11",
+        habilidad="sat_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="market_morning",
+        question=(
+            "Which choice best describes what the narrator realises in the last "
+            "sentence?"
+        ),
+        options=[
+            "The weekly trip to the market was mainly a social ritual for the grandfather.",
+            "The grandfather had been paying too much for tomatoes for years.",
+            "The seller had always known that the grandfather would not pay.",
+            "The narrator should have gone shopping with the grandfather more often.",
+        ],
+        correct="The weekly trip to the market was mainly a social ritual for the grandfather.",
+        explanation=(
+            "\"He had never once been shopping\" no es literal: sí compraba los "
+            "tomates. Lo que el narrador entiende es que el propósito real era la "
+            "conversación (la lluvia, la hija del vendedor, la ruta de bus). "
+            "Las otras opciones leen la frase al pie de la letra o inventan algo "
+            "que el texto no dice."
+        ),
+    ),
+    _item(
+        "sat-read-12",
+        habilidad="sat_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="market_morning",
+        question=(
+            "As used in the text, the phrase \"the real conversation\" suggests "
+            "that the bargaining was"
+        ),
+        options=[
+            "an opening rather than the main purpose of the visit.",
+            "a dishonest attempt to cheat the seller.",
+            "the most important part of the grandfather's week.",
+            "a skill the grandfather was trying to teach the narrator.",
+        ],
+        correct="an opening rather than the main purpose of the visit.",
+        explanation=(
+            "\"Real\" contrapone lo que viene después con lo que vino antes: si la "
+            "conversación sobre la lluvia es la \"real\", el regateo era la "
+            "entrada, la excusa. Nada sugiere engaño (el vendedor se ríe, le "
+            "sigue el juego) ni que quisiera enseñarle algo al nieto."
+        ),
+    ),
+    _item(
+        "sat-read-13",
+        habilidad="sat_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="postal_codes",
+        question="According to the text, who usually paid the postage on a letter?",
+        options=[
+            "The person who received the letter",
+            "The person who sent the letter",
+            "The postal service",
+            "The sender and the receiver equally",
+        ],
+        correct="The person who received the letter",
+        explanation=(
+            "Está en la primera frase: \"the person who received a letter, not the "
+            "person who sent it, paid the postage\". La segunda opción es justo lo "
+            "que cambió DESPUÉS, con la reforma del final, y por eso confunde: "
+            "fíjate a qué época se refiere cada parte del texto."
+        ),
+    ),
+    _item(
+        "sat-read-14",
+        habilidad="sat_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="postal_codes",
+        question=(
+            "Based on the text, why would a receiver \"politely refuse to pay\" "
+            "for a letter?"
+        ),
+        options=[
+            "The marks on the outside had already given the receiver the message.",
+            "The letter had been sent to the wrong address.",
+            "The postage was higher than the receiver had expected.",
+            "The receiver did not know the person who sent it.",
+        ],
+        correct="The marks on the outside had already given the receiver the message.",
+        explanation=(
+            "El texto explica el truco justo antes: las marcas acordadas "
+            "\"carried a short message by themselves\", así que con leer el sobre "
+            "ya bastaba para saber que todo estaba bien. El costo alto es la "
+            "razón general del problema, no la de esta negativa en particular."
+        ),
+    ),
+    _item(
+        "sat-read-15",
+        habilidad="sat_lectura",
+        nivel=NIVEL_AVANZADO,
+        passage="postal_codes",
+        question="The final sentence mainly serves to",
+        options=[
+            "connect the practice described in the text to a later change in the postal system.",
+            "suggest that the marks on envelopes were illegal.",
+            "explain how reformers discovered the secret marks.",
+            "argue that receivers should still pay for their letters.",
+        ],
+        correct="connect the practice described in the text to a later change in the postal system.",
+        explanation=(
+            "La última frase sale del truco y mira hacia adelante: fue \"one of "
+            "the reasons\" para que luego pagara el remitente. Esa es su función: "
+            "conectar. No dice que fuera ilegal ni cómo lo descubrieron, y la "
+            "cuarta opción defiende lo contrario de lo que pedían los reformadores."
+        ),
+    ),
+    _item(
+        "sat-read-16",
+        habilidad="sat_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="glaciers",
+        question=(
+            "Which choice best describes why three of the four glaciers did not "
+            "retreat?"
+        ),
+        options=[
+            "They were in a valley that received unusually heavy snowfall.",
+            "A landslide covered their front edges.",
+            "They were too small to be measured.",
+            "They were located at a higher altitude than the others.",
+        ],
+        correct="They were in a valley that received unusually heavy snowfall.",
+        explanation=(
+            "El texto separa los cuatro casos: tres por la nevada en un mismo "
+            "valle, y UNO que no se pudo medir por un deslizamiento. La segunda "
+            "opción aplica a los tres la razón del cuarto, y por eso es la "
+            "trampa. La altitud no aparece en ninguna parte."
+        ),
+    ),
+    _item(
+        "sat-read-17",
+        habilidad="sat_lectura",
+        nivel=NIVEL_AVANZADO,
+        passage="glaciers",
+        question=(
+            "A reader claims that the study shows glacier retreat has stopped in "
+            "some regions. Based on the text, how would the authors most likely "
+            "respond?"
+        ),
+        options=[
+            "The few glaciers that did not retreat can be explained by local conditions and do not show that the trend has stopped.",
+            "The reader is correct, because four of the thirty glaciers did not retreat.",
+            "The study cannot say anything about retreat, because one glacier could not be measured.",
+            "Glacier retreat has stopped only in the valley with heavy snowfall.",
+        ],
+        correct="The few glaciers that did not retreat can be explained by local conditions and do not show that the trend has stopped.",
+        explanation=(
+            "Los autores lo anticipan: advierten contra usar los glaciares "
+            "estables \"as evidence that the trend has stopped\", y el texto da "
+            "una explicación local para cada uno. La tercera opción exagera: un "
+            "glaciar sin medir no anula los otros veintinueve. La cuarta convierte "
+            "un período de nevadas en un cambio de tendencia."
+        ),
+    ),
+    _item(
+        "sat-read-18",
+        habilidad="sat_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="libraries_argument",
+        question="Which choice best states the author's main claim?",
+        options=[
+            "Public libraries serve purposes beyond lending books and should be adapted rather than closed.",
+            "Public libraries should stop lending printed books.",
+            "Fewer people visit public libraries than in the past.",
+            "Cities should spend more money on bridges than on libraries.",
+        ],
+        correct="Public libraries serve purposes beyond lending books and should be adapted rather than closed.",
+        explanation=(
+            "El texto entero sostiene dos cosas: el préstamo \"was never the "
+            "whole job\" y la caída del préstamo es razón para \"changing what "
+            "libraries offer, not for closing them\". La tercera opción es lo que "
+            "dicen los críticos, no el autor (y además habla de visitas, no de "
+            "préstamos). Los puentes son una comparación, no el tema."
+        ),
+    ),
+    _item(
+        "sat-read-19",
+        habilidad="sat_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="libraries_argument",
+        question=(
+            "The examples of the student, the job seeker and the older resident "
+            "mainly serve to"
+        ),
+        options=[
+            "illustrate uses of a library that do not involve borrowing books.",
+            "show that libraries are used mostly by young people.",
+            "prove that libraries lend more books than critics believe.",
+            "describe the people who have stopped using libraries.",
+        ],
+        correct="illustrate uses of a library that do not involve borrowing books.",
+        explanation=(
+            "Los tres ejemplos aparecen justo después de \"lending was never the "
+            "whole job\": hacer tareas, imprimir una hoja de vida y pedir ayuda "
+            "con un formulario. Ninguno es pedir un libro, y ese es el punto. "
+            "Uno de los tres es una persona mayor, así que la segunda opción "
+            "contradice el texto."
+        ),
+    ),
+    _item(
+        "sat-read-20",
+        habilidad="sat_lectura",
+        nivel=NIVEL_AVANZADO,
+        passage="libraries_argument",
+        question="How does the author respond to the critics mentioned in the text?",
+        options=[
+            "By accepting their evidence but drawing a different conclusion from it",
+            "By showing that their evidence is false",
+            "By agreeing that libraries should be closed",
+            "By ignoring their argument entirely",
+        ],
+        correct="By accepting their evidence but drawing a different conclusion from it",
+        explanation=(
+            "\"Critics are right that fewer people borrow printed books\": el "
+            "autor acepta el dato. Lo que discute es la conclusión: \"That is an "
+            "argument for changing… not for closing\". Esta estrategia (conceder "
+            "el hecho y discutir la interpretación) es muy frecuente en los "
+            "textos argumentativos del examen, y la segunda opción es su trampa "
+            "simétrica."
+        ),
+    ),
+    _item(
+        "sat-read-21",
+        habilidad="sat_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="octopus",
+        question=(
+            "According to the text, where are most of an octopus's neurons "
+            "located?"
+        ),
+        options=[
+            "In its arms",
+            "In its central brain",
+            "Evenly divided between its brain and its arms",
+            "In its eyes",
+        ],
+        correct="In its arms",
+        explanation=(
+            "\"Roughly two thirds of them sit in the arms rather than in the "
+            "central brain\": dos tercios es la mayoría. La segunda opción es lo "
+            "que uno esperaría sin leer, y por eso está. La tercera exagera hacia "
+            "el otro lado: dos tercios no es mitad y mitad."
+        ),
+    ),
+    _item(
+        "sat-read-22",
+        habilidad="sat_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="octopus",
+        question=(
+            "The experiment with the separated arm is presented mainly as "
+            "evidence that"
+        ),
+        options=[
+            "an octopus's arms can control some of their own movements.",
+            "an octopus can survive after losing an arm.",
+            "octopuses are more intelligent than dogs.",
+            "the central brain of an octopus has no role in movement.",
+        ],
+        correct="an octopus's arms can control some of their own movements.",
+        explanation=(
+            "Un brazo separado del cuerpo que todavía busca comida solo puede "
+            "estar controlado por sus propias neuronas: eso respalda que los "
+            "brazos \"work out many of the details on their own\". La cuarta "
+            "opción va demasiado lejos: el texto dice que el cerebro central "
+            "\"set[s] general goals\". La comparación con el perro es sobre el "
+            "número de neuronas, no sobre inteligencia."
+        ),
+    ),
+    _item(
+        "sat-read-23",
+        habilidad="sat_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="translator",
+        question=(
+            "In the text, the word from the grandmother's language refers to"
+        ),
+        options=[
+            "the silence of a house after guests have left.",
+            "the sadness of saying goodbye to guests.",
+            "a phrase the narrator invented.",
+            "a house where nobody lives.",
+        ],
+        correct="the silence of a house after guests have left.",
+        explanation=(
+            "Está definido en el texto: \"the particular silence of a house after "
+            "guests have left\". La segunda opción le pone una emoción que el "
+            "texto descarta (\"not emptiness\"; tiene \"the warmth\" de la paz). "
+            "La casa no está deshabitada: los invitados se acaban de ir."
+        ),
+    ),
+    _item(
+        "sat-read-24",
+        habilidad="sat_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="translator",
+        question=(
+            "As used in the text, the phrase \"arrived on the other side smaller\" "
+            "most nearly means that the translation"
+        ),
+        options=[
+            "lost part of the word's meaning.",
+            "used fewer letters than the original word.",
+            "was printed in a smaller font.",
+            "was easier to pronounce.",
+        ],
+        correct="lost part of the word's meaning.",
+        explanation=(
+            "\"Cruzar al otro lado\" es la metáfora de la traducción que el texto "
+            "usa desde el principio (\"refuse to cross the border\"). Llegar \"más "
+            "pequeña\" es llegar con menos significado del que tenía. Las otras "
+            "opciones leen \"smaller\" de forma literal: tamaño de letra o número "
+            "de letras."
+        ),
+    ),
+    _item(
+        "sat-read-25",
+        habilidad="sat_lectura",
+        nivel=NIVEL_AVANZADO,
+        passage="translator",
+        question="Which choice best describes the overall structure of the text?",
+        options=[
+            "The narrator describes a recurring difficulty and then reinterprets it in a more positive way.",
+            "The narrator explains a problem and then proposes a technical solution to it.",
+            "The narrator compares two languages and concludes that one is richer.",
+            "The narrator tells a story about a grandmother and then describes her house.",
+        ],
+        correct="The narrator describes a recurring difficulty and then reinterprets it in a more positive way.",
+        explanation=(
+            "Primero el problema que se repite (la frase, la nota al pie, \"each "
+            "time\"); después el giro: \"I no longer think of this as a "
+            "failure\". No hay una solución técnica: el narrador cambia de "
+            "mirada, no de método. Y la conclusión es justo que la palabra NO "
+            "muestra un vacío del otro idioma, así que no declara a ninguno más "
+            "rico."
         ),
     ),
 ]

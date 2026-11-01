@@ -743,6 +743,18 @@ def post_invitation(
             detail=f"Your role ({caller.role.value}) cannot invite '{payload.role}'.",
         )
 
+    # F-2 / F-4 · Sprint 4 · un programa o una empresa no tienen psicólogas: su
+    # equipo solo ve datos agregados (`org_privacidad`), y una psicóloga
+    # acompaña a cada persona, con su detalle. Si un cliente concreto lo
+    # necesita, se define con él.
+    from app.api.v1.org_privacidad import TIPOS_SOLO_AGREGADO, tipo_de
+
+    if getattr(payload.role, "value", payload.role) == "psychologist" and tipo_de(school) in TIPOS_SOLO_AGREGADO:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Un programa o una empresa no tienen psicólogos: su equipo solo ve datos agregados.",
+        )
+
     # avoid creating an invitation for an email that already belongs to the school
     existing_user = (
         db.query(User).filter(User.email == payload.email.lower()).first()

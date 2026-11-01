@@ -138,3 +138,14 @@ def test_otros_aparece_cuando_juntos_llegan_al_minimo(app_db):
 
     filas = svc._desglose(Counter({"a": 7, "b": 3, "c": 2}), {"a": "A"})
     assert filas == [{"categoria": "A", "personas": 7}, {"categoria": "Otros", "personas": 5}]
+
+
+def test_un_programa_no_invita_psicologas_pero_si_participantes(app_db):
+    """Una psicóloga ve a cada persona; en un programa o una empresa no corresponde."""
+    app, Sesion = app_db
+    with TestClient(app) as c:
+        _, h = _org(c, Sesion, "prog-equipo", "programa")
+        r = c.post("/api/v1/school/me/invitations", json={"email": "psy@x.dev", "role": "psychologist"}, headers=h)
+        assert r.status_code == 403
+        r = c.post("/api/v1/school/me/invitations", json={"email": "part@x.dev", "role": "student"}, headers=h)
+        assert r.status_code != 403, r.text

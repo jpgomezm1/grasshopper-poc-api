@@ -223,10 +223,12 @@ def build_cv_data(
 CSS = (
     FONT_FACE_CSS
     + """
+/* A-5 · Sprint 4 · los grises eran fríos (#1f2430, #5b6470…), de antes del rebrand,
+   y peleaban con el naranja y el morado. Ahora la tinta y el gris de `brand.py`. */
 @page { size: A4; margin: 16mm 15mm 16mm 15mm; }
 body {
   font-family: 'Satoshi', 'Lato', Arial, sans-serif;
-  color: #1f2430; font-size: 10.5pt; line-height: 1.5;
+  color: #1D1D1B; font-size: 10.5pt; line-height: 1.5;
 }
 .header { border-bottom: 3px solid #EE7238; padding-bottom: 5mm; margin-bottom: 7mm; }
 /* La fila existe siempre, con foto o sin ella: así el encabezado no cambia de
@@ -236,10 +238,10 @@ body {
 .photo { width: 26mm; height: 32mm; object-fit: cover;
          border-radius: 4px; border: 2px solid #EE7238; }
 .name { font-size: 26pt; font-weight: 800; color: #47368C; letter-spacing: -0.02em; margin: 0; }
-.headline { font-size: 12pt; color: #5b6470; margin-top: 1mm; font-weight: 600; }
-.contact { margin-top: 3mm; font-size: 9.5pt; color: #5b6470; }
+.headline { font-size: 12pt; color: #6B675E; margin-top: 1mm; font-weight: 600; }
+.contact { margin-top: 3mm; font-size: 9.5pt; color: #6B675E; }
 .contact span { margin-right: 5mm; }
-.contact b { color: #1f2430; font-weight: 700; }
+.contact b { color: #1D1D1B; font-weight: 700; }
 h2 {
   font-size: 12.5pt; color: #47368C; text-transform: uppercase;
   letter-spacing: 0.06em; margin: 7mm 0 3mm 0; padding-bottom: 1.5mm;
@@ -260,22 +262,22 @@ h2 {
 }
 .test-card .t-name { font-weight: 800; color: #47368C; font-size: 10pt; }
 .test-card .t-hl { font-weight: 800; color: #B24310; font-size: 13pt; margin: 0.5mm 0; }
-.test-card .t-desc { color: #7a8290; font-size: 8.5pt; }
+.test-card .t-desc { color: #6B675E; font-size: 8.5pt; }
 .activity { margin: 0 0 4mm 0; padding-left: 4mm; border-left: 2px solid #E2DDD0; }
 .activity .a-top { display: flex; justify-content: space-between; }
-.activity .a-name { font-weight: 800; color: #1f2430; font-size: 10.5pt; }
-.activity .a-meta { color: #7a8290; font-size: 9pt; white-space: nowrap; }
+.activity .a-name { font-weight: 800; color: #1D1D1B; font-size: 10.5pt; }
+.activity .a-meta { color: #6B675E; font-size: 9pt; white-space: nowrap; }
 .activity .a-cat { color: #47368C; font-weight: 700; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.04em; }
-.activity .a-role { color: #5b6470; font-size: 9.5pt; }
+.activity .a-role { color: #6B675E; font-size: 9.5pt; }
 .activity .a-desc { color: #3a4150; font-size: 9.5pt; margin-top: 0.5mm; }
 .activity ul { margin: 1mm 0 0 0; padding-left: 5mm; }
 .activity li { font-size: 9.5pt; margin: 0.5mm 0; }
-.muted { color: #9aa0ab; font-style: italic; }
+.muted { color: #6B675E; font-style: italic; }
 /* Cláusula legal del destino (RGPD en España) · más pequeña que el cuerpo pero
    legible: es un texto con efecto jurídico, no una marca de agua. */
 .aviso-legal { margin-top: 7mm; padding-top: 2.5mm; border-top: 1px solid #E2DDD0;
-               color: #5b6470; font-size: 8.5pt; line-height: 1.4; }
-.footer { margin-top: 9mm; padding-top: 3mm; border-top: 1px solid #E2DDD0; color: #9aa0ab; font-size: 8pt; }
+               color: #6B675E; font-size: 8.5pt; line-height: 1.4; }
+.footer { margin-top: 9mm; padding-top: 3mm; border-top: 1px solid #E2DDD0; color: #6B675E; font-size: 8pt; }
 """
 )
 

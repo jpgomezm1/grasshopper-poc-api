@@ -3691,6 +3691,327 @@ _ITEMS_IELTS_VOCABULARIO = [
             "académica esta familia se confunde todo el tiempo."
         ),
     ),
+    # I-3 · Sprint 4 · ampliación del banco de IELTS (de 6 a 25). Mismas reglas
+    # que los de arriba: propios, sin ítems oficiales, explicación en español.
+    _item(
+        "ielts-voc-7",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best word.\n\n"
+            "Many students ______ research online before choosing a university."
+        ),
+        options=["do", "make", "take", "give"],
+        correct="do",
+        explanation=(
+            "En inglés la investigación se \"hace\" con “do”: “do research”. "
+            "“Make research” es el calco del español \"hacer\" y es el error más "
+            "común. Las colocaciones no se razonan, se aprenden en bloque: "
+            "do research, make a decision, take a test."
+        ),
+    ),
+    _item(
+        "ielts-voc-8",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best word.\n\n"
+            "The new law will ______ everyone who owns a car."
+        ),
+        options=["affect", "effect", "effort", "afford"],
+        correct="affect",
+        explanation=(
+            "Hace falta un verbo: “affect” (afectar). “Effect” casi siempre es "
+            "sustantivo (el efecto): \"the law will have an effect on…\". Truco: "
+            "a-ffect es la Acción (verbo), e-ffect es el rEsultado (sustantivo)."
+        ),
+    ),
+    _item(
+        "ielts-voc-9",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best word.\n\n"
+            "The number of tourists ______ by 20 percent last year."
+        ),
+        options=["rose", "raised", "arose", "risen"],
+        correct="rose",
+        explanation=(
+            "“Rise” (subir) no lleva objeto: algo sube solo. “Raise” (subir algo) "
+            "sí lo necesita: \"they raised prices\". Aquí el número sube por sí "
+            "mismo, y en pasado: “rose”. “Risen” es el participio y necesitaría "
+            "“has”. En las gráficas del Writing Task 1 este par sale siempre."
+        ),
+    ),
+    _item(
+        "ielts-voc-10",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best word.\n\n"
+            "Plastic pollution ______ a serious threat to marine life."
+        ),
+        options=["poses", "makes", "does", "puts"],
+        correct="poses",
+        explanation=(
+            "La colocación es “pose a threat” (representar una amenaza). "
+            "“Make a threat” existe, pero significa amenazar a alguien "
+            "verbalmente, que es otra cosa. Este tipo de pregunta premia saber "
+            "qué verbo acompaña a cada sustantivo."
+        ),
+    ),
+    _item(
+        "ielts-voc-11",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best word.\n\n"
+            "The campaign aims to ______ awareness of mental health."
+        ),
+        options=["raise", "rise", "grow", "arise"],
+        correct="raise",
+        explanation=(
+            "“Raise awareness” (crear conciencia) es colocación fija. Además, "
+            "como “awareness” es el objeto, hace falta un verbo que lleve objeto: "
+            "“raise”. “Rise” y “arise” no llevan objeto, y “grow awareness” no se "
+            "usa en inglés académico."
+        ),
+    ),
+    _item(
+        "ielts-voc-12",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best word.\n\n"
+            "The price ______ throughout the year, going up and down several "
+            "times."
+        ),
+        options=["fluctuated", "stabilised", "doubled", "disappeared"],
+        correct="fluctuated",
+        explanation=(
+            "“Going up and down several times” es la definición de “fluctuate” "
+            "(oscilar). “Stabilised” dice lo contrario (se quedó quieto) y "
+            "“doubled” describe una sola subida. Describir bien el movimiento de "
+            "un dato es la mitad del Writing Task 1."
+        ),
+    ),
+    _item(
+        "ielts-voc-13",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best word.\n\n"
+            "From these figures, we can ______ a clear conclusion."
+        ),
+        options=["draw", "pull", "take out", "make up"],
+        correct="draw",
+        explanation=(
+            "La conclusión se \"saca\" con “draw”: “draw a conclusion”. “Take "
+            "out” y “pull” son el calco de \"sacar\", y “make up” significa "
+            "inventar, justo lo que una conclusión no debe ser."
+        ),
+    ),
+    _item(
+        "ielts-voc-14",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the best word.\n\n"
+            "Buying food in bulk is more ______ for large families."
+        ),
+        options=["economical", "economic", "economy", "economist"],
+        correct="economical",
+        explanation=(
+            "“Economical” significa que ahorra dinero; “economic” significa "
+            "relacionado con la economía (\"economic growth\"). Aquí se habla de "
+            "gastar menos, así que “economical”. Los otros dos ni siquiera son "
+            "adjetivos."
+        ),
+    ),
+    _item(
+        "ielts-voc-15",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the best word.\n\n"
+            "The ______ reason for the delay was a shortage of staff."
+        ),
+        options=["principal", "principle", "principled", "principally"],
+        correct="principal",
+        explanation=(
+            "“Principal” es adjetivo: principal, más importante. “Principle” es "
+            "sustantivo: un principio (\"a moral principle\"). Suenan igual y por "
+            "eso se confunden al escribir. Delante de un sustantivo (“reason”) "
+            "va el adjetivo."
+        ),
+    ),
+    _item(
+        "ielts-voc-16",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the best word.\n\n"
+            "The company could not ______ the growing demand for its products."
+        ),
+        options=["meet", "reach", "arrive", "achieve"],
+        correct="meet",
+        explanation=(
+            "La demanda se atiende con “meet”: “meet the demand” (también "
+            "\"meet a deadline\", \"meet the needs\"). “Reach” y “achieve” se "
+            "usan con metas, no con demanda, y “arrive” no lleva objeto."
+        ),
+    ),
+    _item(
+        "ielts-voc-17",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the best word.\n\n"
+            "The two countries finally ______ an agreement after months of talks."
+        ),
+        options=["reached", "arrived", "got to", "made up"],
+        correct="reached",
+        explanation=(
+            "“Reach an agreement” es la colocación formal (llegar a un acuerdo). "
+            "“Arrived an agreement” no lleva la preposición que necesitaría "
+            "(\"arrive at\"), “got to” es informal y “made up” significa "
+            "reconciliarse o inventar."
+        ),
+    ),
+    _item(
+        "ielts-voc-18",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the best word.\n\n"
+            "From her tone of voice, I ______ that she was not satisfied."
+        ),
+        options=["inferred", "implied", "referred", "conferred"],
+        correct="inferred",
+        explanation=(
+            "Quien escucha “infers” (deduce); quien habla “implies” (insinúa). "
+            "Aquí \"I\" saca una conclusión del tono de ella, así que “inferred”. "
+            "“Implied” diría que yo insinué algo, que es lo contrario."
+        ),
+    ),
+    _item(
+        "ielts-voc-19",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the best word.\n\n"
+            "There was a ______ increase in sales: they almost tripled."
+        ),
+        options=["substantial", "slight", "marginal", "negligible"],
+        correct="substantial",
+        explanation=(
+            "Casi triplicarse es un aumento grande: “substantial”. Las otras tres "
+            "opciones significan pequeño o casi nada. La pista está después de los "
+            "dos puntos: en estas preguntas la oración casi siempre trae la "
+            "definición de la palabra que falta."
+        ),
+    ),
+    _item(
+        "ielts-voc-20",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the best word.\n\n"
+            "The new medicine had no ______ effects on the patients."
+        ),
+        options=["adverse", "averse", "diverse", "inverse"],
+        correct="adverse",
+        explanation=(
+            "“Adverse effects” son efectos negativos. “Averse” describe a una "
+            "persona que rechaza algo (\"risk-averse\"), no un efecto. Las cuatro "
+            "se parecen en la forma y solo una encaja en el sentido."
+        ),
+    ),
+    _item(
+        "ielts-voc-21",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the best word.\n\n"
+            "Rising sea levels could ______ the problem of coastal flooding."
+        ),
+        options=["exacerbate", "alleviate", "mitigate", "eradicate"],
+        correct="exacerbate",
+        explanation=(
+            "Que suba el mar empeora las inundaciones: “exacerbate” (agravar). "
+            "“Alleviate” y “mitigate” significan aliviar, y “eradicate”, "
+            "eliminar: las cuatro funcionan con \"the problem\", así que la "
+            "gramática no ayuda y decide el sentido."
+        ),
+    ),
+    _item(
+        "ielts-voc-22",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the best word.\n\n"
+            "Smartphones have become ______: almost everyone carries one."
+        ),
+        options=["ubiquitous", "obsolete", "scarce", "redundant"],
+        correct="ubiquitous",
+        explanation=(
+            "“Ubiquitous” significa que está en todas partes, y eso es lo que "
+            "explica la segunda mitad. “Obsolete” (pasado de moda) y “scarce” "
+            "(escaso) dicen lo contrario. Es una palabra de nivel alto que suma "
+            "en el criterio de vocabulario del Writing."
+        ),
+    ),
+    _item(
+        "ielts-voc-23",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the best word.\n\n"
+            "The scale of the flood was ______: nothing like it had ever been "
+            "recorded."
+        ),
+        options=["unprecedented", "predictable", "routine", "marginal"],
+        correct="unprecedented",
+        explanation=(
+            "\"Nothing like it had ever been recorded\" define “unprecedented” "
+            "(sin precedentes). “Routine” y “predictable” dicen lo opuesto. Es "
+            "una palabra muy útil en los ensayos para hablar de cambios grandes."
+        ),
+    ),
+    _item(
+        "ielts-voc-24",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the best word.\n\n"
+            "Planting trees along rivers can help ______ the risk of erosion."
+        ),
+        options=["mitigate", "aggravate", "exacerbate", "intensify"],
+        correct="mitigate",
+        explanation=(
+            "Los árboles reducen el riesgo: “mitigate” (mitigar). Las otras tres "
+            "significan empeorar, y la trampa es que \"help ______ the risk\" "
+            "funciona gramaticalmente con todas. Va en pareja con el 21: "
+            "exacerbate empeora, mitigate alivia."
+        ),
+    ),
+    _item(
+        "ielts-voc-25",
+        habilidad="ielts_vocabulario",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the best word.\n\n"
+            "The two courses ______ each other well: one is theoretical and the "
+            "other is practical."
+        ),
+        options=["complement", "compliment", "supplement", "implement"],
+        correct="complement",
+        explanation=(
+            "“Complement” (con e) es completarse mutuamente, que es lo que hacen "
+            "un curso teórico y uno práctico. “Compliment” (con i) es un halago. "
+            "“Supplement” es añadir algo extra a una sola cosa, no \"each other\"."
+        ),
+    ),
 ]
 
 
@@ -3810,6 +4131,339 @@ _ITEMS_IELTS_GRAMATICA = [
             "Poner “will” dentro del “if” es el error más "
             "repetido, y “were” pertenece al patrón hipotético, que "
             "pediría “would continue”."
+        ),
+    ),
+    # I-3 · Sprint 4 · ampliación del banco de IELTS (de 6 a 25).
+    _item(
+        "ielts-gram-7",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the correct option.\n\n"
+            "______ Amazon is the largest river in South America by volume."
+        ),
+        options=["The", "A", "An", "(no article)"],
+        correct="The",
+        explanation=(
+            "Los ríos, los océanos y las cordilleras llevan “the” en inglés: the "
+            "Amazon, the Pacific, the Andes. Los lagos y las montañas sueltas, "
+            "no: Lake Titicaca, Mount Everest. Además el río es único: “a” y "
+            "“an” son para algo que hay varios."
+        ),
+    ),
+    _item(
+        "ielts-gram-8",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the correct option.\n\n"
+            "Since 2010, the population of the city ______ steadily."
+        ),
+        options=["has grown", "grew", "grows", "is growing"],
+        correct="has grown",
+        explanation=(
+            "“Since 2010” une un momento del pasado con el presente: pide present "
+            "perfect, “has grown”. El pasado simple (“grew”) necesitaría un "
+            "periodo cerrado (\"between 2010 and 2015\"). En el Writing Task 1, "
+            "“since” y “for” casi siempre van con present perfect."
+        ),
+    ),
+    _item(
+        "ielts-gram-9",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the correct option.\n\n"
+            "A large ______ of students apply to this programme every year."
+        ),
+        options=["number", "amount", "deal", "much"],
+        correct="number",
+        explanation=(
+            "Los estudiantes se pueden contar, así que va “a number of”. “Amount "
+            "of” y “a great deal of” son para lo que no se cuenta (\"an amount of "
+            "money\"). Usar “amount” con personas es de los errores que más "
+            "penaliza el examinador."
+        ),
+    ),
+    _item(
+        "ielts-gram-10",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the correct option.\n\n"
+            "For short distances, train travel is ______ than flying."
+        ),
+        options=["more efficient", "efficienter", "most efficient", "more efficienter"],
+        correct="more efficient",
+        explanation=(
+            "Los adjetivos largos (de tres sílabas o más) forman el comparativo "
+            "con “more”: more efficient. “-er” es para los cortos (faster, "
+            "cheaper). “Most” es superlativo y no va con “than”, y “more "
+            "efficienter” repite la comparación."
+        ),
+    ),
+    _item(
+        "ielts-gram-11",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the correct option.\n\n"
+            "The results depend ______ the size of the sample."
+        ),
+        options=["on", "of", "from", "in"],
+        correct="on",
+        explanation=(
+            "En inglés se depende \"sobre\": “depend on”. “Depend of” es el calco "
+            "del español \"depender de\", y por eso es el error más frecuente. "
+            "Los verbos con preposición fija (depend on, consist of, result in) "
+            "se aprenden juntos."
+        ),
+    ),
+    _item(
+        "ielts-gram-12",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the correct option.\n\n"
+            "Neither of the two methods ______ perfect."
+        ),
+        options=["is", "are", "were", "have been"],
+        correct="is",
+        explanation=(
+            "“Neither of…” significa \"ninguno de los dos\", uno por uno: en "
+            "inglés formal el verbo va en singular, “is”. En conversación se oye "
+            "“are”, pero en un texto académico el examinador espera la forma "
+            "formal."
+        ),
+    ),
+    _item(
+        "ielts-gram-13",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the correct option.\n\n"
+            "The bridge ______ in 1932 and is still in use today."
+        ),
+        options=["was built", "built", "has built", "was building"],
+        correct="was built",
+        explanation=(
+            "El puente no construyó nada: lo construyeron. Eso pide voz pasiva, "
+            "“was built”. “Built” sin “was” diría que el puente construyó algo. "
+            "En los diagramas de proceso del Writing Task 1 la pasiva es "
+            "obligatoria."
+        ),
+    ),
+    _item(
+        "ielts-gram-14",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the correct option.\n\n"
+            "Students ______ parents attended university are more likely to "
+            "apply."
+        ),
+        options=["whose", "who", "whom", "which"],
+        correct="whose",
+        explanation=(
+            "Los padres son DE los estudiantes: posesión, “whose”. “Who” no "
+            "funciona porque \"students who parents attended\" deja a “parents” "
+            "sin conexión. “Which” es para cosas."
+        ),
+    ),
+    _item(
+        "ielts-gram-15",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the correct option.\n\n"
+            "If more people ______ public transport, there would be less traffic."
+        ),
+        options=["used", "use", "will use", "would use"],
+        correct="used",
+        explanation=(
+            "La otra mitad dice “would be”: es una situación hipotética. Ese "
+            "patrón pide pasado simple en el “if”: “used”. “Would” nunca va "
+            "dentro del “if”, y “use” con “will” sería una condición real, que "
+            "pediría \"there will be\"."
+        ),
+    ),
+    _item(
+        "ielts-gram-16",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the correct option.\n\n"
+            "______ the heavy rain, the match continued."
+        ),
+        options=["Despite", "Although", "Even though", "However"],
+        correct="Despite",
+        explanation=(
+            "Después del espacio viene un sustantivo (“the heavy rain”), no una "
+            "oración: va “despite”. “Although” y “even though” necesitan sujeto y "
+            "verbo (\"although it was raining\"). “However” une dos oraciones "
+            "separadas."
+        ),
+    ),
+    _item(
+        "ielts-gram-17",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the correct option.\n\n"
+            "Very ______ studies have examined this question, so more research "
+            "is needed."
+        ),
+        options=["few", "a few", "little", "a little"],
+        correct="few",
+        explanation=(
+            "“Studies” se cuenta, así que va “few” o “a few”, no “little”. Y la "
+            "segunda mitad (\"more research is needed\") dice que son "
+            "insuficientes: “few” tiene sentido negativo (casi ninguno); “a few” "
+            "es positivo (algunos)."
+        ),
+    ),
+    _item(
+        "ielts-gram-18",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the correct option.\n\n"
+            "The council decided ______ the old library and build a new one."
+        ),
+        options=["to close", "closing", "close", "closed"],
+        correct="to close",
+        explanation=(
+            "“Decide” va seguido de infinitivo con “to”: decide to close. Otros "
+            "verbos piden -ing (\"avoid closing\", \"consider closing\"). No hay "
+            "una regla que lo resuelva: hay que aprender cada verbo con su "
+            "forma."
+        ),
+    ),
+    _item(
+        "ielts-gram-19",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the correct option.\n\n"
+            "The number of cars on the road ______ significantly since 2000."
+        ),
+        options=["has increased", "have increased", "increased", "are increasing"],
+        correct="has increased",
+        explanation=(
+            "El sujeto es “the number” (singular), no “cars”: va “has”. Y "
+            "“since 2000” pide present perfect. La trampa es doble: el plural "
+            "\"cars\" pegado al verbo y el pasado simple que suena bien. Ojo: "
+            "\"A number of cars have…\" sí es plural."
+        ),
+    ),
+    _item(
+        "ielts-gram-20",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Choose the correct option.\n\n"
+            "Most men in the survey preferred football, ______ most women chose "
+            "tennis."
+        ),
+        options=["whereas", "despite", "because of", "in spite of"],
+        correct="whereas",
+        explanation=(
+            "Hace falta un conector que contraste dos oraciones completas: "
+            "“whereas”. “Despite”, “in spite of” y “because of” van seguidos de "
+            "un sustantivo, no de una oración. “Whereas” y “while” son los "
+            "conectores clave para comparar datos en el Task 1."
+        ),
+    ),
+    _item(
+        "ielts-gram-21",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the correct option.\n\n"
+            "Had the government acted earlier, the crisis ______ avoided."
+        ),
+        options=["could have been", "could be", "can be", "would be"],
+        correct="could have been",
+        explanation=(
+            "“Had the government acted” es un tercer condicional invertido (= \"if "
+            "the government had acted\"): habla de algo que no pasó. La otra mitad "
+            "también tiene que estar en el pasado irreal: “could have been "
+            "avoided”. Las demás opciones hablan del presente o del futuro."
+        ),
+    ),
+    _item(
+        "ielts-gram-22",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the correct option.\n\n"
+            "Not only ______ the population grown, but it has also aged."
+        ),
+        options=["has", "did", "is", "had"],
+        correct="has",
+        explanation=(
+            "Después de “not only” al comienzo, el auxiliar va antes del sujeto "
+            "(inversión). La segunda parte está en present perfect (\"it has "
+            "also aged\"), así que la primera también: “has the population "
+            "grown”. “Did” no va con “grown”, y “had” rompe el paralelismo de "
+            "tiempos."
+        ),
+    ),
+    _item(
+        "ielts-gram-23",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the correct option.\n\n"
+            "The more you practise, ______ you become."
+        ),
+        options=["the more confident", "more confident", "the most confident", "more confidently"],
+        correct="the more confident",
+        explanation=(
+            "Es el patrón \"cuanto más… más…\": “the more…, the more…”, con “the” "
+            "en las dos mitades. Sin el segundo “the” la estructura queda rota, "
+            "y el superlativo no va aquí. “Confidently” es adverbio y después de "
+            "“become” va adjetivo."
+        ),
+    ),
+    _item(
+        "ielts-gram-24",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the correct option.\n\n"
+            "The results ______ with care, as the sample was very small."
+        ),
+        options=[
+            "should be interpreted",
+            "should interpret",
+            "should have interpreting",
+            "should interpreted",
+        ],
+        correct="should be interpreted",
+        explanation=(
+            "Los resultados no interpretan: los interpretan. Pasiva con modal: "
+            "modal + “be” + participio, “should be interpreted”. “Should "
+            "interpret” sería activa y necesitaría un sujeto que interprete. Es "
+            "la forma académica de dar una recomendación sin decir quién."
+        ),
+    ),
+    _item(
+        "ielts-gram-25",
+        habilidad="ielts_gramatica",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Choose the correct option.\n\n"
+            "______ the plan will succeed is still unclear."
+        ),
+        options=["Whether", "If", "Because", "Which"],
+        correct="Whether",
+        explanation=(
+            "La oración entera \"______ the plan will succeed\" funciona como "
+            "sujeto, y al comienzo de la oración se usa “whether” (si… o no). "
+            "“If” también significa \"si\", pero en posición de sujeto no se usa "
+            "en inglés formal. “Because” y “which” no forman este tipo de "
+            "oración."
         ),
     ),
 ]

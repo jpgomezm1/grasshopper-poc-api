@@ -72,6 +72,9 @@ def test_afuera_con_estados_unidos_recibe_ielts_y_sat(db):
     assert {"practica_ingles", "practica_sat", "carta_motivacion"} <= set(ids)
     assert "saber_11" not in ids
     assert not _paso(plan, "practica_ingles")["detalle"].startswith("Si decides")
+    # Recorridos Sprint 4 · sin el prefijo, la frase empieza en mayúscula.
+    for pid in ("practica_ingles", "examen_oficial", "carta_motivacion"):
+        assert _paso(plan, pid)["detalle"][0].isupper(), pid
 
 
 def test_afuera_sin_estados_unidos_no_recibe_sat(db):

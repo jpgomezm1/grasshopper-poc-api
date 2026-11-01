@@ -51,6 +51,12 @@ _ETAPA_COLEGIO = {"9": "high_school_early", "10": "high_school_early", "11": "hi
 _ETAPA_UNIVERSIDAD = {"u1": "university", "u2": "university", "u3": "university", "u4": "recent_grad"}
 _INTERES_INTERNACIONAL = {"ext": "intl_yes", "both": "intl_maybe", "local": "intl_no"}
 _TIPO_COLEGIO = {"ib": "ib", "us": "american", "local": "local"}
+# Recorridos Sprint 4 · el presupuesto del bot, en las claves del cuestionario de
+# estilo de vida (`estilo_de_vida_service`). "beca" es una forma de financiar,
+# no un monto; "nose" vale para los dos.
+_PRESUPUESTO_FAMILIAR = {"b1": "hasta_10k", "b2": "10k_25k", "b3": "mas_25k", "nose": "no_hablado"}
+_FINANCIACION = {"beca": "beca", "nose": "no_hablado"}
+MATERIAS_DEL_BOT = "materias_favoritas"
 
 
 def hechos_desde_respuestas(respuestas: Dict[str, str]) -> Dict[str, Any]:
@@ -83,6 +89,35 @@ def hechos_desde_respuestas(respuestas: Dict[str, str]) -> Dict[str, Any]:
     if respuestas.get("flow"):
         hechos["voice_passion"] = respuestas["flow"]
     return hechos
+
+
+def respuestas_directas(respuestas: Dict[str, str]) -> Dict[str, Any]:
+    """Lo del bot que va DIRECTO a `onboarding_answers`, sin pasar por el catálogo.
+
+    Recorridos Sprint 4. `hechos_desde_respuestas` solo sirve para hechos del
+    catálogo del onboarding: `_persistir` descarta en silencio cualquier otra
+    clave. Estas no son hechos del onboarding sino de otras pantallas:
+
+    - **Presupuesto y financiación** · el bot pregunta cómo financiaría sus
+      estudios con los mismos rangos que el cuestionario de estilo de vida
+      (`estilo_de_vida_service`); sin esto se lo volvía a preguntar. Solo para
+      colegio: al adulto el onboarding le pregunta su propio presupuesto, con
+      otras bandas (por eso el docstring de arriba dice que no se pasa).
+    - **Materias favoritas** de 10° a 12° · el único hecho de materias del
+      catálogo es de 9°; para los demás grados se perdían. Llegan al prompt por
+      `ai_service._ONBOARDING_RELATO`.
+    """
+    if respuestas.get("who") != "colegio" or respuestas.get("stage") not in _ETAPA_COLEGIO:
+        return {}
+    fuera: Dict[str, Any] = {}
+    budget = respuestas.get("budget")
+    if budget in _PRESUPUESTO_FAMILIAR:
+        fuera["presupuesto_familiar"] = _PRESUPUESTO_FAMILIAR[budget]
+    if budget in _FINANCIACION:
+        fuera["financiacion"] = _FINANCIACION[budget]
+    if respuestas.get("stage") != "9" and respuestas.get("materias"):
+        fuera[MATERIAS_DEL_BOT] = respuestas["materias"]
+    return fuera
 
 
 # X-5 · Sprint 4 · el id del prospecto solo sirve para reclamarlo en el flujo
@@ -141,15 +176,24 @@ def traspasar(db: Any, user: User, lead_id: Optional[UUID] = None) -> Dict[str, 
     }
 
     lead.converted_user_id = user.id
-    if nuevos:
+    respuestas_bot = (lead.hechos or {}).get("respuestas") or {}
+    actuales = user.onboarding_answers or {}
+    directas = {
+        k: v for k, v in respuestas_directas(respuestas_bot).items()
+        if actuales.get(k) in (None, "", [])  # nunca pisa lo que ya tenía
+    }
+    if nuevos or directas:
+        # Dict nuevo: la columna JSON no rastrea mutaciones in-place. Las
+        # directas también quedan listadas como venidas del bot.
         importados: List[str] = sorted(
-            set((user.onboarding_answers or {}).get(CLAVE_IMPORTADOS) or []) | set(nuevos)
+            set(actuales.get(CLAVE_IMPORTADOS) or []) | set(nuevos) | set(directas)
         )
-        user.onboarding_answers = {**(user.onboarding_answers or {}), CLAVE_IMPORTADOS: importados}
+        user.onboarding_answers = {**actuales, **directas, CLAVE_IMPORTADOS: importados}
+    if nuevos:
         _persistir(db, user, nuevos)  # hace commit
     else:
         db.commit()
-    return {"importado": True, "hechos": sorted(nuevos)}
+    return {"importado": True, "hechos": sorted(set(nuevos) | set(directas))}
 
 
 def solo_trae_lo_del_bot(user: User, conocidos: Dict[str, Any]) -> bool:

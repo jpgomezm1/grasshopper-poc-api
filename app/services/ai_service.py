@@ -417,6 +417,12 @@ def format_onboarding_context(
     # llaves que ya protegen a las respuestas de voz.
     for clave, etiqueta in _ONBOARDING_RELATO:
         _add(etiqueta, onboarding.get(clave))
+    # Recorridos Sprint 4 · las materias que contó en el bot gratuito, de 10° a
+    # 12° (`bot_gratuito_traspaso.respuestas_directas`). Van aparte porque no son
+    # un hecho del catálogo del onboarding (de ahí no saldrían nunca) y la tabla
+    # de arriba solo admite hechos del catálogo.
+    if not onboarding.get("g9_materias_favoritas"):
+        _add("Materias favoritas del colegio", onboarding.get("materias_favoritas"))
 
     # La satisfacción laboral va aparte porque es un entero 1-5 y `_add` espera
     # texto. La escala se escribe explícita: un "3" suelto el modelo lo puede

@@ -162,8 +162,9 @@ def submit_test(
     #
     # Excepción deliberada, alineada con "MEMORIA SÍ, LLAVE NO": quien YA tiene un
     # resultado puede repetirlo aunque haya pasado de grado. Bloquearle rehacer algo
-    # que ya hizo sería una llave, y no se construyeron llaves. Nótese que leer el
-    # resultado viejo (`GET /{id}` y `/{id}/result`) nunca se bloquea, por lo mismo.
+    # que ya hizo por haber cambiado de año sería una llave por fecha, y esas no
+    # existen. Leer el resultado viejo (`GET /{id}` y `/{id}/result`) nunca se
+    # bloquea, ni por fecha ni por plan (D1 del Sprint 4 deja leer lo propio).
     if not disponible_para_grado(
         test, vocational_bank_selector.grado_del_estudiante(current_user)
     ):

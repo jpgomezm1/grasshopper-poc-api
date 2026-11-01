@@ -5,16 +5,17 @@
 Y AH el 2026-08-29: *"quiero que esto se vea como una ruta de aprendizaje, o
 sea como una visual de roadmap e ir desbloqueando los videos"*.
 
-## Lo del desbloqueo, y por qué no hay bloqueo
+## Lo del desbloqueo, y por qué no hay bloqueo por orden
 
 No hay ningún campo `bloqueado` ni endpoint que lo compruebe. La ruta muestra
-por dónde va la persona y sugiere el siguiente paso, pero todos los videos se
-pueden abrir. Es "MEMORIA SÍ, LLAVE NO" —decisión de producto de la migración
-067, ya aplicada en seis sitios del backend— y AH la confirmó al verla
-planteada.
+por dónde va la persona y sugiere el siguiente paso, pero ningún video se
+cierra por no haber visto el anterior. Es "MEMORIA SÍ, LLAVE NO" —decisión de
+producto de la migración 067— y AH la confirmó al verla planteada.
 
-Si algún día se decide bloquear de verdad, es un cambio de producto que hay
-que hablar con la clienta, no un `if` que se añade aquí.
+**Lo que sí cambió (D1, Sprint 4, 2026-10-29):** la biblioteca entera es del
+plan pago (`requiere("biblioteca")` en el router, abajo). D1 revirtió "no
+cerremos puertas" solo en lo que toca a PLANES: por plan sí hay llave; por
+fecha o por orden, sigue sin haberla. Ver `DECISIONES_DEL_CLIENTE.md`.
 
 ## Sólo el propio estudiante
 

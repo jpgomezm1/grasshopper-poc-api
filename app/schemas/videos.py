@@ -43,7 +43,8 @@ class VideoRutaResponse(BaseModel):
 
     NO trae ningún campo de bloqueo, y es deliberado: "MEMORIA SÍ, LLAVE NO"
     (migración 067). El camino muestra por dónde va la persona y sugiere el
-    siguiente paso; todos los videos se pueden abrir siempre.
+    siguiente paso; ningún video se cierra por orden. La llave del PLAN (D1,
+    Sprint 4) va en el router, antes de llegar aquí.
     """
 
     etapas: List[EtapaRuta]

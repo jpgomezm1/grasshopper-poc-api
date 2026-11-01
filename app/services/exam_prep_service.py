@@ -42,7 +42,9 @@ accesible para quien entre por su cuenta.
 
 Es la misma decisión que ya tomó el repo en `vocational_tests.submit_test`
 —*"MEMORIA SÍ, LLAVE NO"*— y evita el absurdo de que un chico de 10° con
-curiosidad reciba un 404. La única señal fuerte es el `intl_no`: a quien dijo
+curiosidad reciba un 404. (Desde D1 del Sprint 4 la práctica entera sí lleva
+la llave del PLAN y es de 11° en adelante —`requiere("practica_examenes")` en
+el router—; dentro de eso, SAT e IELTS se recomiendan, no se cierran.) La única señal fuerte es el `intl_no`: a quien dijo
 explícitamente que quiere quedarse en Colombia no se le empuja práctica de
 IELTS, con el mismo criterio con el que `onboarding_hechos.aplica()` deja de
 preguntarle por el pasaporte.

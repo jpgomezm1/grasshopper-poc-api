@@ -3013,7 +3013,7 @@ class StudentYearSnapshot(Base):
 
     "MEMORIA SÍ, LLAVE NO" (decisión de producto ya tomada): el sistema
     recuerda y compara año a año, pero no bloquea ni desbloquea contenido por
-    fecha. Esta tabla es sólo el registro — no hay ningún lector todavía que
+    fecha. (Por PLAN sí, desde D1 del Sprint 4 · ver `UserPlan`; por fecha, no.) Esta tabla es sólo el registro — no hay ningún lector todavía que
     lea calendario escolar ni feature-gate por él.
 
     Una fila = "lo que este estudiante dijo/tenía en este año escolar". Se
@@ -3340,7 +3340,9 @@ class OrientationVideoView(Base):
     tabla se lee para MOSTRAR por dónde va la persona y sugerir el siguiente
     paso. Ningún video se cierra por no haber visto el anterior. En orientación
     vocacional bloquear tiene un costo concreto: alguien con curiosidad por
-    enfermería no debería tener que ver tres videos antes de llegar.
+    enfermería no debería tener que ver tres videos antes de llegar. (La llave
+    del plan, D1 del Sprint 4, es otra cosa: decide si la biblioteca se abre,
+    no en qué orden.)
     """
 
     __tablename__ = "orientation_video_views"

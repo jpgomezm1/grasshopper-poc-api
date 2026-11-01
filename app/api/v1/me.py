@@ -728,3 +728,17 @@ def import_quickprofile(
         else str(current_user.onboarding_status),
         name=current_user.name,
     )
+
+
+# E · Sprint 4 · el plan de preparación de 11° y 12°. Lo arma
+# `plan_preparacion_service` con lo que ya sabemos de la persona; el front solo
+# lo pinta. Pago y solo de 11° y 12° (la matriz de `app/data/permisos.py`).
+@router.get("/plan-preparacion", dependencies=[Depends(requiere("plan_preparacion"))])
+def get_plan_preparacion(
+    current_user: User = Depends(get_current_user),
+    db: DBSession = Depends(get_db),
+):
+    from app.services import plan_preparacion_service
+
+    _require_student(current_user)
+    return plan_preparacion_service.armar(db, current_user)

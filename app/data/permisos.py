@@ -49,6 +49,8 @@ FUNCIONES: Dict[str, Dict[str, str]] = {
     "programas": {"plan": "pago", "nombre": "Programas y universidades"},
     "biblioteca": {"plan": "pago", "nombre": "Biblioteca de contenido y videos"},
     "practica_examenes": {"plan": "pago", "nombre": "Práctica de SAT e IELTS"},
+    # E · Sprint 4 · el entregable de 11° del demo ("plan de preparación 11–12").
+    "plan_preparacion": {"plan": "pago", "nombre": "Plan de preparación"},
     "profiler": {"plan": "vip", "nombre": "Mentoring Profiler"},
     "sesion_1a1": {"plan": "vip", "nombre": "Sesión 1:1 con un counsellor"},
 }
@@ -56,6 +58,7 @@ FUNCIONES: Dict[str, Dict[str, str]] = {
 # Funciones que además dependen del grado · si no está, aplica a todos.
 FUNCION_SOLO_EN_TRAMOS: Dict[str, Tuple[str, ...]] = {
     "practica_examenes": (RUTA_GRADO_11, RUTA_GRADO_12, RUTA_PROFESIONAL),
+    "plan_preparacion": (RUTA_GRADO_11, RUTA_GRADO_12),
 }
 
 # Lo que el demo pide y todavía no existe en la plataforma.

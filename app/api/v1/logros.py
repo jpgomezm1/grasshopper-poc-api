@@ -41,6 +41,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.api.v1.llave_plan import requiere
 from app.config import get_settings
 from app.db.database import get_db
 from app.db.models import User, UserRole
@@ -142,7 +143,9 @@ def _a_salida(ficha: logros_reader.LogroLeido) -> LogroLeidoOut:
     "/leer",
     response_model=LogroLeidoOut,
     summary="Lee un logro de lo que el estudiante escribió · NO lo guarda",
-    dependencies=[Depends(_rate_limit_lectura)],
+    # Decidido por JP el 2026-10-31: leer un logro con IA es del plan pago,
+    # como la hoja de vida a la que alimenta. Un gratis lo agrega a mano.
+    dependencies=[Depends(_rate_limit_lectura), Depends(requiere("hoja_de_vida"))],
 )
 def leer_texto(
     payload: TextoIn,
@@ -164,7 +167,9 @@ def leer_texto(
     "/leer-archivo",
     response_model=LogroLeidoOut,
     summary="Lee un diploma (PDF o imagen) · NO guarda el archivo",
-    dependencies=[Depends(_rate_limit_lectura)],
+    # Decidido por JP el 2026-10-31: leer un logro con IA es del plan pago,
+    # como la hoja de vida a la que alimenta. Un gratis lo agrega a mano.
+    dependencies=[Depends(_rate_limit_lectura), Depends(requiere("hoja_de_vida"))],
 )
 async def leer_archivo(
     file: UploadFile = File(...),

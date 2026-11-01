@@ -39,6 +39,8 @@ from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, status
+
+from app.api.v1.llave_plan import requiere
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session as DBSession
 
@@ -104,7 +106,12 @@ class LinkedInCareerRequest(BaseModel):
 @router.put(
     "/linkedin",
     summary="Pegar y estructurar el perfil de LinkedIn para el análisis de brecha",
-    dependencies=[Depends(rate_limit("6/minute", scope="career_gap_linkedin"))],
+    # Decidido por JP el 2026-10-31: el análisis de brecha (y leer el LinkedIn
+    # que lo alimenta) es del plan pago.
+    dependencies=[
+        Depends(rate_limit("6/minute", scope="career_gap_linkedin")),
+        Depends(requiere("analisis_brecha")),
+    ],
 )
 def guardar_linkedin(
     request: LinkedInCareerRequest,
@@ -286,7 +293,10 @@ def get_career_gap_state(
 @router.post(
     "/analyze",
     summary="Comparar el perfil actual contra el puesto ideal declarado",
-    dependencies=[Depends(rate_limit("6/minute", scope="career_gap_analyze"))],
+    dependencies=[
+        Depends(rate_limit("6/minute", scope="career_gap_analyze")),
+        Depends(requiere("analisis_brecha")),
+    ],
 )
 def analizar(
     db: DBSession = Depends(get_db),

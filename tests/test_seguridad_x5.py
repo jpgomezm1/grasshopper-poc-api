@@ -140,16 +140,11 @@ GRATIS_A_PROPOSITO = {
 }
 
 # E-4 · Sprint 4 (2026-10-31) · las encontró el detector al sumarle
-# `record_ai_usage`: llaman a la IA sin llave desde antes de este sprint.
-# Ponerles llave le quitaría a un usuario gratis algo que hoy usa, así que es
-# decisión de JP, no de quien programa. Quedan aquí, a la vista, hasta que se
-# decida; el test de abajo impide que se sume una sexta sin que nadie lo note.
-PENDIENTES_DE_DECISION = {
-    "/api/v1/me/career-gap/linkedin": "lectura del perfil de LinkedIn del profesional · sin función en la matriz",
-    "/api/v1/me/career-gap/analyze": "análisis de brecha del profesional · sin función en la matriz",
-    "/api/v1/me/logros/leer": "lector de logros de Mis actividades, que hoy es de todos los planes",
-    "/api/v1/me/logros/leer-archivo": "ídem, desde un archivo",
-}
+# `record_ai_usage`: llamaban a la IA sin llave desde antes de este sprint. JP
+# decidió el mismo día: el dictado queda gratis con límite (arriba), y el lector
+# de logros y el análisis de brecha pasan a pago (ver el parametrize de abajo).
+# Si aparece otra, va aquí con su porqué hasta que se decida.
+PENDIENTES_DE_DECISION: dict = {}
 
 
 def _llaves(ruta):
@@ -182,15 +177,9 @@ def test_ninguna_ruta_de_ia_del_estudiante_queda_sin_llave():
     )
 
 
-def test_los_pendientes_de_decision_siguen_siendo_cuatro_y_sin_llave():
-    """Si alguien les pone llave, que los saque de la lista; si se suma uno, que se vea."""
-    from app.main import app
-
-    rutas = {r.path: r for r in app.routes if getattr(r, "path", None) in PENDIENTES_DE_DECISION}
-    assert set(rutas) == set(PENDIENTES_DE_DECISION)
-    assert len(PENDIENTES_DE_DECISION) == 4
-    for path, ruta in rutas.items():
-        assert not _llaves(ruta), f"{path} ya tiene llave: sácala de PENDIENTES_DE_DECISION"
+def test_no_quedan_pendientes_de_decision():
+    """Las 5 que encontró el detector ya se decidieron (2026-10-31)."""
+    assert PENDIENTES_DE_DECISION == {}
 
 
 def test_el_dictado_gratis_tiene_limite_de_uso():
@@ -211,6 +200,11 @@ def test_el_dictado_gratis_tiene_limite_de_uso():
         ("/api/v1/recommendations/retry", "lectura_tests"),
         ("/api/v1/reports/generate", "reporte_pdf"),
         ("/api/v1/routes/{session_id}/generate", "programas"),
+        # Decididas por JP el 2026-10-31.
+        ("/api/v1/me/logros/leer", "hoja_de_vida"),
+        ("/api/v1/me/logros/leer-archivo", "hoja_de_vida"),
+        ("/api/v1/me/career-gap/linkedin", "analisis_brecha"),
+        ("/api/v1/me/career-gap/analyze", "analisis_brecha"),
     ],
 )
 def test_las_rutas_que_encontro_la_revision_ya_tienen_su_llave(ruta, funcion):
@@ -232,6 +226,31 @@ def test_un_gratis_recibe_402_en_el_chat_del_journey_y_las_recomendaciones(app_d
         r = c.post("/api/v1/journey-chat/00000000-0000-0000-0000-000000000000/turno",
                    json={"mensaje": "hola"}, headers=h)
         assert r.status_code == 402
+
+
+@pytest.mark.planes_reales
+def test_un_gratis_recibe_402_en_el_lector_de_logros_y_la_brecha(app_db):
+    """Decidido por JP el 2026-10-31 · y sin gastar la llamada a la IA."""
+    from unittest.mock import patch
+
+    app, Sesion = app_db
+    s = Sesion()
+    _usuario(s, "gratis2@x5.dev")
+    s.close()
+    with TestClient(app, raise_server_exceptions=False) as c,             patch("app.core.ai_client.get_client") as get_client:
+        h = _h(c, "gratis2@x5.dev")
+        r = c.post("/api/v1/me/logros/leer", json={"texto": "Soy capitán del equipo de fútbol"}, headers=h)
+        assert r.status_code == 402
+        assert r.json()["detail"]["funcion"] == "hoja_de_vida"
+        r = c.post("/api/v1/me/logros/leer-archivo", headers=h,
+                   files={"file": ("d.pdf", b"%PDF-1.4", "application/pdf")})
+        assert r.status_code == 402
+        r = c.post("/api/v1/me/career-gap/analyze", headers=h)
+        assert r.status_code == 402
+        assert r.json()["detail"]["funcion"] == "analisis_brecha"
+        r = c.put("/api/v1/me/career-gap/linkedin", json={"texto": "x" * 50}, headers=h)
+        assert r.status_code == 402
+    get_client.assert_not_called()
 
 
 # ---------------------------------------------------------------------------

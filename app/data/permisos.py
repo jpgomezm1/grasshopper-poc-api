@@ -56,6 +56,9 @@ FUNCIONES: Dict[str, Dict[str, str]] = {
     "kit_aplicacion": {"plan": "pago", "nombre": "Kit de aplicación"},
     # E-4 · Sprint 4 · la "entrevista con IA" del simulador de admisiones del demo.
     "entrevista_admision": {"plan": "pago", "nombre": "Simulador de entrevista"},
+    # Decidido por JP el 2026-10-31 (X-5): el análisis de brecha del profesional
+    # llamaba a la IA sin llave. Sin filtro de grado: es el que use su ruta.
+    "analisis_brecha": {"plan": "pago", "nombre": "Análisis de brecha profesional"},
     "profiler": {"plan": "vip", "nombre": "Mentoring Profiler"},
     "sesion_1a1": {"plan": "vip", "nombre": "Sesión 1:1 con un counsellor"},
 }

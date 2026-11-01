@@ -24,6 +24,7 @@ from app.api.v1 import (
     aplicaciones,
     entrevista,
     estilo_de_vida,
+    org_tablero,
     sessions,
     profile,
     journal,
@@ -241,6 +242,8 @@ app.include_router(aplicaciones.router, prefix="/api/v1")
 app.include_router(entrevista.router, prefix="/api/v1")
 # E-3 · Sprint 4 · el cuestionario de estilo de vida y presupuesto de 11°.
 app.include_router(estilo_de_vida.router, prefix="/api/v1")
+# F-2 / F-4 · Sprint 4 · el tablero agregado y anónimo de una organización.
+app.include_router(org_tablero.router, prefix="/api/v1")
 app.include_router(admin_planes.router, prefix="/api/v1")
 app.include_router(outreach.router, prefix="/api/v1")
 app.include_router(schools.router, prefix="/api/v1")

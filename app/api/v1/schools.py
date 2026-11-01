@@ -77,7 +77,11 @@ from app.services.student_lead_scoring import (
 )
 
 
-router = APIRouter(prefix="/schools", tags=["Schools"])
+# F-2 / F-4 · Sprint 4 · en un programa o una empresa, su personal solo ve
+# datos agregados (lista blanca en `org_privacidad`).
+from app.api.v1.org_privacidad import solo_agregado  # noqa: E402
+
+router = APIRouter(prefix="/schools", tags=["Schools"], dependencies=[Depends(solo_agregado)])
 
 
 # ----------------------------- helpers -----------------------------
@@ -195,6 +199,7 @@ def create_school(
         razon_social=payload.razon_social,
         direccion_fiscal=payload.direccion_fiscal,
         tipo_persona=payload.tipo_persona,
+        tipo=payload.tipo,
         # Commercial contact
         commercial_contact_name=payload.commercial_contact_name,
         commercial_contact_role=payload.commercial_contact_role,
@@ -362,6 +367,8 @@ def update_school(
         "country",
         "timezone",
         "academic_year",
+        # F-2 / F-4 · colegio · programa · empresa.
+        "tipo",
     )
     for fname in _EXTENDED_FIELDS:
         new_value = getattr(payload, fname, None)

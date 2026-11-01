@@ -96,6 +96,12 @@ class School(Base):
     name = Column(String(255), nullable=False, index=True)
     slug = Column(String(255), nullable=False, unique=True, index=True)
     logo_url = Column(String(500), nullable=True)
+    # F-2 / F-4 · Sprint 4 (migración 084) · colegio · programa (estatal) ·
+    # empresa. NULL = colegio, que es lo que eran todas las filas antes. Las
+    # tres usan la misma maquinaria (licencia = plan pago, invitaciones, alta
+    # masiva); lo que cambia es la privacidad: el personal de un programa o una
+    # empresa solo ve datos agregados (`org_privacidad`).
+    tipo = Column(String(20), nullable=True)
 
     license_active = Column(Boolean, default=True, nullable=False)
     license_expires_at = Column(DateTime, nullable=True)

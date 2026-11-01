@@ -121,7 +121,11 @@ from dataclasses import asdict
 
 from app.services import year_memory_service
 
-router = APIRouter(prefix="/school/me", tags=["School Panel"])
+# F-2 / F-4 · Sprint 4 · en un programa o una empresa, su personal solo ve
+# datos agregados (lista blanca en `org_privacidad`).
+from app.api.v1.org_privacidad import solo_agregado  # noqa: E402
+
+router = APIRouter(prefix="/school/me", tags=["School Panel"], dependencies=[Depends(solo_agregado)])
 public_router = APIRouter(prefix="/invitations", tags=["School Panel · public accept"])
 
 

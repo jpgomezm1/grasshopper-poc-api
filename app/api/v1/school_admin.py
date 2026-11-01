@@ -105,7 +105,11 @@ from app.services.invitation_service import create_invitation
 logger = logging.getLogger(__name__)
 
 
-router = APIRouter(prefix="/school/me", tags=["School Admin (extended)"])
+# F-2 / F-4 · Sprint 4 · en un programa o una empresa, su personal solo ve
+# datos agregados (lista blanca en `org_privacidad`).
+from app.api.v1.org_privacidad import solo_agregado  # noqa: E402
+
+router = APIRouter(prefix="/school/me", tags=["School Admin (extended)"], dependencies=[Depends(solo_agregado)])
 
 
 def log_action(

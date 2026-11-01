@@ -41,7 +41,11 @@ from app.db.database import get_db
 from app.db.models import CounselorSyncReport, User, UserRole
 from app.services import counselor_sync_service as servicio
 
-router = APIRouter(tags=["Counselor Sync"])
+# F-2 / F-4 · Sprint 4 · en un programa o una empresa, su personal solo ve
+# datos agregados (lista blanca en `org_privacidad`).
+from app.api.v1.org_privacidad import solo_agregado  # noqa: E402
+
+router = APIRouter(tags=["Counselor Sync"], dependencies=[Depends(solo_agregado)])
 
 _STAFF_DEL_COLEGIO = {UserRole.SCHOOL_ADMIN, UserRole.PSYCHOLOGIST}
 

@@ -43,6 +43,8 @@ class SchoolCenterMeta(BaseModel):
     country: Optional[str] = Field(default=None, max_length=120)
     timezone: Optional[str] = Field(default=None, max_length=80)
     academic_year: Optional[str] = Field(default=None, max_length=20)
+    # F-2 / F-4 · Sprint 4 · qué clase de organización es. NULL = colegio.
+    tipo: Optional[str] = Field(default=None, pattern=r"^(colegio|programa|empresa)$")
 
 
 # ---------------- top-level shapes ----------------
@@ -99,6 +101,7 @@ class SchoolUpdate(BaseModel):
     country: Optional[str] = Field(default=None, max_length=120)
     timezone: Optional[str] = Field(default=None, max_length=80)
     academic_year: Optional[str] = Field(default=None, max_length=20)
+    tipo: Optional[str] = Field(default=None, pattern=r"^(colegio|programa|empresa)$")
 
 
 class SchoolResponse(SchoolBase):
@@ -122,6 +125,9 @@ class SchoolSummary(BaseModel):
     logo_url: Optional[str] = None
     branding_primary_color: Optional[str] = None
     secondary_color: Optional[str] = None
+    # F-2 / F-4 · colegio, programa o empresa (NULL = colegio). El panel cambia
+    # sus textos y, si no es colegio, solo muestra datos agregados.
+    tipo: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
 

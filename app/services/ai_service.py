@@ -386,6 +386,14 @@ def format_onboarding_context(
     if area:
         lines.append(f"- Área de estudio que le interesa continuar: {area}")
 
+    # E-3 · Sprint 4 · el cuestionario de estilo de vida y presupuesto (11°).
+    # Se conecta aquí en el mismo commit que lo guarda: es lo que leen las
+    # rutas, el perfil consolidado y Hopper para no proponer lo que no es
+    # viable. Las etiquetas viven con las preguntas, en su servicio.
+    from app.services.estilo_de_vida_service import lineas_para_prompt
+
+    lines.extend(lineas_para_prompt(onboarding))
+
     # El quiz de la landing · la PRIMERA señal vocacional que dio, a veces
     # semanas antes de registrarse. Se rescata en `rescate_lead_quiz` y se
     # renderiza aquí, en el mismo cambio: escribir la clave sin conectarla es

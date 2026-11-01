@@ -10,8 +10,7 @@ la lee (`GET /me/permisos`).
 
 - **Valores laborales y Anclas de carrera** no están en la malla del demo; van
   solo para profesionales porque son tests de trabajo.
-- **Lo que el demo pide y no existe todavía** (Mentoring Profiler, estilo de
-  vida y presupuesto, simulador de admisiones, análisis de LinkedIn) está en
+- **Lo que el demo pide y no existe todavía** (Mentoring Profiler) está en
   `NO_DISPONIBLE`: se muestra como "pronto", no se puede usar. Se construye en
   E-2…E-5.
 - **Sin grado conocido** (cuentas viejas que nunca dijeron su grado) se le
@@ -59,6 +58,8 @@ FUNCIONES: Dict[str, Dict[str, str]] = {
     # Decidido por JP el 2026-10-31 (X-5): el análisis de brecha del profesional
     # llamaba a la IA sin llave. Sin filtro de grado: es el que use su ruta.
     "analisis_brecha": {"plan": "pago", "nombre": "Análisis de brecha profesional"},
+    # E-3 · Sprint 4 · el cuestionario de estilo de vida y presupuesto del demo.
+    "estilo_de_vida": {"plan": "pago", "nombre": "Estilo de vida y presupuesto"},
     "profiler": {"plan": "vip", "nombre": "Mentoring Profiler"},
     "sesion_1a1": {"plan": "vip", "nombre": "Sesión 1:1 con un counsellor"},
 }
@@ -69,6 +70,7 @@ FUNCION_SOLO_EN_TRAMOS: Dict[str, Tuple[str, ...]] = {
     "plan_preparacion": (RUTA_GRADO_11, RUTA_GRADO_12),
     "kit_aplicacion": (RUTA_GRADO_11, RUTA_GRADO_12),
     "entrevista_admision": (RUTA_GRADO_11, RUTA_GRADO_12),
+    "estilo_de_vida": (RUTA_GRADO_11, RUTA_GRADO_12),
 }
 
 # Lo que el demo pide y todavía no existe en la plataforma.

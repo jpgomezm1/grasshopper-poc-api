@@ -23,6 +23,7 @@ from app.core.alembic_guard import verify_alembic_head
 from app.api.v1 import (
     aplicaciones,
     entrevista,
+    estilo_de_vida,
     sessions,
     profile,
     journal,
@@ -238,6 +239,8 @@ app.include_router(plan.router, prefix="/api/v1")
 app.include_router(aplicaciones.router, prefix="/api/v1")
 # E-4 · Sprint 4 · el simulador de entrevista de admisión.
 app.include_router(entrevista.router, prefix="/api/v1")
+# E-3 · Sprint 4 · el cuestionario de estilo de vida y presupuesto de 11°.
+app.include_router(estilo_de_vida.router, prefix="/api/v1")
 app.include_router(admin_planes.router, prefix="/api/v1")
 app.include_router(outreach.router, prefix="/api/v1")
 app.include_router(schools.router, prefix="/api/v1")

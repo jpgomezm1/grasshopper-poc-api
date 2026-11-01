@@ -147,6 +147,16 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
             "decidir_donde", "Piensa si te ves estudiando en Colombia, afuera o en los dos",
             detalle="Cambia qué te toca preparar. Puedes contárselo a Hopper.",
         ))
+    # E-3 · lo que hace viable (o no) cada opción. Va antes de elegir rutas.
+    from app.services import estilo_de_vida_service as estilo
+
+    ahora.append(_paso(
+        "estilo_de_vida", "Cuéntanos tu estilo de vida y tu presupuesto",
+        detalle="Respóndelo con tu familia: así te mostramos opciones que sí sean posibles.",
+        hecho=estilo.respondido(respuestas),
+        ruta="/estilo-de-vida", cta="Responder",
+        funcion="estilo_de_vida", con_candado=candado("estilo_de_vida"),
+    ))
     ahora.append(_paso(
         "rutas", "Elige 2 o 3 rutas que te convenzan",
         hecho=_rutas_activas(db, user) >= 2,
@@ -215,8 +225,15 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
         ruta="/entrevista", cta="Practicar",
         funcion="entrevista_admision", con_candado=candado("entrevista_admision"),
     ))
+    # E-3 · si depende de una beca o un crédito, se lo dice (lo respondió en
+    # el cuestionario de estilo de vida); si no, el paso genérico.
+    depende = respuestas.get("financiacion") in ("beca", "credito", "mezcla")
     antes.append(_paso(
         "financiacion", "Becas y financiación: háblalo con tu familia y tu asesor",
+        detalle=(
+            "Como cuentas con una beca o un crédito, búscalos con tiempo: suelen "
+            "cerrar antes que las admisiones." if depende else None
+        ),
     ))
 
     etapas = [

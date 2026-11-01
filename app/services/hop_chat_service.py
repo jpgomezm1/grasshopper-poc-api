@@ -101,15 +101,50 @@ def _build_constraints_block(user: User) -> str:
     budget = " · ".join(budget_parts) if budget_parts else "(sin información)"
 
     countries = list(user.preferred_countries or [])
+    if not countries:
+        # H-4 · Sprint 4 · la columna solo se llena en algunos guardados; lo que
+        # dijo en el onboarding está siempre.
+        countries = _etiquetas_onboarding(user, "countries")
     countries_txt = ", ".join(countries) if countries else "(sin información)"
 
     english = user.english_cefr_level or "(sin información)"
 
     return (
+        f"Etapa: {_etapa(user)}\n"
         f"Presupuesto declarado: {budget}\n"
         f"Países preferidos: {countries_txt}\n"
         f"Nivel de inglés (CEFR): {english}"
     )
+
+
+def _etiquetas_onboarding(user: User, hecho_id: str) -> List[str]:
+    """Lo que respondió a un hecho del onboarding, en palabras (las del catálogo)."""
+    from app.data.onboarding_hechos import HECHOS
+
+    respuestas = user.onboarding_answers if isinstance(user.onboarding_answers, dict) else {}
+    valor = respuestas.get(hecho_id)
+    if not valor:
+        return []
+    opciones = next((dict(h.opciones) for h in HECHOS if h.id == hecho_id), {})
+    valores = valor if isinstance(valor, list) else [valor]
+    return [opciones.get(v, str(v)) for v in valores]
+
+
+def _etapa(user: User) -> str:
+    """H-4 · Sprint 4 · en qué grado o etapa va la persona.
+
+    `format_onboarding_context` deja fuera el grado y la etapa porque en el
+    journey viajan por el bloque demográfico, pero el chat no arma ese bloque:
+    Hopper le preguntaba "¿en qué etapa estás?" a una estudiante que ya había
+    dicho que va en 11°. Mismo cálculo de la ruta que usa toda la plataforma.
+    """
+    from app.services import permisos_service
+
+    tramo = permisos_service.tramo_de(user)
+    if tramo and tramo.startswith("grado_"):
+        return f"colegio, {tramo.split('_')[1]}°"
+    etiqueta = _etiquetas_onboarding(user, "life_stage")
+    return etiqueta[0] if etiqueta else "(sin información)"
 
 
 def _build_journey_block(db: DBSession, user: User) -> str:

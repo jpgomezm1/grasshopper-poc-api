@@ -53,6 +53,15 @@ _PLANTILLAS = {
         cta="Hacer un test",
         es_plantilla=True,
     ),
+    # J-4 · Sprint 4 · empezó los tests de su grado y no los terminó.
+    "tests_a_medias": Mensaje(
+        cuerpo=(
+            "Ya empezaste los tests de tu grado y vas muy bien. Te faltan pocos: "
+            "con todos, tu lectura y tus rutas salen mucho más completas."
+        ),
+        cta="Seguir con los tests",
+        es_plantilla=True,
+    ),
     "journey_a_medias": Mensaje(
         cuerpo=(
             "Dejaste tu recorrido a medias y tus respuestas siguen guardadas. "

@@ -72,7 +72,7 @@ class Motivo:
 # Orden de evaluación = orden del recorrido de la persona. Se devuelve el
 # PRIMER motivo aplicable, que es el más temprano de su camino: no tiene sentido
 # hablarle del inglés a quien todavía no ha hecho un test.
-_ORDEN = ("sin_tests", "journey_a_medias", "sin_rutas", "ingles_pendiente")
+_ORDEN = ("sin_tests", "tests_a_medias", "journey_a_medias", "sin_rutas", "ingles_pendiente")
 
 
 def _sesion_mas_reciente(db: DBSession, user: User) -> Optional[Session]:
@@ -95,6 +95,26 @@ def _lleva_quieto(referencia: Optional[datetime], ahora: datetime) -> bool:
     return (ahora - referencia) >= timedelta(days=DIAS_PARA_CONSIDERAR_ESTANCADO)
 
 
+def _tests_de_su_grado_a_medias(db: DBSession, user: User, p) -> Optional[tuple]:
+    """(hechos, total, fecha del último) si hizo algunos tests de su grado y no todos."""
+    from app.data import permisos as matriz
+    from app.db.models import VocationalTestResult
+
+    de_su_grado = matriz.TESTS_POR_TRAMO.get(p.tramo, ()) if p.tramo else ()
+    if not de_su_grado:
+        return None
+    filas = (
+        db.query(VocationalTestResult.test_id, VocationalTestResult.created_at)
+        .filter(VocationalTestResult.user_id == user.id)
+        .all()
+    )
+    hechos = {t for t, _ in filas if t in de_su_grado}
+    if not hechos or len(hechos) == len(de_su_grado):
+        return None
+    ultimo = max(c for t, c in filas if t in de_su_grado)
+    return len(hechos), len(de_su_grado), ultimo
+
+
 def detectar_motivo(
     db: DBSession, user: User, *, ahora: Optional[datetime] = None
 ) -> Optional[Motivo]:
@@ -110,14 +130,23 @@ def detectar_motivo(
     if user.role != UserRole.STUDENT:
         return None
 
+    from app.services import permisos_service
     from app.services.recommendation_service import user_has_tests
 
     sesion = _sesion_mas_reciente(db, user)
     tiene_tests = user_has_tests(db, user)
 
+    # J-4 · Sprint 4 · ningún recordatorio lleva a algo que su plan no incluye o
+    # que no es de su grado (la matriz de `app/data/permisos.py`). Escribirle
+    # "haz un test" a un gratis es mandarlo directo al muro de pago, y hablarle
+    # del inglés a alguien de 9° es hablarle de algo que no es de su etapa.
+    p = permisos_service.permisos(db, user)
+    tests_abiertos = p.funciones["tests"].permitido
+
     # 1 · Ni un test. Es la señal que la propia clienta considera la más fuerte:
     # "el test verdaderamente va a ser el que más nos va a generar información".
-    if not tiene_tests:
+    # Si su plan no incluye los tests, se sigue con lo que sí puede hacer.
+    if not tiene_tests and tests_abiertos:
         referencia = sesion.updated_at if sesion else user.created_at
         if _lleva_quieto(referencia, ahora):
             return Motivo(
@@ -130,6 +159,28 @@ def detectar_motivo(
                 destino="/tests",
             )
         return None
+
+    # 1b · J-4 · Empezó los tests de su grado y no los terminó: el "paso a
+    # medias" más literal. Solo con grado conocido (sin él no hay "los de su
+    # grado") y con la referencia en el último test que hizo.
+    a_medias = _tests_de_su_grado_a_medias(db, user, p) if tests_abiertos else None
+    if a_medias is not None:
+        hechos, total, ultimo = a_medias
+        if _lleva_quieto(ultimo, ahora):
+            faltan = total - hechos
+            return Motivo(
+                clave="tests_a_medias",
+                asunto=(
+                    "Te falta 1 test de tu grado" if faltan == 1
+                    else f"Te faltan {faltan} tests de tu grado"
+                ),
+                contexto=(
+                    f"Hizo {hechos} de los {total} tests de su grado y no ha "
+                    "vuelto. Con todos, su lectura y sus rutas salen mucho más "
+                    "completas."
+                ),
+                destino="/tests",
+            )
 
     # 2 · Hizo tests pero dejó el journey a medias · el caso exacto de Verónica.
     if sesion is not None and not sesion.is_completed:
@@ -145,8 +196,9 @@ def detectar_motivo(
             )
         return None
 
-    # 3 · Terminó el recorrido y no tiene rutas generadas.
-    if sesion is not None:
+    # 3 · Terminó el recorrido y no tiene rutas generadas. Generarlas es de pago
+    # (`programas`, ver la llave de `/routes/{id}/generate`).
+    if sesion is not None and p.funciones["programas"].permitido:
         tiene_rutas = (
             db.query(Route.id).filter(Route.session_id == sesion.id).first() is not None
         )
@@ -163,7 +215,7 @@ def detectar_motivo(
 
     # 4 · El inglés · la pregunta que ella puso de ejemplo, literal.
     nivel = (user.english_cefr_level or "").upper().strip()
-    if not user.english_test_completed or nivel in CEFR_BAJO:
+    if p.ingles.permitido and (not user.english_test_completed or nivel in CEFR_BAJO):
         return Motivo(
             clave="ingles_pendiente",
             asunto="¿Cómo vas con el inglés?",
@@ -172,7 +224,10 @@ def detectar_motivo(
                 if not user.english_test_completed
                 else f"Su nivel medido es {nivel}, que limita a qué programas puede aplicar."
             ),
-            destino="/tests/ingles",
+            # J-4 · antes iba a `/tests/ingles`, que el front resuelve como un
+            # test con id "ingles" que no existe: el botón del correo caía en
+            # una pantalla rota. La ruta del examen es esta.
+            destino="/english-test",
         )
 
     # Al día · no se le escribe. Es un resultado válido, no un fallo.

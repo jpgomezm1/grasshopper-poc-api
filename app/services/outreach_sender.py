@@ -172,7 +172,10 @@ def enviar(
             type="outreach.nudge",
             title=motivo.asunto,
             body=mensaje.cuerpo,
-            data={"href": motivo.destino, "motivo": motivo.clave},
+            # J-4 · la campana navega con `navigate_to` (`NotificationBell`):
+            # con solo `href` el aviso se veía pero tocarlo no llevaba a nada.
+            # `href` se deja por los avisos que ya están guardados así.
+            data={"navigate_to": motivo.destino, "href": motivo.destino, "motivo": motivo.clave},
         )
     except Exception as exc:  # pragma: no cover · best-effort
         logger.warning("RM-1 · aviso in-app falló · %s", exc)

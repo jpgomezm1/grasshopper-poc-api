@@ -57,6 +57,7 @@ from app.data import exam_prep as banco
 from app.data.english_test_questions import ENGLISH_TEST_QUESTIONS, placement_for
 from app.data.exam_prep import (
     EXAMEN_IELTS,
+    EXAMEN_SABER11,
     EXAMEN_SAT,
     NIVEL_AVANZADO,
     NIVEL_FUNDAMENTOS,
@@ -64,6 +65,7 @@ from app.data.exam_prep import (
     NIVELES,
 )
 from app.data.onboarding_hechos import (
+    RUTA_GRADO_10,
     RUTA_GRADO_11,
     RUTA_GRADO_12,
     RUTA_POR_GRADO,
@@ -83,6 +85,17 @@ GRADOS_SAT = tuple(
         int(grado)
         for grado, ruta in RUTA_POR_GRADO.items()
         if ruta in (RUTA_GRADO_11, RUTA_GRADO_12)
+    )
+)
+
+# Saber 11 (Sprint 4, I-6) · lo presenta todo bachiller colombiano en su último
+# año, también quien piensa irse afuera. Se ofrece de 10° a 12° y se recomienda
+# en 11° y 12°; en 10° sale como "con tiempo". Misma fuente que `GRADOS_SAT`.
+GRADOS_SABER11 = tuple(
+    sorted(
+        int(grado)
+        for grado, ruta in RUTA_POR_GRADO.items()
+        if ruta in (RUTA_GRADO_10, RUTA_GRADO_11, RUTA_GRADO_12)
     )
 )
 
@@ -316,6 +329,48 @@ def _recomendacion_ielts(user: Any, diagnostico: Dict[str, Any]) -> Dict[str, An
     }
 
 
+def _recomendacion_saber11(user: Any) -> Dict[str, Any]:
+    grado = vocational_bank_selector.grado_del_estudiante(user)
+    if grado in GRADOS_SAT:
+        return {
+            "recommended": True,
+            "reasonCode": "grade",
+            "reason": (
+                f"Vas en {grado}°: el Saber 11 se presenta en el último año de "
+                "colegio, y practicar las cinco pruebas desde ya te deja llegar "
+                "con calma."
+            ),
+        }
+    if grado in GRADOS_SABER11:
+        return {
+            "recommended": False,
+            "reasonCode": "grade_early",
+            "reason": (
+                f"Vas en {grado}°. El Saber 11 se presenta en el último año, pero "
+                "practicar con tiempo suma: puedes ir prueba por prueba, sin afán."
+            ),
+        }
+    if ruta_del_estudiante(user) == RUTA_PROFESIONAL:
+        return {
+            "recommended": False,
+            "reasonCode": "professional_track",
+            "reason": (
+                "El Saber 11 es el examen de fin de colegio. Si ya lo presentaste, "
+                "esto no es tu prioridad."
+            ),
+        }
+    return {
+        "recommended": False,
+        "reasonCode": "grade_unknown" if grado is None else "grade_too_early",
+        "reason": (
+            "Todavía no sabemos en qué grado vas. Cuéntanoslo y te decimos si esta "
+            "práctica te sirve ahora o más adelante."
+            if grado is None
+            else f"Vas en {grado}° y esta práctica se aprovecha mejor desde 10°."
+        ),
+    }
+
+
 def recomendacion(
     db: Any,
     user: Any,
@@ -334,6 +389,8 @@ def recomendacion(
     if exam_id == EXAMEN_SAT:
         # El SAT se decide sólo por el grado · no se toca la base por gusto.
         return _recomendacion_sat(user)
+    if exam_id == EXAMEN_SABER11:
+        return _recomendacion_saber11(user)
     if exam_id == EXAMEN_IELTS:
         if diagnostico is None:
             diagnostico = diagnostico_de_ingles(db, user)
@@ -351,8 +408,10 @@ def _nivel_para(habilidad: Dict[str, Any], diagnostico: Dict[str, Any]) -> Dict[
         return {
             "level": None,
             "why": (
+                # Sprint 4 · decía "diagnóstico de matemáticas", que en Saber 11
+                # es falso para lectura crítica, sociales o ciencias.
                 "Esta parte no depende de tu inglés y no tenemos un diagnóstico "
-                "de matemáticas, así que los ejercicios salen con dificultades "
+                "de esta área, así que los ejercicios salen con dificultades "
                 "mezcladas."
             ),
         }

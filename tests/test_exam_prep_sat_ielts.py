@@ -545,7 +545,7 @@ BASE = "/api/v1/exam-prep"
 
 
 class TestSobreHTTP:
-    def test_el_router_esta_montado_y_lista_los_dos_examenes(self, app_with_db):
+    def test_el_router_esta_montado_y_lista_los_examenes(self, app_with_db):
         app, SessionLocal = app_with_db
         _estudiante(SessionLocal, "prep.lista@grasshopper.dev", grade=11)
         with TestClient(app) as client:
@@ -553,7 +553,8 @@ class TestSobreHTTP:
             r = client.get(BASE, headers=h)
             assert r.status_code == 200, r.text
             ids = [e["id"] for e in r.json()["exams"]]
-            assert ids == [EXAMEN_SAT, EXAMEN_IELTS]
+            # Sprint 4 · I-5 sumó la práctica de Saber 11.
+            assert ids == [EXAMEN_SAT, EXAMEN_IELTS, "saber11"]
 
     def test_sin_token_no_se_ve_nada(self, app_with_db):
         app, _ = app_with_db

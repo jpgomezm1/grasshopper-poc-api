@@ -56,8 +56,11 @@ def _paso(plan, id):
 
 def test_solo_colombia_sin_sat_ni_ielts_y_con_saber_11(db):
     u = _estudiante(db, "co@e.dev", {**ONCE, "international_interest": "intl_no"})
-    ids = _ids(svc.armar(db, u))
+    plan = svc.armar(db, u)
+    ids = _ids(plan)
     assert "saber_11" in ids
+    # I-5 · el paso lleva a la Práctica Saber 11.
+    assert _paso(plan, "saber_11")["ruta"] == "/practica-examenes/saber11"
     for afuera in ("practica_ingles", "practica_sat", "examen_oficial", "carta_motivacion"):
         assert afuera not in ids
 

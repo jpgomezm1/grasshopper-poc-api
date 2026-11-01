@@ -79,10 +79,15 @@ def test_vip_abre_la_sesion_y_el_profiler_aparece_como_no_disponible(db):
     assert p.funciones["profiler"].motivo == "no_disponible"
 
 
-@pytest.mark.parametrize("tramo", ["grado_9", "grado_10"])
-def test_la_practica_de_examenes_no_es_de_9_ni_10(db, tramo):
-    p = svc.permisos(db, _estudiante(db, f"{tramo}@d2.dev", "pago", GRADOS[tramo]))
+def test_la_practica_de_examenes_no_es_de_9(db):
+    p = svc.permisos(db, _estudiante(db, "grado_9@d2.dev", "pago", GRADOS["grado_9"]))
     assert p.funciones["practica_examenes"].motivo == "no_es_de_su_grado"
+
+
+def test_la_practica_de_examenes_si_es_de_10_por_el_saber_11(db):
+    """Sprint 4 · I-6: 10° practica el Saber 11 con tiempo."""
+    p = svc.permisos(db, _estudiante(db, "grado_10@d2.dev", "pago", GRADOS["grado_10"]))
+    assert p.funciones["practica_examenes"].permitido
 
 
 # ---------------------------------------------------------------------------

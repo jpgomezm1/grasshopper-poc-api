@@ -177,6 +177,9 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
                 "Lo presentas en tu último año de colegio y muchas universidades "
                 "del país lo piden para admitirte."
             ),
+            # I-5 · ya existe la práctica: el paso lleva a ella.
+            ruta="/practica-examenes/saber11", cta="Ir a la práctica",
+            funcion="practica_examenes", con_candado=candado("practica_examenes"),
         ))
     if afuera:
         despues.append(_paso(

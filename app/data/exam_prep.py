@@ -1,4 +1,4 @@
-"""Bancos de PRÁCTICA para exámenes de admisión (SAT · IELTS).
+"""Bancos de PRÁCTICA para exámenes de admisión (SAT · IELTS · Saber 11).
 
 Reunión con la clienta del 2026-08-24, minuto 40:22, textual:
 
@@ -39,6 +39,21 @@ La diferencia con el reclamo anterior (un test con preguntas inventadas por
 nosotros presentado como si fuera un instrumento real) es exactamente ésta: aquí
 el encuadre es honesto desde el nombre. Se llama práctica y se presenta como
 práctica.
+
+## Saber 11 (Sprint 4, I-4/I-5): propio, y por una razón concreta
+
+Los cuadernillos de preguntas que publica el Icfes **no se pueden usar aquí**.
+Sus términos de uso (leídos en el cuadernillo de Matemáticas Saber 11 de marzo
+de 2026, p. 3) prohíben el uso total o parcial "con fines de lucro", directo o
+indirecto, y prohíben la "transformación" (adaptarlos o reescribirlos). Mentoring
+es una plataforma comercial. Por eso los ejercicios de Saber 11 son propios,
+modelados sobre la estructura pública del examen (sus cinco pruebas y lo que
+evalúa cada una), sin copiar ni adaptar ninguna pregunta del Icfes. Por la misma
+razón el producto se llama "Práctica Saber 11" y no usa el nombre del instituto
+(decisión de JP, 2026-10-31): sus marcas son registradas.
+
+Los enunciados de Saber 11 van en **español** (el examen se presenta en
+español), salvo la prueba de inglés.
 
 ## Idioma: enunciados en inglés, explicaciones en español
 
@@ -91,7 +106,8 @@ NIVELES = (NIVEL_FUNDAMENTOS, NIVEL_INTERMEDIO, NIVEL_AVANZADO)
 
 EXAMEN_SAT = "sat"
 EXAMEN_IELTS = "ielts"
-EXAMENES_IDS = (EXAMEN_SAT, EXAMEN_IELTS)
+EXAMEN_SABER11 = "saber11"
+EXAMENES_IDS = (EXAMEN_SAT, EXAMEN_IELTS, EXAMEN_SABER11)
 
 # Tamaño por defecto de una sesión de práctica. Diez ejercicios con su
 # explicación se leen en un rato; cuarenta se abandonan a la mitad.
@@ -120,6 +136,11 @@ MARCAS = {
         "IELTS es una marca de sus titulares (British Council, IDP: IELTS "
         "Australia y Cambridge). Mentoring no está afiliado a ellos ni avalado "
         "por ellos, y este material no proviene de sus publicaciones."
+    ),
+    EXAMEN_SABER11: (
+        "Saber 11 es el examen de Estado que administra el Icfes. Mentoring no "
+        "está afiliado al Icfes ni avalado por él, y este material no proviene "
+        "de sus publicaciones: los ejercicios los escribimos nosotros."
     ),
 }
 
@@ -255,6 +276,32 @@ HABILIDADES: List[Dict[str, Any]] = [
         ),
         "dependsOnEnglish": True,
     },
+    # --- Saber 11 (Sprint 4 · I-5) -----------------------------------------
+    # Las cinco pruebas del examen. Solo la de inglés arranca en el nivel del
+    # diagnóstico de inglés; las demás no tienen diagnóstico propio.
+    {
+        "id": "s11_lectura",
+        "exam": EXAMEN_SABER11,
+        "name": "Lectura crítica",
+        "description": (
+            "Entender lo que dice un texto, cómo está armado y qué postura toma: "
+            "idea principal, función de un párrafo, supuestos y argumentos."
+        ),
+        "dependsOnEnglish": False,
+    },
+    {
+        "id": "s11_matematicas",
+        "exam": EXAMEN_SABER11,
+        "name": "Matemáticas",
+        "description": (
+            "Interpretar tablas y gráficas, porcentajes y proporciones, "
+            "ecuaciones, geometría y probabilidad aplicadas a situaciones reales."
+        ),
+        "dependsOnEnglish": False,
+    },
+    # s11_sociales, s11_ciencias y s11_ingles se suman con sus ejercicios
+    # (tandas 2 y 3): una habilidad sin ejercicios rompe la regla de que todas
+    # tienen los tres niveles (`test_cada_habilidad_tiene_ejercicios…`).
 ]
 
 _HABILIDAD_POR_ID = {h["id"]: h for h in HABILIDADES}
@@ -472,6 +519,14 @@ _TEXTOS: Dict[str, str] = {
 # explicación, es exactamente el tipo de defecto que sólo se descubre cuando un
 # estudiante ya lo vio. Aquí revienta al importar el módulo.
 # ---------------------------------------------------------------------------
+
+# Sprint 4 · I-5 · los textos y ejercicios de Saber 11 viven en su propio
+# módulo (por tamaño). Sus textos entran aquí antes de validar los ejercicios.
+from app.data.exam_prep_saber11 import TEXTOS as _TEXTOS_SABER11  # noqa: E402
+from app.data.exam_prep_saber11 import construir as _construir_saber11  # noqa: E402
+
+_TEXTOS.update(_TEXTOS_SABER11)
+
 
 def _item(
     id_: str,
@@ -5471,6 +5526,7 @@ EXAM_PREP_ITEMS: List[Dict[str, Any]] = [
     *_ITEMS_IELTS_VOCABULARIO,
     *_ITEMS_IELTS_GRAMATICA,
     *_ITEMS_IELTS_ESCRITURA,
+    *_construir_saber11(_item, NIVEL_FUNDAMENTOS, NIVEL_INTERMEDIO, NIVEL_AVANZADO),
 ]
 
 _ITEM_POR_ID = {i["id"]: i for i in EXAM_PREP_ITEMS}
@@ -5591,6 +5647,59 @@ EXAMENES: List[Dict[str, Any]] = [
                     "No le ponemos puntaje automático a un texto tuyo: sería "
                     "inventarte una nota. La práctica de escritura de aquí es de "
                     "decisiones (qué frase funciona mejor y por qué)."
+                ),
+            },
+        ],
+    },
+    {
+        # Sprint 4 · I-5. "Práctica Saber 11", sin el nombre del instituto
+        # (decisión de JP, 2026-10-31): sus marcas son registradas.
+        "id": EXAMEN_SABER11,
+        "slug": "practica-saber-11",
+        "name": "Práctica de habilidades para el Saber 11",
+        "shortName": "Práctica Saber 11",
+        "description": (
+            "Ejercicios propios para practicar las cinco pruebas del Saber 11: "
+            "lectura crítica, matemáticas, sociales y ciudadanas, ciencias "
+            "naturales e inglés. Cada uno con la explicación de por qué la "
+            "respuesta correcta lo es y en qué cae cada opción equivocada."
+        ),
+        "academicBasis": (
+            "Material de práctica escrito por el equipo de Mentoring. No son "
+            "preguntas del examen ni de los cuadernillos del Icfes, no está "
+            "avalado por el Icfes y no predice tu puntaje: practica las "
+            "habilidades, no reproduce el instrumento."
+        ),
+        "estimatedMinutes": 20,
+        "questionCount": _contar(EXAMEN_SABER11),
+        "icon": "graduation",
+        "audiencia": (
+            "Pensado para 10°, 11° y 12° de colegio en Colombia, sobre todo en "
+            "el último año, que es cuando se presenta."
+        ),
+        "formato": [
+            "Lo presentan los estudiantes de último año de bachillerato en "
+            "Colombia.",
+            "Tiene cinco pruebas: lectura crítica, matemáticas, sociales y "
+            "ciudadanas, ciencias naturales e inglés.",
+            "Se presenta en español, salvo la prueba de inglés.",
+            "Casi todo es de opción múltiple, y muchas preguntas parten de un "
+            "texto, una tabla, una gráfica o una situación.",
+        ],
+        "no_cubierto": [
+            {
+                "que": "Un simulacro completo y cronometrado",
+                "porque": (
+                    "Administrar el tiempo real del examen requiere el examen "
+                    "real. Aquí se practica prueba por prueba."
+                ),
+            },
+            {
+                "que": "Las preguntas oficiales de los cuadernillos",
+                "porque": (
+                    "Sus términos de uso no permiten usarlas en una plataforma "
+                    "comercial. Puedes descargarlas gratis en la página oficial "
+                    "del Icfes y practicarlas por tu cuenta."
                 ),
             },
         ],

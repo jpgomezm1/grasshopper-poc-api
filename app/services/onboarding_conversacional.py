@@ -93,7 +93,15 @@ SALUDO = (
 )
 
 
-def _bloque_recolectado(recolectados: Dict[str, Any]) -> str:
+def _bloque_recolectado(
+    recolectados: Dict[str, Any], nuevos: Optional[set] = None,
+) -> str:
+    # C-4 · Sprint 4 · `nuevos` son los que llegaron en ESTE mensaje. Sin la
+    # marca, el modelo los veía en "Lo que ya sabes" y respondía "eso ya lo
+    # tenía" a algo que la persona acababa de contarle por primera vez (probado
+    # con llamadas reales). Falso y cortante.
+    nuevos = nuevos or set()
+    marca_nuevo = "  ← NUEVO: te lo acaba de contar"
     con_valor = {k: v for k, v in recolectados.items() if v not in (None, "", [], {})}
     if not con_valor:
         return "(nada todavía · es el primer mensaje)"
@@ -116,7 +124,8 @@ def _bloque_recolectado(recolectados: Dict[str, Any]) -> str:
                 anio = int(str(v)[:4])
                 hoy = date.today()
                 edad = hoy.year - anio - (0 if (hoy.month, hoy.day) >= (12, 31) else 1)
-                lineas.append(f"- Edad → {edad} años (nació en {anio})")
+                marca = marca_nuevo if k in nuevos else ""
+                lineas.append(f"- Edad → {edad} años (nació en {anio}){marca}")
                 continue
             except (TypeError, ValueError):
                 pass  # sin año usable se muestra crudo, como cualquier otro
@@ -126,7 +135,7 @@ def _bloque_recolectado(recolectados: Dict[str, Any]) -> str:
             v = h.opciones.get(v, v)
         elif h and h.opciones and isinstance(v, list):
             v = ", ".join(h.opciones.get(x, x) for x in v)
-        lineas.append(f"- {etiqueta} → {v}")
+        lineas.append(f"- {etiqueta} → {v}{marca_nuevo if k in nuevos else ''}")
     return "\n".join(lineas)
 
 
@@ -489,6 +498,15 @@ def responder(
     nuevos, descartados = extraer(
         mensaje, recolectados, session_id=session_id, db=db, catalogo=catalogo,
     )
+    # C-4 · Sprint 4 · un dato que no corresponde a su etapa no se guarda: con
+    # una estudiante de 11°, "me gustan la biología y la química" terminaba como
+    # `g9_materias_favoritas`, un hecho que solo existe para 9° y que nadie lee
+    # para 11°. Mismo criterio de `aplica()` con el que no se le pregunta.
+    no_aplican = [k for k in list(nuevos) if not catalogo.aplica(k, {**recolectados, **nuevos})]
+    for k in no_aplican:
+        nuevos.pop(k, None)
+    if no_aplican:
+        descartados = list(descartados or []) + no_aplican
     actualizados = {**recolectados, **nuevos}
 
     if descartados:
@@ -518,7 +536,7 @@ def responder(
     system = (
         plantilla.replace("{perfil}", _bloque_perfil(actualizados))
         .replace("{momento}", _bloque_momento(actualizados))
-        .replace("{recolectado}", _bloque_recolectado(actualizados))
+        .replace("{recolectado}", _bloque_recolectado(actualizados, set(nuevos)))
         .replace("{faltantes}", _bloque_faltantes(pendientes))
         .replace("{cierre}", _bloque_cierre(actualizados, pendientes))
     )

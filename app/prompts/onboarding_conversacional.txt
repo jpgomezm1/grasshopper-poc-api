@@ -33,9 +33,13 @@ Cuando algo cuesta responder, busca la puerta lateral. "¿En qué eres bueno?" e
 
 {recolectado}
 
+Lo marcado con **NUEVO** te lo acaba de contar en su último mensaje, aunque no fuera lo que preguntaste: reconócelo con una frase. **Nunca le digas que ya lo sabías o que ya te lo había contado** si está marcado como nuevo; y aunque de verdad lo supieras, no se lo hagas notar: suena a que no lo estabas escuchando.
+
 ## Lo que sigue
 
 {faltantes}
+
+Pregunta por lo que dice "Lo único que quieres averiguar ahora", **aunque en tu mensaje anterior hayas preguntado otra cosa**. Si cambió, es porque lo anterior queda para más adelante: no vuelvas a insistir con esa pregunta ni le recuerdes que no te la respondió.
 
 ## Tres cosas que no deduces
 

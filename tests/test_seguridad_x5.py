@@ -134,6 +134,9 @@ GRATIS_A_PROPOSITO = {
     "/api/v1/external-test-uploads/{upload_id}/parse": "ídem",
     "/api/v1/external-test-uploads/{upload_id}/confirm": "ídem",
     "/api/v1/me/tools": "solo lista las herramientas; no genera nada",
+    # Decidido el 2026-10-31: gratis porque lo usa la conversación inicial,
+    # pero con límite de uso (antes no tenía ninguno).
+    "/api/v1/transcription/transcribe": "dictado por voz de la conversación inicial (gratis), con límite de uso",
 }
 
 # E-4 · Sprint 4 (2026-10-31) · las encontró el detector al sumarle
@@ -142,7 +145,6 @@ GRATIS_A_PROPOSITO = {
 # decisión de JP, no de quien programa. Quedan aquí, a la vista, hasta que se
 # decida; el test de abajo impide que se sume una sexta sin que nadie lo note.
 PENDIENTES_DE_DECISION = {
-    "/api/v1/transcription/transcribe": "dictado por voz (Whisper) · lo usa la conversación inicial, que es gratis, y el chat",
     "/api/v1/me/career-gap/linkedin": "lectura del perfil de LinkedIn del profesional · sin función en la matriz",
     "/api/v1/me/career-gap/analyze": "análisis de brecha del profesional · sin función en la matriz",
     "/api/v1/me/logros/leer": "lector de logros de Mis actividades, que hoy es de todos los planes",
@@ -180,15 +182,24 @@ def test_ninguna_ruta_de_ia_del_estudiante_queda_sin_llave():
     )
 
 
-def test_los_pendientes_de_decision_siguen_siendo_cinco_y_sin_llave():
+def test_los_pendientes_de_decision_siguen_siendo_cuatro_y_sin_llave():
     """Si alguien les pone llave, que los saque de la lista; si se suma uno, que se vea."""
     from app.main import app
 
     rutas = {r.path: r for r in app.routes if getattr(r, "path", None) in PENDIENTES_DE_DECISION}
     assert set(rutas) == set(PENDIENTES_DE_DECISION)
-    assert len(PENDIENTES_DE_DECISION) == 5
+    assert len(PENDIENTES_DE_DECISION) == 4
     for path, ruta in rutas.items():
         assert not _llaves(ruta), f"{path} ya tiene llave: sácala de PENDIENTES_DE_DECISION"
+
+
+def test_el_dictado_gratis_tiene_limite_de_uso():
+    """Gratis sí, sin freno no: cada audio se le paga a OpenAI."""
+    from app.main import app
+
+    ruta = next(r for r in app.routes if getattr(r, "path", "") == "/api/v1/transcription/transcribe")
+    limites = [d for d in ruta.dependant.dependencies if "rate_limit" in getattr(d.call, "__qualname__", "")]
+    assert len(limites) == 2
 
 
 @pytest.mark.parametrize(

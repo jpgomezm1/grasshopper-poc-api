@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, status
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.core.rate_limiter import rate_limit
 from app.db.database import get_db
 from app.db.models import User
 from app.services.transcription_service import transcribe_audio
@@ -27,7 +28,19 @@ SUPPORTED_FORMATS = {
 }
 
 
-@router.post("/transcribe")
+# Sprint 4 (2026-10-31) · el dictado es gratis a propósito: lo usa la
+# conversación inicial, que es del plan gratis (ver `GRATIS_A_PROPOSITO` en
+# `tests/test_seguridad_x5.py`). Pero cada audio se paga, y no tenía ningún
+# límite: cualquiera podía generar gasto sin freno. Dos cubetas separadas
+# (`scope`) para que no se cuenten doble. Dictar de verdad nunca llega aquí:
+# 10 por minuto es un audio cada 6 segundos.
+@router.post(
+    "/transcribe",
+    dependencies=[
+        Depends(rate_limit("10/minute", scope="dictado_minuto")),
+        Depends(rate_limit("100/day", scope="dictado_dia")),
+    ],
+)
 async def transcribe(
     audio: UploadFile = File(...),
     current_user: User = Depends(get_current_user),

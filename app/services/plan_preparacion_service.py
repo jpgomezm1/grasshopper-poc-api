@@ -208,6 +208,13 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
         ruta="/aplicaciones", cta="Abrir mi kit",
         funcion="kit_aplicacion", con_candado=candado("kit_aplicacion"),
     ))
+    # E-4 · muchas universidades entrevistan, afuera y en el país.
+    antes.append(_paso(
+        "entrevista", "Practica tu entrevista de admisión",
+        detalle="Hopper te hace las preguntas típicas y te dice qué funcionó y qué mejorar.",
+        ruta="/entrevista", cta="Practicar",
+        funcion="entrevista_admision", con_candado=candado("entrevista_admision"),
+    ))
     antes.append(_paso(
         "financiacion", "Becas y financiación: háblalo con tu familia y tu asesor",
     ))

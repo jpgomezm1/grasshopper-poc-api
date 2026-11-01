@@ -54,6 +54,8 @@ FUNCIONES: Dict[str, Dict[str, str]] = {
     # E-4 · Sprint 4 · el checklist de aplicación de 12° del demo. También en
     # 11°: en Colombia muchos colegios terminan en 11° y ese es el año de aplicar.
     "kit_aplicacion": {"plan": "pago", "nombre": "Kit de aplicación"},
+    # E-4 · Sprint 4 · la "entrevista con IA" del simulador de admisiones del demo.
+    "entrevista_admision": {"plan": "pago", "nombre": "Simulador de entrevista"},
     "profiler": {"plan": "vip", "nombre": "Mentoring Profiler"},
     "sesion_1a1": {"plan": "vip", "nombre": "Sesión 1:1 con un counsellor"},
 }
@@ -63,6 +65,7 @@ FUNCION_SOLO_EN_TRAMOS: Dict[str, Tuple[str, ...]] = {
     "practica_examenes": (RUTA_GRADO_11, RUTA_GRADO_12, RUTA_PROFESIONAL),
     "plan_preparacion": (RUTA_GRADO_11, RUTA_GRADO_12),
     "kit_aplicacion": (RUTA_GRADO_11, RUTA_GRADO_12),
+    "entrevista_admision": (RUTA_GRADO_11, RUTA_GRADO_12),
 }
 
 # Lo que el demo pide y todavía no existe en la plataforma.

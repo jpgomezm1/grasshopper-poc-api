@@ -116,6 +116,10 @@ def test_el_csv_no_toca_lo_normal():
 _IA = re.compile(
     r"call_claude|ai_service\.|consolidation_service\.|recommendation_service\.|interpret"
     r"|generate_|dossier_service|year_checkin|external_test|parse_"
+    # E-4 · Sprint 4 · la entrevista se escapaba: su servicio no se llama con
+    # ninguno de los nombres de arriba. Toda ruta que registra consumo de IA
+    # (M-001) llama a la IA, así que esa es la señal que no depende del nombre.
+    r"|record_ai_usage|_registrar_uso"
 )
 
 # Rutas del equipo o del sistema: la llave del plan es del estudiante.
@@ -130,6 +134,19 @@ GRATIS_A_PROPOSITO = {
     "/api/v1/external-test-uploads/{upload_id}/parse": "ídem",
     "/api/v1/external-test-uploads/{upload_id}/confirm": "ídem",
     "/api/v1/me/tools": "solo lista las herramientas; no genera nada",
+}
+
+# E-4 · Sprint 4 (2026-10-31) · las encontró el detector al sumarle
+# `record_ai_usage`: llaman a la IA sin llave desde antes de este sprint.
+# Ponerles llave le quitaría a un usuario gratis algo que hoy usa, así que es
+# decisión de JP, no de quien programa. Quedan aquí, a la vista, hasta que se
+# decida; el test de abajo impide que se sume una sexta sin que nadie lo note.
+PENDIENTES_DE_DECISION = {
+    "/api/v1/transcription/transcribe": "dictado por voz (Whisper) · lo usa la conversación inicial, que es gratis, y el chat",
+    "/api/v1/me/career-gap/linkedin": "lectura del perfil de LinkedIn del profesional · sin función en la matriz",
+    "/api/v1/me/career-gap/analyze": "análisis de brecha del profesional · sin función en la matriz",
+    "/api/v1/me/logros/leer": "lector de logros de Mis actividades, que hoy es de todos los planes",
+    "/api/v1/me/logros/leer-archivo": "ídem, desde un archivo",
 }
 
 
@@ -149,6 +166,8 @@ def test_ninguna_ruta_de_ia_del_estudiante_queda_sin_llave():
             continue
         if ruta.path.startswith(_DEL_EQUIPO) or ruta.path in GRATIS_A_PROPOSITO:
             continue
+        if ruta.path in PENDIENTES_DE_DECISION:
+            continue
         try:
             fuente = inspect.getsource(ruta.endpoint)
         except (OSError, TypeError):
@@ -159,6 +178,17 @@ def test_ninguna_ruta_de_ia_del_estudiante_queda_sin_llave():
         "Rutas que llaman a la IA sin llave del plan. Ponles `requiere(...)` o, si son "
         f"gratis a propósito, agrégalas a GRATIS_A_PROPOSITO con su porqué: {sin_llave}"
     )
+
+
+def test_los_pendientes_de_decision_siguen_siendo_cinco_y_sin_llave():
+    """Si alguien les pone llave, que los saque de la lista; si se suma uno, que se vea."""
+    from app.main import app
+
+    rutas = {r.path: r for r in app.routes if getattr(r, "path", None) in PENDIENTES_DE_DECISION}
+    assert set(rutas) == set(PENDIENTES_DE_DECISION)
+    assert len(PENDIENTES_DE_DECISION) == 5
+    for path, ruta in rutas.items():
+        assert not _llaves(ruta), f"{path} ya tiene llave: sácala de PENDIENTES_DE_DECISION"
 
 
 @pytest.mark.parametrize(

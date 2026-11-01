@@ -215,6 +215,12 @@ class Settings(BaseSettings):
     # Canonical frontend base URL (used as ultimate fallback in _build_accept_url).
     frontend_base_url: str = "https://grasshopper-app.netlify.app"
 
+    # G-4 · Sprint 4 · a dónde va el aviso de prospecto caliente y el resumen de
+    # tibios. Vacío (por defecto) = a cada usuario con rol comercial activo. Con
+    # valor (una o varias direcciones separadas por coma) = solo ahí. Decidido
+    # por JP el 2026-10-31.
+    aviso_prospectos_email: str = ""
+
     @model_validator(mode="after")
     def _assert_production_secrets(self) -> "Settings":
         """GH-F1-SECURITY · Tarea 2 · fail fast on boot when secrets are insecure.

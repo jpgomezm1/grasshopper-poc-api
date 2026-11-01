@@ -29,11 +29,11 @@ contacto. Si no, cualquiera llena la bandeja del equipo con basura.
 """
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Dict, Optional
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Request, status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session as DBSession
 
@@ -41,7 +41,7 @@ from app.api.v1.auth import get_current_user
 from app.config import get_settings
 from app.db.database import get_db
 from app.db.models import BotConversation, User
-from app.services import bot_gratuito_scoring, bot_gratuito_traspaso
+from app.services import aviso_prospectos, bot_gratuito_scoring, bot_gratuito_traspaso
 
 router = APIRouter(prefix="/bot-gratuito", tags=["Bot gratuito"])
 
@@ -74,6 +74,45 @@ def _rate_limit(request: Request) -> None:
     from app.core.rate_limiter import rate_limit
 
     return rate_limit(get_settings().rate_limit_bot_turn, scope="bot_gratuito_lead")(request)
+
+
+# G-5 · Sprint 4 · tope diario por IP, además del de por minuto. El bot no llama
+# a la IA (no hay costo por envío): el riesgo es que alguien llene la bandeja
+# del equipo con basura. 200 al día deja pasar a un colegio entero detrás de la
+# misma IP y frena un script.
+TOPE_DIARIO = "200/day"
+
+# G-5 · el mismo contacto con las MISMAS respuestas en este lapso no crea un
+# prospecto nuevo (doble clic, recargar, volver atrás y reenviar): se devuelve
+# el que ya existe y no se dispara un segundo aviso al equipo. Con respuestas
+# distintas sí se crea: un papá o una mamá que llena el bot para dos hijos usa
+# el mismo WhatsApp, y el segundo no puede perderse.
+VENTANA_DUPLICADO = timedelta(minutes=10)
+
+
+def _tope_diario(request: Request) -> None:
+    from app.core.rate_limiter import rate_limit
+
+    return rate_limit(TOPE_DIARIO, scope="bot_gratuito_lead_dia")(request)
+
+
+def _reenvio_reciente(
+    db: DBSession, email: Optional[str], whatsapp: Optional[str], respuestas: Dict[str, str]
+) -> Optional[BotConversation]:
+    desde = datetime.utcnow() - VENTANA_DUPLICADO
+    candidatos = (
+        db.query(BotConversation)
+        .filter(BotConversation.created_at >= desde)
+        .order_by(BotConversation.created_at.desc())
+        .all()
+    )
+    for c in candidatos:
+        if (c.hechos or {}).get("_fuente") != FUENTE:
+            continue
+        mismo_contacto = (email and (c.email or "").lower() == email) or (whatsapp and c.phone == whatsapp)
+        if mismo_contacto and (c.hechos or {}).get("respuestas") == respuestas:
+            return c
+    return None
 
 
 class Contacto(BaseModel):
@@ -146,8 +185,16 @@ def _limpiar_respuestas(respuestas: Dict[str, str]) -> Dict[str, str]:
     return limpias
 
 
-@router.post("/lead", response_model=LeadResponse, dependencies=[Depends(_rate_limit)])
-def guardar_lead(request: LeadRequest, db: DBSession = Depends(get_db)) -> LeadResponse:
+@router.post(
+    "/lead",
+    response_model=LeadResponse,
+    dependencies=[Depends(_rate_limit), Depends(_tope_diario)],
+)
+def guardar_lead(
+    request: LeadRequest,
+    background_tasks: BackgroundTasks,
+    db: DBSession = Depends(get_db),
+) -> LeadResponse:
     """Guarda las respuestas y el contacto · devuelve el id del prospecto.
 
     Ese id es el que van a usar la señal preliminar (B-6) y el traspaso a la
@@ -167,6 +214,10 @@ def guardar_lead(request: LeadRequest, db: DBSession = Depends(get_db)) -> LeadR
         raise _invalido("Elige cuándo quieres iniciar.")
 
     respuestas = _limpiar_respuestas(request.respuestas)
+    ya = _reenvio_reciente(db, email, whatsapp, respuestas)
+    if ya is not None:
+        return LeadResponse(lead_id=ya.id, siguiente_paso=SIGUIENTE_PASO[ya.route])
+
     # B-5 · puntaje y ruta con las reglas del demo. Es para el equipo: no
     # viaja en la respuesta, la pantalla nunca lo ve.
     veredicto = bot_gratuito_scoring.puntuar(respuestas, contacto.cuando)
@@ -201,6 +252,10 @@ def guardar_lead(request: LeadRequest, db: DBSession = Depends(get_db)) -> LeadR
     db.add(lead)
     db.commit()
     db.refresh(lead)
+    # G-4 · un caliente avisa al equipo de una vez, en segundo plano: la
+    # persona no espera a que salga un correo para ver su señal.
+    if lead.band == "hot":
+        background_tasks.add_task(aviso_prospectos.avisar_caliente_en_segundo_plano, lead.id)
     return LeadResponse(lead_id=lead.id, siguiente_paso=SIGUIENTE_PASO[veredicto.ruta])
 
 

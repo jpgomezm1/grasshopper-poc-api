@@ -20,7 +20,7 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, Query, Request, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Query, Request, status
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session as DBSession
 
@@ -28,7 +28,7 @@ from app.api.v1.auth import get_current_user
 from app.config import get_settings
 from app.db.database import get_db
 from app.db.models import BotConversation, User, UserRole
-from app.services import bot_lead_scoring
+from app.services import aviso_prospectos, bot_lead_scoring
 from app.services.conversation_engine import listo_para_cerrar, responder
 
 logger = logging.getLogger(__name__)
@@ -130,7 +130,11 @@ def start(request: StartRequest, db: DBSession = Depends(get_db)) -> StartRespon
 
 
 @router.post("/turn", response_model=TurnResponse, dependencies=[Depends(_rate_limit_bot)])
-def turn(request: TurnRequest, db: DBSession = Depends(get_db)) -> TurnResponse:
+def turn(
+    request: TurnRequest,
+    background_tasks: BackgroundTasks,
+    db: DBSession = Depends(get_db),
+) -> TurnResponse:
     """Un turno de conversación · extrae, responde y vuelve a puntuar."""
     conversacion = (
         db.query(BotConversation).filter(BotConversation.id == request.conversation_id).first()
@@ -177,6 +181,11 @@ def turn(request: TurnRequest, db: DBSession = Depends(get_db)) -> TurnResponse:
     conversacion.wants_orientation = bot_lead_scoring.quiere_orientacion(hechos)
     conversacion.is_completed = completado
     db.commit()
+
+    # G-4 · el perfilador recalcula en cada turno: el aviso sale la primera vez
+    # que queda caliente y nunca más (`aviso_prospectos.MARCA_AVISADO`).
+    if veredicto.banda == "hot" and not (hechos or {}).get(aviso_prospectos.MARCA_AVISADO):
+        background_tasks.add_task(aviso_prospectos.avisar_caliente_en_segundo_plano, conversacion.id)
 
     return TurnResponse(
         message=respuesta,

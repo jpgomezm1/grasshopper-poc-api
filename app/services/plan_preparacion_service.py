@@ -97,7 +97,12 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
     # "Quizás" y "no lo ha dicho" ven los pasos de afuera, pero condicionados:
     # quitárselos sería decidir por la persona; dárselos como obligatorios,
     # también.
-    si_decides = "" if interes == INTL_SI else "Si decides estudiar afuera: "
+    def si_decides(texto: str) -> str:
+        # Recorridos Sprint 4 · con el prefijo vacío la frase quedaba en
+        # minúscula ("casi siempre te pedirán…") para quien sí se va afuera.
+        if interes == INTL_SI:
+            return texto[:1].upper() + texto[1:]
+        return "Si decides estudiar afuera: " + texto
 
     def candado(funcion: str) -> bool:
         acceso = p.funciones.get(funcion)
@@ -184,7 +189,7 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
     if afuera:
         despues.append(_paso(
             "practica_ingles", "Practica para el examen de inglés (IELTS o TOEFL)",
-            detalle=si_decides + "casi siempre te pedirán demostrar tu nivel de inglés.",
+            detalle=si_decides("casi siempre te pedirán demostrar tu nivel de inglés."),
             ruta="/practica-examenes/ielts", cta="Ir a la práctica",
             funcion="practica_examenes", con_candado=candado("practica_examenes"),
         ))
@@ -197,7 +202,7 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
             ))
         despues.append(_paso(
             "examen_oficial", "Presenta el examen oficial con tiempo para repetirlo",
-            detalle=si_decides + "si el puntaje no te alcanza, así tienes margen.",
+            detalle=si_decides("si el puntaje no te alcanza, así tienes margen."),
         ))
         despues.append(_paso(
             "cartas", "Pide tus cartas de recomendación con unos 2 meses de anticipación",
@@ -209,7 +214,7 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
     if afuera:
         antes.append(_paso(
             "carta_motivacion", "Escribe tu carta de motivación",
-            detalle=si_decides + "la mayoría de universidades afuera la piden.",
+            detalle=si_decides("la mayoría de universidades afuera la piden."),
             ruta="/me/tools/sop", cta="Carta de motivación",
             funcion="carta_motivacion", con_candado=candado("carta_motivacion"),
         ))

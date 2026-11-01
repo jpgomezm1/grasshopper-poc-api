@@ -15,7 +15,7 @@ from __future__ import annotations
 
 from fastapi.testclient import TestClient
 
-from app.services.bot_gratuito_traspaso import hechos_desde_respuestas
+from app.services.bot_gratuito_traspaso import hechos_desde_respuestas, respuestas_directas
 from tests.test_bot_gratuito_b4 import RESPUESTAS, URL, _leads, _pedido, app_db  # noqa: F401
 
 IMPORTAR = "/api/v1/bot-gratuito/importar"
@@ -66,6 +66,30 @@ def test_lo_que_no_tiene_equivalencia_exacta_no_se_pasa():
     assert "budget" not in hechos_desde_respuestas(RESPUESTAS)
     # "No sé" el destino no se convierte en un sí o un no.
     assert "international_interest" not in hechos_desde_respuestas({**RESPUESTAS, "dest": "nose"})
+
+
+# Recorridos Sprint 4 · lo que no es un hecho del onboarding pero sí tiene dónde ir.
+
+
+def test_el_presupuesto_del_bot_llega_al_estilo_de_vida():
+    sin_materias = {**RESPUESTAS, "materias": ""}
+    assert respuestas_directas({**sin_materias, "budget": "b2"}) == {"presupuesto_familiar": "10k_25k"}
+    assert respuestas_directas({**sin_materias, "budget": "beca"}) == {"financiacion": "beca"}
+    assert respuestas_directas({**sin_materias, "budget": "nose"}) == {
+        "presupuesto_familiar": "no_hablado", "financiacion": "no_hablado",
+    }
+
+
+def test_de_diez_en_adelante_las_materias_tienen_su_clave():
+    assert respuestas_directas({**RESPUESTAS, "materias": "Química"})["materias_favoritas"] == "Química"
+    # En 9° ya van a su hecho; no se duplican.
+    assert "materias_favoritas" not in respuestas_directas({**RESPUESTAS, "stage": "9", "materias": "Arte"})
+
+
+def test_al_adulto_y_al_papa_no_se_les_pasa_el_presupuesto():
+    # Al adulto el onboarding le pregunta su propio presupuesto, con otras bandas.
+    assert respuestas_directas({"who": "pro", "stage": "p1", "budget": "b2"}) == {}
+    assert respuestas_directas({**RESPUESTAS, "who": "padre", "budget": "b2"}) == {}
 
 
 # ---------------------------------------------------------------------------
@@ -183,6 +207,36 @@ def test_no_pisa_lo_que_la_cuenta_ya_tenia(app_db):
     respuestas = _usuario(Sesion, uid).onboarding_answers
     assert respuestas["voice_passion"] == "Lo que escribí en el chat"
     assert respuestas["life_stage"] == "high_school"
+
+
+def test_el_presupuesto_y_las_materias_quedan_en_la_cuenta_sin_pisar(app_db):
+    """Recorridos Sprint 4 · sobre HTTP, por el camino real: `_persistir`
+    descarta las claves que no son del catálogo, así que esto fallaba en silencio
+    si se mandaban como hechos."""
+    app, Sesion = app_db
+    from app.db.models import User
+    from app.services import estilo_de_vida_service as estilo
+
+    uid = _cuenta(Sesion, "presu.b7@grasshopper.dev")
+    db = Sesion()
+    u = db.query(User).filter(User.id == uid).first()
+    u.onboarding_answers = {"financiacion": "credito"}  # ya lo había respondido
+    db.commit()
+    db.close()
+    with TestClient(app) as c:
+        lead_id = c.post(URL, json=_con_correo("presu.b7@grasshopper.dev")).json()["lead_id"]
+        r = c.post(IMPORTAR, json={"lead_id": lead_id}, headers=_entrar(c, "presu.b7@grasshopper.dev"))
+    assert "presupuesto_familiar" in r.json()["hechos"]
+    u = _usuario(Sesion, uid)
+    respuestas = u.onboarding_answers
+    assert respuestas["presupuesto_familiar"] == "10k_25k"
+    assert respuestas["materias_favoritas"] == "Biología y química"
+    assert respuestas["financiacion"] == "credito"
+    # El cuestionario sale con esa respuesta ya puesta, pero no "respondido":
+    # le faltan las demás preguntas.
+    e = estilo.estado(u)
+    assert e["respuestas"]["presupuesto_familiar"] == "10k_25k"
+    assert e["respondido"] is False
 
 
 def test_el_onboarding_no_repregunta_y_sigue_mostrando_la_bienvenida(app_db):

@@ -156,3 +156,16 @@ def test_las_llaves_del_usuario_no_revientan_el_format():
     """Estos textos viajan a plantillas con `str.format`: un `{` suelto la tumba."""
     bloque = format_onboarding_context({"g9_idolos": "mi profe de {mate}"})
     assert "{" not in bloque and "}" not in bloque
+
+
+def test_las_materias_que_conto_en_el_bot_llegan_al_prompt():
+    """Recorridos Sprint 4 · de 10° a 12° las materias del bot gratuito van a
+    `materias_favoritas` (no es un hecho del catálogo) y se pintan aparte."""
+    bloque = format_onboarding_context({"materias_favoritas": "Química y biología"})
+    assert "Química y biología" in bloque
+    assert "Materias favoritas del colegio" in bloque
+    # Si ya está la de 9°, no se repite.
+    ambos = format_onboarding_context(
+        {"g9_materias_favoritas": "Arte", "materias_favoritas": "Química"}
+    )
+    assert "Química" not in ambos

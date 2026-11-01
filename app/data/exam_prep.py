@@ -392,6 +392,76 @@ _TEXTOS: Dict[str, str] = {
         "not a gap in the other language; it is a record of what one group of "
         "people decided was worth naming."
     ),
+    # I-3 · Sprint 4 · textos académicos propios para la ampliación de lectura
+    # del IELTS. Escritos para este repo; ninguno viene de un examen.
+    "desalination": (
+        "Turning Seawater into Drinking Water\n\n"
+        "Removing salt from seawater, a process known as desalination, now "
+        "supplies drinking water to millions of people in dry coastal regions. "
+        "The most common method, reverse osmosis, pushes seawater through "
+        "membranes that hold back the salt. It uses far less energy than the "
+        "older approach of boiling water and collecting the steam, but it is "
+        "still expensive, largely because pumping water at high pressure "
+        "requires a great deal of electricity. The process also produces "
+        "brine, a highly salty waste that can harm marine life if it is "
+        "released carelessly. Engineers are testing ways to dilute the brine "
+        "before it is discharged, and some plants now run partly on solar "
+        "power to reduce their running costs."
+    ),
+    "urban_heat": (
+        "Cooling the City\n\n"
+        "Cities are often several degrees warmer than the countryside around "
+        "them, a pattern known as the urban heat island effect. Dark surfaces "
+        "such as asphalt and roofs absorb sunlight during the day and release "
+        "the heat slowly at night, so the difference is usually greatest after "
+        "sunset. Trees help in two ways: they shade streets and buildings, and "
+        "they release water vapour that cools the air around them. Some cities "
+        "have also begun painting roofs white, since light colours reflect "
+        "more sunlight. These measures do not remove the effect entirely, but "
+        "in neighbourhoods where they have been combined, summer night "
+        "temperatures have fallen noticeably."
+    ),
+    "language_loss": (
+        "When Languages Disappear\n\n"
+        "Linguists estimate that around half of the world's roughly seven "
+        "thousand languages may stop being spoken by the end of this century. "
+        "A language rarely disappears suddenly. More often, parents decide "
+        "that their children will have better opportunities if they speak a "
+        "dominant language, and within two or three generations the original "
+        "language survives only among the elderly. When that happens, more "
+        "than words are lost: many languages contain detailed knowledge of "
+        "local plants, weather patterns or navigation that has never been "
+        "written down. Recording projects can preserve grammar and vocabulary, "
+        "but most linguists agree that a language only stays alive if children "
+        "continue to learn it at home."
+    ),
+    "four_day_week": (
+        "The Four-Day Week\n\n"
+        "Several companies have experimented with a four-day working week in "
+        "which employees keep their full salary. In one trial involving around "
+        "sixty firms, most chose to continue the arrangement after six months, "
+        "reporting similar or higher productivity and fewer sick days. Critics "
+        "point out that the companies volunteered for the trial, which "
+        "suggests they already expected it to work, and that the results may "
+        "not apply to sectors such as healthcare, where services must run "
+        "every day. Supporters reply that the trial was never meant to prove "
+        "that a shorter week suits every job, only that it can work in many "
+        "of them."
+    ),
+    "microplastics": (
+        "Microplastics\n\n"
+        "Microplastics are pieces of plastic smaller than five millimetres. "
+        "Some are made at this size, for example the tiny beads once added to "
+        "cosmetics, but most come from larger objects that break down over "
+        "time, such as bottles, fishing nets and synthetic clothing, which "
+        "sheds fibres in the washing machine. They have been found in rivers, "
+        "in Arctic ice and in the bodies of many animals. Scientists still know "
+        "relatively little about how they affect human health, and several "
+        "research teams are now studying this question. What is already clear "
+        "is that once microplastics enter the ocean, removing them is almost "
+        "impossible, so most experts argue that the priority should be to stop "
+        "them from getting there in the first place."
+    ),
 }
 
 
@@ -3567,6 +3637,347 @@ _ITEMS_IELTS_LECTURA = [
             "contrasta, no el diccionario."
         ),
     ),
+    # I-3 · Sprint 4 · ampliación del banco de IELTS (de 8 a 25), sobre 5 textos
+    # propios nuevos. True/False/Not Given: True si el texto lo dice, False si lo
+    # contradice, Not Given si no dice nada al respecto.
+    _item(
+        "ielts-read-9",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="desalination",
+        question="According to the text, why is reverse osmosis still expensive?",
+        options=[
+            "Pumping water at high pressure uses a lot of electricity.",
+            "The membranes must be replaced every day.",
+            "It requires boiling large amounts of water.",
+            "Brine has to be transported far from the coast.",
+        ],
+        correct="Pumping water at high pressure uses a lot of electricity.",
+        explanation=(
+            "El texto lo dice con todas las letras: \"largely because pumping "
+            "water at high pressure requires a great deal of electricity\". "
+            "Hervir el agua es el método VIEJO, el que la ósmosis inversa "
+            "reemplazó, y por eso es la trampa. Del cambio de membranas no se "
+            "dice nada."
+        ),
+    ),
+    _item(
+        "ielts-read-10",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="desalination",
+        question=(
+            "Decide whether the statement agrees with the text.\n\n"
+            "Statement: “Reverse osmosis uses less energy than boiling seawater.”"
+        ),
+        options=["True", "False", "Not Given"],
+        correct="True",
+        explanation=(
+            "El texto dice que la ósmosis inversa \"uses far less energy than "
+            "the older approach of boiling water\". La afirmación dice lo mismo "
+            "con otras palabras: True. Que siga siendo cara no la contradice: "
+            "gasta menos que hervir, pero gasta bastante."
+        ),
+    ),
+    _item(
+        "ielts-read-11",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="desalination",
+        question=(
+            "Decide whether the statement agrees with the text.\n\n"
+            "Statement: “Most desalination plants are located in Asia.”"
+        ),
+        options=["Not Given", "True", "False"],
+        correct="Not Given",
+        explanation=(
+            "El texto habla de \"dry coastal regions\" pero nunca nombra un "
+            "continente. No lo confirma ni lo contradice: Not Given. La trampa "
+            "es responder con lo que uno sabe del mundo: en el IELTS solo cuenta "
+            "lo que dice el texto."
+        ),
+    ),
+    _item(
+        "ielts-read-12",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="urban_heat",
+        question=(
+            "According to the text, when is the temperature difference between "
+            "cities and the countryside usually greatest?"
+        ),
+        options=["After sunset", "At midday", "In the early morning", "In winter"],
+        correct="After sunset",
+        explanation=(
+            "\"The difference is usually greatest after sunset\": las superficies "
+            "oscuras sueltan de noche el calor que guardaron de día. Mediodía es "
+            "la respuesta intuitiva (cuando más calienta el sol), y por eso es la "
+            "trampa."
+        ),
+    ),
+    _item(
+        "ielts-read-13",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="urban_heat",
+        question=(
+            "Complete the sentence according to the text.\n\n"
+            "Painting roofs white helps because light colours ______."
+        ),
+        options=[
+            "reflect more sunlight",
+            "release water vapour",
+            "shade the streets",
+            "absorb heat during the day",
+        ],
+        correct="reflect more sunlight",
+        explanation=(
+            "\"Since light colours reflect more sunlight\". Soltar vapor de agua "
+            "y dar sombra son lo que hacen los ÁRBOLES, en la frase anterior: la "
+            "trampa es mezclar las dos medidas. Absorber calor es lo que hacen "
+            "las superficies oscuras, lo contrario."
+        ),
+    ),
+    _item(
+        "ielts-read-14",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_AVANZADO,
+        passage="urban_heat",
+        question=(
+            "What can be inferred about the neighbourhoods where several measures "
+            "were combined?"
+        ),
+        options=[
+            "Their nights became cooler, but the heat island effect did not disappear.",
+            "The heat island effect was completely eliminated.",
+            "Trees turned out to be more effective than white roofs.",
+            "They became cooler than the surrounding countryside.",
+        ],
+        correct="Their nights became cooler, but the heat island effect did not disappear.",
+        explanation=(
+            "Juntas dos frases: las medidas \"do not remove the effect entirely\" "
+            "y donde se combinaron \"summer night temperatures have fallen\". La "
+            "segunda opción contradice la primera frase. La tercera compara dos "
+            "medidas que el texto nunca compara, y la cuarta va mucho más allá "
+            "de lo que dice."
+        ),
+    ),
+    _item(
+        "ielts-read-15",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="language_loss",
+        question=(
+            "Decide whether the statement agrees with the text.\n\n"
+            "Statement: “Languages usually disappear suddenly.”"
+        ),
+        options=["False", "True", "Not Given"],
+        correct="False",
+        explanation=(
+            "El texto dice lo contrario: \"A language rarely disappears "
+            "suddenly\" y explica que tarda dos o tres generaciones. Cuando el "
+            "texto afirma lo opuesto, es False; Not Given es solo cuando el texto "
+            "no dice nada del tema."
+        ),
+    ),
+    _item(
+        "ielts-read-16",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="language_loss",
+        question=(
+            "Why does the writer mention local plants, weather patterns and "
+            "navigation?"
+        ),
+        options=[
+            "To show that losing a language also means losing knowledge",
+            "To explain why parents choose a dominant language",
+            "To describe what recording projects usually document",
+            "To give examples of languages that have already disappeared",
+        ],
+        correct="To show that losing a language also means losing knowledge",
+        explanation=(
+            "La frase empieza con \"more than words are lost\": los ejemplos "
+            "demuestran que con la lengua se va un saber que \"has never been "
+            "written down\". No explican la decisión de los padres (eso viene "
+            "antes) ni describen lo que registran los proyectos (eso viene "
+            "después)."
+        ),
+    ),
+    _item(
+        "ielts-read-17",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_AVANZADO,
+        passage="language_loss",
+        question=(
+            "Decide whether the statement agrees with the text.\n\n"
+            "Statement: “Recording projects are enough to keep a language alive.”"
+        ),
+        options=["False", "True", "Not Given"],
+        correct="False",
+        explanation=(
+            "El texto dice que los registros \"can preserve grammar and "
+            "vocabulary, but\" una lengua \"only stays alive if children "
+            "continue to learn it at home\". Ese \"only\" contradice que grabar "
+            "baste: False. La palabra \"but\" suele marcar justo dónde está la "
+            "respuesta."
+        ),
+    ),
+    _item(
+        "ielts-read-18",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="four_day_week",
+        question=(
+            "According to the text, what did most firms do after the six-month "
+            "trial?"
+        ),
+        options=[
+            "They decided to continue the four-day week.",
+            "They returned to a five-day week.",
+            "They reduced their employees' salaries.",
+            "They extended the trial to healthcare services.",
+        ],
+        correct="They decided to continue the four-day week.",
+        explanation=(
+            "\"Most chose to continue the arrangement after six months\". La "
+            "salud aparece en el texto, pero como un sector donde el resultado "
+            "podría NO aplicar, según los críticos, no como algo que hicieron "
+            "las empresas."
+        ),
+    ),
+    _item(
+        "ielts-read-19",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="four_day_week",
+        question=(
+            "Decide whether the statement agrees with the text.\n\n"
+            "Statement: “Employees in the trial were paid less for working fewer "
+            "days.”"
+        ),
+        options=["False", "True", "Not Given"],
+        correct="False",
+        explanation=(
+            "La primera frase dice que los empleados \"keep their full salary\". "
+            "La afirmación lo contradice: False. Ojo con el sentido común (\"si "
+            "trabajan menos, ganan menos\"): el texto dice otra cosa, y manda el "
+            "texto."
+        ),
+    ),
+    _item(
+        "ielts-read-20",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_AVANZADO,
+        passage="four_day_week",
+        question="How does the writer present the debate about the four-day week?",
+        options=[
+            "By reporting the critics' objections and the supporters' reply without taking a side",
+            "By arguing that the four-day week should be adopted in every sector",
+            "By rejecting the trial because the companies volunteered",
+            "By claiming that healthcare has already adopted a shorter week",
+        ],
+        correct="By reporting the critics' objections and the supporters' reply without taking a side",
+        explanation=(
+            "El texto dice \"critics point out…\" y \"supporters reply…\" y nunca "
+            "da su propia opinión. Las opciones dos y tres le atribuyen al autor "
+            "la postura de uno de los bandos. En estas preguntas, fíjate en quién "
+            "dice cada cosa: no todo lo que aparece en el texto es la opinión del "
+            "autor."
+        ),
+    ),
+    _item(
+        "ielts-read-21",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="microplastics",
+        question="According to the text, where do most microplastics come from?",
+        options=[
+            "Larger plastic objects that break down over time",
+            "Beads added to cosmetics",
+            "Arctic ice",
+            "The bodies of animals",
+        ],
+        correct="Larger plastic objects that break down over time",
+        explanation=(
+            "\"Most come from larger objects that break down over time\". Las "
+            "microesferas de los cosméticos son el ejemplo de las que se "
+            "fabrican de ese tamaño, la minoría. El hielo del Ártico y los "
+            "animales son lugares donde se ENCONTRARON, no de donde vienen."
+        ),
+    ),
+    _item(
+        "ielts-read-22",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_FUNDAMENTOS,
+        passage="microplastics",
+        question=(
+            "Decide whether the statement agrees with the text.\n\n"
+            "Statement: “Synthetic clothing can release plastic fibres when it is "
+            "washed.”"
+        ),
+        options=["True", "False", "Not Given"],
+        correct="True",
+        explanation=(
+            "El texto dice que la ropa sintética \"sheds fibres in the washing "
+            "machine\". Es lo mismo dicho con otras palabras: True. El IELTS casi "
+            "nunca repite la frase exacta; la parafrasea."
+        ),
+    ),
+    _item(
+        "ielts-read-23",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="microplastics",
+        question="In the text, the word “sheds” is closest in meaning to",
+        options=["releases", "repairs", "absorbs", "protects"],
+        correct="releases",
+        explanation=(
+            "La ropa sintética suelta fibras en la lavadora, y así nacen "
+            "microplásticos: \"sheds\" es \"releases\" (suelta). Si reemplazas la "
+            "palabra en la frase, solo esa opción mantiene el sentido; "
+            "\"absorbs\" diría lo contrario."
+        ),
+    ),
+    _item(
+        "ielts-read-24",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_INTERMEDIO,
+        passage="microplastics",
+        question=(
+            "Decide whether the statement agrees with the text.\n\n"
+            "Statement: “Plastic beads have now been banned from cosmetics in most "
+            "countries.”"
+        ),
+        options=["Not Given", "True", "False"],
+        correct="Not Given",
+        explanation=(
+            "El texto dice que las microesferas \"once\" se agregaban a los "
+            "cosméticos, pero no habla de prohibiciones ni de países. Ese \"once\" "
+            "invita a suponer, y suponer es justo el error: Not Given."
+        ),
+    ),
+    _item(
+        "ielts-read-25",
+        habilidad="ielts_lectura",
+        nivel=NIVEL_AVANZADO,
+        passage="microplastics",
+        question="Which statement best summarises the writer's main point?",
+        options=[
+            "Because microplastics are almost impossible to remove from the ocean, preventing them from entering it matters most.",
+            "Microplastics have been proven to be harmful to human health.",
+            "Most microplastics are produced deliberately at a small size.",
+            "Scientists have found an effective way to clean microplastics from rivers.",
+        ],
+        correct="Because microplastics are almost impossible to remove from the ocean, preventing them from entering it matters most.",
+        explanation=(
+            "El texto cierra con lo que \"is already clear\": sacarlos del mar es "
+            "casi imposible, así que la prioridad es evitar que lleguen. La "
+            "segunda opción contradice el texto (\"still know relatively little\" "
+            "sobre la salud), la tercera invierte el origen y la cuarta inventa "
+            "una solución."
+        ),
+    ),
 ]
 
 
@@ -4632,6 +5043,414 @@ _ITEMS_IELTS_ESCRITURA = [
             "repiten la idea general o dicen algo cierto que no sostiene la "
             "afirmación. Un párrafo se sostiene con el ejemplo, no con el "
             "adjetivo."
+        ),
+    ),
+    # I-3 · Sprint 4 · ampliación del banco de IELTS (de 6 a 25). Sigue siendo
+    # práctica de DECISIONES de escritura, en opción múltiple: calificar un texto
+    # libre con IA sería inventarle una nota (ver el docstring del módulo).
+    _item(
+        "ielts-writ-7",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_FUNDAMENTOS,
+        question="Which sentence is most appropriate for an academic essay?",
+        options=[
+            "A large number of people now work from home at least once a week.",
+            "Loads of people work from home these days.",
+            "Tons of people are working from home, which is awesome.",
+            "Everybody works from home now, right?",
+        ],
+        correct="A large number of people now work from home at least once a week.",
+        explanation=(
+            "El registro académico evita palabras coloquiales (\"loads\", "
+            "\"tons\", \"awesome\") y preguntas retóricas, y prefiere datos "
+            "precisos (\"at least once a week\") a exageraciones (\"everybody\"). "
+            "El criterio \"Lexical Resource\" mide justamente esto."
+        ),
+    ),
+    _item(
+        "ielts-writ-8",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "A bar chart compares coffee and tea consumption in four countries. "
+            "Coffee is higher than tea in three of them. Which sentence works "
+            "best as the overview?"
+        ),
+        options=[
+            "Overall, coffee was more popular than tea in three of the four countries.",
+            "In the first country, people drank 3 kilograms of coffee per person.",
+            "Coffee and tea are popular drinks around the world.",
+            "The chart shows coffee and tea consumption in four countries.",
+        ],
+        correct="Overall, coffee was more popular than tea in three of the four countries.",
+        explanation=(
+            "El overview resume la tendencia principal sin cifras sueltas. La "
+            "segunda es un detalle (va en el cuerpo), la tercera habla del mundo "
+            "y no del gráfico, y la cuarta solo repite el enunciado: describe el "
+            "gráfico, no lo que muestra. Sin un overview claro, el Task 1 no pasa "
+            "de cierta banda."
+        ),
+    ),
+    _item(
+        "ielts-writ-9",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "A figure rises from 20 percent to 40 percent. Which sentence "
+            "describes the change most accurately?"
+        ),
+        options=[
+            "The figure doubled, from 20 percent to 40 percent.",
+            "The figure rose slightly to 40 percent.",
+            "The figure increased by 40 percent.",
+            "The figure tripled over the period.",
+        ],
+        correct="The figure doubled, from 20 percent to 40 percent.",
+        explanation=(
+            "De 20 a 40 es el doble. \"Slightly\" subestima el cambio, y "
+            "\"increased by 40 percent\" confunde puntos porcentuales con "
+            "porcentaje: subió 20 puntos, que es un 100 % de aumento. Describir un "
+            "dato con precisión vale más que un verbo llamativo."
+        ),
+    ),
+    _item(
+        "ielts-writ-10",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Task prompt: “Many people believe that the internet has made it "
+            "easier to learn new skills.”\n\n"
+            "Which sentence is the best paraphrase to open your answer?"
+        ),
+        options=[
+            "It is often argued that online resources have made acquiring new abilities simpler.",
+            "Many people believe that the internet has made it easier to learn new skills.",
+            "The internet is a very important invention.",
+            "I think learning is good for everyone.",
+        ],
+        correct="It is often argued that online resources have made acquiring new abilities simpler.",
+        explanation=(
+            "Parafrasear es decir lo mismo con otras palabras y otra estructura. "
+            "La segunda copia el enunciado palabra por palabra, y el examinador "
+            "no cuenta las palabras copiadas. Las otras dos se salen del tema o "
+            "dan una opinión antes de presentar la pregunta."
+        ),
+    ),
+    _item(
+        "ielts-writ-11",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Choose the best linking phrase.\n\n"
+            "Cycling to work is cheap. ______, it is good for your health."
+        ),
+        options=["In addition", "However", "As a result", "For example"],
+        correct="In addition",
+        explanation=(
+            "Las dos oraciones nombran ventajas de la bicicleta: la segunda SUMA. "
+            "\"However\" anunciaría una desventaja, \"as a result\" diría que es "
+            "sano PORQUE es barato, y \"for example\" presentaría un caso de lo "
+            "anterior. Los conectores bien usados suman en \"Coherence and "
+            "Cohesion\"."
+        ),
+    ),
+    _item(
+        "ielts-writ-12",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Which sentence works best as the conclusion of an essay arguing that "
+            "public libraries are still valuable?"
+        ),
+        options=[
+            "In conclusion, although fewer people borrow books, libraries remain valuable as free public spaces for learning.",
+            "In conclusion, there are many libraries in the world.",
+            "In conclusion, I will now discuss the history of libraries.",
+            "In conclusion, some people like libraries and some do not.",
+        ],
+        correct="In conclusion, although fewer people borrow books, libraries remain valuable as free public spaces for learning.",
+        explanation=(
+            "La conclusión repite la postura del ensayo y su razón principal. La "
+            "segunda no dice nada, la tercera abre un tema nuevo (una conclusión "
+            "nunca lo hace) y la cuarta deja el ensayo sin postura, que es lo "
+            "que el \"Task Response\" penaliza."
+        ),
+    ),
+    _item(
+        "ielts-writ-13",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_FUNDAMENTOS,
+        question=(
+            "Which sentence best continues this one without repeating the word "
+            "“increase”?\n\n"
+            "“The number of visitors increased sharply in 2019.”"
+        ),
+        options=[
+            "This upward trend continued in 2020.",
+            "The number of visitors increased again in 2020.",
+            "There was an increase in the increase in 2020.",
+            "Visitors increased and increased in 2020.",
+        ],
+        correct="This upward trend continued in 2020.",
+        explanation=(
+            "\"This upward trend\" retoma la idea anterior sin repetir la palabra. "
+            "Las otras opciones repiten \"increase\" una o varias veces. Variar el "
+            "vocabulario sin perder precisión es lo que separa una banda 6 de una "
+            "7 en el criterio de vocabulario."
+        ),
+    ),
+    _item(
+        "ielts-writ-14",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "In 2020, Country A produced 30 tonnes of rice and Country B produced "
+            "10 tonnes. Which comparison is accurate?"
+        ),
+        options=[
+            "Country A produced three times as much rice as Country B.",
+            "Country A produced twice as much rice as Country B.",
+            "Country A produced 30 percent more rice than Country B.",
+            "Country B produced slightly less rice than Country A.",
+        ],
+        correct="Country A produced three times as much rice as Country B.",
+        explanation=(
+            "30 es tres veces 10. \"Twice\" y \"30 percent more\" están mal "
+            "calculadas, y \"slightly less\" subestima una diferencia enorme. "
+            "Las estructuras de comparación (\"three times as much as\") son de "
+            "las más útiles del Task 1."
+        ),
+    ),
+    _item(
+        "ielts-writ-15",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Which sentence is the best topic sentence for a body paragraph about "
+            "the benefits of public transport?"
+        ),
+        options=[
+            "One major advantage of public transport is that it reduces traffic congestion.",
+            "Buses in my city are usually painted blue.",
+            "Public transport has existed for more than a century.",
+            "Some people prefer to drive their own cars.",
+        ],
+        correct="One major advantage of public transport is that it reduces traffic congestion.",
+        explanation=(
+            "La oración temática anuncia de qué trata el párrafo: aquí, una "
+            "ventaja concreta. La segunda es un detalle sin importancia, la "
+            "tercera es historia y la cuarta habla del punto de vista contrario. "
+            "Un párrafo con una idea clara al comienzo es más fácil de seguir."
+        ),
+    ),
+    _item(
+        "ielts-writ-16",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A survey of 50 students found that most preferred online classes. "
+            "Which sentence makes the most appropriate claim?"
+        ),
+        options=[
+            "The survey suggests that many students may prefer online classes.",
+            "The survey proves that all students prefer online classes.",
+            "Online classes are definitely better than face-to-face classes.",
+            "Every student in the world prefers online classes.",
+        ],
+        correct="The survey suggests that many students may prefer online classes.",
+        explanation=(
+            "Con 50 estudiantes no se puede \"probar\" nada para todos. El inglés "
+            "académico usa verbos prudentes (\"suggests\", \"may\") para no "
+            "afirmar más de lo que los datos permiten. \"Proves\", \"definitely\" "
+            "y \"every student\" son exageraciones."
+        ),
+    ),
+    _item(
+        "ielts-writ-17",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A diagram shows how recycled paper is produced. Which sentence best "
+            "describes the first stage?"
+        ),
+        options=[
+            "First, used paper is collected and sorted.",
+            "First, people collect and sort used paper.",
+            "First, used paper collecting and sorting.",
+            "First, I collect and sort used paper.",
+        ],
+        correct="First, used paper is collected and sorted.",
+        explanation=(
+            "En los diagramas de proceso importa qué le pasa al material, no "
+            "quién lo hace: voz pasiva (\"is collected and sorted\"). La segunda "
+            "es correcta pero menos adecuada, la tercera no tiene verbo y la "
+            "cuarta usa la primera persona, que no corresponde."
+        ),
+    ),
+    _item(
+        "ielts-writ-18",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_INTERMEDIO,
+        question="Which sentence best introduces an opposing view in an argument essay?",
+        options=[
+            "Opponents argue, however, that this policy would be too expensive to implement.",
+            "However, I am right.",
+            "Some people disagree, but they are wrong.",
+            "On the other hand, there is the other hand.",
+        ],
+        correct="Opponents argue, however, that this policy would be too expensive to implement.",
+        explanation=(
+            "Presentar el punto de vista contrario con respeto, y con su razón "
+            "(\"too expensive\"), muestra un ensayo equilibrado; después se "
+            "responde. Descalificarlo (\"they are wrong\") o no decir nada "
+            "concreto resta puntos en \"Task Response\"."
+        ),
+    ),
+    _item(
+        "ielts-writ-19",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "Which sentence is relevant to the question “Should university "
+            "education be free?”"
+        ),
+        options=[
+            "Free tuition could allow talented students from poor families to study.",
+            "My cousin studied history at university.",
+            "Universities often have large libraries.",
+            "Many students enjoy living in student halls.",
+        ],
+        correct="Free tuition could allow talented students from poor families to study.",
+        explanation=(
+            "Solo la primera responde a la pregunta (el costo y quién puede "
+            "estudiar). Las otras hablan de universidades pero no de si deberían "
+            "ser gratuitas. Salirse del tema es la forma más rápida de perder "
+            "puntos en \"Task Response\"."
+        ),
+    ),
+    _item(
+        "ielts-writ-20",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_INTERMEDIO,
+        question=(
+            "A figure is 49.7 percent. Which expression describes it most "
+            "naturally and accurately?"
+        ),
+        options=["almost half", "exactly half", "well over half", "around a third"],
+        correct="almost half",
+        explanation=(
+            "49,7 % está apenas por debajo de la mitad: \"almost half\" (casi la "
+            "mitad). \"Exactly half\" es impreciso y \"well over half\" dice lo "
+            "contrario. Traducir cifras a expresiones (\"almost half\", \"just over "
+            "a quarter\") hace el texto más natural sin perder precisión."
+        ),
+    ),
+    _item(
+        "ielts-writ-21",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "The task says: “Discuss both views and give your own opinion.” "
+            "Which sentence is the best thesis?"
+        ),
+        options=[
+            "Although some believe that exams are the fairest way to assess students, I would argue that coursework gives a more complete picture, provided it is carefully supervised.",
+            "There are two views about exams and coursework.",
+            "This essay will discuss exams.",
+            "Exams and coursework both have advantages and disadvantages.",
+        ],
+        correct="Although some believe that exams are the fairest way to assess students, I would argue that coursework gives a more complete picture, provided it is carefully supervised.",
+        explanation=(
+            "La tarea pide dos cosas: las dos posturas Y tu opinión. Solo la "
+            "primera hace ambas: nombra la postura contraria, da la propia y la "
+            "matiza (\"provided…\"). Las demás anuncian el tema sin tomar postura, "
+            "que es justo lo que la consigna pide evitar."
+        ),
+    ),
+    _item(
+        "ielts-writ-22",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Which sentence expresses a contrast in the most sophisticated way?"
+        ),
+        options=[
+            "While technology has made communication faster, it has arguably made it more superficial.",
+            "Technology makes communication faster. But it is more superficial.",
+            "Technology is fast and communication is superficial.",
+            "Technology good, communication bad.",
+        ],
+        correct="While technology has made communication faster, it has arguably made it more superficial.",
+        explanation=(
+            "Una oración compleja con \"while\" une las dos ideas y muestra el "
+            "contraste, y \"arguably\" matiza la afirmación. La segunda es "
+            "correcta pero simple (dos oraciones cortas); las otras pierden la "
+            "relación entre las ideas. El criterio de gramática premia la "
+            "variedad de estructuras bien usadas."
+        ),
+    ),
+    _item(
+        "ielts-writ-23",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "Which sentence best supports the claim “Learning a second language "
+            "improves job prospects”?"
+        ),
+        options=[
+            "In a survey of employers, a majority said they prefer candidates who speak more than one language, particularly for roles involving international clients.",
+            "Learning a language can be difficult.",
+            "There are thousands of languages in the world.",
+            "Many people enjoy travelling abroad.",
+        ],
+        correct="In a survey of employers, a majority said they prefer candidates who speak more than one language, particularly for roles involving international clients.",
+        explanation=(
+            "Solo la primera da evidencia que conecta el idioma con el empleo, y "
+            "además dice en qué tipo de puesto pesa más. Las otras son ciertas "
+            "pero no sostienen la afirmación. Un buen párrafo pasa de la idea "
+            "general a un apoyo concreto."
+        ),
+    ),
+    _item(
+        "ielts-writ-24",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_AVANZADO,
+        question="Which sentence avoids overgeneralising?",
+        options=[
+            "Many young people spend several hours a day on social media.",
+            "All young people are addicted to social media.",
+            "Young people never read books any more.",
+            "Social media has completely destroyed young people's social lives.",
+        ],
+        correct="Many young people spend several hours a day on social media.",
+        explanation=(
+            "\"All\", \"never\" y \"completely\" afirman algo que un solo "
+            "contraejemplo derrumba. \"Many\" y \"several hours\" describen sin "
+            "exagerar. El examinador penaliza las generalizaciones absolutas porque "
+            "debilitan el argumento."
+        ),
+    ),
+    _item(
+        "ielts-writ-25",
+        habilidad="ielts_escritura",
+        nivel=NIVEL_AVANZADO,
+        question=(
+            "A line graph shows the populations of three cities from 1990 to "
+            "2020: one grew steadily, one stayed roughly flat, and one fell after "
+            "2005. Which detail is LEAST important to include in the overview?"
+        ),
+        options=[
+            "The exact population of the second city in 1997",
+            "That one city grew steadily over the period",
+            "That one city's population fell after 2005",
+            "That one city stayed roughly the same",
+        ],
+        correct="The exact population of the second city in 1997",
+        explanation=(
+            "El overview recoge las tendencias principales, una por ciudad. Una "
+            "cifra de un año suelto es un detalle que, si hace falta, va en el "
+            "cuerpo. Elegir las características clave es la primera habilidad "
+            "que evalúa el Task 1."
         ),
     ),
 ]

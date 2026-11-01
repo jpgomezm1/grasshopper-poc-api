@@ -36,23 +36,43 @@ class DocumentAIError(RuntimeError):
     """El modelo no devolvió nada utilizable."""
 
 
-def call_claude_messages(messages: list) -> tuple[str, dict]:
+def _parametros_del_modelo(modelo: str) -> dict:
+    """Lo que cambia según la generación del modelo.
+
+    Los modelos de la familia 4 aceptan `temperature=0`, y aquí se usa a
+    propósito: esto es extracción, no redacción, y con temperatura alta el mismo
+    diploma daría dos lecturas distintas. Claude Haiku 5.5 devuelve 400 con una
+    temperatura distinta de la de por defecto (H-3).
+
+    Con Haiku el razonamiento va ENCENDIDO, con esfuerzo bajo. Se midió en las 12
+    muestras de `golden_expected.json`: apagado, acertaba 10 u 11 de 12 según la
+    corrida (a veces devolvía JSON con texto pegado, o un puntaje fuera de
+    tolerancia); encendido con esfuerzo bajo, 12 de 12 en todas las corridas,
+    igual que Sonnet 4.5, a una fracción del costo.
+    """
+    if modelo.startswith("claude-haiku-5"):
+        return {"thinking": {"type": "adaptive"}, "output_config": {"effort": "low"}}
+    return {"temperature": 0}
+
+
+def call_claude_messages(messages: list, *, model: Optional[str] = None) -> tuple[str, dict]:
     """Llama a Claude (texto o visión) y devuelve ``(texto, metadata)``.
 
-    `temperature=0` a propósito: esto es extracción, no redacción. Con
-    temperatura alta el mismo diploma daría dos lecturas distintas.
+    `model` permite que un caso use otro modelo (el parser de reportes usa el de
+    extracción, H-3). Sin él, el de siempre.
     """
     settings = get_settings()
+    modelo = model or settings.ai_model
     client = get_client().with_options(timeout=120.0, max_retries=2)
     start = time.time()
     response = client.messages.create(
-        model=settings.ai_model,
+        model=modelo,
         max_tokens=settings.ai_max_tokens or 1500,
-        temperature=0,
         messages=messages,
+        **_parametros_del_modelo(modelo),
     )
     meta: dict = {
-        "model": settings.ai_model,
+        "model": modelo,
         "latency_ms": int((time.time() - start) * 1000),
     }
     usage = getattr(response, "usage", None)
@@ -71,7 +91,7 @@ def call_claude_messages(messages: list) -> tuple[str, dict]:
 
 
 def call_claude_vision(
-    prompt_text: str, image_bytes: bytes, image_mime: str
+    prompt_text: str, image_bytes: bytes, image_mime: str, *, model: Optional[str] = None
 ) -> tuple[str, dict]:
     """Claude con una imagen adjunta · para lo que no tiene capa de texto."""
     b64 = base64.standard_b64encode(image_bytes).decode("ascii")
@@ -91,10 +111,11 @@ def call_claude_vision(
                     {"type": "text", "text": prompt_text},
                 ],
             }
-        ]
+        ],
+        model=model,
     )
 
 
-def call_claude_text(prompt_text: str) -> tuple[str, dict]:
+def call_claude_text(prompt_text: str, *, model: Optional[str] = None) -> tuple[str, dict]:
     """Sólo texto · el camino barato, cuando el PDF sí tiene capa de texto."""
-    return call_claude_messages([{"role": "user", "content": prompt_text}])
+    return call_claude_messages([{"role": "user", "content": prompt_text}], model=model)

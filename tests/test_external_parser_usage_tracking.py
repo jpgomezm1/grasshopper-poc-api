@@ -47,7 +47,7 @@ def test_parse_propagates_usage_on_success(monkeypatch):
         parser, "extract_text_from_upload",
         lambda *a, **k: ("texto extraido del pdf", {"has_text_layer": True}),
     )
-    monkeypatch.setattr(parser, "_call_claude_text", lambda prompt: (_ENVELOPE, dict(_META)))
+    monkeypatch.setattr(parser, "_call_claude_text", lambda prompt, **_: (_ENVELOPE, dict(_META)))
 
     outcome = parser.parse_external_test(
         test_type="mbti", file_bytes=b"x",

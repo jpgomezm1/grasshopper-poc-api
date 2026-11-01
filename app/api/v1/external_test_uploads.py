@@ -74,6 +74,55 @@ MAX_SIZE_BYTES = 10 * 1024 * 1024  # 10MB
 # Helpers
 # -----------------------------------------------------------------------------
 
+# H-3 · Sprint 4 · cómo se llama cada test en el aviso al estudiante.
+_NOMBRE_TEST = {"mbti": "MBTI", "istrong": "iStrong", "big5": "Big Five", "riasec": "Holland (RIASEC)"}
+
+
+def _avisar_que_termino(db: DBSession, upload: ExternalTestUpload) -> None:
+    """Notificación en la app cuando termina la lectura · H-3, Sprint 4.
+
+    Verónica: "cuando le subo reportes de exámenes se demora mucho". La lectura
+    corre en segundo plano, pero la pantalla obligaba a quedarse mirándola. Con
+    el aviso la persona puede seguir usando la plataforma: la campana la lleva
+    de vuelta a revisar y confirmar. Best-effort: nunca rompe la lectura.
+    """
+    try:
+        from app.services.notifications_service import create_notification
+
+        nombre = _NOMBRE_TEST.get(upload.test_type, "tu test")
+        if upload.parsing_status == "failed":
+            titulo = f"No pudimos leer tu reporte de {nombre}"
+            cuerpo = "Puedes reintentarlo o subirlo como imagen."
+        else:
+            titulo = f"Tu reporte de {nombre} está listo"
+            cuerpo = "Revísalo y confírmalo para sumarlo a tu perfil."
+        create_notification(
+            db,
+            user_id=upload.user_id,
+            type="carga_externa.lista",
+            title=titulo,
+            body=cuerpo,
+            data={"upload_id": str(upload.id), "navigate_to": f"/tests/upload?upload={upload.id}"},
+        )
+    except Exception:  # noqa: BLE001
+        logger.warning("no se pudo avisar del fin de la carga %s", upload.id, exc_info=True)
+
+
+def _confirmados(db: DBSession, ids: List[uuid.UUID]) -> set:
+    """Qué cargas ya confirmó la persona (quedó un resultado de test enlazado).
+
+    `parsing_status` no lo distingue: confirmar también lo deja en "done".
+    """
+    if not ids:
+        return set()
+    filas = (
+        db.query(VocationalTestResult.external_upload_id)
+        .filter(VocationalTestResult.external_upload_id.in_(ids))
+        .all()
+    )
+    return {f[0] for f in filas}
+
+
 def _serialize(upload: ExternalTestUpload) -> dict:
     return {
         "id": upload.id,
@@ -195,6 +244,7 @@ def _run_parse_task(upload_id: str) -> None:
             upload.parser_version = outcome.result.parser_version
 
         db.commit()
+        _avisar_que_termino(db, upload)
         logger.info(
             "parse_task complete id=%s status=%s",
             upload_id,
@@ -320,7 +370,8 @@ def list_uploads(
         .order_by(ExternalTestUpload.uploaded_at.desc())
         .all()
     )
-    return [_serialize_detail(r) for r in rows]
+    confirmados = _confirmados(db, [r.id for r in rows])
+    return [{**_serialize_detail(r), "confirmado": r.id in confirmados} for r in rows]
 
 
 @router.get("/{upload_id}")
@@ -335,7 +386,7 @@ def get_upload(
     if not upload:
         raise HTTPException(status_code=404, detail="Upload not found")
     _ensure_owner(upload, current_user)
-    return _serialize_detail(upload)
+    return {**_serialize_detail(upload), "confirmado": bool(_confirmados(db, [upload.id]))}
 
 
 @router.post("/{upload_id}/parse")

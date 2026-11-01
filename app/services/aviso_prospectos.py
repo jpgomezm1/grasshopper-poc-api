@@ -145,7 +145,8 @@ def avisar_caliente(db: DBSession, lead: BotConversation) -> bool:
                 type="prospecto.caliente",
                 title=f"Prospecto caliente: {p.nombre or 'sin nombre'}",
                 body=" · ".join(x for x in (p.quien, p.etapa, p.cuando) if x) or None,
-                data={"fuente": p.fuente, "id": p.id, "ruta": "/gh/prospectos"},
+                # `navigate_to`: es la clave que lee la campana (NotificationBell).
+                data={"fuente": p.fuente, "id": p.id, "navigate_to": "/gh/prospectos"},
                 commit=False,
             )
         db.commit()

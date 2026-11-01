@@ -46,7 +46,7 @@ def _run_parse(monkeypatch, test_type, payload):
         lambda *a, **k: ("texto del documento", {"has_text_layer": True}),
     )
     envelope = json.dumps({"payload": payload, "confidence": 0.9})
-    monkeypatch.setattr(parser, "_call_claude_text", lambda prompt: (envelope, {"model": "m"}))
+    monkeypatch.setattr(parser, "_call_claude_text", lambda prompt, **_: (envelope, {"model": "m"}))
     return parser.parse_external_test(
         test_type=test_type, file_bytes=b"x",
         content_type="application/pdf", filename="t.pdf",

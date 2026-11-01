@@ -29,6 +29,9 @@ _COSTS_PER_1K = {
     # Fase C2 (2026-06-12) · modelo actual (settings.ai_model) · mismo precio
     # que 4-5: $3/$15 por millón de tokens.
     "claude-sonnet-4-6": (0.003, 0.015),
+    # H-3 (2026-10-31) · modelo de extracción del parser de reportes externos
+    # (settings.ai_model_extraccion): $0.10/$0.50 por millón de tokens.
+    "claude-haiku-5-5": (0.0001, 0.0005),
     # OpenAI
     "gpt-4o-mini": (0.00015, 0.0006),
     "gpt-4o": (0.005, 0.015),

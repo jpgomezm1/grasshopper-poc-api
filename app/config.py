@@ -55,6 +55,13 @@ class Settings(BaseSettings):
     # rechaza de nuestro uso) y solo enviamos temperature (no top_p).
     # .env puede seguir sobreescribiendo AI_MODEL para experimentación.
     ai_model: str = "claude-sonnet-4-6"
+    # H-3 · Sprint 4 · modelo para EXTRAER puntajes de un reporte externo (PDF de
+    # iStrong, MBTI, Big 5, RIASEC) a JSON. Es una tarea mecánica: no necesita el
+    # modelo de redacción, y con reportes largos ese era el cuello de botella
+    # ("cuando le subo reportes de exámenes se demora mucho"). Se adoptó porque
+    # acierta lo mismo que el anterior en las 12 muestras de
+    # `samples/external-tests/golden_expected.json` (ver el test).
+    ai_model_extraccion: str = "claude-haiku-5-5"
     ai_max_tokens: int = 1024
     ai_temperature: float = 0.7
 

@@ -109,7 +109,20 @@ def _extract_json(text: str) -> dict:
         except json.JSONDecodeError:
             pass
 
-    # 3) Greedy: first { ... last }
+    # 3) El primer objeto JSON completo, ignorando lo que venga después (H-3).
+    #    Con el modelo de extracción a veces llega el JSON bien y, debajo, una
+    #    nota o un segundo bloque: el paso 4 (de la primera { a la última })
+    #    se tragaba esa cola y fallaba aunque los puntajes estuvieran bien.
+    first = text.find("{")
+    if first != -1:
+        try:
+            objeto, _ = json.JSONDecoder().raw_decode(text[first:])
+            if isinstance(objeto, dict):
+                return objeto
+        except json.JSONDecodeError:
+            pass
+
+    # 4) Greedy: first { ... last }
     first = text.find("{")
     last = text.rfind("}")
     if first != -1 and last != -1 and last > first:
@@ -176,12 +189,18 @@ def parse_external_test(
         raw_text or "(no extractable text · use the attached image)",
     )
 
+    # 3) Call Claude · con el modelo de EXTRACCIÓN (H-3, Sprint 4): sacar puntajes
+    # de un reporte es mecánico, y con reportes largos el modelo de redacción era
+    # lo que hacía esperar. Ver `ai_model_extraccion` en config.
+    from app.config import get_settings
+
+    modelo = get_settings().ai_model_extraccion
     # 3) Call Claude
     usage_meta: Optional[dict] = None
     try:
         if use_vision and is_image(content_type, filename):
             raw_response, usage_meta = _call_claude_vision(
-                prompt_text, file_bytes, content_type or "image/png"
+                prompt_text, file_bytes, content_type or "image/png", model=modelo
             )
         elif use_vision:
             # PDF without text layer · we'd ideally render to image and send.
@@ -198,9 +217,9 @@ def parse_external_test(
                         "available in S5 dev · upload as image (PNG/JPG) instead"
                     ),
                 )
-            raw_response, usage_meta = _call_claude_text(prompt_text)
+            raw_response, usage_meta = _call_claude_text(prompt_text, model=modelo)
         else:
-            raw_response, usage_meta = _call_claude_text(prompt_text)
+            raw_response, usage_meta = _call_claude_text(prompt_text, model=modelo)
     except Exception as exc:  # pragma: no cover - network errors
         logger.warning("claude call failed test_type=%s err=%s", test_type, exc)
         return ParseOutcome(

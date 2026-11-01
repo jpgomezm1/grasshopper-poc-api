@@ -78,6 +78,20 @@ TEXTOS: Dict[str, str] = {
         "• Libros de referencia (diccionarios, enciclopedias): solo se consultan "
         "en la sala."
     ),
+    # Tanda 3 · el único texto en inglés: la prueba de inglés se presenta en inglés.
+    "s11_coffee_trip": (
+        "Hi Daniel,\n\n"
+        "Thanks for your message! The school trip to the coffee farm was amazing. "
+        "We left at six in the morning, so I was very sleepy on the bus. When we "
+        "arrived, a farmer showed us how coffee grows, from the flower to the red "
+        "fruit. We also picked some fruit ourselves, but it was harder than I "
+        "expected because the plants grow on steep hills. In the afternoon it "
+        "started to rain, so we couldn't visit the river. I'm a bit sad about "
+        "that, but the teacher says we can go back next year. I bought a small bag "
+        "of coffee for my parents.\n\n"
+        "See you on Monday,\n"
+        "Laura"
+    ),
 }
 
 
@@ -1264,4 +1278,274 @@ def construir(item: Callable[..., Dict[str, Any]], F: str, I: str, A: str) -> Li
         ),
     ]
 
-    return [*lectura, *matematicas, *sociales, *ciencias]
+    # --- Inglés (tanda 3) ---------------------------------------------------
+    # Enunciados en inglés (la prueba se presenta en inglés) y explicaciones en
+    # español, como el resto del banco. Distintos de los del Pre IELTS: aquí el
+    # nivel es el de un bachiller, con avisos, vocabulario cotidiano, gramática
+    # en contexto y un texto corto.
+    ingles = [
+        item(
+            "s11-ing-1", habilidad="s11_ingles", nivel=F,
+            question="What does this sign mean?\n\nNO FOOD OR DRINKS IN THE LAB",
+            options=[
+                "You can't eat or drink in the lab.",
+                "You can buy food in the lab.",
+                "The lab sells drinks.",
+                "You must bring food to the lab.",
+            ],
+            correct="You can't eat or drink in the lab.",
+            explanation=(
+                "«NO FOOD OR DRINKS» es una prohibición: no se puede comer ni beber. "
+                "Las otras opciones reconocen las palabras «food» y «drinks», pero "
+                "ignoran el «NO», que es lo que cambia todo el sentido."
+            ),
+        ),
+        item(
+            "s11-ing-2", habilidad="s11_ingles", nivel=F,
+            question="What does this sign mean?\n\nPLEASE KEEP THE DOOR CLOSED",
+            options=[
+                "Don't leave the door open.",
+                "The door is broken.",
+                "Knock before you open the door.",
+                "The door is always open.",
+            ],
+            correct="Don't leave the door open.",
+            explanation=(
+                "«Keep the door closed» es «mantén la puerta cerrada», o sea, no la dejes "
+                "abierta. El aviso no dice que esté dañada ni pide tocar antes de entrar."
+            ),
+        ),
+        item(
+            "s11-ing-3", habilidad="s11_ingles", nivel=F,
+            question="Where would you see this sign?\n\nCAUTION: WET FLOOR",
+            options=[
+                "In a place where the floor was just cleaned.",
+                "At a swimming competition, to announce the winner.",
+                "In a shop that sells floors.",
+                "At the entrance of a library, to ask for silence.",
+            ],
+            correct="In a place where the floor was just cleaned.",
+            explanation=(
+                "«Wet floor» es «piso mojado», y «caution», «cuidado»: avisa que te puedes "
+                "resbalar, por ejemplo después de trapear. «Wet» se asocia con agua y por "
+                "eso la competencia de natación es la trampa, pero el aviso habla del "
+                "piso."
+            ),
+        ),
+        item(
+            "s11-ing-4", habilidad="s11_ingles", nivel=F,
+            question="Where can you borrow books for free?",
+            options=["In a library", "In a bookshop", "In a bakery", "In a pharmacy"],
+            correct="In a library",
+            explanation=(
+                "«Library» es biblioteca, donde se prestan libros. «Bookshop» es librería, "
+                "donde se compran: es un falso amigo clásico, porque «library» se parece "
+                "a «librería» y no significa lo mismo."
+            ),
+        ),
+        item(
+            "s11-ing-5", habilidad="s11_ingles", nivel=F,
+            question="Choose the correct option.\n\nMy sister ______ to school by bike every day.",
+            options=["goes", "go", "going", "gone"],
+            correct="goes",
+            explanation=(
+                "Con «my sister» (she) en presente simple, el verbo lleva -s: «goes». "
+                "«Every day» confirma que es una rutina, así que es presente simple. "
+                "«Going» y «gone» necesitarían un auxiliar."
+            ),
+        ),
+        item(
+            "s11-ing-6", habilidad="s11_ingles", nivel=F,
+            question="Choose the correct option.\n\nThere ______ two apples on the table.",
+            options=["are", "is", "be", "am"],
+            correct="are",
+            explanation=(
+                "«There are» va con plural (two apples); «there is», con singular (an "
+                "apple). En español se dice «hay» en los dos casos, y por eso se "
+                "confunden."
+            ),
+        ),
+        item(
+            "s11-ing-7", habilidad="s11_ingles", nivel=F,
+            question="Choose the best word.\n\nMy uncle is a ______. He works in a hospital and takes care of sick people.",
+            options=["nurse", "pilot", "farmer", "chef"],
+            correct="nurse",
+            explanation=(
+                "La segunda frase da la pista: trabaja en un hospital y cuida enfermos. "
+                "«Nurse» es enfermero o enfermera. Los demás son piloto, agricultor y "
+                "cocinero."
+            ),
+        ),
+        item(
+            "s11-ing-8", habilidad="s11_ingles", nivel=I,
+            question="Choose the correct option.\n\nYesterday we ______ a movie at home.",
+            options=["watched", "watch", "watching", "will watch"],
+            correct="watched",
+            explanation=(
+                "«Yesterday» marca el pasado: «watched». «Will watch» es futuro y "
+                "choca con «yesterday». Las palabras de tiempo (yesterday, tomorrow, "
+                "every day) casi siempre deciden la respuesta."
+            ),
+        ),
+        item(
+            "s11-ing-9", habilidad="s11_ingles", nivel=I,
+            question="Choose the correct option.\n\nThis exercise is ______ than the last one.",
+            options=["easier", "more easy", "easiest", "easy"],
+            correct="easier",
+            explanation=(
+                "Con «than» va comparativo. «Easy» es corto, así que se forma con -er "
+                "(y la y cambia a i): «easier». «More easy» mezcla las dos formas, y "
+                "«easiest» es superlativo, que no va con «than»."
+            ),
+        ),
+        item(
+            "s11-ing-10", habilidad="s11_ingles", nivel=I,
+            question="Choose the correct option.\n\nOur English class starts ______ seven o'clock.",
+            options=["at", "in", "on", "for"],
+            correct="at",
+            explanation=(
+                "Para una hora exacta se usa «at» (at seven o'clock). «In» va con meses y "
+                "años (in May), y «on» con días (on Monday). En español todo es «a» o "
+                "«en», por eso cuesta."
+            ),
+        ),
+        item(
+            "s11-ing-11", habilidad="s11_ingles", nivel=I,
+            question="Choose the correct option.\n\nI ______ never been to the beach.",
+            options=["have", "has", "am", "did"],
+            correct="have",
+            explanation=(
+                "«Been» pide el auxiliar «have» o «has» (present perfect). Con «I» es «have»; «has» "
+                "es para he, she o it. «Am» y «did» no forman este tiempo."
+            ),
+        ),
+        item(
+            "s11-ing-12", habilidad="s11_ingles", nivel=I,
+            question="Choose the best word.\n\nI'm really tired, so I'm going to bed ______ tonight.",
+            options=["early", "late", "slowly", "loudly"],
+            correct="early",
+            explanation=(
+                "«So» indica consecuencia: si estoy cansado, me acuesto temprano "
+                "(«early»). «Late» dice lo contrario de lo que el cansancio sugiere, y "
+                "«slowly» y «loudly» no tienen relación con la idea."
+            ),
+        ),
+        item(
+            "s11-ing-13", habilidad="s11_ingles", nivel=I, passage="s11_coffee_trip",
+            question="What was difficult about picking the coffee fruit?",
+            options=[
+                "The plants grow on steep hills.",
+                "The fruit was green.",
+                "It was raining all morning.",
+                "The farmer didn't help them.",
+            ],
+            correct="The plants grow on steep hills.",
+            explanation=(
+                "Laura dice que fue más difícil de lo que esperaba «because the plants "
+                "grow on steep hills» (en lomas empinadas). La lluvia llegó en la tarde, "
+                "no en la mañana, y el texto dice que el fruto es rojo."
+            ),
+        ),
+        item(
+            "s11-ing-14", habilidad="s11_ingles", nivel=I, passage="s11_coffee_trip",
+            question="Why didn't the class visit the river?",
+            options=[
+                "Because it started to rain.",
+                "Because they were too tired.",
+                "Because the bus left early.",
+                "Because the teacher was sick.",
+            ],
+            correct="Because it started to rain.",
+            explanation=(
+                "«In the afternoon it started to rain, so we couldn't visit the river»: "
+                "«so» une la causa (la lluvia) con la consecuencia (no ir al río). El "
+                "cansancio aparece en el texto, pero en el bus, por la mañana."
+            ),
+        ),
+        item(
+            "s11-ing-15", habilidad="s11_ingles", nivel=A, passage="s11_coffee_trip",
+            question="In «I'm a bit sad about that», what does «that» refer to?",
+            options=[
+                "Not visiting the river",
+                "Picking the coffee fruit",
+                "Buying coffee for her parents",
+                "Leaving at six in the morning",
+            ],
+            correct="Not visiting the river",
+            explanation=(
+                "«That» retoma lo que se acaba de decir: que no pudieron ir al río. "
+                "Después Laura dice que pueden volver el próximo año, lo que confirma "
+                "que le dio tristeza perderse esa parte. Las palabras como «that» o «it» "
+                "casi siempre se refieren a la idea inmediatamente anterior."
+            ),
+        ),
+        item(
+            "s11-ing-16", habilidad="s11_ingles", nivel=A, passage="s11_coffee_trip",
+            question="What can we infer about the trip?",
+            options=[
+                "Laura enjoyed it, even though not everything went as planned.",
+                "Laura didn't like the trip at all.",
+                "The class visited the river in the afternoon.",
+                "Laura's parents went on the trip too.",
+            ],
+            correct="Laura enjoyed it, even though not everything went as planned.",
+            explanation=(
+                "Dice que fue «amazing», pero que no pudieron ir al río: le gustó, aunque "
+                "no todo salió como se esperaba. La segunda opción contradice «amazing», "
+                "la tercera contradice lo de la lluvia, y los papás no fueron (les llevó "
+                "café)."
+            ),
+        ),
+        item(
+            "s11-ing-17", habilidad="s11_ingles", nivel=A, passage="s11_coffee_trip",
+            question="Which statement is TRUE according to the email?",
+            options=[
+                "A farmer explained how coffee grows.",
+                "Laura bought coffee for her teacher.",
+                "The class left at six in the evening.",
+                "The teacher said they can never go back.",
+            ],
+            correct="A farmer explained how coffee grows.",
+            explanation=(
+                "«A farmer showed us how coffee grows». Cada una de las otras cambia un "
+                "detalle del texto: el café era para sus papás, salieron a las seis de la "
+                "mañana y la profesora dijo que sí pueden volver. Esta pregunta premia "
+                "leer los detalles."
+            ),
+        ),
+        item(
+            "s11-ing-18", habilidad="s11_ingles", nivel=A,
+            question="Choose the correct option.\n\nIf it rains tomorrow, we ______ the trip.",
+            options=["will cancel", "would cancel", "cancelled", "cancelling"],
+            correct="will cancel",
+            explanation=(
+                "Es una condición posible en el futuro («if it rains tomorrow»): «if» + "
+                "presente, y en la otra parte «will». «Would cancel» es para algo "
+                "hipotético («if it rained…»), y las otras dos no completan la oración."
+            ),
+        ),
+        item(
+            "s11-ing-19", habilidad="s11_ingles", nivel=A,
+            question="Choose the correct option.\n\nThis bridge ______ in 1950.",
+            options=["was built", "built", "is build", "has build"],
+            correct="was built",
+            explanation=(
+                "El puente no construyó nada: lo construyeron. Eso es voz pasiva: «was» + "
+                "participio («built»). «Built» solo diría que el puente construyó algo, y "
+                "«is build» y «has build» usan el verbo sin participio."
+            ),
+        ),
+        item(
+            "s11-ing-20", habilidad="s11_ingles", nivel=A,
+            question="Choose the correct option.\n\nThe girl ______ won the science prize is my cousin.",
+            options=["who", "which", "where", "whose"],
+            correct="who",
+            explanation=(
+                "Para una persona que hace la acción (ella ganó el premio) se usa «who». "
+                "«Which» es para cosas, «where» para lugares, y «whose» indica posesión "
+                "(«the girl whose brother…»)."
+            ),
+        ),
+    ]
+
+    return [*lectura, *matematicas, *sociales, *ciencias, *ingles]

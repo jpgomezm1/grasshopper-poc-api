@@ -319,9 +319,16 @@ HABILIDADES: List[Dict[str, Any]] = [
         ),
         "dependsOnEnglish": False,
     },
-    # s11_ingles se suma con sus ejercicios (tanda 3): una habilidad sin
-    # ejercicios rompe la regla de que todas tienen los tres niveles
-    # (`test_cada_habilidad_tiene_ejercicios…`).
+    {
+        "id": "s11_ingles",
+        "exam": EXAMEN_SABER11,
+        "name": "Inglés",
+        "description": (
+            "Avisos cortos, vocabulario, gramática en contexto y comprensión de "
+            "textos breves, en inglés."
+        ),
+        "dependsOnEnglish": True,
+    },
 ]
 
 _HABILIDAD_POR_ID = {h["id"]: h for h in HABILIDADES}

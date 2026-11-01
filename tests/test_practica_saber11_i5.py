@@ -18,7 +18,7 @@ import pytest
 from app.data import exam_prep as banco
 from app.services import exam_prep_service as svc
 
-PRUEBAS_CON_BANCO = ["s11_lectura", "s11_matematicas", "s11_sociales", "s11_ciencias"]
+PRUEBAS_CON_BANCO = ["s11_lectura", "s11_matematicas", "s11_sociales", "s11_ciencias", "s11_ingles"]
 
 
 @pytest.mark.parametrize("habilidad", PRUEBAS_CON_BANCO)
@@ -43,12 +43,20 @@ def test_ningun_ejercicio_se_presenta_como_del_icfes():
         assert "cuadernillo" not in texto, i["id"]
 
 
-def test_los_enunciados_van_en_espanol():
-    # Una señal simple y suficiente: cada enunciado tiene alguna palabra o signo
-    # propio del español.
-    marcas = re.compile(r"[¿¡áéíóúñ]|\b(el|la|los|las|de|que|en|un|una)\b", re.IGNORECASE)
+_ESPANOL = re.compile(r"[¿¡áéíóúñ]|\b(el|la|los|las|de|que|en|un|una)\b", re.IGNORECASE)
+
+
+def test_los_enunciados_van_en_espanol_salvo_los_de_ingles():
+    # Una señal simple y suficiente: alguna palabra o signo propio del español.
     for i in banco.items(exam_id=banco.EXAMEN_SABER11):
-        assert marcas.search(i["question"]), i["id"]
+        if i["skill"] == "s11_ingles":
+            continue  # la prueba de inglés se presenta en inglés
+        assert _ESPANOL.search(i["question"]), i["id"]
+
+
+def test_todas_las_explicaciones_van_en_espanol():
+    for i in banco.items(exam_id=banco.EXAMEN_SABER11):
+        assert _ESPANOL.search(i["explanation"]), i["id"]
 
 
 def test_la_ficha_avisa_que_no_es_del_icfes_y_no_publica_datos_duros():

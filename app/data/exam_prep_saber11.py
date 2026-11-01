@@ -639,4 +639,629 @@ def construir(item: Callable[..., Dict[str, Any]], F: str, I: str, A: str) -> Li
         ),
     ]
 
-    return [*lectura, *matematicas]
+    # --- Sociales y ciudadanas (tanda 2) --------------------------------------
+    # Los datos de la Constitución que se usan son los que no admiten duda
+    # (tutela, ramas del poder, mecanismos de participación, organismos de
+    # control). El peso está en lo que la prueba más evalúa: analizar una
+    # situación desde varias perspectivas y argumentar.
+    sociales = [
+        item(
+            "s11-soc-1", habilidad="s11_sociales", nivel=F,
+            question="¿Qué protege la acción de tutela?",
+            options=[
+                "Los derechos fundamentales, cuando son vulnerados o están amenazados.",
+                "Los contratos entre empresas privadas.",
+                "Las leyes que aprueba el Congreso.",
+                "El cobro de los impuestos municipales.",
+            ],
+            correct="Los derechos fundamentales, cuando son vulnerados o están amenazados.",
+            explanation=(
+                "La tutela es el mecanismo para pedirle a un juez que proteja de forma "
+                "rápida un derecho fundamental. Revisar si una ley se ajusta a la "
+                "Constitución es otra cosa (lo hace la Corte Constitucional), y los "
+                "contratos o los impuestos tienen sus propios trámites."
+            ),
+        ),
+        item(
+            "s11-soc-2", habilidad="s11_sociales", nivel=F,
+            question="¿Qué rama del poder público se encarga principalmente de hacer las leyes?",
+            options=["La legislativa (el Congreso)", "La ejecutiva", "La judicial", "La organización electoral"],
+            correct="La legislativa (el Congreso)",
+            explanation=(
+                "El Congreso, formado por el Senado y la Cámara de Representantes, hace "
+                "las leyes. La rama ejecutiva las ejecuta y la judicial resuelve los "
+                "conflictos aplicándolas. La organización electoral organiza las "
+                "elecciones."
+            ),
+        ),
+        item(
+            "s11-soc-3", habilidad="s11_sociales", nivel=F,
+            question="Los habitantes de un municipio consideran que su alcalde no está cumpliendo el programa por el que lo eligieron. ¿Qué mecanismo de participación les permite quitarle el cargo?",
+            options=["La revocatoria del mandato", "La acción de tutela", "El derecho de petición", "El cabildo abierto"],
+            correct="La revocatoria del mandato",
+            explanation=(
+                "La revocatoria del mandato existe justamente para que los ciudadanos "
+                "puedan retirar del cargo a un gobernante elegido que incumple su "
+                "programa. La tutela protege derechos, la petición sirve para pedir "
+                "información o actuaciones, y el cabildo abierto es una reunión pública "
+                "del concejo para discutir asuntos de la comunidad."
+            ),
+        ),
+        item(
+            "s11-soc-4", habilidad="s11_sociales", nivel=F,
+            question="Un ciudadano quiere que una entidad pública le entregue información sobre un contrato. ¿Qué mecanismo debe usar primero?",
+            options=["El derecho de petición", "La acción de tutela", "La revocatoria del mandato", "El referendo"],
+            correct="El derecho de petición",
+            explanation=(
+                "El derecho de petición permite solicitar información o actuaciones a "
+                "las autoridades, que deben responder. La tutela llegaría después, si no "
+                "le responden y se le vulnera ese derecho. La trampa es saltar "
+                "directamente al mecanismo más conocido."
+            ),
+        ),
+        item(
+            "s11-soc-5", habilidad="s11_sociales", nivel=F,
+            question="En el gobierno escolar, ¿cuál es la función principal del personero estudiantil?",
+            options=[
+                "Promover y defender los derechos y deberes de los estudiantes.",
+                "Poner las sanciones disciplinarias.",
+                "Definir las notas de cada materia.",
+                "Administrar el presupuesto del colegio.",
+            ],
+            correct="Promover y defender los derechos y deberes de los estudiantes.",
+            explanation=(
+                "El personero es un estudiante elegido por sus compañeros para "
+                "representarlos y velar por sus derechos y deberes. No sanciona, no "
+                "califica y no maneja el dinero del colegio: esas son funciones de "
+                "otras instancias."
+            ),
+        ),
+        item(
+            "s11-soc-6", habilidad="s11_sociales", nivel=F,
+            question="La Constitución dice que Colombia es un Estado social de derecho. ¿Qué significa esa idea?",
+            options=[
+                "Que las autoridades están sometidas a la ley y deben buscar condiciones de vida digna para las personas.",
+                "Que el presidente puede cambiar la Constitución por su cuenta.",
+                "Que el Estado no interviene en ningún asunto económico ni social.",
+                "Que solo votan las personas que tienen propiedades.",
+            ],
+            correct="Que las autoridades están sometidas a la ley y deben buscar condiciones de vida digna para las personas.",
+            explanation=(
+                "«De derecho»: nadie, ni siquiera el gobierno, está por encima de la ley. "
+                "«Social»: el Estado tiene el deber de procurar condiciones dignas para "
+                "todos. Las otras opciones van en contra de una de esas dos partes."
+            ),
+        ),
+        item(
+            "s11-soc-7", habilidad="s11_sociales", nivel=F,
+            question="¿Para qué sirve que el poder público esté dividido en ramas independientes?",
+            options=[
+                "Para que ninguna persona o institución concentre todo el poder.",
+                "Para que haya más empleados públicos.",
+                "Para que las leyes se aprueben más rápido.",
+                "Para que cada región tenga su propio presidente.",
+            ],
+            correct="Para que ninguna persona o institución concentre todo el poder.",
+            explanation=(
+                "Si quien hace las leyes, quien las ejecuta y quien juzga son "
+                "independientes, cada uno puede controlar a los otros. La división no "
+                "busca rapidez (de hecho, a veces la hace más lenta) ni crear empleo."
+            ),
+        ),
+        item(
+            "s11-soc-8", habilidad="s11_sociales", nivel=I,
+            question="En una vereda se discute construir una vía que atravesaría un humedal. Los comerciantes la apoyan porque venderían más; un grupo ambiental se opone. ¿Qué interés defiende el grupo ambiental?",
+            options=[
+                "Conservar el ecosistema y el agua del humedal.",
+                "Que los comerciantes vendan menos.",
+                "Que la vereda siga incomunicada para siempre.",
+                "Que la obra la haga una empresa de otra ciudad.",
+            ],
+            correct="Conservar el ecosistema y el agua del humedal.",
+            explanation=(
+                "Analizar una situación es entender qué busca cada actor. El grupo "
+                "ambiental se opone por lo que le pasaría al humedal, no por perjudicar "
+                "a los comerciantes ni por dejar a nadie incomunicado: atribuirle esas "
+                "intenciones es caricaturizar su postura."
+            ),
+        ),
+        item(
+            "s11-soc-9", habilidad="s11_sociales", nivel=I,
+            question="En la misma situación de la vía y el humedal, ¿qué propuesta tiene en cuenta los intereses de los dos grupos?",
+            options=[
+                "Estudiar un trazado que conecte la vereda sin atravesar el humedal.",
+                "Construir la vía de inmediato, sin consultar a nadie.",
+                "Prohibir para siempre cualquier vía en la vereda.",
+                "Que decida el grupo que tenga más recursos económicos.",
+            ],
+            correct="Estudiar un trazado que conecte la vereda sin atravesar el humedal.",
+            explanation=(
+                "La primera opción busca la conexión que quieren los comerciantes y la "
+                "protección que quiere el grupo ambiental. Las dos siguientes le dan la "
+                "razón a un solo grupo, y la última reemplaza el diálogo por el poder "
+                "económico."
+            ),
+        ),
+        item(
+            "s11-soc-10", habilidad="s11_sociales", nivel=I,
+            question="El derecho a gozar de un ambiente sano, según la Constitución, es:",
+            options=[
+                "un derecho colectivo, que pertenece a la comunidad.",
+                "un derecho que solo tienen los dueños de tierras.",
+                "un deber que solo tiene el presidente.",
+                "un derecho que solo existe en las zonas rurales.",
+            ],
+            correct="un derecho colectivo, que pertenece a la comunidad.",
+            explanation=(
+                "La Constitución lo ubica entre los derechos colectivos y del ambiente: "
+                "es de todos, no de un propietario. Cuidarlo es tarea del Estado y "
+                "también de las personas, en la ciudad y en el campo."
+            ),
+        ),
+        item(
+            "s11-soc-11", habilidad="s11_sociales", nivel=I,
+            question="Un vecino pone música a todo volumen a las 3 de la madrugada y dice que está ejerciendo su libre desarrollo de la personalidad. Los demás vecinos reclaman su derecho al descanso. ¿Qué principio ayuda a resolver el conflicto?",
+            options=[
+                "El libre desarrollo de la personalidad tiene como límite los derechos de los demás.",
+                "El libre desarrollo de la personalidad no tiene ningún límite.",
+                "El derecho al descanso solo aplica entre semana.",
+                "Gana quien primero se haya quejado.",
+            ],
+            correct="El libre desarrollo de la personalidad tiene como límite los derechos de los demás.",
+            explanation=(
+                "Los derechos conviven: uno se ejerce sin anular el de los otros. El "
+                "vecino puede escuchar su música, pero no a esa hora y a ese volumen, "
+                "porque afecta el descanso de los demás. Ningún derecho es absoluto."
+            ),
+        ),
+        item(
+            "s11-soc-12", habilidad="s11_sociales", nivel=I,
+            question="Un periódico titula «El 80 % de los jóvenes del país no lee» a partir de una encuesta a 50 estudiantes de un solo colegio. ¿Cuál es el principal problema de esa afirmación?",
+            options=[
+                "La muestra es pequeña y de un solo colegio, así que no representa a los jóvenes del país.",
+                "El porcentaje está mal calculado.",
+                "Los jóvenes no deberían responder encuestas.",
+                "No hay ningún problema: una encuesta siempre dice la verdad.",
+            ],
+            correct="La muestra es pequeña y de un solo colegio, así que no representa a los jóvenes del país.",
+            explanation=(
+                "El dato podría ser cierto para ese grupo, pero el titular lo extiende a "
+                "todo el país. Evaluar una fuente es preguntarse de dónde salen los datos "
+                "y hasta dónde permiten concluir. Nada indica que la cuenta esté mal."
+            ),
+        ),
+        item(
+            "s11-soc-13", habilidad="s11_sociales", nivel=I,
+            question="Si en pocos años muchas familias se van del campo a las ciudades, ¿qué efecto es más probable en las ciudades?",
+            options=[
+                "Más demanda de vivienda, transporte y servicios públicos.",
+                "Menos tráfico y menos necesidad de colegios.",
+                "Que los alimentos se produzcan dentro de las ciudades.",
+                "Ningún cambio, porque las ciudades ya están preparadas.",
+            ],
+            correct="Más demanda de vivienda, transporte y servicios públicos.",
+            explanation=(
+                "Más habitantes necesitan dónde vivir, cómo moverse y servicios como agua "
+                "y salud. La segunda opción dice lo contrario, y la cuarta supone sin "
+                "razón que no pasa nada."
+            ),
+        ),
+        item(
+            "s11-soc-14", habilidad="s11_sociales", nivel=I,
+            question="¿Qué entidad vigila la conducta de los servidores públicos y puede sancionarlos disciplinariamente?",
+            options=[
+                "La Procuraduría General de la Nación",
+                "La Contraloría General de la República",
+                "La Registraduría Nacional del Estado Civil",
+                "La Corte Constitucional",
+            ],
+            correct="La Procuraduría General de la Nación",
+            explanation=(
+                "La Procuraduría vigila la conducta de los servidores públicos. La "
+                "Contraloría vigila el manejo de los recursos públicos (lo fiscal), la "
+                "Registraduría organiza las elecciones y la identificación, y la Corte "
+                "Constitucional protege la Constitución. Se confunden mucho la "
+                "Procuraduría y la Contraloría: conducta frente a dinero."
+            ),
+        ),
+        item(
+            "s11-soc-15", habilidad="s11_sociales", nivel=A,
+            question="El consejo de un colegio prohíbe usar gorra dentro del salón. Un estudiante debe usarla por una condición médica en la piel, y tiene la orden de su médico. ¿Qué es lo más justo?",
+            options=[
+                "Hacerle una excepción justificada, porque una norma general no debe vulnerar su derecho a la salud.",
+                "Obligarlo a quitársela, porque la norma es igual para todos.",
+                "Eliminar la norma para todos los estudiantes.",
+                "Pedirle que estudie desde la casa.",
+            ],
+            correct="Hacerle una excepción justificada, porque una norma general no debe vulnerar su derecho a la salud.",
+            explanation=(
+                "Tratar igual a quien está en una situación distinta puede ser injusto. "
+                "La excepción protege su salud sin quitarle sentido a la norma para los "
+                "demás. Eliminar la norma es más de lo necesario, y mandarlo a la casa "
+                "afecta su derecho a la educación."
+            ),
+        ),
+        item(
+            "s11-soc-16", habilidad="s11_sociales", nivel=A,
+            question="En un debate sobre si los jóvenes de 16 años deberían poder votar, ¿cuál de estas intervenciones es un argumento y no solo una opinión?",
+            options=[
+                "Votar a los 16 podría crear el hábito de votar, porque la primera elección llegaría cuando todavía están en el colegio, donde se discuten estos temas.",
+                "Los jóvenes de 16 años son inmaduros y no saben nada.",
+                "A mí me parece bien, y punto.",
+                "Eso nunca va a funcionar en este país.",
+            ],
+            correct="Votar a los 16 podría crear el hábito de votar, porque la primera elección llegaría cuando todavía están en el colegio, donde se discuten estos temas.",
+            explanation=(
+                "Un argumento da una razón que se puede discutir («porque…»). Las otras "
+                "intervenciones afirman sin sustentar, y la segunda además generaliza "
+                "sobre todo un grupo. No se trata de estar de acuerdo o no: el argumento "
+                "podría ser a favor o en contra."
+            ),
+        ),
+        item(
+            "s11-soc-17", habilidad="s11_sociales", nivel=A,
+            question="Una empresa minera financia un estudio que concluye que su mina no contamina el río. ¿Qué debería tener en cuenta un ciudadano al leerlo?",
+            options=[
+                "Que quien lo pagó tiene interés en el resultado, y conviene contrastarlo con estudios independientes.",
+                "Que el estudio es falso, porque lo pagó la empresa.",
+                "Que el estudio es verdadero, porque es un estudio.",
+                "Que los ríos no se pueden contaminar.",
+            ],
+            correct="Que quien lo pagó tiene interés en el resultado, y conviene contrastarlo con estudios independientes.",
+            explanation=(
+                "Un posible conflicto de intereses no prueba que el estudio esté mal, "
+                "pero sí obliga a contrastarlo. Descartarlo de entrada y creerlo sin más "
+                "son los dos errores opuestos."
+            ),
+        ),
+        item(
+            "s11-soc-18", habilidad="s11_sociales", nivel=A,
+            question="Un municipio prohíbe las ventas ambulantes en el centro para descongestionar las calles. ¿Qué efecto no buscado podría tener la medida?",
+            options=[
+                "Que muchas familias que viven de esas ventas se queden sin ingresos.",
+                "Que las calles del centro queden más despejadas.",
+                "Que los peatones caminen con más facilidad.",
+                "Que el centro tenga menos congestión.",
+            ],
+            correct="Que muchas familias que viven de esas ventas se queden sin ingresos.",
+            explanation=(
+                "Las otras tres opciones son el efecto que la medida SÍ busca. La "
+                "pregunta pide prever lo que no se buscaba: por eso hay que pensar en "
+                "todos los afectados, no solo en el objetivo."
+            ),
+        ),
+        item(
+            "s11-soc-19", habilidad="s11_sociales", nivel=A,
+            question="Si una ley contradice lo que dice la Constitución, ¿qué debe pasar?",
+            options=[
+                "Prevalece la Constitución, y la Corte Constitucional puede declarar que la ley no se ajusta a ella.",
+                "Prevalece la ley, porque es más reciente.",
+                "El presidente decide cuál de las dos se aplica.",
+                "Se aplican las dos al mismo tiempo.",
+            ],
+            correct="Prevalece la Constitución, y la Corte Constitucional puede declarar que la ley no se ajusta a ella.",
+            explanation=(
+                "La Constitución es la norma de normas: ninguna ley puede ir en su "
+                "contra, y la Corte Constitucional es quien revisa esos casos. Que una "
+                "ley sea más reciente no la pone por encima de la Constitución."
+            ),
+        ),
+        item(
+            "s11-soc-20", habilidad="s11_sociales", nivel=A,
+            question="Un grupo de ciudadanos quiere presentarle al Congreso un proyecto de ley escrito por ellos mismos. ¿Qué mecanismo de participación les corresponde?",
+            options=[
+                "La iniciativa popular legislativa",
+                "El cabildo abierto",
+                "La revocatoria del mandato",
+                "La acción de tutela",
+            ],
+            correct="La iniciativa popular legislativa",
+            explanation=(
+                "La iniciativa popular permite que los ciudadanos presenten proyectos de "
+                "ley. El cabildo abierto es una reunión del concejo para discutir "
+                "asuntos de la comunidad, la revocatoria retira a un gobernante y la "
+                "tutela protege derechos fundamentales: los cuatro son participación, "
+                "pero sirven para cosas distintas."
+            ),
+        ),
+    ]
+
+    # --- Ciencias naturales (tanda 2) -----------------------------------------
+    # Énfasis en indagación: variables, controles, hipótesis y leer datos, con
+    # conceptos básicos de biología, química y física.
+    ciencias = [
+        item(
+            "s11-cie-1", habilidad="s11_ciencias", nivel=F,
+            question="Para saber cómo afecta la luz al crecimiento, Pedro pone tres plantas iguales, con el mismo suelo y la misma agua: una al sol, una en sombra y una en un cuarto oscuro. Mide su altura durante dos semanas. ¿Qué es lo que Pedro cambia a propósito?",
+            options=["La cantidad de luz", "La altura de las plantas", "La cantidad de agua", "El tipo de suelo"],
+            correct="La cantidad de luz",
+            explanation=(
+                "Lo que se cambia a propósito es la variable independiente: la luz. La "
+                "altura es lo que se mide (la variable dependiente), y el agua y el "
+                "suelo se mantienen iguales a propósito (variables controladas)."
+            ),
+        ),
+        item(
+            "s11-cie-2", habilidad="s11_ciencias", nivel=F,
+            question="En el experimento de Pedro, ¿por qué usa la misma cantidad de agua para las tres plantas?",
+            options=[
+                "Para que la diferencia en el crecimiento se pueda atribuir solo a la luz.",
+                "Porque las plantas no necesitan agua.",
+                "Para ahorrar agua.",
+                "Porque así crecen más rápido.",
+            ],
+            correct="Para que la diferencia en el crecimiento se pueda atribuir solo a la luz.",
+            explanation=(
+                "Si también cambiara el agua, no se sabría si la diferencia se debe a la "
+                "luz o al agua. Controlar las demás variables es lo que hace confiable "
+                "un experimento."
+            ),
+        ),
+        item(
+            "s11-cie-3", habilidad="s11_ciencias", nivel=F,
+            question="Un cubo de hielo se deja al sol y se convierte en agua líquida. ¿Cómo se llama ese cambio de estado?",
+            options=["Fusión", "Solidificación", "Condensación", "Sublimación"],
+            correct="Fusión",
+            explanation=(
+                "De sólido a líquido es fusión. Solidificación es lo contrario (de "
+                "líquido a sólido), condensación es de gas a líquido, y sublimación es de "
+                "sólido a gas sin pasar por líquido."
+            ),
+        ),
+        item(
+            "s11-cie-4", habilidad="s11_ciencias", nivel=F,
+            question="En una cadena alimentaria, el pasto es comido por los conejos y los conejos por los zorros. Si desaparecen los zorros, ¿qué es lo más probable que pase primero?",
+            options=[
+                "Aumenta la población de conejos.",
+                "Disminuye la población de conejos.",
+                "Aumenta la cantidad de pasto.",
+                "No pasa nada en el ecosistema.",
+            ],
+            correct="Aumenta la población de conejos.",
+            explanation=(
+                "Sin su depredador, los conejos sobreviven más y aumentan. Con el "
+                "tiempo, más conejos comerán más pasto, así que el pasto tendería a "
+                "disminuir, no a aumentar. Un ecosistema casi nunca queda igual cuando "
+                "falta una especie."
+            ),
+        ),
+        item(
+            "s11-cie-5", habilidad="s11_ciencias", nivel=F,
+            question="En la fotosíntesis, las plantas usan luz, agua y dióxido de carbono. ¿Qué producen?",
+            options=[
+                "Glucosa y oxígeno",
+                "Dióxido de carbono y agua",
+                "Solo agua",
+                "Nitrógeno y sal",
+            ],
+            correct="Glucosa y oxígeno",
+            explanation=(
+                "La planta fabrica su alimento (glucosa) y libera oxígeno. Dióxido de "
+                "carbono y agua son justo lo que usa, no lo que produce: es la trampa de "
+                "invertir el proceso."
+            ),
+        ),
+        item(
+            "s11-cie-6", habilidad="s11_ciencias", nivel=F,
+            question="Se mezclaron por error arena y limaduras de hierro. ¿Cuál es la forma más sencilla de separarlas?",
+            options=["Con un imán", "Filtrando", "Evaporando", "Destilando"],
+            correct="Con un imán",
+            explanation=(
+                "El hierro es atraído por el imán y la arena no. Filtrar sirve para "
+                "separar un sólido de un líquido, pero aquí los dos son sólidos; evaporar "
+                "y destilar sirven para mezclas con líquidos."
+            ),
+        ),
+        item(
+            "s11-cie-7", habilidad="s11_ciencias", nivel=F,
+            question="Una ciclista recorre 30 km en 2 horas a ritmo constante. ¿Cuál es su velocidad?",
+            options=["15 km/h", "60 km/h", "32 km/h", "28 km/h"],
+            correct="15 km/h",
+            explanation=(
+                "Velocidad = distancia ÷ tiempo = 30 ÷ 2 = 15 km/h. 60 sale de "
+                "multiplicar en vez de dividir, y 32 y 28 de sumar o restar."
+            ),
+        ),
+        item(
+            "s11-cie-8", habilidad="s11_ciencias", nivel=I,
+            question="Un estudiante mide cuánto tarda en disolverse una cucharada de azúcar en agua a distintas temperaturas: a 20 °C tarda 60 s; a 40 °C, 35 s; a 60 °C, 20 s. ¿Qué conclusión apoyan los datos?",
+            options=[
+                "A mayor temperatura del agua, el azúcar se disuelve más rápido.",
+                "El azúcar no se disuelve en agua fría.",
+                "La temperatura no influye en cómo se disuelve el azúcar.",
+                "A mayor temperatura, el azúcar se disuelve más lento.",
+            ],
+            correct="A mayor temperatura del agua, el azúcar se disuelve más rápido.",
+            explanation=(
+                "Cuando la temperatura sube, el tiempo baja: se disuelve más rápido. A "
+                "20 °C sí se disuelve, solo que tarda más, así que la segunda opción "
+                "exagera. La cuarta lee la tabla al revés."
+            ),
+        ),
+        item(
+            "s11-cie-9", habilidad="s11_ciencias", nivel=I,
+            question="Con los mismos datos del azúcar (60 s a 20 °C, 35 s a 40 °C y 20 s a 60 °C), ¿cuánto esperarías que tarde a 50 °C?",
+            options=["Entre 20 y 35 segundos", "Más de 60 segundos", "Menos de 20 segundos", "Exactamente 50 segundos"],
+            correct="Entre 20 y 35 segundos",
+            explanation=(
+                "50 °C está entre 40 °C y 60 °C, así que lo razonable es un tiempo entre "
+                "35 y 20 segundos. Es interpolar: estimar dentro del rango que ya se "
+                "midió. «50 segundos» confunde la temperatura con el tiempo."
+            ),
+        ),
+        item(
+            "s11-cie-10", habilidad="s11_ciencias", nivel=I,
+            question="Una hoja de papel extendida y otra igual, arrugada en forma de bola, se sueltan desde la misma altura. La arrugada llega primero al suelo. ¿Por qué?",
+            options=[
+                "Porque el aire opone más resistencia a la hoja extendida.",
+                "Porque la hoja extendida pesa menos.",
+                "Porque la gravedad no actúa sobre la hoja extendida.",
+                "Porque la bola de papel tiene más masa.",
+            ],
+            correct="Porque el aire opone más resistencia a la hoja extendida.",
+            explanation=(
+                "Las dos hojas tienen la misma masa (son iguales) y la gravedad actúa "
+                "igual sobre ambas. Lo que cambia es la forma: extendida, choca con más "
+                "aire y se frena más."
+            ),
+        ),
+        item(
+            "s11-cie-11", habilidad="s11_ciencias", nivel=I,
+            question="Un indicador se pone rojo con los ácidos y azul con las bases. En jugo de limón se pone rojo y en agua con jabón se pone azul. ¿Qué se puede concluir?",
+            options=[
+                "El jugo de limón es ácido y el agua con jabón es básica.",
+                "Los dos son ácidos.",
+                "El jugo de limón es básico y el agua con jabón es ácida.",
+                "El indicador no sirve para nada.",
+            ],
+            correct="El jugo de limón es ácido y el agua con jabón es básica.",
+            explanation=(
+                "Se aplica la regla que da el enunciado: rojo es ácido, azul es básico. "
+                "La tercera opción invierte la regla, que es el error típico cuando se "
+                "lee rápido."
+            ),
+        ),
+        item(
+            "s11-cie-12", habilidad="s11_ciencias", nivel=I,
+            question="¿Cómo protege una vacuna contra una enfermedad?",
+            options=[
+                "Prepara al sistema inmunológico para reconocer al microorganismo sin causar la enfermedad.",
+                "Mata directamente todos los virus que hay en el cuerpo.",
+                "Funciona como un antibiótico.",
+                "Reemplaza a los glóbulos blancos.",
+            ],
+            correct="Prepara al sistema inmunológico para reconocer al microorganismo sin causar la enfermedad.",
+            explanation=(
+                "La vacuna «entrena» las defensas: si después llega el microorganismo, el "
+                "cuerpo lo reconoce y responde más rápido. No mata virus por sí misma, y "
+                "los antibióticos actúan contra bacterias, no son vacunas."
+            ),
+        ),
+        item(
+            "s11-cie-13", habilidad="s11_ciencias", nivel=I,
+            question="Un panel solar transforma:",
+            options=[
+                "energía luminosa en energía eléctrica.",
+                "energía eléctrica en energía luminosa.",
+                "energía química en calor.",
+                "energía del viento en electricidad.",
+            ],
+            correct="energía luminosa en energía eléctrica.",
+            explanation=(
+                "Recibe la luz del sol y produce electricidad. Un bombillo hace lo "
+                "contrario (la segunda opción), y la energía del viento la aprovecha un "
+                "aerogenerador, no un panel solar."
+            ),
+        ),
+        item(
+            "s11-cie-14", habilidad="s11_ciencias", nivel=I,
+            question="Camila nota que el pan se llena de moho más rápido en la cocina que en la nevera. ¿Qué hipótesis podría poner a prueba?",
+            options=[
+                "El frío hace más lento el crecimiento del moho.",
+                "El moho es malo para la salud.",
+                "La nevera gasta mucha energía.",
+                "El pan de la tienda es mejor que el de la casa.",
+            ],
+            correct="El frío hace más lento el crecimiento del moho.",
+            explanation=(
+                "Una hipótesis propone una explicación de lo observado que se puede "
+                "comprobar con un experimento. Las otras opciones pueden ser ciertas o "
+                "no, pero no explican por qué el moho crece distinto en los dos lugares."
+            ),
+        ),
+        item(
+            "s11-cie-15", habilidad="s11_ciencias", nivel=A,
+            question="Para poner a prueba que el frío frena el moho, ¿qué experimento sirve mejor?",
+            options=[
+                "Dejar trozos del mismo pan, del mismo día, unos en la nevera y otros en la cocina, y anotar cuándo aparece el moho en cada uno.",
+                "Dejar un pan blanco en la nevera y uno integral en la cocina.",
+                "Preguntarles a los vecinos dónde guardan el pan.",
+                "Dejar un solo trozo de pan en la nevera y ver qué pasa.",
+            ],
+            correct="Dejar trozos del mismo pan, del mismo día, unos en la nevera y otros en la cocina, y anotar cuándo aparece el moho en cada uno.",
+            explanation=(
+                "Solo cambia la temperatura; el pan es el mismo. En la segunda opción "
+                "cambian dos cosas a la vez (lugar y tipo de pan), así que no se sabría "
+                "cuál causó la diferencia. La cuarta no tiene con qué comparar."
+            ),
+        ),
+        item(
+            "s11-cie-16", habilidad="s11_ciencias", nivel=A,
+            question="Se quema un trozo de papel dentro de un recipiente completamente cerrado. Al final, la masa del recipiente con todo lo que tiene adentro es:",
+            options=[
+                "igual a la del comienzo.",
+                "menor, porque la ceniza pesa menos que el papel.",
+                "mayor, porque el fuego agrega materia.",
+                "cero, porque el papel desapareció.",
+            ],
+            correct="igual a la del comienzo.",
+            explanation=(
+                "En un recipiente cerrado la materia no sale ni entra: el papel se "
+                "transforma en ceniza y gases, pero todo queda adentro. La ceniza sí pesa "
+                "menos que el papel (esa es la trampa), pero la diferencia está en los "
+                "gases, que siguen en el recipiente."
+            ),
+        ),
+        item(
+            "s11-cie-17", habilidad="s11_ciencias", nivel=A,
+            question="En una planta, el color morado (M) es dominante sobre el blanco (m). Si se cruzan dos plantas Mm, ¿qué proporción de las plantas hijas se espera que sea blanca?",
+            options=["1 de cada 4", "1 de cada 2", "3 de cada 4", "Ninguna"],
+            correct="1 de cada 4",
+            explanation=(
+                "Las combinaciones posibles son MM, Mm, mM y mm. Solo mm es blanca: 1 de "
+                "cada 4. «Ninguna» es la trampa de pensar que, como los padres son "
+                "morados, los hijos también lo serán; los dos llevan el alelo m."
+            ),
+        ),
+        item(
+            "s11-cie-18", habilidad="s11_ciencias", nivel=A,
+            question="Un objeto tiene una masa de 200 g y ocupa 250 cm³. La densidad del agua es 1 g/cm³. ¿Flota en el agua?",
+            options=[
+                "Sí, porque su densidad (0,8 g/cm³) es menor que la del agua.",
+                "No, porque pesa 200 g.",
+                "No, porque su densidad es 1,25 g/cm³.",
+                "Sí, porque ocupa mucho espacio.",
+            ],
+            correct="Sí, porque su densidad (0,8 g/cm³) es menor que la del agua.",
+            explanation=(
+                "Densidad = masa ÷ volumen = 200 ÷ 250 = 0,8 g/cm³, menor que la del "
+                "agua, así que flota. 1,25 sale de dividir al revés. Que flote no depende "
+                "solo de la masa ni solo del volumen, sino de la relación entre los dos."
+            ),
+        ),
+        item(
+            "s11-cie-19", habilidad="s11_ciencias", nivel=A,
+            question="Un estudio encuentra que en los meses en que se venden más helados también hay más accidentes en piscinas. ¿Qué explicación es más razonable?",
+            options=[
+                "Las dos cosas aumentan con el calor: hace más calor, se venden más helados y más gente va a las piscinas.",
+                "Comer helado causa accidentes en las piscinas.",
+                "Los accidentes en piscinas hacen que la gente compre helado.",
+                "Los datos tienen que estar equivocados.",
+            ],
+            correct="Las dos cosas aumentan con el calor: hace más calor, se venden más helados y más gente va a las piscinas.",
+            explanation=(
+                "Que dos cosas aumenten juntas no significa que una cause la otra: aquí "
+                "hay un tercer factor, el calor, que explica las dos. Concluir causa a "
+                "partir de una coincidencia es uno de los errores más comunes al leer "
+                "datos."
+            ),
+        ),
+        item(
+            "s11-cie-20", habilidad="s11_ciencias", nivel=A,
+            question="Un agricultor usa un insecticida que también mata a las abejas de la zona. ¿Qué efecto es más probable en sus cultivos de fruta?",
+            options=[
+                "Menos frutos, porque habrá menos polinización.",
+                "Más frutos, porque habrá menos insectos.",
+                "Ningún efecto, porque las abejas no tienen relación con las plantas.",
+                "Plantas más altas.",
+            ],
+            correct="Menos frutos, porque habrá menos polinización.",
+            explanation=(
+                "Muchas plantas necesitan a las abejas para polinizar sus flores, y sin "
+                "polinización no hay fruto. La segunda opción ve solo el objetivo del "
+                "insecticida y olvida que las abejas también son insectos."
+            ),
+        ),
+    ]
+
+    return [*lectura, *matematicas, *sociales, *ciencias]

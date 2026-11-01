@@ -299,9 +299,29 @@ HABILIDADES: List[Dict[str, Any]] = [
         ),
         "dependsOnEnglish": False,
     },
-    # s11_sociales, s11_ciencias y s11_ingles se suman con sus ejercicios
-    # (tandas 2 y 3): una habilidad sin ejercicios rompe la regla de que todas
-    # tienen los tres niveles (`test_cada_habilidad_tiene_ejercicios…`).
+    {
+        "id": "s11_sociales",
+        "exam": EXAMEN_SABER11,
+        "name": "Sociales y ciudadanas",
+        "description": (
+            "La Constitución y los derechos, cómo funciona el Estado, y analizar "
+            "una situación desde las perspectivas de quienes participan en ella."
+        ),
+        "dependsOnEnglish": False,
+    },
+    {
+        "id": "s11_ciencias",
+        "exam": EXAMEN_SABER11,
+        "name": "Ciencias naturales",
+        "description": (
+            "Biología, química y física desde la indagación: leer un "
+            "experimento, explicar un fenómeno y sacar conclusiones de los datos."
+        ),
+        "dependsOnEnglish": False,
+    },
+    # s11_ingles se suma con sus ejercicios (tanda 3): una habilidad sin
+    # ejercicios rompe la regla de que todas tienen los tres niveles
+    # (`test_cada_habilidad_tiene_ejercicios…`).
 ]
 
 _HABILIDAD_POR_ID = {h["id"]: h for h in HABILIDADES}

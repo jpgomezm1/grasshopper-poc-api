@@ -18,7 +18,7 @@ import pytest
 from app.data import exam_prep as banco
 from app.services import exam_prep_service as svc
 
-PRUEBAS_CON_BANCO = ["s11_lectura", "s11_matematicas"]
+PRUEBAS_CON_BANCO = ["s11_lectura", "s11_matematicas", "s11_sociales", "s11_ciencias"]
 
 
 @pytest.mark.parametrize("habilidad", PRUEBAS_CON_BANCO)

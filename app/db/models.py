@@ -3461,3 +3461,34 @@ class UserPlan(Base):
 
     def __repr__(self) -> str:
         return f"<UserPlan user={self.user_id} plan={self.plan} hasta={self.hasta}>"
+
+
+class AplicacionUniversidad(Base):
+    """Una aplicación a una universidad · el "kit de aplicación" de 12° (E-4, Sprint 4).
+
+    El demo de Verónica pide para 12° un checklist de documentos y pasos para
+    aplicar. La lista de documentos NO se guarda: depende del país y vive en
+    `kit_aplicacion_service`, así que se puede corregir sin migrar. Aquí solo va
+    lo que es de la persona: a qué universidad aplica, su fecha límite (la pone
+    ella, porque las fechas son de cada universidad y no nuestras) y qué ya
+    tiene listo.
+    """
+
+    __tablename__ = "aplicaciones_universidad"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(
+        UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True,
+    )
+    universidad = Column(String(200), nullable=False)
+    programa = Column(String(200), nullable=True)
+    # Mismas claves que `countries` del onboarding, más "colombia".
+    pais = Column(String(20), nullable=False)
+    fecha_limite = Column(Date, nullable=True)
+    # Ids de los documentos que ya tiene listos (ver `kit_aplicacion_service.DOCUMENTOS`).
+    listos = Column(JSON, nullable=False, default=list)
+    creado_en = Column(DateTime, default=datetime.utcnow, nullable=False)
+    actualizado_en = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    def __repr__(self) -> str:
+        return f"<AplicacionUniversidad {self.universidad!r} user={self.user_id}>"

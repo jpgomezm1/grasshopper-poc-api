@@ -200,8 +200,13 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
             ruta="/me/tools/sop", cta="Carta de motivación",
             funcion="carta_motivacion", con_candado=candado("carta_motivacion"),
         ))
+    # E-4 · el kit de aplicación es donde se hace este paso: una lista por
+    # universidad, con la fecha límite que le dieron y avisos cuando se acerca.
     antes.append(_paso(
         "requisitos", "Revisa requisitos y fechas de inscripción con cada universidad",
+        detalle="Arma el kit de cada universidad y te avisamos cuando se acerque su fecha.",
+        ruta="/aplicaciones", cta="Abrir mi kit",
+        funcion="kit_aplicacion", con_candado=candado("kit_aplicacion"),
     ))
     antes.append(_paso(
         "financiacion", "Becas y financiación: háblalo con tu familia y tu asesor",

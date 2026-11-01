@@ -67,6 +67,10 @@ NOTIFICATION_TYPES = frozenset({
     "mass_message_received",
     "child_milestone",
     "report_available",
+    # H-3 · Sprint 4 · terminó de leer un reporte de test externo.
+    "carga_externa.lista",
+    # E-4 · Sprint 4 · se acerca la fecha límite de una aplicación.
+    "aplicacion.fecha_cercana",
 })
 
 

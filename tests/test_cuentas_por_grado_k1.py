@@ -57,10 +57,14 @@ def test_sin_aplicar_no_escribe_nada(db):
     assert _por_email(db) == {}
 
 
-def test_crea_las_trece(db):
-    # 9 de K-1 + 4 de D-6 (gratis y VIP).
+def test_crea_doce_y_la_vip_solo_si_se_pide(db):
+    # 9 de K-1 + 3 gratis de D-6. La VIP no se crea por defecto (X-5).
+    assert len(script.CUENTAS) == 13
     script.sembrar(db, aplicar=True)
-    assert len(_por_email(db)) == len(script.CUENTAS) == 13
+    assert len(_por_email(db)) == 12
+    assert "prueba.grado11.vip@grasshopper.dev" not in _por_email(db)
+    script.sembrar(db, aplicar=True, incluir_vip=True)
+    assert "prueba.grado11.vip@grasshopper.dev" in _por_email(db)
 
 
 @pytest.mark.parametrize(
@@ -132,7 +136,7 @@ def test_correrlo_dos_veces_no_duplica_ni_pisa(db):
 
     informe = script.sembrar(db, aplicar=True)
     assert {f["accion"] for f in informe} == {"ya existe (no se toca)"}
-    assert len(_por_email(db)) == 13
+    assert len(_por_email(db)) == 12
     u = _por_email(db)["prueba.grado11@grasshopper.dev"]
     assert u.onboarding_answers["voice_passion"] == "lo que escribió quien probó"
 
@@ -163,26 +167,69 @@ def test_reiniciar_las_devuelve_a_su_estado_inicial(db):
 def test_las_variantes_quedan_con_su_plan(db, usuario, plan):
     from app.services import plan_service
 
-    script.sembrar(db, aplicar=True)
+    script.sembrar(db, aplicar=True, incluir_vip=True)
     u = _por_email(db)[f"prueba.{usuario}@grasshopper.dev"]
     vigente = plan_service.plan_vigente(db, u)
     assert (vigente.plan, vigente.origen, vigente.hasta) == (plan, "propio", None)
 
 
 @pytest.mark.planes_reales
-def test_las_de_siempre_no_llevan_fila_de_plan(db):
-    """Su plan sale de la regla (la migración 081 las sube a pago), no del script."""
-    from app.db.models import UserPlan
+def test_las_de_siempre_llevan_pago_explicito(db):
+    """X-5 · antes se confiaba en la migración 081, que solo ve las cuentas que
+    existían al migrar: las creadas después quedaban gratis."""
+    from app.services import plan_service
 
     script.sembrar(db, aplicar=True)
     u = _por_email(db)["prueba.grado11@grasshopper.dev"]
-    assert db.query(UserPlan).filter(UserPlan.user_id == u.id).count() == 0
+    vigente = plan_service.plan_vigente(db, u)
+    assert (vigente.plan, vigente.origen) == ("pago", "propio")
 
 
 def test_reiniciar_no_duplica_el_plan(db):
     from app.db.models import UserPlan
 
-    script.sembrar(db, aplicar=True)
-    script.sembrar(db, aplicar=True, reiniciar=True)
+    script.sembrar(db, aplicar=True, incluir_vip=True)
+    script.sembrar(db, aplicar=True, reiniciar=True, incluir_vip=True)
     u = _por_email(db)["prueba.grado11.vip@grasshopper.dev"]
     assert db.query(UserPlan).filter(UserPlan.user_id == u.id).count() == 1
+
+
+# ---------------------------------------------------------------------------
+# X-5 · las claves
+# ---------------------------------------------------------------------------
+
+
+def test_no_hay_clave_fija_en_el_script():
+    fuente = Path(script.__file__).read_text(encoding="utf-8")
+    assert "Prueba2026" not in fuente
+    assert not hasattr(script, "CLAVE")
+
+
+def test_cada_cuenta_nueva_tiene_su_clave_y_sirve_para_entrar(db):
+    from app.api.v1.auth import verify_password
+
+    informe = script.sembrar(db, aplicar=True)
+    claves = {f["email"]: f["clave"] for f in informe if f.get("clave")}
+    assert len(claves) == 12 and len(set(claves.values())) == 12
+    u = _por_email(db)["prueba.grado11@grasshopper.dev"]
+    assert verify_password(claves[u.email], u.hashed_password)
+    # Correrlo otra vez no imprime claves: no las cambia.
+    assert not any(f.get("clave") for f in script.sembrar(db, aplicar=True))
+
+
+def test_nuevas_claves_cambia_las_existentes(db):
+    from app.api.v1.auth import verify_password
+
+    primera = {f["email"]: f["clave"] for f in script.sembrar(db, aplicar=True)}
+    segunda = {f["email"]: f["clave"] for f in script.sembrar(db, aplicar=True, nuevas_claves=True)}
+    u = _por_email(db)["prueba.grado9@grasshopper.dev"]
+    assert not verify_password(primera[u.email], u.hashed_password)
+    assert verify_password(segunda[u.email], u.hashed_password)
+
+
+def test_desactivar_las_apaga_sin_borrarlas(db):
+    script.sembrar(db, aplicar=True)
+    script.sembrar(db, aplicar=True, desactivar=True)
+    cuentas = _por_email(db)
+    assert len(cuentas) == 12
+    assert not any(u.is_active for u in cuentas.values())

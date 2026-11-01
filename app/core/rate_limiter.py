@@ -91,10 +91,15 @@ class InMemoryLimiter:
         user = getattr(request.state, "user_id", None)
         if user:
             return f"user:{user}"
-        # X-Forwarded-For (Heroku/Cloudflare) → first IP
+        # X-Forwarded-For → la ÚLTIMA IP, no la primera (X-5, Sprint 4).
+        #
+        # El router de Heroku AGREGA la IP real del cliente al final del
+        # encabezado; lo que venga antes lo escribió el cliente y lo controla.
+        # Con la primera, un script cambiaba la IP en cada petición y se saltaba
+        # todos los topes (el del bot público, pero también el del login).
         xff = request.headers.get("x-forwarded-for")
         if xff:
-            return f"ip:{xff.split(',')[0].strip()}"
+            return f"ip:{xff.split(',')[-1].strip()}"
         if request.client:
             return f"ip:{request.client.host}"
         return "ip:unknown"

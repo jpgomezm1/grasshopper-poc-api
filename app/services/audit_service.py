@@ -112,10 +112,11 @@ KNOWN_ACTIONS = frozenset({
 def _client_ip(request: Optional[Request]) -> Optional[str]:
     if request is None:
         return None
-    # X-Forwarded-For first if behind reverse proxy
+    # X-Forwarded-For · la ÚLTIMA IP: la agrega el router de Heroku; las de
+    # antes las escribe el cliente (X-5, Sprint 4 · mismo motivo que el rate limiter).
     fwd = request.headers.get("x-forwarded-for")
     if fwd:
-        return fwd.split(",")[0].strip()
+        return fwd.split(",")[-1].strip()
     if request.client:
         return request.client.host
     return None

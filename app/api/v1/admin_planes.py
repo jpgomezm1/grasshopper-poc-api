@@ -42,6 +42,9 @@ router = APIRouter(prefix="/admin/planes", tags=["Admin · Planes"])
 ROLES_QUE_VEN = (UserRole.GH_COMMERCIAL, UserRole.GH_ADVISOR, UserRole.SUPER_ADMIN)
 ROLES_QUE_ACTIVAN = (UserRole.GH_COMMERCIAL, UserRole.SUPER_ADMIN)
 PREFIJO_SOLICITUD = "Quiero activar el plan"
+# X-5 · tope de duración de una activación (ver `activar`).
+MAX_MESES = 24
+
 # Duración por defecto de un plan, del demo: 12 meses; 6 para profesional.
 MESES_POR_DEFECTO = 12
 MESES_PROFESIONAL = 6
@@ -219,6 +222,12 @@ def activar(
         hasta = desde + timedelta(days=round(meses * 30.44))
     if hasta is not None and hasta <= desde:
         raise HTTPException(status_code=422, detail="El vencimiento tiene que ser después del inicio.")
+    # X-5 · un error de dedo (2062 en vez de 2026) daba un plan de por vida sin
+    # que nadie lo notara. Para "sin vencimiento" está la casilla explícita.
+    if hasta is not None and hasta > desde + timedelta(days=round(MAX_MESES * 30.44)):
+        raise HTTPException(status_code=422, detail=f"El plan no puede durar más de {MAX_MESES} meses.")
+    if desde > ahora + timedelta(days=366):
+        raise HTTPException(status_code=422, detail="El inicio no puede ser en más de un año.")
 
     fila = UserPlan(
         user_id=u.id,

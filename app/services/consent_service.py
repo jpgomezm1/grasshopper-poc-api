@@ -75,12 +75,16 @@ CONSENT_KINDS = ("data_processing", "crm_sync", "parental", "communications")
 
 
 def _client_ip(request: Optional[Request]) -> Optional[str]:
-    """Best-effort first-hop IP extraction · respects X-Forwarded-For."""
+    """La IP del cliente · respeta X-Forwarded-For tomando la ÚLTIMA IP.
+
+    X-5, Sprint 4: la primera la escribe el cliente, así que la evidencia del
+    consentimiento (Ley 1581) se podía falsear. La última la agrega Heroku.
+    """
     if request is None:
         return None
     xff = request.headers.get("x-forwarded-for")
     if xff:
-        return xff.split(",")[0].strip()[:50]
+        return xff.split(",")[-1].strip()[:50]
     if request.client and request.client.host:
         return request.client.host[:50]
     return None

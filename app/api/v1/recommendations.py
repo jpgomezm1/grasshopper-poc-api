@@ -29,6 +29,7 @@ from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, status
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.api.v1.llave_plan import requiere
 from app.db.database import get_db, SessionLocal
 from app.db.models import User, UserRole
 from app.schemas.consolidated_profile import (
@@ -189,7 +190,11 @@ def _resolve_bundle(
     return _generating_bundle(user.id)
 
 
-@router.post("/generate", response_model=RecommendationsBundle)
+# X-5 · Sprint 4 · la revisión de seguridad encontró que esta ruta genera con IA
+# contenido que la matriz (D-2) da como pago, y no tenía llave: un gratis llegaba
+# por aquí a lo que el muro le cierra en otras pantallas.
+# El paquete es la lectura cruzada de los tests + programas: `lectura_tests`.
+@router.post("/generate", response_model=RecommendationsBundle, dependencies=[Depends(requiere("lectura_tests"))])
 def post_generate(
     background_tasks: BackgroundTasks,
     body: Optional[GenerateRecommendationsRequest] = None,
@@ -216,7 +221,9 @@ def post_generate(
         )
 
 
-@router.get("/me", response_model=RecommendationsBundle)
+# GET, pero la primera vez GENERA: también lleva llave. El front que la llama al
+# cargar (inicio, perfil) ya tolera el error y muestra el estado vacío.
+@router.get("/me", response_model=RecommendationsBundle, dependencies=[Depends(requiere("lectura_tests"))])
 def get_me(
     background_tasks: BackgroundTasks,
     limit: int = 5,
@@ -250,7 +257,7 @@ def get_me(
         )
 
 
-@router.post("/retry", response_model=RecommendationsBundle)
+@router.post("/retry", response_model=RecommendationsBundle, dependencies=[Depends(requiere("lectura_tests"))])
 def post_retry(
     background_tasks: BackgroundTasks,
     current_user: User = Depends(get_current_user),

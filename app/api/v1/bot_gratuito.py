@@ -34,7 +34,8 @@ from typing import Dict, Optional
 from uuid import UUID
 
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, Request, status
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator, validate_email
+from sqlalchemy import func, or_
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
@@ -100,9 +101,18 @@ def _reenvio_reciente(
     db: DBSession, email: Optional[str], whatsapp: Optional[str], respuestas: Dict[str, str]
 ) -> Optional[BotConversation]:
     desde = datetime.utcnow() - VENTANA_DUPLICADO
+    # X-5 · se filtra por contacto en la base: traer todo lo de los últimos 10
+    # minutos en cada envío era justo lo que una inundación aprovecharía.
+    mismo = []
+    if email:
+        mismo.append(func.lower(BotConversation.email) == email)
+    if whatsapp:
+        mismo.append(BotConversation.phone == whatsapp)
+    if not mismo:
+        return None
     candidatos = (
         db.query(BotConversation)
-        .filter(BotConversation.created_at >= desde)
+        .filter(BotConversation.created_at >= desde, or_(*mismo))
         .order_by(BotConversation.created_at.desc())
         .all()
     )
@@ -125,6 +135,16 @@ class Contacto(BaseModel):
 class LeadRequest(BaseModel):
     respuestas: Dict[str, str]
     contacto: Contacto
+
+    # X-5 · tope de tamaño ANTES de validar: sin esto el cuerpo podía traer
+    # valores enormes que solo se recortaban después de leerlos enteros.
+    @field_validator("respuestas")
+    @classmethod
+    def _tamano(cls, v: Dict[str, str]) -> Dict[str, str]:
+        if len(v) > 20 or any(len(k) > 40 or len(x) > 2000 for k, x in v.items()):
+            raise ValueError("respuestas demasiado grandes")
+        return v
+
     acepta_tratamiento: bool
     utm_source: Optional[str] = Field(default=None, max_length=120)
     utm_medium: Optional[str] = Field(default=None, max_length=120)
@@ -208,8 +228,13 @@ def guardar_lead(
     email = (contacto.email or "").strip().lower() or None
     if not whatsapp and not email:
         raise _invalido("Escribe al menos un medio de contacto: WhatsApp o correo.")
-    if email and ("@" not in email or "." not in email.split("@")[-1]):
-        raise _invalido("Ese correo no parece válido.")
+    if email:
+        # X-5 · el mismo validador que el resto de la app (`EmailStr`), no
+        # solo "tiene @ y un punto".
+        try:
+            validate_email(email)
+        except Exception:
+            raise _invalido("Ese correo no parece válido.")
     if contacto.cuando not in CUANDO:
         raise _invalido("Elige cuándo quieres iniciar.")
 

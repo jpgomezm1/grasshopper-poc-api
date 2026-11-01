@@ -38,6 +38,7 @@ que ya contó.
 """
 from __future__ import annotations
 
+from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 from uuid import UUID
 
@@ -84,6 +85,20 @@ def hechos_desde_respuestas(respuestas: Dict[str, str]) -> Dict[str, Any]:
     return hechos
 
 
+# X-5 · Sprint 4 · el id del prospecto solo sirve para reclamarlo en el flujo
+# real: terminar el bot y registrarse en seguida. Pasado ese lapso hace falta que
+# el contacto coincida. Sin esto, cualquiera con cuenta que conociera un id se
+# llevaba las respuestas de otra persona. No se exige SIEMPRE el contacto porque
+# hay un caso legítimo: la mamá llena el bot con su correo y la hija se registra
+# con el suyo en el mismo dispositivo (`test_mismo_dispositivo_por_id`).
+VENTANA_TRASPASO_POR_ID = timedelta(hours=2)
+
+
+def _mismo_contacto(lead: BotConversation, user: User) -> bool:
+    correo = (user.email or "").strip().lower()
+    return bool(correo) and (lead.email or "").strip().lower() == correo
+
+
 def _buscar_prospecto(db: Any, user: User, lead_id: Optional[UUID]) -> Optional[BotConversation]:
     def es_suyo_o_libre(lead: BotConversation) -> bool:
         return lead.converted_user_id in (None, user.id)
@@ -91,7 +106,9 @@ def _buscar_prospecto(db: Any, user: User, lead_id: Optional[UUID]) -> Optional[
     if lead_id is not None:
         lead = db.query(BotConversation).filter(BotConversation.id == lead_id).first()
         if lead is not None and (lead.hechos or {}).get("_fuente") == FUENTE and es_suyo_o_libre(lead):
-            return lead
+            reciente = lead.created_at and datetime.utcnow() - lead.created_at <= VENTANA_TRASPASO_POR_ID
+            if reciente or _mismo_contacto(lead, user):
+                return lead
 
     email = (user.email or "").strip().lower()
     if not email:

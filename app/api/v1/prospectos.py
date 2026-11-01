@@ -81,7 +81,17 @@ def listar(
     current_user: User = Depends(get_current_user),
 ) -> List[ProspectoItem]:
     _require_equipo(current_user)
-    return [ProspectoItem(**p.a_dict()) for p in svc.listar(db, **filtros)]
+    lista = svc.listar(db, **filtros)
+    # X-5 · ver datos personales (muchos de menores) también deja rastro, no
+    # solo exportarlos o cambiarlos.
+    log_action(
+        db, user=current_user, action="prospectos.consultados", resource_type="prospecto",
+        payload={
+            **{k: (v.isoformat() if isinstance(v, datetime) else v) for k, v in filtros.items()},
+            "resultados": len(lista),
+        },
+    )
+    return [ProspectoItem(**p.a_dict()) for p in lista]
 
 
 @router.get("/csv")

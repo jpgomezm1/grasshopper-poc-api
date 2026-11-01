@@ -22,6 +22,7 @@ from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.api.v1.llave_plan import requiere
 from app.core.access import assert_session_access
 from app.core.rate_limiter import rate_limit
 from app.core.state_machine import get_next_step, get_step
@@ -153,12 +154,16 @@ def inicio(
     )
 
 
+# X-5 · Sprint 4 · la revisión de seguridad encontró que esta ruta genera con IA
+# contenido que la matriz (D-2) da como pago, y no tenía llave: un gratis llegaba
+# por aquí a lo que el muro le cierra en otras pantallas.
 @router.post(
     "/{session_id}/turno",
     response_model=TurnoResponse,
     dependencies=[
         Depends(rate_limit("20/minute", scope="journey_chat_minute")),
         Depends(rate_limit("200/day", scope="journey_chat_day")),
+        Depends(requiere("chat_hopper")),
     ],
 )
 def turno(

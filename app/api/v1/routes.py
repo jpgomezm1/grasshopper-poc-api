@@ -25,6 +25,7 @@ from app.db.models import (
 from app.schemas.journey import RouteResponse, RouteStatusUpdate
 from app.services.journey_service import get_session
 from app.api.v1.auth import get_current_user
+from app.api.v1.llave_plan import requiere
 from app.core.access import assert_session_access
 
 router = APIRouter(prefix="/routes", tags=["routes"])
@@ -113,7 +114,9 @@ def get_routes(
     return routes
 
 
-@router.post("/{session_id}/generate", response_model=List[RouteResponse])
+# X-5 · Sprint 4 · generar rutas llama a la IA y no tenía llave. Las rutas son
+# caminos con programas concretos: `programas` (pago), igual que el catálogo.
+@router.post("/{session_id}/generate", response_model=List[RouteResponse], dependencies=[Depends(requiere("programas"))])
 def generate_routes_for_session(
     session_id: UUID,
     db: DBSession = Depends(get_db),

@@ -315,6 +315,18 @@ COLUMNAS_CSV = (
 )
 
 
+# X-5 · Sprint 4 · inyección de fórmulas. Nombre, contacto y respuestas los
+# escribe un anónimo en el bot público; si una celda empieza con =, +, -, @,
+# tabulación o retorno, Excel la ejecuta como fórmula al abrir el CSV (y puede
+# mandar la fila, con datos de menores, a otro sitio). Se neutraliza con un
+# apóstrofo al principio, que Excel no muestra.
+_INICIO_DE_FORMULA = ("=", "+", "-", "@", "\t", "\r")
+
+
+def _celda_segura(texto: str) -> str:
+    return "'" + texto if texto.startswith(_INICIO_DE_FORMULA) else texto
+
+
 def a_filas_csv(prospectos: List[Prospecto]) -> List[List[str]]:
     filas = [[titulo for _, titulo in COLUMNAS_CSV]]
     for p in prospectos:
@@ -328,6 +340,78 @@ def a_filas_csv(prospectos: List[Prospecto]) -> List[List[str]]:
                 v = "sí" if v else "no"
             elif isinstance(v, datetime):
                 v = v.strftime("%Y-%m-%d %H:%M")
-            fila.append("" if v is None else str(v))
+            fila.append("" if v is None else _celda_segura(str(v)))
         filas.append(fila)
     return filas
+
+
+# ---------------------------------------------------------------------------
+# Habeas Data · X-5, Sprint 4 (Ley 1581/2012)
+# ---------------------------------------------------------------------------
+#
+# El consentimiento del bot gratuito dice "Puedo pedir que los borren cuando
+# quiera", y no había forma de hacerlo. Ni de dejar de guardar para siempre a
+# quien nunca avanzó. Estas dos funciones son eso; se corren con
+# `scripts/borrar_prospecto.py` y `scripts/purgar_prospectos_viejos.py`.
+
+# Cuánto se guarda un prospecto frío o descartado que nunca creó cuenta.
+# Decidido en la revisión de seguridad (JP delegó la decisión, 2026-10-31).
+RETENCION_MESES = 12
+
+
+def _del_contacto(q, modelo, email: Optional[str], telefono: Optional[str]):
+    cond = []
+    if email:
+        cond.append(func.lower(modelo.email) == email.strip().lower())
+    if telefono:
+        cond.append(modelo.phone == telefono.strip())
+    return q.filter(or_(*cond)) if cond else q.filter(False)
+
+
+def borrar_por_contacto(
+    db: DBSession, *, email: Optional[str] = None, telefono: Optional[str] = None, aplicar: bool = False
+) -> Dict[str, int]:
+    """Borra los prospectos de esa persona en las tres fuentes · el derecho de supresión.
+
+    Solo los PROSPECTOS: si la persona ya tiene cuenta, borrar la cuenta es otro
+    procedimiento (`privacy.py`) y no se hace desde aquí. Devuelve cuántos había
+    en cada tabla; sin `aplicar` no borra nada.
+    """
+    if not email and not telefono:
+        raise ValueError("hace falta un correo o un teléfono")
+    bots = _del_contacto(db.query(BotConversation), BotConversation, email, telefono).all()
+    quiz = _del_contacto(db.query(LeadProfile), LeadProfile, email, telefono).all()
+    if aplicar:
+        for fila in (*bots, *quiz):
+            db.delete(fila)
+        db.commit()
+    return {"bot_conversations": len(bots), "lead_profiles": len(quiz)}
+
+
+def purgar_viejos(db: DBSession, *, ahora: Optional[datetime] = None, aplicar: bool = False) -> Dict[str, int]:
+    """Borra los prospectos fríos o descartados de más de `RETENCION_MESES` meses
+    que nunca crearon cuenta. Los que sí la crearon se quedan: son parte de la
+    historia de un usuario, y sus respuestas ya están en su perfil."""
+    from datetime import timedelta
+
+    ahora = ahora or datetime.utcnow()
+    limite = ahora - timedelta(days=round(RETENCION_MESES * 30.44))
+    bots = (
+        db.query(BotConversation)
+        .filter(
+            BotConversation.created_at < limite,
+            BotConversation.converted_user_id.is_(None),
+            or_(BotConversation.band == "cold", BotConversation.estado == "descartado"),
+        )
+        .all()
+    )
+    quiz = (
+        db.query(LeadProfile)
+        .filter(LeadProfile.created_at < limite, LeadProfile.converted.is_(False))
+        .all()
+    )
+    if aplicar:
+        for fila in (*bots, *quiz):
+            db.delete(fila)
+        db.commit()
+    return {"bot_conversations": len(bots), "lead_profiles": len(quiz)}

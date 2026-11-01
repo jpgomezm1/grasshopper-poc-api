@@ -19,6 +19,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.orm import Session as DBSession
 
 from app.api.v1.auth import get_current_user
+from app.api.v1.llave_plan import requiere
 from app.config import get_settings
 from app.core.rate_limiter import limiter
 from app.db.database import get_db
@@ -70,10 +71,14 @@ def _get_report_or_404(db: DBSession, report_id: UUID) -> Report:
 # ---------------------------------------------------------------------------
 
 
+# X-5 · Sprint 4 · la revisión de seguridad encontró que esta ruta genera con IA
+# contenido que la matriz (D-2) da como pago, y no tenía llave: un gratis llegaba
+# por aquí a lo que el muro le cierra en otras pantallas.
 @router.post(
     "/generate",
     response_model=ReportGenerateResponse,
     status_code=status.HTTP_201_CREATED,
+    dependencies=[Depends(requiere("reporte_pdf"))],
 )
 def post_generate(
     force_refresh: bool = False,
@@ -217,7 +222,7 @@ def get_report(
 @router.post(
     "/{report_id}/send",
     response_model=ReportSendResponse,
-    dependencies=[Depends(_rate_limit_reports_send)],
+    dependencies=[Depends(_rate_limit_reports_send), Depends(requiere("reporte_pdf"))],
 )
 def post_send(
     request: Request,

@@ -25,10 +25,26 @@ es justo lo que pide este sprint. Este script crea un juego fijo:
 
 ## Los planes (D-6)
 
-Las cuentas sin `plan` quedan como `pago` (la migración 081 sube a pago las
-B2C que ya existían). Las `.gratis` y `.vip` llevan una fila de plan propio,
-sin vencimiento, para ver la plataforma como la ve cada plan. Necesitan que la
-tabla `user_plans` exista: correr este script DESPUÉS de desplegar Sprint 4.
+Todas llevan su plan propio, sin vencimiento: `pago` las que no dicen otro, y
+`gratis` o `vip` las variantes, para ver la plataforma como la ve cada plan.
+**El `pago` va explícito** (X-5): antes se confiaba en que la migración 081 las
+subiera, pero la 081 solo ve las cuentas que existían al migrar; las creadas
+después quedaban gratis. Necesitan que la tabla `user_plans` exista: correr
+este script DESPUÉS de desplegar Sprint 4.
+
+## Las claves (X-5 · revisión de seguridad)
+
+**No hay clave fija en el repo.** Antes todas compartían una clave escrita aquí, y
+con el repo en la mano cualquiera entraba a una cuenta con plan real. Ahora cada
+cuenta nueva recibe una clave aleatoria que se imprime UNA vez, al crearla, para
+pasarla por fuera a quien prueba. `--nuevas-claves` se las cambia a las que ya
+existen (hay que correrlo una vez en producción, porque las primeras se crearon
+con la clave pública).
+
+- **La VIP no se crea por defecto** (`--incluir-vip`): es la que abre más cosas y
+  una VIP de prueba en producción es lo primero que no debería existir.
+- **`--desactivar`** las apaga a todas cuando termine la validación con la
+  clienta. Desactivar, no borrar: lo que hicieron con ellas queda para revisar.
 
 ## Uso
 
@@ -36,6 +52,10 @@ tabla `user_plans` exista: correr este script DESPUÉS de desplegar Sprint 4.
     ./venv/Scripts/python scripts/sembrar_cuentas_por_grado.py --aplicar   # las crea
     ./venv/Scripts/python scripts/sembrar_cuentas_por_grado.py --aplicar --reiniciar
         # además devuelve las existentes a su estado inicial
+    ./venv/Scripts/python scripts/sembrar_cuentas_por_grado.py --aplicar --nuevas-claves
+        # les cambia la clave a las que ya existen e imprime las nuevas
+    ./venv/Scripts/python scripts/sembrar_cuentas_por_grado.py --aplicar --desactivar
+        # las apaga a todas
 
 ⚠️ `DATABASE_URL` del `.env` local es la base de PRODUCCIÓN. `--aplicar`
 escribe ahí.
@@ -43,6 +63,7 @@ escribe ahí.
 from __future__ import annotations
 
 import argparse
+import secrets
 import sys
 from dataclasses import dataclass, field
 from datetime import date, datetime
@@ -55,7 +76,12 @@ if hasattr(sys.stdout, "reconfigure"):
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-CLAVE = "Prueba2026!"
+
+
+def _clave_nueva() -> str:
+    """Clave aleatoria de prueba · se imprime una vez y no queda en ningún lado."""
+    return "Prueba-" + secrets.token_urlsafe(9)
+
 DOMINIO = "grasshopper.dev"
 
 
@@ -170,46 +196,67 @@ def _aplicar_estado(u: Any, c: Cuenta) -> None:
 
 def _asegurar_plan(db: Any, u: Any, c: Cuenta) -> None:
     """Le deja su plan de prueba sin vencimiento · una sola fila, no duplica."""
-    if not c.plan:
-        return
     from app.db.models import UserPlan
 
+    plan = c.plan or "pago"
     ya = (
         db.query(UserPlan)
-        .filter(UserPlan.user_id == u.id, UserPlan.metodo == METODO_PLAN_PRUEBA, UserPlan.plan == c.plan)
+        .filter(UserPlan.user_id == u.id, UserPlan.metodo == METODO_PLAN_PRUEBA, UserPlan.plan == plan)
         .first()
     )
     if ya is None:
         ahora = datetime.utcnow()
-        db.add(UserPlan(user_id=u.id, plan=c.plan, desde=ahora, metodo=METODO_PLAN_PRUEBA, creado_en=ahora))
+        db.add(UserPlan(user_id=u.id, plan=plan, desde=ahora, metodo=METODO_PLAN_PRUEBA, creado_en=ahora))
 
 
-def sembrar(db: Any, *, aplicar: bool, reiniciar: bool = False) -> List[Dict[str, str]]:
-    """Crea las que falten · devuelve qué pasó con cada una."""
+def sembrar(
+    db: Any,
+    *,
+    aplicar: bool,
+    reiniciar: bool = False,
+    incluir_vip: bool = False,
+    nuevas_claves: bool = False,
+    desactivar: bool = False,
+) -> List[Dict[str, str]]:
+    """Crea las que falten · devuelve qué pasó con cada una (y la clave, si la hay)."""
     from app.api.v1.auth import get_password_hash
     from app.db.models import User, UserRole
 
     informe = []
-    clave_hash = None
     for c in CUENTAS:
+        if c.plan == "vip" and not incluir_vip:
+            continue
         u = db.query(User).filter(User.email == c.email).first()
-        if u is None:
+        clave = None
+        if desactivar:
+            accion = "desactivar" if u is not None else "no existe"
+            if aplicar and u is not None:
+                u.is_active = False
+        elif u is None:
             accion = "crear"
             if aplicar:
-                clave_hash = clave_hash or get_password_hash(CLAVE)
-                u = User(email=c.email, hashed_password=clave_hash, role=UserRole.STUDENT)
+                clave = _clave_nueva()
+                u = User(email=c.email, hashed_password=get_password_hash(clave), role=UserRole.STUDENT)
                 _aplicar_estado(u, c)
                 db.add(u)
                 db.flush()  # para tener `u.id` y colgarle el plan
                 _asegurar_plan(db, u, c)
-        elif reiniciar:
-            accion = "reiniciar"
-            if aplicar:
-                _aplicar_estado(u, c)
-                _asegurar_plan(db, u, c)
         else:
             accion = "ya existe (no se toca)"
-        informe.append({"email": c.email, "accion": accion, "descripcion": c.descripcion})
+            if reiniciar:
+                accion = "reiniciar"
+                if aplicar:
+                    _aplicar_estado(u, c)
+                    _asegurar_plan(db, u, c)
+            if nuevas_claves:
+                accion = f"{accion} · clave nueva" if reiniciar else "clave nueva"
+                if aplicar:
+                    clave = _clave_nueva()
+                    u.hashed_password = get_password_hash(clave)
+        fila = {"email": c.email, "accion": accion, "descripcion": c.descripcion}
+        if clave:
+            fila["clave"] = clave
+        informe.append(fila)
     if aplicar:
         db.commit()
     return informe
@@ -219,21 +266,34 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--aplicar", action="store_true", help="escribir en la base (si no, solo muestra)")
     parser.add_argument("--reiniciar", action="store_true", help="devolver las existentes a su estado inicial")
+    parser.add_argument("--incluir-vip", action="store_true", help="crear también la cuenta VIP")
+    parser.add_argument("--nuevas-claves", action="store_true", help="cambiar la clave de las que ya existen")
+    parser.add_argument("--desactivar", action="store_true", help="apagar todas las cuentas de prueba")
     args = parser.parse_args()
 
     from app.db.database import SessionLocal
 
     db = SessionLocal()
     try:
-        informe = sembrar(db, aplicar=args.aplicar, reiniciar=args.reiniciar)
+        informe = sembrar(
+            db,
+            aplicar=args.aplicar,
+            reiniciar=args.reiniciar,
+            incluir_vip=args.incluir_vip,
+            nuevas_claves=args.nuevas_claves,
+            desactivar=args.desactivar,
+        )
     finally:
         db.close()
 
     modo = "APLICADO" if args.aplicar else "SIMULACIÓN (nada se escribió · usa --aplicar)"
     print(f"\nCuentas de prueba por grado · {modo}\n")
     for fila in informe:
-        print(f"  {fila['accion']:<24} {fila['email']:<36} {fila['descripcion']}")
-    print(f"\n  Contraseña de todas: {CLAVE}\n")
+        print(f"  {fila['accion']:<28} {fila['email']:<40} {fila['descripcion']}")
+        if fila.get("clave"):
+            print(f"  {'':<28} clave: {fila['clave']}")
+    if any(f.get("clave") for f in informe):
+        print("\n  ⚠️ Las claves se muestran solo esta vez. Pásalas por fuera; no las guardes en el repo.\n")
 
 
 if __name__ == "__main__":

@@ -35,6 +35,27 @@ from app.db.models import BotConversation, User, UserRole
 logger = logging.getLogger(__name__)
 
 MARCA_AVISADO = "_aviso_caliente"
+# Si el correo no salió por el tope de abajo, el prospecto queda marcado aquí y
+# entra al resumen diario: nadie se queda sin verse.
+MARCA_SIN_CORREO = "_aviso_sin_correo"
+
+# X-5 · Sprint 4 · tope GLOBAL de correos de "caliente" por hora. El tope por
+# IP del bot no basta: alguien que varía contactos y respuestas puede generar
+# muchos calientes y llenar los buzones del equipo (y gastar el cupo de Resend).
+# Pasado el tope la notificación de la app sigue saliendo; el correo no.
+TOPE_CORREOS_POR_HORA = 20
+
+
+def _correos_en_la_ultima_hora(db: DBSession) -> int:
+    hace_una_hora = datetime.utcnow() - timedelta(hours=1)
+    recientes = db.query(BotConversation).filter(BotConversation.updated_at >= hace_una_hora).all()
+    n = 0
+    for c in recientes:
+        h = c.hechos or {}
+        marca = h.get(MARCA_AVISADO)
+        if marca and not h.get(MARCA_SIN_CORREO) and marca >= hace_una_hora.isoformat(timespec="seconds"):
+            n += 1
+    return n
 
 
 def _comerciales(db: DBSession) -> List[User]:
@@ -67,7 +88,9 @@ def _correo_caliente(p) -> tuple[str, str, str]:
         ("Cuándo empieza", p.cuando),
     ]
     filas = [(k, v) for k, v in filas if v]
-    asunto = f"Prospecto caliente: {p.nombre or 'sin nombre'}"
+    # X-5 · sin saltos de línea en el asunto: el nombre lo escribe un anónimo.
+    nombre = " ".join((p.nombre or "sin nombre").split())
+    asunto = f"Prospecto caliente: {nombre}"
     html = (
         f"<p><strong>{escape(p.nombre or 'Sin nombre')}</strong> acaba de entrar como "
         f"prospecto caliente (puntaje {p.puntaje}).</p><ul>"
@@ -103,9 +126,14 @@ def avisar_caliente(db: DBSession, lead: BotConversation) -> bool:
         hechos = dict(lead.hechos or {})
         if lead.band != "hot" or hechos.get(MARCA_AVISADO):
             return False
+        con_correo = _correos_en_la_ultima_hora(db) < TOPE_CORREOS_POR_HORA
         # La marca va ANTES de enviar: si el correo tarda o falla, un segundo
         # turno del perfilador no debe mandar otro.
-        hechos[MARCA_AVISADO] = datetime.utcnow().isoformat(timespec="seconds") + "Z"
+        hechos[MARCA_AVISADO] = datetime.utcnow().isoformat(timespec="seconds")
+        if not con_correo:
+            hechos[MARCA_SIN_CORREO] = True
+            logger.warning("Tope de %s correos/hora de prospecto caliente: %s va al resumen",
+                           TOPE_CORREOS_POR_HORA, lead.id)
         lead.hechos = hechos
         db.commit()
 
@@ -122,9 +150,10 @@ def avisar_caliente(db: DBSession, lead: BotConversation) -> bool:
             )
         db.commit()
 
-        asunto, html, texto = _correo_caliente(p)
-        for correo in destinatarios(db):
-            send_email(to=correo, subject=asunto, html_body=html, text_body=texto)
+        if con_correo:
+            asunto, html, texto = _correo_caliente(p)
+            for correo in destinatarios(db):
+                send_email(to=correo, subject=asunto, html_body=html, text_body=texto)
         return True
     except Exception:  # noqa: BLE001 · el aviso es best-effort
         logger.exception("No se pudo avisar del prospecto caliente %s", getattr(lead, "id", None))
@@ -149,6 +178,11 @@ def avisar_caliente_en_segundo_plano(lead_id: UUID) -> None:
         db.close()
 
 
+def _sin_correo(db: DBSession, lead_id: str) -> bool:
+    lead = db.query(BotConversation).filter(BotConversation.id == UUID(lead_id)).first()
+    return bool(lead and (lead.hechos or {}).get(MARCA_SIN_CORREO))
+
+
 def resumen_tibios(db: DBSession, *, ahora: Optional[datetime] = None) -> int:
     """El resumen diario de los tibios de las últimas 24 horas. Devuelve cuántos.
 
@@ -159,8 +193,16 @@ def resumen_tibios(db: DBSession, *, ahora: Optional[datetime] = None) -> int:
     from app.services.email_service import send_email
 
     ahora = ahora or datetime.utcnow()
-    tibios = prospectos_service.listar(db, banda="warm", desde=ahora - timedelta(days=1), hasta=ahora)
+    desde = ahora - timedelta(days=1)
+    tibios = prospectos_service.listar(db, banda="warm", desde=desde, hasta=ahora)
     tibios = [p for p in tibios if p.estado == "nuevo"]
+    # Los calientes que se quedaron sin correo por el tope de la hora entran
+    # aquí: nadie se queda sin verse.
+    calientes = [
+        p for p in prospectos_service.listar(db, banda="hot", desde=desde, hasta=ahora)
+        if p.estado == "nuevo" and _sin_correo(db, p.id)
+    ]
+    tibios = calientes + tibios
     if not tibios:
         return 0
     asunto = f"{len(tibios)} prospecto(s) tibio(s) en las últimas 24 horas"

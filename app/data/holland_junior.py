@@ -72,7 +72,7 @@ HOLLAND_JUNIOR_QUESTIONS: List[Dict[str, Any]] = [
     # ---------------- I · Investigador (entender, resolver, probar) ----------
     # orig: "Me gusta analizar problemas complejos"
     {"id": "h-i-1", "text": "Cuando un problema está difícil, me dan más ganas de resolverlo que de dejarlo", "type": "likert", "category": "I"},
-    # orig: "Disfruto leer sobre temas cientificos"
+    # orig: "Disfruto leer sobre temas científicos"
     {"id": "h-i-2", "text": "Me quedo enganchado viendo o leyendo cosas de ciencia, del espacio o de animales raros", "type": "likert", "category": "I"},
     # orig: "Prefiero entender el por que de las cosas"
     {"id": "h-i-3", "text": "Siempre pregunto por qué las cosas funcionan como funcionan", "type": "likert", "category": "I"},
@@ -80,7 +80,7 @@ HOLLAND_JUNIOR_QUESTIONS: List[Dict[str, Any]] = [
     {"id": "h-i-4", "text": "Me gustan los acertijos, los juegos de lógica y los niveles de videojuego que toca pensar", "type": "likert", "category": "I"},
     # orig: "Disfruto investigar temas a profundidad"
     {"id": "h-i-5", "text": "Cuando un tema me interesa, busco y busco hasta saberlo todo", "type": "likert", "category": "I"},
-    # orig: "Me interesan las matematicas y la logica"
+    # orig: "Me interesan las matemáticas y la lógica"
     {"id": "h-i-6", "text": "Las matemáticas y los retos de lógica me parecen entretenidos", "type": "likert", "category": "I"},
     # orig: "Prefiero trabajar con datos y hechos"
     {"id": "h-i-7", "text": "Antes de opinar me gusta mirar los números y los datos: las estadísticas del equipo, del juego", "type": "likert", "category": "I"},
@@ -88,9 +88,9 @@ HOLLAND_JUNIOR_QUESTIONS: List[Dict[str, Any]] = [
     {"id": "h-i-8", "text": "Me gusta hacer experimentos y probar qué pasa si cambio algo", "type": "likert", "category": "I"},
 
     # ---------------- A · Artístico (crear, imaginar, expresar) --------------
-    # orig: "Tengo una imaginacion muy activa"
+    # orig: "Tengo una imaginación muy activa"
     {"id": "h-a-1", "text": "Me imagino historias, mundos o personajes todo el tiempo", "type": "likert", "category": "A"},
-    # orig: "Me gusta expresarme a traves del arte o la musica"
+    # orig: "Me gusta expresarme a traves del arte o la música"
     {"id": "h-a-2", "text": "Dibujo, canto, bailo o toco algo cuando quiero sacar lo que siento", "type": "likert", "category": "A"},
     # orig: "Prefiero trabajar sin reglas estrictas"
     {"id": "h-a-3", "text": "Me va mejor cuando me dejan hacer las cosas a mi manera y no con tantas reglas", "type": "likert", "category": "A"},
@@ -100,13 +100,13 @@ HOLLAND_JUNIOR_QUESTIONS: List[Dict[str, Any]] = [
     {"id": "h-a-5", "text": "Escribo cuentos, canciones o textos porque quiero, no porque me los pidan", "type": "likert", "category": "A"},
     # orig: "Aprecio la belleza estetica en mi entorno"
     {"id": "h-a-6", "text": "Me fijo en que las cosas se vean bien: mi cuarto, mis fotos, mis cuadernos", "type": "likert", "category": "A"},
-    # orig: "Me gusta el diseno grafico o la fotografia"
+    # orig: "Me gusta el diseno gráfico o la fotografia"
     {"id": "h-a-7", "text": "Disfruto tomar fotos, editar videos o diseñar cosas en el celular", "type": "likert", "category": "A"},
     # orig: "Prefiero ambientes de trabajo creativos y no convencionales"
     {"id": "h-a-8", "text": "Me imagino en un lugar donde cada quien tiene su estilo, no en una oficina donde todos se ven iguales", "type": "likert", "category": "A"},
 
     # ---------------- S · Social (ayudar, enseñar, acompañar) ----------------
-    # orig: "Me gusta ayudar a los demas"
+    # orig: "Me gusta ayudar a los demás"
     {"id": "h-s-1", "text": "Me gusta ayudar a los demás cuando lo necesitan", "type": "likert", "category": "S"},
     # orig: "Disfruto ensenar o explicar cosas a otros"
     {"id": "h-s-2", "text": "Mis amigos me piden que les explique cuando no entienden algo de clase", "type": "likert", "category": "S"},
@@ -146,7 +146,7 @@ HOLLAND_JUNIOR_QUESTIONS: List[Dict[str, Any]] = [
     {"id": "h-c-1", "text": "Soy organizado con mis cosas: mi maleta, mis cuadernos, mi cuarto", "type": "likert", "category": "C"},
     # orig: "Me gustan las tareas con procedimientos claros"
     {"id": "h-c-2", "text": "Me gusta que me digan paso a paso qué hay que hacer", "type": "likert", "category": "C"},
-    # orig: "Prefiero trabajar con numeros y datos"
+    # orig: "Prefiero trabajar con números y datos"
     {"id": "h-c-3", "text": "Me gusta llevar cuentas y números: lo que gasto, mis puntos, mis estadísticas", "type": "likert", "category": "C"},
     # orig: "Disfruto mantener registros y archivos ordenados"
     {"id": "h-c-4", "text": "Tengo mis fotos, archivos y apuntes ordenados y con nombre", "type": "likert", "category": "C"},

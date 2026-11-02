@@ -358,7 +358,16 @@ def get_cv_profile(
 ):
     _solo_estudiantes(current_user)
     cv, perfil = _armar_cv(db, current_user)
-    return _serializar(cv, perfil)
+    datos = _serializar(cv, perfil)
+    # Recorridos Sprint 4 · si todavía no la respondió, la pregunta llega marcada
+    # con lo que dijo en el onboarding. No se guarda ni cuenta como respondida
+    # (`ready` sigue en False) hasta que la confirme.
+    if not datos["current_occupation"]:
+        sugerida = cv_profile_service.ocupacion_sugerida(current_user.onboarding_answers)
+        if sugerida:
+            datos["current_occupation"] = sugerida
+            datos["requires_school"] = cv_profile_service.requires_school(sugerida)
+    return datos
 
 
 class LinkedInImportRequest(BaseModel):

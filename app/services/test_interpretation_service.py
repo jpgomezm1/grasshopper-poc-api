@@ -60,7 +60,9 @@ logger = logging.getLogger(__name__)
 # "(sin puntajes numéricos)" y el modelo escribía la lectura sin ver el código
 # Holland, el tipo MBTI ni el orden de preferencia. Subir la versión regenera esas
 # lecturas · el hash de caché la incluye (`scores_hash`).
-PROMPT_VERSION = "interpret_test_v3"
+# v4 (recorridos Sprint 4, 2026-11-02): regla de no asumir el género. Subir la versión
+# invalida la caché, así que las lecturas viejas en femenino se regeneran al abrirlas.
+PROMPT_VERSION = "interpret_test_v4"
 
 
 class TestInterpretationUnavailable(Exception):

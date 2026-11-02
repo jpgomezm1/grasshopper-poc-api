@@ -20,6 +20,11 @@ DISCLAIMER_TEXT = (
     "asistida por inteligencia artificial es orientativa y debe ser revisada "
     "junto a tu orientador o psicólogo. Al continuar, autorizas el tratamiento "
     "de tus respuestas conforme a la política de privacidad de Mentoring "
-    "(Ley 1581 de 2012 · y GDPR cuando aplique). "
-    "[TEXTO LEGAL PENDIENTE DE CONFIRMACIÓN DEL CLIENTE]"
+    "(Ley 1581 de 2012 · y GDPR cuando aplique)."
+    # Recorridos Sprint 4 (2026-11-02) · aquí iba, DENTRO del texto, la nota
+    # "[TEXTO LEGAL PENDIENTE DE CONFIRMACIÓN DEL CLIENTE]", y el estudiante la
+    # leía en el modal antes de cada test. La nota vive en este comentario: el
+    # texto sigue siendo el borrador hasta que la clienta mande el literal. No
+    # se subió la versión porque el contenido legal no cambió (solo salió la
+    # nota interna); subirla habría re-pedido la aceptación a todos.
 )

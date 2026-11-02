@@ -38,3 +38,15 @@ def test_los_bancos_de_tests_llevan_tildes():
         {m.group(0) for t in _textos([VOCATIONAL_TESTS, get_holland_junior()]) for m in SIN_TILDE.finditer(t)}
     )
     assert not malos, f"palabras sin tilde en los bancos de tests: {malos}"
+
+
+def test_los_textos_legales_no_llevan_notas_internas():
+    """Recorridos Sprint 4 · el aviso legal de los tests y el consentimiento
+    parental terminaban en "[TEXTO LEGAL PENDIENTE DE CONFIRMACIÓN DEL CLIENTE]",
+    visible para el estudiante y para quien firma."""
+    from app.data.disclaimer import DISCLAIMER_TEXT
+    from app.data.parental_consent import CONSENT_TEXT
+
+    for texto in (DISCLAIMER_TEXT, CONSENT_TEXT):
+        assert "[" not in texto and "PENDIENTE" not in texto.upper()
+        assert texto.rstrip().endswith(".")

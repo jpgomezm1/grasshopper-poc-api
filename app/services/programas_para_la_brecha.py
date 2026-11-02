@@ -34,6 +34,7 @@ from typing import Any, Dict, List, Optional
 logger = logging.getLogger(__name__)
 
 CUANTOS = 3
+CLAVE_CACHE = "career_gap_programas"
 # Cuántos candidatos se piden por concepto · margen para saltarse repetidos.
 VENTANA = 8
 _IMPACTOS = ("alto", "medio")
@@ -83,6 +84,14 @@ def elegir(db: Any, user: Any) -> Optional[Dict[str, Any]]:
     analisis = respuestas.get("career_gap_analysis")
     if not analisis:
         return None
+
+    # Recorridos Sprint 4 · en producción tardaba ~17 s (tres vectores y tres
+    # búsquedas) cada vez que abría el inicio. Se guarda junto al análisis del
+    # que salió: si el análisis cambia (otra fecha), se recalcula.
+    generado = respuestas.get("career_gap_analysis_generated_at")
+    guardado = respuestas.get(CLAVE_CACHE)
+    if isinstance(guardado, dict) and generado and guardado.get("para_analisis") == generado:
+        return guardado.get("datos")
 
     lista_conceptos = conceptos(analisis, respuestas.get("career_target_role"))
     perfil = bp.perfil_del_usuario(db, user)
@@ -136,8 +145,16 @@ def elegir(db: Any, user: Any) -> Optional[Dict[str, Any]]:
         if len(elegidos) == antes:
             break  # no quedan candidatos nuevos
 
-    return {
+    datos = {
         "target_role": respuestas.get("career_target_role"),
         "conceptos": lista_conceptos,
         "programas": elegidos,
     }
+    # Solo se guarda un resultado con programas: una lista vacía puede ser un
+    # proveedor caído, y guardarla dejaría a la persona sin programas para siempre.
+    if elegidos and generado and db is not None and hasattr(user, "id"):
+        user.onboarding_answers = {
+            **respuestas, CLAVE_CACHE: {"para_analisis": generado, "datos": datos},
+        }
+        db.commit()
+    return datos

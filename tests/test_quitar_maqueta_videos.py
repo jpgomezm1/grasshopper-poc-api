@@ -54,3 +54,12 @@ def test_aplicar_solo_quita_la_descripcion_de_la_maqueta(db):
     assert psico.description is None
     assert (psico.topic, psico.stage, psico.is_published) == ("Salud", "Descubre", True)
     assert db.query(OrientationVideo).filter_by(title="Derecho").one().description == "Un día en un juzgado."
+
+
+def test_corrige_solo_los_titulos_que_coinciden_exacto(db):
+    db.add(OrientationVideo(url="https://youtu.be/c", title="Arquitectura: cinco anos y despues que", topic="Arte"))
+    db.commit()
+    cambios = script.corregir_titulos(db, aplicar=True)
+    assert cambios == [("Arquitectura: cinco anos y despues que", "Arquitectura: cinco años, ¿y después qué?")]
+    # Lo que no está en la lista no se toca.
+    assert db.query(OrientationVideo).filter_by(url="https://youtu.be/b").one().title == "Derecho"

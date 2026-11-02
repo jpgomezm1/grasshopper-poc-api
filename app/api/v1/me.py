@@ -548,6 +548,10 @@ class StudentDashboardResponse(BaseModel):
     ingles_aplica: bool = True
     # Las funciones que su plan no incluye · la guía las pinta con candado.
     funciones_con_candado: List[str] = []
+    # Recorridos Sprint 4 · si ya respondió el cuestionario de estilo de vida
+    # (E-3). Sin esto, el extra "Cuéntanos tu estilo de vida" seguía con su
+    # botón "Responder" en el inicio aunque ya lo hubiera hecho.
+    estilo_de_vida_respondido: bool = False
     # E-6 · la etapa que declaró (`life_stage`). La ruta no basta para el
     # encuadre: un universitario de primer semestre y alguien que ya trabaja
     # caen los dos en "profesional", y "mover tu carrera" solo le habla al segundo.
@@ -568,6 +572,7 @@ def _guia_de_su_etapa(db: DBSession, student: User) -> dict:
     """J-2 · los datos de la escalera por grado, leídos de la matriz de permisos."""
     from app.data import permisos as matriz
     from app.data.vocational_tests import VOCATIONAL_TESTS
+    from app.services import estilo_de_vida_service as estilo
     from app.services import permisos_service
 
     p = permisos_service.permisos(db, student)
@@ -592,6 +597,7 @@ def _guia_de_su_etapa(db: DBSession, student: User) -> dict:
         "tests_de_su_etapa": pasos,
         "ingles_aplica": p.ingles.motivo != "no_es_de_su_grado",
         "funciones_con_candado": sorted(k for k, a in p.funciones.items() if a.motivo == "plan"),
+        "estilo_de_vida_respondido": estilo.respondido(student.onboarding_answers or {}),
     }
 
 

@@ -178,3 +178,13 @@ def test_el_plan_de_preparacion_lo_usa(app_db):
     assert paso(p, "estilo_de_vida")["hecho"] is True
     assert "beca o un crédito" in paso(p, "financiacion")["detalle"]
     s.close()
+
+
+def test_http_el_dashboard_sabe_si_ya_lo_respondio(app_db):
+    """Recorridos Sprint 4 · la guía del inicio lo marca "hecho" con este dato."""
+    app, Sesion = app_db
+    _estudiante(Sesion, "dash@e3.dev")
+    with _cliente(app, "dash@e3.dev") as c:
+        assert c.get("/api/v1/me/dashboard").json()["estilo_de_vida_respondido"] is False
+        c.put(URL, json={"respuestas": COMPLETAS})
+        assert c.get("/api/v1/me/dashboard").json()["estilo_de_vida_respondido"] is True

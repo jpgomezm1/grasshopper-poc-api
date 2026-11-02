@@ -312,7 +312,8 @@ def _armar_decimo(db: Any, user: Any, p: Any) -> Dict[str, Any]:
     if not nivel:
         ahora.append(_paso(
             "ingles", "Mide tu nivel de inglés",
-            detalle="Con tu nivel real armamos tu plan de idiomas para 11° y 12°.",
+            # No "para 11° y 12°": muchos colegios terminan en 11°.
+            detalle="Con tu nivel real armamos tu plan de idiomas para lo que te queda de colegio.",
             ruta="/english-test", cta="Hacer el test",
             funcion="ingles", con_candado=p.ingles.motivo == "plan",
         ))

@@ -162,6 +162,71 @@ def test_http_gratis_recibe_402(app_db):
     assert r.json()["detail"]["funcion"] == "plan_preparacion"
 
 
+# ---------------------------------------------------------------------------
+# E-2 · 10° · la hoja de ruta académica 10–12
+# ---------------------------------------------------------------------------
+
+DIEZ = {"life_stage": "high_school_early", "grade": "10"}
+
+
+def test_decimo_tiene_su_hoja_de_ruta_hasta_12(db):
+    u = _estudiante(db, "d10a@e.dev", DIEZ, school_reported_last_grade=12)
+    plan = svc.armar(db, u)
+    assert plan["encabezado"] == "Te quedan 10°, 11° y 12°"
+    assert [e["titulo"] for e in plan["etapas"]] == ["Ahora, en 10°", "En 11°", "En 12°, tu último año"]
+    assert {"tests", "ingles", "materias", "actividades"} <= set(_ids(plan))
+
+
+def test_decimo_con_colegio_hasta_11(db):
+    u = _estudiante(db, "d10b@e.dev", DIEZ, school_reported_last_grade=11)
+    plan = svc.armar(db, u)
+    assert plan["encabezado"] == "Te quedan 10° y 11°"
+    assert plan["etapas"][-1]["titulo"] == "En 11°, tu último año"
+    assert "aplicar" in _ids(plan)
+
+
+def test_decimo_no_enlaza_lo_que_no_es_de_su_grado(db):
+    """Estilo de vida, kit y entrevista son de 11° y 12°: en 10° un enlace daría
+    402. Se nombran como lo que viene, sin ruta."""
+    plan = svc.armar(db, _estudiante(db, "d10c@e.dev", {**DIEZ, "international_interest": "intl_yes"}))
+    for pid in ("estilo_de_vida", "aplicar", "examen_ingles"):
+        assert _paso(plan, pid)["ruta"] is None, pid
+    for p in (p for e in plan["etapas"] for p in e["pasos"]):
+        assert p["ruta"] not in ("/estilo-de-vida", "/aplicaciones", "/entrevista"), p["id"]
+
+
+def test_decimo_ap_ib_solo_si_su_colegio_lo_tiene(db):
+    ib = svc.armar(db, _estudiante(db, "d10ib@e.dev", {**DIEZ, "school_reported_accreditation": "ib"}))
+    assert "IB" in _paso(ib, "materias")["titulo"]
+    no_sabe = svc.armar(db, _estudiante(db, "d10ns@e.dev", {**DIEZ, "school_reported_accreditation": "unknown"}))
+    assert "AP" not in _paso(no_sabe, "materias")["titulo"]
+    assert "IB" not in _paso(no_sabe, "materias")["titulo"]
+
+
+def test_decimo_plan_de_idiomas_sale_de_su_nivel(db):
+    bajo = svc.armar(db, _estudiante(
+        db, "d10en1@e.dev", {**DIEZ, "international_interest": "intl_yes"},
+        english_test_completed=True, english_cefr_level="A2",
+    ))
+    assert "A2" in _paso(bajo, "plan_idiomas")["detalle"] and "B2" in _paso(bajo, "plan_idiomas")["detalle"]
+    alto = svc.armar(db, _estudiante(
+        db, "d10en2@e.dev", DIEZ, english_test_completed=True, english_cefr_level="C1",
+    ))
+    assert _paso(alto, "plan_idiomas")["hecho"]
+
+
+def test_decimo_nunca_publica_fechas_oficiales(db):
+    texto = str(svc.armar(db, _estudiante(db, "d10f@e.dev", {**DIEZ, "international_interest": "intl_yes"})))
+    assert not re.search(r"20\d\d", texto)
+
+
+def test_http_decimo_pago_recibe_su_hoja_de_ruta(app_db):
+    app, Sesion = app_db
+    r = _get(app, Sesion, "d10h@e.dev", DIEZ, "pago")
+    assert r.status_code == 200
+    assert r.json()["etapas"][0]["titulo"] == "Ahora, en 10°"
+
+
 def test_http_noveno_no_es_de_su_grado(app_db):
     app, Sesion = app_db
     r = _get(app, Sesion, "n9@e.dev", {"life_stage": "high_school_early", "grade": "9"}, "pago")

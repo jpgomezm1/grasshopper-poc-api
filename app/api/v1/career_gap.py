@@ -38,7 +38,7 @@ import logging
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, status
 
 from app.api.v1.llave_plan import requiere
 from pydantic import BaseModel, Field
@@ -257,6 +257,13 @@ class CareerGapStateResponse(BaseModel):
     analysis: Optional[Dict[str, Any]] = None
     analysis_generated_at: Optional[str] = None
     ready_for_analysis: bool = False
+    # Recorridos Sprint 4 · el análisis en segundo plano: en_curso · listo ·
+    # fallido (None si nunca se pidió por esa vía). La pantalla consulta esto.
+    analysis_status: Optional[str] = None
+    analysis_error: Optional[str] = None
+    # Si se puede lanzar el análisis en segundo plano: basta el TEXTO de
+    # LinkedIn que dio en el onboarding (se procesa ahí mismo).
+    can_start_analysis: bool = False
 
 
 def _missing_for_analysis(answers: Dict[str, Any]) -> List[str]:
@@ -282,6 +289,9 @@ def get_career_gap_state(
         analysis=answers.get("career_gap_analysis"),
         analysis_generated_at=answers.get("career_gap_analysis_generated_at"),
         ready_for_analysis=not _missing_for_analysis(answers),
+        analysis_status=answers.get("career_gap_analysis_status"),
+        analysis_error=answers.get("career_gap_analysis_error"),
+        can_start_analysis=not _faltan_para_segundo_plano(answers),
     )
 
 
@@ -364,6 +374,148 @@ def analizar(
         logger.warning("No se pudo registrar el uso de IA de career-gap/analyze")
 
     return {"analysis": analisis, "generated_at": generado_en}
+
+
+# ---------------------------------------------------------------------------
+# POST /me/career-gap/analizar-en-segundo-plano · recorridos Sprint 4
+# ---------------------------------------------------------------------------
+# Lo que se encontró en producción el 2026-11-02:
+#  1. Ninguna pantalla llamaba a `/analyze`: un profesional real nunca veía su
+#     brecha, su plan de upskilling ni los programas para cerrarla (E-5).
+#  2. `/analyze` tarda más de 30 s (leer LinkedIn + analizar con IA) y el router
+#     de Heroku corta la respuesta a los 30 s: la persona ve un error aunque el
+#     análisis SÍ se guardó.
+# Esta ruta responde de inmediato (202) y hace el trabajo después de responder;
+# la pantalla consulta `GET /me/career-gap` hasta que el estado sea "listo".
+# Si todavía no hay LinkedIn procesado pero sí el texto que dio en el onboarding,
+# lo procesa primero: no se le vuelve a pedir lo que ya entregó.
+
+ESTADO_EN_CURSO = "en_curso"
+ESTADO_LISTO = "listo"
+ESTADO_FALLIDO = "fallido"
+# Si un trabajo quedó "en curso" más que esto (el dyno se reinició), se permite
+# empezar otro en vez de dejar a la persona esperando para siempre.
+VENCE_EN_CURSO_S = 300
+
+
+def _faltan_para_segundo_plano(answers: Dict[str, Any]) -> List[str]:
+    faltan = []
+    if not (answers.get("career_linkedin_profile") or answers.get("career_linkedin_profile_text")):
+        faltan.append("linkedin_profile")
+    target_role = answers.get("career_target_role")
+    if not (target_role.strip() if isinstance(target_role, str) else target_role):
+        faltan.append("target_role")
+    return faltan
+
+
+def _trabajo_de_analisis(user_id: Any) -> None:
+    """El análisis completo, fuera de la petición · con su propia sesión de base."""
+    from app.db.database import SessionLocal
+
+    db = SessionLocal()
+    try:
+        user = db.query(User).filter(User.id == user_id).first()
+        if user is None:
+            return
+        try:
+            answers = _answers(user)
+            if not answers.get("career_linkedin_profile"):
+                texto = (answers.get("career_linkedin_profile_text") or "").strip()
+                propuesta, meta_li = linkedin_import_service.importar_desde_texto(texto)
+                answers = _guardar(db, user, {
+                    "career_linkedin_profile": propuesta,
+                    "career_linkedin_profile_hash": _hash_texto(texto[: linkedin_import_service.MAX_CHARS]),
+                })
+                _registrar_uso(db, user, "career_gap_linkedin_import", meta_li)
+
+            analisis, meta = career_gap_service.analizar(
+                perfil_linkedin=answers.get("career_linkedin_profile"),
+                target_role=answers.get("career_target_role") or "",
+                current_role=answers.get("career_current_role"),
+                job_satisfaction_score=answers.get("career_job_satisfaction_score"),
+                job_satisfaction_text=answers.get("career_job_satisfaction_text"),
+                session_id=str(user.id),
+            )
+            _guardar(db, user, {
+                "career_gap_analysis": analisis,
+                "career_gap_analysis_generated_at": datetime.now(timezone.utc).isoformat(),
+                "career_gap_analysis_status": ESTADO_LISTO,
+                "career_gap_analysis_error": None,
+            })
+            _registrar_uso(db, user, "career_gap_analysis", meta)
+        except Exception as exc:  # noqa: BLE001 · se reporta en el estado, no se pierde
+            logger.warning("Análisis de brecha en segundo plano falló", exc_info=True)
+            db.rollback()
+            _guardar(db, user, {
+                "career_gap_analysis_status": ESTADO_FALLIDO,
+                "career_gap_analysis_error": "No pudimos terminar tu análisis. Inténtalo de nuevo en un momento.",
+            })
+    finally:
+        db.close()
+
+
+def _registrar_uso(db: DBSession, user: User, feature: str, meta: Dict[str, Any]) -> None:
+    try:
+        record_ai_usage(
+            db,
+            provider="anthropic",
+            user_id=user.id,
+            feature=feature,
+            model=meta.get("model"),
+            tokens_input=meta.get("tokens_input"),
+            tokens_output=meta.get("tokens_output"),
+            latency_ms=meta.get("latency_ms"),
+        )
+    except Exception:  # noqa: BLE001
+        logger.warning("No se pudo registrar el uso de IA de %s", feature)
+
+
+@router.post(
+    "/analizar-en-segundo-plano",
+    status_code=status.HTTP_202_ACCEPTED,
+    summary="Arranca el análisis de brecha y responde de inmediato",
+    dependencies=[
+        Depends(rate_limit("6/minute", scope="career_gap_analyze")),
+        Depends(requiere("analisis_brecha")),
+    ],
+)
+def analizar_en_segundo_plano(
+    background_tasks: BackgroundTasks,
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    _solo_profesionales(current_user)
+    answers = _answers(current_user)
+
+    faltan = _faltan_para_segundo_plano(answers)
+    if faltan:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail={
+                "code": "career_gap_incomplete",
+                "message": "Antes de tu análisis de brecha necesitamos tu "
+                           "perfil de LinkedIn y tu puesto ideal.",
+                "missing": faltan,
+            },
+        )
+
+    # Uno a la vez: si ya hay uno corriendo (y no está vencido), no se lanza otro.
+    if answers.get("career_gap_analysis_status") == ESTADO_EN_CURSO:
+        desde = answers.get("career_gap_analysis_started_at")
+        try:
+            edad = (datetime.now(timezone.utc) - datetime.fromisoformat(desde)).total_seconds()
+        except (TypeError, ValueError):
+            edad = VENCE_EN_CURSO_S + 1
+        if edad < VENCE_EN_CURSO_S:
+            return {"estado": ESTADO_EN_CURSO}
+
+    _guardar(db, current_user, {
+        "career_gap_analysis_status": ESTADO_EN_CURSO,
+        "career_gap_analysis_started_at": datetime.now(timezone.utc).isoformat(),
+        "career_gap_analysis_error": None,
+    })
+    background_tasks.add_task(_trabajo_de_analisis, current_user.id)
+    return {"estado": ESTADO_EN_CURSO}
 
 
 # ---------------------------------------------------------------------------

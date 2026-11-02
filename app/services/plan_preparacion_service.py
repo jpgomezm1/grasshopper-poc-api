@@ -23,7 +23,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-from app.data.onboarding_hechos import RUTA_GRADO_11, RUTA_GRADO_12
+from app.data.onboarding_hechos import RUTA_GRADO_10, RUTA_GRADO_11, RUTA_GRADO_12
 
 INTL_SI = "intl_yes"
 INTL_QUIZAS = "intl_maybe"
@@ -87,6 +87,8 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
     from app.services import permisos_service
 
     p = permisos_service.permisos(db, user)
+    if p.tramo == RUTA_GRADO_10:
+        return _armar_decimo(db, user, p)
     respuestas = user.onboarding_answers or {}
     interes = respuestas.get("international_interest")
     paises = respuestas.get("countries") or []
@@ -253,4 +255,154 @@ def armar(db: Any, user: Any) -> Dict[str, Any]:
         },
         {"id": "antes_de_aplicar", "titulo": "Antes de aplicar", "pasos": antes},
     ]
+    return {"encabezado": encabezado, "etapas": etapas, "aviso": AVISO}
+
+
+# ---------------------------------------------------------------------------
+# 10° · la hoja de ruta académica 10–12 (E-2)
+# ---------------------------------------------------------------------------
+#
+# El demo de Verónica, en el paquete de 10° ("Perfil de Competencias"): "hoja de
+# ruta académica 10–12 (AP/IB si aplica, plan de idiomas)". No es el plan de 11°
+# adelantado: en 10° todavía se explora, así que "ahora" son sus tests, su
+# inglés, sus materias y sus actividades, y lo de aplicar queda como lo que
+# viene, SIN enlaces a herramientas que no son de su grado (darían 402).
+#
+# Mismas reglas que el plan de 11°: sin fechas oficiales y sin IA.
+
+# Por debajo de B2, que es lo que suelen pedir los programas en inglés.
+_DEBAJO_DE_B2 = ("A1", "A2", "B1")
+
+
+def _armar_decimo(db: Any, user: Any, p: Any) -> Dict[str, Any]:
+    from app.data import permisos as matriz
+    from app.db.models import VocationalTestResult
+
+    respuestas = user.onboarding_answers or {}
+    interes = respuestas.get("international_interest")
+    afuera = interes in (INTL_SI, INTL_QUIZAS) or interes is None
+    acreditacion = respuestas.get("school_reported_accreditation") or getattr(
+        user, "school_reported_accreditation", None
+    )
+    ultimo = _ultimo_grado_del_colegio(user)
+
+    def candado(funcion: str) -> bool:
+        acceso = p.funciones.get(funcion)
+        return bool(acceso and acceso.motivo == "plan")
+
+    # --- Ahora, en 10° --------------------------------------------------------
+    de_su_grado = matriz.TESTS_POR_TRAMO.get(RUTA_GRADO_10, ())
+    hechos = {
+        r.test_id
+        for r in db.query(VocationalTestResult.test_id)
+        .filter(VocationalTestResult.user_id == user.id)
+        .all()
+    }
+    listos = len([t for t in de_su_grado if t in hechos])
+    ahora: List[Dict[str, Any]] = [_paso(
+        "tests", "Haz los tests de tu grado",
+        detalle=f"{listos} de {len(de_su_grado)}",
+        hecho=listos == len(de_su_grado),
+        ruta="/tests", cta="Ir a los tests",
+        funcion="tests", con_candado=candado("tests"),
+    )]
+
+    # El plan de idiomas sale de su nivel MEDIDO, no de uno supuesto.
+    nivel = (user.english_cefr_level or "").upper() if user.english_test_completed else ""
+    if not nivel:
+        ahora.append(_paso(
+            "ingles", "Mide tu nivel de inglés",
+            detalle="Con tu nivel real armamos tu plan de idiomas para 11° y 12°.",
+            ruta="/english-test", cta="Hacer el test",
+            funcion="ingles", con_candado=p.ingles.motivo == "plan",
+        ))
+    elif nivel in _DEBAJO_DE_B2:
+        ahora.append(_paso(
+            "plan_idiomas", "Sube tu inglés paso a paso",
+            detalle=f"Tu nivel hoy: {nivel}. " + (
+                "Los programas en inglés suelen pedir un B2 o más, y tienes 10° y 11° para llegar."
+                if afuera else
+                "Aunque estudies en Colombia, un mejor inglés te abre más opciones."
+            ),
+        ))
+    else:
+        ahora.append(_paso(
+            "plan_idiomas", "Mantén tu inglés activo",
+            detalle=f"Tu nivel hoy: {nivel}. Mantenerlo cuenta tanto como subirlo.",
+            hecho=True,
+        ))
+
+    # AP/IB solo si su colegio lo tiene: regla explícita de la clienta (no se
+    # muestran si no se sabe, ver `onboarding_hechos.school_accreditation`).
+    if acreditacion in ("ib", "ap"):
+        programa = "IB" if acreditacion == "ib" else "AP"
+        ahora.append(_paso(
+            "materias", f"Elige tus materias {programa} con intención",
+            detalle=(
+                f"Las materias {programa} que tomes en 11° y 12° pesan en tus "
+                "aplicaciones: escógelas pensando en las áreas que te llaman."
+            ),
+        ))
+    else:
+        ahora.append(_paso(
+            "materias", "Profundiza en las materias que más te gustan",
+            detalle="Son una pista de lo que podrías estudiar.",
+        ))
+    ahora.append(_paso(
+        "actividades", "Suma actividades fuera de clase",
+        detalle=(
+            "Deportes, voluntariado, clubes o un proyecto propio: cuentan en tu "
+            "hoja de vida y en tus aplicaciones."
+        ),
+        ruta="/me/activities", cta="Contar una actividad",
+    ))
+
+    # --- En 11° ---------------------------------------------------------------
+    once: List[Dict[str, Any]] = [_paso(
+        "rutas", "Elige 2 o 3 rutas que te convenzan",
+        detalle="Tus tests de 10° ya dan una primera lista de carreras afines.",
+        hecho=_rutas_activas(db, user) >= 2,
+        ruta="/routes", cta="Ver mis rutas",
+    )]
+    # Sin enlace: el cuestionario es de 11° y 12° (en 10° daría 402).
+    once.append(_paso(
+        "estilo_de_vida", "Cuéntanos tu estilo de vida y tu presupuesto",
+        detalle="Lo respondes en 11° con tu familia: decide qué opciones son posibles.",
+    ))
+    if interes != INTL_SI:
+        # La práctica del Saber 11 sí es de 10° (I-6): se puede empezar sin afán.
+        once.append(_paso(
+            "saber_11", "Empieza a practicar el Saber 11, sin afán",
+            detalle="Lo presentas en tu último año; practicar desde ahora le quita presión.",
+            ruta="/practica-examenes/saber11", cta="Ir a la práctica",
+            funcion="practica_examenes", con_candado=candado("practica_examenes"),
+        ))
+    if afuera:
+        once.append(_paso(
+            "examen_ingles", "Prepara el examen de inglés (IELTS o TOEFL)",
+            detalle=("" if interes == INTL_SI else "Si decides estudiar afuera: ")
+            + ("Es" if interes == INTL_SI else "es") + " en 11° cuando toca practicarlo.",
+        ))
+
+    # --- Su último año ----------------------------------------------------------
+    final = [_paso(
+        "aplicar", "Aplicar: requisitos, documentos y entrevista",
+        detalle="Cuando llegues, este plan se vuelve tu kit de aplicación, con avisos de cada fecha.",
+    )]
+
+    if ultimo == 12:
+        encabezado = "Te quedan 10°, 11° y 12°"
+        etapas = [
+            {"id": "ahora", "titulo": "Ahora, en 10°", "pasos": ahora},
+            {"id": "once", "titulo": "En 11°", "pasos": once},
+            {"id": "ultimo", "titulo": "En 12°, tu último año", "pasos": final},
+        ]
+    else:
+        # Colegio hasta 11° (o "no sé"): 11° ya es el último año. Mejor llegar
+        # antes a las aplicaciones que tarde.
+        encabezado = "Te quedan 10° y 11°"
+        etapas = [
+            {"id": "ahora", "titulo": "Ahora, en 10°", "pasos": ahora},
+            {"id": "once", "titulo": "En 11°, tu último año", "pasos": once + final},
+        ]
     return {"encabezado": encabezado, "etapas": etapas, "aviso": AVISO}

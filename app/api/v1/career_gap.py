@@ -422,6 +422,37 @@ def get_gap_analysis_view(
     }
 
 
+@router_professional.get(
+    "/programas-para-tu-brecha",
+    # E-5 · Sprint 4 · programas del catálogo: piden la llave del análisis de
+    # brecha Y la de programas (las dos son del plan pago).
+    dependencies=[Depends(requiere("analisis_brecha")), Depends(requiere("programas"))],
+)
+def get_programas_para_la_brecha(
+    db: DBSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    """E-5 · "hoja de ruta con 3 programas específicos" del demo de Verónica.
+
+    Salen del catálogo real (`programas_para_la_brecha`), uno por cada cosa que
+    tiene que cerrar: su puesto ideal y sus brechas más importantes. Mismo
+    criterio de 404 que las dos rutas de esta sección si no hay análisis.
+    """
+    from app.services import programas_para_la_brecha as ppb
+
+    _solo_profesionales(current_user)
+    datos = ppb.elegir(db, current_user)
+    if datos is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={
+                "code": "career_gap_not_analyzed",
+                "message": "Todavía no hay un análisis de brecha para esta persona.",
+            },
+        )
+    return datos
+
+
 @router_professional.get("/upskilling-plan")
 def get_upskilling_plan_view(
     db: DBSession = Depends(get_db),

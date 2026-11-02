@@ -69,7 +69,8 @@ FUNCION_SOLO_EN_TRAMOS: Dict[str, Tuple[str, ...]] = {
     # 10° entra con el Saber 11 (Sprint 4, I-6): lo practica con tiempo. A 10°
     # el SAT y el IELTS le salen como "todavía no es tu momento", sin candado.
     "practica_examenes": (RUTA_GRADO_10, RUTA_GRADO_11, RUTA_GRADO_12, RUTA_PROFESIONAL),
-    "plan_preparacion": (RUTA_GRADO_11, RUTA_GRADO_12),
+    # E-2 · en 10° es la "hoja de ruta académica 10–12" del demo (otra forma, mismo lugar).
+    "plan_preparacion": (RUTA_GRADO_10, RUTA_GRADO_11, RUTA_GRADO_12),
     "kit_aplicacion": (RUTA_GRADO_11, RUTA_GRADO_12),
     "entrevista_admision": (RUTA_GRADO_11, RUTA_GRADO_12),
     "estilo_de_vida": (RUTA_GRADO_11, RUTA_GRADO_12),

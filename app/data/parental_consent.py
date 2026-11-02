@@ -26,6 +26,9 @@ CONSENT_TEXT = (
     "realiza conforme a la política de privacidad de Mentoring y a la Ley "
     "1581 de 2012 (y al GDPR cuando aplique). Declaro ser el adulto "
     "responsable del/la estudiante y otorgar este consentimiento de forma "
-    "libre e informada. "
-    "[TEXTO LEGAL PENDIENTE DE CONFIRMACIÓN DEL CLIENTE]"
+    "libre e informada."
+    # Recorridos Sprint 4 (2026-11-02) · la nota "[TEXTO LEGAL PENDIENTE DE
+    # CONFIRMACIÓN DEL CLIENTE]" iba DENTRO del texto que firma el acudiente.
+    # Sigue siendo un borrador (ver el docstring); la nota vive aquí. Misma
+    # versión: el contenido que se autoriza no cambió.
 )

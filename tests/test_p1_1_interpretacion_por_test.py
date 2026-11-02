@@ -121,6 +121,17 @@ def test_el_prompt_pide_lo_que_la_clienta_pidio():
         assert marcador in p, f"falta {marcador} en el prompt"
 
 
+def test_el_prompt_no_asume_el_genero():
+    """Recorridos Sprint 4 · con la cuenta "Prueba Grado 11" (sin género en ningún
+    lado) la lectura de Big Five decía "acompañarla", "ella todavía está…" y "no eres
+    solo analítica". La entrevista ya tenía esta regla; la lectura no."""
+    from app.core.ai_client import load_prompt
+
+    p = load_prompt("interpret_test")
+    assert "No asumas su género" in p
+    assert "acompañarla" in p  # el ejemplo de lo que NO se dice, para la familia
+
+
 def test_el_prompt_prohibe_las_siglas_y_los_diagnosticos():
     from app.core.ai_client import load_prompt
 

@@ -134,6 +134,37 @@ def test_el_front_sabe_que_falta_y_que_opciones_ofrecer(app_with_db):
         assert "school" in valores and "working" in valores
 
 
+def test_llega_marcada_con_su_etapa_pero_no_cuenta_como_respondida(app_with_db):
+    """Recorridos Sprint 4 · quien ya dijo en el onboarding que está en 11° veía la
+    pregunta en blanco. Ahora llega marcada, pero sigue siendo una pregunta: no se
+    genera nada hasta que la confirme (el "antes" de Verónica)."""
+    from app.db.models import User
+
+    app, SessionLocal = app_with_db
+    uid = _student(SessionLocal, "a3.etapa@grasshopper.dev")
+    db = SessionLocal()
+    u = db.get(User, uid)
+    u.onboarding_answers = {"life_stage": "high_school", "grade": "11"}
+    db.commit()
+    db.close()
+
+    with TestClient(app) as client:
+        h = _headers(client, "a3.etapa@grasshopper.dev")
+        data = client.get(f"{BASE}/profile", headers=h).json()
+        assert data["current_occupation"] == "school"
+        assert data["requires_school"] is True
+        assert data["ready"] is False
+        assert client.get(BASE, headers=h).status_code == 409
+
+
+def test_sin_etapa_conocida_llega_en_blanco():
+    from app.services import cv_profile_service as svc
+
+    assert svc.ocupacion_sugerida({}) is None
+    assert svc.ocupacion_sugerida({"life_stage": "working"}) == "working"
+    assert svc.ocupacion_sugerida({"life_stage": "school_grad"}) == "gap_year"
+
+
 def test_responder_habilita_la_generacion(app_with_db, monkeypatch):
     app, SessionLocal = app_with_db
     _student(SessionLocal, "a3.tres@grasshopper.dev")

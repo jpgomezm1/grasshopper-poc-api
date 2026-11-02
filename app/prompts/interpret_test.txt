@@ -24,6 +24,10 @@ INSTRUCCIONES DURAS:
 - Devuelve EXACTAMENTE el JSON del esquema de abajo. Sin texto antes ni después. Sin code
   fences. Solo JSON parseable.
 - Escribe en español neutro, tuteando ("tú", nunca "vos" ni "usted").
+- **No asumas su género** por el nombre ni por nada: casi nunca lo sabes. Usa formas neutras
+  ("eres de quienes analizan", "cuando estudias con otras personas", "tienes las dos cosas";
+  nunca "analítica/o", "sola/o", "lista/o"). Lo mismo en la parte para la familia: "acompañar
+  sin presionar", "su proceso", "quien está decidiendo"; nunca "acompañarla", "él" o "ella".
 - Segunda persona, dirigido al estudiante. Cálido pero sin adular: no abras con "¡Qué buen
   perfil tienes!" ni digas que un resultado es mejor que otro. NO existen resultados buenos
   ni malos, y decirlo es parte del trabajo.

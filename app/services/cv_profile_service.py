@@ -91,6 +91,28 @@ def get_profile(db: DBSession, user_id: UUID) -> Optional[CVProfile]:
     return db.query(CVProfile).filter(CVProfile.user_id == user_id).first()
 
 
+# Recorridos Sprint 4 · la etapa que ya contó en el onboarding → la opción de
+# "¿Qué haces actualmente?". La pregunta se sigue haciendo antes de generar (es
+# literal en el feedback de Verónica), pero llega con la respuesta marcada: antes
+# salía en blanco a alguien que ya había dicho que está en 11°, y ella se queja
+# justo de eso, de que la plataforma vuelve a preguntar lo que ya le dijeron.
+_OCUPACION_POR_ETAPA: Dict[str, str] = {
+    "high_school_early": "school",
+    "high_school": "school",
+    "school_grad": "gap_year",
+    "university": "university",
+    "recent_grad": "working",
+    "working": "working",
+    "career_change": "working",
+}
+
+
+def ocupacion_sugerida(onboarding_answers: Optional[Dict[str, Any]]) -> Optional[str]:
+    """La opción que corresponde a su etapa, o None si no se sabe."""
+    etapa = (onboarding_answers or {}).get("life_stage")
+    return _OCUPACION_POR_ETAPA.get(etapa) if isinstance(etapa, str) else None
+
+
 def requires_school(occupation: Optional[str]) -> bool:
     """El "si estoy en colegio" de su feedback."""
     return occupation in _SCHOOL_OCCUPATIONS

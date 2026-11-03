@@ -481,3 +481,30 @@ def test_license_service_archived_school_blocked(app_with_db):
     db.close()
     assert ok is False
     assert reason == "school_archived"
+
+
+def test_licencia_con_plan_viejo_no_tumba_el_detalle(app_with_db):
+    """Auditoría 2026-11-02 · A-1: en producción hay licencias "gold"/"bronze",
+    de antes de VALID_TIERS. Listarlas daba 500 y el detalle del colegio se quedaba
+    cargando. Se muestran tal cual; la regla de planes sigue valiendo al crear."""
+    from app.db.models import License, School
+
+    app, SessionLocal = app_with_db
+    _make_super_admin(SessionLocal)
+    db = SessionLocal()
+    school = School(name="Cumbres", slug="cumbres")
+    db.add(school)
+    db.flush()
+    db.add(License(school_id=school.id, tier="gold", seats=200, status="active"))
+    db.commit()
+    sid = str(school.id)
+    db.close()
+
+    client = TestClient(app)
+    H = {"Authorization": f"Bearer {_login(client, 'root@grasshopper.example.com', 'rootpass123')}"}
+    r = client.get(f"/api/v1/schools/{sid}/licenses", headers=H)
+    assert r.status_code == 200, r.text
+    assert r.json()[0]["tier"] == "gold"
+    assert client.get(f"/api/v1/schools/{sid}/license/usage", headers=H).status_code == 200
+    r = client.post(f"/api/v1/schools/{sid}/licenses", json={"tier": "gold", "seats": 10}, headers=H)
+    assert r.status_code == 422

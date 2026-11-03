@@ -193,11 +193,14 @@ def external_health(
     services: List[HealthCheckResult] = []
 
     # Heroku BE app
-    heroku_url = os.getenv("PROD_BACKEND_URL", "https://grasshopper-poc-api-25eae3fc7571.herokuapp.com/health")
+    # Auditoría 2026-11-02 (A-2): los valores por defecto eran las URLs del POC
+    # (`grasshopper-poc…`), que ya no existen, y producción no define estas
+    # variables: el panel marcaba "DEGRADED · HTTP 404" con todo funcionando.
+    heroku_url = os.getenv("PROD_BACKEND_URL", "https://grasshopper-api-bd21ea0947b5.herokuapp.com/health/live")
     services.append(_http_check("Heroku · Backend API", heroku_url))
 
     # Netlify FE
-    netlify_url = os.getenv("PROD_FRONTEND_URL", "https://grasshopper-poc.netlify.app")
+    netlify_url = os.getenv("PROD_FRONTEND_URL", "https://grasshopper-app.netlify.app")
     services.append(_http_check("Netlify · Frontend", netlify_url))
 
     # DB

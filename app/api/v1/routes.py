@@ -144,10 +144,11 @@ def generate_routes_for_session(
     session = assert_session_access(session_id, current_user, db)
 
     if not user_has_tests(db, current_user):
-        raise HTTPException(
-            status_code=409,
-            detail="no_tests_yet",
-        )
+        # Sin tests todavía no hay con qué generar. Era un 409 `no_tests_yet` que
+        # la pantalla ya trataba como "estado vacío", pero ensuciaba la consola
+        # de cada estudiante en cada visita (auditoría 2026-11-02, R-2): una
+        # lista vacía dice lo mismo sin parecer un error.
+        return []
 
     tests_block = format_tests_for_prompt(db, current_user.id)
     salida = generate_routes(

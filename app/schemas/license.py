@@ -70,9 +70,23 @@ class LicenseUpdate(BaseModel):
         return v
 
 
-class LicenseResponse(LicenseBase):
+class LicenseResponse(BaseModel):
+    """Lo que se LEE de la base · sin los validadores de entrada.
+
+    Hereda de BaseModel y no de LicenseBase a propósito: en producción hay
+    licencias con planes de antes de que existiera VALID_TIERS ("gold",
+    "bronze"…). Validarlas al responder tumbaba con 500 el detalle de 3 colegios
+    reales (auditoría 2026-11-02, A-1). La regla vale al CREAR y al EDITAR; lo
+    que ya está guardado se muestra tal cual.
+    """
     id: UUID
     school_id: UUID
+    tier: str
+    seats: int
+    starts_at: Optional[datetime] = None
+    expires_at: Optional[datetime] = None
+    status: str
+    notes: Optional[str] = None
     created_at: datetime
     updated_at: datetime
 

@@ -30,6 +30,14 @@ from app.services.catalog_service import display_name_for_program
 
 logger = logging.getLogger(__name__)
 
+
+def _pais_visible(pais: Optional[str]) -> str:
+    """El nombre en español del país, o el texto tal cual si no se reconoce."""
+    from app.services.lugares import pais_canonico
+
+    canonico = pais_canonico(pais)
+    return canonico.nombre if canonico else (pais or "")
+
 from app.api.v1.llave_plan import requiere  # noqa: E402
 
 # D-3 · Sprint 4 · la llave del plan, para TODO este router: programas y universidades son pago.
@@ -215,7 +223,11 @@ def _program_to_oferta(p: Program) -> dict:
             "logo": p.institution_logo_url or "",
             "verified": True,
         },
-        "countries": [p.country],
+        # Auditoría 2026-11-02 (E11-10): el catálogo trae el país como se extrajo
+        # ("Spain", "USA") y las tarjetas lo mostraban en inglés; el filtro del
+        # front, en cambio, ofrece nombres en español y nunca encontraba nada.
+        # El nombre canónico (`lugares`) arregla las dos cosas.
+        "countries": [_pais_visible(p.country)],
         "cities": [p.city] if p.city else [],
         # cost/duration/budgetTier pueden ser NULL ("a confirmar") cuando la
         # oferta viene del catálogo real sin datos financieros (GH-CATALOG-REAL).

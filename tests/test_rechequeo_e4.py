@@ -39,13 +39,15 @@ def test_ocho_afirmaciones_dos_por_dimension():
     assert any("cómo vamos a pagar mis estudios" in t for t in por_dim[PLAN])
 
 
-def test_se_califica_con_la_escala_generica_y_dice_que_le_falta():
+def test_se_califica_de_0_a_100_y_dice_que_le_falta():
+    # Escala de 0 a 100 de verdad (JP, 2026-11-02): 1 → 0, 5 → 100. Antes era la
+    # genérica (suma/máximo) y el piso era 20.
     from app.services.scoring_service import derive_test_extras
     from app.data.vocational_tests import calculate_vocational_scores
 
     r = _respuestas(cla=5, inf=4, res=3, pla=1)
     scores = calculate_vocational_scores(TEST_ID, r)
-    assert scores == {CLARIDAD: 100, INFORMACION: 80, RESPALDO: 60, PLAN: 20}
+    assert scores == {CLARIDAD: 100, INFORMACION: 75, RESPALDO: 50, PLAN: 0}
     extras = derive_test_extras(TEST_ID, r)
     assert extras["orden"] == [PLAN, RESPALDO, INFORMACION, CLARIDAD]
     assert extras["falta"] == [PLAN]
@@ -135,6 +137,6 @@ def test_doce_lo_envia_y_queda_guardado_con_su_lectura(app_db, grado, esperado):
         return
     s = Sesion()
     fila = s.query(VocationalTestResult).filter_by(user_id=uid, test_id=TEST_ID).one()
-    assert fila.scores[PLAN] == 20
+    assert fila.scores[PLAN] == 0
     assert fila.scores["_extras"]["label"] == "Te falta: Plan"
     s.close()

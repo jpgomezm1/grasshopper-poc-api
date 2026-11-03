@@ -84,20 +84,26 @@ def _todas() -> List[str]:
     return [_email(u) for u, *_ in STAFF] + [_email(ESTUDIANTE.usuario)]
 
 
-def sembrar(db: Any, *, aplicar: bool, desactivar: bool = False) -> List[Dict[str, str]]:
+def _de_la_agencia() -> List[str]:
+    """Las que ven datos REALES (admin, comercial, asesor). Las del colegio de
+    prueba solo ven ese colegio: pueden quedarse para que la clienta las use."""
+    return [_email(u) for u, _, _, en_colegio in STAFF if not en_colegio]
+
+
+def sembrar(db: Any, *, aplicar: bool, desactivar: bool = False, solo_agencia: bool = False) -> List[Dict[str, str]]:
     from app.api.v1.auth import get_password_hash
     from app.db.models import ParentRelationship, School, User, UserRole
 
     informe: List[Dict[str, str]] = []
 
     if desactivar:
-        for email in _todas():
+        for email in (_de_la_agencia() if solo_agencia else _todas()):
             u = db.query(User).filter(User.email == email).first()
             informe.append({"quien": email, "accion": "desactivar" if u else "no existe", "descripcion": ""})
             if aplicar and u is not None:
                 u.is_active = False
         org = db.query(School).filter(School.slug == SLUG).first()
-        if aplicar and org is not None:
+        if aplicar and org is not None and not solo_agencia:
             org.license_active = False
         if aplicar:
             db.commit()
@@ -153,13 +159,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--aplicar", action="store_true", help="escribir en la base (si no, solo muestra)")
     parser.add_argument("--desactivar", action="store_true", help="apagar todas las cuentas y la licencia del colegio")
+    parser.add_argument("--solo-agencia", action="store_true",
+                        help="con --desactivar: apagar solo admin, comercial y asesor (ven datos reales)")
     args = parser.parse_args()
 
     from app.db.database import SessionLocal
 
     db = SessionLocal()
     try:
-        informe = sembrar(db, aplicar=args.aplicar, desactivar=args.desactivar)
+        informe = sembrar(db, aplicar=args.aplicar, desactivar=args.desactivar, solo_agencia=args.solo_agencia)
     finally:
         db.close()
 

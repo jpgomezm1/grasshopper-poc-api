@@ -111,6 +111,9 @@ class UserResponse(BaseModel):
     grade: Optional[int] = None
     school_reported_last_grade: Optional[int] = None
     school_reported_accreditation: Optional[str] = None
+    # Auditoría 2026-11-02 (E11-4): si ya vio el recorrido de bienvenida. Antes
+    # vivía solo en el navegador y le volvía a salir en cada equipo.
+    tour_visto: bool = False
 
     model_config = {
         "from_attributes": True,
@@ -624,6 +627,7 @@ def _user_response_with_consent(user: User) -> UserResponse:
     resp = UserResponse.model_validate(user)
     from app.services import parental_consent_service
     resp.requires_parental_consent = parental_consent_service.needs_parental_consent(user)
+    resp.tour_visto = bool((user.onboarding_answers or {}).get("tour_home_visto"))
     return resp
 
 
@@ -631,6 +635,27 @@ def _user_response_with_consent(user: User) -> UserResponse:
 def get_me(current_user: User = Depends(get_current_user)):
     """Get current authenticated user."""
     return _user_response_with_consent(current_user)
+
+
+@router.post("/me/tour-visto", status_code=status.HTTP_204_NO_CONTENT)
+def marcar_tour_visto(
+    current_user: User = Depends(get_current_user),
+    db: DBSession = Depends(get_db),
+):
+    """Marca en la cuenta que ya vio el recorrido de bienvenida (E11-4).
+
+    Va en `onboarding_answers` (JSON) y no en una columna: es una preferencia
+    de interfaz, no un dato del estudiante, y así no hace falta migración.
+    """
+    from sqlalchemy.orm.attributes import flag_modified
+
+    user = db.query(User).filter(User.id == current_user.id).first()
+    respuestas = dict(user.onboarding_answers or {})
+    if not respuestas.get("tour_home_visto"):
+        respuestas["tour_home_visto"] = True
+        user.onboarding_answers = respuestas
+        flag_modified(user, "onboarding_answers")
+        db.commit()
 
 
 @router.get("/me/onboarding", response_model=OnboardingResponse)

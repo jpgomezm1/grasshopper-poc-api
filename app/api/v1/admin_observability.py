@@ -141,6 +141,10 @@ def _http_check(name: str, url: str, timeout: float = 5.0, expected_status: tupl
     try:
         with httpx.Client(timeout=timeout, follow_redirects=True) as client:
             r = client.head(url)
+            # FastAPI responde 405 a un HEAD sobre una ruta GET (el `/health/live`
+            # propio): eso no es una caída. Se repite con GET (auditoría A-2).
+            if r.status_code == 405:
+                r = client.get(url)
             elapsed = int((time.time() - start) * 1000)
             if r.status_code in expected_status:
                 return HealthCheckResult(name=name, status="up", latency_ms=elapsed, last_check_at=datetime.utcnow())

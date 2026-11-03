@@ -17,7 +17,7 @@ from uuid import UUID
 
 import httpx
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from pydantic import BaseModel
+from pydantic import BaseModel, field_serializer
 from sqlalchemy import and_, func, or_
 from sqlalchemy.orm import Session as DBSession
 
@@ -126,10 +126,21 @@ class HealthCheckResult(BaseModel):
     last_check_at: datetime
     details: Optional[str] = None
 
+    # Las horas se guardan con `utcnow()` (sin zona) y el navegador las leía
+    # como hora local: el panel decía "6:12 a. m." a la 1 de la mañana. Se
+    # mandan marcadas como UTC para que el front las convierta bien.
+    @field_serializer("last_check_at")
+    def _utc(self, v: datetime) -> str:
+        return v.isoformat() + ("Z" if v.tzinfo is None else "")
+
 
 class ExternalHealthResponse(BaseModel):
     services: List[HealthCheckResult]
     cached_until: datetime
+
+    @field_serializer("cached_until")
+    def _utc(self, v: datetime) -> str:
+        return v.isoformat() + ("Z" if v.tzinfo is None else "")
 
 
 _HEALTH_CACHE: dict = {"ts": 0.0, "data": None}

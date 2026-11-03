@@ -82,3 +82,13 @@ def test_dos_veces_no_duplica_y_desactivar_apaga(db):
     assert db.query(User).filter(User.is_active.is_(True)).count() == 0
     assert db.query(User).count() == total
     assert not db.query(School).filter(School.slug == script.SLUG).one().license_active
+
+
+def test_solo_agencia_deja_activo_el_colegio_de_prueba(db):
+    script.sembrar(db, aplicar=True)
+    script.sembrar(db, aplicar=True, desactivar=True, solo_agencia=True)
+    for usuario in ("admin", "comercial", "asesor"):
+        assert not _u(db, usuario).is_active, usuario
+    for usuario in ("colegio.admin", "psicologa", "acudiente", "colegio.estudiante"):
+        assert _u(db, usuario).is_active, usuario
+    assert db.query(School).filter(School.slug == script.SLUG).one().license_active

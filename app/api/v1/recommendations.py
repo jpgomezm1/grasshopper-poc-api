@@ -137,7 +137,13 @@ def _run_generation_bg(user_id_str: str, limit: int, force_refresh: bool) -> Non
             "recommendations.bg_generation_failed",
             extra={"user_id": user_id_str, "error": str(e)},
         )
-        _FAILURES[user_id_str] = str(e)
+        # Solo los fallos con mensaje pensado para la persona pasan tal cual. Un
+        # error cualquiera (de base, de red) llegaba entero a la pantalla: el
+        # 2026-11-02 un estudiante vio un `UniqueViolation` con el SQL incluido.
+        _FAILURES[user_id_str] = (
+            str(e) if isinstance(e, (ConsolidationFailure, RecommendationFailure))
+            else "Análisis no disponible · reintenta en breve."
+        )
     finally:
         _GENERATING.pop(user_id_str, None)
         db.close()

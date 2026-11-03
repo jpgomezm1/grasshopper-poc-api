@@ -214,3 +214,63 @@ def test_http_decimo_no_es_de_su_grado(app_db):
         r = c.post(f"{URL}/devolucion", json={"respuestas": [{"pregunta_id": "presentacion", "respuesta": "Hola"}]})
     assert r.status_code == 402
     get_client.assert_not_called()
+
+
+# --- 6 · La devolución en segundo plano (verificación en producción 2026-11-02) ---
+# Con cinco respuestas reales la devolución pasaba de 30 s y Heroku cortaba (H12).
+# Ahora el POST responde 202 y el trabajo sigue después; la pantalla consulta el GET.
+
+
+def test_http_devolucion_en_segundo_plano_queda_lista_con_registro_de_consumo(app_db):
+    from app.db.models import AIUsageLog
+
+    app, Sesion = app_db
+    uid = _estudiante(Sesion, "bg@e4.dev")
+    with _cliente(app, "bg@e4.dev") as c:
+        r = c.get(f"{URL}/devolucion")
+        assert r.status_code == 200 and r.json() == {"estado": None}
+        # TestClient corre las tareas de fondo al terminar la respuesta: con el
+        # SDK mockeado en la frontera, el trabajo de verdad se ejecuta aquí.
+        with patch("app.core.ai_client.get_client", return_value=_cliente_ia(DEVOLUCION_IA)):
+            r = c.post(f"{URL}/devolucion-en-segundo-plano", json={
+                "programa": "Derecho",
+                "respuestas": [{"pregunta_id": "presentacion", "respuesta": "Soy Ana."}],
+            })
+        assert r.status_code == 202, r.text
+        assert r.json() == {"estado": "en_curso"}
+        r = c.get(f"{URL}/devolucion")
+    cuerpo = r.json()
+    assert cuerpo["estado"] == "listo", cuerpo
+    assert cuerpo["resultado"]["aviso"] == svc.AVISO
+    assert cuerpo["resultado"]["devoluciones"]
+    s = Sesion()
+    assert s.query(AIUsageLog).filter(
+        AIUsageLog.user_id == uid, AIUsageLog.feature == "entrevista_admision"
+    ).count() == 1
+    s.close()
+
+
+def test_http_segundo_plano_sin_respuestas_es_422_y_no_lanza_nada(app_db):
+    app, Sesion = app_db
+    _estudiante(Sesion, "bg0@e4.dev")
+    with _cliente(app, "bg0@e4.dev") as c, patch("app.core.ai_client.get_client") as get_client:
+        r = c.post(f"{URL}/devolucion-en-segundo-plano",
+                   json={"respuestas": [{"pregunta_id": "presentacion", "respuesta": "  "}]})
+        assert r.status_code == 422
+        assert c.get(f"{URL}/devolucion").json() == {"estado": None}
+    get_client.assert_not_called()
+
+
+def test_http_segundo_plano_si_la_ia_falla_queda_fallido_con_mensaje(app_db):
+    app, Sesion = app_db
+    _estudiante(Sesion, "bgx@e4.dev")
+    roto = MagicMock()
+    roto.messages.create.side_effect = RuntimeError("se cayó el proveedor")
+    with _cliente(app, "bgx@e4.dev") as c, patch("app.core.ai_client.get_client", return_value=roto):
+        r = c.post(f"{URL}/devolucion-en-segundo-plano",
+                   json={"respuestas": [{"pregunta_id": "presentacion", "respuesta": "Hola"}]})
+        assert r.status_code == 202
+        cuerpo = c.get(f"{URL}/devolucion").json()
+    assert cuerpo["estado"] == "fallido"
+    assert "Hopper no pudo revisar" in cuerpo["error"]
+    assert "proveedor" not in cuerpo["error"]  # el detalle técnico no llega a la persona

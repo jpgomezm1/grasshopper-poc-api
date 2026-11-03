@@ -24,6 +24,7 @@ from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional, Tuple
 from uuid import UUID
 
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session as DBSession
 
 from app.config import get_settings
@@ -569,7 +570,30 @@ def generate_or_get_profile(
         cache_row.generated_at = datetime.utcnow()
         cache_row.invalidated_at = None
 
-    db.commit()
+    try:
+        db.commit()
+    except IntegrityError:
+        # Verificación en producción, 2026-11-02 (prueba.grado10): dos peticiones
+        # generaron el perfil a la vez (el trabajo de fondo de recomendaciones y
+        # otra pantalla), las dos vieron "no hay fila" y la segunda chocó con
+        # `ix_consolidated_profiles_user_id` (único por usuario). El estudiante
+        # vio el SQL crudo. La otra ya guardó: se deshace, se toma SU fila y se
+        # le escribe este resultado encima, que es igual de válido.
+        db.rollback()
+        cache_row = get_cached_profile(db, user.id)
+        if cache_row is None:
+            raise
+        cache_row.profile_hash = expected_hash
+        cache_row.profile_data = profile.model_dump(mode="json")
+        cache_row.recommendations_data = []
+        cache_row.model_used = metadata.get("model")
+        cache_row.prompt_version = PROMPT_VERSION
+        cache_row.tokens_input = metadata.get("tokens_input")
+        cache_row.tokens_output = metadata.get("tokens_output")
+        cache_row.latency_ms = metadata.get("latency_ms")
+        cache_row.generated_at = datetime.utcnow()
+        cache_row.invalidated_at = None
+        db.commit()
     db.refresh(cache_row)
 
     return profile, cache_row, False

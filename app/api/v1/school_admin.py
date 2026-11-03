@@ -1065,8 +1065,8 @@ def report_executive(
         "cohorts": cohorts_kpis,
         "narrative": (
             f"Durante el Q{payload.quarter} {payload.year} el programa mantuvo un "
-            f"health score de {health['overall']} con {len(cohorts)} cohortes activas. "
-            "Los KPIs muestran tendencia estable en completitud del journey."
+            f"índice de salud de {health['overall']} con {len(cohorts)} cohortes activas. "
+            "Los KPIs muestran tendencia estable en completitud del proceso."
         ),
     }
 

@@ -217,14 +217,21 @@ def sembrar(
     incluir_vip: bool = False,
     nuevas_claves: bool = False,
     desactivar: bool = False,
+    solo: Optional[str] = None,
 ) -> List[Dict[str, str]]:
-    """Crea las que falten · devuelve qué pasó con cada una (y la clave, si la hay)."""
+    """Crea las que falten · devuelve qué pasó con cada una (y la clave, si la hay).
+
+    `solo` limita todo a UNA cuenta (por correo): reiniciar `prueba.nuevo1`
+    para la clienta no debe borrar lo que ya se preparó en las demás.
+    """
     from app.api.v1.auth import get_password_hash
     from app.db.models import User, UserRole
 
     informe = []
     for c in CUENTAS:
-        if c.plan == "vip" and not incluir_vip:
+        if solo and c.email != solo:
+            continue
+        if c.plan == "vip" and not incluir_vip and not solo:
             continue
         u = db.query(User).filter(User.email == c.email).first()
         clave = None
@@ -269,6 +276,7 @@ def main() -> None:
     parser.add_argument("--incluir-vip", action="store_true", help="crear también la cuenta VIP")
     parser.add_argument("--nuevas-claves", action="store_true", help="cambiar la clave de las que ya existen")
     parser.add_argument("--desactivar", action="store_true", help="apagar todas las cuentas de prueba")
+    parser.add_argument("--solo", help="limitar a una cuenta (su correo), p. ej. prueba.nuevo1@grasshopper.dev")
     args = parser.parse_args()
 
     from app.db.database import SessionLocal
@@ -282,6 +290,7 @@ def main() -> None:
             incluir_vip=args.incluir_vip,
             nuevas_claves=args.nuevas_claves,
             desactivar=args.desactivar,
+            solo=args.solo,
         )
     finally:
         db.close()

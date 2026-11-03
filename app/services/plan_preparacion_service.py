@@ -391,6 +391,11 @@ def _armar_decimo(db: Any, user: Any, p: Any) -> Dict[str, Any]:
         detalle="Cuando llegues, este plan se vuelve tu kit de aplicación, con avisos de cada fecha.",
     )]
 
+    # E-2 · campamentos de vacaciones según su área (fuente nuestra, verificada en
+    # la página oficial de cada uno: `app/data/campamentos.py`). Sin IA y sin precios.
+    from app.data.campamentos import campamentos_para
+    campamentos = campamentos_para(respuestas.get("study_area"), interes)
+
     if ultimo == 12:
         encabezado = "Te quedan 10°, 11° y 12°"
         etapas = [
@@ -406,4 +411,4 @@ def _armar_decimo(db: Any, user: Any, p: Any) -> Dict[str, Any]:
             {"id": "ahora", "titulo": "Ahora, en 10°", "pasos": ahora},
             {"id": "once", "titulo": "En 11°, tu último año", "pasos": once + final},
         ]
-    return {"encabezado": encabezado, "etapas": etapas, "aviso": AVISO}
+    return {"encabezado": encabezado, "etapas": etapas, "aviso": AVISO, "campamentos": campamentos}

@@ -300,10 +300,11 @@ def test_endpoint_grado_11_sigue_con_el_banco_de_siempre():
         assert q["text"] == adulto[q["id"]]
 
 
-def test_endpoint_no_toca_los_demas_tests():
-    """Sólo Holland tiene variantes; Big Five sale idéntico para un chico de 9°."""
-    salida = get_test("bigfive", current_user=_usuario(grade=9))
-    assert salida == get_test_by_id("bigfive")
+def test_endpoint_no_toca_los_tests_sin_version_juvenil():
+    """Holland y Big Five tienen versión juvenil (Big Five desde el 2026-11-02);
+    un test sin ella, como Motivadores, sale idéntico para un chico de 9°."""
+    salida = get_test("motivadores", current_user=_usuario(grade=9))
+    assert salida == get_test_by_id("motivadores")
     assert "variant" not in salida
 
 
@@ -326,7 +327,8 @@ def test_listado_muestra_la_descripcion_que_corresponde():
     for clave in ("slug", "name", "shortName", "estimatedMinutes", "questionCount", "icon"):
         assert clave in holland
 
-    otros = [t for t in junior if t["id"] != "holland"]
+    # Solo los tests con versión juvenil llevan `variant` (Holland y Big Five).
+    otros = [t for t in junior if t["id"] not in ("holland", "bigfive")]
     assert all("variant" not in t for t in otros)
 
 

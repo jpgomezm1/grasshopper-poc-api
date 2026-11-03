@@ -1,6 +1,7 @@
 """Qué banco de preguntas ve cada estudiante (adulto vs. 9°/10°).
 
-Hoy sólo Holland tiene dos redacciones (ver ``app/data/holland_junior.py``).
+Holland y Big Five tienen dos redacciones (ver ``app/data/holland_junior.py`` y
+``app/data/bigfive_junior.py``; Big Five juvenil desde el 2026-11-02).
 Este módulo concentra la decisión de cuál se sirve, para que el endpoint no
 tenga reglas de producto adentro y para que el día que otro test se adapte se
 cambie en un solo lugar.
@@ -36,6 +37,7 @@ from __future__ import annotations
 import re
 from typing import Any, Dict, List, Optional
 
+from app.data.bigfive_junior import get_bigfive_junior
 from app.data.holland_junior import (
     VARIANT_ADULTO,
     VARIANT_JUNIOR,
@@ -45,7 +47,13 @@ from app.data.onboarding_hechos import RUTA_GRADO_9, RUTA_GRADO_10, RUTA_POR_GRA
 from app.data.vocational_tests import get_all_tests_summary, get_test_by_id
 from app.services import academic_level
 
-# El único test que hoy tiene dos redacciones.
+# Los tests que tienen redacción juvenil, con la función que la arma. Agregar
+# uno es agregar una línea aquí: el endpoint y el resumen ya lo resuelven solos.
+VERSIONES_JUVENILES = {
+    "holland": get_holland_junior,
+    "bigfive": get_bigfive_junior,
+}
+# Se conserva el nombre de antes (era el único test con variantes).
 TEST_CON_VARIANTES = "holland"
 
 # Los grados que reciben la redacción de 13-14 años · derivados de
@@ -149,15 +157,16 @@ def test_para_usuario(test_id: str, user: Any) -> Optional[Dict[str, Any]]:
     Devuelve None con el mismo criterio que ``get_test_by_id`` para que el
     endpoint siga respondiendo 404 igual que antes.
     """
-    if test_id != TEST_CON_VARIANTES:
+    juvenil = VERSIONES_JUVENILES.get(test_id)
+    if juvenil is None:
         return get_test_by_id(test_id)
 
     if variante_para(user) == VARIANT_JUNIOR:
-        return get_holland_junior()
+        return juvenil()
 
     # El banco adulto se marca explícito para que el front no tenga que
-    # adivinar: `variant` siempre viene en Holland, nunca falta.
-    adulto = get_test_by_id(TEST_CON_VARIANTES)
+    # adivinar: `variant` siempre viene en los tests con dos redacciones.
+    adulto = get_test_by_id(test_id)
     if adulto is None:  # pragma: no cover - el banco canónico siempre está
         return None
     marcado = dict(adulto)
@@ -173,7 +182,7 @@ def resumen_tests_para_usuario(user: Any) -> List[Dict[str, Any]]:
     incoherencia se vería antes de empezar.
     """
     variante = variante_para(user)
-    junior = get_holland_junior() if variante == VARIANT_JUNIOR else None
+    es_junior = variante == VARIANT_JUNIOR
 
     # Malla completa · además de la redacción, el catálogo depende del grado:
     # hay instrumentos que pertenecen a una sola ruta y declaran `gradeRoutes`
@@ -185,12 +194,13 @@ def resumen_tests_para_usuario(user: Any) -> List[Dict[str, Any]]:
     # a alguien de 9°.
     resumen = []
     for item in get_all_tests_summary(grade=grado_del_estudiante(user)):
-        if item["id"] != TEST_CON_VARIANTES:
+        juvenil = VERSIONES_JUVENILES.get(item["id"])
+        if juvenil is None:
             resumen.append(item)
             continue
         entrada = dict(item)
         entrada["variant"] = variante
-        if junior is not None:
-            entrada["description"] = junior["description"]
+        if es_junior:
+            entrada["description"] = juvenil()["description"]
         resumen.append(entrada)
     return resumen

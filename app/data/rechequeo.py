@@ -83,6 +83,8 @@ TEST_RECHEQUEO = {
     # Ícono ya mapeado en el front (`TestCard.iconMap`).
     "icon": "compass",
     "gradeRoutes": [GRADO_OBJETIVO],
+    # De 0 a 100 de verdad (1 → 0, 5 → 100): ver `calculate_vocational_scores`.
+    "escalaDesdeCero": True,
     "questions": PREGUNTAS,
 }
 

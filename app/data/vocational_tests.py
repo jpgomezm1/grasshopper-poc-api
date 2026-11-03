@@ -721,10 +721,21 @@ def calculate_vocational_scores(test_id: str, answers: dict) -> dict:
         categories[cat] += value
 
     max_per_question = 5
+    # `escalaDesdeCero` (2026-11-02, JP): la escala genérica es suma/máximo, y
+    # como la respuesta mínima vale 1 y no 0, el piso es 20/100. En el Re-chequeo
+    # de 12° eso decía "20" a quien respondió "muy en desacuerdo" en todo, y
+    # corría sus cortes (firme ≥70, falta <50). Con la marca va de 0 a 100 de
+    # verdad: 1 → 0 y 5 → 100. Los demás tests no la llevan y no cambian.
+    desde_cero = bool(test.get("escalaDesdeCero"))
     scores = {}
     for cat, total in categories.items():
         count = category_counts[cat]
         max_possible = count * max_per_question
-        scores[cat] = round((total / max_possible) * 100) if max_possible > 0 else 0
+        if desde_cero:
+            min_possible = count
+            rango = max_possible - min_possible
+            scores[cat] = round(((total - min_possible) / rango) * 100) if rango > 0 else 0
+        else:
+            scores[cat] = round((total / max_possible) * 100) if max_possible > 0 else 0
 
     return scores

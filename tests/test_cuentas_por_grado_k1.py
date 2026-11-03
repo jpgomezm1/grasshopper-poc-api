@@ -233,3 +233,16 @@ def test_desactivar_las_apaga_sin_borrarlas(db):
     cuentas = _por_email(db)
     assert len(cuentas) == 12
     assert not any(u.is_active for u in cuentas.values())
+
+
+def test_solo_reinicia_una_cuenta(db):
+    """Reiniciar `prueba.nuevo1` para la clienta no toca las demás (auditoría N-1)."""
+    script.sembrar(db, aplicar=True)
+    cuentas = _por_email(db)
+    for u in cuentas.values():
+        u.onboarding_answers = {"tocada": True}
+    db.commit()
+    script.sembrar(db, aplicar=True, reiniciar=True, solo="prueba.nuevo1@grasshopper.dev")
+    cuentas = _por_email(db)
+    assert "tocada" not in (cuentas["prueba.nuevo1@grasshopper.dev"].onboarding_answers or {})
+    assert cuentas["prueba.grado11@grasshopper.dev"].onboarding_answers == {"tocada": True}

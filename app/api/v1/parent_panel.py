@@ -344,7 +344,7 @@ def child_timeline(
         milestones.append(
             ParentTimelineMilestone(
                 kind="journey_completed",
-                title="Cerró el journey profesional",
+                title="Completó su proceso de orientación",
                 detail="Su hijo completó la fase guiada del programa.",
                 occurred_at=student.journey_completed_at,
                 icon="trophy",

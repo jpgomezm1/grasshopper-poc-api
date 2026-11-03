@@ -93,7 +93,7 @@ AI_CACHE_TTL = timedelta(days=7)
 
 # Score weights · MUST mirror student_lead_scoring._score_one
 _SIGNAL_WEIGHTS = [
-    ("journey_progress", "Avance del journey", 30),
+    ("journey_progress", "Avance del proceso", 30),
     ("tests_completed", "Tests psicométricos", 20),
     ("consolidated_profile", "Perfil consolidado", 15),
     ("english_cefr", "Nivel de inglés", 10),
@@ -132,7 +132,7 @@ def _compute_signals(
     signals.append(
         ScoreBreakdownSignal(
             key="journey_progress",
-            label="Avance del journey",
+            label="Avance del proceso",
             weight=30,
             contributed=contrib,
             evidence=(
@@ -1037,7 +1037,7 @@ def _fallback_ai_analysis(
         rationale = (
             f"Lead frío con score {score}. Aún no hay tracción suficiente para "
             "outreach activo · recomendado mantenerlo en nutrición pasiva "
-            "(newsletter + reminders) hasta que avance el journey."
+            "(newsletter + reminders) hasta que avance en su proceso."
         )
 
     matches = [
